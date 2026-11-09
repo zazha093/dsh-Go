@@ -1,0 +1,245 @@
+{
+  "@@locale": "th",
+  "mediaGenerateTile": "สร้าง",
+  "mediaAiGenerated": "AI-generated",
+  "mediaCostEstimate": "About {amount}",
+  "@mediaCostEstimate": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaSavedCount": "Saved {count} to Photos",
+  "@mediaSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaRegenerate": "Regenerate",
+  "mediaCopyPrompt": "คัดลอก prompt",
+  "mediaFileGone": "File is gone",
+  "mediaKindImage": "รูปภาพ",
+  "mediaKindVideo": "วิดีโอ",
+  "mediaTitleImage": "ใหม่ image",
+  "mediaTitleVideo": "ใหม่ video",
+  "mediaOpenElsewhere": "เปิด in another app",
+  "mediaShowInFiles": "แสดง in files",
+  "mediaGenerating": "Generating",
+  "mediaGeneratingProgress": "Generating · {progress}",
+  "@mediaGeneratingProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaCancelled": "Cancelled",
+  "mediaNotGenerated": "Not created",
+  "mediaPartial": "{done} of {total}",
+  "@mediaPartial": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaCount": "{count, plural, =1{1 image} other{{count} images}}",
+  "@mediaCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaSeconds": "{seconds} s",
+  "@mediaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaImageOf": "รูปภาพ {index} of {count}",
+  "@mediaImageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaPageOf": "{index} / {count}",
+  "@mediaPageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaErrorPolicyInput": "The description didn't pass content review",
+  "mediaErrorPolicyOutput": "The result didn't pass content review",
+  "mediaErrorAuth": "Service not authorized",
+  "mediaErrorBalance": "Insufficient balance",
+  "mediaErrorQuota": "Today's limit is used up",
+  "mediaErrorUnavailable": "Service unavailable for now",
+  "mediaErrorExpired": "The result expired",
+  "mediaErrorGeneric": "Couldn't create it",
+  "mediaVary": "Vary",
+  "mediaEdit": "แก้ไข",
+  "mediaRevise": "Revise",
+  "mediaUpscale": "Upscale",
+  "mediaMakeVideo": "Make a video",
+  "mediaDetailModel": "Model",
+  "mediaDetailSize": "ขนาด",
+  "mediaDetailCost": "Cost",
+  "mediaDetailProvenance": "Provenance",
+  "mediaDetailFile": "File",
+  "mediaOriginalPrompt": "Original: {text}",
+  "@mediaOriginalPrompt": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaProvenanceC2pa": "C2PA",
+  "mediaProvenanceImplicit": "Embedded",
+  "mediaProvenanceVisible": "มองเห็นได้ mark",
+  "mediaModeExit": "Leave create mode",
+  "mediaModeLabel": "สร้าง settings: {summary}",
+  "@mediaModeLabel": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaParamModel": "Model",
+  "mediaParamAspect": "Aspect",
+  "mediaParamCount": "Number",
+  "mediaParamQuality": "Quality",
+  "mediaParamDuration": "Length",
+  "mediaQualityAuto": "อัตโนมัติ",
+  "mediaQualityStandard": "มาตรฐาน",
+  "mediaQualityHigh": "HD",
+  "mediaQuality4k": "4K",
+  "mediaQualityLevelLow": "ต่ำ",
+  "mediaQualityLevelMedium": "กลาง",
+  "mediaQualityLevelHigh": "สูง",
+  "mediaModelPick": "Choose",
+  "mediaPickModelFirst": "Choose a model first",
+  "mediaPricePerImage": "{price} / image",
+  "@mediaPricePerImage": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaPricePerSecond": "{price} / s",
+  "@mediaPricePerSecond": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaManageModels": "Manage",
+  "mediaHintImage": "Describe the picture…",
+  "mediaHintVideo": "Describe the scene and the shot…",
+  "mediaHintEdit": "How should it change…",
+  "mediaFirstFrame": "แรกสุด",
+  "mediaLastFrame": "สุดท้าย",
+  "mediaNoLastFrame": "This model takes no last frame",
+  "mediaNoRefs": "This model takes no reference images",
+  "mediaRefLimit": "Up to {count} reference images",
+  "@mediaRefLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaNoDescription": "Describe it first",
+  "mediaDescriptionTooLong": "Too long to generate. Shorten the description",
+  "mediaInstallTitle": "Images and video",
+  "mediaInstallBody": "This host has no image and video plugin yet",
+  "mediaInstallAction": "ติดตั้ง on this host",
+  "mediaUnavailableTitle": "Generation mode unavailable",
+  "mediaUnavailableBody": "The image and video plugin on this host isn't compatible. You can still describe what you want in chat.",
+  "mediaUnavailableAction": "Manage plugins",
+  "mediaSettingsTitle": "Images and video",
+  "searchKwMediaGeneration": "image generation,text to image,video generation,AI art,generate images,generate video",
+  "mediaSettingsDefaults": "Defaults",
+  "mediaSettingsLegacyDefault": "Older general default",
+  "mediaSettingsLegacyDefaultHint": "The 0.2.x setting; used when a kind has no default of its own",
+  "mediaSettingsLegacyDefaultStale": "Its service is unavailable; clear it so generation does not fail",
+  "mediaSettingsLegacyDefaultClear": "ล้าง the older general default",
+  "mediaSettingsDefaultModel": "ค่าเริ่มต้น model",
+  "mediaSettingsDefaultFooterLegacy": "An older plugin has one default model; update it to set images and video separately.",
+  "mediaSettingsDefaultsFooter": "Choose a default model for images and for video; leave it on Auto to use the first available one.",
+  "mediaSettingsNoVideoModels": "This host's catalogue has no video models yet",
+  "mediaSettingsServices": "Services",
+  "mediaSettingsAddService": "เพิ่ม service",
+  "mediaSettingsAddServiceHint": "เริ่ม from a provider preset; endpoint, protocol and models come filled in",
+  "mediaSettingsServiceLimit": "Up to {count} services",
+  "mediaSettingsNoServices": "ไม่ services yet. Add a provider to start making images or video.",
+  "mediaSettingsNoModels": "ไม่ models selected",
+  "mediaSettingsKeyMissing": "ไม่ API key",
+  "mediaSettingsCatalogMissing": "The plugin on this host offers no model catalogue. Existing services can still be edited, but nothing can be added and no default chosen yet.",
+  "mediaSettingsCatalogBroken": "The model catalogue can't be read (it may be an incompatible version). Existing services can still be edited, but nothing can be added and no default chosen yet.",
+  "mediaSettingsCatalogEmpty": "The model catalogue has no models yet. Existing services can still be edited, but nothing can be added and no default chosen yet.",
+  "mediaSettingsNoPresets": "There are no services to add from this catalogue yet.",
+  "mediaSettingsLimits": "คำขอ limits",
+  "mediaSettingsLimitsHint": "Caps images and bytes per request; defaults are the plugin hard limits",
+  "mediaSettingsMaxImages": "Images per request",
+  "mediaSettingsMaxImageBytes": "สูงสุด bytes per original",
+  "mediaSettingsMaxResponseBytes": "สูงสุด provider response bytes",
+  "mediaSettingsMaxTotalImageBytes": "สูงสุด image bytes per request",
+  "mediaSettingsMaxVideoBytes": "สูงสุด video bytes",
+  "mediaSettingsBudget": "Cost protection",
+  "mediaSettingsDailyBudget": "รายวัน budget (CNY)",
+  "mediaSettingsDailyBudgetHint": "Resets on the Shanghai date; generation pauses once it's used up",
+  "mediaSettingsUnknownPriceHold": "Hold per request when the price is unknown (CNY)",
+  "mediaSettingsUnknownPriceHoldHint": "Reserved per request; not a cap the provider charges by",
+  "mediaSettingsApiKey": "API key",
+  "mediaSettingsReuseKey": "Reuse key",
+  "mediaSettingsReuseKeyHint": "Images and video from one provider can share one API key; no need to enter it again.",
+  "mediaSettingsReuseKeyNone": "ไม่ other service from this provider yet.",
+  "mediaSettingsReuseKeyShared": "แชร์แล้ว",
+  "mediaSettingsModels": "Models",
+  "mediaSettingsModelsEmpty": "The catalogue has no models for this protocol",
+  "mediaSettingsModelKeepOne": "Keep at least one model",
+  "mediaSettingsModelMissing": "Not in the catalogue",
+  "mediaSettingsAdvanced": "ขั้นสูง",
+  "mediaSettingsBaseUrl": "API base URL",
+  "mediaSettingsBaseUrlInvalid": "The address must start with https://",
+  "mediaSettingsProvider": "Provider id",
+  "mediaSettingsKeyRef": "Credential name",
+  "mediaSettingsKeyRefInvalid": "Use letters, digits and underscores only",
+  "mediaSettingsResponseFormat": "ตอบกลับ format",
+  "mediaSettingsResponseFormatAuto": "By protocol",
+  "mediaSettingsServiceId": "Service ID",
+  "mediaSettingsServiceGone": "This service is gone",
+  "mediaSettingsServiceGoneBody": "It may have been removed elsewhere. Go back to add it again.",
+  "mediaSettingsDelete": "ลบ service",
+  "mediaSettingsDeleteTitle": "ลบ “{name}”?",
+  "mediaSettingsDeleteBody": "Only this host's service entry is removed; the API key is kept. Defaults pointing at it are cleared too.",
+  "mediaSettingsNoImageModels": "The catalogue has no image models yet",
+  "mediaSettingsNoAvailableService": "ไม่ service is ready yet (add one and enter its key)",
+  "mediaSettingsNoImageService": "ไม่ image service is ready yet (add one and enter its key)",
+  "mediaSettingsNoVideoService": "ไม่ video service is ready yet (add one and enter its key)",
+  "mediaSettingsKeyExternal": "Managed by another setting; only referenced here",
+  "mediaSettingsEnabledHint": "Turns this service off for generation"
+}

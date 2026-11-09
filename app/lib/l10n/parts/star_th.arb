@@ -1,0 +1,18 @@
+{
+  "@@locale": "th",
+  "starPromptTitle": "{hours, plural, =0{I’ve kept you company in DSH Go for half an hour now~} =1{I’ve kept you company in DSH Go for an hour now~} other{I’ve kept you company in DSH Go for {hours} hours now~}}",
+  "@starPromptTitle": {
+    "description": "The star prompt's first line. hours is the whole hours of use so far, rounded down; 0 is half an hour (the first ask comes after 30 minutes). The word joiner keeps the ~ on the line of the word before it.",
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "starPromptBody": "DSH Go is free and open source. If it’s made your phone a little nicer to use, please give it a Star — it means so much to this little whale!",
+  "starPromptPlea": "Pretty please~ It really matters!!",
+  "starPromptStar": "Star it on GitHub",
+  "starPromptDone": "Already starred",
+  "starPromptLater": "Maybe later",
+  "starSettingsTitle": "Star DSH Go on GitHub"
+}

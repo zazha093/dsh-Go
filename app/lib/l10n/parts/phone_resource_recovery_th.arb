@@ -1,0 +1,8 @@
+{
+  "@@locale": "th",
+  "phoneResourceRecoveryTitle": "กู้คืนทรัพยากรโทรศัพท์",
+  "phoneResourceRecoveryRunning": "กำลังกู้คืนทรัพยากร...",
+  "phoneResourceRecoveryStorage": "ที่เก็บข้อมูล",
+  "phoneResourceRecoveryPending": "Old background resources have not been verified. New phone tasks are blocked. Choose the original authorized channel and retry; if verification remains unavailable, restart the device and check again. Past actions may already have happened. Reading the task interruption notice does not clear these resources.",
+  "phoneResourceRecoveryRetry": "ลองใหม่"
+}

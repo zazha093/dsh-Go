@@ -1,0 +1,9 @@
+{
+  "@@locale": "th",
+  "phoneGateCleanupTitle": "ทำความสะอาดเกตโทรศัพท์",
+  "phoneGateCleanupUnknown": "New background resources are blocked. Retry only the original cleanup if its channel is still available. This does not rerun the probe.",
+  "phoneGateCleanupRunning": "กำลังทำความสะอาด...",
+  "phoneGateCleanupRetry": "ลองใหม่",
+  "phoneGateCleanupDone": "Cleanup confirmed. Choose the channel again explicitly to run a fresh check.",
+  "phoneGateRetest": "Check this channel again"
+}
