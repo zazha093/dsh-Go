@@ -48,7 +48,7 @@ jobs:
         working-directory: app
         run: |
           printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$FLUTTER_ROOT" > android/local.properties
-          bash ../../tooling/build-apk.sh -f arm64 --release
+          bash ../tooling/build-apk.sh -f arm64 --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v7
@@ -60,7 +60,7 @@ jobs:
       - name: Build APK (x64)
         working-directory: app
         run: |
-          bash ../../tooling/build-apk.sh -f x64 --release
+          bash ../tooling/build-apk.sh -f x64 --release
 
       - name: Upload x64 APK
         uses: actions/upload-artifact@v7
