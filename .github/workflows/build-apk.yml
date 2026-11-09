@@ -9,8 +9,38 @@ permissions:
   contents: read
 
 jobs:
+  build-runtime:
+    name: Build Runtime (arm64 & x64)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y gpgv xz-utils curl sha256sum python3 tar
+      
+      - name: Build runtime (arm64)
+        working-directory: runtime
+        run: ./build-runtime.sh arm64
+      
+      - name: Build runtime (x64)
+        working-directory: runtime
+        run: ./build-runtime.sh x64
+      
+      - name: Upload runtime artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: runtime-out
+          path: runtime/out/
+          retention-days: 1
+
   build-apk:
-    name: Build APK (arm64)
+    name: Build APK (arm64 & x64)
+    needs: build-runtime
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
@@ -20,6 +50,12 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
+
+      - name: Download runtime artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: runtime-out
+          path: runtime/out
 
       - uses: actions/setup-java@v6
         with:
@@ -50,7 +86,7 @@ jobs:
           printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$FLUTTER_ROOT" > android/local.properties
           bash ../tooling/build-apk.sh -f arm64 --release
 
-      - name: Upload APK
+      - name: Upload APK (arm64)
         uses: actions/upload-artifact@v7
         with:
           name: dsh-go-thai-arm64
@@ -62,7 +98,7 @@ jobs:
         run: |
           bash ../tooling/build-apk.sh -f x64 --release
 
-      - name: Upload x64 APK
+      - name: Upload APK (x64)
         uses: actions/upload-artifact@v7
         with:
           name: dsh-go-thai-x64
