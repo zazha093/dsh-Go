@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-runtime:
-    name: Build Runtime (arm64 & x64)
+    name: Build Runtime (arm64-v8a & x86_64)
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
@@ -23,13 +23,13 @@ jobs:
           sudo apt-get update -q
           sudo apt-get install -y gpgv xz-utils curl python3 tar
       
-      - name: Build runtime (arm64)
+      - name: Build runtime (arm64-v8a)
         working-directory: runtime
-        run: ./build-runtime.sh arm64
+        run: ./build-runtime.sh arm64-v8a
       
-      - name: Build runtime (x64)
+      - name: Build runtime (x86_64)
         working-directory: runtime
-        run: ./build-runtime.sh x64
+        run: ./build-runtime.sh x86_64
       
       - name: Upload runtime artifacts
         uses: actions/upload-artifact@v7
