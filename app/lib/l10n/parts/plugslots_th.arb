@@ -8,7 +8,7 @@
   "plugslotsSurfaceComposerStrip": "สถานะ line",
   "plugslotsSurfacePanel": "Panels",
   "plugslotsNativeUi": "Native UI",
-  "plugslotsIssueCount": "{count, plural, =1{1 problem} other{{count} problems}}",
+  "plugslotsIssueCount": "{count, plural, other{{count} problems}}",
   "@plugslotsIssueCount": {
     "placeholders": {
       "count": {
@@ -171,7 +171,7 @@
   "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but not declared; ignored",
   "plugslotsCodeViewFile": "Couldn't read the view file",
   "plugslotsCodeBadEffect": "Malformed action; skipped",
-  "plugslotsCodeViolation": "Failed {count, plural, =1{once} other{{count} times}}",
+  "plugslotsCodeViolation": "Failed {count, plural, other{{count} times}}",
   "@plugslotsCodeViolation": {
     "placeholders": {
       "count": {

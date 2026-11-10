@@ -15,7 +15,7 @@
   "voiceScribeKeySet": "Key set",
   "voiceScribeNoKey": "ไม่ key",
   "voiceScribeHotwords": "Hotwords",
-  "voiceScribeHotwordRules": "{count, plural, =1{1 rule} other{{count} rules}}",
+  "voiceScribeHotwordRules": "{count, plural, other{{count} rules}}",
   "@voiceScribeHotwordRules": {
     "placeholders": {
       "count": {

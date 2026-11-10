@@ -98,13 +98,13 @@
   "hubPluginRemoveCommand": "Get uninstall command",
   "hubPluginRemoveComputer": "ถอนการติดตั้ง on computer",
   "hubPluginUninstall": "ถอนการติดตั้ง",
-  "hubSessionTurns": "{count, plural, =1{1 turn} other{{count} turns}}",
-  "hubSessionTurnsRunning": "{count, plural, =1{1 turn · In progress} other{{count} turns · In progress}}",
-  "hubSessionStepCount": "{count, plural, =1{1 step} other{{count} steps}}",
+  "hubSessionTurns": "{count, plural, other{{count} turns}}",
+  "hubSessionTurnsRunning": "{count, plural, other{{count} turns · In progress}}",
+  "hubSessionStepCount": "{count, plural, other{{count} steps}}",
   "hubSessionWaitTime": "Waited {duration} for you",
   "hubSessionTurn": "Turn {turn}",
-  "hubSessionFileCount": "{count, plural, =1{Changed 1 file} other{Changed {count} files}}",
-  "hubSessionEditCount": "{count, plural, =1{Edited once} other{Edited {count} times}}",
+  "hubSessionFileCount": "{count, plural, other{Changed {count} files}}",
+  "hubSessionEditCount": "{count, plural, other{Edited {count} times}}",
   "hubSessionTurnOf": "Turn {turn} / {total}",
   "hubSessionCacheHit": "{percent} cached",
   "hubSessionBlocked": "บล็อก",
@@ -120,7 +120,7 @@
   "hubPluginYearMonth": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {year}",
   "hubPluginUpdateTo": "อัปเดต to {version}",
   "hubPluginInstallOn": "ติดตั้ง on {host}",
-  "hubPluginComponentCount": "{count, plural, =1{1 component} other{{count} components}}",
+  "hubPluginComponentCount": "{count, plural, other{{count} components}}",
   "hubPluginComponentSeparator": ", ",
   "hubGroupAi": "AI",
   "hubGroupCapabilities": "Capabilities",
@@ -155,7 +155,7 @@
   "hubValueOneStep": "One step left",
   "hubValueAllowed": "อนุญาต",
   "hubValueNeedsSetup": "Set up",
-  "hubValueHosts": "{count, plural, =1{1 host} other{{count} hosts}}",
+  "hubValueHosts": "{count, plural, other{{count} hosts}}",
   "@hubValueHosts": {
     "placeholders": {
       "count": {
@@ -164,7 +164,7 @@
     }
   },
   "hubValueNoHosts": "ไม่มี",
-  "hubValuePlugins": "{count, plural, =1{1 plugin} other{{count} plugins}}",
+  "hubValuePlugins": "{count, plural, other{{count} plugins}}",
   "@hubValuePlugins": {
     "placeholders": {
       "count": {

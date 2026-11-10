@@ -114,7 +114,7 @@
   "accessStateVisited": "เยี่ยมชมแล้ว",
   "accessStateUnknown": "ตั้งค่า",
   "accessSummaryAllSet": "ทั้งหมดตั้งค่าแล้ว",
-  "accessSummaryLeft": "{count, plural, =1{ยังปิด 1 รายการ} other{{count} รายการยังปิด}}",
+  "accessSummaryLeft": "{count, plural, other{{count} รายการยังปิด}}",
   "@accessSummaryLeft": {
     "placeholders": {
       "count": {

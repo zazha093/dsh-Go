@@ -4,7 +4,7 @@
   "liveWorking": "กำลังทำงาน",
   "liveJuggling": "Subagents at work",
   "liveSweeping": "Compacting the context",
-  "liveRunsCount": "{count, plural, =1{1 chat running} other{{count} chats running}}",
+  "liveRunsCount": "{count, plural, other{{count} chats running}}",
   "liveChipThinking": "Thinking",
   "liveChipWorking": "กำลังทำงาน",
   "liveChipJuggling": "Helpers",

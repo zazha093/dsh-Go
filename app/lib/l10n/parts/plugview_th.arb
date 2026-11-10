@@ -40,7 +40,7 @@
       }
     }
   },
-  "plugViewArgsLimit": "Action args exceed {limit, plural, =1{1 byte} other{{limit} bytes}}; ignored",
+  "plugViewArgsLimit": "Action args exceed {limit, plural, other{{limit} bytes}}; ignored",
   "@plugViewArgsLimit": {
     "placeholders": {
       "limit": {
@@ -73,7 +73,7 @@
     }
   },
   "plugViewBadMax": "max must be a number above 0; using 100",
-  "plugViewColumnLimit": "{first, plural, =1{1 column} other{{first} columns}}, exceeding the limit of {second}",
+  "plugViewColumnLimit": "{first, plural, other{{first} columns}}, exceeding the limit of {second}",
   "@plugViewColumnLimit": {
     "placeholders": {
       "first": {
@@ -84,7 +84,7 @@
       }
     }
   },
-  "plugViewFirstColumns": "Showing only the first {limit, plural, =1{1 column} other{{limit} columns}}",
+  "plugViewFirstColumns": "Showing only the first {limit, plural, other{{limit} columns}}",
   "@plugViewFirstColumns": {
     "placeholders": {
       "limit": {
@@ -92,7 +92,7 @@
       }
     }
   },
-  "plugViewFirstRows": "Showing only the first {limit, plural, =1{1 row} other{{limit} rows}}",
+  "plugViewFirstRows": "Showing only the first {limit, plural, other{{limit} rows}}",
   "@plugViewFirstRows": {
     "placeholders": {
       "limit": {
@@ -103,7 +103,7 @@
   "plugViewOnePrimary": "A view has at most one primary button; this one is drawn as plain",
   "plugViewBadImageSource": "Images take a plugin asset (asset:<path>, png, jpg, webp or gif) or a data:image/… URL",
   "plugViewBadAspect": "aspect must be a number from 0.25 to 4; ignored",
-  "plugViewImageTooLarge": "data: image exceeds {limit, plural, =1{1 byte} other{{limit} bytes}}",
+  "plugViewImageTooLarge": "data: image exceeds {limit, plural, other{{limit} bytes}}",
   "@plugViewImageTooLarge": {
     "placeholders": {
       "limit": {
@@ -113,7 +113,7 @@
   },
   "plugViewImageDecode": "รูปภาพ can’t be decoded (PNG, JPEG, WebP or GIF only)",
   "plugViewImagePixels": "รูปภาพ exceeds the size limit: 4096 per side, 4 million pixels in total",
-  "plugViewTooDeep": "JSON nested deeper than {limit, plural, =1{1 level} other{{limit} levels}}",
+  "plugViewTooDeep": "JSON nested deeper than {limit, plural, other{{limit} levels}}",
   "@plugViewTooDeep": {
     "placeholders": {
       "limit": {

@@ -28,7 +28,7 @@
   "phoneUnlockBanks": "Banking and payment apps",
   "phoneUnlockBanksHint": "เปลี่ยน in App rules",
   "phoneUnlockNone": "ไม่มี on",
-  "phoneUnlockCount": "{count, plural, =1{1 on} other{{count} on}}",
+  "phoneUnlockCount": "{count, plural, other{{count} on}}",
   "@phoneUnlockCount": {
     "placeholders": {
       "count": {

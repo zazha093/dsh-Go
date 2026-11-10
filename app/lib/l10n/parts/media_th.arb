@@ -49,7 +49,7 @@
       }
     }
   },
-  "mediaCount": "{count, plural, =1{1 image} other{{count} images}}",
+  "mediaCount": "{count, plural, other{{count} images}}",
   "@mediaCount": {
     "placeholders": {
       "count": {
