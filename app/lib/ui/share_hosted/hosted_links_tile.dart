@@ -25,7 +25,7 @@ class HostedLinksSettingsTile extends ConsumerWidget {
       icon: icon ? AppIcons.link : null,
       tint: tint,
       spot: SettingsIndex.entry(SettingsPageId.sharedLinks),
-      value: count == 0 ? null : Text('$count', style: AppType.tabular(Theme.of(context).textTheme.bodyMedium!)),
+      value: count == 0 ? null : Text('l10n.count(count)', style: AppType.tabular(Theme.of(context).textTheme.bodyMedium!)),
       onTap: () => Navigator.of(context).push(HostedLinksPage.route()),
     );
   }

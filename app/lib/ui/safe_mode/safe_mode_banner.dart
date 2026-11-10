@@ -63,7 +63,7 @@ class SafeModeBanner extends ConsumerWidget {
       child: Semantics(
         container: true,
         liveRegion: true,
-        label: '$title。$subtitle',
+        label: 'l10n.titlesubtitle(title, subtitle)',
         child: Material(
           color: background,
           shape: const RoundedRectangleBorder(borderRadius: AppShape.radiusMd),

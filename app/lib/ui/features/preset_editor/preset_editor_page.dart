@@ -419,7 +419,7 @@ class _PresetEditorPageState extends ConsumerState<PresetEditorPage> {
       if (rows.isEmpty) return const SizedBox.shrink();
       final on = rows.where((r) => _enabled.contains(r.id)).length;
       return SettingsSection(
-        title: '$title · $on/${rows.length}',
+        title: 'l10n.titleOnrowslength(title, on, rows.length)',
         children: [
           for (final r in rows)
             SettingsSwitchTile(

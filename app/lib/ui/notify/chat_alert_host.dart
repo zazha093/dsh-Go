@@ -272,7 +272,7 @@ class AlertBanner extends StatelessWidget {
       button: onTap != null,
       onTap: onTap,
       onDismiss: onDismiss,
-      label: '${alert.title}，${alert.text}${hostName == null ? '' : '，$hostName'}',
+      label: 'l10n.alerttitlealerttexthostnameNull(alert.title, alert.text)'' : '，$hostName'}',
       excludeSemantics: true,
       child: GlassSurface(
         tier: GlassTier.chrome,

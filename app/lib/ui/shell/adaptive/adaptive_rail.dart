@@ -104,7 +104,7 @@ class AdaptiveRail extends ConsumerWidget {
                   GlassIconButton(
                     key: const ValueKey('rail-host'),
                     icon: hostKindIcon(host.kind),
-                    tooltip: '$name · ${status.label}',
+                    tooltip: 'l10n.nameStatuslabel(name, status.label)',
                     onPressed: onHost,
                     badge: StatusDot(tone: status.tone, size: 7),
                   ),

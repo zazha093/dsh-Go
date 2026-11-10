@@ -217,7 +217,7 @@ class _ToolHeader extends StatelessWidget {
     return Semantics(
       button: true,
       expanded: opens ? null : expanded,
-      label: '${view.verb} $summary',
+      label: 'l10n.viewverbSummary(view.verb, summary)',
       child: StreamRowFrame(
         onTap: onTap,
         child: Row(
@@ -711,7 +711,7 @@ class _ToolGroupState extends State<ToolGroup> {
             if (failed > 0) ...[
               const SizedBox(width: 8),
               Icon(AppIcons.failed, size: 14, color: dsh.danger),
-              Text('$failed', style: AppType.tabular(AppType.monoLabel(color: dsh.danger))),
+              Text('l10n.failed1(failed)', style: AppType.tabular(AppType.monoLabel(color: dsh.danger))),
             ],
             const SizedBox(width: 4),
             StreamChevron(open: _expanded),

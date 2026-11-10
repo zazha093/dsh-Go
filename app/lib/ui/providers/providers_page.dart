@@ -342,7 +342,7 @@ class _ProviderRow extends StatelessWidget {
     final view = ProviderHealthView.of(health);
     final colors = DshColors.of(context);
     return Semantics(
-      label: '${provider.name}，${view.label}',
+      label: 'l10n.providernameviewlabel(provider.name, view.label)',
       child: ListPageRow(
         leading: Monogram(provider.name),
         title: provider.name,

@@ -152,7 +152,7 @@ class _PetPickerState extends ConsumerState<PetPicker> {
               for (final code in warnings)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 6),
-                  child: Text('· ${codexWarningText(l10n, code)}', style: theme.textTheme.bodyMedium),
+                  child: Text('l10n.codexwarningtextl10nCode(codexWarningText(l10n, code))', style: theme.textTheme.bodyMedium),
                 ),
             ],
           ),

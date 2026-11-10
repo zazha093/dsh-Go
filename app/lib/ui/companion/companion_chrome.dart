@@ -89,7 +89,7 @@ class CompanionNamePlate extends StatelessWidget {
       CompanionActivity.resting => const Color(0xFF6EB5A8),
     };
     return Semantics(
-      label: '$name，$status',
+      label: 'l10n.namestatus(name, status)',
       child: ExcludeSemantics(
         child: GlassSurface(
           tier: GlassTier.chrome,

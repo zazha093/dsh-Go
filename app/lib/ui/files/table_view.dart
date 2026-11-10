@@ -270,7 +270,7 @@ class _SheetTableState extends State<SheetTable> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Expanded(child: table),
-        if (selected != null) _CellBar(label: '${columnLetters(selected.$2)}${selected.$1 + 1}', text: picked ?? ''),
+        if (selected != null) _CellBar(label: 'l10n.columnlettersselected2selected11(columnLetters(selected.$2), selected.$1 + 1)', text: picked ?? ''),
       ],
     );
   }

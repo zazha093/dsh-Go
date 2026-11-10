@@ -40,7 +40,7 @@ class PrivacyPage extends ConsumerWidget {
         const UsageStatsSection(),
         SettingsSection(
           title: l10n.phoneLocalOcrTitle,
-          footer: Text('${l10n.phoneLocalOcrDisclosure}\n\n${l10n.phoneLocalOcrDetails}'),
+          footer: Text('l10n.l10nphonelocalocrdisclosurennl10nphonelocalocrdetails(l10n.phoneLocalOcrDisclosure, l10n.phoneLocalOcrDetails)'),
           children: [
             ListTile(
               title: Text(l10n.phoneLocalOcrTitle),

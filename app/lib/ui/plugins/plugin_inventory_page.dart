@@ -275,7 +275,7 @@ class _PluginInventoryPageState extends ConsumerState<PluginInventoryPage> {
     }
     return [
       ListPageCard(
-        title: '${presetLabel(preset)} · ${items.length}',
+        title: 'l10n.presetlabelpresetItemslength(presetLabel(preset), items.length)',
         children: [
           for (final (i, item) in items.indexed)
             FadeSlideIn(

@@ -389,7 +389,7 @@ class _LogLine extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: gap),
       child: Semantics(
-        label: '$who：${entry.text}',
+        label: 'l10n.whoentrytext(who, entry.text)',
         excludeSemantics: true,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

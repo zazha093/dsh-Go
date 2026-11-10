@@ -85,7 +85,7 @@ class ComposerStrip extends StatelessWidget {
     final color = nativeToneColor(dsh, tone) ?? theme.colorScheme.onSurface;
     return Semantics(
       button: onTap != null,
-      label: '$title $text',
+      label: 'l10n.titleText(title, text)',
       excludeSemantics: true,
       child: GlassSurface(
         tier: GlassTier.chrome,

@@ -185,7 +185,7 @@ class _SequenceFieldSheetState extends ConsumerState<SequenceFieldSheet> {
             : null,
       );
     }
-    if (node.type == 'const') return ListTile(title: Text(title), subtitle: Text('${node.value}'));
+    if (node.type == 'const') return ListTile(title: Text(title), subtitle: Text('l10n.nodevalue(node.value)'));
     // Preserve unknown, nested and secret values. Never stringify a secret.
     return ListTile(
       title: Text(title),

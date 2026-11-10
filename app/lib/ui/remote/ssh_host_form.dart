@@ -591,7 +591,7 @@ class _SshHostFormPageState extends ConsumerState<SshHostFormPage> {
                         controller: _cwd,
                         autocorrect: false,
                         style: mono,
-                        decoration: const InputDecoration(hintText: '~/code'),
+                        decoration: const InputDecoration(hintText: 'l10n.code'),
                       ),
                     ),
                   ],

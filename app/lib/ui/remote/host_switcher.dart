@@ -130,7 +130,7 @@ class HostSheet extends ConsumerWidget {
                     _HostRow(
                       host: HostRef.ssh(h.id),
                       title: h.name,
-                      subtitle: 'SSH · ${h.address}',
+                      subtitle: 'l10n.sshHaddress(h.address)',
                       active: active == HostRef.ssh(h.id),
                       onTap: () => pick(HostRef.ssh(h.id)),
                     ),

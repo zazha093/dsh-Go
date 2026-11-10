@@ -109,7 +109,7 @@ class _Row extends StatelessWidget {
     final muted = theme.colorScheme.onSurfaceVariant;
     return Semantics(
       button: onTap != null,
-      label: '$label: $value',
+      label: 'l10n.labelValue1(label, value)',
       excludeSemantics: true,
       onTap: onTap,
       child: InkWell(

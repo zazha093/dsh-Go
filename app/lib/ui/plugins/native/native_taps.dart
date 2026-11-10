@@ -491,7 +491,7 @@ Future<bool> _invoke(
             stillCurrent: current,
           );
         } else {
-          issues.add(NativeIssue('/effects', nativeIssueText('bad-effect'), code: 'bad-effect'));
+          issues.add(NativeIssue('/effects', nativeIssueText('l10n.badeffect2'), code: 'l10n.badeffect2'));
         }
       }
     } on NativeFileException catch (error) {
@@ -531,7 +531,7 @@ Future<bool> _invoke(
           now: arrived,
           consent: (pkg) async => mayListen ?? false,
         );
-    if (!taken) issues.add(NativeIssue('/effects', nativeIssueText('bad-effect'), code: 'bad-effect'));
+    if (!taken) issues.add(NativeIssue('/effects', nativeIssueText('l10n.badeffect3'), code: 'l10n.badeffect3'));
   }
   if (!guard.current) return false;
   diagnostics.report(package, '/runtime/$id', issues);
@@ -592,7 +592,7 @@ Future<bool> _invoke(
               );
             }
           default:
-            later.add(NativeIssue('/effects', nativeIssueText('bad-effect'), code: 'bad-effect'));
+            later.add(NativeIssue('/effects', nativeIssueText('l10n.badeffect4'), code: 'l10n.badeffect4'));
         }
       }
       if (guard.current) diagnostics.report(package, '/runtime/$id', later);
@@ -701,7 +701,7 @@ Future<void> _runEffect(
       await Clipboard.setData(ClipboardData(text: text));
       if (context.mounted && stillCurrent?.call() != false) _toast(context, l10n.commonCopied);
     case PickFileEffect():
-      issues.add(NativeIssue('/effects', nativeIssueText('bad-effect'), code: 'bad-effect'));
+      issues.add(NativeIssue('/effects', nativeIssueText('l10n.badeffect5'), code: 'l10n.badeffect5'));
     case OpenEffect() || RefreshEffect() || PatchEffect():
       break;
   }

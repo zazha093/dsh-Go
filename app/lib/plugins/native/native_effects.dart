@@ -175,7 +175,7 @@ List<NativeEffect> parseNativeEffects(List<Map<String, Object?>> effects, List<N
             total is! int ||
             total < 1 ||
             total > 16 * 1024 * 1024) {
-          issues.add(NativeIssue(pointer, nativeIssueText('bad-effect'), code: 'bad-effect'));
+          issues.add(NativeIssue(pointer, nativeIssueText('l10n.badeffect'), code: 'l10n.badeffect'));
         } else {
           out.add(
             PickFileEffect(
@@ -199,7 +199,7 @@ List<NativeEffect> parseNativeEffects(List<Map<String, Object?>> effects, List<N
         final name = text('name')?.trim().replaceFirst(RegExp('^/'), '');
         if (name == 'permission') {
           // Check after the same whitespace/slash normalization used to execute.
-          issues.add(NativeIssue('$pointer/name', nativeIssueText('bad-effect'), code: 'bad-effect'));
+          issues.add(NativeIssue('$pointer/name', nativeIssueText('l10n.badeffect1'), code: 'l10n.badeffect1'));
         } else if (name == null || !RegExp(r'^[A-Za-z0-9][A-Za-z0-9._:-]{0,63}$').hasMatch(name)) {
           issues.add(NativeIssue('$pointer/name', l10n.plugslotsIssueMissing));
         } else {

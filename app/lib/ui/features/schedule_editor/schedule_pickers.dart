@@ -238,7 +238,7 @@ Future<Set<int>?> showMonthDaysSheet(BuildContext context, {required Set<int> da
                     children: [
                       for (var d = 1; d <= 31; d++)
                         DayKey(
-                          label: '$d',
+                          label: 'l10n.d(d)',
                           semanticLabel: context.l10n.featuresMonthDayChoice(d),
                           size: key,
                           selected: picked.contains(d),

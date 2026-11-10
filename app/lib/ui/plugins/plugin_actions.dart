@@ -244,7 +244,7 @@ Future<void> approveBuildsAndRetry(BuildContext context, PluginInstallJob job) a
                 for (final name in builds)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 4),
-                    child: Text('• $name', style: AppType.monoLabel(color: theme.colorScheme.onSurface)),
+                    child: Text('l10n.name(name)', style: AppType.monoLabel(color: theme.colorScheme.onSurface)),
                   ),
                 const SizedBox(height: 8),
                 Text(

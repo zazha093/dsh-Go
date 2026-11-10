@@ -141,7 +141,7 @@ class NewChatOptions extends ConsumerWidget {
       child: SetupItem(
         icon: icon,
         label: label,
-        semanticsLabel: '$name: $label',
+        semanticsLabel: 'l10n.nameLabel(name, label)',
         onTapHint: l10n.viewNewChatChange,
         onTap: onTap,
       ),

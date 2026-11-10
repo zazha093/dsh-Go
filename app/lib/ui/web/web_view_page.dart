@@ -1334,7 +1334,7 @@ class RendererGone extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(label, style: style),
-          Text(' · ', style: style),
+          Text('l10n.separatorDot', style: style),
           // No side padding: the dot sits a space from either word.
           TextButton(
             style: TextButton.styleFrom(

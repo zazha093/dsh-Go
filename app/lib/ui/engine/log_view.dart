@@ -171,7 +171,7 @@ class TerminalCard extends StatelessWidget {
             if (command case final command?)
               Padding(
                 padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
-                child: SelectableText('\$ $command', maxLines: 3, style: AppType.monoSmall(color: colors.codeWellFg)),
+                child: SelectableText('l10n.command(command)', maxLines: 3, style: AppType.monoSmall(color: colors.codeWellFg)),
               ),
             Expanded(
               // Lines scrolled up melt into the title row instead of being cut.

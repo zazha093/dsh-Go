@@ -146,7 +146,7 @@ class HeroStat extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           );
     return Semantics(
-      label: '$label $value',
+      label: 'l10n.labelValue(label, value)',
       excludeSemantics: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -43,7 +43,7 @@ Map<String, FieldCopy> get _shell => <String, FieldCopy>{
   'cwd': FieldCopy(label: appL10n.engineFieldDefaultCwd, placeholder: appL10n.engineFieldFollowChat),
 };
 
-const _apiKey = FieldCopy(label: 'API Key');
+const _apiKey = FieldCopy(label: 'l10n.apiKey');
 
 /// Copy by namespace, then by dotted field path.
 Map<String, Map<String, FieldCopy>> get namespaceCopy => <String, Map<String, FieldCopy>>{

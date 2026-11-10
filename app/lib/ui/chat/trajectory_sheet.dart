@@ -386,7 +386,7 @@ class _Composition extends StatelessWidget {
                       decoration: BoxDecoration(color: color, shape: BoxShape.circle),
                     ),
                     const SizedBox(width: 6),
-                    Text('$name ${formatSpan(time)}', style: AppType.tabular(label!)),
+                    Text('l10n.nameFormatspantime(name, formatSpan(time))', style: AppType.tabular(label!)),
                   ],
                 ),
             ],
@@ -831,7 +831,7 @@ class _GroupTile extends StatelessWidget {
                             if (failed > 0) ...[
                               const SizedBox(width: 6),
                               Icon(AppIcons.failed, size: 14, color: dsh.danger),
-                              Text('$failed', style: AppType.monoLabel(color: dsh.danger)),
+                              Text('l10n.failed(failed)', style: AppType.monoLabel(color: dsh.danger)),
                             ],
                             const SizedBox(width: 8),
                             Text(

@@ -432,7 +432,7 @@ class _StepMark extends StatelessWidget {
           child: Center(
             child: state == _Mark.done
                 ? Icon(AppIcons.done, size: 14, color: ink)
-                : Text('$index', style: AppType.tabular(theme.textTheme.labelMedium!.copyWith(color: ink))),
+                : Text('l10n.index(index)', style: AppType.tabular(theme.textTheme.labelMedium!.copyWith(color: ink))),
           ),
         ),
       ),

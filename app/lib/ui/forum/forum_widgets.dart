@@ -237,7 +237,7 @@ class ForumTopicRow extends StatelessWidget {
       overflow: TextOverflow.ellipsis,
       style: theme.textTheme.titleSmall?.copyWith(fontSize: 15, height: 1.4, color: theme.colorScheme.onSurface),
     );
-    final dot = Text(' · ', style: meta);
+    final dot = Text('l10n.separatorDot', style: meta);
     final semantics = [
       topic.title,
       if (showCategory && category != null) category!.name,

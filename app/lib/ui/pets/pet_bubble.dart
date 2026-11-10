@@ -96,7 +96,7 @@ class PetBubbleView extends StatelessWidget {
                     Flexible(
                       child: Text(title, style: quiet, maxLines: 1, overflow: TextOverflow.ellipsis),
                     ),
-                    Text(' · ', style: quiet),
+                    Text('l10n.separatorDot', style: quiet),
                   ],
                   Text(bubble.verb, key: const ValueKey('pet-bubble-verb'), style: verb, maxLines: 1),
                 ],

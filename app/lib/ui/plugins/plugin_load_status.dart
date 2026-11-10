@@ -59,7 +59,7 @@ class PluginLoadStatus extends ConsumerWidget {
           ListPageRow(
             icon: AppIcons.diagnostics,
             title: l10n.pluginsLoadStatus,
-            subtitle: '$summary · ${l10n.pluginsLoadRunningCount(running, rows.length)}',
+            subtitle: 'l10n.summaryL10npluginsloadrunningcountrunningRowslength(summary, l10n.pluginsLoadRunningCount(running, rows.length))',
             subtitleMaxLines: 3,
           ),
           for (final row in issues) ...[

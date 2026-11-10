@@ -223,13 +223,13 @@ class _ForumTopicPageState extends ConsumerState<ForumTopicPage> {
                   Flexible(
                     child: ForumCategoryLabel(category: category, style: meta),
                   ),
-                  Text(' · ', style: meta),
+                  Text('l10n.separatorDot', style: meta),
                 ],
                 Text(
                   l10n.remoteForumCompactReplies(detail.replies, forumCount(detail.replies)),
                   style: AppType.tabular(meta),
                 ),
-                Text(' · ', style: meta),
+                Text('l10n.separatorDot', style: meta),
                 Text(
                   l10n.remoteForumCompactViews(detail.views, forumCount(detail.views)),
                   style: AppType.tabular(meta),

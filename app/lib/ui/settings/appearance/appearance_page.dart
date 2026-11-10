@@ -52,7 +52,7 @@ class AppearanceEntryTile extends ConsumerWidget {
         children: [
           AccentDot(color: seed, size: 10),
           const SizedBox(width: 6),
-          Text('${accent.label} · $mode'),
+          Text('l10n.accentlabelMode(accent.label, mode)'),
         ],
       ),
       onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const AppearancePage())),

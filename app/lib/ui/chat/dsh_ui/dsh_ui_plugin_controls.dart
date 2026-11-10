@@ -1178,7 +1178,7 @@ class _DshUiControlContainerViewState extends State<DshUiControlContainerView> {
           children: [
             Semantics(
               liveRegion: true,
-              label: '${section.label} · ${_page + 1}/$count',
+              label: 'l10n.sectionLabelPageCount(section.label, _page + 1, count)',
               excludeSemantics: true,
               child: Text(
                 section.label,

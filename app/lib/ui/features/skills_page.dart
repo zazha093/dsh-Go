@@ -120,7 +120,7 @@ class _SkillRow extends StatelessWidget {
     final theme = Theme.of(context);
     return ListPageRow(
       icon: AppIcons.skill,
-      title: '/${skill.name}',
+      title: 'l10n.skillname(skill.name)',
       titleStyle: AppType.monoLabel(color: theme.colorScheme.onSurface).copyWith(fontSize: 14, height: 1.45),
       badge: skill.modelInvocable ? null : PluginBadge(l10n.featuresSkillManual),
       subtitle: skill.description.isEmpty ? null : skill.description,

@@ -153,7 +153,7 @@ class UpdateSheet extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('DSH ${latest.version.name}', style: theme.textTheme.titleLarge),
+                            Text('l10n.dshLatestversionname(latest.version.name)', style: theme.textTheme.titleLarge),
                             const SizedBox(height: 2),
                             Text(facts, style: theme.textTheme.bodySmall?.copyWith(color: colors.textTertiary)),
                           ],

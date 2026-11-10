@@ -181,13 +181,13 @@ class ForumSearchRow extends StatelessWidget {
                   Flexible(
                     child: ForumCategoryLabel(category: category!, style: meta),
                   ),
-                  Text(' · ', style: meta),
+                  Text('l10n.separatorDot', style: meta),
                 ],
                 if (hit.user?.username case final name? when name.isNotEmpty) ...[
                   Flexible(
                     child: Text(name, maxLines: 1, overflow: TextOverflow.ellipsis, style: meta),
                   ),
-                  Text(' · ', style: meta),
+                  Text('l10n.separatorDot', style: meta),
                 ],
                 Text(forumAgo(hit.createdAt), style: AppType.tabular(meta)),
               ],

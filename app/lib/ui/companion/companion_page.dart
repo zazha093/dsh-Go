@@ -2635,7 +2635,7 @@ class _CompanionPageState extends ConsumerState<CompanionPage> implements Compan
                       icon: AppIcons.generating,
                       tinted: false,
                       title: l10n.companionMenuMoves,
-                      value: Text('${_moves.expressions.length + _moves.motions.length}'),
+                      value: Text('l10n.expressionsAndMotionsCount(_moves.expressions.length + _moves.motions.length)'),
                       onTap: () {
                         Navigator.of(sheet).pop();
                         _openMoves();

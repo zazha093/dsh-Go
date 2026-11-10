@@ -210,7 +210,7 @@ class _ActivityStripState extends State<ActivityStrip> {
 
     return Semantics(
       button: widget.onTap != null,
-      label: '${a.title} ${a.detail}',
+      label: 'l10n.atitleAdetail(a.title, a.detail)',
       onTapHint: l10n.chatViewTurnTrace,
       onTap: widget.onTap,
       onLongPress: _showStats,
