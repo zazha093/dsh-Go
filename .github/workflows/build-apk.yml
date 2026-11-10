@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-runtime:
-    name: Build Runtime (arm64-v8a & x86_64)
+    name: Build Runtime (arm64-v8a)
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     env:
@@ -29,10 +29,6 @@ jobs:
         working-directory: runtime
         run: ./build-runtime.sh arm64-v8a
       
-      - name: Build runtime (x86_64)
-        working-directory: runtime
-        run: ./build-runtime.sh x86_64
-      
       - name: Upload runtime artifacts
         uses: actions/upload-artifact@v7
         with:
@@ -41,7 +37,7 @@ jobs:
           retention-days: 1
 
   build-apk:
-    name: Build APK (arm64 & x64)
+    name: Build APK (arm64)
     needs: build-runtime
     runs-on: ubuntu-24.04
     timeout-minutes: 30
@@ -93,16 +89,4 @@ jobs:
         with:
           name: dsh-go-thai-arm64
           path: app/build/app/outputs/flutter-apk/app-arm64-release.apk
-          retention-days: 7
-
-      - name: Build APK (x64)
-        working-directory: app
-        run: |
-          bash ../tooling/build-apk.sh -f x64 --release
-
-      - name: Upload APK (x64)
-        uses: actions/upload-artifact@v7
-        with:
-          name: dsh-go-thai-x64
-          path: app/build/app/outputs/flutter-apk/app-x64-release.apk
           retention-days: 7
