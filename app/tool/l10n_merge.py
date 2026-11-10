@@ -41,7 +41,7 @@ from collections import OrderedDict
 APP = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 L10N = os.path.join(APP, 'lib', 'l10n')
 PARTS = os.path.join(L10N, 'parts')
-LANGS = ('zh', 'en')
+LANGS = ('zh', 'en', 'th')
 KEY_RE = re.compile(r'^[a-z][a-zA-Z0-9]*$')
 IDENT = re.compile(r'[A-Za-z_][A-Za-z0-9_]*')
 PLURAL_CASES = frozenset(('zero', 'one', 'two', 'few', 'many', 'other'))
