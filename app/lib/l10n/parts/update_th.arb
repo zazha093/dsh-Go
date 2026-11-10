@@ -78,5 +78,13 @@
   "updateOpenPermissionSettings": "Turn on",
   "updateNoAbiPackage": "ไม่ {abi} package for this release yet. Check the release page.",
   "updateNoPackage": "ไม่ package for this release yet. Check the release page.",
-  "updateDownloadingPercent": "Downloading {percent}%"
+  "updateDownloadingPercent": "Downloading {percent}%",
+  "dshLatestversionname": "DSH {latest_version_name}",
+  "@dshLatestversionname": {
+    "placeholders": {
+      "latest_version_name": {
+        "type": "String"
+      }
+    }
+  }
 }

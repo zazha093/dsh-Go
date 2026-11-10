@@ -900,5 +900,35 @@
     }
   },
   "featuresPermissionResetHint": "新对话的默认权限已失效",
-  "featuresPermissionResetDefault": "恢复默认"
+  "featuresPermissionResetDefault": "恢复默认",
+  "skillname": "/{skill_name}",
+  "@skillname": {
+    "placeholders": {
+      "skill_name": {
+        "type": "String"
+      }
+    }
+  },
+  "titleOnrowslength": "{title} · {on}/{rows_length}",
+  "@titleOnrowslength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "on": {
+        "type": "String"
+      },
+      "rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "d": "{d}",
+  "@d": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  }
 }

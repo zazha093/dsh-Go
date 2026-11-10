@@ -705,5 +705,33 @@
         "type": "int"
       }
     }
+  },
+  "command": "\\$ {command}",
+  "@command": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "providernameviewlabel": "{provider_name}，{view_label}",
+  "@providernameviewlabel": {
+    "placeholders": {
+      "provider_name": {
+        "type": "String"
+      },
+      "view_label": {
+        "type": "String"
+      }
+    }
+  },
+  "apiKey": "API Key",
+  "nodevalue": "{node_value}",
+  "@nodevalue": {
+    "placeholders": {
+      "node_value": {
+        "type": "String"
+      }
+    }
   }
 }

@@ -75,5 +75,80 @@
   "commonUpdate": "อัปเดต",
   "commonViewLogs": "ดู Logs",
   "commonItemCount": "{count, plural, other{{count} รายการ}}",
-  "commonMonthDay": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {day}"
+  "commonMonthDay": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {day}",
+  "separatorDot": " · ",
+  "titleListlength": "{title} · {list_length}",
+  "@titleListlength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "list_length": {
+        "type": "String"
+      }
+    }
+  },
+  "labelValue": "{label} {value}",
+  "@labelValue": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "columnlettersselected2selected11": "{columnLetters_selected_2}{selected_1_1}",
+  "@columnlettersselected2selected11": {
+    "placeholders": {
+      "columnLetters_selected_2": {
+        "type": "String"
+      },
+      "selected_1_1": {
+        "type": "String"
+      }
+    }
+  },
+  "titlesubtitle": "{title}。{subtitle}",
+  "@titlesubtitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "labelValue1": "{label}: {value}",
+  "@labelValue1": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "dsBot": "DS Bot",
+  "nameStatuslabel": "{name} · {status_label}",
+  "@nameStatuslabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status_label": {
+        "type": "String"
+      }
+    }
+  },
+  "dsBot1": "DS Bot",
+  "separatorDot2": " · ",
+  "separatorDot3": " · ",
+  "separatorDot4": " · ",
+  "separatorDot5": " · ",
+  "separatorDot6": " · ",
+  "separatorDot7": " · "
 }

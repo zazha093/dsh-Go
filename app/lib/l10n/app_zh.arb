@@ -150,6 +150,14 @@
   },
   "accessPageTitle": "系统权限",
   "accessPageSubtitle": "各项功能用到的系统权限",
+  "index": "{index}",
+  "@index": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  },
   "activityThinkingUntangle": "嗯…让我捋捋",
   "activityThinkingWorkThrough": "盘一下盘一下",
   "activityThinkingGears": "大脑转起来了",
@@ -2848,6 +2856,77 @@
       }
     }
   },
+  "nameLabel": "{name}: {label}",
+  "@nameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "nameFormatspantime": "{name} {formatSpan_time}",
+  "@nameFormatspantime": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "formatSpan_time": {
+        "type": "String"
+      }
+    }
+  },
+  "failed": "{failed}",
+  "@failed": {
+    "placeholders": {
+      "failed": {
+        "type": "String"
+      }
+    }
+  },
+  "alerttitlealerttexthostnameNull": "{alert_title}，{alert_text}${hostName == null ? ",
+  "@alerttitlealerttexthostnameNull": {
+    "placeholders": {
+      "alert_title": {
+        "type": "String"
+      },
+      "alert_text": {
+        "type": "String"
+      }
+    }
+  },
+  "atitleAdetail": "{a_title} {a_detail}",
+  "@atitleAdetail": {
+    "placeholders": {
+      "a_title": {
+        "type": "String"
+      },
+      "a_detail": {
+        "type": "String"
+      }
+    }
+  },
+  "viewverbSummary": "{view_verb} {summary}",
+  "@viewverbSummary": {
+    "placeholders": {
+      "view_verb": {
+        "type": "String"
+      },
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "failed1": "{failed}",
+  "@failed1": {
+    "placeholders": {
+      "failed": {
+        "type": "String"
+      }
+    }
+  },
   "commonCancel": "取消",
   "commonRetry": "重试",
   "commonClose": "关闭",
@@ -2942,6 +3021,81 @@
       }
     }
   },
+  "separatorDot": " · ",
+  "titleListlength": "{title} · {list_length}",
+  "@titleListlength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "list_length": {
+        "type": "String"
+      }
+    }
+  },
+  "labelValue": "{label} {value}",
+  "@labelValue": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "columnlettersselected2selected11": "{columnLetters_selected_2}{selected_1_1}",
+  "@columnlettersselected2selected11": {
+    "placeholders": {
+      "columnLetters_selected_2": {
+        "type": "String"
+      },
+      "selected_1_1": {
+        "type": "String"
+      }
+    }
+  },
+  "titlesubtitle": "{title}。{subtitle}",
+  "@titlesubtitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "labelValue1": "{label}: {value}",
+  "@labelValue1": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "dsBot": "DS Bot",
+  "nameStatuslabel": "{name} · {status_label}",
+  "@nameStatuslabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status_label": {
+        "type": "String"
+      }
+    }
+  },
+  "dsBot1": "DS Bot",
+  "separatorDot2": " · ",
+  "separatorDot3": " · ",
+  "separatorDot4": " · ",
+  "separatorDot5": " · ",
+  "separatorDot6": " · ",
+  "separatorDot7": " · ",
   "companionTitle": "伙伴小屋",
   "companionEntrySubtitle": "和她待一会儿",
   "companionDefaultName": "她",
@@ -3306,6 +3460,29 @@
   "companionAdaptUnreadable": "模型的回答看不懂",
   "companionAdaptEmpty": "模型没找到能用的对应",
   "companionAdaptNetwork": "网络不通",
+  "namestatus": "{name}，{status}",
+  "@namestatus": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "whoentrytext": "{who}：{entry_text}",
+  "@whoentrytext": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      },
+      "entry_text": {
+        "type": "String"
+      }
+    }
+  },
+  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}",
   "systemImeTitle": "系统输入法诊断",
   "systemImeCollect": "采集本次日志",
   "systemImePrivacy": "复现后再采集。每次须在原生弹窗确认，仅读取最近 120 秒的固定事件（最多 64 条），不含输入内容或原始日志；不会自动申请权限。",
@@ -4032,6 +4209,34 @@
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "command": "\\$ {command}",
+  "@command": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "providernameviewlabel": "{provider_name}，{view_label}",
+  "@providernameviewlabel": {
+    "placeholders": {
+      "provider_name": {
+        "type": "String"
+      },
+      "view_label": {
+        "type": "String"
+      }
+    }
+  },
+  "apiKey": "API Key",
+  "nodevalue": "{node_value}",
+  "@nodevalue": {
+    "placeholders": {
+      "node_value": {
+        "type": "String"
       }
     }
   },
@@ -4937,6 +5142,36 @@
   },
   "featuresPermissionResetHint": "新对话的默认权限已失效",
   "featuresPermissionResetDefault": "恢复默认",
+  "skillname": "/{skill_name}",
+  "@skillname": {
+    "placeholders": {
+      "skill_name": {
+        "type": "String"
+      }
+    }
+  },
+  "titleOnrowslength": "{title} · {on}/{rows_length}",
+  "@titleOnrowslength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "on": {
+        "type": "String"
+      },
+      "rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "d": "{d}",
+  "@d": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
   "fileImageName": "图片",
   "fileSharedText": "分享的文字.txt",
   "fileChatFallback": "对话",
@@ -5914,6 +6149,20 @@
   "petActionVoiceReturn": "返回桌宠",
   "petActionVoiceStop": "结束录音",
   "petActionVoiceStart": "开始录音",
+  "petProbe": "Pet probe",
+  "petProbe1": "Pet probe",
+  "voiceFixture": "Voice fixture",
+  "petActionsProbeLocalFixture": "Pet actions probe — local fixture",
+  "seedApproval": "Seed approval",
+  "seedQuestion": "Seed question",
+  "codexwarningtextl10nCode": "· {codexWarningText_l10n_code}",
+  "@codexwarningtextl10nCode": {
+    "placeholders": {
+      "codexWarningText_l10n_code": {
+        "type": "String"
+      }
+    }
+  },
   "phoneDiagnosticsCollecting": "正在收集…",
   "phoneDiagnosticsPacking": "正在打包…",
   "phoneDiagnosticsSharing": "正在打开分享…",
@@ -7959,6 +8208,54 @@
   "pluginsLoadUnreported": "状态未报告",
   "pluginsLoadNoRuntimeDetail": "主机未返回运行时错误详情，请查看引擎日志。",
   "pluginsLoadRemoteLogs": "请在这台主机上查看引擎日志。",
+  "badeffect": "bad-effect",
+  "badeffect1": "bad-effect",
+  "badeffect2": "bad-effect",
+  "badeffect3": "bad-effect",
+  "badeffect4": "bad-effect",
+  "badeffect5": "bad-effect",
+  "name": "• {name}",
+  "@name": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "presetlabelpresetItemslength": "{presetLabel_preset} · {items_length}",
+  "@presetlabelpresetItemslength": {
+    "placeholders": {
+      "presetLabel_preset": {
+        "type": "String"
+      },
+      "items_length": {
+        "type": "String"
+      }
+    }
+  },
+  "summaryL10npluginsloadrunningcountrunningRowslength": "{summary} · {l10n_pluginsLoadRunningCount_running_rows_length}",
+  "@summaryL10npluginsloadrunningcountrunningRowslength": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      },
+      "l10n_pluginsLoadRunningCount_running_rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "sectionLabelPageCount": "{section_label} · {page_1}/{count}",
+  "titleText": "{title} {text}",
+  "@titleText": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
+  },
   "plugslotsSurfaceComposerTools": "加号面板",
   "plugslotsSurfaceSessionActions": "对话操作",
   "plugslotsSurfaceTurnNote": "回合尾注",
@@ -9418,6 +9715,15 @@
   "remoteErrHistoryModeChanged": "主机已不支持精简历史，请切换到其他主机后再连回来，或重启 App，重新加载历史",
   "remoteCompactHistoryHint": "支持的 DSH Remote 主机会精简历史工具详情，实时回复和审批不变。切换主机或重启 App 后生效；旧主机仍传输完整历史。",
   "searchKwRemoteCompactHistory": "精简 简洁 历史 工具 传输 流量 远程 compact slim lite",
+  "sshHaddress": "SSH · {h_address}",
+  "@sshHaddress": {
+    "placeholders": {
+      "h_address": {
+        "type": "String"
+      }
+    }
+  },
+  "code": "~/code",
   "remotePairEntry": "扫码配对电脑",
   "remotePairEntryHint": "扫电脑上 Remote 插件显示的二维码，不用注册 Remote 账号（需要先登录 DeepSeek）",
   "remotePairAddComputer": "扫码添加电脑",
@@ -9747,6 +10053,28 @@
   "shellDeleteProtocolError": "删除结果未确认，请刷新对话列表后再操作。",
   "shellDeleteNotAttempted": "未执行，请核对对话列表后重试。",
   "shellDeleteFailed": "主机无法确认删除结果，请刷新后再决定是否重试。",
+  "l10nphonelocalocrdisclosurennl10nphonelocalocrdetails": "{l10n_phoneLocalOcrDisclosure}\\n\\n{l10n_phoneLocalOcrDetails}",
+  "@l10nphonelocalocrdisclosurennl10nphonelocalocrdetails": {
+    "placeholders": {
+      "l10n_phoneLocalOcrDisclosure": {
+        "type": "String"
+      },
+      "l10n_phoneLocalOcrDetails": {
+        "type": "String"
+      }
+    }
+  },
+  "accentlabelMode": "{accent_label} · {mode}",
+  "@accentlabelMode": {
+    "placeholders": {
+      "accent_label": {
+        "type": "String"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  },
   "setupAppearanceTitle": "选择外观",
   "setupAppearanceMessage": "随时可以在设置里更改",
   "setupLightMode": "轻量模式",
@@ -9772,6 +10100,14 @@
   "setupWaitingBody": "完成后自动进入",
   "setupNotifyWhenDone": "完成时会通知你",
   "setupAwaitSignIn": "就绪后自动打开 DeepSeek 登录",
+  "count": "{count}",
+  "@count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
   "shellApiKeyPrefixWarning": "DeepSeek 的 Key 通常以 sk- 开头，确认没有复制错",
   "shellApiKeyIncompleteWarning": "Key 似乎不完整，确认复制了整串",
   "shellBrowserUrlCopied": "没能打开浏览器，网址已复制",
@@ -11335,6 +11671,14 @@
     "placeholders": {
       "percent": {
         "type": "int"
+      }
+    }
+  },
+  "dshLatestversionname": "DSH {latest_version_name}",
+  "@dshLatestversionname": {
+    "placeholders": {
+      "latest_version_name": {
+        "type": "String"
       }
     }
   },

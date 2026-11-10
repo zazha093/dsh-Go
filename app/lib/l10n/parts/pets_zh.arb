@@ -1,0 +1,16 @@
+{
+  "petProbe": "Pet probe",
+  "petProbe1": "Pet probe",
+  "voiceFixture": "Voice fixture",
+  "petActionsProbeLocalFixture": "Pet actions probe — local fixture",
+  "seedApproval": "Seed approval",
+  "seedQuestion": "Seed question",
+  "codexwarningtextl10nCode": "· {codexWarningText_l10n_code}",
+  "@codexwarningtextl10nCode": {
+    "placeholders": {
+      "codexWarningText_l10n_code": {
+        "type": "String"
+      }
+    }
+  }
+}

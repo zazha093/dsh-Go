@@ -133,5 +133,13 @@
     }
   },
   "accessPageTitle": "系统权限",
-  "accessPageSubtitle": "各项功能用到的系统权限"
+  "accessPageSubtitle": "各项功能用到的系统权限",
+  "index": "{index}",
+  "@index": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -371,5 +371,53 @@
         "type": "int"
       }
     }
+  },
+  "badeffect": "bad-effect",
+  "badeffect1": "bad-effect",
+  "badeffect2": "bad-effect",
+  "badeffect3": "bad-effect",
+  "badeffect4": "bad-effect",
+  "badeffect5": "bad-effect",
+  "name": "• {name}",
+  "@name": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "presetlabelpresetItemslength": "{presetLabel_preset} · {items_length}",
+  "@presetlabelpresetItemslength": {
+    "placeholders": {
+      "presetLabel_preset": {
+        "type": "String"
+      },
+      "items_length": {
+        "type": "String"
+      }
+    }
+  },
+  "summaryL10npluginsloadrunningcountrunningRowslength": "{summary} · {l10n_pluginsLoadRunningCount_running_rows_length}",
+  "@summaryL10npluginsloadrunningcountrunningRowslength": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      },
+      "l10n_pluginsLoadRunningCount_running_rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "sectionLabelPageCount": "{section_label} · {page_1}/{count}",
+  "titleText": "{title} {text}",
+  "@titleText": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
   }
 }

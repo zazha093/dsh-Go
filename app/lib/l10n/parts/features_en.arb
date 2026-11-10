@@ -374,5 +374,35 @@
   "featuresPresetUpdateRequest": "Update agent preset “{name}” ({id}): Write these two files verbatim in the workspace. Use plugin_manager to remove bundle `{replacing}`, then use install_bundle to install the `{directory}` directory. Do only this.\n\n",
   "featuresZoneThisPhone": "{city} · This phone",
   "featuresPermissionResetHint": "The new-chat default is no longer valid",
-  "featuresPermissionResetDefault": "Restore default"
+  "featuresPermissionResetDefault": "Restore default",
+  "skillname": "/{skill_name}",
+  "@skillname": {
+    "placeholders": {
+      "skill_name": {
+        "type": "String"
+      }
+    }
+  },
+  "titleOnrowslength": "{title} · {on}/{rows_length}",
+  "@titleOnrowslength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "on": {
+        "type": "String"
+      },
+      "rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "d": "{d}",
+  "@d": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  }
 }

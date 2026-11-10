@@ -729,5 +729,76 @@
         "type": "String"
       }
     }
+  },
+  "nameLabel": "{name}: {label}",
+  "@nameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "nameFormatspantime": "{name} {formatSpan_time}",
+  "@nameFormatspantime": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "formatSpan_time": {
+        "type": "String"
+      }
+    }
+  },
+  "failed": "{failed}",
+  "@failed": {
+    "placeholders": {
+      "failed": {
+        "type": "String"
+      }
+    }
+  },
+  "alerttitlealerttexthostnameNull": "{alert_title}，{alert_text}${hostName == null ? ",
+  "@alerttitlealerttexthostnameNull": {
+    "placeholders": {
+      "alert_title": {
+        "type": "String"
+      },
+      "alert_text": {
+        "type": "String"
+      }
+    }
+  },
+  "atitleAdetail": "{a_title} {a_detail}",
+  "@atitleAdetail": {
+    "placeholders": {
+      "a_title": {
+        "type": "String"
+      },
+      "a_detail": {
+        "type": "String"
+      }
+    }
+  },
+  "viewverbSummary": "{view_verb} {summary}",
+  "@viewverbSummary": {
+    "placeholders": {
+      "view_verb": {
+        "type": "String"
+      },
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "failed1": "{failed}",
+  "@failed1": {
+    "placeholders": {
+      "failed": {
+        "type": "String"
+      }
+    }
   }
 }

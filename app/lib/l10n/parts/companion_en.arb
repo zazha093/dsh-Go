@@ -268,5 +268,28 @@
   "companionAdaptFailed": "That didn't work ({reason}). You can try again from Fit this model in the menu.",
   "companionAdaptUnreadable": "the model's answer made no sense",
   "companionAdaptEmpty": "the model found nothing to match",
-  "companionAdaptNetwork": "no connection"
+  "companionAdaptNetwork": "no connection",
+  "namestatus": "{name}，{status}",
+  "@namestatus": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "whoentrytext": "{who}：{entry_text}",
+  "@whoentrytext": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      },
+      "entry_text": {
+        "type": "String"
+      }
+    }
+  },
+  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}"
 }

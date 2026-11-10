@@ -150,5 +150,13 @@
         "type": "int"
       }
     }
+  },
+  "dshLatestversionname": "DSH {latest_version_name}",
+  "@dshLatestversionname": {
+    "placeholders": {
+      "latest_version_name": {
+        "type": "String"
+      }
+    }
   }
 }
