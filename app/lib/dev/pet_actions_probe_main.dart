@@ -74,7 +74,7 @@ class _ProbeSessions extends SessionsController {
   _ProbeSessions(this.client);
   final DshClient client;
   @override
-  Future<List<SessionSummary>> build() async => [session(probeSession, title: 'Pet probe')];
+  Future<List<SessionSummary>> build() async => [session(probeSession, title: 'l10n.petProbe')];
   @override
   Future<String> create({bool autoApprove = true}) async => (await client.createSession(cwd: '/probe')).sessionId;
 }
@@ -144,7 +144,7 @@ class PetActionsProbe {
   late final ProviderContainer container;
   late final _FallbackRecorder _recorder;
   final lines = ValueNotifier<List<Map<String, Object?>>>([]);
-  final source = FakeAlertSource()..sessions = [session(probeSession, title: 'Pet probe')];
+  final source = FakeAlertSource()..sessions = [session(probeSession, title: 'l10n.petProbe1')];
   final silentLocalSource = FakeAlertSource();
   final notifications = FakeNotifyChannel();
   StreamSubscription<HostEvent>? _hostEvents;
@@ -178,7 +178,7 @@ class PetActionsProbe {
       kind: HostKind.ssh,
       hostId: 'pet-probe',
     );
-    final local = HostConnection(client: p.client, label: 'Voice fixture', isLocal: true);
+    final local = HostConnection(client: p.client, label: 'l10n.voiceFixture', isLocal: true);
     p.container = ProviderContainer(
       overrides: [
         activeHostProvider.overrideWith(_ProbeHost.new),
@@ -386,7 +386,7 @@ Future<void> main() async {
         localizationsDelegates: L10n.localizationsDelegates,
         supportedLocales: AppLocale.supported,
         home: Scaffold(
-          appBar: AppBar(title: const Text('Pet actions probe — local fixture')),
+          appBar: AppBar(title: const Text('l10n.petActionsProbeLocalFixture')),
           body: SafeArea(
             child: Column(
               children: [
@@ -397,8 +397,8 @@ Future<void> main() async {
                 ),
                 Wrap(
                   children: [
-                    TextButton(onPressed: () => probe.seed('approval'), child: const Text('Seed approval')),
-                    TextButton(onPressed: () => probe.seed('question'), child: const Text('Seed question')),
+                    TextButton(onPressed: () => probe.seed('approval'), child: const Text('l10n.seedApproval')),
+                    TextButton(onPressed: () => probe.seed('question'), child: const Text('l10n.seedQuestion')),
                   ],
                 ),
                 Expanded(
