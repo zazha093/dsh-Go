@@ -1,20 +1,20 @@
 {
   "@@locale": "th",
-  "accessPickTitle": "What should DSH Go help with?",
-  "accessPickMessage": "Pick any, then turn each one on",
-  "accessPickConfirm": "Turn on selected",
-  "accessSkip": "Skip",
-  "accessFeatureFiles": "Read and write phone files",
-  "accessFeatureFilesNeeds": "Needs file access",
-  "accessFeaturePet": "Pet over other apps",
-  "accessFeaturePetNeeds": "Needs display over other apps",
-  "accessFeaturePhone": "Phone control",
-  "accessFeaturePhoneNeeds": "Needs accessibility and notifications",
-  "accessFeatureBackground": "Keep running in background",
-  "accessFeatureBackgroundNeeds": "Tells you when tasks finish; needs notifications and background access",
-  "accessFeatureVoice": "Voice input",
-  "accessFeatureVoiceNeeds": "Needs the microphone",
-  "accessVoiceModel": "Works offline; downloads a voice model of about {size} MB",
+  "accessPickTitle": "DSH Go ควรช่วยอะไร?",
+  "accessPickMessage": "เลือกสิ่งที่ต้องการ แล้วเปิดใช้งานแต่ละอย่าง",
+  "accessPickConfirm": "เปิดใช้ที่เลือก",
+  "accessSkip": "ข้าม",
+  "accessFeatureFiles": "อ่านและเขียนไฟล์ในโทรศัพท์",
+  "accessFeatureFilesNeeds": "ต้องการสิทธิ์เข้าถึงไฟล์",
+  "accessFeaturePet": "เพททับแอปอื่น",
+  "accessFeaturePetNeeds": "ต้องการสิทธิ์แสดงทับแอปอื่น",
+  "accessFeaturePhone": "ควบคุมโทรศัพท์",
+  "accessFeaturePhoneNeeds": "ต้องการสิทธิ์เข้าถึงและการแจ้งเตือน",
+  "accessFeatureBackground": "ทำงานในพื้นหลัง",
+  "accessFeatureBackgroundNeeds": "แจ้งเมื่องานเสร็จ ต้องการการแจ้งเตือนและการเข้าถึงพื้นหลัง",
+  "accessFeatureVoice": "ป้อนเสียง",
+  "accessFeatureVoiceNeeds": "ต้องการไมโครโฟน",
+  "accessVoiceModel": "ทำงานออฟไลน์ ดาวน์โหลดโมเดลเสียงประมาณ {size} MB",
   "@accessVoiceModel": {
     "placeholders": {
       "size": {
@@ -22,8 +22,8 @@
       }
     }
   },
-  "accessVoiceMetered": "You're on mobile data; the download will use it",
-  "accessFilesRiskBody": "AI can read and change your photos, downloads and documents.",
+  "accessVoiceMetered": "คุณใช้ข้อมูลมือถือ การดาวน์โหลดจะใช้ข้อมูล",
+  "accessFilesRiskBody": "AI สามารถอ่านและเปลี่ยนแปลงรูปภาพ ดาวน์โหลด และเอกสารของคุณได้",
   "accessStepCount": "{index} / {total}",
   "@accessStepCount": {
     "placeholders": {
@@ -35,14 +35,14 @@
       }
     }
   },
-  "accessTurnOn": "Turn on",
+  "accessTurnOn": "เปิดใช้",
   "accessOpenSettings": "เปิดการตั้งค่า",
-  "accessItsSet": "It's set",
-  "accessOpenAgain": "Open again",
-  "accessIsOn": "On",
-  "accessNotOnYet": "Not on yet",
-  "accessDidYouSet": "Did you turn it on there?",
-  "accessWhere": "Where: {path}",
+  "accessItsSet": "ตั้งค่าแล้ว",
+  "accessOpenAgain": "เปิดอีกครั้ง",
+  "accessIsOn": "เปิดอยู่",
+  "accessNotOnYet": "ยังไม่ได้เปิด",
+  "accessDidYouSet": "คุณเปิดที่นั่นแล้วหรือยัง?",
+  "accessWhere": "ที่ตั้ง: {path}",
   "@accessWhere": {
     "placeholders": {
       "path": {
@@ -50,19 +50,19 @@
       }
     }
   },
-  "accessOpenFailed": "Couldn't open system settings",
-  "accessMicTitle": "Allow the microphone",
-  "accessMicWhy": "For voice input",
-  "accessStorageTitle": "Allow file access",
-  "accessStorageWhy": "Lets AI read and write photos, downloads and documents",
-  "accessNotifyTitle": "Allow notifications",
-  "accessNotifyWhy": "Tells you when a task finishes or needs you",
-  "accessBatteryTitle": "Allow background running",
-  "accessBatteryWhy": "Tasks keep going when you switch apps",
-  "accessVendorBackgroundWhy": "Keeps the system from cutting tasks off in the background",
-  "accessAutostartTitle": "Allow auto-start",
-  "accessAutostartWhy": "Lets DSH Go come back after the system clears it",
-  "accessVivoAutostartPath": "Permission management › Auto-start › {app}",
+  "accessOpenFailed": "ไม่สามารถเปิดการตั้งค่าระบบได้",
+  "accessMicTitle": "อนุญาตไมโครโฟน",
+  "accessMicWhy": "สำหรับการป้อนเสียง",
+  "accessStorageTitle": "อนุญาตการเข้าถึงไฟล์",
+  "accessStorageWhy": "อนุญาตให้ AI อ่านและเขียนรูปภาพ ดาวน์โหลด และเอกสาร",
+  "accessNotifyTitle": "อนุญาตการแจ้งเตือน",
+  "accessNotifyWhy": "แจ้งคุณเมื่องานเสร็จ หรือต้องการคุณทำอะไร",
+  "accessBatteryTitle": "อนุญาตการทำงานในพื้นหลัง",
+  "accessBatteryWhy": "งานจะดำเนินต่อไปแม้คุณสลับแอป",
+  "accessVendorBackgroundWhy": "ป้องกันไม่ให้ระบบหยุดงานในพื้นหลัง",
+  "accessAutostartTitle": "อนุญาตเริ่มอัตโนมัติ",
+  "accessAutostartWhy": "อนุญาตให้ DSH Go กลับมาทำงานหลังระบบล้างหน่วยความจำ",
+  "accessVivoAutostartPath": "การจัดการสิทธิ์ › เริ่มอัตโนมัติ › {app}",
   "@accessVivoAutostartPath": {
     "placeholders": {
       "app": {
@@ -70,7 +70,7 @@
       }
     }
   },
-  "accessXiaomiAutostartPath": "Manage apps › {app} › Autostart",
+  "accessXiaomiAutostartPath": "จัดการแอป › {app} › เริ่มอัตโนมัติ",
   "@accessXiaomiAutostartPath": {
     "placeholders": {
       "app": {
@@ -78,11 +78,11 @@
       }
     }
   },
-  "accessA11yTitle": "Turn on accessibility",
-  "accessA11yWhy": "Phone control reads the screen and taps through it",
-  "accessPopupTitle": "Allow pop-ups in background",
-  "accessPopupWhy": "Brings you back to DSH Go when phone control is done",
-  "accessVivoPopupPath": "Permission management › {app} › Display pop-up windows in background",
+  "accessA11yTitle": "เปิดการเข้าถึง",
+  "accessA11yWhy": "ควบคุมโทรศัพท์อ่านหน้าจอและแท็บผ่านหน้าจอ",
+  "accessPopupTitle": "อนุญาตป๊อปอัปในพื้นหลัง",
+  "accessPopupWhy": "นำคุณกลับไป DSH Go เมื่อควบคุมโทรศัพท์เสร็จ",
+  "accessVivoPopupPath": "การจัดการสิทธิ์ › {app} › แสดงหน้าต่างป๊อปอัปในพื้นหลัง",
   "@accessVivoPopupPath": {
     "placeholders": {
       "app": {
@@ -90,7 +90,7 @@
       }
     }
   },
-  "accessXiaomiPopupPath": "Manage apps › {app} › Other permissions › Display pop-up windows while running in the background",
+  "accessXiaomiPopupPath": "จัดการแอป › {app} › สิทธิ์อื่น › แสดงป๊อปอัปขณะทำงานในพื้นหลัง",
   "@accessXiaomiPopupPath": {
     "placeholders": {
       "app": {
@@ -98,23 +98,23 @@
       }
     }
   },
-  "accessOverlayTitle": "Allow display over other apps",
-  "accessOverlayWhy": "Lets your pet appear over other apps",
-  "accessOverlayGreyed": "Switch greyed out?",
-  "accessRestrictedTitle": "Allow restricted settings first",
-  "accessRestrictedTap": "In Accessibility, tap “DSH Phone Control”; when “Restricted setting” appears, tap OK",
-  "accessRestrictedMenu": "In App info, tap the three dots at the top right and choose “Allow restricted settings”",
-  "accessRestrictedAdvanced": "In App info, open “Advanced settings” and turn on “Allow restricted settings”",
-  "accessRestrictedBack": "Back in Accessibility, turn on “DSH Phone Control”",
-  "accessRestrictedHelp": "See how",
-  "accessOpenA11y": "Open accessibility",
-  "accessOpenAppInfo": "Open app info",
-  "accessStateOn": "On",
-  "accessStateOff": "Off",
-  "accessStateVisited": "Visited",
-  "accessStateUnknown": "Set up",
-  "accessSummaryAllSet": "All set",
-  "accessSummaryLeft": "{count, plural, =1{1 still off} other{{count} still off}}",
+  "accessOverlayTitle": "อนุญาตแสดงทับแอปอื่น",
+  "accessOverlayWhy": "อนุญาตให้เพทของคุณปรากฏทับแอปอื่น",
+  "accessOverlayGreyed": "สวิตช์เป็นสีเทา?",
+  "accessRestrictedTitle": "อนุญาตการตั้งค่าจำกัดก่อน",
+  "accessRestrictedTap": "ในการเข้าถึง กด \"DSH Phone Control\"; เมื่อ \"Restricted setting\" ปรากฏ กด ตกลง",
+  "accessRestrictedMenu": "ในข้อมูลแอป กดจุดสามจุดมุมขวาบน เลือก \"Allow restricted settings\"",
+  "accessRestrictedAdvanced": "ในข้อมูลแอป เปิด \"การตั้งค่าขั้นสูง\" และเปิด \"Allow restricted settings\"",
+  "accessRestrictedBack": "ย้อนกลับในการเข้าถึง เปิด \"DSH Phone Control\"",
+  "accessRestrictedHelp": "ดูวิธีทำ",
+  "accessOpenA11y": "เปิดการเข้าถึง",
+  "accessOpenAppInfo": "เปิดข้อมูลแอป",
+  "accessStateOn": "เปิด",
+  "accessStateOff": "ปิด",
+  "accessStateVisited": "เยี่ยมชมแล้ว",
+  "accessStateUnknown": "ตั้งค่า",
+  "accessSummaryAllSet": "ทั้งหมดตั้งค่าแล้ว",
+  "accessSummaryLeft": "{count, plural, =1{ยังปิด 1 รายการ} other{{count} รายการยังปิด}}",
   "@accessSummaryLeft": {
     "placeholders": {
       "count": {
@@ -122,9 +122,9 @@
       }
     }
   },
-  "accessSummaryMessage": "Turn on the rest anytime in Settings › General › System permissions",
-  "accessFinishFailed": "Couldn’t finish setup",
-  "accessVoiceDownload": "The voice model (about {size} MB) starts downloading once the engine is ready. Follow it in Settings › General › Voice input.",
+  "accessSummaryMessage": "เปิดส่วนที่เหลือได้ตลอดใน การตั้งค่า › General › System permissions",
+  "accessFinishFailed": "ไม่สามารถเสร็จสิ้นการตั้งค่าได้",
+  "accessVoiceDownload": "โมเดลเสียง (ประมาณ {size} MB) จะเริ่มดาวน์โหลดเมื่อเครื่องเคลื่อนไหวพร้อม ติดตามได้ใน การตั้งค่า › General › Voice input",
   "@accessVoiceDownload": {
     "placeholders": {
       "size": {
@@ -132,6 +132,6 @@
       }
     }
   },
-  "accessPageTitle": "System permissions",
-  "accessPageSubtitle": "What each feature needs from Android"
+  "accessPageTitle": "สิทธิ์ระบบ",
+  "accessPageSubtitle": "แต่ละฟีเจอร์ต้องการสิทธิ์อะไรจาก Android"
 }

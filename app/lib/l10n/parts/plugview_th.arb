@@ -1,7 +1,7 @@
 {
   "@@locale": "th",
   "plugViewInvalid": "Plugin view has an error",
-  "plugViewEmpty": "No data yet",
+  "plugViewEmpty": "ไม่ data yet",
   "plugViewImageUnavailable": "Can’t display image",
   "plugViewUnavailableList": "Can’t display list",
   "plugViewUnavailableKeyValue": "Can’t display details",
@@ -111,8 +111,8 @@
       }
     }
   },
-  "plugViewImageDecode": "Image can’t be decoded (PNG, JPEG, WebP or GIF only)",
-  "plugViewImagePixels": "Image exceeds the size limit: 4096 per side, 4 million pixels in total",
+  "plugViewImageDecode": "รูปภาพ can’t be decoded (PNG, JPEG, WebP or GIF only)",
+  "plugViewImagePixels": "รูปภาพ exceeds the size limit: 4096 per side, 4 million pixels in total",
   "plugViewTooDeep": "JSON nested deeper than {limit, plural, =1{1 level} other{{limit} levels}}",
   "@plugViewTooDeep": {
     "placeholders": {
@@ -122,7 +122,7 @@
     }
   },
   "plugViewV2Content": "Plugin content",
-  "plugViewVersionFallback": "View version {version} is not supported; using the compatible view",
+  "plugViewVersionFallback": "ดู version {version} is not supported; using the compatible view",
   "@plugViewVersionFallback": {
     "placeholders": {
       "version": {
@@ -160,5 +160,5 @@
   },
   "plugViewRichLimit": "Rich text exceeds the limit; truncated",
   "plugViewBadTrend": "trend takes 2–{max} numbers (nulls allowed); ignored",
-  "plugViewGalleryPicture": "Picture {index}"
+  "plugViewGalleryPicture": "รูป {index}"
 }

@@ -11,7 +11,7 @@
       }
     }
   },
-  "schemaDocumentationOption": "Option {option}",
+  "schemaDocumentationOption": "ตัวเลือก {option}",
   "@schemaDocumentationOption": {
     "placeholders": {
       "option": {

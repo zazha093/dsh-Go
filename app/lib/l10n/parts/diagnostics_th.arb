@@ -7,8 +7,8 @@
   "systemImeNotCollected": "Not collected",
   "systemImeCollecting": "Awaiting this attempt’s consent or result",
   "systemImeRetained": "Evidence retained",
-  "systemImeNoEvents": "No matching events found",
-  "systemImeUnavailable": "No selected, live privileged channel",
+  "systemImeNoEvents": "ไม่ matching events found",
+  "systemImeUnavailable": "ไม่ selected, live privileged channel",
   "systemImeUnsupported": "This version or channel does not support capture",
   "systemImeDenied": "This attempt was not approved",
   "systemImeCancelled": "This attempt was cancelled",
@@ -19,7 +19,7 @@
   "systemImeEventCount": "Retained events",
   "systemImeCapturedAt": "Captured at",
   "systemImePermissions": "Phone-control permissions (optional)",
-  "systemImePermissionsHint": "Configure a privileged channel only if you wish; it is not required for diagnostics. Existing phone permissions are not consent for this capture.",
-  "systemImeClear": "Clear evidence and cancel capture",
-  "systemImeMemory": "Memory only; cleared on restart. A new capture replaces old evidence. Included only in manual AI diagnostics or ZIP exports. Clearing does not retract snapshots or files already exported."
+  "systemImePermissionsHint": "กำหนดค่า a privileged channel only if you wish; it is not required for diagnostics. Existing phone permissions are not consent for this capture.",
+  "systemImeClear": "ล้าง evidence and cancel capture",
+  "systemImeMemory": "หน่วยความจำ only; cleared on restart. A new capture replaces old evidence. Included only in manual AI diagnostics or ZIP exports. Clearing does not retract snapshots or files already exported."
 }

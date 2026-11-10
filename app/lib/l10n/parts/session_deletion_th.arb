@@ -1,6 +1,6 @@
 {
   "@@locale": "th",
-  "shellDeletePermanently": "Delete permanently",
+  "shellDeletePermanently": "ลบ permanently",
   "shellDeleteNoUndo": "Cannot be undone; this is not archive",
   "shellDeleteChecking": "Checking whether this host supports permanent deletion…",
   "shellDeleteUnsupported": "This host does not support safe permanent deletion. Archive is still available.",
@@ -12,7 +12,7 @@
   "shellDeletingChats": "Deleting chats…",
   "shellChatsDeleted": "{count, plural, =1{Permanently deleted 1 chat} other{Permanently deleted {count} chats}}",
   "shellDeletePartial": "{deleted, plural, =1{Deleted 1 chat} other{Deleted {deleted} chats}}; {failed, plural, =1{1 failed} other{{failed} failed}}",
-  "shellDeleteRunning": "Stop running work before deleting. The host also checks active tasks and schedules.",
+  "shellDeleteRunning": "หยุด running work before deleting. The host also checks active tasks and schedules.",
   "shellDeleteRelated": "This chat has related subagent work. The host refused deletion to protect it.",
   "shellDeleteWriterHeld": "Another process is using this chat. Close it there and try again.",
   "shellDeleteNotFound": "The chat no longer exists on this host. Refresh the list.",

@@ -5,7 +5,7 @@
   "plugslotsSurfaceTurnNote": "Turn notes",
   "plugslotsSurfaceComposerActions": "Composer buttons",
   "plugslotsSurfaceMessageActions": "Message menu",
-  "plugslotsSurfaceComposerStrip": "Status line",
+  "plugslotsSurfaceComposerStrip": "สถานะ line",
   "plugslotsSurfacePanel": "Panels",
   "plugslotsNativeUi": "Native UI",
   "plugslotsIssueCount": "{count, plural, =1{1 problem} other{{count} problems}}",
@@ -16,8 +16,8 @@
       }
     }
   },
-  "plugslotsAllGood": "No problems",
-  "plugslotsViewSize": "View {size}",
+  "plugslotsAllGood": "ไม่ problems",
+  "plugslotsViewSize": "ดู {size}",
   "@plugslotsViewSize": {
     "placeholders": {
       "size": {
@@ -33,10 +33,10 @@
       }
     }
   },
-  "plugslotsLastView": "Last view",
-  "plugslotsLastInvoke": "Last response",
+  "plugslotsLastView": "สุดท้าย view",
+  "plugslotsLastInvoke": "สุดท้าย response",
   "plugslotsProblems": "Problems",
-  "plugslotsNoProblems": "No problems",
+  "plugslotsNoProblems": "ไม่ problems",
   "plugslotsWantsDraft": "{plugin} wants to read your draft",
   "@plugslotsWantsDraft": {
     "placeholders": {
@@ -62,7 +62,7 @@
     }
   },
   "plugslotsWantsWhen": "Only when you tap it",
-  "plugslotsAllow": "Allow",
+  "plugslotsAllow": "อนุญาต",
   "plugslotsNoResponse": "{plugin} didn't respond",
   "@plugslotsNoResponse": {
     "placeholders": {
@@ -79,7 +79,7 @@
       }
     }
   },
-  "plugslotsNeedsChat": "Open a chat first",
+  "plugslotsNeedsChat": "เปิด a chat first",
   "plugslotsFromPlugin": "From {plugin}",
   "@plugslotsFromPlugin": {
     "placeholders": {
@@ -125,7 +125,7 @@
   },
   "plugslotsIssueLate": "Came back more than 3 s after the tap; ignored",
   "plugslotsIssueHttps": "Only https links",
-  "plugslotsIssueUnknownPage": "No page called \"{page}\"",
+  "plugslotsIssueUnknownPage": "ไม่ page called \"{page}\"",
   "@plugslotsIssueUnknownPage": {
     "placeholders": {
       "page": {
@@ -151,7 +151,7 @@
     }
   },
   "plugslotsIssueMissing": "Missing a required field",
-  "plugslotsIssueDuplicate": "Duplicate id; skipped",
+  "plugslotsIssueDuplicate": "ซ้ำ id; skipped",
   "plugslotsIssueNoPlacement": "Nowhere to show it",
   "plugslotsWantsMessage": "{plugin} wants to read this reply",
   "@plugslotsWantsMessage": {
@@ -168,7 +168,7 @@
   "plugslotsCodeTooMany": "Too many; the extras are hidden",
   "plugslotsCodeTooLong": "Too long; shortened",
   "plugslotsCodeNoHandler": "Not handled by the plugin yet; hidden",
-  "plugslotsCodeUndeclared": "Registered but not declared; ignored",
+  "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but not declared; ignored",
   "plugslotsCodeViewFile": "Couldn't read the view file",
   "plugslotsCodeBadEffect": "Malformed action; skipped",
   "plugslotsCodeViolation": "Failed {count, plural, =1{once} other{{count} times}}",
@@ -186,10 +186,10 @@
   "plugslotsCodePluginError": "The plugin failed",
   "plugslotsCodeInvalidView": "The view is invalid",
   "plugslotsCodeLimit": "Too many subscriptions",
-  "plugslotsCodeOther": "Other problem",
+  "plugslotsCodeOther": "อื่นๆ problem",
   "plugslotsCodeUnknownEffect": "Unsupported action; skipped",
   "plugslotsNotDone": "Didn't finish",
-  "plugslotsWorking": "Working",
+  "plugslotsWorking": "กำลังทำงาน",
   "plugslotsTapToCancel": "Tap to cancel",
   "plugslotsCodeTooManyPending": "Two are still running",
   "plugslotsCodeNoStream": "The connection dropped",
@@ -221,11 +221,11 @@
   "plugslotsPlaceMessages": "In messages",
   "plugslotsPlaceOverlay": "Floating layer",
   "plugslotsPlaceSidebar": "Sidebar",
-  "plugslotsPlaceRightbar": "Right sidebar",
+  "plugslotsPlaceRightbar": "สิทธิ์ sidebar",
   "plugslotsPlaceFiles": "File previews",
-  "plugslotsPlaceSettings": "Settings",
+  "plugslotsPlaceSettings": "ตั้งค่า",
   "plugslotsPlacePlugins": "Plugins page",
-  "plugslotsPlaceNewChat": "New conversation",
+  "plugslotsPlaceNewChat": "ใหม่ conversation",
   "plugslotsPlaceElsewhere": "Elsewhere",
   "plugslotsPlaceUnknown": "Its web interface",
   "plugslotsChatEntry": "Plugins",

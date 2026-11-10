@@ -2,7 +2,7 @@
   "@@locale": "th",
   "nearbyThisChat": "This chat",
   "nearbyPermissionTitle": "Permissions for this chat",
-  "nearbyNewChatDefault": "New chats: {name}",
+  "nearbyNewChatDefault": "ใหม่ chats: {name}",
   "@nearbyNewChatDefault": {
     "placeholders": {
       "name": {
@@ -20,5 +20,5 @@
       }
     }
   },
-  "nearbyChange": "Change"
+  "nearbyChange": "เปลี่ยน"
 }

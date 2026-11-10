@@ -6,7 +6,7 @@
   "petActionBusy": "This chat is busy. Choose New chat.",
   "petActionVoiceMissing": "Download the offline voice model in the app first.",
   "petActionVoiceTitle": "Voice for Quick ask",
-  "petActionVoiceReturn": "Back to pet",
+  "petActionVoiceReturn": "ย้อนกลับ to pet",
   "petActionVoiceStop": "Finish recording",
   "petActionVoiceStart": "Record"
 }
