@@ -232,6 +232,7 @@
     }
   },
   "hubSettingsApiKey": "DeepSeek API Key",
+  "hubSettingsApiKeySection": "API Key",
   "hubPluginBrowserFailed": "没能打开浏览器，请手动访问 {address}",
   "@hubPluginBrowserFailed": {
     "placeholders": {

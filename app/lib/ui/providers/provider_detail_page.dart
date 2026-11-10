@@ -222,13 +222,13 @@ class _ProviderDetailPageState extends ConsumerState<ProviderDetailPage> {
               children: [
                 ListPageRow(
                   icon: AppIcons.link,
-                  title: 'Base URL',
+                  title: l10n.engineProviderBaseUrl,
                   subtitle: provider.baseUrl.isEmpty ? l10n.engineProviderDefaultUrl : provider.baseUrl,
                   subtitleMaxLines: 2,
                 ),
                 ListPageRow(
                   icon: AppIcons.apiKey,
-                  title: 'API Key',
+                  title: l10n.engineProviderApiKeyLabel,
                   value: provider.apiKeyEnv == null
                       ? l10n.engineProviderKeyNotRequired
                       : (keyStored ? l10n.commonSaved : l10n.commonNotSet),

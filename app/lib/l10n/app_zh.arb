@@ -3554,6 +3554,8 @@
   "engineProviderRejectedConfig": "引擎拒绝了部分配置",
   "engineProviderConnection": "连接",
   "engineProviderDefaultUrl": "默认地址",
+  "engineProviderBaseUrl": "Base URL",
+  "engineProviderApiKeyLabel": "API Key",
   "engineProviderKeyNotRequired": "不需要",
   "engineProviderNoModels": "还没有模型",
   "engineProviderWebConfigured": "这个渠道在网页版里配置，这里只能查看和删除",
@@ -5198,6 +5200,7 @@
     }
   },
   "hubSettingsApiKey": "DeepSeek API Key",
+  "hubSettingsApiKeySection": "API Key",
   "hubPluginBrowserFailed": "没能打开浏览器，请手动访问 {address}",
   "@hubPluginBrowserFailed": {
     "placeholders": {

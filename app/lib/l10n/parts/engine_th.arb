@@ -226,6 +226,8 @@
   "engineProviderRejectedConfig": "The engine rejected some settings",
   "engineProviderConnection": "Connection",
   "engineProviderDefaultUrl": "ค่าเริ่มต้น URL",
+  "engineProviderBaseUrl": "Base URL",
+  "engineProviderApiKeyLabel": "API Key",
   "engineProviderKeyNotRequired": "Not needed",
   "engineProviderNoModels": "ไม่ models yet",
   "engineProviderWebConfigured": "Configured in DSH Web. You can view or delete it here",

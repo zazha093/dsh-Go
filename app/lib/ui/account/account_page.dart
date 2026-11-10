@@ -417,8 +417,9 @@ class ApiKeySection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = context.l10n;
     final hasKey = ref.watch(settingsProvider.select((s) => s.hasApiKey));
-    return SettingsSection(title: 'API Key', children: [const ApiKeyTile(), if (hasKey) const BalanceSettingsLine()]);
+    return SettingsSection(title: l10n.hubSettingsApiKeySection, children: [const ApiKeyTile(), if (hasKey) const BalanceSettingsLine()]);
   }
 }
 
@@ -440,7 +441,7 @@ class ApiKeyTile extends ConsumerWidget {
       icon: AppIcons.apiKey,
       tint: tint,
       tinted: tinted,
-      title: 'DeepSeek API Key',
+      title: l10n.hubSettingsApiKey,
       value: settings.hasApiKey
           ? Text(maskApiKey(settings.apiKey), style: AppType.monoLabel(color: scheme.onSurfaceVariant))
           : Text(l10n.commonNotSet, style: TextStyle(color: colors.textTertiary)),

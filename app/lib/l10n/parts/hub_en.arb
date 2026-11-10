@@ -115,6 +115,7 @@
   "hubSettingsAccountSemantics": "Account: {title}, {subtitle}",
   "hubSettingsHostSemantics": "Remote host: {name}, {status}",
   "hubSettingsApiKey": "DeepSeek API key",
+  "hubSettingsApiKeySection": "API Key",
   "hubPluginBrowserFailed": "Couldn’t open the browser. Visit {address} manually",
   "hubPluginYearMonth": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {year}",
   "hubPluginUpdateTo": "Update to {version}",

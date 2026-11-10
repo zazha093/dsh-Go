@@ -116,6 +116,7 @@
   "hubSettingsAccountSemantics": "บัญชี: {title}, {subtitle}",
   "hubSettingsHostSemantics": "โฮสต์ระยะไกล: {name}, {status}",
   "hubSettingsApiKey": "DeepSeek API Key",
+  "hubSettingsApiKeySection": "API Key",
   "hubPluginBrowserFailed": "เปิดเบราว์เซอร์ไม่ได้ เปิด {address} เอง",
   "hubPluginYearMonth": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {year}",
   "hubPluginUpdateTo": "อัปเดตเป็น {version}",
