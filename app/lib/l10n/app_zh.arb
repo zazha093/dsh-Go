@@ -2886,17 +2886,6 @@
       }
     }
   },
-  "alerttitlealerttexthostnameNull": "{alert_title}，{alert_text}${hostName == null ? ",
-  "@alerttitlealerttexthostnameNull": {
-    "placeholders": {
-      "alert_title": {
-        "type": "String"
-      },
-      "alert_text": {
-        "type": "String"
-      }
-    }
-  },
   "atitleAdetail": "{a_title} {a_detail}",
   "@atitleAdetail": {
     "placeholders": {
@@ -2923,6 +2912,20 @@
   "@failed1": {
     "placeholders": {
       "failed": {
+        "type": "String"
+      }
+    }
+  },
+  "alertTitleTextHostName": "{title}{text}{hostNameSuffix}",
+  "@alertTitleTextHostName": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "text": {
+        "type": "String"
+      },
+      "hostNameSuffix": {
         "type": "String"
       }
     }
