@@ -28,7 +28,7 @@ jobs:
       - name: Run Python scanner for all file types
         run: |
           cd i18n-tools
-          python3 ast_scan/scan_others.py ../../app ../../literals.json
+          python3 ast_scan/scan_others.py ../app ../literals.json
 
       - name: Upload literals artifact
         uses: actions/upload-artifact@v4
