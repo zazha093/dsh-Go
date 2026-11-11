@@ -2,12 +2,14 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:analyzer/dart/parser/parser.dart';
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/dart/ast/token.dart';
 import 'package:path/path.dart' as p;
 import 'package:args/args.dart';
+
+// Import the main analyzer entry point which should export parseString
+import 'package:analyzer/analyzer.dart';
 
 class StringLiteralInfo {
   final String filePath;
@@ -99,7 +101,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
             ? node.literal
             : node is StringInterpolation
                 ? _extractLiteralFromInterpolation(node)
-                : '');
+                : '') as String;
 
     // Skip empty strings
     if (literal.trim().isEmpty) return;
@@ -158,7 +160,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
     if (parent is ArgumentList) {
       final grandParent = parent.parent;
       if (grandParent is InstanceCreationExpression) {
-        final typeName = grandParent.constructorName.type?.name2?.name ?? '';
+        final typeName = _getTypeName(grandParent.constructorName.type);
         if (typeName.contains('Text')) {
           return 'Text';
         }
@@ -192,6 +194,15 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
 
     return parentProperty.isNotEmpty ? parentProperty : parent.runtimeType.toString();
   }
+
+  String _getTypeName(TypeAnnotation? type) {
+    if (type == null) return '';
+    if (type is NamedType) {
+      // Get the name from the type - use name2 which is a Token, get its lexeme
+      return type.name2.lexeme ?? '';
+    }
+    return type.toString();
+  }
 }
 
 Future<void> scanFile(String filePath, List<StringLiteralInfo> allResults) async {
@@ -201,9 +212,9 @@ Future<void> scanFile(String filePath, List<StringLiteralInfo> allResults) async
   final sourceCode = await file.readAsString();
   final lineInfo = LineInfo.fromContent(sourceCode);
 
-  // Parse the Dart file
-  final parser = Parser();
-  final parseResult = parser.parseString(content: sourceCode, path: filePath);
+  // Parse the Dart file using parseString from the analyzer package
+  // parseString should be available from package:analyzer/analyzer.dart
+  final parseResult = parseString(content: sourceCode, path: filePath);
 
   if (parseResult.errors.isNotEmpty) {
     // Log errors but continue
