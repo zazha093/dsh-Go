@@ -9,7 +9,7 @@ import 'package:path/path.dart' as p;
 import 'package:args/args.dart';
 
 // Import parseString from the analyzer package
-// In analyzer 6.12.0+, parseString is available from package:analyzer/dart/ast/parser.dart
+// In analyzer 6.9.0+, parseString is available from package:analyzer/dart/ast/parser.dart
 import 'package:analyzer/dart/ast/parser.dart';
 
 class StringLiteralInfo {
