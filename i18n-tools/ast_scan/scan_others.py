@@ -590,7 +590,7 @@ def main():
     dart_scanner = DartScanner()
     dart_results = scan_directory(
         dart_scanner,
-        app_root / 'app' / 'lib',
+        app_root / 'lib',
         app_root,
         ['*.dart']
     )
@@ -602,7 +602,7 @@ def main():
     kotlin_scanner = KotlinScanner()
     kotlin_results = scan_directory(
         kotlin_scanner,
-        app_root / 'app' / 'android' / 'app' / 'src' / 'main' / 'kotlin',
+        app_root / 'android' / 'app' / 'src' / 'main' / 'kotlin',
         app_root,
         ['*.kt']
     )
@@ -614,7 +614,7 @@ def main():
     xml_scanner = XMLScanner()
     xml_results = scan_directory(
         xml_scanner,
-        app_root / 'app' / 'android' / 'app' / 'src' / 'main' / 'res',
+        app_root / 'android' / 'app' / 'src' / 'main' / 'res',
         app_root,
         ['*.xml']
     )
@@ -626,7 +626,7 @@ def main():
     js_scanner = JavaScriptScanner()
     js_results = scan_directory(
         js_scanner,
-        app_root / 'app' / 'assets',
+        app_root / 'assets',
         app_root,
         ['*.js', '*.ts']
     )
@@ -638,7 +638,7 @@ def main():
     html_scanner = HTMLScanner()
     html_results = scan_directory(
         html_scanner,
-        app_root / 'app' / 'assets',
+        app_root / 'assets',
         app_root,
         ['*.html']
     )
@@ -650,7 +650,7 @@ def main():
     json_scanner = JSONScanner()
     arb_results = scan_directory(
         json_scanner,
-        app_root / 'app' / 'lib' / 'l10n',
+        app_root / 'lib' / 'l10n',
         app_root,
         ['*.arb', '*.json']
     )
@@ -660,7 +660,7 @@ def main():
     # Also scan assets JSON
     asset_json_results = scan_directory(
         json_scanner,
-        app_root / 'app' / 'assets',
+        app_root / 'assets',
         app_root,
         ['*.json']
     )
