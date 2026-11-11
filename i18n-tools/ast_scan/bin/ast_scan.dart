@@ -8,8 +8,9 @@ import 'package:analyzer/dart/ast/token.dart';
 import 'package:path/path.dart' as p;
 import 'package:args/args.dart';
 
-// Try to import the internal parser API
-import 'package:analyzer/src/dart/parser/parser.dart';
+// Import parseString from the analyzer package
+// In analyzer 6.12.0+, parseString is available from package:analyzer/dart/ast/parser.dart
+import 'package:analyzer/dart/ast/parser.dart';
 
 class StringLiteralInfo {
   final String filePath;
@@ -212,9 +213,8 @@ Future<void> scanFile(String filePath, List<StringLiteralInfo> allResults) async
   final sourceCode = await file.readAsString();
   final lineInfo = LineInfo.fromContent(sourceCode);
 
-  // Parse the Dart file using the internal Parser class
-  final parser = Parser();
-  final parseResult = parser.parseString(content: sourceCode, path: filePath);
+  // Parse the Dart file using parseString from analyzer
+  final parseResult = parseString(content: sourceCode, path: filePath);
 
   if (parseResult.errors.isNotEmpty) {
     // Log errors but continue
