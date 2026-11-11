@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
-import 'package:analyzer/dart/ast/parser.dart';
+import 'package:analyzer/dart/parser/parser.dart';
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/dart/ast/token.dart';
@@ -94,7 +94,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
     String? combinedLiteral,
   }) {
     final location = lineInfo.getLocation(node.offset);
-    final literal = combinedLiteral ??
+    final String literal = combinedLiteral ??
         (node is SimpleStringLiteral
             ? node.literal
             : node is StringInterpolation
@@ -158,7 +158,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
     if (parent is ArgumentList) {
       final grandParent = parent.parent;
       if (grandParent is InstanceCreationExpression) {
-        final typeName = grandParent.constructorName.type?.name.name ?? '';
+        final typeName = grandParent.constructorName.type?.name2?.name ?? '';
         if (typeName.contains('Text')) {
           return 'Text';
         }
@@ -170,7 +170,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
              'ExpansionTile', 'Card', 'SettingsTile', 'ListPageRow',
              'SheetTitleBar', 'SheetHeader', 'InfoRow', 'PillSegment',
              'FieldBadge', 'HostedLinksSettingsTile', 'UsageStatsSection'].any(
-               (t) => typeName.contains(t))) {
+                  (t) => typeName.contains(t))) {
           return typeName;
         }
       }
@@ -202,7 +202,8 @@ Future<void> scanFile(String filePath, List<StringLiteralInfo> allResults) async
   final lineInfo = LineInfo.fromContent(sourceCode);
 
   // Parse the Dart file
-  final parseResult = parseString(content: sourceCode, path: filePath);
+  final parser = Parser();
+  final parseResult = parser.parseString(content: sourceCode, path: filePath);
 
   if (parseResult.errors.isNotEmpty) {
     // Log errors but continue
