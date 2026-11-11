@@ -1,6 +1,8 @@
 import 'dart:io';
+import 'dart:convert';
 import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/ast/visitor.dart';
+import 'package:analyzer/dart/ast/parser.dart';
 import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/source/line_info.dart';
 import 'package:analyzer/dart/ast/token.dart';
@@ -57,7 +59,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
 
   @override
   void visitSimpleStringLiteral(SimpleStringLiteral node) {
-    _processStringLiteral(node, false, []);
+    _processStringLiteral(node, isInterpolation: false, interpolationExpressions: []);
     super.visitSimpleStringLiteral(node);
   }
 
@@ -72,7 +74,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
         ).trim());
       }
     }
-    _processStringLiteral(node, true, expressions);
+    _processStringLiteral(node, isInterpolation: true, interpolationExpressions: expressions);
     super.visitStringInterpolation(node);
   }
 
@@ -81,7 +83,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
     final combinedLiteral = node.strings
         .map((s) => s is SimpleStringLiteral ? s.literal : '')
         .join('');
-    _processStringLiteral(node, false, [], combinedLiteral: combinedLiteral);
+    _processStringLiteral(node, isInterpolation: false, interpolationExpressions: [], combinedLiteral: combinedLiteral);
     super.visitAdjacentStrings(node);
   }
 
@@ -156,7 +158,7 @@ class StringLiteralVisitor extends RecursiveAstVisitor<void> {
     if (parent is ArgumentList) {
       final grandParent = parent.parent;
       if (grandParent is InstanceCreationExpression) {
-        final typeName = grandParent.constructorName.type?.getDisplayString() ?? '';
+        final typeName = grandParent.constructorName.type?.name.name ?? '';
         if (typeName.contains('Text')) {
           return 'Text';
         }
