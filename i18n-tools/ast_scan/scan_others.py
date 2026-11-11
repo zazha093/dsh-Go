@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Scanner for non-Dart files: Kotlin, XML, JavaScript/TypeScript, HTML, JSON/ARB
+Also includes a regex-based Dart scanner.
 Extracts string literals with context information.
 """
 
@@ -370,6 +371,196 @@ class JSONScanner:
         return 1
 
 
+class DartScanner:
+    """Extract string literals from Dart files using regex."""
+    
+    # Pattern for Dart string literals:
+    # - Regular strings: "..." or '...' (with escape sequences)
+    # - Raw strings: r"..." or r'...' (no escape processing)
+    # - Multi-line strings: """...""" or '''...'''
+    # - Raw multi-line: r"""...""" or r'''...'''
+    # - String interpolation: $var or ${expr}
+    STRING_PATTERN = re.compile(
+        r'(?:r?"""[\s\S]*?"""|r?\'\'\'[\s\S]*?\'\'\'|r?"(?:[^"\\]|\\.)*"|r?\'(?:[^\'\\]|\\.)*\')'
+    )
+    
+    # Common Dart/Flutter widget names for context detection
+    WIDGET_NAMES = {
+        'Text', 'AppBar', 'Tab', 'MenuItem', 'ListTile', 'Button', 'Chip',
+        'AlertDialog', 'SnackBar', 'Tooltip', 'RichText', 'TextSpan',
+        'TextField', 'InputDecoration', 'IconButton', 'FloatingActionButton',
+        'PopupMenuItem', 'DropdownMenuItem', 'ExpansionTile', 'Card',
+        'SettingsTile', 'ListPageRow', 'SheetTitleBar', 'SheetHeader',
+        'InfoRow', 'PillSegment', 'FieldBadge', 'HostedLinksSettingsTile',
+        'UsageStatsSection', 'Container', 'Column', 'Row', 'Stack',
+        'Padding', 'Margin', 'Center', 'Align', 'SizedBox', 'Expanded',
+        'Flexible', 'ListView', 'GridView', 'SingleChildScrollView',
+        'Wrap', 'Flow', 'Table', 'DataTable', 'SelectableText',
+        'TextFormField', 'Form', 'FormField', 'DropdownButton',
+        'Checkbox', 'Radio', 'Switch', 'Slider', 'ProgressIndicator',
+        'CircularProgressIndicator', 'LinearProgressIndicator',
+        'BottomNavigationBar', 'NavigationBar', 'TabBar', 'TabBarView',
+        'Drawer', 'EndDrawer', 'BottomSheet', 'ModalBottomSheet',
+        'Dialog', 'SimpleDialog', 'CupertinoDialog', 'MaterialDialog',
+        'SnackBar', 'Banner', 'MaterialBanner', 'Tooltip',
+        'PopupMenuButton', 'DropdownMenu', 'MenuAnchor', 'MenuItemButton',
+        'ListTile', 'Card', 'InkWell', 'GestureDetector', 'InkResponse',
+        'AnimatedContainer', 'AnimatedOpacity', 'AnimatedPositioned',
+        'Hero', 'FadeInImage', 'Image', 'Icon', 'CircleAvatar',
+        'ClipRect', 'ClipRRect', 'ClipOval', 'ClipPath',
+        'Transform', 'RotatedBox', 'FittedBox', 'AspectRatio',
+        'ConstrainedBox', 'UnconstrainedBox', 'IntrinsicWidth',
+        'IntrinsicHeight', 'LimitedBox', 'Offstage', 'Opacity',
+        'Visibility', 'AbsorbPointer', 'IgnorePointer', 'Focus',
+        'FocusScope', 'Actions', 'Shortcuts', 'Listener',
+        'MouseRegion', 'Draggable', 'DragTarget', 'LongPressDraggable',
+        'Scrollbar', 'ScrollConfiguration', 'NotificationListener',
+        'GestureDetector', 'InkWell', 'InkResponse', 'ButtonTheme',
+        'TextTheme', 'IconTheme', 'ColorScheme', 'Theme',
+        'MediaQuery', 'LayoutBuilder', 'OrientationBuilder',
+        'Builder', 'StatefulBuilder', 'InheritedWidget',
+        'InheritedNotifier', 'InheritedModel', 'NotificationListener',
+        'ValueListenableBuilder', 'StreamBuilder', 'FutureBuilder',
+        'AnimatedBuilder', 'AnimatedWidget', 'TweenAnimationBuilder',
+        'CustomPaint', 'CustomSingleChildLayout', 'CustomMultiChildLayout',
+        'Flow', 'Viewport', 'RenderObjectWidget', 'LeafRenderObjectWidget',
+        'SingleChildRenderObjectWidget', 'MultiChildRenderObjectWidget',
+        'ParentDataWidget', 'RenderObjectElement', 'RenderObject',
+        'Container', 'ColoredBox', 'DecoratedBox', 'FractionallySizedBox',
+        'ConstrainedBox', 'SizedBox', 'SizedOverflowBox', 'LimitedBox',
+        'Offstage', 'Opacity', 'Visibility', 'AbsorbPointer', 'IgnorePointer',
+        'ClipRect', 'ClipRRect', 'ClipOval', 'ClipPath', 'Transform',
+        'RotatedBox', 'FittedBox', 'AspectRatio', 'FractionalTranslation',
+        'Padding', 'Align', 'Center', 'Positioned', 'Stack', 'IndexedStack',
+        'Row', 'Column', 'Flex', 'Wrap', 'Flow', 'Table', 'GridView',
+        'ListView', 'PageView', 'CustomScrollView', 'NestedScrollView',
+        'SingleChildScrollView', 'ScrollView', 'Scrollable', 'Scrollbar',
+        'RefreshIndicator', 'SliverAppBar', 'SliverList', 'SliverGrid',
+        'SliverToBoxAdapter', 'SliverPadding', 'SliverFillRemaining',
+        'SliverFillViewport', 'SliverFixedExtentList', 'SliverPrototypeExtentList',
+    }
+    
+    # Common property names for text content
+    TEXT_PROPERTIES = {
+        'text', 'label', 'title', 'tooltip', 'hintText', 'helperText',
+        'errorText', 'counterText', 'placeholder', 'semanticLabel',
+        'prefixText', 'suffixText', 'prefix', 'suffix', 'content',
+        'message', 'description', 'summary', 'caption', 'subtitle',
+        'header', 'footer', 'leading', 'trailing', 'textAlign',
+        'style', 'strutStyle', 'textAlign', 'textDirection', 'softWrap',
+        'overflow', 'textScaleFactor', 'maxLines', 'minLines',
+    }
+    
+    def scan_file(self, file_path: Path, base_path: Path) -> List[StringLiteralInfo]:
+        results = []
+        try:
+            content = file_path.read_text(encoding='utf-8')
+        except Exception as e:
+            print(f"Error reading {file_path}: {e}")
+            return results
+        
+        rel_path = file_path.relative_to(base_path)
+        lines = content.split('\n')
+        
+        for line_num, line in enumerate(lines, 1):
+            for match in self.STRING_PATTERN.finditer(line):
+                literal = match.group(0)
+                is_raw = literal.startswith('r')
+                is_multiline = literal.startswith('"""') or literal.startswith("'''")
+                
+                # Remove quotes and raw prefix
+                if is_raw:
+                    literal = literal[1:]  # Remove 'r'
+                
+                if is_multiline:
+                    if literal.startswith('"""') and literal.endswith('"""'):
+                        literal = literal[3:-3]
+                    elif literal.startswith("'''") and literal.endswith("'''"):
+                        literal = literal[3:-3]
+                elif literal.startswith('"') and literal.endswith('"'):
+                    literal = literal[1:-1]
+                elif literal.startswith("'") and literal.endswith("'"):
+                    literal = literal[1:-1]
+                else:
+                    continue
+                
+                if not literal.strip():
+                    continue
+                
+                # Check for interpolation
+                is_interpolation = '$' in literal and ('${' in literal or 
+                    any(c.isalpha() or c == '_' for c in literal.split('$')[1:]))
+                
+                interpolation_exprs = []
+                if is_interpolation:
+                    # Extract ${...} expressions
+                    expr_matches = re.finditer(r'\$\{([^}]+)\}', literal)
+                    for em in expr_matches:
+                        interpolation_exprs.append(em.group(1).strip())
+                    # Also extract $var patterns
+                    var_matches = re.finditer(r'\$([a-zA-Z_][a-zA-Z0-9_]*)', literal)
+                    for vm in var_matches:
+                        if vm.group(1) not in [e.split('.')[0] for e in interpolation_exprs]:
+                            interpolation_exprs.append(vm.group(1))
+                
+                # Determine context
+                context = self._determine_context(line, match.start())
+                
+                results.append(StringLiteralInfo(
+                    file=str(rel_path),
+                    line=line_num,
+                    column=match.start() + 1,
+                    literal=literal,
+                    parent_type='Dart',
+                    parent_property=context['property'],
+                    context=context['context'],
+                    is_interpolation=is_interpolation,
+                    interpolation_expressions=interpolation_exprs,
+                ))
+        
+        return results
+    
+    def _determine_context(self, line: str, pos: int) -> Dict[str, str]:
+        """Determine the context of a string literal in Dart."""
+        # Look for named parameters: property: "value"
+        prop_match = re.search(r'(\w+)\s*:\s*$', line[:pos])
+        if prop_match:
+            prop = prop_match.group(1)
+            if prop in self.TEXT_PROPERTIES:
+                return {'property': prop, 'context': f'property:{prop}'}
+            return {'property': prop, 'context': f'named_arg:{prop}'}
+        
+        # Look for property assignments: property = "value"
+        prop_match = re.search(r'(\w+)\s*=\s*$', line[:pos])
+        if prop_match:
+            prop = prop_match.group(1)
+            return {'property': prop, 'context': f'property:{prop}'}
+        
+        # Look for function/method calls: func("value")
+        func_match = re.search(r'(\w+)\s*\(\s*$', line[:pos])
+        if func_match:
+            func = func_match.group(1)
+            if func in self.WIDGET_NAMES:
+                return {'property': func, 'context': f'widget:{func}'}
+            return {'property': func, 'context': f'function:{func}'}
+        
+        # Look for method calls on objects: obj.method("value")
+        method_match = re.search(r'\.(\w+)\s*\(\s*$', line[:pos])
+        if method_match:
+            method = method_match.group(1)
+            return {'property': method, 'context': f'method:{method}'}
+        
+        # Look for widget constructor: WidgetName("value")
+        # Check if previous word is a known widget
+        widget_match = re.search(r'(\w+)\s*$', line[:pos])
+        if widget_match:
+            widget = widget_match.group(1)
+            if widget in self.WIDGET_NAMES:
+                return {'property': widget, 'context': f'widget:{widget}'}
+        
+        return {'property': 'unknown', 'context': 'unknown'}
+
+
 def scan_directory(scanner, dir_path: Path, base_path: Path, patterns: List[str]) -> List[StringLiteralInfo]:
     """Scan a directory with a specific scanner."""
     results = []
@@ -393,6 +584,18 @@ def main():
         sys.exit(1)
     
     all_results = []
+    
+    # Dart files
+    print("Scanning Dart files...")
+    dart_scanner = DartScanner()
+    dart_results = scan_directory(
+        dart_scanner,
+        app_root / 'app' / 'lib',
+        app_root,
+        ['*.dart']
+    )
+    all_results.extend(dart_results)
+    print(f"  Found {len(dart_results)} Dart string literals")
     
     # Kotlin files
     print("Scanning Kotlin files...")
