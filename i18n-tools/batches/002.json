@@ -1,0 +1,22 @@
+{
+  "app_lib_dev_pet_actions_probe_main_dart:389:38": "โปรบการกระทำสัตว์เลี้ยง — ตัวจัดการแบบเฉพาะท้องถิ่น",
+  "app_lib_dev_pet_actions_probe_main_dart:400:85": "อนุมัติเมล็ดพันธุ์",
+  "app_lib_dev_pet_actions_probe_main_dart:401:85": "คำถามเมล็ดพันธุ์",
+  "app_lib_ui_bots_install_card_dart:39:67": "DS Bot",
+  "app_lib_ui_engine_settings_namespace_copy_dart:46:26": "API Key",
+  "app_lib_ui_engine_settings_sequence_field_dart:188:76": "${node.value}",
+  "app_lib_ui_pets_pet_picker_dart:155:25": "· ${codexWarningText(l10n, code)}",
+  "app_lib_ui_remote_ssh_host_form_dart:594:58": "~/code",
+  "app_lib_ui_settings_privacy_page_dart:43:18": "${l10n.phoneLocalOcrDisclosure}\n\n${l10n.phoneLocalOcrDetails}",
+  "app_lib_ui_share_hosted_hosted_links_tile_dart:28:33": "$count",
+  "app_lib_ui_update_update_sheet_dart:156:28": "DSH ${latest.version.name}",
+  "app_lib_ui_chat_dsh_ui_dsh_ui_plugin_controls_dart:1181:14": "${section.label} · ${_page + 1}/$count",
+  "app_lib_ui_chat_widgets_activity_strip_dart:213:6": "${a.title} ${a.detail}",
+  "app_lib_ui_chat_widgets_tool_row_dart:220:6": "${view.verb} $summary",
+  "app_lib_ui_chat_widgets_tool_row_dart:714:14": "$failed",
+  "app_lib_ui_features_preset_editor_preset_editor_page_dart:422:8": "$title · $on/${rows.length}",
+  "app_lib_ui_features_schedule_editor_schedule_pickers_dart:241:26": "$d",
+  "app_lib_ui_plugins_native_composer_strip_dart:88:6": "$title $text",
+  "app_lib_ui_settings_appearance_appearance_page_dart:55:10": "${accent.label} · $mode",
+  "app_lib_ui_shell_adaptive_adaptive_rail_dart:107:20": "$name · ${status.label}"
+}

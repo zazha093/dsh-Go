@@ -1,0 +1,36 @@
+# Denylist - Brands and technical terms that must NOT be translated
+# One term per line. Case-insensitive matching.
+# Only include PROPER NOUNS (brand names), not generic technical terms
+
+DeepSeek
+npm
+pnpm
+Node.js
+AGENTS.md
+NOTES.md
+PROGRESS.md
+DSH
+GitHub
+Flutter
+Termux
+proot
+Ubuntu
+Android
+JSON
+URL
+Terminal
+Skills
+Agent
+Chat log
+Volcengine
+Ark
+Alibaba
+Model Studio
+SiliconFlow
+OpenAI
+Gemini
+SSH
+DSH Remote
+DS Bot
+bad-effect
+API Key

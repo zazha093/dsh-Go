@@ -1,0 +1,16 @@
+name: ast_scan
+description: AST scanner for extracting string literals from Dart code
+version: 1.0.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  analyzer: ^6.4.0
+  path: ^1.9.0
+  args: ^2.5.0
+  collection: ^1.18.0
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.25.0

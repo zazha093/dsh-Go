@@ -1,0 +1,94 @@
+name: i18n AST Scan (fork-only)
+
+on:
+  push:
+    branches: [test/thai-build]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  ast-scan:
+    name: Dart AST Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Flutter
+        uses: flutter-actions/setup-flutter@v3
+        with:
+          channel: stable
+          version: '3.24.0'
+
+      - name: Get dependencies for AST scanner
+        run: |
+          cd i18n-tools/ast_scan
+          dart pub get
+
+      - name: Run AST scanner on app/lib
+        run: |
+          cd i18n-tools/ast_scan
+          dart run bin/ast_scan.dart -i ../../app/lib -o literals_dart.json --exclude "test,.dart_tool,build,generated"
+
+      - name: Run Python scanner for Kotlin/XML/Web/JSON
+        run: |
+          cd i18n-tools
+          python3 ast_scan/scan_others.py ../../app ../../literals_others.json
+
+      - name: Combine results
+        run: |
+          cd i18n-tools
+          python3 ast_scan/combine_results.py literals_dart.json literals_others.json literals.json
+
+      - name: Upload literals artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: literals
+          path: i18n-tools/literals.json
+          retention-days: 7
+
+      - name: Summary
+        run: |
+          echo "## i18n AST Scan Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          python3 -c "
+import json
+with open('i18n-tools/literals.json') as f:
+    data = json.load(f)
+print(f'- Total literals: {data[\"totalLiterals\"]}') >> $GITHUB_STEP_SUMMARY
+for file, items in data['byFile'].items():
+    print(f'- {file}: {len(items)} literals') >> $GITHUB_STEP_SUMMARY
+"
+
+  validate-literals:
+    name: Validate Literals
+    runs-on: ubuntu-latest
+    needs: ast-scan
+    timeout-minutes: 10
+    steps:
+      - name: Download literals artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: literals
+          path: i18n-tools/
+
+      - name: Validate JSON structure
+        run: |
+          python3 -c "
+import json
+with open('i18n-tools/literals.json') as f:
+    data = json.load(f)
+assert 'totalLiterals' in data
+assert 'byFile' in data
+assert isinstance(data['totalLiterals'], int)
+assert isinstance(data['byFile'], dict)
+print('JSON structure valid')
+print(f'Total literals: {data[\"totalLiterals\"]}')
+print(f'Files scanned: {len(data[\"byFile\"])}')
+"
