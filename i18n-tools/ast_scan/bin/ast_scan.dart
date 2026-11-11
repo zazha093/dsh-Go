@@ -8,8 +8,8 @@ import 'package:analyzer/dart/ast/token.dart';
 import 'package:path/path.dart' as p;
 import 'package:args/args.dart';
 
-// Import the main analyzer entry point which should export parseString
-import 'package:analyzer/analyzer.dart';
+// Try to import the standard AST factory which might have parseString
+import 'package:analyzer/dart/ast/standard_ast_factory.dart';
 
 class StringLiteralInfo {
   final String filePath;
@@ -212,9 +212,10 @@ Future<void> scanFile(String filePath, List<StringLiteralInfo> allResults) async
   final sourceCode = await file.readAsString();
   final lineInfo = LineInfo.fromContent(sourceCode);
 
-  // Parse the Dart file using parseString from the analyzer package
-  // parseString should be available from package:analyzer/analyzer.dart
-  final parseResult = parseString(content: sourceCode, path: filePath);
+  // Parse the Dart file using StandardAstFactory
+  // StandardAstFactory might have a parseString method
+  final factory = StandardAstFactory();
+  final parseResult = factory.parseString(content: sourceCode, path: filePath);
 
   if (parseResult.errors.isNotEmpty) {
     // Log errors but continue
