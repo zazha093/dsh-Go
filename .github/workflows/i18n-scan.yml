@@ -57,14 +57,14 @@ jobs:
         run: |
           echo "## i18n AST Scan Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          python3 -c "
-import json
-with open('i18n-tools/literals.json') as f:
-    data = json.load(f)
-print(f'- Total literals: {data[\"totalLiterals\"]}') >> $GITHUB_STEP_SUMMARY
-for file, items in data['byFile'].items():
-    print(f'- {file}: {len(items)} literals') >> $GITHUB_STEP_SUMMARY
-"
+          python3 << 'PYEOF'
+          import json
+          with open('i18n-tools/literals.json') as f:
+              data = json.load(f)
+          print(f'- Total literals: {data["totalLiterals"]}')
+          for file, items in data['byFile'].items():
+              print(f'- {file}: {len(items)} literals')
+          PYEOF
 
   validate-literals:
     name: Validate Literals
@@ -80,15 +80,15 @@ for file, items in data['byFile'].items():
 
       - name: Validate JSON structure
         run: |
-          python3 -c "
-import json
-with open('i18n-tools/literals.json') as f:
-    data = json.load(f)
-assert 'totalLiterals' in data
-assert 'byFile' in data
-assert isinstance(data['totalLiterals'], int)
-assert isinstance(data['byFile'], dict)
-print('JSON structure valid')
-print(f'Total literals: {data[\"totalLiterals\"]}')
-print(f'Files scanned: {len(data[\"byFile\"])}')
-"
+          python3 << 'PYEOF'
+          import json
+          with open('i18n-tools/literals.json') as f:
+              data = json.load(f)
+          assert 'totalLiterals' in data
+          assert 'byFile' in data
+          assert isinstance(data['totalLiterals'], int)
+          assert isinstance(data['byFile'], dict)
+          print('JSON structure valid')
+          print(f'Total literals: {data["totalLiterals"]}')
+          print(f'Files scanned: {len(data["byFile"])}')
+          PYEOF
