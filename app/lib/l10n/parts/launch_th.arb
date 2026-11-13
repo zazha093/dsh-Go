@@ -14,7 +14,7 @@
   "launchPreview": "พรีVUE",
   "launchFooter": "Pictures แอนด์ animations ขึ้น ไป 8 MB, videos ขึ้น ไป 30 MB. Plays ผ่าน หนึ่งครั้ง เปิด  cold เริ่ม; tap ไป สกิป.",
   "launchChanged": "เปิด screen changed",
-  "launchChangedSize": "เปิด screen changed · {ไซส์}",
+  "launchChangedSize": "{size} เปิด screen changed · {ไซส์}",
   "launchTooLarge": " picture คือ เกิน 8 MB",
   "launchOverLimit": " ไฟล์ คือ เกิน 30 MB",
   "launchUnsupported": "Use  PNG, JPEG, WebP, GIF ออร์ MP4",

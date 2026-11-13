@@ -38,7 +38,7 @@
   "phoneEngineReset": "รีเซ็ต runtime",
   "phoneEngineResetHint": "ลบ chats แอนด์ files, แล้ว extract อีกครั้ง",
   "phoneEngineResetTitle": "รีเซ็ต  runtime?",
-  "phoneResetAlsoDeletes": "Anything มิฉะนั้น ใน  โฮม โฟลเดอร์ (/รูท) goes เกินไป, including files ใน your workspaces, AGENTS.md แอนด์ data that plugins store themselves, such ในฐานะ memories.",
+  "phoneResetAlsoDeletes": "Anything มิฉะนั้น ใน  โฮม โฟลเดอร์ (/root) goes เกินไป, including files ใน your workspaces, AGENTS.md แอนด์ data that plugins store themselves, such ในฐานะ memories.",
   "phoneEngineKeepUiSkills": "Keep อินเตอร์เฟซ ตั้งค่า แอนด์ skills",
   "phoneEngineKeepPluginsSettings": "Keep installed plugins แอนด์ ตั้งค่า",
   "phoneEngineDeleteReset": "ลบ แอนด์ รีเซ็ต",
@@ -148,10 +148,10 @@
   "phoneDndSuiAllSet": "Sui คือ ready.",
   "phoneDndSuiPermissionFailed": "Couldn’t ถาม Sui สำหรับ สิทธิ์. เช็ค that  Sui โมดูล คือ enabled แอนด์ ทราย อีกครั้ง.",
   "phoneDndRootWaiting": "กำลังรอ สำหรับ root. Answer your root manager’s prompt.",
-  "phoneDndRootConnected": "รูท คือ connected. ถ้า it drops, choose it here อีกครั้ง; DSH Go asks สำหรับ root เปิด its own เท่านั้น กับ “Keep root channel” เปิด above.",
-  "phoneDndRootConnectedKept": "รูท คือ connected. ถ้า it drops, DSH Go asks your root manager อีกครั้ง เปิด its own.",
-  "phoneDndRootRetry": "ถาม สำหรับ รูท อีกครั้ง",
-  "phoneDndInstallShizuku": "ติดตั้ง Shizuku ก่อนอื่น (free แอนด์ เปิด source). ถ้า you use tools like Ice Box ออร์ Brevent, you พฤษภาคม แล้ว have it.",
+  "phoneDndRootConnected": "root คือ connected. ถ้า it drops, choose it here อีกครั้ง; DSH Go asks สำหรับ root เปิด its own เท่านั้น กับ “Keep root channel” เปิด above.",
+  "phoneDndRootConnectedKept": "root คือ connected. ถ้า it drops, DSH Go asks your root manager อีกครั้ง เปิด its own.",
+  "phoneDndRootRetry": "ถาม สำหรับ root อีกครั้ง",
+  "phoneDndInstallShizuku": "ติดตั้ง Shizuku ก่อนother (free แอนด์ เปิด source). ถ้า you use tools like Ice Box ออร์ Brevent, you พฤษภาคม แล้ว have it.",
   "phoneDndOpenShizukuSite": "เปิด Shizuku website",
   "phoneDndStartShizuku": "เปิด Shizuku แอนด์ follow “เริ่ม via Wireless debugging” (requires Wi-Fi). This เพจ refreshes เมื่อ you รีเทิร์น.",
   "phoneDndGrantShizukuHint": "Shizuku คือ กำลังทำงาน. อนุญาต DSH Go ไป use it ถัดไป.",
@@ -264,7 +264,7 @@
   "phoneCheckUnknown": "นอต sure",
   "phoneCheckYes": "ใช่",
   "phoneCheckNotYet": "นอต ยัง",
-  "phoneRomStock": "Stock / อื่นๆ",
+  "phoneRomStock": "Stock / other",
   "phoneRestrictedAccessibility": "การเข้าถึง",
   "phoneRestrictedOpenAccessibility": "Turn เปิด accessibility",
   "phoneRestrictedOverlay": "Floating window",
@@ -280,7 +280,7 @@
   "phoneRestrictedVivoNote": " location varies โดย OriginOS VERSION. ถ้า there are ไม่ three dots, scroll ไป  bottom ของ App ข้อมูล.",
   "phoneRestrictedAdvancedStep": "ใน “Advanced ตั้งค่า”, ฟายด์ “อนุญาต restricted ตั้งค่า” แอนด์ turn it เปิด.",
   "phoneRestrictedOppoNote": "ColorOS พฤษภาคม ซ่อน this ตัวเลือก. Use  built-ใน Files app ไป ฟายด์ DSH’s installer แอนด์ ติดตั้ง เกิน  existing app (ไม่ need ไป ถอนการติดตั้ง; chats แอนด์ ตั้งค่า stay). แล้ว turn เปิด accessibility.",
-  "phoneRestrictedHuaweiNote": "ถ้า “Restricted setting” appears ใน Accessibility, follow  “Stock / อื่นๆ” steps.",
+  "phoneRestrictedHuaweiNote": "ถ้า “Restricted setting” appears ใน Accessibility, follow  “Stock / other” steps.",
   "phoneRestrictedTitle": "อนุญาต restricted ตั้งค่า",
   "phoneRestrictedSteps": "Steps",
   "phoneRestrictedDiagram": "Illustration",
@@ -369,34 +369,34 @@
   "phoneAccentCustom": "กำหนดเอง",
   "phoneEngineInstallPercent": "กำลังติดตั้ง · {percent}%",
   "phoneEngineStatusSemantics": "{prefix} engine: {status}",
-  "phoneLogLineCount": "{เคาท์, plural, อื่นๆ{{เคาท์} lines}}",
-  "phoneLogCopiedLines": "{เคาท์, plural, อื่นๆ{Copied {เคาท์} lines}}",
+  "phoneLogLineCount": "{count} lines}",
+  "phoneLogCopiedLines": "{count} lines}",
   "phoneAppRuleDefault": "ค่าเริ่มต้น: {rule}",
   "phoneAppRulesLoosenTitle": "Let DSH operate “{app}”?",
   "phoneAppRulesSkipStepsTitle": "หยุด confirming แต่ละ step ใน “{app}”?",
-  "phoneDndBrowserFailed": "Can’t เปิด  browser. URL: {URL}",
+  "phoneDndBrowserFailed": "{url} Can’t เปิด browser. URL:",
   "phoneDndChannelReady": "{channel} · พร้อม",
   "phoneDndChannelStatus": "{channel} · {reason}",
   "phoneDndUsing": "กำลังใช้ {channel}",
-  "phoneDndEnableWith": "{mode, เซเล็ก, shizuku{Turn เปิด กับ Shizuku} sui{Turn เปิด กับ Sui} รูท{Turn เปิด กับ รูท} adb{Turn เปิด กับ Direct ADB} อื่นๆ{Turn เปิด}}",
-  "phoneDndSwitchTo": "{mode, เซเล็ก, shizuku{Switch ไป Shizuku} sui{Switch ไป Sui} รูท{Switch ไป รูท} adb{Switch ไป Direct ADB} อื่นๆ{Switch ไป this channel}}",
+  "phoneDndEnableWith": "{mode, select, shizuku{Turn เปิด กับ Shizuku} sui{Turn เปิด กับ Sui} root{Turn เปิด กับ root} adb{Turn เปิด กับ Direct ADB} other{Turn เปิด}}",
+  "phoneDndSwitchTo": "{mode, select, shizuku{Switch ไป Shizuku} sui{Switch ไป Sui} root{Switch ไป root} adb{Switch ไป Direct ADB} other{Switch ไป this channel}}",
   "phoneControlWorkingApp": "กำลังควบคุม \"{app}\"",
-  "phoneControlPolicySummary": "{denied, plural, อื่นๆ{{denied} แอปห้ามใช้}} · {confirmed, plural, อื่นๆ{{confirmed} แอปยืนยันทุกขั้นตอน}}",
-  "phoneControlRemoteHint": "DSH บน \"{โฮสต์}\" ไม่สามารถควบคุมโทรศัพท์นี้ได้ สลับไปใช้ \"เครื่องนี้\" เพื่อใช้งาน",
+  "phoneControlPolicySummary": "{denied} แอปห้ามใช้}} · {confirmed} แอปยืนยันทุกขั้นตอน}}",
+  "phoneControlRemoteHint": "{host} DSH บน \"{โฮสต์}\" ไม่สามารถควบคุมโทรศัพท์นี้ได้ สลับไปใช้ \"เครื่องนี้\" เพื่อใช้งาน",
   "phoneRestrictedSubtitle": "อนุญาต this สำหรับ sideloaded apps ไป เปิดใช้งาน  {place} switch",
   "phoneRestrictedDone": "{place} คือ เปิด. You can go ย้อนกลับ.",
   "phoneFailurePlugins": "พฤษภาคม เป็น related ไป plugins “{plugins}”",
   "phoneFailureRequired": "จำเป็น components {components} ล้มเหลว startup checks",
-  "phoneSafeRestoreAt": "DSH will กู้คืน  working CONFIG จาก {เมื่อ}:",
+  "phoneSafeRestoreAt": "{when} DSH will กู้คืน  working CONFIG จาก {เมื่อ}:",
   "phoneSafeRestoreDisable": "• ปิดใช้: {plugins}",
   "phoneSafeRestoreChanged": "  ({plugins} updated ตั้งแต่ แล้ว; can เท่านั้น เป็น disabled สำหรับ ตอนนี้)",
   "phoneSafeRestoreEnable": "• Re-เปิดใช้: {plugins}",
-  "phoneSafeTodayTime": "วันนี้ {ไทม์}",
+  "phoneSafeTodayTime": "{time} วันนี้ {ไทม์}",
   "phoneSafeReasonPlugins": "ล้มเหลว ไป เริ่ม สองครั้ง ใน  row. Suspected plugins: {plugins}",
   "phoneListSeparator": ", ",
   "phonePluginQuoteSeparator": "”, “",
-  "phoneEngineRunningAt": "กำลังทำงาน · {ที่อยู่}",
-  "phoneEngineSafeAt": "Safe mode · {ที่อยู่}",
+  "phoneEngineRunningAt": "{address} กำลังทำงาน · {ที่อยู่}",
+  "phoneEngineSafeAt": "{address} Safe mode · {ที่อยู่}",
   "phoneAppRulesLoosenBody": "Banking แอนด์ payment apps detect automation แอนด์ พฤษภาคม restrict ไซน์-ใน ออร์ แช่แข็ง your บัญชี. โดย ค่าเริ่มต้น, DSH won’t เอ็นเตอร์ passwords ออร์ pay.",
   "phoneAppRulesSkipStepsBody": "Apps like WeChat watch สำหรับ automation, แอนด์ phone assistants have had accounts signed ออก. กับ “ในฐานะ usual”, เท่านั้น actions like sending messages ยัง ถาม เฟิร์ส.",
   "phoneResetDeletesChatsWorkspaces": "chats แอนด์ workspaces",
@@ -407,7 +407,7 @@
   "phoneResetBodyWithUi": "This will ลบ chats, workspaces, อินเตอร์เฟซ ตั้งค่า แอนด์ skills, แล้ว reinstall  รันไทม์.",
   "phoneResetDeletesEverything": "chats, workspaces, plugins, ตั้งค่า, อินเตอร์เฟซ ตั้งค่า แอนด์ skills",
   "phoneResetBodyEverything": "This will ลบ chats, workspaces, plugins, ตั้งค่า, อินเตอร์เฟซ ตั้งค่า แอนด์ skills, แล้ว reinstall  รันไทม์.",
-  "phoneEngineStorageDetails": "นอต พอ ที่เก็บข้อมูล: เกี่ยวกับ {ต้องการ} MB ต้องการ, {free} MB available",
+  "phoneEngineStorageDetails": "{needed} นอต พอ ที่เก็บข้อมูล: เกี่ยวกับ {ต้องการ} MB ต้องการ, {free} MB available",
   "phoneControlEnabledRestarting": "เปิด · Restarting  engine",
   "phoneControlDisabledRestarting": "ปิด · Restarting  engine",
   "phoneControlEnabledPending": "เปิด · Takes effect เมื่อ  engine starts",
@@ -472,10 +472,10 @@
   "phoneResumeTask": "อนุญาต phone control อีกครั้ง",
   "phoneResumeTaskHint": "อนุญาต ฟิวเจอร์ phone actions ใน this conversation. Finished actions will นอต เป็น replayed.",
   "phoneResumeTaskFailed": "ไม่สามารถดำเนินการต่อได้ การดำเนินการก่อนหน้าอาจยังไม่เสร็จ",
-  "phoneStoppedTask": "งานโทรศัพท์ {งาน} หยุดแล้ว",
+  "phoneStoppedTask": "{task} งานโทรศัพท์ {งาน} หยุดแล้ว",
   "phoneTaskDrainingHint": "กำลังรอ สำหรับ  previous action แอนด์ background screen cleanup ไป finish.",
   "phoneTaskCleanupFailedHint": "ไม่สามารถยืนยันการทำความสะอาดหน้าจอพื้นหลังได้ การควบคุมโทรศัพท์ยังคงถูกบล็อก",
-  "phoneFinishingTask": "งานโทรศัพท์ {งาน} กำลังเสร็จสิ้น",
+  "phoneFinishingTask": "{task} งานโทรศัพท์ {งาน} กำลังเสร็จสิ้น",
   "phoneCleanupRetry": "ลองใหม่ cleanup",
   "phoneCleanupRetryFailed": "หน้าจอพื้นหลังก่อนหน้ายังไม่ได้รับการยืนยัน การเข้าถึงหน้าจอของมันยังคงถูกจองไว้",
   "phoneSelfCheckTitle": "โลคอล phone self-เช็ค",
@@ -490,239 +490,14 @@
   "phoneSelfCheckSaved": "รายงาน saved ไป Downloads/DSH-Go.",
   "phoneSelfCheckSaveFailed": "Could นอต บันทึก  รายงาน.",
   "phoneSelfCheckReportHint": "บันทึก เท่านั้น เมื่อ you choose.  โลคอล รายงาน contains fixed results, กับ ไม่ screenshots, recognized เท็กซ์, logs, บัญชี data ออร์ รัน identifier.",
-  "phoneSelfCheckRunState": "{สเตท, เซเล็ก, idle{นอต started} กำลังทำงาน{กำลังทำงาน partial เช็ค} cleaning{Cleaning ขึ้น; cancellation does นอต undo sent input} เสร็จ{Execution แอนด์ cleanup ended; inspect แต่ละ ผลลัพธ์ below} ยกเลิกแล้ว{ยกเลิกแล้ว; observed actions remain recorded} cleanup_pending{Cleanup unconfirmed — resources remain reserved} อื่นๆ{Status unavailable}}",
-  "@phoneSelfCheckRunState": {
-    "placeholders": {
-      "state, select, idle{尚未开始": {
-        "type": "String"
-      },
-      "已取消，已观察到的操作仍保留": {
-        "type": "String"
-      },
-      "执行和清理已结束，请逐项查看下方结果": {
-        "type": "String"
-      },
-      "正在清理；取消不代表已撤销派发的输入": {
-        "type": "String"
-      },
-      "清理尚未确认，资源仍保留": {
-        "type": "String"
-      },
-      "状态不可用": {
-        "type": "String"
-      },
-      "部分自检进行中": {
-        "type": "String"
-      }
-    }
-  },
-  "phoneSelfCheckStepState": "{สเตท, เซเล็ก, not_run{นอต เรียกใช้ / ไม่ observation} กำลังทำงาน{กำลังทำงาน} ผ่าน{Observed ผ่าน} ล้มเหลว{ล้มเหลว} skipped{Skipped} unknown{Unconfirmed} ยกเลิกแล้ว{ยกเลิกแล้ว} อื่นๆ{Unconfirmed}}",
-  "@phoneSelfCheckStepState": {
-    "placeholders": {
-      "state, select, not_run{未运行／无观察": {
-        "type": "String"
-      },
-      "失败": {
-        "type": "String"
-      },
-      "已取消": {
-        "type": "String"
-      },
-      "已观察通过": {
-        "type": "String"
-      },
-      "已跳过": {
-        "type": "String"
-      },
-      "未确认": {
-        "type": "String"
-      },
-      "进行中": {
-        "type": "String"
-      }
-    }
-  },
-  "phoneSelfCheckStage": "{stage, เซเล็ก, device{Device preconditions} channel{Selected channel} แสดง{Temporary background แสดง} input_probe{Touch receiver} launch{App launch} tree{Accessibility tree} tap{App button tap} scroll{App scrolling} ย้อนกลับ{App ย้อนกลับ action} text_ascii{Fixed แอสกี input} text_zh{Fixed จีน input} capture{โลคอล pattern capture} continuity{Limited controlled รีเฟรช} main{Limited MAIN observations} ocr{โลคอล OCR} cleanup{Strict cleanup} อื่นๆ{Unknown item}}",
-  "@phoneSelfCheckStage": {
-    "placeholders": {
-      "stage, select, device{设备前置条件": {
-        "type": "String"
-      },
-      "严格清理": {
-        "type": "String"
-      },
-      "临时后台屏创建": {
-        "type": "String"
-      },
-      "固定 ASCII 输入": {
-        "type": "String"
-      },
-      "固定中文输入": {
-        "type": "String"
-      },
-      "已选通道": {
-        "type": "String"
-      },
-      "应用启动": {
-        "type": "String"
-      },
-      "应用按钮点按": {
-        "type": "String"
-      },
-      "应用滚动": {
-        "type": "String"
-      },
-      "应用返回": {
-        "type": "String"
-      },
-      "控件树": {
-        "type": "String"
-      },
-      "有限主屏观察": {
-        "type": "String"
-      },
-      "有限受控刷新": {
-        "type": "String"
-      },
-      "未知项目": {
-        "type": "String"
-      },
-      "本地图样截图": {
-        "type": "String"
-      },
-      "本机OCR": {
-        "type": "String"
-      },
-      "触摸接收核验": {
-        "type": "String"
-      }
-    }
-  },
-  "phoneSelfCheckReason": "{reason, เซเล็ก, busy{ phone ออร์ channel คือ busy.} unsupported{This device ออร์ peer does นอต รองรับ this เช็ค.} ยกเลิกแล้ว{This คำขอ was ยกเลิกแล้ว ออร์ retired.} disabled{Phone control คือ turned ปิด.} locked{ device คือ locked.} identity{ original เรียกใช้ ออร์ channel ไม่ longer matches.} invalid{ คำขอ ออร์ ผลลัพธ์ could นอต เป็น verified.} แสดง{ temporary แสดง could นอต เป็น verified.} input{Input acceptance ออร์ delivery was นอต confirmed. Sent input คือ นอต retried.} cleanup{Resource cleanup คือ unconfirmed. ลองใหม่ เท่านั้น cleanup.} denied{ ระบบ denied  operation.} หมดเวลา{ operation timed ออก; sent งาน พฤษภาคม ยัง complete.} unavailable{ โลคอล status ออร์ selected channel คือ unavailable.} target_unavailable{ fixed เป้าหมาย could นอต เป็น verified. จบ cleanup ก่อน starting อีกครั้ง.} target_changed{ original เป้าหมาย changed. ต่อ เท่านั้น กับ cleanup.} target_cleanup{เป้าหมาย cleanup คือ unconfirmed. ลองใหม่ เท่านั้น cleanup.} target_main{ เป้าหมาย was observed เปิด MAIN. Further steps หยุด; complete cleanup.} target_readback{ fixed เป้าหมาย เคาท์ ออร์ เท็กซ์ did นอต match. ทำ นอต repeat  action; complete cleanup.} tree_cleanup{Tree การเชื่อมต่อ cleanup คือ unconfirmed. ลองใหม่ เท่านั้น cleanup.} target_launch{เป้าหมาย launch was denied ออร์ unconfirmed. เช็ค  device แอนด์ complete cleanup.} frame_unavailable{ไม่ usable โลคอล pattern frame was observed. Complete cleanup ก่อน  ใหม่ เช็ค.} frame_mismatch{ actual frame did นอต match this เป้าหมาย แอนด์ phase. Complete cleanup.} continuity{ limited controlled รีเฟรช ลำดับ was นอต confirmed. This คือ นอต  frame-rate ผลลัพธ์.} main_changed{MAIN samples changed; this พฤษภาคม include ผู้ใช้ actions. Complete cleanup. This does นอต establish  cause.} main_unchanged{ไม่ change was seen at these finite sampling points. Disturbance ระหว่าง them remains unknown.} main_incomplete{MAIN samples are incomplete. They cannot establish absence ของ disturbance.} not_installed{This self-เช็ค does นอต include OCR. OCR was นอต tested.} อื่นๆ{ unrecognized ผลลัพธ์ was received.}}",
-  "@phoneSelfCheckReason": {
-    "placeholders": {
-      "reason, select, busy{手机或通道正忙。": {
-        "type": "String"
-      },
-      "临时展示屏未能确认。": {
-        "type": "String"
-      },
-      "主屏样本不完整，不能据此证明没有受扰。": {
-        "type": "String"
-      },
-      "主屏采样点发生变化，也可能包含用户操作；请完成清理，不能据此判定原因。": {
-        "type": "String"
-      },
-      "原目标已变化，请仅继续清理。": {
-        "type": "String"
-      },
-      "原运行或通道身份已改变。": {
-        "type": "String"
-      },
-      "固定目标计数或文本回读不符，不要重复操作，请完成清理。": {
-        "type": "String"
-      },
-      "实际画面与本次目标及阶段不符，请完成清理。": {
-        "type": "String"
-      },
-      "手机操控尚未开启。": {
-        "type": "String"
-      },
-      "操作超时，已派发工作仍可能完成。": {
-        "type": "String"
-      },
-      "收到无法识别的结果。": {
-        "type": "String"
-      },
-      "无法核实固定目标，请完成清理后再开始。": {
-        "type": "String"
-      },
-      "有限受控刷新序列未确认；这不是帧率结果。": {
-        "type": "String"
-      },
-      "未取得可用的本地图样帧，请完成清理后再开始新的自检。": {
-        "type": "String"
-      },
-      "本机状态或已选通道不可用。": {
-        "type": "String"
-      },
-      "本次请求已取消或退役。": {
-        "type": "String"
-      },
-      "本自检未接入 OCR，未执行识别测试。": {
-        "type": "String"
-      },
-      "树连接清理未确认，请仅重试清理。": {
-        "type": "String"
-      },
-      "目标启动被拒绝或未确认，请检查设备并完成清理。": {
-        "type": "String"
-      },
-      "目标曾出现在主屏，已停止后续步骤，请完成清理。": {
-        "type": "String"
-      },
-      "目标清理未确认，请仅重试清理。": {
-        "type": "String"
-      },
-      "系统拒绝了操作。": {
-        "type": "String"
-      },
-      "设备已锁定。": {
-        "type": "String"
-      },
-      "设备或特权端不支持这项自检。": {
-        "type": "String"
-      },
-      "请求或结果无法验证。": {
-        "type": "String"
-      },
-      "资源清理未确认，仅可重试清理。": {
-        "type": "String"
-      },
-      "输入受理或送达未确认，不会重放已派发输入。": {
-        "type": "String"
-      },
-      "这些有限采样点未见变化，采样之间是否受扰仍未知。": {
-        "type": "String"
-      }
-    }
-  },
+  "phoneSelfCheckRunState": "{state} กำลังทำงาน cleaning เสร็จ ยกเลิกแล้ว cleanup_pending{Cleanup unconfirmed — resources remain reserved} other{Status unavailable}",
+  "phoneSelfCheckStepState": "{state} กำลังทำงาน ผ่าน ล้มเหลว skipped unknown ยกเลิกแล้ว other",
+  "phoneSelfCheckStage": "{stage, select, device{ตรวจสอบเงื่อนไขอุปกรณ์} channel{ช่องที่เลือกแล้ว} display{สร้างหน้าจอพื้นหลังชั่วคราว} input_probe{ตรวจสอบตัวรับสัมผัส} launch{เปิดแอป} tree{ต้นไม้ специально 돕} tap{แตะปุ่มแอป} scroll{เลื่อนแอป} back{การย้อนกลับของแอป} text_ascii{อินพุต ASCII แบบคงที่} text_zh{อินพุตจีนแบบคงที่} capture{จับภาพรูปแบบท้องถิ่น} continuity{การรีเฟรชควบคุมจำกัด} main{การสังเกต MAIN แบบจำกัด} ocr{OCR บนเครื่อง} cleanup{การทำความสะอาดเข้มงวด} other{รายการไม่ทราบ}}",
+  "phoneSelfCheckReason": "{reason, select, busy{โทรศัพท์หรือช่องกำลัง занято} unsupported{อุปกรณ์หรือเพียร์ไม่รองรับการตรวจสอบนี้} cancelled{คำขอนี้ถูกยกเลิกหรือถูกเกษียณแล้ว} disabled{การควบคุมโทรศัพท์ยังไม่ได้เปิด} locked{อุปกรณ์ถูกล็อก} identity{การรันเดิมหรือตัวตนของช่องเปลี่ยนไปแล้ว} invalid{ไม่สามารถยืนยันคำขอหรือผลลัพธ์ได้} display{ไม่สามารถยืนยันหน้าจอแสดงชั่วคราวได้} input{การยอมรับหรือการส่งมอบอินพุตไม่ได้รับการยืนยัน ไม่ได้ส่งอินพุตที่ส่งไปแล้วซ้ำ} cleanup{การทำความสะอาดทรัพยากรไม่ได้รับการยืนยัน สามารถลองทำความสะอาดซ้ำได้อย่างเดียว} denied{ระบบปฏิเสธการดำเนินการ} timeout{การดำเนินการหมดเวลา งานที่ส่งไปอาจยังเสร็จสิ้นได้} unavailable{สถานะเครื่องหรือช่องที่เลือกไม่พร้อมใช้งาน} target_unavailable{ไม่สามารถยืนยันเป้าหมายที่ตายตัวได้ โปรดทำความสะอาดให้เสร็จก่อนเริ่มใหม่} target_changed{เป้าหมายเดิมเปลี่ยนไปแล้ว ดำเนินต่อกับการทำความสะอาดอย่างเดียว} target_cleanup{การทำความสะอาดเป้าหมายไม่ได้รับการยืนยัน โปรดลองทำความสะอาดซ้ำอย่างเดียว} target_main{สังเกตเห็นเป้าหมายบน MAIN หยุดขั้นตอนต่อไป โปรดทำความสะอาดให้เสร็จ} target_readback{จำนวนหรือข้อความอ่านกลับของเป้าหมายที่ตายตัวไม่ตรง ไม่ต้องทำซ้ำการดำเนินการ โปรดทำความสะอาดให้เสร็จ} tree_cleanup{การทำความสะอาดการเชื่อมต่อต้นไม้ไม่ได้รับการยืนยัน โปรดลองทำความสะอาดซ้ำอย่างเดียว} target_launch{การเปิดเป้าหมายถูกปฏิเสธหรือไม่ได้รับการยืนยัน โปรดตรวจสอบอุปกรณ์และทำความสะอาดให้เสร็จ} frame_unavailable{ไม่พบเฟรมรูปแบบท้องถิ่นที่ใช้ได้ โปรดทำความสะอาดให้เสร็จก่อนเริ่มตรวจสอบใหม่} frame_mismatch{เฟรมจริงไม่ตรงกับเป้าหมายและเฟสนี้ โปรดทำความสะอาดให้เสร็จ} continuity{ลำดับการรีเฟรชควบคุมจำกัดไม่ได้รับการยืนยัน นี่ไม่ใช่ผลลัพธ์อัตราเฟรม} main_changed{ตัวอย่าง MAIN เปลี่ยนไป อาจรวมการดำเนินการของผู้ใช้ โปรดทำความสะอาดให้เสร็จ ไม่สามารถสรุปสาเหตุได้จากนี้} main_unchanged{ไม่พบการเปลี่ยนแปลงที่จุดตัวอย่างจำกัดเหล่านี้ ความรบกวนระหว่างพวกมันยังไม่ทราบ} main_incomplete{ตัวอย่าง MAIN ไม่สมบูรณ์ ไม่สามารถพิสูจน์ความไม่มีความรบกวนได้} not_installed{การตรวจสอบตนเองนี้ไม่รวม OCR ไม่ได้ทดสอบการจดจำ} other{ได้รับผลลัพธ์ที่ไม่สามารถระบุได้}}",
   "phoneSelfCheckTargetScope": "Uses  ordinary temporary แสดง แอนด์  fixed โลคอล เป้าหมาย สำหรับ launch, tree reading แอนด์ one button tap. เท็กซ์, scrolling, screenshots แอนด์ OCR are นอต tested. MAIN can เท่านั้น record  observed ล้มเหลว, ไม่เคย  ผ่าน. Cleanup alone does นอต prove  แสดง was created.",
   "phoneSelfCheckProfileChoice": "Choose  ถัดไป เช็ค (does นอต change  รายงาน below)",
-  "phoneSelfCheckProfile": "{โปรไฟล์, เซเล็ก, probe_b{Input receiver เช็ค (B)} target_c1{Fixed เป้าหมาย เช็ค (C1)} target_c2{Fixed input แอนด์ frames (C2)} อื่นๆ{Unknown โปรไฟล์}}",
-  "@phoneSelfCheckProfile": {
-    "placeholders": {
-      "profile, select, probe_b{输入接收探针（B）": {
-        "type": "String"
-      },
-      "固定目标自检（C1）": {
-        "type": "String"
-      },
-      "固定输入与画面自检（C2）": {
-        "type": "String"
-      },
-      "未知模式": {
-        "type": "String"
-      }
-    }
-  },
-  "phoneSelfCheckReportProfile": "{โปรไฟล์, เซเล็ก, probe_b{รายงาน โปรไฟล์: input receiver (B)} target_c1{รายงาน โปรไฟล์: fixed เป้าหมาย (C1)} target_c2{รายงาน โปรไฟล์: fixed input แอนด์ frames (C2)} อื่นๆ{รายงาน โปรไฟล์: unconfirmed}}",
-  "@phoneSelfCheckReportProfile": {
-    "placeholders": {
-      "profile, select, probe_b{本次报告：输入接收探针（B）": {
-        "type": "String"
-      },
-      "本次报告模式未确认": {
-        "type": "String"
-      },
-      "本次报告：固定目标（C1）": {
-        "type": "String"
-      },
-      "本次报告：固定输入与画面（C2）": {
-        "type": "String"
-      }
-    }
-  },
+  "phoneSelfCheckProfile": "{profile} target_c1 target_c2 other}",
+  "phoneSelfCheckReportProfile": "{profile} target_c1 target_c2 other}",
   "phoneSelfCheckTargetC2Scope": "Uses  fixed โลคอล เป้าหมาย สำหรับ launch, tree reading, one button tap, แอสกี แอนด์ จีน ACTION_SET_TEXT replacement/readback, โลคอล pattern capture แอนด์ limited controlled รีเฟรช. This does นอต measure FPS ออร์ smoothness. Finite MAIN samples cannot prove there was ไม่ disturbance ระหว่าง samples. OCR, touch reception, scrolling แอนด์ ย้อนกลับ are นอต tested. Cleanup alone does นอต prove  แสดง was created.",
   "phoneTaskWaiting": "งาน {taskId} · Waiting สำหรับ resources",
   "phoneTaskWaitingApp": "กำลังรอ สำหรับ app {packageName} · {seconds} seconds elapsed.",
@@ -767,7 +542,7 @@
   "phoneInterruptionTitle": "ก่อนหน้า phone tasks did นอต ยืนยัน completion",
   "phoneInterruptionLoading": "กำลังอ่านบันทึกงานที่ถูกขัดจังหวะ…",
   "phoneInterruptionStorageError": "งาน completion records could นอต เป็น saved ออร์ อ่าน. Retry; this does นอต mean background resources were released.",
-  "phoneInterruptionHint": "{เคาท์} งานถูกขัดจังหวะหรือไม่สามารถบันทึกการเสร็จสิ้นได้ การดำเนินการอาจมีผลแล้ว ตรวจสอบก่อน การยอมรับเพียงยืนยันว่าคุณเห็นข้อความนี้ ไม่ได้ดำเนินการต่อหรือพิสูจน์ว่าทรัพยากรพื้นหลังถูกปล่อย",
+  "phoneInterruptionHint": "{count} {เคาท์} งานถูกขัดจังหวะหรือไม่สามารถบันทึกการเสร็จสิ้นได้ การดำเนินการอาจมีผลแล้ว ตรวจสอบก่อน การยอมรับเพียงยืนยันว่าคุณเห็นข้อความนี้ ไม่ได้ดำเนินการต่อหรือพิสูจน์ว่าทรัพยากรพื้นหลังถูกปล่อย",
   "phoneInterruptionAcknowledge": "ฉันตรวจสอบการแจ้งเตือนขัดจังหวะแล้ว",
   "phoneInterruptionRetry": "ลองใหม่ saving ออร์ reading",
   "phoneInterruptionActionFailed": "งาน records are นอต confirmed ยัง. Please retry.",
@@ -785,7 +560,7 @@
   "phoneBackgroundParallelTitle": "Background งาน ลิมิต",
   "phoneBackgroundParallelStatus": "Configured: {configured} · Available ลิมิต: {effective} · Occupied: {held}",
   "phoneBackgroundParallelDescription": " lower ลิมิต keeps existing tasks. ใหม่ tasks ยัง wait สำหรับ apps แอนด์  main screen ไป become available.",
-  "phoneBackgroundParallelChoice": "{ลิมิต} background งาน slots",
+  "phoneBackgroundParallelChoice": "{limit} {ลิมิต} background งาน slots",
   "phoneBackgroundParallelOff": " background channel คือ ปิด. Saving this การตั้งค่า does นอต turn it เปิด.",
   "phoneBackgroundParallelUnsupported": "Background operation คือ unavailable เปิด this device.",
   "phoneBackgroundParallelConnection": " การเชื่อมต่อ คือ required ก่อน  ใหม่ background งาน can เริ่ม.",
@@ -824,11 +599,11 @@
     }
   },
   "phoneSkillReplayReview": "รีVUE phone route",
-  "phoneSkillReplaySourceChanged": " โลคอล Session ออร์ การเชื่อมต่อ changed. เซเล็ก  route อีกครั้ง จาก  current โลคอล conversation.",
+  "phoneSkillReplaySourceChanged": " โลคอล Session ออร์ การเชื่อมต่อ changed. select  route อีกครั้ง จาก  current โลคอล conversation.",
   "phoneSkillReplayUnavailable": "This route คือ นอต available สำหรับ controlled execution เปิด this phone.  ordinary skill template remains available.",
   "phoneSkillReplayConfirm": "I have reviewed this route แอนด์  app selected สำหรับ this use.",
   "phoneSkillReplayToComposer": "อินเซิร์ต เข้า this conversation",
-  "phoneSkillReplayStartText": " phone route has been selected แอนด์ reviewed locally. คอลล์ เท่านั้น mcp__phone__replay กับ {คำขอ}. ถ้า unavailable ออร์ refused, hand ย้อนกลับ ไป  ผู้ใช้/Model; ทำ นอต replay it ในฐานะ ordinary actions.",
+  "phoneSkillReplayStartText": "{request}  phone route has been selected แอนด์ reviewed locally. คอลล์ เท่านั้น mcp__phone__replay กับ {คำขอ}. ถ้า unavailable ออร์ refused, hand ย้อนกลับ ไป  ผู้ใช้/Model; ทำ นอต replay it ในฐานะ ordinary actions.",
   "@phoneSkillReplayStartText": {
     "placeholders": {
       "request": {
@@ -909,14 +684,14 @@
   "@phoneLogLineCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@phoneLogCopiedLines": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -968,44 +743,6 @@
   "@phoneDndUsing": {
     "placeholders": {
       "channel": {
-        "type": "String"
-      }
-    }
-  },
-  "@phoneDndEnableWith": {
-    "placeholders": {
-      "mode, select, shizuku{用 Shizuku 开启": {
-        "type": "String"
-      },
-      "启用不打扰模式": {
-        "type": "String"
-      },
-      "用 Root 开启": {
-        "type": "String"
-      },
-      "用 Sui 开启": {
-        "type": "String"
-      },
-      "用自连 ADB 开启": {
-        "type": "String"
-      }
-    }
-  },
-  "@phoneDndSwitchTo": {
-    "placeholders": {
-      "mode, select, shizuku{改用 Shizuku": {
-        "type": "String"
-      },
-      "改用 Root": {
-        "type": "String"
-      },
-      "改用 Sui": {
-        "type": "String"
-      },
-      "改用自连 ADB": {
-        "type": "String"
-      },
-      "改用这个通道": {
         "type": "String"
       }
     }
@@ -1138,6 +875,20 @@
   "@phoneFinishingTask": {
     "placeholders": {
       "task": {
+        "type": "String"
+      }
+    }
+  },
+  "@phoneSelfCheckStage": {
+    "placeholders": {
+      "stage": {
+        "type": "String"
+      }
+    }
+  },
+  "@phoneSelfCheckReason": {
+    "placeholders": {
+      "reason": {
         "type": "String"
       }
     }

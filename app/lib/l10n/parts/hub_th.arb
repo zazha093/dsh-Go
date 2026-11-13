@@ -97,14 +97,14 @@
   "hubPluginRemoveCommand": "ดูคำสั่งถอนติดตั้ง",
   "hubPluginRemoveComputer": "ถอนติดตั้งบนคอมพิวเตอร์",
   "hubPluginUninstall": "ถอนการติดตั้ง",
-  "hubSessionTurns": "{เคาท์, plural, อื่นๆ{{เคาท์} รอบ}}",
-  "hubSessionTurnsRunning": "{เคาท์, plural, อื่นๆ{{เคาท์} รอบ · กำลังทำงาน}}",
-  "hubSessionStepCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ขั้นตอน}}",
+  "hubSessionTurns": "{count} รอบ}",
+  "hubSessionTurnsRunning": "{count} รอบ · กำลังทำงาน}",
+  "hubSessionStepCount": "{count} ขั้นตอน}",
   "hubSessionWaitTime": "รอคุณ {duration}",
   "hubSessionTurn": "รอบที่ {turn}",
-  "hubSessionFileCount": "{เคาท์, plural, อื่นๆ{เปลี่ยน {เคาท์} ไฟล์}}",
-  "hubSessionEditCount": "{เคาท์, plural, อื่นๆ{แก้ไข {เคาท์} ครั้ง}}",
-  "hubSessionTurnOf": "รอบ {turn} / {ทอตอล}",
+  "hubSessionFileCount": "{count} ไฟล์}",
+  "hubSessionEditCount": "{count} ครั้ง}",
+  "hubSessionTurnOf": "{total} รอบ {turn} / {ทอตอล}",
   "hubSessionCacheHit": "{percent} แคช",
   "hubSessionBlocked": "บล็อก",
   "hubSessionBlockedReason": "ถูกบล็อก: {reason}",
@@ -112,15 +112,15 @@
   "hubSettingsStorageBody": "AI อ่านและเปลี่ยนรูปภาพ ดาวน์โหลด และเอกสารของคุณได้ เครื่องยนต์จะรีสตาร์ทหนึ่งครั้ง",
   "hubSettingsBalance": "ยอดคงเหลือ {amount}",
   "hubSettingsBalanceLow": "ยอดคงเหลือ {amount} · ยอดต่ำ",
-  "hubSettingsAccountSemantics": "บัญชี: {หัวข้อ}, {subtitle}",
-  "hubSettingsHostSemantics": "โฮสต์ระยะไกล: {ชื่อ}, {status}",
+  "hubSettingsAccountSemantics": "{title} {subtitle} บัญชี: ,",
+  "hubSettingsHostSemantics": "{name} โฮสต์ระยะไกล: {ชื่อ}, {status}",
   "hubSettingsApiKey": "คีย์ API DeepSeek",
   "hubSettingsApiKeySection": "API คีย์",
-  "hubPluginBrowserFailed": "เปิดเบราว์เซอร์ไม่ได้ เปิด {ที่อยู่} เอง",
-  "hubPluginYearMonth": "{มอนท์, เซเล็กต์, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} อื่นๆ{{มอนท์}}} {ยีอาร์}",
-  "hubPluginUpdateTo": "อัปเดตเป็น {VERSION}",
-  "hubPluginInstallOn": "ติดตั้งบน {โฮสต์}",
-  "hubPluginComponentCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ส่วนประกอบ}}",
+  "hubPluginBrowserFailed": "{address} เปิดเบราว์เซอร์ไม่ได้ เปิด {ที่อยู่} เอง",
+  "hubPluginYearMonth": "{year} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
+  "hubPluginUpdateTo": "{version} อัปเดตเป็น {version}",
+  "hubPluginInstallOn": "{host} ติดตั้งบน {โฮสต์}",
+  "hubPluginComponentCount": "{count} ส่วนประกอบ}",
   "hubPluginComponentSeparator": ", ",
   "hubGroupAi": "AI",
   "hubGroupCapabilities": "ความสามารถ",
@@ -155,7 +155,7 @@
   "hubValueOneStep": "เหลืออีกขั้นตอนเดียว",
   "hubValueAllowed": "อนุญาตแล้ว",
   "hubValueNeedsSetup": "ต้องตั้งค่า",
-  "hubValueHosts": "{เคาท์, plural, อื่นๆ{{เคาท์} โฮสต์}}",
+  "hubValueHosts": "{count} โฮสต์}",
   "@hubValueHosts": {
     "placeholders": {
       "count": {
@@ -164,7 +164,7 @@
     }
   },
   "hubValueNoHosts": "ไม่มี",
-  "hubValuePlugins": "{เคาท์, plural, อื่นๆ{{เคาท์} ปลั๊กอิน}}",
+  "hubValuePlugins": "{count} ปลั๊กอิน}",
   "@hubValuePlugins": {
     "placeholders": {
       "count": {
@@ -221,21 +221,21 @@
   "@hubSessionTurns": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@hubSessionTurnsRunning": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@hubSessionStepCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -256,23 +256,23 @@
   "@hubSessionFileCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@hubSessionEditCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@hubSessionTurnOf": {
     "placeholders": {
-      "total": {
+      "turn": {
         "type": "String"
       },
-      "turn": {
+      "total": {
         "type": "String"
       }
     }
@@ -317,20 +317,20 @@
   },
   "@hubSettingsAccountSemantics": {
     "placeholders": {
-      "subtitle": {
+      "title": {
         "type": "String"
       },
-      "title": {
+      "subtitle": {
         "type": "String"
       }
     }
   },
   "@hubSettingsHostSemantics": {
     "placeholders": {
-      "name": {
+      "status": {
         "type": "String"
       },
-      "status": {
+      "name": {
         "type": "String"
       }
     }
@@ -344,10 +344,10 @@
   },
   "@hubPluginYearMonth": {
     "placeholders": {
-      "month": {
-        "type": "String"
-      },
       "year": {
+        "type": "int"
+      },
+      "month": {
         "type": "String"
       }
     }
@@ -369,7 +369,7 @@
   "@hubPluginComponentCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   }

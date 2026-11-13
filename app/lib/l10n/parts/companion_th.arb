@@ -2,7 +2,7 @@
   "companionTitle": "Companion room",
   "companionEntrySubtitle": "Spend บาง ไทม์ กับ her",
   "companionDefaultName": "her",
-  "companionInputHint": "Say something ไป {ชื่อ}",
+  "companionInputHint": "{name} Say something ไป {ชื่อ}",
   "companionMenu": "เพิ่มเติม",
   "companionVoice": "Voice",
   "companionStop": "ถาม her ไป หยุด",
@@ -21,7 +21,7 @@
   "companionMenuRestartConfirm": "She will forget this conversation.  old record stays เปิด  โฮสต์ แอนด์ คือ นอต deleted.",
   "companionMenuRemovePack": "นำออก assets",
   "companionMenuRemoveConfirm": " character assets เปิด this phone will เป็น deleted. Chats aren't affected. You'll need ไป นำเข้า them อีกครั้ง ถัดไป ไทม์.",
-  "companionCreditAuthor": "โดย {ชื่อ}",
+  "companionCreditAuthor": "{name} โดย {ชื่อ}",
   "companionSetupTitle": "Bring her โฮม",
   "companionSetupBody": "Character assets aren't part ของ  app แอนด์ เท่านั้น land เปิด your phone เมื่อ you want them. นำเข้า  asset pack (zip) ไป meet her.",
   "companionSetupImport": "นำเข้า asset pack",
@@ -34,7 +34,7 @@
   "companionPackUnsafe": " pack has files ออร์ paths that aren't allowed, so it wasn't imported.",
   "companionPackTooLarge": "This asset pack คือ เกินไป large.",
   "companionPackStorage": "Couldn't เขียน  files. เช็ค your phone's free ที่เก็บข้อมูล.",
-  "companionGreetFirst": "Hi, I'm {ชื่อ}. I live here ตอนนี้, nice ไป meet you.",
+  "companionGreetFirst": "{name} Hi, I'm {ชื่อ}. I live here ตอนนี้, nice ไป meet you.",
   "companionGreetMorning": "เช้า! Don't สกิป breakfast วันนี้.",
   "companionGreetNoon": "It's noon แล้ว. Have you eaten?",
   "companionGreetAfternoon": "ดี บ่าย. I was เพียง daydreaming.",
@@ -73,7 +73,7 @@
   "companionArriving": "She's swimming เกิน…",
   "companionPrivacyLine": "Assets stay เปิด this phone. Chats go ผ่าน  current โฮสต์.",
   "companionMemoryTitle": "What she remembers",
-  "companionMemoryScope": "Kept เปิด {โฮสต์}. She doesn't bring these ขึ้น โดย herself ยัง;  ภายหลัง VERSION will.",
+  "companionMemoryScope": "{host} Kept เปิด {โฮสต์}. She doesn't bring these ขึ้น โดย herself ยัง;  ภายหลัง VERSION will.",
   "companionMemoryAdd": "เพิ่ม",
   "companionMemoryEdit": "แก้ไข",
   "companionMemorySave": "บันทึก",
@@ -136,7 +136,7 @@
   "companionHug3": " little longer, เพียง  little.",
   "companionBondTitle": "You two",
   "companionBond0": "เพียง met",
-  "companionBond1": "Getting ไป know แต่ละ อื่นๆ",
+  "companionBond1": "Getting ไป know แต่ละ other",
   "companionBond2": "ปิด",
   "companionBond3": "มาก ปิด",
   "companionCloser1": "I think... I'm นอต so nervous anymore.",
@@ -149,7 +149,7 @@
   "companionTaskOpen": "TEEก  look",
   "companionMenuSignals": "What she brings ขึ้น",
   "companionSignalsHint": "These are said เท่านั้น ไป you, here ใน her room; nothing goes ไป  Model. How บ่อยครั้ง follows How บ่อยครั้ง she speaks ขึ้น, shared กับ invitations, แอนด์ ไม่เคย late at กลางคืน. เปิด Quiet she says nothing.",
-  "companionSignalState": "Keep track ของ อื่นๆ conversations",
+  "companionSignalState": "Keep track ของ other conversations",
   "companionSignalStateHint": "She notices เมื่อ another conversation เปิด this โฮสต์ finishes ออร์ fails",
   "companionSignalSpeech": "Mention it",
   "companionSignalSpeechHint": "She says  short ไลน์ ขณะที่ you're quiet",
@@ -193,12 +193,12 @@
   "companionVoiceVoiceHelper": " เซอร์วิส's voice ชื่อ, like alloy, ออร์  speaker เปิด your own เซิร์ฟเวอร์",
   "companionVoiceRequest": "คำขอ",
   "companionVoiceUrl": "คำขอ URL",
-  "companionVoiceUrlHelper": "{เท็กซ์} works ใน  URL เกินไป",
+  "companionVoiceUrlHelper": "{text} {เท็กซ์} works ใน  URL เกินไป",
   "companionVoiceMethod": "เมธอด",
   "companionVoiceHeaders": "Headers",
   "companionVoiceHeadersHelper": "One per ไลน์; kept ใน secure ที่เก็บข้อมูล",
   "companionVoiceBody": "บอดี้",
-  "companionVoiceBodyHelper": "{เท็กซ์} becomes what she says",
+  "companionVoiceBodyHelper": "{text} {เท็กซ์} becomes what she says",
   "companionVoiceField": "ออดิโอ field",
   "companionVoiceFieldHelper": "ถ้า  reply คือ JSON: เวียร์  ออดิโอ คือ (base64 ออร์  ลิงก์), like data.ออดิโอ. LEAF empty เมื่อ it returns ออดิโอ",
   "companionVoicePrivacy": "What she says คือ sent ไป  เซอร์วิส you เอ็นเตอร์.",
@@ -209,7 +209,7 @@
   "companionVoiceNotSetUp": "Fill ใน  ที่อยู่ above เฟิร์ส.",
   "companionVoiceFallback": "Couldn't reach her voice เซอร์วิส, so  phone's own voice stood ใน",
   "companionGreetFirstNameless": "Hi, I live here ตอนนี้. Nice ไป meet you.",
-  "companionRenamed": "\"{ชื่อ}\"... okay, that's my ชื่อ จาก ตอนนี้ เปิด.",
+  "companionRenamed": "{name} \"{ชื่อ}\"... okay, that's my ชื่อ จาก ตอนนี้ เปิด.",
   "companionVoicePreset": "ยอดนิยม services",
   "companionVoicePresetHint": "Xiaomi MiMo, OpenAI, SiliconFlow, Alibaba Model Studio: เพียง เพิ่ม  คีย์",
   "companionVoiceService": "Service",
@@ -225,7 +225,7 @@
   "companionCloneRecording": "Recording",
   "companionCloneHelper": "5–30 seconds ของ one person speaking กับ ไม่ background noise, mp3 ออร์ wav, ขึ้น ไป 7 MB. เท่านั้น use your own voice, ออร์ one whose เจ้าของ agreed. ทุก ไลน์ she says sends this recording ไป Xiaomi.",
   "companionCloneNone": "ไม่ recording ยัง",
-  "companionCloneReady": "อัปโหลดแล้ว · {รายละเอียด}",
+  "companionCloneReady": "{detail} อัปโหลดแล้ว · {รายละเอียด}",
   "companionCloneSeconds": "{n} s",
   "companionClonePick": "Choose  recording",
   "companionCloneReplace": "Replace",
@@ -249,7 +249,7 @@
   "companionMovesRename": "รีเนม",
   "companionMovesTry": "ทราย it",
   "companionPackLegacyModel": "This คือ  old Cubism 2 Model (.moc แอนด์ Model.JSON);  รันไทม์ เปิด  phone เท่านั้น reads .moc3 จาก Cubism 3 เปิด. เปิด it ใน Cubism Editor, ส่งออก it ในฐานะ moc3 แอนด์ นำเข้า that.",
-  "companionFailedMocVersion": "This Model was exported โดย  newer Cubism (moc VERSION {VERSION});  รันไทม์ เปิด  phone reads ขึ้น ไป {latest}. ส่งออก it สำหรับ  older VERSION ใน Cubism Editor แอนด์ นำเข้า that.",
+  "companionFailedMocVersion": "{version} This Model was exported โดย newer Cubism (moc VERSION {version}); รันไทม์ เปิด phone reads ขึ้น ไป {latest}. ส่งออก it สำหรับ older VERSION ใน Cubism Editor แอนด์ นำเข้า that.",
   "companionMenuAdapt": "Fit this Model",
   "companionAdaptHint": "Your own Model (your คีย์, billed per คำขอ) reads this character แอนด์ matches ขึ้น her head, eyes, expressions แอนด์ เวียร์ she can เป็น touched. Sent:  Model's ชื่อ, its พารามิเตอร์ รายการ,  names ของ its expressions, motions แอนด์ parts, what you เขียน below แอนด์  current fitting. ไม่เคย  Model files ออร์ textures.",
   "companionAdaptOffer": "This Model needs fitting: your own Model reads its พารามิเตอร์ รายการ แอนด์  names ของ its expressions แอนด์ motions (ไม่เคย  Model files), using your คีย์ หนึ่งครั้ง. ใหม่ models หลัง this are fitted เปิด their own; you can turn that ปิด ใน  menu.",
@@ -392,10 +392,10 @@
   },
   "@companionFailedMocVersion": {
     "placeholders": {
-      "latest": {
+      "version": {
         "type": "String"
       },
-      "version": {
+      "latest": {
         "type": "String"
       }
     }

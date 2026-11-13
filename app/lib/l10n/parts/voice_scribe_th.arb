@@ -14,11 +14,11 @@
   "voiceScribeKeySet": "คีย์ เซ็ท",
   "voiceScribeNoKey": "ไม่ คีย์",
   "voiceScribeHotwords": "Hotwords",
-  "voiceScribeHotwordRules": "{เคาท์, plural, อื่นๆ{{เคาท์} rules}}",
+  "voiceScribeHotwordRules": "กฎคำสั่งเสียง: {count} รายการ",
   "@voiceScribeHotwordRules": {
     "placeholders": {
       "count": {
-        "type": "int"
+        "type": "String"
       }
     }
   }

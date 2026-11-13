@@ -2,36 +2,36 @@
   "botsFolderGone": "This โฟลเดอร์ คือ gone",
   "botsFolderReadFailed": "Couldn’t อ่าน this โฟลเดอร์",
   "botsFolderOpenFailed": "Couldn’t เปิด this โฟลเดอร์",
-  "botsFolderCount": "{เคาท์, plural, อื่นๆ{{เคาท์} folders}}",
+  "botsFolderCount": "{count} folders}",
   "botsWorkingFolder": "กำลังทำงาน ไดเรกทอรี",
   "botsFolderTeamDefault": "TEEม workspace",
   "botsFolderRoomDefault": "แต่ละ Bot’s own ไดเรกทอรี",
   "botsFolderHint": "Folders เปิด  connected โฮสต์.",
   "botsFolderCurrent": "Current ไดเรกทอรี",
   "botsFolderUnavailable": " การเชื่อมต่อ ออร์ โฟลเดอร์ changed. Reopen ไป ต่อ.",
-  "botsFolderNoChoices": "ไม่ อื่นๆ folders เปิด  โฮสต์.",
+  "botsFolderNoChoices": "ไม่ other folders เปิด  โฮสต์.",
   "botsFolderConfirm": "Use this working ไดเรกทอรี?",
   "botsFolderRefused": " โฮสต์ refused this โฟลเดอร์. It พฤษภาคม เป็น gone, inaccessible ออร์ protected. Choose another ออร์ ลองใหม่.",
-  "botsChildCount": "{เคาท์, plural, อื่นๆ{{เคาท์} child agents}}",
+  "botsChildCount": "{count} child agents}",
   "botsCurrentChat": "Current Chat",
-  "botsSubagentCount": "{เคาท์, plural, อื่นๆ{{เคาท์} subagents}}",
-  "botsRunningCount": "{เคาท์, plural, อื่นๆ{{เคาท์} กำลังทำงาน}}",
-  "botsFailedCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ล้มเหลว}}",
-  "botsNestedCount": "{เคาท์, plural, อื่นๆ{Includes {เคาท์} child agents}}",
-  "botsBackToParent": "ย้อนกลับ ไป “{หัวข้อ}”",
-  "botsTeamMemberCount": "{เคาท์, plural, อื่นๆ{Agent TEEม, {เคาท์} members}}",
+  "botsSubagentCount": "{count} subagents}",
+  "botsRunningCount": "{count} กำลังทำงาน}",
+  "botsFailedCount": "{count} ล้มเหลว}",
+  "botsNestedCount": "{count} child agents}",
+  "botsBackToParent": "{title} ย้อนกลับ ไป “{หัวข้อ}”",
+  "botsTeamMemberCount": "{count} members}",
   "botsAgentTeam": "Agent TEEม",
-  "botsSubagentRunningCount": "{เคาท์, plural, อื่นๆ{{เคาท์} subagents}}, {กำลังทำงาน, plural, อื่นๆ{{กำลังทำงาน} กำลังทำงาน}}",
+  "botsSubagentRunningCount": "{running} {count} subagents}, กำลังทำงาน}",
   "botsSubagents": "ซับเอจิ้นต์",
   "botsNoSubagents": "ไม่ subagents sent",
-  "botsOpenChatFirst": "เปิด  chat ก่อนอื่น",
+  "botsOpenChatFirst": "เปิด  chat ก่อนother",
   "botsTeamReadFailed": "Couldn’t โหลด  TEEม",
   "botsNoTeamOnHost": "ไม่ agent team เปิด this โฮสต์",
   "botsTeamNotEnabled": "Agent TEEม คือ ปิด",
   "botsTeamDescription": "Agents งาน together เปิด  shared งาน board",
   "botsTeamEnabling": "Turning เปิด…",
   "botsTeamEnable": "Turn เปิด TEEม",
-  "botsMembersWorking": "{เคาท์, plural, อื่นๆ{{เคาท์} members working}}",
+  "botsMembersWorking": "{count} members working}",
   "botsTeamStandby": "ทั้งหมด เปิด standby",
   "botsMembers": "สมาชิก",
   "botsTasks": "Tasks",
@@ -64,7 +64,7 @@
   "botsSending": "Sending",
   "botsWriteOwn": "เขียน your own",
   "botsSubmit": "ส่ง",
-  "botsChooseModelFor": "Choose  Model สำหรับ {ชื่อ}",
+  "botsChooseModelFor": "{name} Choose  Model สำหรับ {ชื่อ}",
   "botsModelGreeting": "It’ll say hello หนึ่งครั้ง you choose",
   "botsChooseModel": "Choose Model",
   "botsSkipAnswer": "ข้าม",
@@ -75,8 +75,8 @@
   "botsIdle": "ว่าง",
   "botsAnsweredQuestion": "You answered its คำถาม",
   "botsEarlierMessages": "Earlier messages",
-  "botsComposerHint": "ข้อความ {ชื่อ}…",
-  "botsDeleteNamed": "ลบ “{ชื่อ}”?",
+  "botsComposerHint": "{name} ข้อความ {ชื่อ}…",
+  "botsDeleteNamed": "{name} ลบ “{ชื่อ}”?",
   "botsDeleteBotBody": "Its chats stay. Its memories ย้าย ไป  archive.",
   "botsTokensToday": "24h tokens",
   "botsMemoryUnit": "Memories",
@@ -95,7 +95,7 @@
   "botsToday": "สุดท้าย 24 hours",
   "botsLastWeek": "สุดท้าย 7 days",
   "botsLastMonth": "สุดท้าย 30 days",
-  "botsMonthCalls": "{เคาท์, plural, อื่นๆ{ลาสท์ 30 days · {เคาท์} calls}}",
+  "botsMonthCalls": "{count} calls}",
   "botsFullRecord": "Full record",
   "botsEveryToolCall": "ทุก เครื่องมือ คอลล์",
   "botsUnsetMain": "Unset main bot",
@@ -107,14 +107,14 @@
   "botsEffortMedium": "กลาง",
   "botsEffortHigh": "สูง",
   "botsEffortMax": "สูงสุด",
-  "botsNamedRecord": "{ชื่อ} · Full record",
+  "botsNamedRecord": "{name} {ชื่อ} · Full record",
   "botsOrganizingNotes": "Organizing notes",
   "botsToolRun": "เรียกใช้ commands",
   "botsToolRead": "มุมมอง files",
   "botsToolEdit": "แก้ไข files",
   "botsToolSearch": "ค้นหา  web",
   "botsToolBrowse": "browse  web",
-  "botsToolMessage": "contact อื่นๆ bots",
+  "botsToolMessage": "contact other bots",
   "botsToolGroup": "Chat กับ  กลุ่ม",
   "botsToolMemory": "organize memories",
   "botsToolRecall": "look ผ่าน records",
@@ -122,42 +122,42 @@
   "botsToolAsk": "ถาม you something",
   "botsToolWork": "งาน",
   "botsJustNow": "เพียง ตอนนี้",
-  "botsCountHundredMillion": "{ค่า}M",
-  "botsCountTenThousand": "{ค่า}K",
+  "botsCountHundredMillion": "{value} {ค่า}M",
+  "botsCountTenThousand": "{value} {ค่า}K",
   "botsModelNotSelected": "นอต selected",
-  "botsYourPreview": "You: {พรีVUE}",
-  "botsEventWorking": "{ชื่อ} started working",
-  "botsEventApproval": "{ชื่อ} needs your approval",
-  "botsEventDone": "{ชื่อ} finished working",
-  "botsEventStopped": "You หยุด {ชื่อ}’s งาน",
-  "botsEventFailed": "{ชื่อ} couldn’t คำตอบ",
-  "botsEventMissed": "{ชื่อ} didn’t respond ใน ไทม์",
-  "botsEventLookup": "{ชื่อ} looked ผ่าน its chats",
-  "botsEventLookupQuery": "{ชื่อ} searched its chats สำหรับ “{คิวรี}”",
-  "botsEventResumed": "{ชื่อ} resumed หลัง restarting",
-  "botsEventCut": "{ชื่อ} หยุด หลัง another รีสตาร์ท interrupted it",
+  "botsYourPreview": "{preview} You: {พรีVUE}",
+  "botsEventWorking": "{name} {ชื่อ} started working",
+  "botsEventApproval": "{name} {ชื่อ} needs your approval",
+  "botsEventDone": "{name} {ชื่อ} finished working",
+  "botsEventStopped": "{name} You หยุด {ชื่อ}’s งาน",
+  "botsEventFailed": "{name} {ชื่อ} couldn’t คำตอบ",
+  "botsEventMissed": "{name} {ชื่อ} didn’t respond ใน ไทม์",
+  "botsEventLookup": "{name} {ชื่อ} looked ผ่าน its chats",
+  "botsEventLookupQuery": "{query} {name} {ชื่อ} searched its chats สำหรับ “{คิวรี}”",
+  "botsEventResumed": "{name} {ชื่อ} resumed หลัง restarting",
+  "botsEventCut": "{name} {ชื่อ} หยุด หลัง another รีสตาร์ท interrupted it",
   "botsAutomation": "Automation",
-  "botsAutomationText": "Automation: {เท็กซ์}",
+  "botsAutomationText": "{text} Automation: {เท็กซ์}",
   "botsOtherBot": "Another bot",
-  "botsMessageFrom": "ข้อความ จาก {ชื่อ}",
-  "botsEventReplied": "{ชื่อ} replied",
+  "botsMessageFrom": "{name} ข้อความ จาก {ชื่อ}",
+  "botsEventReplied": "{name} {ชื่อ} replied",
   "botsGroupReplied": " reply ใน  กลุ่ม",
-  "botsNamedGroupReplied": " reply ใน “{ชื่อ}”",
-  "botsEventCalledStop": "{ชื่อ} หยุด  งาน",
+  "botsNamedGroupReplied": "{name}  reply ใน “{ชื่อ}”",
+  "botsEventCalledStop": "{name} {ชื่อ} หยุด  งาน",
   "botsChooseMember": "เลือก member",
   "botsMentionMember": "Mention member",
   "botsRelayUnavailable": "Bots aren’t available เกิน Relay",
   "botsUseSsh": "เชื่อมต่อ ไป this computer เกิน SSH ไป use bots",
   "botsTeamLoadFailed": "Couldn’t โหลด  bot TEEม",
-  "botsBotCount": "{เคาท์, plural, อื่นๆ{{เคาท์} bots}}",
-  "botsRoomCount": "{เคาท์, plural, อื่นๆ{{เคาท์} กลุ่ม chats}}",
+  "botsBotCount": "{count} bots}",
+  "botsRoomCount": "{count} กลุ่ม chats}",
   "botsNewBot": "ใหม่ bot",
   "botsGroupChat": "กลุ่ม chat",
   "botsNewGroup": "ใหม่ กรุ๊ป",
   "botsDuplicateCreated": "Copied. It will แสดง ขึ้น ใน  รายการ shortly.",
   "botsDuplicate": "ซ้ำ Bot",
   "botsDuplicateHint": "Same ตั้งค่า, fresh Chat แอนด์ หน่วยความจำ",
-  "botsDuplicateNamed": "ซ้ำ {ชื่อ}?",
+  "botsDuplicateNamed": "{name} ซ้ำ {ชื่อ}?",
   "botsDuplicateBody": " ใหม่ Bot keeps its งาน, instructions แอนด์ Model ตั้งค่า, starts กับ  fresh Chat แอนด์ personal หน่วยความจำ, แอนด์ gets its ชื่อ จาก  โฮสต์. เมื่อ  Model คือ available, it opens กับ  greeting.",
   "@botsDuplicateNamed": {
     "placeholders": {
@@ -168,25 +168,25 @@
   },
   "botsChooseModelStart": "Choose  Model ไป เริ่ม",
   "botsNoChats": "ไม่ chats ยัง",
-  "botsUnreadCount": "{เคาท์, plural, อื่นๆ{{เคาท์} unread}}",
+  "botsUnreadCount": "{count} unread}",
   "botsMainTag": "Main",
   "botsMemberNeedsApproval": " member needs approval",
-  "botsNamedWorking": "{ชื่อ} คือ working",
+  "botsNamedWorking": "{name} {ชื่อ} คือ working",
   "botsNamesWorking": "{names} คือ กำลังทำงาน",
-  "botsMemberCount": "{เคาท์, plural, อื่นๆ{{เคาท์} members}}",
+  "botsMemberCount": "{count} members}",
   "botsUpdateRequired": "DS Bot needs  อัปเดต",
   "botsInstall": "ติดตั้ง DS Bot",
   "botsUpdateForPhone": "อัปเดต ไป use it เปิด your phone",
   "botsInstallDescription": "เสมอ-เปิด bots, แต่ละ กับ its own หน่วยความจำ แอนด์ บทบาท",
-  "botsInstallOnHost": "ติดตั้ง เปิด {โฮสต์} ไป get started",
-  "botsRunsOnHost": "Runs เปิด {โฮสต์}",
+  "botsInstallOnHost": "{host} ติดตั้ง เปิด {โฮสต์} ไป get started",
+  "botsRunsOnHost": "{host} Runs เปิด {โฮสต์}",
   "botsInstalling": "กำลังติดตั้ง",
   "botsMemory": "หน่วยความจำ",
   "botsEditMemory": "แก้ไข เมมโมรี่",
   "botsAddMemory": "เพิ่ม เมมโมรี่",
   "botsMemoryReplyExample": "สำหรับ ตัวอย่าง: Keep replies short",
   "botsMemoryDraftExample": "สำหรับ ตัวอย่าง: เฟิร์ส draft โดย วันศุกร์",
-  "botsMemoryCount": "{count, plural, other{Memory · {count}}}",
+  "botsMemoryCount": "{count}}}",
   "botsMemoryReadFailed": "Couldn’t โหลด memories",
   "botsSummary": "สรุป",
   "botsNoMemory": "ไม่ memories ยัง",
@@ -199,10 +199,10 @@
   "botsAppearance": "Appearance",
   "botsCreating": "Creating",
   "botsGroupNameOptional": "กลุ่ม ชื่อ (optional)",
-  "botsMembersSelected": "{เคาท์, plural, อื่นๆ{Members · {เคาท์} selected}}",
+  "botsMembersSelected": "{count} selected}",
   "botsPickTwoBots": "Pick at น้อยที่สุด two bots",
   "botsFullText": "Full เท็กซ์",
-  "botsTextPartial": "Showing  เฟิร์ส {เคาท์} characters",
+  "botsTextPartial": "{count} Showing  เฟิร์ส {เคาท์} characters",
   "@botsTextPartial": {
     "placeholders": {
       "count": {
@@ -212,7 +212,7 @@
   },
   "botsTextCompletenessUnknown": "Couldn’t ยืนยัน this คือ  complete เท็กซ์",
   "botsRoomGone": "This กลุ่ม Chat คือ gone",
-  "botsNamedSpeaking": "{ชื่อ} คือ speaking",
+  "botsNamedSpeaking": "{name} {ชื่อ} คือ speaking",
   "botsNamedActivity": "{name}: {activity}",
   "botsWorking": "กำลังทำงาน",
   "botsDiscussing": "Discussing",
@@ -224,13 +224,13 @@
   "botsSetAdmin": "Make แอดมิน",
   "botsRemoveMember": "นำออก จาก กรุ๊ป",
   "botsDeleteRoomBody": " กลุ่ม’s records stay. Its memories ย้าย ไป  archive.",
-  "botsNamedAdmin": "แอดมิน {ชื่อ}",
-  "botsRoomWorkingCount": "{เคาท์, plural, อื่นๆ{{เคาท์} working}}",
-  "botsMembersCountTitle": "{count, plural, other{Members · {count}}}",
+  "botsNamedAdmin": "{name} แอดมิน {ชื่อ}",
+  "botsRoomWorkingCount": "{count} working}",
+  "botsMembersCountTitle": "{count}}}",
   "botsStopMember": "หยุด",
   "botsAddMember": "เพิ่ม members",
   "botsWhoAnswers": "Who answers เฟิร์ส",
-  "botsAdminFirst": "แอดมิน ก่อนอื่น",
+  "botsAdminFirst": "แอดมิน ก่อนother",
   "botsEveryoneInTurn": "TEEก turns",
   "botsGroupName": "กลุ่ม ชื่อ",
   "botsGroupNotice": "กลุ่ม การแจ้งเตือน",
@@ -276,13 +276,13 @@
   "botsPromptIdeas": "ทราย this",
   "botsUpdates": "What’s ใหม่",
   "botsLink": "ลิงก์",
-  "botsLinkOpenFailed": "Couldn’t เปิด {โฮสต์}",
-  "botsYearMonth": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {ยีอาร์}",
+  "botsLinkOpenFailed": "{host} Couldn’t เปิด {โฮสต์}",
+  "botsYearMonth": "{month} {year} 2 3 4 5 6 7 8 9 10 11 12 other}",
   "botsCopyGroupNumber": "คัดลอก กรุ๊ป number",
-  "botsQrCodeLabel": "{หัวข้อ} QR code",
+  "botsQrCodeLabel": "{title} {หัวข้อ} QR code",
   "botsFiles": "Files",
   "botsEmptyCell": "(ว่าง)",
-  "botsYesterdayTime": "เมื่อวาน {ไทม์}",
+  "botsYesterdayTime": "{time} เมื่อวาน {ไทม์}",
   "botsOutsideWorkspace": "Outside  Workspace",
   "botsNotFolder": "This isn’t  โฟลเดอร์",
   "botsChatNotFound": "Chat นอต found",
@@ -291,8 +291,8 @@
   "botsSearchFiles": "ค้นหา files",
   "botsGoUp": "Go ขึ้น",
   "botsEmptyFolder": "Empty โฟลเดอร์",
-  "botsFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
-  "botsTruncatedItems": "{เคาท์, plural, อื่นๆ{เท่านั้น  เฟิร์ส {เคาท์} items are shown}}",
+  "botsFileCount": "{count} files}",
+  "botsTruncatedItems": "{count} items are shown}",
   "botsMoreActions": "เพิ่มเติม actions",
   "botsSearchFailed": "Couldn’t ค้นหา",
   "botsNoResults": "ไม่ results",
@@ -316,8 +316,8 @@
   "botsPetSource": "จาก DSH-TUI",
   "botsPetImport": "นำเข้า",
   "botsPetImportHint": "Bring your own pixel pet:  zip กับ pack.JSON แอนด์ PNG frame sheets;  ฟอร์แมต คือ ใน docs/design/pets.md ใน  repository. Long-press  imported pet ไป ลบ it.",
-  "botsPetImportDone": "{ชื่อ} คือ here",
-  "botsPetCodexTitle": "{ชื่อ} was converted จาก  Codex pet",
+  "botsPetImportDone": "{name} {ชื่อ} คือ here",
+  "botsPetCodexTitle": "{name} {ชื่อ} was converted จาก  Codex pet",
   "botsPetCodexBody": "มากที่สุด ของ it carries เกิน ในฐานะ it was.  น้อย things differ:",
   "botsPetCodexOk": "Got it",
   "botsPetCodexLoops": "Motions loop จนกว่า  สเตท changes, instead ของ settling ย้อนกลับ ไป idle หลัง  น้อย rounds ในฐานะ ใน Codex",
@@ -332,22 +332,22 @@
   "botsPetCodexMissingAuthor": " pack names ไม่ ผู้เขียน",
   "botsPetCodexMissingLicense": " pack names ไม่ ใบอนุญาต",
   "botsPetCodexMissingSource": " pack names ไม่ source",
-  "botsPetImportReplaced": "{ชื่อ} was updated",
+  "botsPetImportReplaced": "{name} {ชื่อ} was updated",
   "botsPetImportNotZip": "That isn't  zip ไฟล์",
   "botsPetImportNoPack": "There's ไม่ pack.JSON ใน  zip",
-  "botsPetImportBadPack": "pack.JSON has  problem: {รายละเอียด}",
-  "botsPetImportMissingSheet": " zip คือ missing  sheet {ชื่อ}",
-  "botsPetImportBadSheet": " sheet isn't right: {ชื่อ} ( complete PNG, at มากที่สุด 4096 pixels  side, ทุก frame inside it)",
+  "botsPetImportBadPack": "{detail} pack.JSON has  problem: {รายละเอียด}",
+  "botsPetImportMissingSheet": "{name}  zip คือ missing  sheet {ชื่อ}",
+  "botsPetImportBadSheet": "{name}  sheet isn't right: {ชื่อ} ( complete PNG, at มากที่สุด 4096 pixels  side, ทุก frame inside it)",
   "botsPetImportTooLarge": "This pet pack คือ เกินไป big",
   "botsPetImportStorage": "Couldn't บันทึก it เปิด  phone. ทราย อีกครั้ง",
-  "botsPetRemoveTitle": "ลบ {ชื่อ}?",
+  "botsPetRemoveTitle": "{name} ลบ {ชื่อ}?",
   "botsPetRemoveBody": "You can นำเข้า it อีกครั้ง ภายหลัง.",
-  "botsPetRemoveFailed": "Couldn't ลบ {ชื่อ}. ทราย อีกครั้ง",
+  "botsPetRemoveFailed": "{name} Couldn't ลบ {ชื่อ}. ทราย อีกครั้ง",
   "botsPetSize": "ขนาด",
   "botsPetQuiet": "เงียบ mode",
   "botsPetQuietSubtitle": "Animations เท่านั้น, ไม่ bubbles",
   "botsPetShowNow": "แสดง ตอนนี้",
-  "botsPetHiddenUntil": "ซ่อน จนกว่า {ไทม์}",
+  "botsPetHiddenUntil": "{time} ซ่อน จนกว่า {ไทม์}",
   "botsKeyEsc": "ส่ง Esc",
   "botsKeyTab": "ส่ง Tab",
   "botsKeyLeft": "ซ้าย",
@@ -362,7 +362,7 @@
   "botsTerminalRename": "รีเนม Terminal",
   "botsTerminalName": "Terminal ชื่อ",
   "botsTerminalRenameFailed": "Couldn’t รีเนม",
-  "botsTerminalCloseNamed": "ปิด “{หัวข้อ}”?",
+  "botsTerminalCloseNamed": "{title} ปิด “{หัวข้อ}”?",
   "botsTerminalCloseBody": "Processes inside จะ end",
   "botsTerminalUnsupported": "Terminal isn’t available เปิด this การเชื่อมต่อ",
   "botsTerminalSupportedHosts": "พร้อมใช้งาน เปิด this phone,  SSH โฮสต์ ออร์  รีโมต computer",
@@ -383,31 +383,31 @@
   "botsTerminalEnded": "สิ้นสุด",
   "botsTerminalExitCode": "Ended · Exit โค้ด {code}",
   "botsTerminalGone": "This Terminal คือ gone",
-  "botsTerminalLimit": "ปิด unused terminals ก่อนอื่น",
+  "botsTerminalLimit": "ปิด unused terminals ก่อนother",
   "botsToolWorkingRun": "กำลังทำงาน commands",
-  "botsToolApprovalRun": "{ชื่อ} wants ไป เรียกใช้ commands",
+  "botsToolApprovalRun": "{name} {ชื่อ} wants ไป เรียกใช้ commands",
   "botsToolWorkingRead": "Viewing files",
-  "botsToolApprovalRead": "{ชื่อ} wants ไป มุมมอง files",
+  "botsToolApprovalRead": "{name} {ชื่อ} wants ไป มุมมอง files",
   "botsToolWorkingEdit": "Editing files",
-  "botsToolApprovalEdit": "{ชื่อ} wants ไป แก้ไข files",
+  "botsToolApprovalEdit": "{name} {ชื่อ} wants ไป แก้ไข files",
   "botsToolWorkingSearch": "Searching  web",
-  "botsToolApprovalSearch": "{ชื่อ} wants ไป ค้นหา  web",
+  "botsToolApprovalSearch": "{name} {ชื่อ} wants ไป ค้นหา  web",
   "botsToolWorkingBrowse": "Browsing  web",
-  "botsToolApprovalBrowse": "{ชื่อ} wants ไป browse  web",
-  "botsToolWorkingMessage": "Contacting อื่นๆ bots",
-  "botsToolApprovalMessage": "{ชื่อ} wants ไป contact อื่นๆ bots",
+  "botsToolApprovalBrowse": "{name} {ชื่อ} wants ไป browse  web",
+  "botsToolWorkingMessage": "Contacting other bots",
+  "botsToolApprovalMessage": "{name} {ชื่อ} wants ไป contact other bots",
   "botsToolWorkingGroup": "Chatting กับ  กลุ่ม",
-  "botsToolApprovalGroup": "{ชื่อ} wants ไป Chat กับ  กลุ่ม",
+  "botsToolApprovalGroup": "{name} {ชื่อ} wants ไป Chat กับ  กลุ่ม",
   "botsToolWorkingMemory": "Organizing memories",
-  "botsToolApprovalMemory": "{ชื่อ} wants ไป organize memories",
+  "botsToolApprovalMemory": "{name} {ชื่อ} wants ไป organize memories",
   "botsToolWorkingRecall": "Looking ผ่าน records",
-  "botsToolApprovalRecall": "{ชื่อ} wants ไป look ผ่าน records",
+  "botsToolApprovalRecall": "{name} {ชื่อ} wants ไป look ผ่าน records",
   "botsToolWorkingTeam": "Organizing  TEEม",
-  "botsToolApprovalTeam": "{ชื่อ} wants ไป organize  TEEม",
+  "botsToolApprovalTeam": "{name} {ชื่อ} wants ไป organize  TEEม",
   "botsToolWorkingAsk": "Preparing ไป ถาม you",
-  "botsToolApprovalAsk": "{ชื่อ} wants ไป ถาม you something",
+  "botsToolApprovalAsk": "{name} {ชื่อ} wants ไป ถาม you something",
   "botsToolWorkingWork": "กำลังทำงาน",
-  "botsToolApprovalWork": "{ชื่อ} wants ไป งาน",
+  "botsToolApprovalWork": "{name} {ชื่อ} wants ไป งาน",
   "botsEveryone": "Everyone",
   "botsActivelyRunning": "กำลังทำงาน",
   "botsListSeparator": ", ",
@@ -420,7 +420,7 @@
   "botsEffortXhigh": "Extra high",
   "botsRelayLimit": "Bot relay ลิมิต",
   "botsRelayLimitHint": "หยุดชั่วคราว หลัง this มาก Bot-ไป-Bot calls ตั้งแต่ your last ข้อความ. เอ็นเตอร์  whole number จาก 1 ไป 200, ออร์ LEAF empty สำหรับ  ดีฟอลต์.",
-  "botsRelayLimitDefault": "ค่าเริ่มต้น: {เคาท์}",
+  "botsRelayLimitDefault": "{count} ค่าเริ่มต้น: {เคาท์}",
   "botsRelayLimitInvalid": "เอ็นเตอร์  whole ตัวเลข จาก 1 ไป 200.",
   "botsRelayLimitRestore": "กู้คืน ดีฟอลต์",
   "botsRelayLimitConnectionChanged": " การเชื่อมต่อ changed. ปิด this sheet แอนด์ เปิด it อีกครั้ง.",
@@ -438,42 +438,42 @@
   "@botsFolderCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsChildCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsSubagentCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsRunningCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsFailedCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsNestedCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -487,24 +487,24 @@
   "@botsTeamMemberCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsSubagentRunningCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       },
       "running": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsMembersWorking": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -549,7 +549,7 @@
   "@botsMonthCalls": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -632,10 +632,10 @@
   },
   "@botsEventLookupQuery": {
     "placeholders": {
-      "name": {
+      "query": {
         "type": "String"
       },
-      "query": {
+      "name": {
         "type": "String"
       }
     }
@@ -692,21 +692,21 @@
   "@botsBotCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsRoomCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsUnreadCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -727,7 +727,7 @@
   "@botsMemberCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -755,7 +755,7 @@
   "@botsMembersSelected": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -786,7 +786,7 @@
   "@botsRoomWorkingCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -806,10 +806,10 @@
   },
   "@botsYearMonth": {
     "placeholders": {
-      "month": {
-        "type": "String"
-      },
       "year": {
+        "type": "int"
+      },
+      "month": {
         "type": "String"
       }
     }
@@ -831,14 +831,14 @@
   "@botsFileCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@botsTruncatedItems": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },

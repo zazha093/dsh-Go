@@ -13,7 +13,7 @@
       }
     }
   },
-  "phoneSkillCandidateHint": "ตรวจสอบ  actual ผลลัพธ์ ก่อนอื่น; successful tool calls ทำ นอต prove that your เป้าหมาย was achieved.",
+  "phoneSkillCandidateHint": "ตรวจสอบ  actual ผลลัพธ์ ก่อนother; successful tool calls ทำ นอต prove that your เป้าหมาย was achieved.",
   "phoneSkillSaveAction": "บันทึก ในฐานะ  skill",
   "phoneSkillConfirmGoal": "Did this งาน achieve your เป้าหมาย?",
   "phoneSkillConfirmGoalBody": "ตรวจสอบ  actual ผลลัพธ์. Your confirmation creates  draft that you can review แอนด์ แก้ไข ก่อน saving.",
@@ -21,7 +21,7 @@
   "phoneSkillPrivacyHint": " draft stays เปิด this device. ทำ นอต เอ็นเตอร์ passwords, keys, ออร์ verification codes. ใน this VERSION, free เท็กซ์ becomes parameters; removing ออร์ reordering steps คือ kept. รีVUE  final พรีVUE.",
   "phoneSkillGoal": "เป้าหมาย",
   "phoneSkillPrerequisites": "Requirements (app, VERSION, ไซน์-ใน สเตท)",
-  "phoneSkillStep": "Original step {ตัวเลข}",
+  "phoneSkillStep": "{number} Original step {ตัวเลข}",
   "@phoneSkillStep": {
     "placeholders": {
       "number": {

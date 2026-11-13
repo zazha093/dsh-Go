@@ -2,8 +2,8 @@
   "plugInputRequired": "เสร็จสิ้น this field",
   "plugInputInvalidValue": "Invalid ค่า",
   "plugInputNumber": "เอ็นเตอร์  valid ตัวเลข",
-  "plugInputBounds": "เอ็นเตอร์  ค่า จาก {มิน} ไป {แม็กซ์}",
-  "plugInputLength": "Use {มิน}–{แม็กซ์} characters",
+  "plugInputBounds": "{min} {max} เอ็นเตอร์  ค่า จาก {มิน} ไป {แม็กซ์}",
+  "plugInputLength": "{min} {max} Use {มิน}–{แม็กซ์} characters",
   "plugInputPattern": "ตรวจสอบ  ฟอร์แมต",
   "plugInputDate": "Choose  valid เดท",
   "plugInputTime": "Choose  valid ไทม์",
@@ -23,7 +23,7 @@
   "plugInputNext": "ถัดไป",
   "plugInputDecrease": "Decrease {label}",
   "plugInputIncrease": "Increase {label}",
-  "plugInputRating": "{label}: {ค่า} ออก ของ {แม็กซ์}",
+  "plugInputRating": "{value} {max} {label}: {ค่า} ออก ของ {แม็กซ์}",
   "plugInputFormula": "Invalid formula ออร์ formula ลิมิต exceeded",
   "plugInputDatePicker": "ปลั๊กอิน เดท",
   "plugInputTimePicker": "ปลั๊กอิน ไทม์",
@@ -31,20 +31,20 @@
   "plugInputGestureRequired": "This effect requires  ผู้ใช้ tap",
   "@plugInputBounds": {
     "placeholders": {
-      "max": {
+      "min": {
         "type": "String"
       },
-      "min": {
+      "max": {
         "type": "String"
       }
     }
   },
   "@plugInputLength": {
     "placeholders": {
-      "max": {
+      "min": {
         "type": "String"
       },
-      "min": {
+      "max": {
         "type": "String"
       }
     }
@@ -65,13 +65,13 @@
   },
   "@plugInputRating": {
     "placeholders": {
-      "label": {
+      "value": {
         "type": "String"
       },
       "max": {
         "type": "String"
       },
-      "value": {
+      "label": {
         "type": "String"
       }
     }

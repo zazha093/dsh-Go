@@ -9,13 +9,13 @@
   "remoteConnecting": "กำลังเชื่อมต่อ",
   "remoteConnected": "เชื่อมต่อแล้ว",
   "remoteReconnecting": "กำลังเชื่อมต่อใหม่",
-  "remoteReconnectAttempt": "Reconnecting · พยายาม {เคาท์}",
+  "remoteReconnectAttempt": "{count} Reconnecting · พยายาม {เคาท์}",
   "remoteErrInvalidServer": "Invalid เซิร์ฟเวอร์ ที่อยู่",
   "remoteErrEmailPassword": "Incorrect อีเมล ออร์ รหัสผ่าน",
   "remoteErrHostNotInAccount": "This โฮสต์ isn’t ใน your บัญชี",
   "remoteHostFallback": "This โฮสต์",
   "remoteErrHostOffline": "โฮสต์ คือ offline",
-  "remoteErrHostRemoved": "{ชื่อ} คือ ไม่ longer ใน your DSH รีโมต บัญชี",
+  "remoteErrHostRemoved": "{name} {ชื่อ} คือ ไม่ longer ใน your DSH รีโมต บัญชี",
   "remoteErrRelaySignInExpired": "DSH รีโมต ไซน์-ใน expired",
   "remoteErrIdentityKeyChanged": "โฮสต์ identity คีย์ has changed",
   "remoteErrIdentityUnconfirmed": "โฮสต์ identity fingerprint hasn’t been confirmed",
@@ -35,9 +35,9 @@
   "remoteUnavailable": "ไม่พร้อมใช้งาน",
   "remoteErrHostNotFound": "โฮสต์ นอต found",
   "remoteConnectionStopped": "รีโมต การเชื่อมต่อ หยุด",
-  "remoteBootstrapReusePort": "Using กำลังทำงาน DSH (พอร์ต {พอร์ต})",
+  "remoteBootstrapReusePort": "{port} Using กำลังทำงาน DSH (พอร์ต {พอร์ต})",
   "remoteBootstrapStarting": "Starting รีโมต DSH…",
-  "remoteErrCommandNotFound": "“{คอมมานด์}” นอต found เปิด  โฮสต์",
+  "remoteErrCommandNotFound": "{command} “{คอมมานด์}” นอต found เปิด  โฮสต์",
   "remoteErrDshMissing": "dsh isn’t installed เปิด  โฮสต์. ติดตั้ง it แอนด์ ลองใหม่, ออร์ เอ็นเตอร์ its full พาธ ในฐานะ  เริ่ม คอมมานด์.",
   "remoteStartCommandExample": "ตัวอย่าง เริ่ม command: ~/.nvm/versions/node/v22.0.0/bin/dsh web",
   "remoteErrDshStartTimeout": "รีโมต DSH took เกินไป long ไป เริ่ม",
@@ -59,23 +59,23 @@
   "remoteErrDshStopped": "รีโมต DSH หยุด กำลังทำงาน",
   "remoteErrSshDisconnected": "SSH disconnected",
   "remoteErrSshUnresponsive": "SSH isn’t responding",
-  "remoteRetryCount": "{เคาท์, plural, อื่นๆ{Retried {เคาท์} times}}",
+  "remoteRetryCount": "{count} times}",
   "remoteErrSshNetworkChanged": "SSH disconnected หลัง  เครือข่าย change",
   "remoteErrReadFingerprint": "Couldn’t อ่าน  โฮสต์ fingerprint",
   "remoteErrNoFingerprint": "เซิร์ฟเวอร์ didn’t provide  โฮสต์ fingerprint",
   "remoteErrPasswordMissing": "เอ็นเตอร์  รหัสผ่าน",
-  "remoteErrAddressUnresponsive": "{โฮสต์}:{พอร์ต} isn’t responding",
+  "remoteErrAddressUnresponsive": "{port} {host} {โฮสต์}:{พอร์ต} isn’t responding",
   "remoteErrPrivateKeyMissing": "เอ็นเตอร์  ส่วนตัว คีย์",
   "remoteErrKeyNeedsPassword": "This ส่วนตัว คีย์ needs  passphrase",
   "remoteErrKeyPassword": "Incorrect ส่วนตัว คีย์ passphrase",
   "remoteErrKeyUnreadable": "Couldn’t อ่าน  ส่วนตัว คีย์",
-  "remotePrivateKeyFormats": "Supports Ed25519, RSA แอนด์ ECDSA ส่วนตัว keys ใน OpenSSH แอนด์ PEM formats.\n{ข้อผิดพลาด}",
-  "remoteErrAddressRejected": "{ที่อยู่} refused  การเชื่อมต่อ",
-  "remoteErrSshHostNotFound": "โฮสต์ {โฮสต์} นอต found",
-  "remoteErrSshAddressUnresponsive": "{ที่อยู่} isn’t responding",
+  "remotePrivateKeyFormats": "{error} Supports Ed25519, RSA แอนด์ ECDSA ส่วนตัว keys ใน OpenSSH แอนด์ PEM formats.\n{ข้อผิดพลาด}",
+  "remoteErrAddressRejected": "{address} {ที่อยู่} refused  การเชื่อมต่อ",
+  "remoteErrSshHostNotFound": "{host} โฮสต์ {โฮสต์} นอต found",
+  "remoteErrSshAddressUnresponsive": "{address} {ที่อยู่} isn’t responding",
   "remoteErrUsernamePassword": "Incorrect ชื่อผู้ใช้ ออร์ รหัสผ่าน",
   "remoteErrPrivateKeyRejected": "เซิร์ฟเวอร์ doesn’t accept this ส่วนตัว คีย์",
-  "remoteAuthorizedKeysHelp": "ตรวจสอบ that  สาธารณะ คีย์ คือ ใน {ชื่อผู้ใช้}’s ~/.SSH/authorized_keys.\n{ข้อผิดพลาด}",
+  "remoteAuthorizedKeysHelp": "{username} {error} ตรวจสอบ that  สาธารณะ คีย์ คือ ใน {ชื่อผู้ใช้}’s ~/.SSH/authorized_keys.\n{ข้อผิดพลาด}",
   "remoteErrFingerprintUntrusted": "โฮสต์ fingerprint isn’t trusted",
   "remoteErrSshHandshakeTimeout": "SSH handshake timed ออก",
   "remoteErrSshInterrupted": "SSH การเชื่อมต่อ interrupted",
@@ -103,17 +103,17 @@
   "remoteForumLikesReceived": "Likes received",
   "remoteForumDaysVisited": "Days visited",
   "remoteForumNotifications": "การแจ้งเตือน",
-  "remoteForumUnreadCount": "{เคาท์, plural, อื่นๆ{{เคาท์} unread}}",
+  "remoteForumUnreadCount": "{count} unread}",
   "remoteForumErrAddress": "Invalid ที่อยู่",
   "remoteForumAddress": "Forum ที่อยู่",
-  "remoteForumDefaultAddress": "ค่าเริ่มต้น: {โฮสต์}",
+  "remoteForumDefaultAddress": "{host} ค่าเริ่มต้น: {โฮสต์}",
   "remoteRestoreDefault": "กู้คืน ดีฟอลต์",
   "remoteForumUploadingImage": "Uploading รูปภาพ…",
   "remoteForumErrUploadImage": "Couldn’t อัปโหลド รูปภาพ",
-  "remoteForumTitleRequired": "เพิ่ม  หัวข้อ ก่อนอื่น",
+  "remoteForumTitleRequired": "เพิ่ม  หัวข้อ ก่อนother",
   "remoteForumCategoryRequired": "Choose  category",
   "remoteForumBodyRequired": "เขียน something ก่อน sending",
-  "remoteForumReplyCaption": "ตอบกลับ ไป @{ชื่อผู้ใช้} · {หัวข้อ}",
+  "remoteForumReplyCaption": "{username} {title} ตอบกลับ ไป @{ชื่อผู้ใช้} · {หัวข้อ}",
   "remoteForumNewTopic": "ใหม่ topic",
   "remoteForumTitle": "ชื่อเรื่อง",
   "remoteForumComposerHint": "เขียน something. Markdown supported.",
@@ -127,7 +127,7 @@
   "remoteForumNoTopics": "ไม่ topics ยัง",
   "remoteForumPost": "Post",
   "remoteForum": "Forum",
-  "remoteForumNotificationsUnread": "{เคาท์, plural, อื่นๆ{Notifications, {เคาท์} unread}}",
+  "remoteForumNotificationsUnread": "{count} unread}",
   "remoteForumSearch": "ค้นหา",
   "remoteForumSearchHint": "ค้นหา topics แอนด์ posts",
   "remoteForumSignedIn": "Signed ใน ไป Forum",
@@ -141,9 +141,9 @@
   "remoteForumNotificationReply": "{who} replied ไป you",
   "remoteForumNotificationQuote": "{who} quoted you",
   "remoteForumNotificationEdit": "{who} edited your post",
-  "remoteForumNotificationLikes": "{เคาท์, plural, อื่นๆ{{who} แอนด์ others ({เคาท์} people) liked your post}}",
+  "remoteForumNotificationLikes": "{who} {count} แอนด์ others ( people) liked your post}",
   "remoteForumNotificationLike": "{who} liked your post",
-  "remoteForumNotificationLikedPosts": "{เคาท์, plural, อื่นๆ{{who} liked {เคาท์} ของ your posts}}",
+  "remoteForumNotificationLikedPosts": "{who} {count} liked ของ your posts}",
   "remoteForumNotificationReaction": "{who} reacted ไป your post",
   "remoteForumNotificationMessage": "{who} sent you  ส่วนตัว ข้อความ",
   "remoteForumNotificationMessageInvite": "{who} invited you ไป  ส่วนตัว ข้อความ",
@@ -173,7 +173,7 @@
   "remoteForumTopicClosed": "Topic คือ closed",
   "remoteForumReplyHint": "เขียน  reply…",
   "remoteForumSignInToReply": "ไซน์ ใน ไป reply",
-  "remoteForumReplyTo": "ตอบกลับ ไป @{ชื่อผู้ใช้}",
+  "remoteForumReplyTo": "{username} ตอบกลับ ไป @{ชื่อผู้ใช้}",
   "remoteForumPostDeleted": "Post deleted",
   "remoteForumPostHidden": "Post ซ่อน",
   "remoteForumUnlike": "Unlike",
@@ -196,28 +196,28 @@
   "remoteForumActionUpdated": "อัปเดตแล้ว  topic",
   "remoteLoading": "กำลังโหลด",
   "remoteForumJustNow": "เพียง ตอนนี้",
-  "remoteForumMinutesAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} มิน ago}}",
-  "remoteForumHoursAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} h ago}}",
-  "remoteForumDaysAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} days ago}}",
-  "remoteForumReplyCount": "{เคาท์, plural, อื่นๆ{{เคาท์} replies}}",
-  "remoteForumNewReplyCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ใหม่ replies}}",
+  "remoteForumMinutesAgo": "{count} มิน ago}",
+  "remoteForumHoursAgo": "{count} h ago}",
+  "remoteForumDaysAgo": "{count} days ago}",
+  "remoteForumReplyCount": "{count} replies}",
+  "remoteForumNewReplyCount": "{count} ใหม่ replies}",
   "remoteForumNew": "ใหม่",
-  "remoteForumErrorRetry": "{ข้อผิดพลาด} · ลองใหม่",
+  "remoteForumErrorRetry": "{error} {ข้อผิดพลาด} · ลองใหม่",
   "remoteForumNoMore": "ไม่ มากกว่า",
   "remoteHostKeyTrustTitle": "Trust this โฮสต์?",
-  "remoteHostKeyFirstConnection": "แรกสุด connection ไป “{ชื่อ}” ({ที่อยู่}). เช็ค  fingerprint ไป ยืนยัน it’s your โฮสต์.",
+  "remoteHostKeyFirstConnection": "{name} {address} แรกสุด connection ไป “{ชื่อ}” ({ที่อยู่}). เช็ค  fingerprint ไป ยืนยัน it’s your โฮสต์.",
   "remoteHostKeyTrustConnect": "Trust แอนด์ เชื่อมต่อ",
   "remoteHostKeyChangedTitle": "ตัวตน fingerprint changed",
-  "remoteRelayKeyChangedBody": " identity คีย์ สำหรับ “{ชื่อ}” has changed. ต่อ เท่านั้น ถ้า you’ve reinstalled  รีโมต ปลั๊กอิน เปิด this โฮสต์. Someone พฤษภาคม เป็น impersonating it.",
-  "remoteRelayKeyFirstBody": "แรกสุด connection ไป “{ชื่อ}”. เช็ค that  identity fingerprint matches  one shown โดย  โฮสต์’s รีโมต plugin ก่อน continuing.",
+  "remoteRelayKeyChangedBody": "{name}  identity คีย์ สำหรับ “{ชื่อ}” has changed. ต่อ เท่านั้น ถ้า you’ve reinstalled  รีโมต ปลั๊กอิน เปิด this โฮสต์. Someone พฤษภาคม เป็น impersonating it.",
+  "remoteRelayKeyFirstBody": "{name} แรกสุด connection ไป “{ชื่อ}”. เช็ค that  identity fingerprint matches  one shown โดย  โฮสต์’s รีโมต plugin ก่อน continuing.",
   "remoteHostKeyChangeWarning": "DSH will refuse ไป เชื่อมต่อ ถ้า  fingerprint changes.",
   "remoteHostKeyTrustAgain": "Trust อีกครั้ง",
   "remoteHostKeyReading": "Reading โฮสต์ fingerprint…",
-  "remoteHostSwitcherSemantics": "Current โฮสต์: {ชื่อ}, {status}. Switch โฮสต์",
+  "remoteHostSwitcherSemantics": "{name} Current โฮสต์: {ชื่อ}, {status}. Switch โฮสต์",
   "remoteSwitchHost": "สวิตช์ โฮสต์",
   "remoteThisPhoneDsh": "DSH เปิด this phone",
   "remoteRemoteLabel": "รีโมต",
-  "remoteRemotePlatform": "รีโมต · {แพลตฟอร์ม}",
+  "remoteRemotePlatform": "{platform} รีโมต · {แพลตฟอร์ม}",
   "remoteRelaySwitchWarning": "DSH รีโมต connects ไป one โฮสต์ at  ไทม์. Switching disconnects  previous โฮสต์.",
   "remoteConnectComputer": "เชื่อมต่อ  computer ออร์ เซิร์ฟเวอร์",
   "remoteManageHosts": "Manage รีโมต hosts",
@@ -236,10 +236,10 @@
   "remoteSshRequirements": "โฮสต์ needs SSH enabled แอนด์ DSH installed",
   "remoteAddSshHost": "เพิ่ม SSH โฮสต์",
   "remoteSshDirect": "ไม่ third-party เซิร์ฟเวอร์",
-  "remoteOtherMethods": "อื่นๆ methods",
+  "remoteOtherMethods": "other methods",
   "remoteWebConsole": "Web รีโมต console",
   "remoteWebConsoleProvider": "dsh.r2049.cn · Third-party เพจ",
-  "remoteActiveHost": "Using “{ชื่อ}”",
+  "remoteActiveHost": "{name} Using “{ชื่อ}”",
   "remoteSwitchToPhone": "ใช้ this phone",
   "remoteSignInAgain": "ไซน์ ใน อีกครั้ง",
   "remoteHostSettings": "โฮสต์ ตั้งค่า",
@@ -247,7 +247,7 @@
   "remoteReconnectingEllipsis": "กำลังเชื่อมต่อใหม่…",
   "remoteReconnectReason": "กำลังเชื่อมต่อใหม่ · {reason}",
   "remoteConnectedEncrypted": "Connected · End-ไป-end encrypted",
-  "remoteConnectedVia": "Connected · {พาธ} · End-ไป-end encrypted",
+  "remoteConnectedVia": "{path} Connected · {พาธ} · End-ไป-end encrypted",
   "@remoteConnectedVia": {
     "placeholders": {
       "path": {
@@ -258,7 +258,7 @@
   "remotePathDirect": "Direct",
   "remotePathTurn": "TURN",
   "remotePathRelay": "Relay",
-  "remoteConnectedSsh": "Connected · SSH {ที่อยู่}",
+  "remoteConnectedSsh": "{address} Connected · SSH {ที่อยู่}",
   "remoteErrRefreshHosts": "Couldn’t รีเฟรช โฮสต์ รายการ",
   "remoteSwitchWarning": "Connects ไป one โฮสต์ at  ไทม์. Switching disconnects  previous โฮสต์.",
   "remoteRefreshHosts": "รีเฟรช hosts",
@@ -290,9 +290,9 @@
   "remoteHostKeyResetTitle": "รีเซ็ต โฮสต์ fingerprint?",
   "remoteHostKeyResetBody": "เท่านั้น ทำ this ถ้า  โฮสต์ was reinstalled ออร์ replaced. You’ll เป็น asked ไป เช็ค  fingerprint ถัดไป ไทม์ you เชื่อมต่อ.",
   "remoteReset": "รีเซ็ต",
-  "remoteDeleteHostTitle": "ลบ “{ชื่อ}”?",
+  "remoteDeleteHostTitle": "{name} ลบ “{ชื่อ}”?",
   "remoteDeleteHostBody": "This โฮสต์’s ตั้งค่า แอนด์  รหัสผ่าน แอนด์ ส่วนตัว คีย์ saved เปิด this phone will เป็น deleted. DSH แอนด์ chats เปิด  โฮสต์ stay.",
-  "remoteErrReadKey": "Couldn’t อ่าน: {ข้อผิดพลาด}",
+  "remoteErrReadKey": "{error} Couldn’t อ่าน: {ข้อผิดพลาด}",
   "remoteErrPublicKeyFile": "This isn’t  ส่วนตัว คีย์. Choose  ไฟล์ โดยไม่มี .pub (such ในฐานะ id_ed25519).",
   "remotePrivateKeyImported": "ส่วนตัว คีย์ imported. You can ลบ  original ไฟล์.",
   "remoteEditHost": "แก้ไข โฮสต์",
@@ -327,9 +327,9 @@
   "remoteHostedExpired": "Expired",
   "remoteHostedExpiresToday": "Expires วันนี้",
   "remoteHostedExpiresTomorrow": "Expires พรุ่งนี้",
-  "remoteHostedExpiresOn": "Expires {เดท}",
+  "remoteHostedExpiresOn": "{date} Expires {เดท}",
   "remoteHostedDeleteTitle": "ลบ this ลิงก์?",
-  "remoteHostedDeleteBody": " ลิงก์ สำหรับ “{หัวข้อ}” will หยุด working immediately",
+  "remoteHostedDeleteBody": "{title}  ลิงก์ สำหรับ “{หัวข้อ}” will หยุด working immediately",
   "remoteHostedLinkDeleted": "ลิงก์ deleted",
   "remoteUndo": "ยกเลิก",
   "remoteHostedMyLinks": "My shared links",
@@ -351,26 +351,26 @@
   "remoteDirectoryGo": "Go",
   "remoteDirectoryAbsolutePath": "เอ็นเตอร์  full พาธ, starting กับ “/”",
   "remoteDirectoryNewFolder": "ใหม่ โฟลเดอร์",
-  "remoteDirectoryParentCaption": "ใน “{ชื่อ}”",
+  "remoteDirectoryParentCaption": "{name} ใน “{ชื่อ}”",
   "remoteDirectoryFolderName": "โฟลเดอร์ ชื่อ",
-  "remoteDirectoryRoot": "รูท",
+  "remoteDirectoryRoot": "root",
   "remoteDirectoryErrCreate": "Couldn’t ครีเอท โฟลเดอร์",
   "remoteDirectoryNoSubfolders": "ไม่ subfolders here",
   "remoteDirectoryHideHidden": "ซ่อน ซ่อน folders",
-  "remoteDirectoryShowHidden": "{เคาท์, plural, อื่นๆ{แสดง {เคาท์} ซ่อน folders}}",
+  "remoteDirectoryShowHidden": "{count} ซ่อน folders}",
   "remoteDirectoryTruncated": "เกินไป มาก folders. เท่านั้น  เฟิร์ส ones are listed.",
   "remoteWorkspaceAdd": "เพิ่ม workspace",
-  "remoteWorkspaceAdded": "Added “{ชื่อ}”",
+  "remoteWorkspaceAdded": "{name} Added “{ชื่อ}”",
   "remoteWorkspaceErrAdd": "Couldn’t เพิ่ม Workspace",
   "remoteWorkspaceNoChats": "ไม่ chats",
-  "remoteWorkspaceChatCount": "{เคาท์, plural, อื่นๆ{{เคาท์} chats}}",
+  "remoteWorkspaceChatCount": "{count} chats}",
   "remoteWorkspaceErrRename": "Couldn’t รีเนม",
-  "remoteWorkspaceRemoved": "Removed “{ชื่อ}”",
+  "remoteWorkspaceRemoved": "{name} Removed “{ชื่อ}”",
   "remoteWorkspaceErrRemove": "Couldn’t นำออก Workspace",
   "remoteWorkspaceRename": "รีเนม Workspace",
   "remoteWorkspaceName": "Workspace ชื่อ",
   "remoteWorkspaceNameRequired": "Give it  ชื่อ",
-  "remoteWorkspaceRemoveTitle": "นำออก “{ชื่อ}”?",
+  "remoteWorkspaceRemoveTitle": "{name} นำออก “{ชื่อ}”?",
   "remoteWorkspaceRemoveBody": "โฟลเดอร์ แอนด์ chats stay",
   "remoteWorkspaceRemove": "นำออก",
   "remoteWorkspace": "เวิร์กสเปซ",
@@ -381,7 +381,7 @@
   "remoteWorkspaceRemoveAction": "นำออก workspace",
   "remoteWorkspaceNewGroup": "ใหม่ กรุ๊ป",
   "remoteWorkspaceGroupName": "กลุ่ม ชื่อ",
-  "remoteDirectoryPhonePath": "Phone ที่เก็บข้อมูล/{พาธ}",
+  "remoteDirectoryPhonePath": "{path} Phone ที่เก็บข้อมูล/{พาธ}",
   "remoteDirectoryInvalidName": "ชื่อ can’t contain “/”",
   "remoteWorkspaceErrNameConflict": " Workspace กับ this ชื่อ แล้ว exists",
   "remoteWorkspaceErrInvalidPath": "This โฟลเดอร์ can’t เป็น used ในฐานะ  Workspace",
@@ -391,25 +391,25 @@
   "remoteDirectoryErrUnavailable": "This โฮสต์ can’t browse folders here",
   "remoteWorkspaceErrUnsupported": "This โฮสต์ doesn’t รองรับ this action",
   "remoteWorkspaceAllChats": "ทั้งหมด chats",
-  "remoteWorkspaceSwitcherSemantics": "Workspace: {ชื่อ}. Switch Workspace",
+  "remoteWorkspaceSwitcherSemantics": "{name} Workspace: {ชื่อ}. Switch Workspace",
   "remoteWorkspaceManage": "จัดการ workspaces",
   "remoteWorkspaceErrLoad": "Couldn’t โหลด workspaces",
   "remoteWorkspaceEmpty": "ไม่ workspaces ยัง",
   "remoteWorkspaceEmptyHint": "เพิ่ม  folders you use มากที่สุด",
-  "remoteWorkspaceCount": "{เคาท์, plural, อื่นๆ{{เคาท์} workspaces}}",
+  "remoteWorkspaceCount": "{count} workspaces}",
   "remoteDirectoryConfirmFolder": "{action} “{name}”",
   "remoteHostKeyMismatchDetail": "ถ้า  โฮสต์ was reinstalled ออร์ replaced, รีเซ็ต its fingerprint ใน โฮสต์ ตั้งค่า.\nSaved: {saved}\nReceived: {received} ({type})",
-  "remoteForumCompactReplies": "{เคาท์, plural, อื่นๆ{{label} replies}}",
-  "remoteForumCompactViews": "{เคาท์, plural, อื่นๆ{{label} views}}",
-  "remoteForumYearDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}, {ยีอาร์}",
-  "remoteHostedMonthDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}",
-  "remoteHostedYearDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}, {ยีอาร์}",
+  "remoteForumCompactReplies": "{count, plural, =1{{label} การตอบกลับ} other{{label} การตอบกลับ}}",
+  "remoteForumCompactViews": "{count, plural, =1{{label} มุมมอง} other{{label} มุมมอง}}",
+  "remoteForumYearDate": "{day} {month} {year} 2 3 4 5 6 7 8 9 10 11 12 other} ,",
+  "remoteHostedMonthDate": "{day} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
+  "remoteHostedYearDate": "{day} {month} {year} 2 3 4 5 6 7 8 9 10 11 12 other} ,",
   "remoteForumTenThousands": "{value} × 10,000",
   "remoteForumSemanticsSeparator": ", ",
   "remoteHostKeyVerifyCommand": "เรียกใช้ {command} เปิด that โฮสต์ ไป see  same fingerprint. DSH will refuse ไป เชื่อมต่อ ถ้า it changes.",
-  "remoteSshInstallCommand": "DSH นอต installed? เรียกใช้ {คอมมานด์} เปิด  โฮสต์.",
-  "remoteRelayProvider": "เซอร์วิส โดย {โปรเจกต์}",
-  "remoteRelayProviderServer": "เซอร์วิส โดย {โปรเจกต์} · Current เซิร์ฟเวอร์: {เซิร์ฟเวอร์}",
+  "remoteSshInstallCommand": "{command} DSH นอต installed? เรียกใช้ {คอมมานด์} เปิด  โฮสต์.",
+  "remoteRelayProvider": "{project} เซอร์วิส โดย {โปรเจกต์}",
+  "remoteRelayProviderServer": "{server} {project} เซอร์วิส โดย {โปรเจกต์} · Current เซิร์ฟเวอร์: {เซิร์ฟเวอร์}",
   "remoteQuotedHostName": "“{name}”",
   "remoteErrorDetail": "{message} ({detail})",
   "remotePathLan": "LAN",
@@ -421,7 +421,7 @@
   "remoteNetworkRoundTripTime": "Round-trip ไทม์ (RTT)",
   "remoteNetworkUnmeasured": "นอต measured",
   "remoteNetworkUnknownPath": "นอต confirmed",
-  "remoteNetworkMilliseconds": "{ค่า} ms",
+  "remoteNetworkMilliseconds": "{value} {ค่า} ms",
   "remoteNetworkMeasure": "รีเฟรช เครือข่าย / measure เลเทนซี่",
   "remoteNetworkMeasuring": "Measuring…",
   "remoteNetworkMeasureFailed": "Couldn’t measure เลทันซี่. ทราย อีกครั้ง ภายหลัง.",
@@ -497,7 +497,7 @@
   "@remoteRetryCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -552,7 +552,7 @@
   "@remoteForumUnreadCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -565,10 +565,10 @@
   },
   "@remoteForumReplyCaption": {
     "placeholders": {
-      "title": {
+      "username": {
         "type": "String"
       },
-      "username": {
+      "title": {
         "type": "String"
       }
     }
@@ -576,7 +576,7 @@
   "@remoteForumNotificationsUnread": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -617,11 +617,11 @@
   },
   "@remoteForumNotificationLikes": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "who": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -634,11 +634,11 @@
   },
   "@remoteForumNotificationLikedPosts": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "who": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -722,35 +722,35 @@
   "@remoteForumMinutesAgo": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@remoteForumHoursAgo": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@remoteForumDaysAgo": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@remoteForumReplyCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@remoteForumNewReplyCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -787,10 +787,10 @@
   },
   "@remoteHostSwitcherSemantics": {
     "placeholders": {
-      "name": {
+      "status": {
         "type": "String"
       },
-      "status": {
+      "name": {
         "type": "String"
       }
     }
@@ -861,7 +861,7 @@
   "@remoteDirectoryShowHidden": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -875,7 +875,7 @@
   "@remoteWorkspaceChatCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -910,7 +910,7 @@
   "@remoteWorkspaceCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -939,51 +939,57 @@
   },
   "@remoteForumCompactReplies": {
     "placeholders": {
-      "count, plural, other{{label": {
+      "count": {
+        "type": "String"
+      },
+      "label": {
         "type": "String"
       }
     }
   },
   "@remoteForumCompactViews": {
     "placeholders": {
-      "count, plural, other{{label": {
+      "count": {
+        "type": "String"
+      },
+      "label": {
         "type": "String"
       }
     }
   },
   "@remoteForumYearDate": {
     "placeholders": {
-      "day": {
-        "type": "String"
+      "year": {
+        "type": "int"
       },
       "month": {
         "type": "String"
       },
-      "year": {
-        "type": "String"
+      "day": {
+        "type": "int"
       }
     }
   },
   "@remoteHostedMonthDate": {
     "placeholders": {
-      "day": {
-        "type": "String"
-      },
       "month": {
         "type": "String"
+      },
+      "day": {
+        "type": "int"
       }
     }
   },
   "@remoteHostedYearDate": {
     "placeholders": {
-      "day": {
-        "type": "String"
+      "year": {
+        "type": "int"
       },
       "month": {
         "type": "String"
       },
-      "year": {
-        "type": "String"
+      "day": {
+        "type": "int"
       }
     }
   },

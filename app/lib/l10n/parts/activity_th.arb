@@ -75,7 +75,7 @@
   "activityWaitingStretch": "Letting it stretch",
   "activityWaitingYawn": " Model เพียง yawned",
   "activityWaitingComing": "Model: เปิด my way",
-  "activityWaitingText": "กำลังรอ สำหรับ  ก่อนอื่น words",
+  "activityWaitingText": "กำลังรอ สำหรับ  ก่อนother words",
   "activityWaitingQueue": "ยัง ใน  คิว",
   "activityWaitingBrew": "Something’s brewing",
   "activityWaitingWater": "Model’s taking  sip",
@@ -337,56 +337,56 @@
   "activityUsageContextFull": "คอนเท็กซ์ เกือบ full. ส่ง /compact ไป compact it",
   "activitySpanZero": "0 sec",
   "activitySpanTiny": "<0.1 sec",
-  "activityTokensTenThousands": "{ค่า}K",
-  "activityTokensHundredMillions": "{ค่า}M",
+  "activityTokensTenThousands": "{value} {ค่า}K",
+  "activityTokensHundredMillions": "{value} {ค่า}M",
   "activityUsageContextSemantics": "คอนเท็กซ์ {percent} used, มุมมอง usage",
   "activityUsageSystemTokens": "ระบบ {tokens}",
   "activityUsageToolTokens": "Tools {tokens}",
   "activityUsageMessageTokens": "Messages {tokens}",
-  "activityUsageTurns": "{เคาท์, plural, อื่นๆ{{เคาท์} turns ทอตอล}}",
+  "activityUsageTurns": "{count} turns ทอตอล}",
   "activityUsageCacheWriteTokens": "แคช เขียน {tokens}",
-  "activitySummaryCommands": "{เคาท์, plural, อื่นๆ{Ran {เคาท์} commands}}",
-  "activitySummaryEditedFiles": "{เคาท์, plural, อื่นๆ{Edited {เคาท์} files}}",
-  "activitySummaryReadFiles": "{เคาท์, plural, อื่นๆ{อ่าน {เคาท์} files}}",
-  "activitySummarySearches": "{เคาท์, plural, อื่นๆ{Searched {เคาท์} times}}",
-  "activitySummaryWeb": "{เคาท์, plural, อื่นๆ{Used  web {เคาท์} times}}",
-  "activitySummarySubagents": "{เคาท์, plural, อื่นๆ{Called subagents {เคาท์} times}}",
-  "activitySummaryOther": "{เคาท์, plural, อื่นๆ{อื่นๆ tools: {เคาท์} calls}}",
-  "activitySummaryTotal": "{เคาท์, plural, อื่นๆ{Used {เคาท์} tools}}",
-  "activityDiffBlockMarker": "@@ Change {ดัชนี}/{ทอตอล} @@",
-  "activityDiffEditMarker": "แก้ไข {อินเด็กซ์} ของ {ทอตอล}",
-  "activityTraceSpanSemantics": "{หัวข้อ} {รายละเอียด}, duration {duration}",
+  "activitySummaryCommands": "{count} commands}",
+  "activitySummaryEditedFiles": "{count} files}",
+  "activitySummaryReadFiles": "{count} files}",
+  "activitySummarySearches": "{count} times}",
+  "activitySummaryWeb": "{count} times}",
+  "activitySummarySubagents": "{count} times}",
+  "activitySummaryOther": "{count} calls}",
+  "activitySummaryTotal": "{count} tools}",
+  "activityDiffBlockMarker": "{total} {index} @@ Change {ดัชนี}/{ทอตอล} @@",
+  "activityDiffEditMarker": "{total} {index} แก้ไข {อินเด็กซ์} ของ {ทอตอล}",
+  "activityTraceSpanSemantics": "{title} {detail} {หัวข้อ} {รายละเอียด}, duration {duration}",
   "activityTraceGroupSemantics": "{label}, duration {duration}",
   "activityTraceEstimatedCost": "{cost} (estimated ที่ official rates)",
   "activityTraceReasoningTokens": "Reasoning: {tokens}",
   "activityStepPosition": "Turn {turn} · Step {step}",
   "activityStepTokenSpeed": "{speed} tokens/sec",
-  "activityStepRetryCount": "{เคาท์, plural, อื่นๆ{{เคาท์} times}}",
-  "activityStepTruncated": "{เท็กซ์}\n… (Showing เท่านั้น  เฟิร์ส {เคาท์}k characters. คัดลอก สำหรับ  full เท็กซ์)",
+  "activityStepRetryCount": "{count} times}",
+  "activityStepTruncated": "{text} {count} {เท็กซ์}\n… (Showing เท่านั้น  เฟิร์ส {เคาท์}k characters. คัดลอก สำหรับ  full เท็กซ์)",
   "activityStepLiveElapsed": "{elapsed} · กำลังดำเนินการ{suffix}",
-  "activityStepCopySection": "คัดลอก {หัวข้อ}",
-  "activityStepCopiedSection": "Copied {หัวข้อ}",
-  "activitySlashDescriptionArgs": "{คำอธิบาย} · เอ็นเตอร์ arguments, แล้ว ส่ง",
+  "activityStepCopySection": "{title} คัดลอก {หัวข้อ}",
+  "activityStepCopiedSection": "{title} Copied {หัวข้อ}",
+  "activitySlashDescriptionArgs": "{description} {คำอธิบาย} · เอ็นเตอร์ arguments, แล้ว ส่ง",
   "activitySpanSecondsText": "{seconds} sec",
   "activitySpanSeconds": "{seconds} sec",
   "activitySpanMinutesSeconds": "{minutes} มิน {seconds} sec",
   "activitySpanHoursMinutes": "{hours} h {minutes} มิน",
   "activityCostUnderCent": "ใต้ {symbol}0.01",
   "activityCostApprox": "≈ {symbol}{amount}",
-  "activitySpanRetries": "{เคาท์, plural, อื่นๆ{Retried {เคาท์} times}}",
-  "activitySpanToolCalls": "{เคาท์, plural, อื่นๆ{Chose ไป คอลล์ {เคาท์} tools}}",
-  "activityRunningItems": "{เคาท์, plural, อื่นๆ{ในหมู่ {เคาท์} items}}",
-  "activityRetryAttempt": "พยายาม {เคาท์}",
-  "activityDiffFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
-  "activityDiffFileSemantics": "{พาธ}, {added, plural, อื่นๆ{{added} lines added}}, {removed, plural, อื่นๆ{{removed} lines removed}}",
-  "activityDiffEditNumber": "แก้ไข {แก้ไข}",
-  "activityDiffHunkNumber": "เปลี่ยน {อินเด็กซ์}",
-  "activityDiffFromLine": "จาก ไลน์ {ไลน์}",
-  "activityDiffEditCount": "{เคาท์, plural, อื่นๆ{Edited {เคาท์} times}}",
+  "activitySpanRetries": "{count} times}",
+  "activitySpanToolCalls": "{count} tools}",
+  "activityRunningItems": "{count} items}",
+  "activityRetryAttempt": "{count} พยายาม {เคาท์}",
+  "activityDiffFileCount": "{count} files}",
+  "activityDiffFileSemantics": "{path} , {added} lines added}, {removed} lines removed}",
+  "activityDiffEditNumber": "{edit} แก้ไข {แก้ไข}",
+  "activityDiffHunkNumber": "{index} เปลี่ยน {อินเด็กซ์}",
+  "activityDiffFromLine": "{line} จาก ไลน์ {ไลน์}",
+  "activityDiffEditCount": "{count} times}",
   "activityLunarZodiac": "ดี luck ใน  ยีอาร์ ของ  {animal}",
-  "activityReminderHours": "{hours, plural, อื่นๆ{{hours} hours straight. TEEก  หยุด?}}",
+  "activityReminderHours": "{hours} hours straight. TEEก  หยุด?}}",
   "activityStepModelRequest": "One Model คำขอ",
-  "activityStepModelRequestDetail": "One Model คำขอ · {รายละเอียด}",
+  "activityStepModelRequestDetail": "{detail} One Model คำขอ · {รายละเอียด}",
   "activityUsageEstimatedCost": "≈ {symbol}{amount}",
   "activitySlashCommandSemantics": "{label}, /{name}",
   "activityToolListSeparator": ", ",
@@ -435,7 +435,7 @@
   "@activityUsageTurns": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -449,56 +449,56 @@
   "@activitySummaryCommands": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummaryEditedFiles": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummaryReadFiles": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummarySearches": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummaryWeb": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummarySubagents": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummaryOther": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySummaryTotal": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -524,13 +524,13 @@
   },
   "@activityTraceSpanSemantics": {
     "placeholders": {
+      "title": {
+        "type": "String"
+      },
       "detail": {
         "type": "String"
       },
       "duration": {
-        "type": "String"
-      },
-      "title": {
         "type": "String"
       }
     }
@@ -579,7 +579,7 @@
   "@activityStepRetryCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -678,21 +678,21 @@
   "@activitySpanRetries": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activitySpanToolCalls": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activityRunningItems": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -706,20 +706,20 @@
   "@activityDiffFileCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@activityDiffFileSemantics": {
     "placeholders": {
-      "added": {
-        "type": "String"
-      },
       "path": {
         "type": "String"
       },
+      "added": {
+        "type": "int"
+      },
       "removed": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -747,7 +747,7 @@
   "@activityDiffEditCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },

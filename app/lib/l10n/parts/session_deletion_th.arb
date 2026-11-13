@@ -4,20 +4,20 @@
   "shellDeleteChecking": "Checking ว่า this โฮสต์ supports permanent deletion…",
   "shellDeleteUnsupported": "This โฮสต์ does นอต รองรับ safe permanent deletion. Archive คือ ยัง available.",
   "shellDeleteUnavailable": "Safe permanent deletion คือ unavailable. Reconnect ออร์ อัปเดต this โฮสต์; nothing was archived instead.",
-  "shellDeleteChatConfirmation": "Permanently ลบ “{หัวข้อ}”?",
-  "shellDeleteChatsConfirmation": "{เคาท์, plural, อื่นๆ{Permanently ลบ {เคาท์} chats?}}",
+  "shellDeleteChatConfirmation": "{title} Permanently ลบ “{หัวข้อ}”?",
+  "shellDeleteChatsConfirmation": "{count} chats?}",
   "shellDeleteWarning": " selected Chat history will เป็น permanently deleted จาก this โฮสต์. This cannot เป็น undone แอนด์ คือ นอต archive.\n\nWorking directories, generated files, forks, shared attachments แอนด์ published cloud shares are kept. Cloud shares must เป็น removed separately. ใช้งาน中 ออร์ related chats พฤษภาคม เป็น refused โดย  โฮสต์.",
   "shellDeleteOwnerChanged": " โฮสต์ ออร์ การเชื่อมต่อ changed. ยกเลิก แอนด์ เริ่ม deletion อีกครั้ง;  old confirmation คือ ไม่ longer valid.",
   "shellDeletingChats": "กำลังลบ chats…",
-  "shellChatsDeleted": "{เคาท์, plural, อื่นๆ{Permanently deleted {เคาท์} chats}}",
-  "shellDeletePartial": "{deleted, plural, อื่นๆ{Deleted {deleted} chats}}; {ล้มเหลว, plural, อื่นๆ{{ล้มเหลว} ล้มเหลว}}",
+  "shellChatsDeleted": "{count} chats}",
+  "shellDeletePartial": "{failed} {deleted} chats}; ล้มเหลว}",
   "shellDeleteRunning": "หยุด กำลังทำงาน งาน ก่อน deleting.  โฮสต์ also checks ใช้งาน中 tasks แอนด์ schedules.",
   "shellDeleteRelated": "This Chat has related subagent งาน.  โฮสต์ refused deletion ไป protect it.",
   "shellDeleteWriterHeld": "Another โปรเซส คือ using this Chat. ปิด it there แอนด์ ทราย อีกครั้ง.",
   "shellDeleteNotFound": " Chat ไม่ longer exists เปิด this โฮสต์. รีเฟรช  รายการ.",
   "shellDeleteConnectionLost": " การเชื่อมต่อ was lost แอนด์  deletion ผลลัพธ์ คือ unconfirmed. รีเฟรช  Chat รายการ ก่อน taking further action.",
   "shellDeleteArchivePending": " archive operation คือ รอดำเนินการ. จบ ออร์ undo it ก่อน deleting.",
-  "shellDeleteInventoryChanged": " Chat รายการ changed. รีเฟรช แอนด์ เซเล็ก  chats อีกครั้ง.",
+  "shellDeleteInventoryChanged": " Chat รายการ changed. รีเฟรช แอนด์ select  chats อีกครั้ง.",
   "shellDeleteProtocolError": " deletion ผลลัพธ์ คือ unconfirmed. รีเฟรช  Chat รายการ ก่อน taking further action.",
   "shellDeleteNotAttempted": "นอต attempted. เช็ค  Chat รายการ ก่อน trying อีกครั้ง.",
   "shellDeleteFailed": " โฮสต์ could นอต ยืนยัน deletion. รีเฟรช ก่อน retrying.",
@@ -31,24 +31,24 @@
   "@shellDeleteChatsConfirmation": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@shellChatsDeleted": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@shellDeletePartial": {
     "placeholders": {
       "deleted": {
-        "type": "String"
+        "type": "int"
       },
       "failed": {
-        "type": "String"
+        "type": "int"
       }
     }
   }

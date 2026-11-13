@@ -9,15 +9,15 @@
   "phoneBackgroundOpenSettings": "เปิด system ตั้งค่า",
   "phonePrivilegedUpgrade": "This app สร้าง does นอต รองรับ that privileged channel. อัปเดต DSH Go ไป use it.",
   "phonePrivilegedSui": "Sui",
-  "phonePrivilegedRoot": "รูท",
+  "phonePrivilegedRoot": "root",
   "phonePrivilegedSuiDescription": "Use  Sui โมดูล อินเตอร์เฟซ. การอนุมัติ คือ requested เท่านั้น เมื่อ you tap.",
-  "phonePrivilegedRootDescription": "สำหรับ Magisk, KernelSU ออร์ APatch.  เฟิร์ส รูท คอมมานด์ runs เท่านั้น หลัง you choose this channel.",
+  "phonePrivilegedRootDescription": "สำหรับ Magisk, KernelSU ออร์ APatch.  เฟิร์ส root คอมมานด์ runs เท่านั้น หลัง you choose this channel.",
   "phonePrivilegedRootPrepare": "อนุมัติ root",
   "phonePrivilegedRootUnchecked": "นอต checked",
   "phonePrivilegedGrantRoot": "ให้ กับ root",
   "phonePrivilegedGrantSui": "ให้ กับ Sui",
   "phonePrivilegedGrantSuiPermission": "อนุมัติ Sui, แล้ว ให้",
   "phonePrivilegedSuggested": "Suggested",
-  "phonePrivilegedRootRiskTitle": "Give DSH Go รูท เข้าถึง?",
-  "phonePrivilegedRootRiskBody": "Your รูท manager (Magisk, KernelSU ออร์ APatch) will ถาม you. ถ้า you อนุญาต it, DSH Go runs its own background เซอร์วิส ในฐานะ รูท. It asks อีกครั้ง เปิด its own หลัง  ตัดการเชื่อมต่อ ออร์ รีสตาร์ท เท่านั้น กับ “Keep รูท channel” เปิด."
+  "phonePrivilegedRootRiskTitle": "Give DSH Go root เข้าถึง?",
+  "phonePrivilegedRootRiskBody": "Your root manager (Magisk, KernelSU ออร์ APatch) will ถาม you. ถ้า you อนุญาต it, DSH Go runs its own background เซอร์วิส ในฐานะ root. It asks อีกครั้ง เปิด its own หลัง  ตัดการเชื่อมต่อ ออร์ รีสตาร์ท เท่านั้น กับ “Keep root channel” เปิด."
 }

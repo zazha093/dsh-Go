@@ -7,7 +7,7 @@
   "plugslotsSurfaceComposerStrip": "สถานะ ไลน์",
   "plugslotsSurfacePanel": "Panels",
   "plugslotsNativeUi": "Native UI",
-  "plugslotsIssueCount": "{เคาท์, plural, อื่นๆ{{เคาท์} problems}}",
+  "plugslotsIssueCount": "{count} problems}",
   "@plugslotsIssueCount": {
     "placeholders": {
       "count": {
@@ -16,7 +16,7 @@
     }
   },
   "plugslotsAllGood": "ไม่ problems",
-  "plugslotsViewSize": "ดู {ไซส์}",
+  "plugslotsViewSize": "{size} ดู {ไซส์}",
   "@plugslotsViewSize": {
     "placeholders": {
       "size": {
@@ -36,7 +36,7 @@
   "plugslotsLastInvoke": "สุดท้าย response",
   "plugslotsProblems": "Problems",
   "plugslotsNoProblems": "ไม่ problems",
-  "plugslotsWantsDraft": "{ปลั๊กอิน} wants ไป อ่าน your draft",
+  "plugslotsWantsDraft": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your draft",
   "@plugslotsWantsDraft": {
     "placeholders": {
       "plugin": {
@@ -44,7 +44,7 @@
       }
     }
   },
-  "plugslotsWantsClipboard": "{ปลั๊กอิน} wants ไป อ่าน your clipboard",
+  "plugslotsWantsClipboard": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your clipboard",
   "@plugslotsWantsClipboard": {
     "placeholders": {
       "plugin": {
@@ -52,7 +52,7 @@
       }
     }
   },
-  "plugslotsWantsBoth": "{ปลั๊กอิน} wants ไป อ่าน your draft แอนด์ clipboard",
+  "plugslotsWantsBoth": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your draft แอนด์ clipboard",
   "@plugslotsWantsBoth": {
     "placeholders": {
       "plugin": {
@@ -62,7 +62,7 @@
   },
   "plugslotsWantsWhen": "เท่านั้น เมื่อ you tap it",
   "plugslotsAllow": "อนุญาต",
-  "plugslotsNoResponse": "{ปลั๊กอิน} didn't respond",
+  "plugslotsNoResponse": "{plugin} {ปลั๊กอิน} didn't respond",
   "@plugslotsNoResponse": {
     "placeholders": {
       "plugin": {
@@ -70,7 +70,7 @@
       }
     }
   },
-  "plugslotsFailed": "{ปลั๊กอิน} ran เข้า  problem",
+  "plugslotsFailed": "{plugin} {ปลั๊กอิน} ran เข้า  problem",
   "@plugslotsFailed": {
     "placeholders": {
       "plugin": {
@@ -78,8 +78,8 @@
       }
     }
   },
-  "plugslotsNeedsChat": "เปิด  chat ก่อนอื่น",
-  "plugslotsFromPlugin": "จาก {ปลั๊กอิน}",
+  "plugslotsNeedsChat": "เปิด  chat ก่อนother",
+  "plugslotsFromPlugin": "{plugin} จาก {ปลั๊กอิน}",
   "@plugslotsFromPlugin": {
     "placeholders": {
       "plugin": {
@@ -88,7 +88,7 @@
     }
   },
   "plugslotsPanelOffline": "Can't reach  ปลั๊กอิน",
-  "plugslotsIssueTooMany": "ขึ้น ไป {แม็กซ์};  เรสท์ are ซ่อน",
+  "plugslotsIssueTooMany": "{max} ขึ้น ไป {แม็กซ์};  เรสท์ are ซ่อน",
   "@plugslotsIssueTooMany": {
     "placeholders": {
       "max": {
@@ -96,7 +96,7 @@
       }
     }
   },
-  "plugslotsIssueTrimmed": "เกิน {แม็กซ์} characters; shortened",
+  "plugslotsIssueTrimmed": "{max} เกิน {แม็กซ์} characters; shortened",
   "@plugslotsIssueTrimmed": {
     "placeholders": {
       "max": {
@@ -104,7 +104,7 @@
       }
     }
   },
-  "plugslotsIssueNeedsApp": "Needs DSH Go {VERSION} ออร์ ภายหลัง",
+  "plugslotsIssueNeedsApp": "{version} Needs DSH Go {version} ออร์ ภายหลัง",
   "@plugslotsIssueNeedsApp": {
     "placeholders": {
       "version": {
@@ -114,7 +114,7 @@
   },
   "plugslotsIssueNewerProtocol": "Needs  newer app",
   "plugslotsIssueUnknownIcon": "Unknown icon; using  ค่าเริ่มต้น",
-  "plugslotsIssueUnknownEffect": "Unsupported effect \"{ชื่อ}\"",
+  "plugslotsIssueUnknownEffect": "{name} Unsupported effect \"{ชื่อ}\"",
   "@plugslotsIssueUnknownEffect": {
     "placeholders": {
       "name": {
@@ -124,7 +124,7 @@
   },
   "plugslotsIssueLate": "Came ย้อนกลับ มากกว่า than 3 s หลัง  tap; ignored",
   "plugslotsIssueHttps": "เท่านั้น HTTPเอส links",
-  "plugslotsIssueUnknownPage": "ไม่ เพจ called \"{เพจ}\"",
+  "plugslotsIssueUnknownPage": "{page} ไม่ เพจ called \"{เพจ}\"",
   "@plugslotsIssueUnknownPage": {
     "placeholders": {
       "page": {
@@ -133,7 +133,7 @@
     }
   },
   "plugslotsIssueThrottled": "Notices เกินไป frequent; skipped",
-  "plugslotsIssueInvoke": "คอลล์ ล้มเหลว: {ข้อความ}",
+  "plugslotsIssueInvoke": "{message} คอลล์ ล้มเหลว: {ข้อความ}",
   "@plugslotsIssueInvoke": {
     "placeholders": {
       "message": {
@@ -141,7 +141,7 @@
       }
     }
   },
-  "plugslotsIssueStream": "Data ล้มเหลว: {ข้อความ}",
+  "plugslotsIssueStream": "{message} Data ล้มเหลว: {ข้อความ}",
   "@plugslotsIssueStream": {
     "placeholders": {
       "message": {
@@ -152,7 +152,7 @@
   "plugslotsIssueMissing": "Missing  required field",
   "plugslotsIssueDuplicate": "ซ้ำ ไอดี; skipped",
   "plugslotsIssueNoPlacement": "Nowhere ไป แสดง it",
-  "plugslotsWantsMessage": "{ปลั๊กอิน} wants ไป อ่าน this reply",
+  "plugslotsWantsMessage": "{plugin} {ปลั๊กอิน} wants ไป อ่าน this reply",
   "@plugslotsWantsMessage": {
     "placeholders": {
       "plugin": {
@@ -170,7 +170,7 @@
   "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but นอต declared; ignored",
   "plugslotsCodeViewFile": "Couldn't อ่าน  มุมมอง ไฟล์",
   "plugslotsCodeBadEffect": "Malformed action; ข้าม",
-  "plugslotsCodeViolation": "ล้มเหลว {เคาท์, plural, อื่นๆ{{เคาท์} times}}",
+  "plugslotsCodeViolation": "{count} ล้มเหลว times}",
   "@plugslotsCodeViolation": {
     "placeholders": {
       "count": {
@@ -185,14 +185,14 @@
   "plugslotsCodePluginError": " ปลั๊กอิน ล้มเหลว",
   "plugslotsCodeInvalidView": " มุมมอง คือ invalid",
   "plugslotsCodeLimit": "เกินไป มาก subscriptions",
-  "plugslotsCodeOther": "อื่นๆ problem",
+  "plugslotsCodeOther": "other problem",
   "plugslotsCodeUnknownEffect": "Unsupported action; ข้าม",
   "plugslotsNotDone": "Didn't จบ",
   "plugslotsWorking": "กำลังทำงาน",
   "plugslotsTapToCancel": "Tap ไป ยกเลิก",
   "plugslotsCodeTooManyPending": "Two are ยัง กำลังทำงาน",
   "plugslotsCodeNoStream": " การเชื่อมต่อ dropped",
-  "plugslotsVoiceAsk": "Let {ปลั๊กอิน} hear you speak?",
+  "plugslotsVoiceAsk": "{plugin} Let {ปลั๊กอิน} hear you speak?",
   "@plugslotsVoiceAsk": {
     "placeholders": {
       "plugin": {
@@ -205,7 +205,7 @@
   "plugslotsVoiceSwitch": "Hear you speak",
   "plugslotsPickerUnavailable": "ไฟล์ selection คือ unavailable เปิด this device",
   "plugslotsPickerBusy": "จบ  current ไฟล์ selection เฟิร์ส",
-  "plugslotsPickerLimit": "ขึ้น ไป {เคาท์} files, 8 MiB แต่ละ แอนด์ 16 MiB ทอตอล",
+  "plugslotsPickerLimit": "{count} ขึ้น ไป {เคาท์} files, 8 MiB แต่ละ แอนด์ 16 MiB ทอตอล",
   "@plugslotsPickerLimit": {
     "placeholders": {
       "count": {

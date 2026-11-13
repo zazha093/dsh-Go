@@ -15,10 +15,10 @@
   "searchKwSharedLinks": "links,แชร์,shared,สาธารณะ ลิงก์",
   "searchKwPhone": "การเข้าถึง,automation,แตะ,control phone",
   "searchKwAppRules": "apps,blocklist,allowlist,ปฏิเสธ,app รายการ",
-  "searchKwDnd": "dnd,shizuku,sui,รูท,adb,background",
+  "searchKwDnd": "dnd,shizuku,sui,root,adb,background",
   "searchKwEngine": "engine,รันไทม์,เริ่ม,หยุด,รีสตาร์ท,DSH",
   "searchKwBackground": "keep alive,พื้นหลัง activity,battery optimization,autostart,killed",
-  "searchKwSystemAccess": "permissions,ให้,overlay,แสดง เกิน อื่นๆ apps,accessibility,background ป็อป-ups,microphone,ไฟล์ เข้าถึง,notification สิทธิ์,restricted ตั้งค่า",
+  "searchKwSystemAccess": "permissions,ให้,overlay,แสดง เกิน other apps,accessibility,background ป็อป-ups,microphone,ไฟล์ เข้าถึง,notification สิทธิ์,restricted ตั้งค่า",
   "searchKwDiagnostics": "logs,troubleshoot,รายงาน,บั๊ก,errors",
   "searchKwModels": "Model providers,providers,โพรไวเดอร์,switch Model,OpenRouter,ChatGPT,Claude",
   "searchKwEngineParams": "engine ตั้งค่า,advanced,parameters,subagent,commands",
@@ -98,7 +98,7 @@
   "searchRecent": "ล่าสุด",
   "searchFeatures": "ฟีเจอร์",
   "searchNoResults": "ไม่ matching ตั้งค่า",
-  "searchAskAi": "ถาม AI: “{คิวรี}”",
+  "searchAskAi": "{query} ถาม AI: “{คิวรี}”",
   "@searchAskAi": {
     "placeholders": {
       "query": {

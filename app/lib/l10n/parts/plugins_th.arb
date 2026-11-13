@@ -2,7 +2,7 @@
   "pluginsOperationHostChanged": "โฮสต์ changed — nothing was เสร็จ",
   "pluginsReloadLocal": "รีสตาร์ท engine ไป reload",
   "pluginsReloadInterrupts": "Interrupts กำลังทำงาน tasks",
-  "pluginsReloadConfirm": "โหลดใหม่ “{ชื่อ}”?",
+  "pluginsReloadConfirm": "{name} โหลดใหม่ “{ชื่อ}”?",
   "pluginsReloadExplanation": "This restarts  โลคอล engine แอนด์ reloads plugins. กำลังทำงาน tasks will เป็น interrupted.",
   "pluginsReloadProceed": "รีสตาร์ท แอนด์ reload",
   "pluginsReloadRequested": "Engine รีสตาร์ท requested",
@@ -47,7 +47,7 @@
   "pluginsLocalUnshareable": "ติดตั้งแล้ว locally, can’t แชร์",
   "pluginsIncludesPresets": "Includes presets “{names}”",
   "pluginsSecretsUnshareable": "คอนเทนส์ secrets, can’t แชร์",
-  "pluginsLineCount": "{เคาท์, plural, อื่นๆ{{เคาท์} lines}}",
+  "pluginsLineCount": "{count} lines}",
   "pluginsEmptyValue": "ว่าง",
   "pluginsOnValue": "เปิด",
   "pluginsOffValue": "ปิด",
@@ -56,8 +56,8 @@
   "pluginsVersionMismatch": "VERSION differs จาก  shared VERSION",
   "pluginsCurrentVersion": "Current VERSION",
   "pluginsNewVersion": "ใหม่ VERSION",
-  "pluginsAddedWith": "Added กับ “{หัวข้อ}”",
-  "pluginsApplyAfterInstall": "นำไปใช้ หลัง installing plugins · {รายละเอียด}",
+  "pluginsAddedWith": "{title} Added กับ “{หัวข้อ}”",
+  "pluginsApplyAfterInstall": "{detail} นำไปใช้ หลัง installing plugins · {รายละเอียด}",
   "pluginsSettingsReadFailed": "Couldn’t อ่าน this โฮสต์’s ตั้งค่า",
   "pluginsSettingUnavailable": "This โฮสต์ doesn’t have this setting",
   "pluginsSettingsReadOnly": "This โฮสต์’s ตั้งค่า are อ่าน-เท่านั้น",
@@ -92,37 +92,37 @@
   "pluginsLoading": "กำลังโหลด",
   "pluginsIslandClosed": "ปลั๊กอิน อินเตอร์เฟซ closed",
   "pluginsReopen": "Reopen",
-  "pluginsOpenBrowserHost": "เปิด {โฮสต์} ใน your browser?",
+  "pluginsOpenBrowserHost": "{host} เปิด {โฮสต์} ใน your browser?",
   "pluginsSearch": "ค้นหา plugins",
   "pluginsMarketLoading": "กำลังโหลด plugin ไดเรกทอรี…",
   "pluginsMarketLoadFailed": "Couldn’t เปิด  ปลั๊กอิน ไดเรกทอรี",
   "pluginsMarketInvalid": "Invalid ไดเรกทอรี ฟอร์แมต",
   "pluginsAll": "ทั้งหมด",
-  "pluginsMarketCount": "{เคาท์, plural, อื่นๆ{{เคาท์} plugins}} · จาก dshfind",
+  "pluginsMarketCount": "{count} plugins} · จาก dshfind",
   "pluginsHideWeb": "ซ่อน Web plugins",
-  "pluginsShowWebCount": "{เคาท์, plural, อื่นๆ{แสดง {เคาท์} Web plugins}}",
+  "pluginsShowWebCount": "{count} Web plugins}",
   "pluginsNoCategoryPlugins": "ไม่ plugins ใน this category",
   "pluginsNoSearchResults": "ไม่ results สำหรับ “{query}”",
-  "pluginsFailureDetails": "{หัวข้อ} · Tap ไป มุมมอง",
+  "pluginsFailureDetails": "{title} {หัวข้อ} · Tap ไป มุมมอง",
   "pluginsFeatured": "แนะนำ",
-  "pluginsInstalledRemoteRestart": "ติดตั้งแล้ว “{ชื่อ}”. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
-  "pluginsInstalledNamed": "ติดตั้งแล้ว “{ชื่อ}”",
+  "pluginsInstalledRemoteRestart": "{name} {host} ติดตั้งแล้ว “{ชื่อ}”. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
+  "pluginsInstalledNamed": "{name} ติดตั้งแล้ว “{ชื่อ}”",
   "pluginsInstallCancelled": "Installation ยกเลิกแล้ว",
   "pluginsInstallFailureNamed": "“{name}” {reason}",
   "pluginsRestartRequired": "Engine รีสตาร์ท ต้องการ",
-  "pluginsRestartExplanation": "รีสตาร์ท  engine ไป apply “{ชื่อ}”. Replies ใน progress will เป็น interrupted.",
+  "pluginsRestartExplanation": "{name} รีสตาร์ท  engine ไป apply “{ชื่อ}”. Replies ใน progress will เป็น interrupted.",
   "pluginsRestartEngine": "รีสตาร์ท engine",
   "pluginsAllowBuildScripts": "อนุญาต บิลด์ scripts?",
   "pluginsBuildScriptPackages": "These packages เรียกใช้ scripts ระหว่าง installation:",
-  "pluginsBuildScriptWarning": "Scripts เรียกใช้ กับ DSH’s permissions เปิด {โฮสต์} แอนด์ can อ่าน แอนด์ เขียน files แอนด์ เข้าถึง  internet. เท่านั้น อนุญาต this ถ้า you trust  ปลั๊กอิน.",
+  "pluginsBuildScriptWarning": "{host} Scripts เรียกใช้ กับ DSH’s permissions เปิด {โฮสต์} แอนด์ can อ่าน แอนด์ เขียน files แอนด์ เข้าถึง  internet. เท่านั้น อนุญาต this ถ้า you trust  ปลั๊กอิน.",
   "pluginsThisDevice": "This device",
   "pluginsAllowRetry": "อนุญาต แอนด์ retry",
-  "pluginsUpdateNamed": "อัปเดต “{ชื่อ}”?",
-  "pluginsUninstallNamed": "ถอนการติดตั้ง “{หัวข้อ}”?",
-  "pluginsUninstallExplanation": " ปลั๊กอิน will เป็น removed จาก {โฮสต์}. Its data แอนด์ ตั้งค่า will stay.",
+  "pluginsUpdateNamed": "{name} อัปเดต “{ชื่อ}”?",
+  "pluginsUninstallNamed": "{title} ถอนการติดตั้ง “{หัวข้อ}”?",
+  "pluginsUninstallExplanation": "{host}  ปลั๊กอิน will เป็น removed จาก {โฮสต์}. Its data แอนด์ ตั้งค่า will stay.",
   "pluginsThisHost": "This โฮสต์",
   "pluginsUninstall": "ถอนการติดตั้ง",
-  "pluginsUninstalledNamed": "ถอนการติดตั้งแล้ว “{หัวข้อ}”",
+  "pluginsUninstalledNamed": "{title} ถอนการติดตั้งแล้ว “{หัวข้อ}”",
   "pluginsRestartNow": "รีสตาร์ท ตอนนี้",
   "pluginsUninstallFailed": "Couldn’t ถอนการติดตั้ง",
   "pluginsThatComputer": "That computer",
@@ -132,23 +132,23 @@
   "pluginsGlobalPlugins": "Global plugins",
   "pluginsAgentPresets": "เอเจนต์ presets",
   "pluginsInventoryReadFailed": "Couldn’t อ่าน  ปลั๊กอิน inventory",
-  "pluginsComponentCount": "{เคาท์, plural, อื่นๆ{{เคาท์} components}}",
-  "pluginsEnabledCount": "{เคาท์, plural, อื่นๆ{{เคาท์} enabled}}",
-  "pluginsErrorCount": "{เคาท์, plural, อื่นๆ{{เคาท์} errors}}",
+  "pluginsComponentCount": "{count} components}",
+  "pluginsEnabledCount": "{count} enabled}",
+  "pluginsErrorCount": "{count} errors}",
   "pluginsNoPlugins": "ไม่ plugins",
   "pluginsNoMatchingPlugins": "ไม่ matching plugins",
   "pluginsPresetLoadFailed": "Couldn’t โหลด this preset",
   "pluginsPresetNoPlugins": "This preset has ไม่ plugins",
   "pluginsStandard": "มาตรฐาน",
   "pluginsMinimal": "Minimal",
-  "pluginsDefaultPresetName": "{ชื่อ} (ค่าเริ่มต้น)",
+  "pluginsDefaultPresetName": "{name} {ชื่อ} (ค่าเริ่มต้น)",
   "pluginsSystemComponents": "ระบบ components",
-  "pluginsCount": "{เคาท์, plural, อื่นๆ{{เคาท์} items}}",
+  "pluginsCount": "{count} items}",
   "pluginsSource": "Source",
   "pluginsDisableCondition": "ปิดใช้งานแล้ว เมื่อ",
   "pluginsProvidedByPreset": "Provided โดย preset",
   "pluginsDetailsTitle": "ปลั๊กอิน details",
-  "pluginsPackageInfoError": "Invalid แพ็กเกจ ข้อมูล: {ข้อผิดพลาด}",
+  "pluginsPackageInfoError": "{error} Invalid แพ็กเกจ ข้อมูล: {ข้อผิดพลาด}",
   "pluginsInstalling": "กำลังติดตั้ง",
   "pluginsGet": "Get",
   "pluginsLoadingCannotCancel": "กำลังโหลด  plugin. This step can’t เป็น ยกเลิกแล้ว.",
@@ -170,9 +170,9 @@
   "pluginsMarketTitle": "ปลั๊กอิน market",
   "pluginsConnectToManage": "เชื่อมต่อ ไป  engine ไป manage plugins",
   "pluginsSafeModeOperationsBlocked": "Can’t ติดตั้ง ออร์ ถอนการติดตั้ง plugins ใน Safe mode",
-  "pluginsRelayToggleOnly": "{โฮสต์} · Relay เท่านั้น supports turning plugins เปิด ออร์ ปิด. ติดตั้ง เปิด that computer.",
+  "pluginsRelayToggleOnly": "{host} {โฮสต์} · Relay เท่านั้น supports turning plugins เปิด ออร์ ปิด. ติดตั้ง เปิด that computer.",
   "pluginsInstallThisPhone": "ติดตั้ง ไป: This phone",
-  "pluginsInstallHost": "ติดตั้ง ไป: {โฮสต์}",
+  "pluginsInstallHost": "{host} ติดตั้ง ไป: {โฮสต์}",
   "pluginsOfflineDescription": "ติดตั้งแล้ว plugins appear เมื่อ  engine คือ กำลังทำงาน. You can browse  market ตอนนี้.",
   "pluginsIconChanged": "ไอคอน selected. รีเทิร์น ไป your home screen ไป see  change.",
   "pluginsIconChangeFailed": "Couldn’t change  icon. ทราย อีกครั้ง ภายหลัง.",
@@ -219,9 +219,9 @@
   "pluginsKeepEngineNotification": "Keep  “Engine กำลังทำงาน” notification",
   "pluginsLockInRecents": "LOCK {app} ใน recent apps",
   "pluginsPhoneBrands": "Phone brands",
-  "pluginsOtherBrands": "อื่นๆ brands",
-  "pluginsConnectedHost": "Connected ({โฮสต์})",
-  "pluginsConnectionError": "Couldn’t เชื่อมต่อ: {ข้อผิดพลาด}",
+  "pluginsOtherBrands": "other brands",
+  "pluginsConnectedHost": "{host} Connected ({โฮสต์})",
+  "pluginsConnectionError": "{error} Couldn’t เชื่อมต่อ: {ข้อผิดพลาด}",
   "pluginsConnecting": "กำลังเชื่อมต่อ",
   "pluginsDiagnosticsCopied": "Diagnostics copied",
   "pluginsDiagnostics": "Diagnostics",
@@ -293,27 +293,27 @@
   "pluginsView": "ตรวจสอบ",
   "pluginsImport": "นำเข้า",
   "pluginsHostPluginsReadFailed": "Couldn’t อ่าน this โฮสต์’s plugins",
-  "pluginsUpdateTo": "อัปเดต ไป {VERSION}",
-  "pluginsImportCount": "{เคาท์, plural, อื่นๆ{นำเข้า {เคาท์} items}}",
+  "pluginsUpdateTo": "{version} อัปเดต ไป {version}",
+  "pluginsImportCount": "{count} items}",
   "pluginsImporting": "Importing",
   "pluginsInstallingActive": "กำลังติดตั้ง",
-  "pluginsImportFailedCount": "{เคาท์, plural, อื่นๆ{{เคาท์} items ล้มเหลว}}",
+  "pluginsImportFailedCount": "{count} items ล้มเหลว}",
   "pluginsCouldNotInstall": "Couldn’t ติดตั้ง",
   "pluginsEngineRestartToApply": "รีสตาร์ท  engine ไป apply",
-  "pluginsRemoteRestartToApply": "รีสตาร์ท DSH เปิด {โฮสต์} ไป apply",
-  "pluginsImportedCount": "{เคาท์, plural, อื่นๆ{Imported {เคาท์} items}}",
+  "pluginsRemoteRestartToApply": "{host} รีสตาร์ท DSH เปิด {โฮสต์} ไป apply",
+  "pluginsImportedCount": "{count} items}",
   "pluginsLocalPluginUnshareable": "This ปลั๊กอิน was installed locally แอนด์ can’t เป็น shared",
   "pluginsSharePlugin": "แชร์ ปลั๊กอิน",
-  "pluginsPluginCount": "{เคาท์, plural, อื่นๆ{{เคาท์} plugins}}",
-  "pluginsSettingsCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ตั้งค่า}}",
-  "pluginsPresetCount": "{เคาท์, plural, อื่นๆ{{เคาท์} presets}}",
-  "pluginsSkillCount": "{เคาท์, plural, อื่นๆ{{เคาท์} skills}}",
+  "pluginsPluginCount": "{count} plugins}",
+  "pluginsSettingsCount": "{count} ตั้งค่า}",
+  "pluginsPresetCount": "{count} presets}",
+  "pluginsSkillCount": "{count} skills}",
   "pluginsNothingSelected": "Nothing selected",
   "pluginsNext": "ถัดไป",
   "pluginsNothingToShare": "Nothing ไป แชร์",
   "pluginsProfileReadFailed": "Couldn’t อ่าน ตั้งค่า",
   "pluginsShareProfile": "แชร์ CONFIG",
-  "pluginsFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
+  "pluginsFileCount": "{count} files}",
   "pluginsShareNeedsUpdate": "อัปเดต  app ไป เปิด this",
   "pluginsShareUnusable": "This แชร์ code can’t เป็น used",
   "pluginsShareDamaged": "This แชร์ code คือ incomplete ออร์ damaged",
@@ -331,33 +331,33 @@
   "pluginsGistPermissionNeeded": "Gist สิทธิ์ required",
   "pluginsGenerateGistLink": "สร้าง Gist ลิงก์",
   "pluginsShareQrCode": "แชร์ code QR code",
-  "pluginsUpdateCurrentWarning": " current VERSION will เป็น uninstalled, แล้ว {ไป} installed. ถ้า installation fails,  ปลั๊กอิน will need ไป เป็น reinstalled.",
-  "pluginsUpdateVersionWarning": "{จาก} will เป็น uninstalled, แล้ว {ไป} installed. ถ้า installation fails,  ปลั๊กอิน will need ไป เป็น reinstalled.",
-  "pluginsUninstalledRestartLocal": "ถอนการติดตั้งแล้ว “{หัวข้อ}”. รีสตาร์ท  engine ไป finish removing it.",
-  "pluginsUninstalledRestartRemote": "ถอนการติดตั้งแล้ว “{หัวข้อ}”. รีสตาร์ท DSH เปิด {โฮสต์} ไป finish removing it.",
+  "pluginsUpdateCurrentWarning": "{to}  current VERSION will เป็น uninstalled, แล้ว {ไป} installed. ถ้า installation fails,  ปลั๊กอิน will need ไป เป็น reinstalled.",
+  "pluginsUpdateVersionWarning": "{to} {from} {จาก} will เป็น uninstalled, แล้ว {ไป} installed. ถ้า installation fails,  ปลั๊กอิน will need ไป เป็น reinstalled.",
+  "pluginsUninstalledRestartLocal": "{title} ถอนการติดตั้งแล้ว “{หัวข้อ}”. รีสตาร์ท  engine ไป finish removing it.",
+  "pluginsUninstalledRestartRemote": "{title} {host} ถอนการติดตั้งแล้ว “{หัวข้อ}”. รีสตาร์ท DSH เปิด {โฮสต์} ไป finish removing it.",
   "pluginsEnableFailed": "Couldn’t เปิดใช้",
   "pluginsDisableFailed": "Couldn’t ปิดใช้",
   "pluginsEnabledRestartLocal": "Enabled. รีสตาร์ท  engine ไป apply.",
-  "pluginsEnabledRestartRemote": "Enabled. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
+  "pluginsEnabledRestartRemote": "{host} Enabled. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
   "pluginsDisabledRestartLocal": "Disabled. รีสตาร์ท  engine ไป apply.",
-  "pluginsDisabledRestartRemote": "Disabled. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
-  "pluginsRelayCommandInstruction": "DSH รีโมต เท่านั้น supports turning plugins เปิด ออร์ ปิด. เรียกใช้ this ใน  Terminal เปิด {โฮสต์}:",
+  "pluginsDisabledRestartRemote": "{host} Disabled. รีสตาร์ท DSH เปิด {โฮสต์} ไป apply.",
+  "pluginsRelayCommandInstruction": "{host} DSH รีโมต เท่านั้น supports turning plugins เปิด ออร์ ปิด. เรียกใช้ this ใน  Terminal เปิด {โฮสต์}:",
   "pluginsPermissionLocalThirdParty": "Plugins เรียกใช้ กับ DSH’s permissions: they can อ่าน แอนด์ เขียน files, เรียกใช้ commands, แอนด์ อ่าน API keys แอนด์ phone ที่เก็บข้อมูล you’ve granted เข้าถึง ไป. They aren’t restricted โดย  Workspace sandbox. Provided โดย  third party แอนด์ นอต reviewed โดย DSH.",
   "pluginsPermissionLocalTrusted": "Plugins เรียกใช้ กับ DSH’s permissions: they can อ่าน แอนด์ เขียน files, เรียกใช้ commands, แอนด์ อ่าน API keys แอนด์ phone ที่เก็บข้อมูล you’ve granted เข้าถึง ไป. They aren’t restricted โดย  Workspace sandbox. เท่านั้น ติดตั้ง plugins you trust.",
   "pluginsPermissionRemoteThirdParty": "Plugins เรียกใช้ กับ DSH’s permissions: they can อ่าน แอนด์ เขียน files, เรียกใช้ commands, แอนด์ อ่าน API keys. They aren’t restricted โดย  Workspace sandbox. Provided โดย  third party แอนด์ นอต reviewed โดย DSH.",
   "pluginsPermissionRemoteTrusted": "Plugins เรียกใช้ กับ DSH’s permissions: they can อ่าน แอนด์ เขียน files, เรียกใช้ commands, แอนด์ อ่าน API keys. They aren’t restricted โดย  Workspace sandbox. เท่านั้น ติดตั้ง plugins you trust.",
-  "pluginsSelectedQrCount": "{เคาท์, plural, อื่นๆ{{เคาท์} items selected}} · QR code available",
-  "pluginsSelectedFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} items selected}} · แชร์ ในฐานะ  ไฟล์",
+  "pluginsSelectedQrCount": "{count} items selected} · QR code available",
+  "pluginsSelectedFileCount": "{count} items selected} · แชร์ ในฐานะ ไฟล์",
   "pluginsListSeparator": ", ",
   "pluginsActionFailure": "{action}: {reason}",
   "pluginsInventorySemantics": "{title}, {status}",
-  "pluginsSettingsChanges": "{shown} แอนด์ มากกว่า · {เคาท์, plural, อื่นๆ{{เคาท์} items}}",
+  "pluginsSettingsChanges": "{count} {shown} แอนด์ มากกว่า · items}",
   "pluginsLoadStatus": "โหลด status",
   "pluginsLoadPartial": "Partly ใช้งาน中",
   "pluginsLoadFailed": "โหลด ล้มเหลว",
   "pluginsLoadNotReady": "นอต ready",
   "pluginsLoadMetadata": "Metadata diagnostics",
-  "pluginsLoadRunningCount": "{กำลังทำงาน} ของ {ทอตอล} components กำลังทำงาน",
+  "pluginsLoadRunningCount": "{total} {running} {กำลังทำงาน} ของ {ทอตอล} components กำลังทำงาน",
   "pluginsLoadUnreported": "นอต reported",
   "pluginsLoadNoRuntimeDetail": " โฮสต์ did นอต คืนค่า  รันไทม์ ข้อผิดพลาด details. เช็ค its engine logs.",
   "pluginsLoadRemoteLogs": "ตรวจสอบ  engine logs เปิด this โฮสต์.",
@@ -430,7 +430,7 @@
   "@pluginsLineCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -465,14 +465,14 @@
   "@pluginsMarketCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsShowWebCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -562,21 +562,21 @@
   "@pluginsComponentCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsEnabledCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsErrorCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -590,7 +590,7 @@
   "@pluginsCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -726,14 +726,14 @@
   "@pluginsImportCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsImportFailedCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -747,42 +747,42 @@
   "@pluginsImportedCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsPluginCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsSettingsCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsPresetCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsSkillCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsFileCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -844,14 +844,14 @@
   "@pluginsSelectedQrCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@pluginsSelectedFileCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -877,11 +877,11 @@
   },
   "@pluginsSettingsChanges": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "shown": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },

@@ -98,9 +98,9 @@
   "catalogCordisStopping": "กำลังหยุด…",
   "catalogCordisRemoving": "กำลังนำออก…",
   "catalogSeatGone": "ปลั๊กอินไม่พร้อมใช้งาน",
-  "catalogCordisRemoveTitle": "นำออก “{ชื่อ}”?",
-  "catalogCordisRemoveVersions": "{versions, plural, อื่นๆ{จะหยุดและลบเวอร์ชันทั้งหมด {versions} VERSION}}",
-  "catalogCordisVersionCount": "{เคาท์, plural, อื่นๆ{{เคาท์} VERSION}}",
+  "catalogCordisRemoveTitle": "{name} นำออก “{ชื่อ}”?",
+  "catalogCordisRemoveVersions": "{versions} VERSION}}",
+  "catalogCordisVersionCount": "{count} VERSION}",
   "catalogToolsSection": "เครื่องมือ",
   "catalogAllSettings": "การตั้งค่าทั้งหมด",
   "diagnosticsForAi": "ให้ AI อ่านการวินิจฉัย",
@@ -124,7 +124,7 @@
   "@catalogCordisVersionCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   }

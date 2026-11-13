@@ -39,7 +39,7 @@
   "webTargetCordisMissing": "Couldn’t ฟายด์  Cordis แผง.  ปลั๊กอิน พฤษภาคม have been removed.",
   "webTargetNewChatFailed": "Couldn’t เริ่ม  Chat. You’re เปิด  DSH Web โฮม เพจ.",
   "webTargetPageFailed": "Couldn’t เปิด this เพจ. You’re เปิด  DSH Web โฮม เพจ.",
-  "webConnectHostFirst": "เชื่อมต่อ ไป “{ชื่อ}” ไป เปิด DSH Web",
+  "webConnectHostFirst": "เชื่อมต่อกับโฮสต์ {name} ก่อน",
   "@webConnectHostFirst": {
     "placeholders": {
       "name": {

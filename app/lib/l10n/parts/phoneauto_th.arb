@@ -25,11 +25,11 @@
   "phoneUnlockBanks": "Banking แอนด์ payment apps",
   "phoneUnlockBanksHint": "เปลี่ยน ใน App rules",
   "phoneUnlockNone": "ไม่มี เปิด",
-  "phoneUnlockCount": "{เคาท์, plural, อื่นๆ{{เคาท์} เปิด}}",
+  "phoneUnlockCount": "{count} เปิด}",
   "@phoneUnlockCount": {
     "placeholders": {
-      "count, plural, other{已开启 {count": {
-        "type": "String"
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -43,7 +43,7 @@
   "phoneUnlockSystemCan1": "เปิด แอนด์ change system ตั้งค่า, including permissions, accessibility แอนด์ developer options",
   "phoneUnlockSystemCan2": "ติดตั้ง, อัปเดต ออร์ ถอนการติดตั้ง apps ใน  installer",
   "phoneUnlockSystemCan3": "Tap ใน  ความปลอดภัย center แอนด์  notification shade, including buttons เปิด notifications",
-  "phoneUnlockSystemRisk1": "Malicious instructions ใน  web เพจ, ข้อความ ออร์ ไฟล์ could lead AI ไป turn ปิด protections, ให้ permissions ไป อื่นๆ apps ออร์ ติดตั้ง apps",
+  "phoneUnlockSystemRisk1": "Malicious instructions ใน  web เพจ, ข้อความ ออร์ ไฟล์ could lead AI ไป turn ปิด protections, ให้ permissions ไป other apps ออร์ ติดตั้ง apps",
   "phoneUnlockSystemRisk2": "เครือข่าย, บัญชี ออร์ ความปลอดภัย ตั้งค่า changed โดย mistake are yours ไป กู้คืน",
   "phoneUnlockSecretsCan1": "ประเภท เข้า รหัสผ่าน, verification-code แอนด์ payment-code fields",
   "phoneUnlockSecretsCan2": "Use codes it sees ใน chats, texts ออร์ notifications ไป ไซน์ ใน ออร์ เวอร์ริฟาย",
@@ -61,7 +61,7 @@
   "phoneUnlockDisclaimer5": "We advise ต้าน turning it เปิด สำหรับ  device that holds payment ออร์ banking details.",
   "phoneUnlockHold": "I understand  risks, turn เปิด",
   "phoneUnlockHoldHint": "Press แอนด์ hold สำหรับ เกี่ยวกับ 1.5 seconds",
-  "phoneUnlockOnNotice": "“{ชื่อ}” คือ เปิด",
+  "phoneUnlockOnNotice": "{name} “{ชื่อ}” คือ เปิด",
   "@phoneUnlockOnNotice": {
     "placeholders": {
       "name": {
@@ -69,7 +69,7 @@
       }
     }
   },
-  "phoneUnlockOffNotice": "“{ชื่อ}” คือ ปิด",
+  "phoneUnlockOffNotice": "{name} “{ชื่อ}” คือ ปิด",
   "@phoneUnlockOffNotice": {
     "placeholders": {
       "name": {

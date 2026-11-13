@@ -38,7 +38,7 @@
   "commonStorageFull": "พื้นที่จัดเก็บไม่เพียงพอ",
   "commonConnectionFailed": "เชื่อมต่อไม่สำเร็จ",
   "commonCopyLink": "คัดลอกลิงก์",
-  "commonOpenWith": "เปิดในแอปอื่น",
+  "commonOpenWith": "เปิดในแอปother",
   "commonOpenInWeb": "เปิดใน DSH Web",
   "commonUntitledChat": "แชทไม่มีชื่อ",
   "commonNewChat": "แชทใหม่",
@@ -68,13 +68,13 @@
   "commonName": "ชื่อ",
   "commonStatus": "สถานะ",
   "commonVersion": "VERSION",
-  "commonOther": "อื่นๆ",
+  "commonOther": "other",
   "commonPin": "Pin",
   "commonReply": "ตอบกลับ",
   "commonUpdate": "อัปเดต",
   "commonViewLogs": "ดู Logs",
-  "commonItemCount": "{เคาท์, plural, อื่นๆ{{เคาท์} รายการ}}",
-  "commonMonthDay": "{มอนท์, เซเล็กต์, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} อื่นๆ{{มอนท์}}} {เดย์}",
+  "commonItemCount": "{count} รายการ}",
+  "commonMonthDay": "{month} {day} 2 3 4 5 6 7 8 9 10 11 12 other}",
   "separatorDot": " · ",
   "titleListlength": "{title} · {list_length}",
   "@titleListlength": {
@@ -260,7 +260,7 @@
   "stopEngine": "หยุด engine",
   "newChat3": "ใหม่ Chat",
   "setUpShizukuOrWirelessDebuggingFirst": "เซ็ท ขึ้น Shizuku ออร์ wireless debugging เฟิร์ส.",
-  "rootStartupWasCancelled": "รูท startup was ยกเลิกแล้ว",
+  "rootStartupWasCancelled": "root startup was ยกเลิกแล้ว",
   "couldNotSaveTheConnectionPreferenceCheckItBeforeRestartingTheApp": "Could นอต บันทึก  การเชื่อมต่อ การตั้งค่า. เช็ค it ก่อน restarting  app.",
   "unknownBackgroundViewportPreset": "ไม่ทราบ พื้นหลัง viewport preset",
   "couldNotSaveTheBackgroundViewportPreference": "Could นอต บันทึก  background viewport การตั้งค่า.",
@@ -286,17 +286,18 @@
   "@commonItemCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@commonMonthDay": {
+    "description": "Short date (month 1–12).",
     "placeholders": {
-      "day": {
-        "type": "String"
-      },
       "month": {
         "type": "String"
+      },
+      "day": {
+        "type": "int"
       }
     }
   }

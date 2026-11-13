@@ -17,7 +17,7 @@
   "stateConfigLabel": "การตั้งค่า",
   "stateConfigShare": "แชร์แล้ว configuration",
   "stateShareCode": "แชร์ code",
-  "stateCopyShareCodeFirst": "คัดลอก  แชร์ code จาก แชร์ ก่อนอื่น",
+  "stateCopyShareCodeFirst": "คัดลอก  แชร์ code จาก แชร์ ก่อนother",
   "stateFileOpenFailed": "Can’t เปิด this ไฟล์",
   "stateLinkOpenFailed": "Can’t เปิด this ลิงก์",
   "stateAlertPublicDone": " turn finished",
@@ -239,7 +239,7 @@
   "statePluginInvalid": "นอต  DSH ปลั๊กอิน",
   "statePluginNoEntry": "This แพ็กเกจ has ไม่ ปลั๊กอิน entry. Installation rolled ย้อนกลับ.",
   "statePluginInUse": "ปลั๊กอิน คือ ใน use",
-  "statePluginHasDependents": "อื่นๆ plugins depend เปิด it",
+  "statePluginHasDependents": "other plugins depend เปิด it",
   "statePluginManagedElsewhere": "สามารถ’t change this here",
   "statePluginEngineManaged": "This ปลั๊กอิน คือ managed โดย  engine",
   "statePluginAuthorizationExpired": "การอนุมัติ expired",
@@ -312,50 +312,50 @@
   "stateTileGlassy": "Glass",
   "stateUiNative": "Native",
   "stateDefaultWorkspace": "ค่าเริ่มต้น workspace",
-  "stateDiagnosticsSaved": "Saved ไป {เวียร์}",
+  "stateDiagnosticsSaved": "{where} Saved ไป {เวียร์}",
   "stateDownloadsPrefix": "Downloads/",
-  "stateSharePluginCount": "{เคาท์, plural, อื่นๆ{{เคาท์} plugins}}",
-  "stateShareSkillCount": "{เคาท์, plural, อื่นๆ{{เคาท์} skills}}",
-  "stateShareSettingCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ตั้งค่า groups}}",
+  "stateSharePluginCount": "{count} plugins}",
+  "stateShareSkillCount": "{count} skills}",
+  "stateShareSettingCount": "{count} ตั้งค่า groups}",
   "stateAlertCompletedReply": "เสร็จสิ้น · {reply}",
-  "stateAlertErrorDetail": "ข้อผิดพลาด · {รายละเอียด}",
-  "stateAlertUseTool": "Use เครื่องมือ {ชื่อ}",
+  "stateAlertErrorDetail": "{detail} ข้อผิดพลาด · {รายละเอียด}",
+  "stateAlertUseTool": "{name} Use เครื่องมือ {ชื่อ}",
   "stateAlertApprovalAction": "Needs approval: {action}",
   "stateAlertApprovalReason": "Needs approval: {action} · {reason}",
-  "stateAlertQuestions": "{เคาท์, plural, อื่นๆ{คำถาม สำหรับ you: {คำถาม} ({เคาท์} ทอตอล)}}",
-  "stateAlertQuestionText": "คำถาม สำหรับ you: {คำถาม}",
-  "statePetChatsDone": "{เคาท์, plural, อื่นๆ{{เคาท์} chats finished}}",
-  "statePetChatsFailed": "{เคาท์, plural, อื่นๆ{{เคาท์} chats ล้มเหลว}}",
-  "statePetChatsApproval": "{เคาท์, plural, อื่นๆ{{เคาท์} chats need approval}}",
-  "statePetChatsQuestion": "{เคาท์, plural, อื่นๆ{{เคาท์} chats need your คำตอบ}}",
-  "stateAttachmentEmpty": "“{ชื่อ}” คือ empty",
-  "stateAttachmentImageLimit": "รูปภาพ “{ชื่อ}” exceeds 20 MB",
-  "stateAttachmentFileLimit": "ไฟล์ “{ชื่อ}” exceeds 200 MB",
+  "stateAlertQuestions": "{question} {count} ( ทอตอล)}",
+  "stateAlertQuestionText": "{question} คำถาม สำหรับ you: {คำถาม}",
+  "statePetChatsDone": "{count} chats finished}",
+  "statePetChatsFailed": "{count} chats ล้มเหลว}",
+  "statePetChatsApproval": "{count} chats need approval}",
+  "statePetChatsQuestion": "{count} chats need your คำตอบ}",
+  "stateAttachmentEmpty": "{name} “{ชื่อ}” คือ empty",
+  "stateAttachmentImageLimit": "{name} รูปภาพ “{ชื่อ}” exceeds 20 MB",
+  "stateAttachmentFileLimit": "{name} ไฟล์ “{ชื่อ}” exceeds 200 MB",
   "stateAttachmentTotalLimit": "Attachments exceed 400 MB ใน ทอตอล",
-  "stateBotFinished": "{ชื่อ} finished working",
-  "stateBotQuestion": "{ชื่อ} asks: {เท็กซ์}",
-  "stateBotApproval": "{ชื่อ} needs approval: {เท็กซ์}",
+  "stateBotFinished": "{name} {ชื่อ} finished working",
+  "stateBotQuestion": "{text} {name} {ชื่อ} asks: {เท็กซ์}",
+  "stateBotApproval": "{text} {name} {ชื่อ} needs approval: {เท็กซ์}",
   "stateCommandPlanHint": "[ปิด | คำขอ]",
   "stateCommandGoalHint": "[เป้าหมาย | ล้าง | หยุดชั่วคราว | ดำเนินต่อ]",
-  "stateShareReadFailed": "Couldn’t อ่าน “{ชื่อ}”",
-  "stateShareAttachmentLimit": "{เคาท์, plural, อื่นๆ{ขึ้น ไป {เคาท์} attachments per ข้อความ}}",
-  "stateShareNamedFileTooLarge": "“{ชื่อ}” คือ เกินไป large แอนด์ wasn’t added",
-  "stateShareTextTruncated": "{เคาท์, plural, อื่นๆ{เท็กซ์ คือ เกินไป long. Kept  เฟิร์ส {เคาท์} characters.}}",
+  "stateShareReadFailed": "{name} Couldn’t อ่าน “{ชื่อ}”",
+  "stateShareAttachmentLimit": "{count} attachments per ข้อความ}",
+  "stateShareNamedFileTooLarge": "{name} “{ชื่อ}” คือ เกินไป large แอนด์ wasn’t added",
+  "stateShareTextTruncated": "{count} characters.}",
   "stateSettingsMinimum": "Must เป็น at น้อยที่สุด {bound}",
   "stateSettingsMaximum": "Must เป็น at มากที่สุด {bound}",
   "stateSettingsMultiple": "Must เป็น  multiple ของ {bound}",
-  "stateSettingsMinLength": "{เคาท์, plural, อื่นๆ{At น้อยที่สุด {เคาท์} characters}}",
-  "stateSettingsMaxLength": "{เคาท์, plural, อื่นๆ{At มากที่สุด {เคาท์} characters}}",
+  "stateSettingsMinLength": "{count} characters}",
+  "stateSettingsMaxLength": "{count} characters}",
   "stateEngineHttpRejected": " engine ปฏิเสธแล้ว  คำขอ ({status})",
   "stateGoalActionOffline": "{action}: Can’t reach  engine",
-  "stateHostRemoteLabel": "{ชื่อ} · รีโมต",
+  "stateHostRemoteLabel": "{name} {ชื่อ} · รีโมต",
   "stateMarketHttpError": "Can’t เปิด  ปลั๊กอิน catalog (เอชทีTEEพี {status})",
-  "statePluginRuntimeIncompatible": "This ปลั๊กอิน doesn’t รองรับ  current DSH VERSION ({VERSION}).",
+  "statePluginRuntimeIncompatible": "{version} This ปลั๊กอิน doesn’t รองรับ current DSH VERSION ({version}).",
   "statePluginRequiredVersion": "This ปลั๊กอิน requires DSH {wanted}. Current VERSION: {current}.",
   "statePluginRegistryUnreachable": "Can’t reach  registry",
   "statePluginNamedRegistryUnreachable": "Can’t reach  registry ({registry})",
   "statePluginBuildsPending": "Needs approval: {builds}",
-  "statePluginRegistryProgress": "Downloading จาก {registry} (registry {พยายาม}/{attempts})",
+  "statePluginRegistryProgress": "{attempt} {attempts} {registry} Downloading จาก (registry /)",
   "stateProviderServiceUnavailable": "เซอร์วิส unavailable ({status})",
   "stateProviderServiceStatus": "เซอร์วิส returned {status}",
   "stateProviderKeySaveFailed": "โพรไวเดอร์ saved, but  คีย์ wasn’t: {reason}",
@@ -363,15 +363,15 @@
   "stateSafePreflightFailed": "{what}, startup checks ล้มเหลว: {checks}",
   "stateListSeparator": ", ",
   "stateSafeRepairPrompt": "My DSH has  problem ใน normal mode ({what}). Follow  Safe mode instructions ไป ฟายด์  cause. Fix  web CONFIG using reversible changes, เวอร์ริฟาย startup กับ dsh-app-plugins trial, แล้ว tell me what changed.",
-  "stateScheduleCreatePrompt": "สร้าง automation “{หัวข้อ}”: {rule}.\nคอลล์ schedule_create อย่างแม่นยำ หนึ่งครั้ง, using these arguments unchanged. Don’t รัน  งาน ตอนนี้.\n\n```JSON\n{args}\n```",
+  "stateScheduleCreatePrompt": "{title} สร้าง automation “{หัวข้อ}”: {rule}.\nคอลล์ schedule_create อย่างแม่นยำ หนึ่งครั้ง, using these arguments unchanged. Don’t รัน  งาน ตอนนี้.\n\n```JSON\n{args}\n```",
   "stateActionReason": "{action}: {reason}",
-  "stateAlertPreviewRun": "เรียกใช้: {ค่า}",
-  "stateAlertPreviewWrite": "เขียน: {ค่า}",
-  "stateAlertPreviewEdit": "แก้ไข: {ค่า}",
-  "stateAlertPreviewOpen": "เปิด: {ค่า}",
-  "stateAlertPreviewUse": "Use เครื่องมือ: {ค่า}",
+  "stateAlertPreviewRun": "{value} เรียกใช้: {ค่า}",
+  "stateAlertPreviewWrite": "{value} เขียน: {ค่า}",
+  "stateAlertPreviewEdit": "{value} แก้ไข: {ค่า}",
+  "stateAlertPreviewOpen": "{value} เปิด: {ค่า}",
+  "stateAlertPreviewUse": "{value} Use เครื่องมือ: {ค่า}",
   "stateUiWeb": "เว็บ",
-  "statePluginRegistryProgressUnknown": "Downloading จาก {registry} (registry {พยายาม}/นัลล์)",
+  "statePluginRegistryProgressUnknown": "{attempt} Downloading จาก {registry} (registry {พยายาม}/นัลล์)",
   "stateProviderTokenCountInvalid": "เอ็นเตอร์  ตัวเลข, like 128K",
   "appSlogan": "Anytime, anywhere. เพียง Go!",
   "@stateDiagnosticsSaved": {
@@ -384,21 +384,21 @@
   "@stateSharePluginCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@stateShareSkillCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@stateShareSettingCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -442,11 +442,11 @@
   },
   "@stateAlertQuestions": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "question": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -460,28 +460,28 @@
   "@statePetChatsDone": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@statePetChatsFailed": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@statePetChatsApproval": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@statePetChatsQuestion": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -515,20 +515,20 @@
   },
   "@stateBotQuestion": {
     "placeholders": {
-      "name": {
+      "text": {
         "type": "String"
       },
-      "text": {
+      "name": {
         "type": "String"
       }
     }
   },
   "@stateBotApproval": {
     "placeholders": {
-      "name": {
+      "text": {
         "type": "String"
       },
-      "text": {
+      "name": {
         "type": "String"
       }
     }
@@ -543,7 +543,7 @@
   "@stateShareAttachmentLimit": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -557,7 +557,7 @@
   "@stateShareTextTruncated": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -585,14 +585,14 @@
   "@stateSettingsMinLength": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@stateSettingsMaxLength": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -657,14 +657,14 @@
   },
   "@statePluginRegistryProgress": {
     "placeholders": {
-      "attempt": {
-        "type": "String"
-      },
-      "attempts": {
-        "type": "String"
-      },
       "registry": {
         "type": "String"
+      },
+      "attempt": {
+        "type": "int"
+      },
+      "attempts": {
+        "type": "int"
       }
     }
   },
@@ -718,10 +718,10 @@
   },
   "@stateScheduleCreatePrompt": {
     "placeholders": {
-      "args": {
+      "rule": {
         "type": "String"
       },
-      "rule": {
+      "args": {
         "type": "String"
       },
       "title": {
@@ -776,10 +776,10 @@
   },
   "@statePluginRegistryProgressUnknown": {
     "placeholders": {
-      "attempt": {
+      "registry": {
         "type": "String"
       },
-      "registry": {
+      "attempt": {
         "type": "String"
       }
     }

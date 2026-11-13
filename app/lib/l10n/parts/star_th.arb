@@ -1,14 +1,8 @@
 {
-  "starPromptTitle": "{hours, plural, อื่นๆ{I’ve kept you บริษัท ใน DSH Go สำหรับ {hours} hours ตอนนี้~}}",
+  "starPromptTitle": "{hours} hours ตอนนี้~}}",
   "@starPromptTitle": {
     "placeholders": {
-      "hours, plural, =0{本鱼已经在 DSH Go 里陪你半个小时啦⁠~": {
-        "type": "String"
-      },
-      "本鱼已经在 DSH Go 里陪你 {hours": {
-        "type": "String"
-      },
-      "本鱼已经在 DSH Go 里陪你一个小时啦⁠~": {
+      "hours": {
         "type": "String"
       }
     }

@@ -27,7 +27,7 @@
   "marketChecksTitle": "การตรวจสอบอัตโนมัติ",
   "marketChecksClean": "ไม่ risky traits found",
   "marketChecksNote": "Traits  automatic checks found; they don't mean  ปลั๊กอิน คือ malicious",
-  "marketCheckedOn": "ตรวจสอบแล้ว {เดท}",
+  "marketCheckedOn": "{date} ตรวจสอบแล้ว {เดท}",
   "@marketCheckedOn": {
     "placeholders": {
       "date": {
@@ -35,7 +35,7 @@
       }
     }
   },
-  "marketScreenshot": "สกรีนชอต {อินเด็กซ์}",
+  "marketScreenshot": "{index} สกรีนชอต {อินเด็กซ์}",
   "@marketScreenshot": {
     "placeholders": {
       "index": {
@@ -43,7 +43,7 @@
       }
     }
   },
-  "marketRiskConfirmTitle": "{ชื่อ} has risky traits",
+  "marketRiskConfirmTitle": "{name} {ชื่อ} has risky traits",
   "@marketRiskConfirmTitle": {
     "placeholders": {
       "name": {
@@ -54,7 +54,7 @@
   "marketRiskConfirmAction": "ติดตั้ง anyway",
   "marketPinnedVersion": "หมุดแล้ว VERSION",
   "marketRequiresApp": "ต้องการ DSH Go",
-  "marketNeedsApp": "Needs DSH Go {VERSION} ออร์ ภายหลัง",
+  "marketNeedsApp": "{version} Needs DSH Go {version} ออร์ ภายหลัง",
   "@marketNeedsApp": {
     "placeholders": {
       "version": {
@@ -64,7 +64,7 @@
   },
   "marketUpdateAvailable": "อัปเดต available",
   "marketBlockedTitle": "This VERSION was withdrawn",
-  "marketBlockedMessage": " installed {VERSION} was withdrawn จาก  ปลั๊กอิน market. Uninstalling it คือ recommended.",
+  "marketBlockedMessage": "{version} installed {version} was withdrawn จาก ปลั๊กอิน market. Uninstalling it คือ recommended.",
   "@marketBlockedMessage": {
     "placeholders": {
       "version": {
@@ -76,7 +76,7 @@
   "marketBlockedBadge": "ถอนกลับ",
   "marketVerifying": "Checking  VERSION…",
   "marketMismatchTitle": "VERSION เช็ค ล้มเหลว",
-  "marketMismatchMessage": "{VERSION} เปิด npm isn't  แพ็กเกจ  ปลั๊กอิน market checked. Nothing was installed.",
+  "marketMismatchMessage": "{version} {version} เปิด npm isn't แพ็กเกจ ปลั๊กอิน market checked. Nothing was installed.",
   "@marketMismatchMessage": {
     "placeholders": {
       "version": {
@@ -86,7 +86,7 @@
   },
   "marketSubmit": "ส่ง  plugin",
   "marketSubmitHint": "เปิด GitHub; listed หนึ่งครั้ง  automatic checks pass",
-  "marketLinkNotFound": "{ชื่อ} isn't ใน  ปลั๊กอิน market",
+  "marketLinkNotFound": "{name} {ชื่อ} isn't ใน  ปลั๊กอิน market",
   "@marketLinkNotFound": {
     "placeholders": {
       "name": {
@@ -96,7 +96,7 @@
   },
   "marketVerificationUnavailableTitle": "Could นอต เวอร์ริฟาย  VERSION",
   "marketVerificationUnavailableBody": "npm did นอต คืนค่า integrity information. Installation has นอต started. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
-  "marketCombinedCount": "{เคาท์} plugins",
+  "marketCombinedCount": "{count} {เคาท์} plugins",
   "@marketCombinedCount": {
     "placeholders": {
       "count": {

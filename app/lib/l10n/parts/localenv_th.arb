@@ -1,15 +1,15 @@
 {
   "localEnvChooseTitle": "เวียร์ should DSH เรียกใช้?",
   "localEnvChooseMessage": "You can change this ภายหลัง ใน ตั้งค่า",
-  "localEnvThisPhoneDetail": "{ที่เก็บข้อมูล} MB ที่เก็บข้อมูล · {หน่วยความจำ} MB หน่วยความจำ",
-  "localEnvThisPhoneDetailShort": "{หน่วยความจำ} MB หน่วยความจำ ขณะที่ กำลังทำงาน",
-  "localEnvLowStorage": "Needs เกี่ยวกับ {ต้องการ} MB free",
+  "localEnvThisPhoneDetail": "{storage} {memory} {ที่เก็บข้อมูล} MB ที่เก็บข้อมูล · {หน่วยความจำ} MB หน่วยความจำ",
+  "localEnvThisPhoneDetailShort": "{memory} {หน่วยความจำ} MB หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvLowStorage": "{needed} Needs เกี่ยวกับ {ต้องการ} MB free",
   "localEnvRemoteDetail": "Use DSH เปิด your computer ออร์ เซิร์ฟเวอร์",
   "localEnvRecommended": "แนะนำ",
   "localEnvInstallTitle": "ติดตั้ง เปิด this phone",
   "localEnvInstallMessage": "เรียกใช้ DSH right เปิด this phone",
-  "localEnvFactStorage": "เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
-  "localEnvFactMemory": "เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvFactStorage": "{storage} เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
+  "localEnvFactMemory": "{memory} เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
   "localEnvUseRemote": "Use  รีโมต โฮสต์ instead",
   "localEnvNotInstalled": "นอต installed เปิด this phone",
   "localEnvUninstall": "ถอนการติดตั้ง runtime",
@@ -23,10 +23,10 @@
   "localEnvSignInInstallFirst": "ติดตั้ง it ไป ลงนาม ใน",
   "@localEnvThisPhoneDetail": {
     "placeholders": {
-      "memory": {
+      "storage": {
         "type": "String"
       },
-      "storage": {
+      "memory": {
         "type": "String"
       }
     }

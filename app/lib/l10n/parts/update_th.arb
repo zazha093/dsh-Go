@@ -7,8 +7,8 @@
   "updateTileVerifying": "กำลังตรวจสอบ",
   "updateTileReady": "พร้อม ไป ติดตั้ง",
   "updateTileInstalling": "กำลังติดตั้ง",
-  "updateTileSkipped": "Skipped {VERSION}",
-  "updateTileNewVersion": "ใหม่: {VERSION}",
+  "updateTileSkipped": "{version} Skipped {version}",
+  "updateTileNewVersion": "{version} ใหม่: {version}",
   "updateTileUpToDate": "ขึ้น ไป เดท",
   "updateTileUnavailable": "Can’t เช็ค right ตอนนี้",
   "updateUpToDate": "You’re ขึ้น ไป เดท",
@@ -24,7 +24,7 @@
   "updateStorageWriteFailed": "Couldn’t บันทึก แพ็กเกจ",
   "updateStorageWriteFailedMessage": "ที่เก็บข้อมูล พฤษภาคม เป็น full. Free ขึ้น space แอนด์ ทราย อีกครั้ง.",
   "updateFreeSpaceRetry": "ว่าง ขึ้น space แอนด์ ทราย อีกครั้ง.",
-  "updateSpaceRequired": "เกี่ยวกับ {ไซส์} ของ free space ต้องการ. Free ขึ้น space แอนด์ ทราย อีกครั้ง.",
+  "updateSpaceRequired": "{size} เกี่ยวกับ {ไซส์} ของ free space ต้องการ. Free ขึ้น space แอนด์ ทราย อีกครั้ง.",
   "updateSettingsOpenFailed": "Couldn’t เปิด ระบบ ตั้งค่า",
   "updateSettingsOpenFailedMessage": "อนุญาต “ติดตั้ง unknown apps” ใน ตั้งค่า → Apps → DSH Go, แล้ว รีเทิร์น ไป ติดตั้ง.",
   "updateInstallCancelled": "Installation ยกเลิกแล้ว",
@@ -45,9 +45,9 @@
   "updateInstallBlockedMessage": "อนุญาต installation ใน  system prompt, ออร์ ดาวน์โหลด จาก  รีลีส เพจ.",
   "updateInstallIncomplete": "Installation incomplete",
   "updateInstallIncompleteMessage": "ทราย อีกครั้ง, ออร์ ดาวน์โหลด จาก  รีลีส เพจ.",
-  "updateBrowserOpenFailed": "Couldn’t เปิด your browser. Visit {โฮสต์}{พาธ} manually.",
-  "updateUpToDateVersion": "You’re ขึ้น ไป เดท: {VERSION}",
-  "updateCurrentVersion": "Current {VERSION}",
+  "updateBrowserOpenFailed": "{path} {host} Couldn’t เปิด your browser. Visit {โฮสต์}{พาธ} manually.",
+  "updateUpToDateVersion": "{version} You’re ขึ้น ไป เดท: {version}",
+  "updateCurrentVersion": "{version} Current {version}",
   "updateNewVersionFound": "ใหม่ VERSION available",
   "updateReleaseNotes": "What’s ใหม่",
   "updateNoReleaseNotes": "ไม่ รีลีส notes สำหรับ this VERSION.",
@@ -116,10 +116,10 @@
   },
   "@updateBrowserOpenFailed": {
     "placeholders": {
-      "host": {
+      "path": {
         "type": "String"
       },
-      "path": {
+      "host": {
         "type": "String"
       }
     }

@@ -6,10 +6,10 @@
   "featuresCordisEmpty": "ไม่ dynamic plugins ยัง",
   "featuresCordisEmptyHint": "Plugins appear here หนึ่งครั้ง created",
   "featuresCurrentChat": "แชทปัจจุบัน",
-  "featuresOtherChats": "อื่นๆ chats",
-  "featuresPresetDefaultSet": "ใหม่ chats will use “{ชื่อ}”",
+  "featuresOtherChats": "other chats",
+  "featuresPresetDefaultSet": "{name} ใหม่ chats will use “{ชื่อ}”",
   "featuresPresetDefaultFailed": "Couldn’t เซ็ท ในฐานะ ค่าเริ่มต้น",
-  "featuresPresetDeleteTitle": "ลบ “{ชื่อ}”?",
+  "featuresPresetDeleteTitle": "{name} ลบ “{ชื่อ}”?",
   "featuresPresetDeleteHint": "It won’t เป็น available สำหรับ ใหม่ chats. Existing chats stay ในฐานะ they are.",
   "featuresDeleted": "ลบแล้ว",
   "featuresDeleteFailed": "Couldn’t ลบ",
@@ -26,12 +26,12 @@
   "featuresNewChatDefault": "ค่าเริ่มต้นสำหรับแชทใหม่",
   "featuresEmptyDocument": "(ว่าง)",
   "featuresReadFailed": "Couldn’t อ่าน",
-  "featuresTodayTime": "วันนี้ {ไทม์}",
-  "featuresTomorrowTime": "พรุ่งนี้ {ไทม์}",
-  "featuresYesterdayTime": "เมื่อวาน {ไทม์}",
-  "featuresScheduleSummaryNext": "{rule} · ถัดไป {ไทม์}",
+  "featuresTodayTime": "{time} วันนี้ {ไทม์}",
+  "featuresTomorrowTime": "{time} พรุ่งนี้ {ไทม์}",
+  "featuresYesterdayTime": "{time} เมื่อวาน {ไทม์}",
+  "featuresScheduleSummaryNext": "{time} {rule} · ถัดไป {ไทม์}",
   "featuresEnded": "สิ้นสุด",
-  "featuresScheduleSummaryEnded": "Ended · Ran {ไทม์}",
+  "featuresScheduleSummaryEnded": "{time} Ended · Ran {ไทม์}",
   "featuresJobElapsed": "กำลังทำงาน สำหรับ {span}",
   "featuresJobDuration": "Took {span}",
   "featuresPermissionReadOnly": "อ่านแล้ว เท่านั้น",
@@ -51,20 +51,20 @@
   "featuresPresetPtcDescription": "Batch เครื่องมือ calls, แล้ว ฟิลเตอร์, วิเคราะห์, แอนด์ summarize",
   "featuresPresetMinimalDescription": "Terminal แอนด์ รูปภาพ viewing เท่านั้น, สำหรับ testing แอนด์ comparison",
   "featuresPresetCreatorDescription": "Have  Agent เขียน plugins ไป customize DSH",
-  "featuresHostUnreachable": "Can’t เชื่อมต่อ ไป “{ชื่อ}”",
-  "featuresHostConnecting": "Connecting ไป “{ชื่อ}”…",
+  "featuresHostUnreachable": "{name} Can’t เชื่อมต่อ ไป “{ชื่อ}”",
+  "featuresHostConnecting": "{name} Connecting ไป “{ชื่อ}”…",
   "featuresJobs": "พื้นหลัง jobs",
   "featuresJobsSubtitle": "Cleared เมื่อ  engine restarts",
   "featuresJobsReadFailed": "Couldn’t โหลด background jobs",
   "featuresJobsEmpty": "ไม่ background jobs",
   "featuresJobsEmptyHint": "Commands such ในฐานะ dev servers appear here",
-  "featuresJobsEndedCount": "{count, plural, other{Ended · {count}}}",
+  "featuresJobsEndedCount": "{count}}}",
   "featuresJobStopTitle": "หยุด this งาน?",
   "featuresJobAlreadyEnded": "This งาน has แล้ว ended",
   "featuresJobStopFailed": "Couldn’t หยุด",
   "featuresJobOutput": "งาน output",
   "featuresOutput": "เอาต์พุต",
-  "featuresJobRecentLines": "{เคาท์, plural, อื่นๆ{ลาสท์ {เคาท์} lines}}",
+  "featuresJobRecentLines": "{count} lines}",
   "featuresJobOutputSubject": "DSH งาน output",
   "featuresJobOutputReadFailed": "Couldn’t อ่าน output",
   "featuresJobOutputWaiting": "กำลังรอ สำหรับ output…",
@@ -111,7 +111,7 @@
   "featuresPresetIdLength": "ขึ้น ไป 40 characters",
   "featuresPresetIdFormat": "Use lowercase letters, numbers, แอนด์ hyphens",
   "featuresPresetIdTaken": "This ไอดี คือ แล้ว ใน use",
-  "featuresPresetCopyName": "{ชื่อ} คัดลอก",
+  "featuresPresetCopyName": "{name} {ชื่อ} คัดลอก",
   "featuresPresetBasedOn": "Based เปิด",
   "featuresNameRequired": "เอ็นเตอร์  ชื่อ",
   "featuresCreatorOpenFailed": "Couldn’t เปิด Creator mode",
@@ -142,8 +142,8 @@
   "featuresCronWeekday": "เดย์ ของ สัปดาห์",
   "featuresCronRequired": "เอ็นเตอร์  5-field ครอน expression",
   "featuresCronWhitespace": "ไม่ leading ออร์ trailing spaces",
-  "featuresCronFieldCount": "{count, plural, other{Expected 5 fields, got {count}}}",
-  "featuresCronInvalidField": "Field {ดัชนี} ({ชื่อ}) คือ invalid",
+  "featuresCronFieldCount": "{count}}}",
+  "featuresCronInvalidField": "{name} {index} Field {ดัชนี} ({ชื่อ}) คือ invalid",
   "featuresWeekdayMon": "จันทร์",
   "featuresWeekdayTue": "อังคาร",
   "featuresWeekdayWed": "พุธ",
@@ -169,14 +169,14 @@
   "featuresCronMonthDays": "รายเดือน เปิด {days}{months}",
   "featuresCronMonthDaysAndWeekdays": "รายเดือน เปิด {days}, ถ้า {weekdays}{months}",
   "featuresCronMonthDaysOrWeekdays": "รายเดือน เปิด {days} ออร์ {weekdays}{months}",
-  "featuresCronHourRange": "{เฟิร์ส} ไป {ลาสท์}",
+  "featuresCronHourRange": "{last} {first} {เฟิร์ส} ไป {ลาสท์}",
   "featuresEveryMinute": "ทุก มินิต",
-  "featuresCronEveryMinutes": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} minutes}}",
+  "featuresCronEveryMinutes": "{count} minutes}",
   "featuresEveryHour": "ทุก อาวเออร์",
   "featuresCronHourlyMinutes": "At มินิต {minutes} ของ ทุก อาวเออร์",
   "featuresCronHoursEveryMinute": "ทุก มินิต ระหว่าง อาวเออร์ {hours}",
-  "featuresCronHoursEveryMinutes": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} minutes ระหว่าง อาวเออร์ {hours}}}",
-  "featuresCronEveryHours": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} hours}}",
+  "featuresCronHoursEveryMinutes": "{count} minutes ระหว่าง อาวเออร์ {hours}}",
+  "featuresCronEveryHours": "{count} hours}",
   "featuresCronHoursMinutes": "At มินิต {minutes} ระหว่าง อาวเออร์ {hours}",
   "featuresRepeatDaily": "รายวัน",
   "featuresRepeatWeekdays": "Weekdays",
@@ -194,11 +194,11 @@
   "featuresTimeDoesNotExist": "This ไทม์ doesn’t exist ใน this ไทม์ zone",
   "featuresChooseFutureTime": "Choose  ฟิวเจอร์ ไทม์",
   "featuresCronNeverRuns": "This expression ไม่เคย runs",
-  "featuresRuleDaily": "รายวัน at {ไทม์}",
-  "featuresRuleWeekdays": "Weekdays at {ไทม์}",
-  "featuresRuleWeekends": "Weekends at {ไทม์}",
-  "featuresRuleWeekly": "ทุก {days} at {ไทม์}",
-  "featuresRuleMonthly": "รายเดือน เปิด {days} at {ไทม์}",
+  "featuresRuleDaily": "{time} รายวัน at {ไทม์}",
+  "featuresRuleWeekdays": "{time} Weekdays at {ไทม์}",
+  "featuresRuleWeekends": "{time} Weekends at {ไทม์}",
+  "featuresRuleWeekly": "{time} ทุก {days} at {ไทม์}",
+  "featuresRuleMonthly": "{time} รายเดือน เปิด {days} at {ไทม์}",
   "featuresRepeat": "ทำซ้ำ",
   "featuresChat": "แชท",
   "featuresWorkspace": "เวิร์กสเปซ",
@@ -236,7 +236,7 @@
   "featuresZoneTimeSuffix": " ({city} ไทม์)",
   "featuresScheduleNextLocal": "ถัดไป runs (this phone’s ไทม์)",
   "featuresScheduleNext": "ถัดไป runs",
-  "featuresMonthDayChoice": "เดย์ {เดย์}",
+  "featuresMonthDayChoice": "{day} เดย์ {เดย์}",
   "featuresZonesCommon": "ทั่วไป",
   "featuresZonesAll": "ทั้งหมด",
   "featuresZoneSearchHint": "ค้นหา cities, ไทม์ zones, ออร์ ยูTEEซี offsets",
@@ -306,7 +306,7 @@
   "featuresSchedules": "Automations",
   "featuresSchedulesSubtitle": "ส่ง ไป  original chat at  scheduled ไทม์",
   "featuresSchedulesSearch": "ค้นหา automations",
-  "featuresSchedulesAllCount": "{count, plural, other{All {count}}}",
+  "featuresSchedulesAllCount": "{count}}}",
   "featuresScheduleUntitled": "Untitled automation",
   "featuresScheduleSent": "ส่งแล้ว ไป chat",
   "featuresView": "ดู",
@@ -328,7 +328,7 @@
   "featuresScheduleHistoryUnavailable": "ประวัติ unavailable",
   "featuresScheduleHistoryReadFailed": "Couldn’t โหลด เรียกใช้ history",
   "featuresScheduleDelete": "ลบ automation",
-  "featuresExportSavedTo": "Saved ไป {พาธ}",
+  "featuresExportSavedTo": "{path} Saved ไป {พาธ}",
   "featuresExportTitle": "ส่งออก Chat logs",
   "featuresExportSubtitle": " ZIP สำหรับ feedback ออร์ สำรอง",
   "featuresExportUnavailable": "Can’t ส่งออก เกิน this การเชื่อมต่อ",
@@ -346,12 +346,12 @@
   "featuresSkillsSourceHint": "จาก  โปรเจกต์’s แอนด์ ~/.dsh skills folders",
   "featuresSkillUsage": "สำหรับ: {usage}",
   "featuresSkillManual": "ด้วยตนเอง เท่านั้น",
-  "featuresArtifactsSemantic": "{เคาท์, plural, อื่นๆ{Output files, {เคาท์} files, มุมมอง ออล}}",
+  "featuresArtifactsSemantic": "{count} files, มุมมอง ออล}",
   "featuresArtifactsTitle": "เอาต์พุต files",
-  "featuresArtifactsAllCount": "{count, plural, other{All {count}}}",
-  "featuresArtifactsCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
+  "featuresArtifactsAllCount": "{count}}}",
+  "featuresArtifactsCount": "{count} files}",
   "featuresArtifactsNoFiles": "ไม่ files ยัง",
-  "featuresArtifactsTotal": "{เคาท์, plural, อื่นๆ{{เคาท์} files · Delivered แอนด์ generated}}",
+  "featuresArtifactsTotal": "{count} files · Delivered แอนด์ generated}",
   "featuresArtifactsEmpty": "ไม่ output files ยัง",
   "featuresArtifactsEmptyHint": "Files delivered ออร์ generated โดย AI appear here",
   "featuresListSeparator": ", ",
@@ -361,17 +361,17 @@
   "featuresDateWeekday": "{day}, {date}",
   "featuresOnceDescription": "{rule} · {date} {time}",
   "featuresCronMonthSuffix": " ({months})",
-  "featuresRuleIntervalSeconds": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} seconds}}",
-  "featuresRuleIntervalMinutes": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} minutes}}",
-  "featuresRuleIntervalHours": "{เคาท์, plural, อื่นๆ{ทุก {เคาท์} hours}}",
-  "featuresSchedulesActiveCount": "{count, plural, other{Active {count}}}",
-  "featuresSchedulesEndedCount": "{count, plural, other{Ended {count}}}",
-  "featuresScheduleRetention": "{days, plural, อื่นๆ{ลาสท์ {days} days}}, {เคาท์, plural, อื่นๆ{ขึ้น ไป {เคาท์} entries}}",
-  "featuresScheduleRetentionUnknown": "{days, plural, อื่นๆ{ลาสท์ {days} days}}, entry ลิมิต unavailable",
+  "featuresRuleIntervalSeconds": "{count} seconds}",
+  "featuresRuleIntervalMinutes": "{count} minutes}",
+  "featuresRuleIntervalHours": "{count} hours}",
+  "featuresSchedulesActiveCount": "{count}}}",
+  "featuresSchedulesEndedCount": "{count}}}",
+  "featuresScheduleRetention": "{count} {days} days}, entries}",
+  "featuresScheduleRetentionUnknown": "{days} days}}, entry ลิมิต unavailable",
   "featuresArtifactsDeliveredTurn": "Turn {turn} · ส่งมอบแล้ว",
   "featuresArtifactsGeneratedTurn": "Turn {turn} · Generated",
-  "featuresPresetCreateRequest": "สร้าง agent preset “{ชื่อ}” ({ไอดี}): เขียน these two files verbatim ใน  workspace, แล้ว use plugin_manager’s install_bundle ไป ติดตั้ง  `{ไดเรกทอรี}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
-  "featuresPresetUpdateRequest": "อัปเดต agent preset “{ชื่อ}” ({ไอดี}): เขียน these two files verbatim ใน  workspace. Use plugin_manager ไป ลบ bundle `{replacing}`, แล้ว use install_bundle ไป ติดตั้ง  `{ไดเรกทอรี}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
+  "featuresPresetCreateRequest": "{name} {id} {directory} สร้าง agent preset “{ชื่อ}” ({ไอดี}): เขียน these two files verbatim ใน  workspace, แล้ว use plugin_manager’s install_bundle ไป ติดตั้ง  `{ไดเรกทอรี}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
+  "featuresPresetUpdateRequest": "{name} {id} {directory} อัปเดต agent preset “{ชื่อ}” ({ไอดี}): เขียน these two files verbatim ใน  workspace. Use plugin_manager ไป ลบ bundle `{replacing}`, แล้ว use install_bundle ไป ติดตั้ง  `{ไดเรกทอรี}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
   "featuresZoneThisPhone": "{city} · This phone",
   "featuresPermissionResetHint": "ค่าเริ่มต้นสำหรับแชทใหม่ไม่ถูกต้องแล้ว",
   "featuresPermissionResetDefault": "กู้คืนค่าเริ่มต้น",
@@ -472,7 +472,7 @@
   "hasAPanelOrAnOnidHandler": "Has  แผง ออร์  เปิด(ไอดี) handler",
   "englishForDevelopers": "English, สำหรับ developers",
   "skillmd3": "SKILL.md",
-  "valuem": "{ค่า}M",
+  "valuem": "{value} {ค่า}M",
   "cancel1": "ยกเลิก",
   "confirm": "ยืนยัน",
   "inputBindingMustBeAFieldPathUnderData": "Input binding must เป็น  field พาธ ใต้ data",
@@ -498,11 +498,11 @@
   "tooMuchContentShortenItAndTryAgain": "เกินไป much เนื้อหา. Shorten it แอนด์ ทราย อีกครั้ง",
   "thisComponentIsNotSupportedHere": "This คอมโพเนนท์ คือ นอต supported here",
   "anActionMustBeAnIdStringOrShapeIgnored": " action must เป็น  ไอดี สตริง ออร์ {shape}; ignored",
-  "invalidActionIdValueThisElementIsntTappable": "Invalid action ไอดี {ค่า}; this element isn’t tappable",
+  "invalidActionIdValueThisElementIsntTappable": "{value} Invalid action ไอดี {ค่า}; this element isn’t tappable",
   "noDataYet": "ไม่ data ยัง",
   "expectedAnArrayOfShape": "Expected  อาร์เรย์ ของ {shape}",
-  "fromName": "จาก {ชื่อ}",
-  "pictureIndex": "Picture {ดัชนี}",
+  "fromName": "{name} จาก {ชื่อ}",
+  "pictureIndex": "{index} Picture {ดัชนี}",
   "imageCantBeDecodedPngJpegWebpOrGifOnly": "รูปภาพ can’t เป็น decoded (PNG, JPEG, WebP ออร์ GIF เท่านั้น)",
   "imageExceedsTheSizeLimit4096PerSide4MillionPixelsInTotal": "รูปภาพ exceeds  ไซส์ ลิมิต: 4096 per side, 4 million pixels ใน ทอตอล",
   "cantDisplayImage": "Can’t แสดง รูปภาพ",
@@ -517,13 +517,13 @@
   "cantDisplayList": "Can’t แสดง รายการ",
   "cantDisplayProgress": "Can’t แสดง progress",
   "cantDisplayTable": "Can’t แสดง ตาราง",
-  "unknownIconValueDrawnWithTheDefaultIcon": "Unknown icon {ค่า}; drawn กับ  ค่าเริ่มต้น icon",
-  "unknownToneValueIgnoredAvailableGoodWarnBadInfoMuted": "Unknown tone {ค่า}, ignored; available: good, warn, bad, ข้อมูล, muted",
-  "viewVersionVersionIsNotSupportedUsingTheCompatibleView": "มุมมอง VERSION {VERSION} คือ นอต supported; using  compatible มุมมอง",
-  "cancelledValue": "ยกเลิกแล้ว: {ค่า}",
-  "selectedValue": "Selected: {ค่า}",
+  "unknownIconValueDrawnWithTheDefaultIcon": "{value} Unknown icon {ค่า}; drawn กับ  ค่าเริ่มต้น icon",
+  "unknownToneValueIgnoredAvailableGoodWarnBadInfoMuted": "{value} Unknown tone {ค่า}, ignored; available: good, warn, bad, ข้อมูล, muted",
+  "viewVersionVersionIsNotSupportedUsingTheCompatibleView": "{version} มุมมอง VERSION {version} คือ นอต supported; using compatible มุมมอง",
+  "cancelledValue": "{value} ยกเลิกแล้ว: {ค่า}",
+  "selectedValue": "{value} Selected: {ค่า}",
   "confirmed": "Confirmed",
-  "confirmedValue": "Confirmed: {ค่า}",
+  "confirmedValue": "{value} Confirmed: {ค่า}",
   "audio": "ออดิโอ",
   "chart": "Chart",
   "diagram": "Diagram",
@@ -532,10 +532,10 @@
   "interactivePart": "Interactive part",
   "thisPart": "This part",
   "video": "วิดีโอ",
-  "duplicateLabelValueSkipped": "Duplicate label {ค่า}; skipped",
+  "duplicateLabelValueSkipped": "{value} Duplicate label {ค่า}; skipped",
   "codeBlockIsEmpty": "Code block คือ empty",
   "expectedANonemptyArrayOfLabels": "Expected  non-empty อาร์เรย์ ของ labels",
-  "expectedAnArrayOf1ToLimitComponents": "Expected  อาร์เรย์ ของ 1 ไป {ลิมิต} components",
+  "expectedAnArrayOf1ToLimitComponents": "{limit} Expected  อาร์เรย์ ของ 1 ไป {ลิมิต} components",
   "expectedAComponentObject": "Expected  คอมโพเนนท์ ออบเจ็กต์",
   "expectedANonemptyArrayOfShapeObjects": "Expected  non-empty อาร์เรย์ ของ {shape} objects",
   "expectedANonemptyArrayOfShapeObjects1": "Expected  non-empty อาร์เรย์ ของ {shape} objects",
@@ -543,13 +543,13 @@
   "expired": "Expired",
   "drawingOnlyTheFirstSeries": "Drawing เท่านั้น  เฟิร์ส series",
   "generatingView": "Generating มุมมอง",
-  "valueb": "{ค่า}B",
+  "valueb": "{value} {ค่า}B",
   "viewIsStillGenerating": "มุมมอง คือ ยัง generating",
   "thisViewHasAFormattingError": "This มุมมอง has  formatting ข้อผิดพลาด",
   "commentsOrTrailingCommasIgnored": "Comments ออร์ trailing commas ignored",
-  "valuem1": "{ค่า}M",
+  "valuem1": "{value} {ค่า}M",
   "missingType": "Missing ประเภท",
-  "selectMultiple": "เซเล็ก multiple",
+  "selectMultiple": "select multiple",
   "no": "ไม่",
   "noFiniteValues": "ไม่ finite values",
   "noItemsToDraw": "ไม่ items ไป draw",
@@ -559,24 +559,24 @@
   "notStarted": "นอต started",
   "replied": "Replied",
   "chooseWhenTheReplyIsComplete": "Choose เมื่อ  reply คือ complete",
-  "cancelValue": "ยกเลิก: {ค่า}",
-  "selectValue": "เซเล็ก: {ค่า}",
-  "confirmValue": "ยืนยัน: {ค่า}",
+  "cancelValue": "{value} ยกเลิก: {ค่า}",
+  "selectValue": "{value} select:",
+  "confirmValue": "{value} ยืนยัน: {ค่า}",
   "askToResend": "ถาม ไป resend",
   "expectedShapeItemSkipped1": "Expected {shape}; item ข้าม",
   "expectedANonemptyStringItemSkipped": "Expected  non-empty สตริง; item skipped",
   "expectedNameValueRowSkipped": "Expected [ชื่อ, ค่า]; แถว skipped",
   "expectedShapeStepSkipped": "Expected {shape}; step ข้าม",
   "expectedAStringStepSkipped": "Expected  สตริง; step skipped",
-  "noteValue": "Note: {ค่า}",
-  "chartSummary": "Chart: {สรุป}",
-  "compareValue": "Compare: {ค่า}",
-  "optionsValue": "Options: {ค่า}",
-  "stepsValue": "Steps: {ค่า}",
-  "textValue": "เท็กซ์: {ค่า}",
-  "valuek": "{ค่า}K",
+  "noteValue": "{value} Note: {ค่า}",
+  "chartSummary": "{summary} Chart: {สรุป}",
+  "compareValue": "{value} Compare: {ค่า}",
+  "optionsValue": "{value} Options: {ค่า}",
+  "stepsValue": "{value} Steps: {ค่า}",
+  "textValue": "{value} เท็กซ์: {ค่า}",
+  "valuek": "{value} {ค่า}K",
   "truncatedTextTooLong": "Truncated: เท็กซ์ เกินไป long",
-  "truncatedValue": "Truncated: {ค่า}",
+  "truncatedValue": "{value} Truncated: {ค่า}",
   "cantDisplayNote": "Can’t แสดง note",
   "cantDisplayChart": "Can’t แสดง chart",
   "cantDisplayComparison": "Can’t แสดง comparison",
@@ -587,21 +587,21 @@
   "cantDisplayThisSection": "Can’t แสดง this section",
   "cantDisplaySteps": "Can’t แสดง steps",
   "cantDisplayText": "Can’t แสดง เท็กซ์",
-  "unknownToneValueDrawnAsInfoAvailableInfoGoodWarnBad": "Unknown tone {ค่า}, drawn ในฐานะ ข้อมูล; available: ข้อมูล, good, warn, bad",
-  "unknownChartValueDrawnAsBarsAvailableBarHbarLineDonut": "Unknown chart {ค่า}, drawn ในฐานะ bars; available: bar, hbar, ไลน์, donut",
-  "unknownComponentValue": "Unknown คอมโพเนนท์ {ค่า}",
-  "unknownStatusValueDrawnAsTodoAvailableDoneCurrentTodoFailed": "Unknown status {ค่า}, drawn ในฐานะ ทูดู; available: เสร็จ, current, ทูดู, ล้มเหลว",
-  "unknownToneValueIgnoredAvailableGoodWarnBad": "Unknown tone {ค่า}, ignored; available: good, warn, bad",
+  "unknownToneValueDrawnAsInfoAvailableInfoGoodWarnBad": "{value} Unknown tone {ค่า}, drawn ในฐานะ ข้อมูล; available: ข้อมูล, good, warn, bad",
+  "unknownChartValueDrawnAsBarsAvailableBarHbarLineDonut": "{value} Unknown chart {ค่า}, drawn ในฐานะ bars; available: bar, hbar, ไลน์, donut",
+  "unknownComponentValue": "{value} Unknown คอมโพเนนท์ {ค่า}",
+  "unknownStatusValueDrawnAsTodoAvailableDoneCurrentTodoFailed": "{value} Unknown status {ค่า}, drawn ในฐานะ ทูดู; available: เสร็จ, current, ทูดู, ล้มเหลว",
+  "unknownToneValueIgnoredAvailableGoodWarnBad": "{value} Unknown tone {ค่า}, ignored; available: good, warn, bad",
   "yes": "ใช่",
-  "theRootComponentItsTitleIsTheToolCardsCollapsedSummary": " รูท คอมโพเนนท์. Its หัวข้อ คือ  เครื่องมือ card's collapsed สรุป.",
+  "theRootComponentItsTitleIsTheToolCardsCollapsedSummary": " root คอมโพเนนท์. Its หัวข้อ คือ  เครื่องมือ card's collapsed สรุป.",
   "aValueReadFromTheViewsDataModelMissingValuesShowAsAnEmDashArraysThatAreMissingOrEmptyShowAsNoDataYet": " ค่า อ่าน จาก  มุมมอง's data Model. Missing values แสดง ในฐานะ  em dash; arrays that are missing ออร์ empty แสดง ในฐานะ 'ไม่ data ยัง'.",
   "anArrayOrABindingToOne": " อาร์เรย์, ออร์  binding ไป one.",
-  "readOnTheRootOnlyClippedTo80Characters": "อ่าน เปิด  รูท เท่านั้น; clipped ไป 80 characters.",
-  "readOnTheRootOnlyOmittedOr1PreservesTheV1RenderingPath2EnablesBoundedStylesAndControls": "อ่าน เปิด  รูท เท่านั้น. Omitted ออร์ 1 preserves  v1 rendering พาธ; 2 enables bounded styles แอนด์ controls.",
+  "readOnTheRootOnlyClippedTo80Characters": "อ่าน เปิด  root เท่านั้น; clipped ไป 80 characters.",
+  "readOnTheRootOnlyOmittedOr1PreservesTheV1RenderingPath2EnablesBoundedStylesAndControls": "อ่าน เปิด  root เท่านั้น. Omitted ออร์ 1 preserves  v1 rendering พาธ; 2 enables bounded styles แอนด์ controls.",
   "confirm1": "ยืนยัน",
   "list": "รายการ",
   "image1": "รูปภาพ",
-  "select": "เซเล็ก",
+  "select": "select",
   "date": "เดท",
   "time": "ไทม์",
   "tabs": "tabs",
@@ -740,7 +740,7 @@
   "@featuresJobRecentLines": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -830,10 +830,10 @@
   },
   "@featuresCronHourRange": {
     "placeholders": {
-      "first": {
+      "last": {
         "type": "String"
       },
-      "last": {
+      "first": {
         "type": "String"
       }
     }
@@ -841,7 +841,7 @@
   "@featuresCronEveryMinutes": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -861,18 +861,18 @@
   },
   "@featuresCronHoursEveryMinutes": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "hours": {
         "type": "String"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
   "@featuresCronEveryHours": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -909,20 +909,20 @@
   },
   "@featuresRuleWeekly": {
     "placeholders": {
-      "days": {
+      "time": {
         "type": "String"
       },
-      "time": {
+      "days": {
         "type": "String"
       }
     }
   },
   "@featuresRuleMonthly": {
     "placeholders": {
-      "days": {
+      "time": {
         "type": "String"
       },
-      "time": {
+      "days": {
         "type": "String"
       }
     }
@@ -986,7 +986,7 @@
   "@featuresArtifactsSemantic": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -1000,14 +1000,14 @@
   "@featuresArtifactsCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@featuresArtifactsTotal": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -1077,21 +1077,21 @@
   "@featuresRuleIntervalSeconds": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@featuresRuleIntervalMinutes": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@featuresRuleIntervalHours": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -1111,11 +1111,11 @@
   },
   "@featuresScheduleRetention": {
     "placeholders": {
-      "count": {
-        "type": "String"
-      },
       "days": {
-        "type": "String"
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
       }
     }
   },
@@ -1142,10 +1142,10 @@
   },
   "@featuresPresetCreateRequest": {
     "placeholders": {
-      "directory": {
+      "id": {
         "type": "String"
       },
-      "id": {
+      "directory": {
         "type": "String"
       },
       "name": {
@@ -1155,16 +1155,16 @@
   },
   "@featuresPresetUpdateRequest": {
     "placeholders": {
-      "directory": {
-        "type": "String"
-      },
       "id": {
         "type": "String"
       },
-      "name": {
+      "directory": {
         "type": "String"
       },
       "replacing": {
+        "type": "String"
+      },
+      "name": {
         "type": "String"
       }
     }
@@ -1172,13 +1172,6 @@
   "@featuresZoneThisPhone": {
     "placeholders": {
       "city": {
-        "type": "String"
-      }
-    }
-  },
-  "@timeoutTrue": {
-    "placeholders": {
-      " timeout: true ": {
         "type": "String"
       }
     }

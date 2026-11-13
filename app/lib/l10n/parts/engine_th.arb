@@ -290,58 +290,58 @@
   "engineSubscriptionPasteHere": "วาง here",
   "engineSubscriptionConfirm": "ยืนยัน",
   "engineSubscriptionTryAgain": "ทราย อีกครั้ง",
-  "engineAccountWelcome": "Welcome, {ชื่อ}",
-  "engineLayerCount": "{เคาท์, plural, อื่นๆ{{เคาท์} levels}}",
-  "engineFieldDefaultValue": "ค่าเริ่มต้น {ค่า}",
-  "engineFieldDefaultValueUnit": "ค่าเริ่มต้น {ค่า} {unit}",
-  "engineFieldCurrentValue": "Current {ค่า}",
-  "engineFieldRemoveItem": "นำออก {ชื่อ}",
+  "engineAccountWelcome": "{name} Welcome, {ชื่อ}",
+  "engineLayerCount": "{count} levels}",
+  "engineFieldDefaultValue": "{value} ค่าเริ่มต้น {ค่า}",
+  "engineFieldDefaultValueUnit": "{value} ค่าเริ่มต้น {ค่า} {unit}",
+  "engineFieldCurrentValue": "{value} Current {ค่า}",
+  "engineFieldRemoveItem": "{name} นำออก {ชื่อ}",
   "engineFieldAddItem": "เพิ่ม {item}",
-  "engineFieldItemIndex": "Item {ดัชนี}",
-  "engineFieldByteCount": "{เคาท์, plural, อื่นๆ{{เคาท์} bytes}}",
-  "engineFieldHours": "{ค่า} h",
-  "engineFieldMinutes": "{ค่า} มิน",
-  "engineFieldSeconds": "{ค่า} s",
-  "engineFieldMilliseconds": "{ค่า} ms",
-  "engineFieldPositiveMax": "Greater than 0, ขึ้น ไป {แม็กซ์}",
-  "engineFieldMin": "At น้อยที่สุด {มิน}",
-  "engineFieldMaxBound": "At มากที่สุด {แม็กซ์}",
-  "engineFieldBelowMin": "Must เป็น at น้อยที่สุด {มิน}",
-  "engineFieldAboveMax": "Must เป็น at มากที่สุด {แม็กซ์}",
+  "engineFieldItemIndex": "{index} Item {ดัชนี}",
+  "engineFieldByteCount": "{count} bytes}",
+  "engineFieldHours": "{value} {ค่า} h",
+  "engineFieldMinutes": "{value} {ค่า} มิน",
+  "engineFieldSeconds": "{value} {ค่า} s",
+  "engineFieldMilliseconds": "{value} {ค่า} ms",
+  "engineFieldPositiveMax": "{max} Greater than 0, ขึ้น ไป {แม็กซ์}",
+  "engineFieldMin": "{min} At น้อยที่สุด {มิน}",
+  "engineFieldMaxBound": "{max} At มากที่สุด {แม็กซ์}",
+  "engineFieldBelowMin": "{min} Must เป็น at น้อยที่สุด {มิน}",
+  "engineFieldAboveMax": "{max} Must เป็น at มากที่สุด {แม็กซ์}",
   "engineFieldMultiple": "Must เป็น  multiple ของ {step}",
-  "engineFieldMinCharacters": "{เคาท์, plural, อื่นๆ{At น้อยที่สุด {เคาท์} characters}}",
-  "engineFieldMaxCharacters": "{เคาท์, plural, อื่นๆ{At มากที่สุด {เคาท์} characters}}",
+  "engineFieldMinCharacters": "{count} characters}",
+  "engineFieldMaxCharacters": "{count} characters}",
   "engineSubagentUnavailableProvider": "{provider} · ไม่พร้อมใช้งานขณะนี้",
-  "engineProviderDeleteTitle": "ลบ “{ชื่อ}”?",
-  "engineProviderDeleteFailed": "Couldn’t ลบ: {ข้อผิดพลาด}",
-  "engineProviderModelCount": "{count, plural, other{Models · {count}}}",
-  "engineProviderContext": "คอนเท็กซ์ {ไซส์}",
-  "engineProviderTestPassed": "{เคาท์, plural, อื่นๆ{Connected · Listed {เคาท์} models}}",
-  "engineProviderCompletedUrl": "เสร็จสิ้น ในฐานะ {URL}",
-  "engineProviderSaveFailed": "Couldn’t บันทึก: {ข้อผิดพลาด}",
-  "engineProviderCandidateCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ทอตอล}}",
-  "engineProviderAddModels": "{เคาท์, plural, อื่นๆ{เพิ่ม {เคาท์} models}}",
-  "engineProviderModels": "{เคาท์, plural, อื่นๆ{{เคาท์} models}}",
-  "engineProvidersSummary": "{ทอตอล, plural, อื่นๆ{{ทอตอล} providers}} · {ready} ready",
-  "engineProvidersAccount": "บัญชี · {ชื่อ}",
-  "engineProvidersSignedInAccount": "Signed ใน · {บัญชี}",
-  "engineSubscriptionSignIn": "ไซน์ ใน ไป {โพรไวเดอร์}",
-  "engineSubscriptionSignOutTitle": "ไซน์ ออก ของ {โพรไวเดอร์}?",
-  "engineSubscriptionSignOutFailed": "Couldn’t ไซน์ ออก: {ข้อผิดพลาด}",
+  "engineProviderDeleteTitle": "{name} ลบ “{ชื่อ}”?",
+  "engineProviderDeleteFailed": "{error} Couldn’t ลบ: {ข้อผิดพลาด}",
+  "engineProviderModelCount": "{count}}}",
+  "engineProviderContext": "{size} คอนเท็กซ์ {ไซส์}",
+  "engineProviderTestPassed": "{count} models}",
+  "engineProviderCompletedUrl": "{url} เสร็จสิ้น ในฐานะ",
+  "engineProviderSaveFailed": "{error} Couldn’t บันทึก: {ข้อผิดพลาด}",
+  "engineProviderCandidateCount": "{count} ทอตอล}",
+  "engineProviderAddModels": "{count} models}",
+  "engineProviderModels": "{count} models}",
+  "engineProvidersSummary": "{total} providers} · {ready} ready",
+  "engineProvidersAccount": "{name} บัญชี · {ชื่อ}",
+  "engineProvidersSignedInAccount": "{account} Signed ใน · {บัญชี}",
+  "engineSubscriptionSignIn": "{provider} ไซน์ ใน ไป {โพรไวเดอร์}",
+  "engineSubscriptionSignOutTitle": "{provider} ไซน์ ออก ของ {โพรไวเดอร์}?",
+  "engineSubscriptionSignOutFailed": "{error} Couldn’t ไซน์ ออก: {ข้อผิดพลาด}",
   "engineSubscriptionCodeSemantics": "Verification โค้ด {code}",
-  "engineFieldItemCount": "{เคาท์, plural, อื่นๆ{{เคาท์} items}}",
-  "engineFieldUseCount": "{เคาท์, plural, อื่นๆ{{เคาท์} times}}",
-  "engineFieldResultCount": "{เคาท์, plural, อื่นๆ{{เคาท์} results}}",
+  "engineFieldItemCount": "{count} items}",
+  "engineFieldUseCount": "{count} times}",
+  "engineFieldResultCount": "{count} results}",
   "engineFieldMinCharactersDecimal": "At น้อยที่สุด {bound} characters",
   "engineFieldMaxCharactersDecimal": "At มากที่สุด {bound} characters",
-  "engineLayerValue": "{ค่า} levels",
-  "engineFieldEnterPositiveRange": "เอ็นเตอร์  ตัวเลข greater than 0 แอนด์ ไม่ มากกว่า than {แม็กซ์}",
-  "engineFieldEnterBoundedRange": "เอ็นเตอร์  ตัวเลข จาก {มิน} ไป {แม็กซ์}",
+  "engineLayerValue": "{value} {ค่า} levels",
+  "engineFieldEnterPositiveRange": "{max} เอ็นเตอร์  ตัวเลข greater than 0 แอนด์ ไม่ มากกว่า than {แม็กซ์}",
+  "engineFieldEnterBoundedRange": "{min} {max} เอ็นเตอร์  ตัวเลข จาก {มิน} ไป {แม็กซ์}",
   "engineModelTokenLimits": "โทเคน limits",
   "engineModelContextLength": "คอนเท็กซ์ length",
   "engineModelContextOverrideHint": "Empty uses  catalog's figure.  larger ค่า คือ what  engine counts คอนเท็กซ์ pressure แอนด์ compaction ต้าน.",
   "engineModelMaxOutput": "สูงสุด output",
-  "engineModelDefaultSize": "ค่าเริ่มต้น {ไซส์}",
+  "engineModelDefaultSize": "{size} ค่าเริ่มต้น {ไซส์}",
   "@engineModelDefaultSize": {
     "placeholders": {
       "size": {
@@ -360,7 +360,7 @@
   "engineFieldEditOnWeb": "แก้ไข this item เปิด  web",
   "engineSettingsHostChanged": " โฮสต์ changed. Reopen these ตั้งค่า ไป แก้ไข.",
   "engineSecretTargetChanged": "This field changed. Reopen it ไป แก้ไข.",
-  "engineSettingsGroupCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ตั้งค่า}}",
+  "engineSettingsGroupCount": "{count} ตั้งค่า}",
   "command": "\\$ {command}",
   "@command": {
     "placeholders": {
@@ -402,7 +402,7 @@
   "@engineLayerCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -415,10 +415,10 @@
   },
   "@engineFieldDefaultValueUnit": {
     "placeholders": {
-      "unit": {
+      "value": {
         "type": "String"
       },
-      "value": {
+      "unit": {
         "type": "String"
       }
     }
@@ -454,7 +454,7 @@
   "@engineFieldByteCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -531,14 +531,14 @@
   "@engineFieldMinCharacters": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineFieldMaxCharacters": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -580,7 +580,7 @@
   "@engineProviderTestPassed": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -601,31 +601,31 @@
   "@engineProviderCandidateCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineProviderAddModels": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineProviderModels": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineProvidersSummary": {
     "placeholders": {
-      "ready": {
-        "type": "String"
-      },
       "total": {
-        "type": "String"
+        "type": "int"
+      },
+      "ready": {
+        "type": "int"
       }
     }
   },
@@ -674,21 +674,21 @@
   "@engineFieldItemCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineFieldUseCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
   "@engineFieldResultCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   },
@@ -722,10 +722,10 @@
   },
   "@engineFieldEnterBoundedRange": {
     "placeholders": {
-      "max": {
+      "min": {
         "type": "String"
       },
-      "min": {
+      "max": {
         "type": "String"
       }
     }
@@ -733,7 +733,7 @@
   "@engineSettingsGroupCount": {
     "placeholders": {
       "count": {
-        "type": "String"
+        "type": "int"
       }
     }
   }

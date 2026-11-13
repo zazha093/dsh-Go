@@ -10,7 +10,7 @@
       }
     }
   },
-  "schemaDocumentationOption": "ตัวเลือก {ตัวเลือก}",
+  "schemaDocumentationOption": "{option} ตัวเลือก {ตัวเลือก}",
   "@schemaDocumentationOption": {
     "placeholders": {
       "option": {
