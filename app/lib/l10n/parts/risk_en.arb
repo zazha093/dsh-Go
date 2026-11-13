@@ -10,7 +10,6 @@
   "riskPetOverlayTitle": "Show over other apps?",
   "riskPetOverlayBody": "Turn on “Display over other apps” for DSH Go in system settings so your pet can appear outside the app.",
   "riskPetOverlayAction": "Open settings",
-  "askAiTooltip": "Ask AI",
   "askAiHelpTitle": "Help",
   "askAiHelpSubtitle": "Ask AI about anything here",
   "askAiAboutApp": "About the DSH Go app: {question}",

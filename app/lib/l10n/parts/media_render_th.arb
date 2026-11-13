@@ -1,10 +1,9 @@
 {
-  "@@locale": "th",
   "mediaImageLoading": "กำลังโหลด image",
   "mediaImageReload": "โหลดใหม่ image",
-  "mediaImageReloadHint": "Reads the file again; does not generate again or incur generation charges",
-  "mediaVideoNoPoster": "Tap to play video",
-  "mediaSavedFilesCount": "Saved {count} files to gallery",
+  "mediaImageReloadHint": "Reads  ไฟล์ อีกครั้ง; does นอต generate อีกครั้ง ออร์ incur generation charges",
+  "mediaVideoNoPoster": "Tap ไป play วิดีโอ",
+  "mediaSavedFilesCount": "Saved {เคาท์} files ไป gallery",
   "@mediaSavedFilesCount": {
     "placeholders": {
       "count": {

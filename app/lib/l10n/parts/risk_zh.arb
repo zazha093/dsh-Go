@@ -10,7 +10,6 @@
   "riskPetOverlayTitle": "显示在其他应用上层？",
   "riskPetOverlayBody": "要在系统设置里为 DSH Go 打开「显示在其他应用上层」，宠物才能出现在别的 App 上。",
   "riskPetOverlayAction": "去设置",
-  "askAiTooltip": "问 AI",
   "askAiHelpTitle": "使用帮助",
   "askAiHelpSubtitle": "不懂的地方，问 AI",
   "askAiAboutApp": "关于 DSH Go App：{question}",

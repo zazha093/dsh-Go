@@ -1,18 +1,22 @@
 {
-  "@@locale": "th",
-  "starPromptTitle": "{hours, plural, other{I’ve kept you company in DSH Go for {hours} hours now~}}",
+  "starPromptTitle": "{hours, plural, อื่นๆ{I’ve kept you บริษัท ใน DSH Go สำหรับ {hours} hours ตอนนี้~}}",
   "@starPromptTitle": {
-    "description": "The star prompt's first line. hours is the whole hours of use so far, rounded down; 0 is half an hour (the first ask comes after 30 minutes). The word joiner keeps the ~ on the line of the word before it.",
     "placeholders": {
-      "hours": {
-        "type": "int"
+      "hours, plural, =0{本鱼已经在 DSH Go 里陪你半个小时啦⁠~": {
+        "type": "String"
+      },
+      "本鱼已经在 DSH Go 里陪你 {hours": {
+        "type": "String"
+      },
+      "本鱼已经在 DSH Go 里陪你一个小时啦⁠~": {
+        "type": "String"
       }
     }
   },
-  "starPromptBody": "DSH Go is free and open source. If it’s made your phone a little nicer to use, please give it a Star — it means so much to this little whale!",
-  "starPromptPlea": "Pretty please~ It really matters!!",
-  "starPromptStar": "ดาว it on GitHub",
-  "starPromptDone": "Already starred",
-  "starPromptLater": "Maybe later",
-  "starSettingsTitle": "ดาว DSH Go on GitHub"
+  "starPromptBody": "DSH Go คือ free แอนด์ เปิด source. ถ้า it’s made your phone  little nicer ไป use, please give it  Star — it means so much ไป this little whale!",
+  "starPromptPlea": "Pretty please~ It จริงๆ matters!!",
+  "starPromptStar": "ดาว it เปิด GitHub",
+  "starPromptDone": "แล้ว starred",
+  "starPromptLater": "ไม่แน่ใจ ภายหลัง",
+  "starSettingsTitle": "ดาว DSH Go เปิด GitHub"
 }

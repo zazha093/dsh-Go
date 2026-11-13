@@ -1,5 +1,4 @@
 {
-  "@@locale": "th",
   "accessPickTitle": "DSH Go ควรช่วยอะไร?",
   "accessPickMessage": "เลือกสิ่งที่ต้องการ แล้วเปิดใช้งานแต่ละอย่าง",
   "accessPickConfirm": "เปิดใช้ที่เลือก",
@@ -14,7 +13,7 @@
   "accessFeatureBackgroundNeeds": "แจ้งเมื่องานเสร็จ ต้องการการแจ้งเตือนและการเข้าถึงพื้นหลัง",
   "accessFeatureVoice": "ป้อนเสียง",
   "accessFeatureVoiceNeeds": "ต้องการไมโครโฟน",
-  "accessVoiceModel": "ทำงานออฟไลน์ ดาวน์โหลดโมเดลเสียงประมาณ {size} MB",
+  "accessVoiceModel": "ทำงานออฟไลน์ ดาวน์โหลดโมเดลเสียงประมาณ {ไซส์} MB",
   "@accessVoiceModel": {
     "placeholders": {
       "size": {
@@ -42,7 +41,7 @@
   "accessIsOn": "เปิดอยู่",
   "accessNotOnYet": "ยังไม่ได้เปิด",
   "accessDidYouSet": "คุณเปิดที่นั่นแล้วหรือยัง?",
-  "accessWhere": "ที่ตั้ง: {path}",
+  "accessWhere": "ที่ตั้ง: {พาธ}",
   "@accessWhere": {
     "placeholders": {
       "path": {
@@ -103,8 +102,8 @@
   "accessOverlayGreyed": "สวิตช์เป็นสีเทา?",
   "accessRestrictedTitle": "อนุญาตการตั้งค่าจำกัดก่อน",
   "accessRestrictedTap": "ในการเข้าถึง กด \"DSH Phone Control\"; เมื่อ \"Restricted setting\" ปรากฏ กด ตกลง",
-  "accessRestrictedMenu": "ในข้อมูลแอป กดจุดสามจุดมุมขวาบน เลือก \"Allow restricted settings\"",
-  "accessRestrictedAdvanced": "ในข้อมูลแอป เปิด \"การตั้งค่าขั้นสูง\" และเปิด \"Allow restricted settings\"",
+  "accessRestrictedMenu": "ในข้อมูลแอป กดจุดสามจุดมุมขวาบน เลือก \"อนุญาต restricted ตั้งค่า\"",
+  "accessRestrictedAdvanced": "ในข้อมูลแอป เปิด \"การตั้งค่าขั้นสูง\" และเปิด \"อนุญาต restricted ตั้งค่า\"",
   "accessRestrictedBack": "ย้อนกลับในการเข้าถึง เปิด \"DSH Phone Control\"",
   "accessRestrictedHelp": "ดูวิธีทำ",
   "accessOpenA11y": "เปิดการเข้าถึง",
@@ -114,7 +113,7 @@
   "accessStateVisited": "เยี่ยมชมแล้ว",
   "accessStateUnknown": "ตั้งค่า",
   "accessSummaryAllSet": "ทั้งหมดตั้งค่าแล้ว",
-  "accessSummaryLeft": "{count, plural, other{{count} รายการยังปิด}}",
+  "accessSummaryLeft": "{เคาท์, plural, อื่นๆ{{เคาท์} รายการยังปิด}}",
   "@accessSummaryLeft": {
     "placeholders": {
       "count": {
@@ -124,7 +123,7 @@
   },
   "accessSummaryMessage": "เปิดส่วนที่เหลือได้ตลอดใน การตั้งค่า › General › System permissions",
   "accessFinishFailed": "ไม่สามารถเสร็จสิ้นการตั้งค่าได้",
-  "accessVoiceDownload": "โมเดลเสียง (ประมาณ {size} MB) จะเริ่มดาวน์โหลดเมื่อเครื่องเคลื่อนไหวพร้อม ติดตามได้ใน การตั้งค่า › General › Voice input",
+  "accessVoiceDownload": "โมเดลเสียง (ประมาณ {ไซส์} MB) จะเริ่มดาวน์โหลดเมื่อเครื่องเคลื่อนไหวพร้อม ติดตามได้ใน การตั้งค่า › General › Voice input",
   "@accessVoiceDownload": {
     "placeholders": {
       "size": {

@@ -454,7 +454,13 @@
   "phonePreviewDescription": "Frames are read only while the preview is visible and stay on this device. The preview is view-only.",
   "phonePreviewOpen": "View background screen",
   "phonePreviewTask": "Preview task {taskId}",
-  "@phonePreviewTask": {"placeholders": {"taskId": {"type": "String"}}},
+  "@phonePreviewTask": {
+    "placeholders": {
+      "taskId": {
+        "type": "String"
+      }
+    }
+  },
   "phonePreviewInUse": "Another task is being previewed",
   "phonePreviewOff": "The task ended or preview is off",
   "phonePreviewUnavailable": "Preview is unavailable or the screen is protected",
@@ -627,15 +633,77 @@
   "phoneSkillBundlePublishedUnverified": "The files were published, but full verification has not succeeded. Do not save again.",
   "phoneSkillBundleUnknown": "The save result is not confirmed. Files may already have been written. Do not save again.",
   "phoneSkillBundleRevision": "Route revision: {revision}",
-  "@phoneSkillBundleRevision": {"placeholders": {"revision": {"type": "String"}}},
+  "@phoneSkillBundleRevision": {
+    "placeholders": {
+      "revision": {
+        "type": "String"
+      }
+    }
+  },
   "phoneSkillReplayReview": "Review phone route",
   "phoneSkillReplaySourceChanged": "The local session or connection changed. Select the route again from the current local conversation.",
   "phoneSkillReplayUnavailable": "This route is not available for controlled execution on this phone. The ordinary skill template remains available.",
   "phoneSkillReplayConfirm": "I have reviewed this route and the app selected for this use.",
   "phoneSkillReplayToComposer": "Insert into this conversation",
   "phoneSkillReplayStartText": "A phone route has been selected and reviewed locally. Call only mcp__phone__replay with {request}. If unavailable or refused, hand back to the user/model; do not replay it as ordinary actions.",
-  "@phoneSkillReplayStartText": {"placeholders": {"request": {"type": "String"}}},
+  "@phoneSkillReplayStartText": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  },
   "phoneSkillReplayQueue": "Send route (queue)",
   "phoneSkillReplayQueued": "The route message was accepted or queued. This does not mean the route has executed successfully.",
-  "phoneSkillReplaySendUncertain": "Delivery of the route message was not confirmed. It has not been prepared or replayed again. Check the original conversation."
+  "phoneSkillReplaySendUncertain": "Delivery of the route message was not confirmed. It has not been prepared or replayed again. Check the original conversation.",
+  "onlyDeviceSelectedChannelOrdinaryDisplayFixedTargetLaunchtreetapAndCleanupAreCovered": "Only device, selected channel, ordinary display, fixed target launch/tree/tap and cleanup are covered.",
+  "mainOnlyRecordsAnObservedWrongdisplayFailureNoMainPassOrAbsenceOfDisturbanceIsClaimed": "MAIN only records an observed wrong-display failure; no MAIN pass or absence of disturbance is claimed.",
+  "controlledRefreshDoesNotTestFpsSmoothnessOrAnUninterruptedStreamNoProducerTimestampFreshnessIsClaimed": "Controlled refresh does not test FPS, smoothness or an uninterrupted stream. No producer timestamp freshness is claimed.",
+  "onlyDeviceSelectedChannelPresentationDisplayInputReceiverAndCleanupAreCovered": "Only device, selected channel, presentation display, input receiver and cleanup are covered.",
+  "activityLaunchTextImagesContinuityMainDisturbanceAndOcrAreNotTested": "Activity launch, text, images, continuity, MAIN disturbance and OCR are not tested.",
+  "profileUnavailableNoCheckCoverageCanBeEstablished": "Profile unavailable; no check coverage can be established.",
+  "cleanupCanMeanOnlyReturnOfAnUnusedLocalReservationNotThatADisplayWasCreated": "Cleanup can mean only return of an unused local reservation, not that a display was created.",
+  "thisIsTheLatestAcceptedStatusSnapshotNotProofOfTheCurrentDeviceStaten": "This is the latest accepted status snapshot, not proof of the current device state.\\n",
+  "chinaConstructionBank": "China Construction Bank",
+  "agriculturalBankOfChina": "Agricultural Bank of China",
+  "bankOfChina": "Bank of China",
+  "chinaMerchantsBank": "China Merchants Bank",
+  "bankOfCommunications": "Bank of Communications",
+  "postalSavingsBankOfChina": "Postal Savings Bank of China",
+  "jdFinance": "JD Finance",
+  "appInfo": "App info",
+  "allowThisAppForThisTask": "Allow this app for this task",
+  "allowForThisTask": "Allow for this task",
+  "reviewInApp": "Review in app",
+  "stopTask": "Stop task",
+  "phoneControlResults": "Phone control results",
+  "viewResults": "View results",
+  "pausedTapToExpandHoldToStop": "Paused. Tap to expand, hold to stop",
+  "hideDetails": "Hide details",
+  "showDetails": "Show details",
+  "shrinkToABall": "Shrink to a ball",
+  "shrinkToABall1": "Shrink to a ball",
+  "holdTheBallForASecondToStop": "Hold the ball for a second to stop",
+  "waitingForYouBelow": "Waiting for you below",
+  "noApprovalNeeded": "No approval needed",
+  "backgroundPreviewIsUnavailable": "Background preview is unavailable.",
+  "notSentTheTaskNoLongerAcceptsThisMessageYourTextIsKept": "Not sent. The task no longer accepts this message; your text is kept.",
+  "anotherTaskIsBeingPreviewed": "Another task is being previewed",
+  "choose12Or3BackgroundTasks": "Choose 1, 2, or 3 background tasks.",
+  "couldNotSaveTheBackgroundTaskLimitPleaseTryAgain": "Could not save the background task limit. Please try again.",
+  "thisChannelDoesNotProvideTheRequiredStrictProbeAndCleanupReceiptsUpdateOrReconnectItExplicitlyNoLegacyProbeWasSent": "This channel does not provide the required strict probe and cleanup receipts. Update or reconnect it explicitly; no legacy probe was sent.",
+  "thisCleanupRequestNoLongerIdentifiesTheCurrentPendingProbeRefreshTheStatus": "This cleanup request no longer identifies the current pending probe. Refresh the status.",
+  "preparingOrCheckingTheSelectedChannelNewBackgroundResourcesWaitUntilThisCheckAndItsCleanupFinish": "Preparing or checking the selected channel. New background resources wait until this check and its cleanup finish.",
+  "localPhoneSelfcheck": "Local phone self-check",
+  "incrementTestCounter": "Increment test counter",
+  "fixedTextReplacementTest": "Fixed text replacement test",
+  "localTestPixelPattern": "Local test pixel pattern",
+  "backgroundResourcesAreOccupiedOrStillBeingCleanedUpWaitForTheOriginalTaskToFinish": "Background resources are occupied or still being cleaned up. Wait for the original task to finish.",
+  "oldBackgroundResourcesOrTheirRecordsAreNotYetVerifiedOpenBackgroundResourceRecoveryBeforeStartingANewPhoneTask": "Old background resources or their records are not yet verified. Open background resource recovery before starting a new phone task.",
+  "manualReviewTimedOutTheActualResultOfTheOriginalActionIsStillUnknownCheckItYourselfBeforeAnyFurtherRequest": "Manual review timed out. The actual result of the original action is still unknown; check it yourself before any further request.",
+  "chooseAnApp": "Choose an app",
+  "phoneBackgroundGuideSubtitle": "Guide for background control",
+  "phoneBackgroundNotificationBlocked": "Background notifications blocked",
+  "phoneYoursDenyList": "Your deny list",
+  "phoneYoursTitle": "Your settings"
 }

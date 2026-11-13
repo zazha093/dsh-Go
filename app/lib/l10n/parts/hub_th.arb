@@ -1,27 +1,26 @@
 {
-  "@@locale": "th",
   "hubSessionDetails": "รายละเอียดแชท",
-  "hubTerminal": "Terminal",
+  "hubTerminal": "เทอร์มินัล",
   "hubSessionNoTurns": "ยังไม่มีรอบที่เสร็จสิ้น",
   "hubSessionElapsed": "เวลา",
   "hubSessionSteps": "ขั้นตอน",
-  "hubSessionChangedFiles": "ไฟล์ที่เปลี่ยน",
+  "hubSessionChangedFiles": "FILEที่เปลี่ยน",
   "hubSessionTrajectoryHint": "ขั้นตอนและเวลาของแต่ละรอบจะแสดงที่นี่",
   "hubSessionLoadEarlier": "โหลดรอบก่อนหน้า",
   "hubSessionError": "ข้อผิดพลาด",
   "hubSessionInterrupted": "ถูกขัดจังหวะ",
   "hubSessionOutputLimit": "ถึงขีดจำกัดเอาต์พุต",
-  "hubSessionNoChanges": "ยังไม่มีไฟล์ที่เปลี่ยน",
+  "hubSessionNoChanges": "ยังไม่มีFILEที่เปลี่ยน",
   "hubSessionShellChangesHint": "การเปลี่ยนแปลงด้วยคำสั่ง Shell ไม่แสดงที่นี่",
   "hubSessionChanges": "การเปลี่ยนแปลงแชท",
-  "hubSessionChangesNote": "รวมเฉพาะการเปลี่ยนแปลงจากเครื่องมือ write และ edit ในประวัติที่โหลด",
-  "hubSessionNoGoal": "ยังไม่มีเป้าหมายหรือ To-dos",
-  "hubSessionGoalHint": "AI จะแสดง To-dos สำหรับงานซับซ้อน ติดตามความคืบหน้าที่นี่",
+  "hubSessionChangesNote": "รวมเฉพาะการเปลี่ยนแปลงจากเครื่องมือ เขียน และ แก้ไข ในประวัติที่โหลด",
+  "hubSessionNoGoal": "ยังไม่มีเป้าหมายหรือ ไป-dos",
+  "hubSessionGoalHint": "AI จะแสดง ไป-dos สำหรับงานซับซ้อน ติดตามความคืบหน้าที่นี่",
   "hubSessionGoal": "เป้าหมาย",
   "hubSessionPlanMode": "โหมดวางแผน",
   "hubSessionPlanSwitching": "กำลังสลับโหมดวางแผน",
   "hubSessionPlanHint": "AI วางแผนก่อน โดยไม่เปลี่ยนไฟล์",
-  "hubSessionTodos": "To-dos",
+  "hubSessionTodos": "ไป-dos",
   "hubSessionNotStarted": "ยังไม่เริ่ม",
   "hubSessionTurnUsage": "การใช้งานต่อรอบ",
   "hubSessionNoSubagents": "ยังไม่มี Subagents",
@@ -31,13 +30,13 @@
   "hubTabFiles": "ไฟล์",
   "hubTabProgress": "ความคืบหน้า",
   "hubTabContext": "บริบท",
-  "hubTabSubagents": "Subagents",
+  "hubTabSubagents": "ซับเอจิ้นต์",
   "hubPlugins": "ปลั๊กอิน",
   "hubSettingsFullAccessTitle": "เปิดใช้สิทธิ์เต็ม?",
   "hubSettingsFullAccessBody": "AI จะไม่ถามก่อนรันคำสั่งหรือเปลี่ยนไฟล์",
   "hubSettingsStorageTitle": "อนุญาต AI เข้าถึงไฟล์โทรศัพท์?",
   "hubSettingsStorageAllow": "อนุญาตการเข้าถึง",
-  "hubSettingsStorageDenied": "ไม่ได้รับสิทธิ์เข้าถึงที่เก็บข้อมูล อนุญาต \"All files access\" ให้ DSH Go ในการตั้งค่าระบบ แล้วลองใหม่",
+  "hubSettingsStorageDenied": "ไม่ได้รับสิทธิ์เข้าถึงที่เก็บข้อมูล อนุญาต \"ทั้งหมด files การเข้าถึง\" ให้ DSH Go ในการตั้งค่า",
   "hubSettingsRestartRequired": "มีผลหลังรีสตาร์ทเครื่องยนต์",
   "hubSettingsRestartNow": "รีสตาร์ทตอนนี้",
   "hubSettingsInterface": "อินเทอร์เฟซ",
@@ -67,11 +66,11 @@
   "hubSettingsLicenses": "สัญญาอ픈ซอร์ส",
   "hubSettingsAccount": "บัญชี DeepSeek",
   "hubSettingsSigningIn": "กำลังเข้าสู่ระบบ…",
-  "hubSettingsInvalidKey": "API Key ไม่ถูกต้อง ไม่สามารถตรวจสอบยอดได้",
-  "hubSettingsNoApiKey": "ยังไม่ได้ตั้งค่า API Key",
-  "hubSettingsApiKeyHint": "เพิ่ม API Key เพื่อเริ่มแชท",
+  "hubSettingsInvalidKey": "API คีย์ ไม่ถูกต้อง ไม่สามารถตรวจสอบยอดได้",
+  "hubSettingsNoApiKey": "ยังไม่ได้ตั้งค่า API คีย์",
+  "hubSettingsApiKeyHint": "เพิ่ม API คีย์ เพื่อเริ่มแชท",
   "hubSettingsSignInAccount": "เข้าสู่ระบบ DeepSeek",
-  "hubSettingsOrApiKey": "หรือเพิ่ม API Key",
+  "hubSettingsOrApiKey": "หรือเพิ่ม API คีย์",
   "hubPluginShare": "แชร์ปลั๊กอิน",
   "hubPluginDetails": "รายละเอียดปลั๊กอิน",
   "hubPluginFeatured": "แนะนำบน dshfind",
@@ -98,14 +97,14 @@
   "hubPluginRemoveCommand": "ดูคำสั่งถอนติดตั้ง",
   "hubPluginRemoveComputer": "ถอนติดตั้งบนคอมพิวเตอร์",
   "hubPluginUninstall": "ถอนการติดตั้ง",
-  "hubSessionTurns": "{count, plural, other{{count} รอบ}}",
-  "hubSessionTurnsRunning": "{count, plural, other{{count} รอบ · กำลังทำงาน}}",
-  "hubSessionStepCount": "{count, plural, other{{count} ขั้นตอน}}",
+  "hubSessionTurns": "{เคาท์, plural, อื่นๆ{{เคาท์} รอบ}}",
+  "hubSessionTurnsRunning": "{เคาท์, plural, อื่นๆ{{เคาท์} รอบ · กำลังทำงาน}}",
+  "hubSessionStepCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ขั้นตอน}}",
   "hubSessionWaitTime": "รอคุณ {duration}",
   "hubSessionTurn": "รอบที่ {turn}",
-  "hubSessionFileCount": "{count, plural, other{เปลี่ยน {count} ไฟล์}}",
-  "hubSessionEditCount": "{count, plural, other{แก้ไข {count} ครั้ง}}",
-  "hubSessionTurnOf": "รอบ {turn} / {total}",
+  "hubSessionFileCount": "{เคาท์, plural, อื่นๆ{เปลี่ยน {เคาท์} ไฟล์}}",
+  "hubSessionEditCount": "{เคาท์, plural, อื่นๆ{แก้ไข {เคาท์} ครั้ง}}",
+  "hubSessionTurnOf": "รอบ {turn} / {ทอตอล}",
   "hubSessionCacheHit": "{percent} แคช",
   "hubSessionBlocked": "บล็อก",
   "hubSessionBlockedReason": "ถูกบล็อก: {reason}",
@@ -113,15 +112,15 @@
   "hubSettingsStorageBody": "AI อ่านและเปลี่ยนรูปภาพ ดาวน์โหลด และเอกสารของคุณได้ เครื่องยนต์จะรีสตาร์ทหนึ่งครั้ง",
   "hubSettingsBalance": "ยอดคงเหลือ {amount}",
   "hubSettingsBalanceLow": "ยอดคงเหลือ {amount} · ยอดต่ำ",
-  "hubSettingsAccountSemantics": "บัญชี: {title}, {subtitle}",
-  "hubSettingsHostSemantics": "โฮสต์ระยะไกล: {name}, {status}",
-  "hubSettingsApiKey": "DeepSeek API Key",
-  "hubSettingsApiKeySection": "API Key",
-  "hubPluginBrowserFailed": "เปิดเบราว์เซอร์ไม่ได้ เปิด {address} เอง",
-  "hubPluginYearMonth": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {year}",
-  "hubPluginUpdateTo": "อัปเดตเป็น {version}",
-  "hubPluginInstallOn": "ติดตั้งบน {host}",
-  "hubPluginComponentCount": "{count, plural, other{{count} ส่วนประกอบ}}",
+  "hubSettingsAccountSemantics": "บัญชี: {หัวข้อ}, {subtitle}",
+  "hubSettingsHostSemantics": "โฮสต์ระยะไกล: {ชื่อ}, {status}",
+  "hubSettingsApiKey": "คีย์ API DeepSeek",
+  "hubSettingsApiKeySection": "API คีย์",
+  "hubPluginBrowserFailed": "เปิดเบราว์เซอร์ไม่ได้ เปิด {ที่อยู่} เอง",
+  "hubPluginYearMonth": "{มอนท์, เซเล็กต์, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} อื่นๆ{{มอนท์}}} {ยีอาร์}",
+  "hubPluginUpdateTo": "อัปเดตเป็น {VERSION}",
+  "hubPluginInstallOn": "ติดตั้งบน {โฮสต์}",
+  "hubPluginComponentCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ส่วนประกอบ}}",
   "hubPluginComponentSeparator": ", ",
   "hubGroupAi": "AI",
   "hubGroupCapabilities": "ความสามารถ",
@@ -156,7 +155,7 @@
   "hubValueOneStep": "เหลืออีกขั้นตอนเดียว",
   "hubValueAllowed": "อนุญาตแล้ว",
   "hubValueNeedsSetup": "ต้องตั้งค่า",
-  "hubValueHosts": "{count, plural, other{{count} โฮสต์}}",
+  "hubValueHosts": "{เคาท์, plural, อื่นๆ{{เคาท์} โฮสต์}}",
   "@hubValueHosts": {
     "placeholders": {
       "count": {
@@ -165,7 +164,7 @@
     }
   },
   "hubValueNoHosts": "ไม่มี",
-  "hubValuePlugins": "{count, plural, other{{count} ปลั๊กอิน}}",
+  "hubValuePlugins": "{เคาท์, plural, อื่นๆ{{เคาท์} ปลั๊กอิน}}",
   "@hubValuePlugins": {
     "placeholders": {
       "count": {
@@ -177,11 +176,201 @@
   "hubThemeLightDark": "สว่างและมืด",
   "hubPermissionPhone": "โทรศัพท์",
   "hubPermissionPhoneConfirm": "ยืนยันการควบคุมโทรศัพท์",
-  "hubHardwareEnterSends": "ส่งด้วย Enter แฮร์ดแวร์",
-  "hubHardwareEnterSendsHint": "เปิดอยู่: Shift+Enter เว้นบรรทัดใหม่ แป้นพิมพ์บนหน้าจอเก็บบรรทัดใหม่ Ctrl/⌘+Enter ส่งเสมอ",
+  "hubHardwareEnterSends": "ส่งด้วย เอ็นเตอร์ แฮร์ดแวร์",
+  "hubHardwareEnterSendsHint": "เปิดอยู่: Shift+เอ็นเตอร์ เว้นบรรทัดใหม่ แป้นพิมพ์บนหน้าจอเก็บบรรทัดใหม่ Ctrl/⌘+เอ็นเตอร์ ส่งเสมอ",
   "hubQuickPanel": "ลัดสวายซ้าย",
   "hubQuickPanelSwipe": "เปิดด้วยการสวายซ้าย",
   "hubQuickPanelSwipeHint": "สวายขวาไปซ้ายเหนือแชท บล็อกโค้ด ตาราง และเนื้อหาที่เลื่อนข้างๆ ไม่ได้รับผลกระทบ",
   "hubQuickPanelItems": "รายการที่แสดง",
-  "hubQuickPanelItemsNone": "ไม่ได้เลือก: สวายซ้ายจะไม่เปิด"
+  "hubQuickPanelItemsNone": "ไม่ได้เลือก: สวายซ้ายจะไม่เปิด",
+  "performanceChannelDetached": "ประสิทธิภาพ channel detached",
+  "performanceChannelDetached1": "ประสิทธิภาพ channel detached",
+  "parseError": "พาร์ส ข้อผิดพลาด",
+  "invalidRequest": "Invalid คำขอ",
+  "invalidRequest1": "Invalid คำขอ",
+  "invalidPhoneRunEndContext": "Invalid phone เรียกใช้ end คอนเท็กซ์",
+  "invalidCallMetadata": "Invalid คอลล์ metadata",
+  "invalidPhoneCallerContext": "Invalid phone caller คอนเท็กซ์",
+  "methodNotFound": "เมธอด นอต found",
+  "outappend": "' -> ออก.append(",
+  "backgroundReleaseIsUnconfirmed": "Background รีลีส คือ unconfirmed",
+  "invoice12View": "Invoice 12 มุมมอง",
+  "invoice12Delete": "Invoice 12 ลบ",
+  "backgroundResourceAdmissionWasStopped": "Background resource admission was หยุด",
+  "backgroundResourceAdmissionWasStopped1": "Background resource admission was หยุด",
+  "backgroundResourceAdmissionWasStopped2": "Background resource admission was หยุด",
+  "backgroundResourceAdmissionWasStopped3": "Background resource admission was หยุด",
+  "originalNavigationPlanWasClosed": "Original navigation แผน was closed",
+  "originalNavigationPlanWasClosed1": "Original navigation แผน was closed",
+  "onlyThisStep": "เท่านั้น this step",
+  "developerOptions": "Developer ตัวเลือก",
+  "deviceAdmin": "Device แอดมิน",
+  "installUnknown": "ติดตั้ง unknown",
+  "securityPrivacy": "ความปลอดภัย & ความเป็นส่วนตัว",
+  "deprecatedInJava": "Deprecated ใน Java",
+  "deprecatedInJava1": "Deprecated ใน Java",
+  "procEnumerationUnavailable": "; /proc enumeration unavailable",
+  "append": "' -> append(",
+  "enospcnoSpaceLeftOnDevice": "ENOSPC|ไม่ space left เปิด device",
+  "append1": "' -> append(",
+  "deprecatedInJava2": "Deprecated ใน Java",
+  "deprecatedInJava3": "Deprecated ใน Java",
+  "refused": "} refused",
+  "deprecatedInJava4": "Deprecated ใน Java",
+  "petOverlayEngineDetached": "Pet overlay engine detached",
+  "@hubSessionTurns": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTurnsRunning": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionStepCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionWaitTime": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionFileCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionEditCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTurnOf": {
+    "placeholders": {
+      "total": {
+        "type": "String"
+      },
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionCacheHit": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionBlockedReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTodoSemantics": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsBalance": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsBalanceLow": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsAccountSemantics": {
+    "placeholders": {
+      "subtitle": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsHostSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginBrowserFailed": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginYearMonth": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginUpdateTo": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginInstallOn": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginComponentCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

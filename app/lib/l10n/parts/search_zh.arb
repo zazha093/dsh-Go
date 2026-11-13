@@ -90,7 +90,6 @@
   "searchKwRemoteAutoConnect": "自动连接,启动时连接",
   "searchKwPermissionCurrent": "本对话都允许,这个对话,当前权限",
   "searchKwPermissionDefault": "默认权限,只读,工作区内修改,完全权限,自动执行命令,别问我",
-  "searchSettingsHint": "搜索设置",
   "searchSuggestDark": "深色模式",
   "searchSuggestBackground": "后台运行",
   "searchSuggestPermission": "权限",

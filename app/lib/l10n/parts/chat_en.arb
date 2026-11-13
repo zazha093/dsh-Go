@@ -382,5 +382,27 @@
         "type": "String"
       }
     }
-  }
+  },
+  "devnull": "--- /dev/null",
+  "privateKey": "PRIVATE KEY-----",
+  "feedbackTextIsRequiredUsageFeedbackText": "Feedback text is required. Usage: /feedback <text>",
+  "noCompactableHistoryYet": "No compactable history yet.",
+  "compactionCancelled": "Compaction cancelled.",
+  "compactionIsUnavailableBecauseThisProcessHasAnActiveCompactionOrTheAgentIsNotIdle": "Compaction is unavailable because this process has an active compaction, or the agent is not idle.",
+  "compactionFinishedButTheSessionCouldNotBeSaved": "Compaction finished, but the session could not be saved.",
+  "usageCompactNoArguments": "Usage: /compact (no arguments)",
+  "compactionCouldNotProduceAUsefulSummaryTheAttemptIsRecordedInTheSessionLog": "Compaction could not produce a useful summary. The attempt is recorded in the session log.",
+  "compactionDidNotFinishCleanlySomeSessionHistoryMayHaveChangedInspectTheCurrentSessionStateBeforeRetrying": "Compaction did not finish cleanly; some session history may have changed. Inspect the current session state before retrying.",
+  "planModeOnUsePlanOffToLeave": "Plan mode on. Use /plan off to leave.",
+  "planModeOff": "Plan mode off.",
+  "planModeEntryCancelled": "Plan mode entry cancelled.",
+  "planModeIsAlreadyInactive": "Plan mode is already inactive.",
+  "attachmentsCannotAccompanyPlanOff": "Attachments cannot accompany /plan off.",
+  "attachmentsOnlyAccompanyAGoalObjectiveGoalObjectiveOrGoalEditObjective": "Attachments only accompany a goal objective: /goal <objective> or /goal edit <objective>.",
+  "noGoalToClear": "No goal to clear.",
+  "goalCleared": "Goal cleared.",
+  "goalCreated": "Goal created",
+  "goalUpdated": "Goal updated",
+  "goalPaused": "Goal paused",
+  "goalResumed": "Goal resumed"
 }

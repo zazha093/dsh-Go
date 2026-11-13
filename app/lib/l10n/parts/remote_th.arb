@@ -1,254 +1,253 @@
 {
-  "@@locale": "th",
   "remoteStartupSection": "เปิด launch",
-  "remoteAutoConnectOnStartup": "เชื่อมต่อ to the last host",
-  "remoteAutoConnectOnStartupHint": "When off, start on this phone",
-  "remoteStepConnect": "เชื่อมต่อ to server",
-  "remoteStepVerifyHostKey": "ยืนยัน host fingerprint",
+  "remoteAutoConnectOnStartup": "เชื่อมต่อ ไป  last โฮสต์",
+  "remoteAutoConnectOnStartupHint": "เมื่อ ปิด, เริ่ม เปิด this phone",
+  "remoteStepConnect": "เชื่อมต่อ ไป เซิร์ฟเวอร์",
+  "remoteStepVerifyHostKey": "ยืนยัน โฮสต์ fingerprint",
   "remoteStepStartDsh": "เริ่ม DSH",
   "remoteStepTunnel": "สร้าง tunnel",
-  "remoteConnecting": "Connecting",
-  "remoteConnected": "Connected",
-  "remoteReconnecting": "Reconnecting",
-  "remoteReconnectAttempt": "Reconnecting · Attempt {count}",
-  "remoteErrInvalidServer": "Invalid server address",
-  "remoteErrEmailPassword": "Incorrect email or password",
-  "remoteErrHostNotInAccount": "This host isn’t in your account",
-  "remoteHostFallback": "This host",
-  "remoteErrHostOffline": "Host is offline",
-  "remoteErrHostRemoved": "{name} is no longer in your DSH Remote account",
-  "remoteErrRelaySignInExpired": "DSH Remote sign-in expired",
-  "remoteErrIdentityKeyChanged": "Host identity key has changed",
-  "remoteErrIdentityUnconfirmed": "Host identity fingerprint hasn’t been confirmed",
-  "remoteErrConnectionReplaced": "Remote connection was replaced",
-  "remoteErrHostRejected": "Host declined the connection",
-  "remoteErrHostNotOwned": "Host isn’t in your DSH Remote account",
-  "remoteErrUpdateNeeded": "Version mismatch. Update DSH Go and the host’s remote plugin",
-  "remoteErrVersionIncompatible": "อัปเดต DSH or the remote plugin on the host",
-  "remoteErrSignInTimeout": "Sign-in timed out",
-  "remoteSignInCancelled": "Sign-in cancelled",
-  "remoteErrBrowserSignInUnsupported": "Server doesn’t support browser sign-in",
-  "remoteErrTooManyRequests": "Too many requests",
-  "remoteErrHostUnreachable": "Can’t reach the remote host",
-  "remoteErrRemoteConnection": "Couldn’t connect remotely",
-  "remoteOnline": "Online",
-  "remoteOffline": "Offline",
+  "remoteConnecting": "กำลังเชื่อมต่อ",
+  "remoteConnected": "เชื่อมต่อแล้ว",
+  "remoteReconnecting": "กำลังเชื่อมต่อใหม่",
+  "remoteReconnectAttempt": "Reconnecting · พยายาม {เคาท์}",
+  "remoteErrInvalidServer": "Invalid เซิร์ฟเวอร์ ที่อยู่",
+  "remoteErrEmailPassword": "Incorrect อีเมล ออร์ รหัสผ่าน",
+  "remoteErrHostNotInAccount": "This โฮสต์ isn’t ใน your บัญชี",
+  "remoteHostFallback": "This โฮสต์",
+  "remoteErrHostOffline": "โฮสต์ คือ offline",
+  "remoteErrHostRemoved": "{ชื่อ} คือ ไม่ longer ใน your DSH รีโมต บัญชี",
+  "remoteErrRelaySignInExpired": "DSH รีโมต ไซน์-ใน expired",
+  "remoteErrIdentityKeyChanged": "โฮสต์ identity คีย์ has changed",
+  "remoteErrIdentityUnconfirmed": "โฮสต์ identity fingerprint hasn’t been confirmed",
+  "remoteErrConnectionReplaced": "รีโมต การเชื่อมต่อ was replaced",
+  "remoteErrHostRejected": "โฮสต์ declined  การเชื่อมต่อ",
+  "remoteErrHostNotOwned": "โฮสต์ isn’t ใน your DSH รีโมต บัญชี",
+  "remoteErrUpdateNeeded": "VERSION mismatch. อัปเดต DSH Go แอนด์  โฮสต์’s รีโมต ปลั๊กอิน",
+  "remoteErrVersionIncompatible": "อัปเดต DSH ออร์  รีโมต plugin เปิด  โฮสต์",
+  "remoteErrSignInTimeout": "ไซน์-ใน timed ออก",
+  "remoteSignInCancelled": "ไซน์-ใน ยกเลิกแล้ว",
+  "remoteErrBrowserSignInUnsupported": "เซิร์ฟเวอร์ doesn’t รองรับ browser ไซน์-ใน",
+  "remoteErrTooManyRequests": "เกินไป มาก requests",
+  "remoteErrHostUnreachable": "Can’t reach  รีโมต โฮสต์",
+  "remoteErrRemoteConnection": "Couldn’t เชื่อมต่อ remotely",
+  "remoteOnline": "ออนไลน์",
+  "remoteOffline": "ออฟไลน์",
   "remoteUnavailable": "ไม่พร้อมใช้งาน",
-  "remoteErrHostNotFound": "Host not found",
-  "remoteConnectionStopped": "Remote connection stopped",
-  "remoteBootstrapReusePort": "Using running DSH (port {port})",
-  "remoteBootstrapStarting": "Starting remote DSH…",
-  "remoteErrCommandNotFound": "“{command}” not found on the host",
-  "remoteErrDshMissing": "dsh isn’t installed on the host. Install it and retry, or enter its full path as the start command.",
-  "remoteStartCommandExample": "ตัวอย่าง start command: ~/.nvm/versions/node/v22.0.0/bin/dsh web",
-  "remoteErrDshStartTimeout": "Remote DSH took too long to start",
-  "remoteErrDshExited": "Remote DSH exited right after starting",
-  "remoteErrDshStart": "Couldn’t start remote DSH",
-  "remoteExitCode": "Exit code {code}",
-  "remoteErrNoShell": "Host has no sh. Only Linux and macOS are supported.",
-  "remoteErrFingerprintChanged": "Host fingerprint changed. Disconnected.",
-  "remoteErrFingerprintUnconfirmed": "Host fingerprint hasn’t been confirmed",
-  "remoteHostTrustCancelled": "Host trust cancelled",
-  "remoteCheckingDsh": "Checking remote DSH…",
-  "remoteErrDshPort": "Can’t reach the remote DSH port",
-  "remoteDshReused": "Using DSH already running on the host",
-  "remoteDshStarted": "Started DSH on the host",
-  "remoteErrDshTokenRejected": "Remote DSH rejected the sign-in token",
-  "remoteErrDshSignIn": "Couldn’t sign in to remote DSH",
-  "remoteErrDshTunnel": "Couldn’t connect to DSH through the tunnel",
-  "remoteErrDshSignInExpired": "Remote DSH sign-in expired",
-  "remoteErrDshStopped": "Remote DSH stopped running",
+  "remoteErrHostNotFound": "โฮสต์ นอต found",
+  "remoteConnectionStopped": "รีโมต การเชื่อมต่อ หยุด",
+  "remoteBootstrapReusePort": "Using กำลังทำงาน DSH (พอร์ต {พอร์ต})",
+  "remoteBootstrapStarting": "Starting รีโมต DSH…",
+  "remoteErrCommandNotFound": "“{คอมมานด์}” นอต found เปิด  โฮสต์",
+  "remoteErrDshMissing": "dsh isn’t installed เปิด  โฮสต์. ติดตั้ง it แอนด์ ลองใหม่, ออร์ เอ็นเตอร์ its full พาธ ในฐานะ  เริ่ม คอมมานด์.",
+  "remoteStartCommandExample": "ตัวอย่าง เริ่ม command: ~/.nvm/versions/node/v22.0.0/bin/dsh web",
+  "remoteErrDshStartTimeout": "รีโมต DSH took เกินไป long ไป เริ่ม",
+  "remoteErrDshExited": "รีโมต DSH exited right หลัง starting",
+  "remoteErrDshStart": "Couldn’t เริ่ม รีโมต DSH",
+  "remoteExitCode": "Exit โค้ด {code}",
+  "remoteErrNoShell": "โฮสต์ has ไม่ sh. เท่านั้น Linux แอนด์ macOS are supported.",
+  "remoteErrFingerprintChanged": "โฮสต์ fingerprint changed. Disconnected.",
+  "remoteErrFingerprintUnconfirmed": "โฮสต์ fingerprint hasn’t been confirmed",
+  "remoteHostTrustCancelled": "โฮสต์ trust ยกเลิกแล้ว",
+  "remoteCheckingDsh": "Checking รีโมต DSH…",
+  "remoteErrDshPort": "Can’t reach  รีโมต DSH พอร์ต",
+  "remoteDshReused": "Using DSH แล้ว กำลังทำงาน เปิด  โฮสต์",
+  "remoteDshStarted": "Started DSH เปิด  โฮสต์",
+  "remoteErrDshTokenRejected": "รีโมต DSH ปฏิเสธแล้ว  ไซน์-ใน โทเคน",
+  "remoteErrDshSignIn": "Couldn’t ไซน์ ใน ไป รีโมต DSH",
+  "remoteErrDshTunnel": "Couldn’t เชื่อมต่อ ไป DSH ผ่าน  tunnel",
+  "remoteErrDshSignInExpired": "รีโมต DSH ไซน์-ใน expired",
+  "remoteErrDshStopped": "รีโมต DSH หยุด กำลังทำงาน",
   "remoteErrSshDisconnected": "SSH disconnected",
   "remoteErrSshUnresponsive": "SSH isn’t responding",
-  "remoteRetryCount": "{count, plural, other{Retried {count} times}}",
-  "remoteErrSshNetworkChanged": "SSH disconnected after a network change",
-  "remoteErrReadFingerprint": "Couldn’t read the host fingerprint",
-  "remoteErrNoFingerprint": "Server didn’t provide a host fingerprint",
-  "remoteErrPasswordMissing": "Enter a password",
-  "remoteErrAddressUnresponsive": "{host}:{port} isn’t responding",
-  "remoteErrPrivateKeyMissing": "Enter a private key",
-  "remoteErrKeyNeedsPassword": "This private key needs a passphrase",
-  "remoteErrKeyPassword": "Incorrect private key passphrase",
-  "remoteErrKeyUnreadable": "Couldn’t read the private key",
-  "remotePrivateKeyFormats": "Supports Ed25519, RSA and ECDSA private keys in OpenSSH and PEM formats.\n{error}",
-  "remoteErrAddressRejected": "{address} refused the connection",
-  "remoteErrSshHostNotFound": "Host {host} not found",
-  "remoteErrSshAddressUnresponsive": "{address} isn’t responding",
-  "remoteErrUsernamePassword": "Incorrect username or password",
-  "remoteErrPrivateKeyRejected": "Server doesn’t accept this private key",
-  "remoteAuthorizedKeysHelp": "ตรวจสอบ that the public key is in {username}’s ~/.ssh/authorized_keys.\n{error}",
-  "remoteErrFingerprintUntrusted": "Host fingerprint isn’t trusted",
-  "remoteErrSshHandshakeTimeout": "SSH handshake timed out",
-  "remoteErrSshInterrupted": "SSH connection interrupted",
-  "remoteErrSshConnection": "Couldn’t connect over SSH",
-  "remoteErrCommandTimeout": "Remote command timed out",
-  "remoteHostedErrNetwork": "Can’t reach the sharing service. Check your connection and try again.",
-  "remoteHostedErrTooLarge": "Chat is too large to create a link",
-  "remoteHostedErrRateLimited": "Sharing too often. Try again later.",
-  "remoteHostedErrCreate": "Couldn’t create link",
-  "remoteHostedErrUnavailable": "Sharing service is unavailable. Try again later.",
-  "remoteHostedErrGone": "ลิงก์ expired or was deleted",
-  "remoteHostedErrForbidden": "You don’t have permission to delete this link",
-  "remoteHostedErrBroken": "ลิงก์ is incomplete or damaged",
-  "remoteChat": "Chat",
+  "remoteRetryCount": "{เคาท์, plural, อื่นๆ{Retried {เคาท์} times}}",
+  "remoteErrSshNetworkChanged": "SSH disconnected หลัง  เครือข่าย change",
+  "remoteErrReadFingerprint": "Couldn’t อ่าน  โฮสต์ fingerprint",
+  "remoteErrNoFingerprint": "เซิร์ฟเวอร์ didn’t provide  โฮสต์ fingerprint",
+  "remoteErrPasswordMissing": "เอ็นเตอร์  รหัสผ่าน",
+  "remoteErrAddressUnresponsive": "{โฮสต์}:{พอร์ต} isn’t responding",
+  "remoteErrPrivateKeyMissing": "เอ็นเตอร์  ส่วนตัว คีย์",
+  "remoteErrKeyNeedsPassword": "This ส่วนตัว คีย์ needs  passphrase",
+  "remoteErrKeyPassword": "Incorrect ส่วนตัว คีย์ passphrase",
+  "remoteErrKeyUnreadable": "Couldn’t อ่าน  ส่วนตัว คีย์",
+  "remotePrivateKeyFormats": "Supports Ed25519, RSA แอนด์ ECDSA ส่วนตัว keys ใน OpenSSH แอนด์ PEM formats.\n{ข้อผิดพลาด}",
+  "remoteErrAddressRejected": "{ที่อยู่} refused  การเชื่อมต่อ",
+  "remoteErrSshHostNotFound": "โฮสต์ {โฮสต์} นอต found",
+  "remoteErrSshAddressUnresponsive": "{ที่อยู่} isn’t responding",
+  "remoteErrUsernamePassword": "Incorrect ชื่อผู้ใช้ ออร์ รหัสผ่าน",
+  "remoteErrPrivateKeyRejected": "เซิร์ฟเวอร์ doesn’t accept this ส่วนตัว คีย์",
+  "remoteAuthorizedKeysHelp": "ตรวจสอบ that  สาธารณะ คีย์ คือ ใน {ชื่อผู้ใช้}’s ~/.SSH/authorized_keys.\n{ข้อผิดพลาด}",
+  "remoteErrFingerprintUntrusted": "โฮสต์ fingerprint isn’t trusted",
+  "remoteErrSshHandshakeTimeout": "SSH handshake timed ออก",
+  "remoteErrSshInterrupted": "SSH การเชื่อมต่อ interrupted",
+  "remoteErrSshConnection": "Couldn’t เชื่อมต่อ เกิน SSH",
+  "remoteErrCommandTimeout": "รีโมต คอมมานด์ timed ออก",
+  "remoteHostedErrNetwork": "Can’t reach  sharing เซอร์วิส. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
+  "remoteHostedErrTooLarge": "Chat คือ เกินไป large ไป ครีเอท  ลิงก์",
+  "remoteHostedErrRateLimited": "Sharing เกินไป บ่อยครั้ง. ทราย อีกครั้ง ภายหลัง.",
+  "remoteHostedErrCreate": "Couldn’t ครีเอท ลิงก์",
+  "remoteHostedErrUnavailable": "Sharing เซอร์วิส คือ unavailable. ทราย อีกครั้ง ภายหลัง.",
+  "remoteHostedErrGone": "ลิงก์ expired ออร์ was deleted",
+  "remoteHostedErrForbidden": "You don’t have สิทธิ์ ไป ลบ this ลิงก์",
+  "remoteHostedErrBroken": "ลิงก์ คือ incomplete ออร์ damaged",
+  "remoteChat": "แชท",
   "remoteHostedTtlWeek": "7 days",
   "remoteHostedTtlMonth": "30 days",
   "remoteHostedTtlForever": "Forever",
-  "remoteForumSignIn": "Sign in to Forum",
-  "remoteForumSignInBenefits": "Post, reply and like",
-  "remoteForumFinishSignIn": "Finish signing in in your browser",
+  "remoteForumSignIn": "ไซน์ ใน ไป Forum",
+  "remoteForumSignInBenefits": "Post, reply แอนด์ like",
+  "remoteForumFinishSignIn": "จบ signing ใน ใน your browser",
   "remoteReopenBrowser": "Reopen browser",
-  "remoteForumSettings": "Forum settings",
-  "remoteForumAccount": "Forum account",
+  "remoteForumSettings": "Forum ตั้งค่า",
+  "remoteForumAccount": "Forum บัญชี",
   "remoteForumTopic": "Topic",
   "remoteForumLikesReceived": "Likes received",
   "remoteForumDaysVisited": "Days visited",
-  "remoteForumNotifications": "Notifications",
-  "remoteForumUnreadCount": "{count, plural, other{{count} unread}}",
-  "remoteForumErrAddress": "Invalid address",
-  "remoteForumAddress": "Forum address",
-  "remoteForumDefaultAddress": "Default: {host}",
-  "remoteRestoreDefault": "กู้คืน default",
-  "remoteForumUploadingImage": "Uploading image…",
-  "remoteForumErrUploadImage": "Couldn’t upload image",
-  "remoteForumTitleRequired": "เพิ่ม a title first",
-  "remoteForumCategoryRequired": "Choose a category",
-  "remoteForumBodyRequired": "Write something before sending",
-  "remoteForumReplyCaption": "ตอบกลับ to @{username} · {title}",
+  "remoteForumNotifications": "การแจ้งเตือน",
+  "remoteForumUnreadCount": "{เคาท์, plural, อื่นๆ{{เคาท์} unread}}",
+  "remoteForumErrAddress": "Invalid ที่อยู่",
+  "remoteForumAddress": "Forum ที่อยู่",
+  "remoteForumDefaultAddress": "ค่าเริ่มต้น: {โฮสต์}",
+  "remoteRestoreDefault": "กู้คืน ดีฟอลต์",
+  "remoteForumUploadingImage": "Uploading รูปภาพ…",
+  "remoteForumErrUploadImage": "Couldn’t อัปโหลド รูปภาพ",
+  "remoteForumTitleRequired": "เพิ่ม  หัวข้อ ก่อนอื่น",
+  "remoteForumCategoryRequired": "Choose  category",
+  "remoteForumBodyRequired": "เขียน something ก่อน sending",
+  "remoteForumReplyCaption": "ตอบกลับ ไป @{ชื่อผู้ใช้} · {หัวข้อ}",
   "remoteForumNewTopic": "ใหม่ topic",
   "remoteForumTitle": "ชื่อเรื่อง",
-  "remoteForumComposerHint": "Write something. Markdown supported.",
+  "remoteForumComposerHint": "เขียน something. Markdown supported.",
   "remoteForumPublish": "เผยแพร่",
   "remoteForumImage": "รูปภาพ",
-  "remoteForumAttachShareCode": "Attach share code",
-  "remoteForumPendingApproval": "Submitted. Visible after approval.",
+  "remoteForumAttachShareCode": "Attach แชร์ code",
+  "remoteForumPendingApproval": "Submitted. มองเห็น หลัง approval.",
   "remoteForumLatest": "ล่าสุด",
   "remoteForumTop": "อันดับหนึ่ง",
-  "remoteForumErrOpen": "Couldn’t open Forum",
-  "remoteForumNoTopics": "ไม่ topics yet",
+  "remoteForumErrOpen": "Couldn’t เปิด Forum",
+  "remoteForumNoTopics": "ไม่ topics ยัง",
   "remoteForumPost": "Post",
   "remoteForum": "Forum",
-  "remoteForumNotificationsUnread": "{count, plural, other{Notifications, {count} unread}}",
+  "remoteForumNotificationsUnread": "{เคาท์, plural, อื่นๆ{Notifications, {เคาท์} unread}}",
   "remoteForumSearch": "ค้นหา",
-  "remoteForumSearchHint": "ค้นหา topics and posts",
-  "remoteForumSignedIn": "Signed in to Forum",
-  "remoteForumSignInForNotifications": "Sign in to see notifications",
-  "remoteForumErrNotifications": "Couldn’t load notifications",
-  "remoteForumNoNotifications": "ไม่ notifications yet",
-  "remoteForumMarkAllRead": "Mark all read",
+  "remoteForumSearchHint": "ค้นหา topics แอนด์ posts",
+  "remoteForumSignedIn": "Signed ใน ไป Forum",
+  "remoteForumSignInForNotifications": "ไซน์ ใน ไป see notifications",
+  "remoteForumErrNotifications": "Couldn’t โหลด notifications",
+  "remoteForumNoNotifications": "ไม่ notifications ยัง",
+  "remoteForumMarkAllRead": "Mark ออล อ่าน",
   "remoteForumSomeone": "Someone",
   "remoteForumNotificationMention": "{who} mentioned you",
-  "remoteForumNotificationGroupMention": "{who} mentioned your group",
-  "remoteForumNotificationReply": "{who} replied to you",
+  "remoteForumNotificationGroupMention": "{who} mentioned your กลุ่ม",
+  "remoteForumNotificationReply": "{who} replied ไป you",
   "remoteForumNotificationQuote": "{who} quoted you",
   "remoteForumNotificationEdit": "{who} edited your post",
-  "remoteForumNotificationLikes": "{count, plural, other{{who} and others ({count} people) liked your post}}",
+  "remoteForumNotificationLikes": "{เคาท์, plural, อื่นๆ{{who} แอนด์ others ({เคาท์} people) liked your post}}",
   "remoteForumNotificationLike": "{who} liked your post",
-  "remoteForumNotificationLikedPosts": "{count, plural, other{{who} liked {count} of your posts}}",
-  "remoteForumNotificationReaction": "{who} reacted to your post",
-  "remoteForumNotificationMessage": "{who} sent you a private message",
-  "remoteForumNotificationMessageInvite": "{who} invited you to a private message",
-  "remoteForumNotificationTopicInvite": "{who} invited you to a topic",
-  "remoteForumNotificationNewReply": "{who} posted a new reply",
-  "remoteForumNotificationNewTopic": "{who} posted a new topic",
-  "remoteForumNotificationLink": "{who} linked to your post",
-  "remoteForumNotificationBadge": "Earned the “{badge}” badge",
+  "remoteForumNotificationLikedPosts": "{เคาท์, plural, อื่นๆ{{who} liked {เคาท์} ของ your posts}}",
+  "remoteForumNotificationReaction": "{who} reacted ไป your post",
+  "remoteForumNotificationMessage": "{who} sent you  ส่วนตัว ข้อความ",
+  "remoteForumNotificationMessageInvite": "{who} invited you ไป  ส่วนตัว ข้อความ",
+  "remoteForumNotificationTopicInvite": "{who} invited you ไป  topic",
+  "remoteForumNotificationNewReply": "{who} posted  ใหม่ reply",
+  "remoteForumNotificationNewTopic": "{who} posted  ใหม่ topic",
+  "remoteForumNotificationLink": "{who} linked ไป your post",
+  "remoteForumNotificationBadge": "Earned  “{badge}” badge",
   "remoteForumNotificationMoved": "{who} moved your post",
   "remoteForumBookmarkReminder": "Bookmark reminder",
   "remoteForumTopicReminder": "Topic reminder",
-  "remoteForumPostApproved": "Your post was approved",
-  "remoteForumAdminProblems": "Forum has issues to resolve",
+  "remoteForumPostApproved": "Your post was อนุมัติแล้ว",
+  "remoteForumAdminProblems": "Forum has issues ไป แก้ไข",
   "remoteForumNewNotification": "ใหม่ notification",
   "remoteForumUnread": "ยังไม่ได้อ่าน",
-  "remoteForumErrShareCode": "Couldn’t open share code",
+  "remoteForumErrShareCode": "Couldn’t เปิด แชร์ code",
   "remoteForumPoll": "Poll",
   "remoteForumVideo": "วิดีโอ",
-  "remoteForumEmbed": "Embedded content",
-  "remoteForumVoteOnWeb": "Vote on Web",
-  "remoteForumErrSearch": "Couldn’t search",
-  "remoteForumNoSearchResults": "ไม่ results for “{term}”",
+  "remoteForumEmbed": "Embedded เนื้อหา",
+  "remoteForumVoteOnWeb": "Vote เปิด Web",
+  "remoteForumErrSearch": "Couldn’t ค้นหา",
+  "remoteForumNoSearchResults": "ไม่ results สำหรับ “{term}”",
   "remoteForumBookmarkRemoved": "Bookmark removed",
   "remoteForumBookmarkAdded": "บุ๊กมาร์คแล้ว",
   "remoteLinkCopied": "ลิงก์ copied",
-  "remoteForumErrTopic": "Couldn’t open this topic",
-  "remoteForumTopicClosed": "Topic is closed",
-  "remoteForumReplyHint": "Write a reply…",
-  "remoteForumSignInToReply": "Sign in to reply",
-  "remoteForumReplyTo": "ตอบกลับ to @{username}",
+  "remoteForumErrTopic": "Couldn’t เปิด this topic",
+  "remoteForumTopicClosed": "Topic คือ closed",
+  "remoteForumReplyHint": "เขียน  reply…",
+  "remoteForumSignInToReply": "ไซน์ ใน ไป reply",
+  "remoteForumReplyTo": "ตอบกลับ ไป @{ชื่อผู้ใช้}",
   "remoteForumPostDeleted": "Post deleted",
-  "remoteForumPostHidden": "Post hidden",
+  "remoteForumPostHidden": "Post ซ่อน",
   "remoteForumUnlike": "Unlike",
-  "remoteForumLike": "Like",
+  "remoteForumLike": "ชอบ",
   "remoteForumRemoveBookmark": "นำออก bookmark",
   "remoteForumBookmark": "Bookmark",
-  "remoteForumActionPinned": "หมุดแล้ว the topic",
-  "remoteForumActionUnpinned": "Unpinned the topic",
-  "remoteForumActionClosed": "ปิดแล้ว the topic",
-  "remoteForumActionReopened": "เปิดใหม่ the topic",
+  "remoteForumActionPinned": "หมุดแล้ว  topic",
+  "remoteForumActionUnpinned": "Unpinned  topic",
+  "remoteForumActionClosed": "ปิดแล้ว  topic",
+  "remoteForumActionReopened": "เปิดใหม่  topic",
   "remoteForumActionAutoClosed": "Topic closed automatically",
   "remoteForumActionAutoOpened": "Topic opened automatically",
-  "remoteForumActionArchived": "เก็บถาวรแล้ว the topic",
-  "remoteForumActionUnarchived": "Unarchived the topic",
-  "remoteForumActionListed": "Made the topic public",
-  "remoteForumActionUnlisted": "Unlisted the topic",
-  "remoteForumActionSplit": "Split the topic",
-  "remoteForumActionBanner": "Made the topic a banner",
-  "remoteForumActionRemoveBanner": "Removed the banner",
-  "remoteForumActionUpdated": "อัปเดตแล้ว the topic",
+  "remoteForumActionArchived": "เก็บถาวรแล้ว  topic",
+  "remoteForumActionUnarchived": "Unarchived  topic",
+  "remoteForumActionListed": "Made  topic สาธารณะ",
+  "remoteForumActionUnlisted": "Unlisted  topic",
+  "remoteForumActionSplit": "Split  topic",
+  "remoteForumActionBanner": "Made  topic  banner",
+  "remoteForumActionRemoveBanner": "Removed  banner",
+  "remoteForumActionUpdated": "อัปเดตแล้ว  topic",
   "remoteLoading": "กำลังโหลด",
-  "remoteForumJustNow": "Just now",
-  "remoteForumMinutesAgo": "{count, plural, other{{count} min ago}}",
-  "remoteForumHoursAgo": "{count, plural, other{{count} h ago}}",
-  "remoteForumDaysAgo": "{count, plural, other{{count} days ago}}",
-  "remoteForumReplyCount": "{count, plural, other{{count} replies}}",
-  "remoteForumNewReplyCount": "{count, plural, other{{count} new replies}}",
+  "remoteForumJustNow": "เพียง ตอนนี้",
+  "remoteForumMinutesAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} มิน ago}}",
+  "remoteForumHoursAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} h ago}}",
+  "remoteForumDaysAgo": "{เคาท์, plural, อื่นๆ{{เคาท์} days ago}}",
+  "remoteForumReplyCount": "{เคาท์, plural, อื่นๆ{{เคาท์} replies}}",
+  "remoteForumNewReplyCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ใหม่ replies}}",
   "remoteForumNew": "ใหม่",
-  "remoteForumErrorRetry": "{error} · ลองใหม่",
-  "remoteForumNoMore": "ไม่ more",
-  "remoteHostKeyTrustTitle": "Trust this host?",
-  "remoteHostKeyFirstConnection": "แรกสุด connection to “{name}” ({address}). Check the fingerprint to confirm it’s your host.",
-  "remoteHostKeyTrustConnect": "Trust and connect",
+  "remoteForumErrorRetry": "{ข้อผิดพลาด} · ลองใหม่",
+  "remoteForumNoMore": "ไม่ มากกว่า",
+  "remoteHostKeyTrustTitle": "Trust this โฮสต์?",
+  "remoteHostKeyFirstConnection": "แรกสุด connection ไป “{ชื่อ}” ({ที่อยู่}). เช็ค  fingerprint ไป ยืนยัน it’s your โฮสต์.",
+  "remoteHostKeyTrustConnect": "Trust แอนด์ เชื่อมต่อ",
   "remoteHostKeyChangedTitle": "ตัวตน fingerprint changed",
-  "remoteRelayKeyChangedBody": "The identity key for “{name}” has changed. Continue only if you’ve reinstalled the remote plugin on this host. Someone may be impersonating it.",
-  "remoteRelayKeyFirstBody": "แรกสุด connection to “{name}”. Check that the identity fingerprint matches the one shown by the host’s remote plugin before continuing.",
-  "remoteHostKeyChangeWarning": "DSH will refuse to connect if the fingerprint changes.",
-  "remoteHostKeyTrustAgain": "Trust again",
-  "remoteHostKeyReading": "Reading host fingerprint…",
-  "remoteHostSwitcherSemantics": "Current host: {name}, {status}. Switch host",
-  "remoteSwitchHost": "สวิตช์ host",
-  "remoteThisPhoneDsh": "DSH on this phone",
-  "remoteRemoteLabel": "Remote",
-  "remoteRemotePlatform": "Remote · {platform}",
-  "remoteRelaySwitchWarning": "DSH Remote connects to one host at a time. Switching disconnects the previous host.",
-  "remoteConnectComputer": "เชื่อมต่อ a computer or server",
-  "remoteManageHosts": "Manage remote hosts",
-  "remoteConnectionMethods": "Via SSH or DSH Remote",
-  "remoteRelayLoginRequired": "Enter the server address, email and password",
-  "remoteErrSignIn": "Couldn’t sign in",
-  "remoteSelfHostedServer": "Self-hosted server",
-  "remoteSelfHostedSignInHelp": "Sign in to your own liguobao/ds-harness-remote with email and password",
-  "remoteServerAddress": "Server address",
-  "remoteEmail": "Email",
-  "remotePassword": "Password",
-  "remoteRestoreServer": "กู้คืน default server dsh.r2049.cn",
-  "remoteConsole": "Remote console",
-  "remoteHostsIntro": "Keep using DSH from your computer or server on your phone",
+  "remoteRelayKeyChangedBody": " identity คีย์ สำหรับ “{ชื่อ}” has changed. ต่อ เท่านั้น ถ้า you’ve reinstalled  รีโมต ปลั๊กอิน เปิด this โฮสต์. Someone พฤษภาคม เป็น impersonating it.",
+  "remoteRelayKeyFirstBody": "แรกสุด connection ไป “{ชื่อ}”. เช็ค that  identity fingerprint matches  one shown โดย  โฮสต์’s รีโมต plugin ก่อน continuing.",
+  "remoteHostKeyChangeWarning": "DSH will refuse ไป เชื่อมต่อ ถ้า  fingerprint changes.",
+  "remoteHostKeyTrustAgain": "Trust อีกครั้ง",
+  "remoteHostKeyReading": "Reading โฮสต์ fingerprint…",
+  "remoteHostSwitcherSemantics": "Current โฮสต์: {ชื่อ}, {status}. Switch โฮสต์",
+  "remoteSwitchHost": "สวิตช์ โฮสต์",
+  "remoteThisPhoneDsh": "DSH เปิด this phone",
+  "remoteRemoteLabel": "รีโมต",
+  "remoteRemotePlatform": "รีโมต · {แพลตฟอร์ม}",
+  "remoteRelaySwitchWarning": "DSH รีโมต connects ไป one โฮสต์ at  ไทม์. Switching disconnects  previous โฮสต์.",
+  "remoteConnectComputer": "เชื่อมต่อ  computer ออร์ เซิร์ฟเวอร์",
+  "remoteManageHosts": "Manage รีโมต hosts",
+  "remoteConnectionMethods": "Via SSH ออร์ DSH รีโมต",
+  "remoteRelayLoginRequired": "เอ็นเตอร์  เซิร์ฟเวอร์ ที่อยู่, อีเมล แอนด์ รหัสผ่าน",
+  "remoteErrSignIn": "Couldn’t ไซน์ ใน",
+  "remoteSelfHostedServer": "Self-hosted เซิร์ฟเวอร์",
+  "remoteSelfHostedSignInHelp": "ไซน์ ใน ไป your own liguobao/ds-harness-รีโมต กับ อีเมล แอนด์ รหัสผ่าน",
+  "remoteServerAddress": "เซิร์ฟเวอร์ ที่อยู่",
+  "remoteEmail": "อีเมล",
+  "remotePassword": "รหัสผ่าน",
+  "remoteRestoreServer": "กู้คืน ดีฟอลต์ เซิร์ฟเวอร์ dsh.r2049.cn",
+  "remoteConsole": "รีโมต console",
+  "remoteHostsIntro": "Keep using DSH จาก your computer ออร์ เซิร์ฟเวอร์ เปิด your phone",
   "remoteSshHosts": "SSH hosts",
-  "remoteSshRequirements": "Host needs SSH enabled and DSH installed",
-  "remoteAddSshHost": "เพิ่ม SSH host",
-  "remoteSshDirect": "ไม่ third-party server",
+  "remoteSshRequirements": "โฮสต์ needs SSH enabled แอนด์ DSH installed",
+  "remoteAddSshHost": "เพิ่ม SSH โฮสต์",
+  "remoteSshDirect": "ไม่ third-party เซิร์ฟเวอร์",
   "remoteOtherMethods": "อื่นๆ methods",
-  "remoteWebConsole": "Web remote console",
-  "remoteWebConsoleProvider": "dsh.r2049.cn · Third-party page",
-  "remoteActiveHost": "Using “{name}”",
-  "remoteSwitchToPhone": "Use this phone",
-  "remoteSignInAgain": "Sign in again",
-  "remoteHostSettings": "Host settings",
-  "remoteReconnect": "Reconnect",
-  "remoteReconnectingEllipsis": "Reconnecting…",
-  "remoteReconnectReason": "Reconnecting · {reason}",
-  "remoteConnectedEncrypted": "Connected · End-to-end encrypted",
-  "remoteConnectedVia": "Connected · {path} · End-to-end encrypted",
+  "remoteWebConsole": "Web รีโมต console",
+  "remoteWebConsoleProvider": "dsh.r2049.cn · Third-party เพจ",
+  "remoteActiveHost": "Using “{ชื่อ}”",
+  "remoteSwitchToPhone": "ใช้ this phone",
+  "remoteSignInAgain": "ไซน์ ใน อีกครั้ง",
+  "remoteHostSettings": "โฮสต์ ตั้งค่า",
+  "remoteReconnect": "เชื่อมต่อใหม่",
+  "remoteReconnectingEllipsis": "กำลังเชื่อมต่อใหม่…",
+  "remoteReconnectReason": "กำลังเชื่อมต่อใหม่ · {reason}",
+  "remoteConnectedEncrypted": "Connected · End-ไป-end encrypted",
+  "remoteConnectedVia": "Connected · {พาธ} · End-ไป-end encrypted",
   "@remoteConnectedVia": {
     "placeholders": {
       "path": {
@@ -259,20 +258,20 @@
   "remotePathDirect": "Direct",
   "remotePathTurn": "TURN",
   "remotePathRelay": "Relay",
-  "remoteConnectedSsh": "Connected · SSH {address}",
-  "remoteErrRefreshHosts": "Couldn’t refresh host list",
-  "remoteSwitchWarning": "Connects to one host at a time. Switching disconnects the previous host.",
+  "remoteConnectedSsh": "Connected · SSH {ที่อยู่}",
+  "remoteErrRefreshHosts": "Couldn’t รีเฟรช โฮสต์ รายการ",
+  "remoteSwitchWarning": "Connects ไป one โฮสต์ at  ไทม์. Switching disconnects  previous โฮสต์.",
   "remoteRefreshHosts": "รีเฟรช hosts",
-  "remoteSignOut": "Sign out",
-  "remoteErrHostsRetry": "Couldn’t load hosts · Tap to retry",
-  "remoteNoHosts": "ไม่ hosts yet",
-  "remoteRelaySetupHelp": "ติดตั้ง the remote plugin in the host’s DSH and sign in",
-  "remoteRelaySignOutTitle": "Sign out of DSH Remote?",
-  "remoteRelaySignOutBody": "This phone will be removed from your account. DSH and chats on the host stay. You can sign in again anytime.",
-  "remoteRelaySignInTitle": "Sign in to DSH Remote",
-  "remoteRelaySignInHelp": "ไม่ network setup. End-to-end encrypted connection.",
-  "remoteBrowserSignIn": "Sign in in browser",
-  "remoteSignInWithProvider": "ดำเนินต่อ with {provider}",
+  "remoteSignOut": "ไซน์ ออก",
+  "remoteErrHostsRetry": "Couldn’t โหลด hosts · Tap ไป ลองใหม่",
+  "remoteNoHosts": "ไม่ hosts ยัง",
+  "remoteRelaySetupHelp": "ติดตั้ง  รีโมต plugin ใน  โฮสต์’s DSH แอนด์ ลงนาม ใน",
+  "remoteRelaySignOutTitle": "ไซน์ ออก ของ DSH รีโมต?",
+  "remoteRelaySignOutBody": "This phone will เป็น removed จาก your บัญชี. DSH แอนด์ chats เปิด  โฮสต์ stay. You can ไซน์ ใน อีกครั้ง anytime.",
+  "remoteRelaySignInTitle": "ไซน์ ใน ไป DSH รีโมต",
+  "remoteRelaySignInHelp": "ไม่ เครือข่าย setup. End-ไป-end encrypted connection.",
+  "remoteBrowserSignIn": "ไซน์ ใน ใน browser",
+  "remoteSignInWithProvider": "ดำเนินต่อ กับ {provider}",
   "@remoteSignInWithProvider": {
     "placeholders": {
       "provider": {
@@ -280,173 +279,173 @@
       }
     }
   },
-  "remoteComingSoon": "Coming soon",
-  "remoteSelfHostedEmailSignIn": "Self-hosted server · Email sign-in",
-  "remoteBrowserSignInPending": "Finish signing in in your browser…",
-  "remoteCopySignInLink": "คัดลอก sign-in link",
-  "remoteSshAddressRequired": "Enter a host address (IP or domain)",
-  "remoteSshUsernameRequired": "Enter a username",
-  "remoteSshPasswordRequired": "Enter an SSH password, or use a private key",
-  "remoteSshKeyRequired": "วาง the full private key (starting with -----BEGIN)",
-  "remoteHostKeyResetTitle": "รีเซ็ต host fingerprint?",
-  "remoteHostKeyResetBody": "Only do this if the host was reinstalled or replaced. You’ll be asked to check the fingerprint next time you connect.",
+  "remoteComingSoon": "Coming เร็วๆ นี้",
+  "remoteSelfHostedEmailSignIn": "Self-hosted เซิร์ฟเวอร์ · อีเมล ไซน์-ใน",
+  "remoteBrowserSignInPending": "จบ signing ใน ใน your browser…",
+  "remoteCopySignInLink": "คัดลอก ลงนาม-ใน ลิงก์",
+  "remoteSshAddressRequired": "เอ็นเตอร์  โฮสต์ ที่อยู่ (ไอพี ออร์ domain)",
+  "remoteSshUsernameRequired": "เอ็นเตอร์  ชื่อผู้ใช้",
+  "remoteSshPasswordRequired": "เอ็นเตอร์  SSH รหัสผ่าน, ออร์ use  ส่วนตัว คีย์",
+  "remoteSshKeyRequired": "วาง  full ส่วนตัว คีย์ (starting กับ -----BEGIN)",
+  "remoteHostKeyResetTitle": "รีเซ็ต โฮสต์ fingerprint?",
+  "remoteHostKeyResetBody": "เท่านั้น ทำ this ถ้า  โฮสต์ was reinstalled ออร์ replaced. You’ll เป็น asked ไป เช็ค  fingerprint ถัดไป ไทม์ you เชื่อมต่อ.",
   "remoteReset": "รีเซ็ต",
-  "remoteDeleteHostTitle": "ลบ “{name}”?",
-  "remoteDeleteHostBody": "This host’s settings and the password and private key saved on this phone will be deleted. DSH and chats on the host stay.",
-  "remoteErrReadKey": "Couldn’t read: {error}",
-  "remoteErrPublicKeyFile": "This isn’t a private key. Choose the file without .pub (such as id_ed25519).",
-  "remotePrivateKeyImported": "Private key imported. You can delete the original file.",
-  "remoteEditHost": "แก้ไข host",
-  "remoteSshHostIntro": "เชื่อมต่อ to DSH on your computer or server",
+  "remoteDeleteHostTitle": "ลบ “{ชื่อ}”?",
+  "remoteDeleteHostBody": "This โฮสต์’s ตั้งค่า แอนด์  รหัสผ่าน แอนด์ ส่วนตัว คีย์ saved เปิด this phone will เป็น deleted. DSH แอนด์ chats เปิด  โฮสต์ stay.",
+  "remoteErrReadKey": "Couldn’t อ่าน: {ข้อผิดพลาด}",
+  "remoteErrPublicKeyFile": "This isn’t  ส่วนตัว คีย์. Choose  ไฟล์ โดยไม่มี .pub (such ในฐานะ id_ed25519).",
+  "remotePrivateKeyImported": "ส่วนตัว คีย์ imported. You can ลบ  original ไฟล์.",
+  "remoteEditHost": "แก้ไข โฮสต์",
+  "remoteSshHostIntro": "เชื่อมต่อ ไป DSH เปิด your computer ออร์ เซิร์ฟเวอร์",
   "remoteHostBasicInfo": "พื้นฐาน information",
-  "remoteHostNameHint": "For example: computer, home Mac",
-  "remoteHost": "Host",
-  "remoteHostAddressHint": "192.168.1.20 or example.com",
-  "remoteUsername": "Username",
-  "remotePort": "Port",
-  "remoteAuthentication": "Sign-in method",
-  "remotePasswordStorageHelp": "Saved only on this phone, encrypted by Android Keystore",
-  "remoteKeyStorageHelp": "Saved only on this phone, encrypted by Android Keystore. Supports Ed25519, RSA and ECDSA.",
-  "remotePrivateKey": "Private key",
+  "remoteHostNameHint": "สำหรับ ตัวอย่าง: computer, โฮม Mac",
+  "remoteHost": "โฮสต์",
+  "remoteHostAddressHint": "192.168.1.20 ออร์ ตัวอย่าง.com",
+  "remoteUsername": "ชื่อผู้ใช้",
+  "remotePort": "พอร์ต",
+  "remoteAuthentication": "ไซน์-ใน เมธอด",
+  "remotePasswordStorageHelp": "Saved เท่านั้น เปิด this phone, encrypted โดย Android Keystore",
+  "remoteKeyStorageHelp": "Saved เท่านั้น เปิด this phone, encrypted โดย Android Keystore. Supports Ed25519, RSA แอนด์ ECDSA.",
+  "remotePrivateKey": "ส่วนตัว คีย์",
   "remoteShow": "แสดง",
-  "remoteImportKeyFile": "Import from file",
-  "remotePrivateKeyPassword": "Private key passphrase (optional)",
+  "remoteImportKeyFile": "นำเข้า จาก ไฟล์",
+  "remotePrivateKeyPassword": "ส่วนตัว คีย์ passphrase (optional)",
   "remoteStartCommand": "เริ่ม command",
-  "remoteStartCommandHelp": "If installed with nvm, you can enter the full path",
-  "remoteWorkingDirectory": "กำลังทำงาน directory (optional)",
-  "remoteWorkingDirectoryHelp": "ค่าเริ่มต้น folder for new chats. Supports ~/.",
-  "remoteHostFingerprint": "Host fingerprint",
-  "remoteHostKeyNotConfirmed": "Not confirmed yet",
-  "remoteHostKeyFirstCheck": "You’ll be asked to check the fingerprint on first connection",
-  "remoteDeleteHost": "ลบ this host",
+  "remoteStartCommandHelp": "ถ้า installed กับ nvm, you can เอ็นเตอร์  full พาธ",
+  "remoteWorkingDirectory": "กำลังทำงาน ไดเรกทอรี (optional)",
+  "remoteWorkingDirectoryHelp": "ค่าเริ่มต้น โฟลเดอร์ สำหรับ ใหม่ chats. Supports ~/.",
+  "remoteHostFingerprint": "โฮสต์ fingerprint",
+  "remoteHostKeyNotConfirmed": "นอต confirmed ยัง",
+  "remoteHostKeyFirstCheck": "You’ll เป็น asked ไป เช็ค  fingerprint เปิด เฟิร์ส การเชื่อมต่อ",
+  "remoteDeleteHost": "ลบ this โฮสต์",
   "remoteTesting": "Testing",
   "remoteTestConnection": "ทดสอบ",
-  "remoteHostedUpdateRequired": "อัปเดต DSH to open this link",
-  "remoteHostedCannotOpen": "Can’t open this link",
+  "remoteHostedUpdateRequired": "อัปเดต DSH ไป เปิด this ลิงก์",
+  "remoteHostedCannotOpen": "Can’t เปิด this ลิงก์",
   "remoteOpening": "Opening…",
   "remoteHostedNeverExpires": "ไม่เคย expires",
   "remoteHostedExpired": "Expired",
-  "remoteHostedExpiresToday": "Expires today",
-  "remoteHostedExpiresTomorrow": "Expires tomorrow",
-  "remoteHostedExpiresOn": "Expires {date}",
-  "remoteHostedDeleteTitle": "ลบ this link?",
-  "remoteHostedDeleteBody": "The link for “{title}” will stop working immediately",
+  "remoteHostedExpiresToday": "Expires วันนี้",
+  "remoteHostedExpiresTomorrow": "Expires พรุ่งนี้",
+  "remoteHostedExpiresOn": "Expires {เดท}",
+  "remoteHostedDeleteTitle": "ลบ this ลิงก์?",
+  "remoteHostedDeleteBody": " ลิงก์ สำหรับ “{หัวข้อ}” will หยุด working immediately",
   "remoteHostedLinkDeleted": "ลิงก์ deleted",
   "remoteUndo": "ยกเลิก",
   "remoteHostedMyLinks": "My shared links",
-  "remoteHostedNoLinks": "ไม่ shared links yet",
-  "remoteHostedErrDeleteNetwork": "Couldn’t delete. Check your connection and try again.",
-  "remoteHostedErrDelete": "Couldn’t delete. Try again later.",
-  "remoteDirectoryPickerTitle": "Choose folder",
-  "remoteDirectoryChoose": "Choose",
-  "remoteDirectoryDefault": "ค่าเริ่มต้น working directory",
-  "remoteDirectoryHome": "Home",
-  "remoteDirectoryPhoneStorage": "Phone storage",
+  "remoteHostedNoLinks": "ไม่ shared links ยัง",
+  "remoteHostedErrDeleteNetwork": "Couldn’t ลบ. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
+  "remoteHostedErrDelete": "Couldn’t ลบ. ทราย อีกครั้ง ภายหลัง.",
+  "remoteDirectoryPickerTitle": "Choose โฟลเดอร์",
+  "remoteDirectoryChoose": "เลือก",
+  "remoteDirectoryDefault": "ค่าเริ่มต้น working ไดเรกทอรี",
+  "remoteDirectoryHome": "โฮม",
+  "remoteDirectoryPhoneStorage": "Phone ที่เก็บข้อมูล",
   "remoteDirectoryDownloads": "Downloads",
-  "remoteDirectoryDownloadsPath": "Phone storage/Download",
+  "remoteDirectoryDownloadsPath": "Phone ที่เก็บข้อมูล/ดาวน์โหลด",
   "remoteDirectoryDocuments": "Documents",
-  "remoteDirectoryDocumentsPath": "Phone storage/Documents",
+  "remoteDirectoryDocumentsPath": "Phone ที่เก็บข้อมูล/Documents",
   "remoteDirectoryLocations": "Locations",
   "remoteDirectoryRecent": "ล่าสุด",
-  "remoteDirectoryEnterPath": "Enter path",
+  "remoteDirectoryEnterPath": "เอ็นเตอร์ พาธ",
   "remoteDirectoryGo": "Go",
-  "remoteDirectoryAbsolutePath": "Enter the full path, starting with “/”",
-  "remoteDirectoryNewFolder": "ใหม่ folder",
-  "remoteDirectoryParentCaption": "In “{name}”",
-  "remoteDirectoryFolderName": "Folder name",
+  "remoteDirectoryAbsolutePath": "เอ็นเตอร์  full พาธ, starting กับ “/”",
+  "remoteDirectoryNewFolder": "ใหม่ โฟลเดอร์",
+  "remoteDirectoryParentCaption": "ใน “{ชื่อ}”",
+  "remoteDirectoryFolderName": "โฟลเดอร์ ชื่อ",
   "remoteDirectoryRoot": "รูท",
-  "remoteDirectoryErrCreate": "Couldn’t create folder",
+  "remoteDirectoryErrCreate": "Couldn’t ครีเอท โฟลเดอร์",
   "remoteDirectoryNoSubfolders": "ไม่ subfolders here",
-  "remoteDirectoryHideHidden": "ซ่อน hidden folders",
-  "remoteDirectoryShowHidden": "{count, plural, other{Show {count} hidden folders}}",
-  "remoteDirectoryTruncated": "Too many folders. Only the first ones are listed.",
+  "remoteDirectoryHideHidden": "ซ่อน ซ่อน folders",
+  "remoteDirectoryShowHidden": "{เคาท์, plural, อื่นๆ{แสดง {เคาท์} ซ่อน folders}}",
+  "remoteDirectoryTruncated": "เกินไป มาก folders. เท่านั้น  เฟิร์ส ones are listed.",
   "remoteWorkspaceAdd": "เพิ่ม workspace",
-  "remoteWorkspaceAdded": "Added “{name}”",
-  "remoteWorkspaceErrAdd": "Couldn’t add workspace",
+  "remoteWorkspaceAdded": "Added “{ชื่อ}”",
+  "remoteWorkspaceErrAdd": "Couldn’t เพิ่ม Workspace",
   "remoteWorkspaceNoChats": "ไม่ chats",
-  "remoteWorkspaceChatCount": "{count, plural, other{{count} chats}}",
-  "remoteWorkspaceErrRename": "Couldn’t rename",
-  "remoteWorkspaceRemoved": "Removed “{name}”",
-  "remoteWorkspaceErrRemove": "Couldn’t remove workspace",
-  "remoteWorkspaceRename": "Rename workspace",
-  "remoteWorkspaceName": "Workspace name",
-  "remoteWorkspaceNameRequired": "Give it a name",
-  "remoteWorkspaceRemoveTitle": "นำออก “{name}”?",
-  "remoteWorkspaceRemoveBody": "Folder and chats stay",
+  "remoteWorkspaceChatCount": "{เคาท์, plural, อื่นๆ{{เคาท์} chats}}",
+  "remoteWorkspaceErrRename": "Couldn’t รีเนม",
+  "remoteWorkspaceRemoved": "Removed “{ชื่อ}”",
+  "remoteWorkspaceErrRemove": "Couldn’t นำออก Workspace",
+  "remoteWorkspaceRename": "รีเนม Workspace",
+  "remoteWorkspaceName": "Workspace ชื่อ",
+  "remoteWorkspaceNameRequired": "Give it  ชื่อ",
+  "remoteWorkspaceRemoveTitle": "นำออก “{ชื่อ}”?",
+  "remoteWorkspaceRemoveBody": "โฟลเดอร์ แอนด์ chats stay",
   "remoteWorkspaceRemove": "นำออก",
-  "remoteWorkspace": "Workspace",
+  "remoteWorkspace": "เวิร์กสเปซ",
   "remoteWorkspaceNewChatHere": "ใหม่ chat here",
   "remoteWorkspaceUnpin": "Unpin",
   "remoteWorkspaceGroup": "กลุ่ม",
   "remoteWorkspaceUngrouped": "Ungrouped",
   "remoteWorkspaceRemoveAction": "นำออก workspace",
-  "remoteWorkspaceNewGroup": "ใหม่ group",
-  "remoteWorkspaceGroupName": "กลุ่ม name",
-  "remoteDirectoryPhonePath": "Phone storage/{path}",
+  "remoteWorkspaceNewGroup": "ใหม่ กรุ๊ป",
+  "remoteWorkspaceGroupName": "กลุ่ม ชื่อ",
+  "remoteDirectoryPhonePath": "Phone ที่เก็บข้อมูล/{พาธ}",
   "remoteDirectoryInvalidName": "ชื่อ can’t contain “/”",
-  "remoteWorkspaceErrNameConflict": "A workspace with this name already exists",
-  "remoteWorkspaceErrInvalidPath": "This folder can’t be used as a workspace",
-  "remoteWorkspaceErrNotFound": "This workspace no longer exists",
-  "remoteDirectoryErrUnreadable": "Couldn’t open this folder",
-  "remoteDirectoryErrExists": "A folder with this name already exists",
-  "remoteDirectoryErrUnavailable": "This host can’t browse folders here",
-  "remoteWorkspaceErrUnsupported": "This host doesn’t support this action",
+  "remoteWorkspaceErrNameConflict": " Workspace กับ this ชื่อ แล้ว exists",
+  "remoteWorkspaceErrInvalidPath": "This โฟลเดอร์ can’t เป็น used ในฐานะ  Workspace",
+  "remoteWorkspaceErrNotFound": "This Workspace ไม่ longer exists",
+  "remoteDirectoryErrUnreadable": "Couldn’t เปิด this โฟลเดอร์",
+  "remoteDirectoryErrExists": " โฟลเดอร์ กับ this ชื่อ แล้ว exists",
+  "remoteDirectoryErrUnavailable": "This โฮสต์ can’t browse folders here",
+  "remoteWorkspaceErrUnsupported": "This โฮสต์ doesn’t รองรับ this action",
   "remoteWorkspaceAllChats": "ทั้งหมด chats",
-  "remoteWorkspaceSwitcherSemantics": "Workspace: {name}. Switch workspace",
-  "remoteWorkspaceManage": "Manage workspaces",
-  "remoteWorkspaceErrLoad": "Couldn’t load workspaces",
-  "remoteWorkspaceEmpty": "ไม่ workspaces yet",
-  "remoteWorkspaceEmptyHint": "เพิ่ม the folders you use most",
-  "remoteWorkspaceCount": "{count, plural, other{{count} workspaces}}",
+  "remoteWorkspaceSwitcherSemantics": "Workspace: {ชื่อ}. Switch Workspace",
+  "remoteWorkspaceManage": "จัดการ workspaces",
+  "remoteWorkspaceErrLoad": "Couldn’t โหลด workspaces",
+  "remoteWorkspaceEmpty": "ไม่ workspaces ยัง",
+  "remoteWorkspaceEmptyHint": "เพิ่ม  folders you use มากที่สุด",
+  "remoteWorkspaceCount": "{เคาท์, plural, อื่นๆ{{เคาท์} workspaces}}",
   "remoteDirectoryConfirmFolder": "{action} “{name}”",
-  "remoteHostKeyMismatchDetail": "If the host was reinstalled or replaced, reset its fingerprint in host settings.\nSaved: {saved}\nReceived: {received} ({type})",
-  "remoteForumCompactReplies": "{count, plural, other{{label} replies}}",
-  "remoteForumCompactViews": "{count, plural, other{{label} views}}",
-  "remoteForumYearDate": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {day}, {year}",
-  "remoteHostedMonthDate": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {day}",
-  "remoteHostedYearDate": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {day}, {year}",
+  "remoteHostKeyMismatchDetail": "ถ้า  โฮสต์ was reinstalled ออร์ replaced, รีเซ็ต its fingerprint ใน โฮสต์ ตั้งค่า.\nSaved: {saved}\nReceived: {received} ({type})",
+  "remoteForumCompactReplies": "{เคาท์, plural, อื่นๆ{{label} replies}}",
+  "remoteForumCompactViews": "{เคาท์, plural, อื่นๆ{{label} views}}",
+  "remoteForumYearDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}, {ยีอาร์}",
+  "remoteHostedMonthDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}",
+  "remoteHostedYearDate": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {เดย์}, {ยีอาร์}",
   "remoteForumTenThousands": "{value} × 10,000",
   "remoteForumSemanticsSeparator": ", ",
-  "remoteHostKeyVerifyCommand": "เรียกใช้ {command} on that host to see the same fingerprint. DSH will refuse to connect if it changes.",
-  "remoteSshInstallCommand": "DSH not installed? Run {command} on the host.",
-  "remoteRelayProvider": "Service by {project}",
-  "remoteRelayProviderServer": "Service by {project} · Current server: {server}",
+  "remoteHostKeyVerifyCommand": "เรียกใช้ {command} เปิด that โฮสต์ ไป see  same fingerprint. DSH will refuse ไป เชื่อมต่อ ถ้า it changes.",
+  "remoteSshInstallCommand": "DSH นอต installed? เรียกใช้ {คอมมานด์} เปิด  โฮสต์.",
+  "remoteRelayProvider": "เซอร์วิส โดย {โปรเจกต์}",
+  "remoteRelayProviderServer": "เซอร์วิส โดย {โปรเจกต์} · Current เซิร์ฟเวอร์: {เซิร์ฟเวอร์}",
   "remoteQuotedHostName": "“{name}”",
   "remoteErrorDetail": "{message} ({detail})",
   "remotePathLan": "LAN",
   "remotePathP2p": "P2P",
-  "remoteNetworkDetails": "Network details",
-  "remoteNetworkAutomatic": "Automatically tries LAN → P2P → TURN → Relay, with end-to-end encryption throughout.",
-  "remoteNetworkCurrentPath": "Current path",
-  "remoteNetworkConnectDuration": "Connection time",
-  "remoteNetworkRoundTripTime": "Round-trip time (RTT)",
-  "remoteNetworkUnmeasured": "Not measured",
-  "remoteNetworkUnknownPath": "Not confirmed",
-  "remoteNetworkMilliseconds": "{value} ms",
-  "remoteNetworkMeasure": "รีเฟรช network / measure latency",
+  "remoteNetworkDetails": "เครือข่าย details",
+  "remoteNetworkAutomatic": "Automatically tries LAN → P2P → TURN → Relay, กับ end-ไป-end การเข้ารหัส throughout.",
+  "remoteNetworkCurrentPath": "Current พาธ",
+  "remoteNetworkConnectDuration": "การเชื่อมต่อ ไทม์",
+  "remoteNetworkRoundTripTime": "Round-trip ไทม์ (RTT)",
+  "remoteNetworkUnmeasured": "นอต measured",
+  "remoteNetworkUnknownPath": "นอต confirmed",
+  "remoteNetworkMilliseconds": "{ค่า} ms",
+  "remoteNetworkMeasure": "รีเฟรช เครือข่าย / measure เลเทนซี่",
   "remoteNetworkMeasuring": "Measuring…",
-  "remoteNetworkMeasureFailed": "Couldn’t measure latency. Try again later.",
-  "remoteNetworkDisconnected": "Disconnected. Reconnect to measure latency.",
+  "remoteNetworkMeasureFailed": "Couldn’t measure เลทันซี่. ทราย อีกครั้ง ภายหลัง.",
+  "remoteNetworkDisconnected": "Disconnected. Reconnect ไป measure เลทันซี่.",
   "remoteNetworkFallback": "Fallback reason",
-  "remoteNetworkFallbackUnknown": "A direct connection wasn’t available; an available route was selected automatically.",
-  "remoteNetworkFallbackWebrtcUnavailable": "WebRTC is unavailable on this device; using Relay.",
-  "remoteNetworkFallbackDirectFailed": "LAN / P2P couldn’t connect; tried the next available route.",
-  "remoteNetworkFallbackDirectTimeout": "LAN / P2P timed out; tried the next available route.",
-  "remoteNetworkFallbackDirectRecentlyFailed": "A recent direct attempt failed; using an available relay for this connection.",
-  "remoteNetworkFallbackTurnUnavailable": "TURN is unavailable; using Relay.",
-  "remoteNetworkFallbackTurnFailed": "TURN couldn’t connect; using Relay.",
-  "remoteNetworkFallbackTurnTimeout": "TURN timed out; using Relay.",
-  "remoteNetworkFallbackPathUnverified": "The WebRTC route type hasn’t been confirmed.",
-  "remoteNetworkSnapshotHint": "Shows the last confirmed route and latency. Refresh to check again.",
+  "remoteNetworkFallbackUnknown": " direct การเชื่อมต่อ wasn’t available;  available route was selected automatically.",
+  "remoteNetworkFallbackWebrtcUnavailable": "WebRTC คือ unavailable เปิด this device; using Relay.",
+  "remoteNetworkFallbackDirectFailed": "LAN / P2P couldn’t เชื่อมต่อ; tried  ถัดไป available route.",
+  "remoteNetworkFallbackDirectTimeout": "LAN / P2P timed ออก; tried  ถัดไป available route.",
+  "remoteNetworkFallbackDirectRecentlyFailed": " recent direct พยายาม ล้มเหลว; using  available relay สำหรับ this การเชื่อมต่อ.",
+  "remoteNetworkFallbackTurnUnavailable": "TURN คือ unavailable; using Relay.",
+  "remoteNetworkFallbackTurnFailed": "TURN couldn’t เชื่อมต่อ; using Relay.",
+  "remoteNetworkFallbackTurnTimeout": "TURN timed ออก; using Relay.",
+  "remoteNetworkFallbackPathUnverified": " WebRTC route type hasn’t been confirmed.",
+  "remoteNetworkSnapshotHint": "Shows  ลาสท์ confirmed route แอนด์ เลทันซี่. รีเฟรช ไป เช็ค อีกครั้ง.",
   "remoteNetworkObservedAt": "สุดท้าย checked",
-  "remoteNetworkLocalIpVersion": "Phone ICE IP version",
-  "remoteNetworkRemoteIpVersion": "Host ICE IP version",
-  "remoteNetworkIceProtocol": "ICE protocol",
-  "remoteTransferSettings": "Remote transfer",
+  "remoteNetworkLocalIpVersion": "Phone ICE ไอพี VERSION",
+  "remoteNetworkRemoteIpVersion": "โฮสต์ ICE ไอพี VERSION",
+  "remoteNetworkIceProtocol": "ICE โปรโตคอล",
+  "remoteTransferSettings": "รีโมต ถ่ายโอน",
   "remoteCompactHistory": "Compact history",
-  "remoteErrHistoryModeChanged": "The Host no longer supports compact history. Switch to another host and back, or restart the app, to reload history.",
-  "remoteCompactHistoryHint": "Reduces historical tool details on supporting DSH Remote Hosts; live replies and approvals stay unchanged. Switch hosts or restart the app to apply. Older Hosts keep full history.",
-  "searchKwRemoteCompactHistory": "compact slim lite history tools transfer bandwidth remote",
+  "remoteErrHistoryModeChanged": " โฮสต์ ไม่ longer supports compact history. Switch ไป another โฮสต์ แอนด์ ย้อนกลับ, ออร์ รีสตาร์ท  app, ไป โหลดใหม่ history.",
+  "remoteCompactHistoryHint": "Reduces historical เครื่องมือ details เปิด supporting DSH รีโมต Hosts; live replies แอนด์ approvals stay unchanged. Switch hosts ออร์ รีสตาร์ท  app ไป apply. Older Hosts keep full history.",
+  "searchKwRemoteCompactHistory": "compact slim lite history tools ถ่ายโอน แบนด์วิดท์ รีโมต",
   "sshHaddress": "SSH · {h_address}",
   "@sshHaddress": {
     "placeholders": {
@@ -455,5 +454,599 @@
       }
     }
   },
-  "code": "~/code"
+  "code": "~/โค้ด",
+  "beginOpensshPrivateKeyn": "-----BEGIN OPENSSH ส่วนตัว คีย์-----\\n…",
+  "dshappNodshn": "DSHAPP nodsh\\n",
+  "nIfCommandVNohupDevnull21ThenNnohupFi": "N=\"\"; ถ้า คอมมานด์ -v nohup >/dev/นัลล์ 2>&1; แล้ว N=nohup; fi",
+  "datachannelClosed": "DataChannel closed",
+  "@remoteReconnectAttempt": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrHostRemoved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteBootstrapReusePort": {
+    "placeholders": {
+      "port": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrCommandNotFound": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteExitCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRetryCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrAddressUnresponsive": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      },
+      "port": {
+        "type": "String"
+      }
+    }
+  },
+  "@remotePrivateKeyFormats": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrAddressRejected": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrSshHostNotFound": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrSshAddressUnresponsive": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteAuthorizedKeysHelp": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      },
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumUnreadCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumDefaultAddress": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumReplyCaption": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationsUnread": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationMention": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationGroupMention": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationReply": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationQuote": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationEdit": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationLikes": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationLike": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationLikedPosts": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationReaction": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationMessage": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationMessageInvite": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationTopicInvite": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationNewReply": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationNewTopic": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationLink": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationBadge": {
+    "placeholders": {
+      "badge": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNotificationMoved": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNoSearchResults": {
+    "placeholders": {
+      "term": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumReplyTo": {
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumReplyCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumNewReplyCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumErrorRetry": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostKeyFirstConnection": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRelayKeyChangedBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRelayKeyFirstBody": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostSwitcherSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRemotePlatform": {
+    "placeholders": {
+      "platform": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteActiveHost": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteReconnectReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteConnectedSsh": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteDeleteHostTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrReadKey": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostedExpiresOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostedDeleteBody": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteDirectoryParentCaption": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteDirectoryShowHidden": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceAdded": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceChatCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceRemoved": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceRemoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteDirectoryPhonePath": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceSwitcherSemantics": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteWorkspaceCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteDirectoryConfirmFolder": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostKeyMismatchDetail": {
+    "placeholders": {
+      "received": {
+        "type": "String"
+      },
+      "saved": {
+        "type": "String"
+      },
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumCompactReplies": {
+    "placeholders": {
+      "count, plural, other{{label": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumCompactViews": {
+    "placeholders": {
+      "count, plural, other{{label": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumYearDate": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostedMonthDate": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostedYearDate": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteForumTenThousands": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteHostKeyVerifyCommand": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteSshInstallCommand": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRelayProvider": {
+    "placeholders": {
+      "project": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteRelayProviderServer": {
+    "placeholders": {
+      "project": {
+        "type": "String"
+      },
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteQuotedHostName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteErrorDetail": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      },
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "@remoteNetworkMilliseconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  }
 }

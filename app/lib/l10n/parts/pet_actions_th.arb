@@ -1,12 +1,11 @@
 {
-  "@@locale": "th",
   "petActionSending": "Sending…",
-  "petActionTargetChanged": "Host changed. Reopen Quick ask; your text is kept.",
-  "petActionSendFailed": "Couldn’t send. Your text is kept; try again.",
-  "petActionBusy": "This chat is busy. Choose New chat.",
-  "petActionVoiceMissing": "Download the offline voice model in the app first.",
-  "petActionVoiceTitle": "Voice for Quick ask",
-  "petActionVoiceReturn": "ย้อนกลับ to pet",
-  "petActionVoiceStop": "Finish recording",
+  "petActionTargetChanged": "โฮสต์ changed. Reopen Quick ถาม; your เท็กซ์ คือ kept.",
+  "petActionSendFailed": "Couldn’t ส่ง. Your เท็กซ์ คือ kept; ทราย อีกครั้ง.",
+  "petActionBusy": "This Chat คือ busy. Choose ใหม่ Chat.",
+  "petActionVoiceMissing": "ดาวน์โหลด  offline voice Model ใน  app เฟิร์ส.",
+  "petActionVoiceTitle": "Voice สำหรับ Quick ถาม",
+  "petActionVoiceReturn": "ย้อนกลับ ไป pet",
+  "petActionVoiceStop": "จบ recording",
   "petActionVoiceStart": "Record"
 }

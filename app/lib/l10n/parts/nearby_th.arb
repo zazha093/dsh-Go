@@ -1,8 +1,7 @@
 {
-  "@@locale": "th",
-  "nearbyThisChat": "This chat",
-  "nearbyPermissionTitle": "Permissions for this chat",
-  "nearbyNewChatDefault": "ใหม่ chats: {name}",
+  "nearbyThisChat": "This Chat",
+  "nearbyPermissionTitle": "Permissions สำหรับ this Chat",
+  "nearbyNewChatDefault": "ใหม่ chats: {ชื่อ}",
   "@nearbyNewChatDefault": {
     "placeholders": {
       "name": {
@@ -10,9 +9,9 @@
       }
     }
   },
-  "nearbySetAsDefault": "Use for new chats",
-  "nearbyManageModels": "Manage models",
-  "nearbyPermissionPill": "Permissions for this chat: {name}",
+  "nearbySetAsDefault": "Use สำหรับ ใหม่ chats",
+  "nearbyManageModels": "จัดการโมเดล",
+  "nearbyPermissionPill": "Permissions สำหรับ this Chat: {ชื่อ}",
   "@nearbyPermissionPill": {
     "placeholders": {
       "name": {

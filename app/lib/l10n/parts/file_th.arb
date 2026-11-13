@@ -1,11 +1,30 @@
 {
-  "@@locale": "th",
-  "fileImageName": "image",
-  "fileSharedText": "แชร์แล้ว text.txt",
-  "fileChatFallback": "chat",
-  "fileUploadToHost": "ส่ง files to the computer",
-  "fileUploadToHostHint": "Into this conversation’s workspace on the computer, uncompressed",
-  "fileUploadProgress": "Sending {done}/{total}: {name}",
-  "fileUploadDone": "ส่งแล้ว to the computer: {names}",
-  "fileUploadFailed": "Couldn’t send to the computer"
+  "fileImageName": "รูปภาพ",
+  "fileSharedText": "แชร์แล้ว เท็กซ์.txt",
+  "fileChatFallback": "Chat",
+  "fileUploadToHost": "ส่ง files ไป  computer",
+  "fileUploadToHostHint": "เข้า this conversation’s Workspace เปิด  computer, uncompressed",
+  "fileUploadProgress": "Sending {เสร็จ}/{ทอตอล}: {ชื่อ}",
+  "fileUploadDone": "ส่งแล้ว ไป  computer: {names}",
+  "fileUploadFailed": "Couldn’t ส่ง ไป  computer",
+  "@fileUploadProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@fileUploadDone": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  }
 }

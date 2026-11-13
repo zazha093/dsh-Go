@@ -1,10 +1,9 @@
 {
-  "@@locale": "th",
   "usageStatsTitle": "ส่ง anonymous usage stats",
   "usageStatsSection": "Improve DSH Go",
-  "usageStatsFooter": "This switch controls dsh-go’s own usage counts, versions and phone maker statistics. It includes no chats, files or accounts, and does not control Google ML Kit SDK statistics.",
-  "usageNoticeBody": "ไม่ chats or personal info.\nTurn off anytime.",
-  "usageUpgradeNotice": "New: anonymous usage stats, to help improve DSH Go.\nNo chats or personal info.",
-  "usageUpgradeLearn": "Learn more",
-  "usageUpgradeOff": "Turn off"
+  "usageStatsFooter": "This switch controls dsh-go’s own usage counts, versions แอนด์ phone maker statistics. It includes ไม่ chats, files ออร์ accounts, แอนด์ does นอต control Google ML Kit SDK statistics.",
+  "usageNoticeBody": "ไม่ chats ออร์ personal ข้อมูล.\nTurn ปิด anytime.",
+  "usageUpgradeNotice": "ใหม่: anonymous usage stats, ไป ช่วยเหลือ improve DSH Go.\nไม่ chats ออร์ personal ข้อมูล.",
+  "usageUpgradeLearn": "Learn มากกว่า",
+  "usageUpgradeOff": "Turn ปิด"
 }

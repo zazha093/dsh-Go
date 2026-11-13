@@ -1,33 +1,79 @@
 {
-  "@@locale": "th",
   "plugInputRequired": "เสร็จสิ้น this field",
-  "plugInputInvalidValue": "Invalid value",
-  "plugInputNumber": "Enter a valid number",
-  "plugInputBounds": "Enter a value from {min} to {max}",
-  "plugInputLength": "Use {min}–{max} characters",
-  "plugInputPattern": "ตรวจสอบ the format",
-  "plugInputDate": "Choose a valid date",
-  "plugInputTime": "Choose a valid time",
-  "plugInputUnavailable": "This component is not supported here",
-  "plugInputNoPassword": "Plugins cannot use password fields",
-  "plugInputBadBinding": "อินพุต binding must be a field path under data",
-  "plugInputDuplicateBinding": "Each field can bind to only one input",
-  "plugInputNamedPattern": "Use a built-in validation pattern",
-  "plugInputNestedForm": "Forms cannot be nested",
-  "plugInputSubmitMissing": "Form needs a submit action",
-  "plugInputTooLarge": "Too much content. Shorten it and try again",
-  "plugInputCheckFields": "ตรวจสอบ the highlighted fields",
-  "plugInputFailed": "Not saved. Try again",
+  "plugInputInvalidValue": "Invalid ค่า",
+  "plugInputNumber": "เอ็นเตอร์  valid ตัวเลข",
+  "plugInputBounds": "เอ็นเตอร์  ค่า จาก {มิน} ไป {แม็กซ์}",
+  "plugInputLength": "Use {มิน}–{แม็กซ์} characters",
+  "plugInputPattern": "ตรวจสอบ  ฟอร์แมต",
+  "plugInputDate": "Choose  valid เดท",
+  "plugInputTime": "Choose  valid ไทม์",
+  "plugInputUnavailable": "This คอมโพเนนท์ คือ นอต supported here",
+  "plugInputNoPassword": "Plugins cannot use รหัสผ่าน fields",
+  "plugInputBadBinding": "อินพุต binding must เป็น  field พาธ ใต้ data",
+  "plugInputDuplicateBinding": "แต่ละ field can bind ไป เท่านั้น one input",
+  "plugInputNamedPattern": "Use  built-ใน validation pattern",
+  "plugInputNestedForm": "Forms cannot เป็น nested",
+  "plugInputSubmitMissing": "Form needs  submit action",
+  "plugInputTooLarge": "เกินไป much เนื้อหา. Shorten it แอนด์ ทราย อีกครั้ง",
+  "plugInputCheckFields": "ตรวจสอบ  highlighted fields",
+  "plugInputFailed": "นอต saved. ทราย อีกครั้ง",
   "plugInputSubmit": "บันทึก",
-  "plugInputChoose": "Choose",
+  "plugInputChoose": "เลือก",
   "plugInputPrevious": "ก่อนหน้า",
   "plugInputNext": "ถัดไป",
   "plugInputDecrease": "Decrease {label}",
   "plugInputIncrease": "Increase {label}",
-  "plugInputRating": "{label}: {value} out of {max}",
-  "plugInputFormula": "Invalid formula or formula limit exceeded",
-  "plugInputDatePicker": "Plugin date",
-  "plugInputTimePicker": "Plugin time",
-  "plugInputChoices": "Plugin choices",
-  "plugInputGestureRequired": "This effect requires a user tap"
+  "plugInputRating": "{label}: {ค่า} ออก ของ {แม็กซ์}",
+  "plugInputFormula": "Invalid formula ออร์ formula ลิมิต exceeded",
+  "plugInputDatePicker": "ปลั๊กอิน เดท",
+  "plugInputTimePicker": "ปลั๊กอิน ไทม์",
+  "plugInputChoices": "ปลั๊กอิน choices",
+  "plugInputGestureRequired": "This effect requires  ผู้ใช้ tap",
+  "@plugInputBounds": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      },
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputLength": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      },
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputRating": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  }
 }

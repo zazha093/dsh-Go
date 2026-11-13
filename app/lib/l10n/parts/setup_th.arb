@@ -1,14 +1,27 @@
 {
-  "@@locale": "th",
-  "setupAppearanceTitle": "Choose a look",
-  "setupAppearanceMessage": "You can change this anytime in ตั้งค่า",
+  "setupAppearanceTitle": "Choose  look",
+  "setupAppearanceMessage": "You can change this anytime ใน ตั้งค่า",
   "setupLightMode": "Lightweight mode",
-  "setupCapsulePreparing": "Preparing runtime",
-  "setupCapsuleProgress": "Runtime {percent}%",
-  "setupCapsuleProgressSemantics": "Preparing the runtime, {percent}% done",
-  "setupCapsuleReady": "Runtime ready",
-  "setupCapsuleFailed": "ติดตั้ง failed",
-  "setupWaitingBody": "Continues on its own when ready",
-  "setupNotifyWhenDone": "We’ll notify you when it’s done",
-  "setupAwaitSignIn": "DeepSeek sign-in opens when it’s ready"
+  "setupCapsulePreparing": "Preparing รันไทม์",
+  "setupCapsuleProgress": "รันไทม์ {percent}%",
+  "setupCapsuleProgressSemantics": "Preparing  รันไทม์, {percent}% เสร็จ",
+  "setupCapsuleReady": "รันไทม์ ready",
+  "setupCapsuleFailed": "ติดตั้ง ล้มเหลว",
+  "setupWaitingBody": "Continues เปิด its own เมื่อ ready",
+  "setupNotifyWhenDone": "We’ll notify you เมื่อ it’s เสร็จ",
+  "setupAwaitSignIn": "DeepSeek ไซน์-ใน opens เมื่อ it’s ready",
+  "@setupCapsuleProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@setupCapsuleProgressSemantics": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

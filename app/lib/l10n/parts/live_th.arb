@@ -1,10 +1,9 @@
 {
-  "@@locale": "th",
   "liveThinking": "Thinking",
   "liveWorking": "กำลังทำงาน",
-  "liveJuggling": "Subagents at work",
-  "liveSweeping": "Compacting the context",
-  "liveRunsCount": "{count, plural, other{{count} chats running}}",
+  "liveJuggling": "Subagents at งาน",
+  "liveSweeping": "Compacting  คอนเท็กซ์",
+  "liveRunsCount": "{เคาท์, plural, อื่นๆ{{เคาท์} chats กำลังทำงาน}}",
   "liveChipThinking": "Thinking",
   "liveChipWorking": "กำลังทำงาน",
   "liveChipJuggling": "Helpers",
@@ -13,15 +12,22 @@
   "liveChipQuestion": "ตอบกลับ",
   "liveChipDone": "เสร็จ",
   "liveChipFailed": "ล้มเหลว",
-  "livePublicRunning": "DSH is working",
-  "livePublicWaiting": "DSH is waiting for you",
-  "livePublicDone": "DSH is done",
-  "livePublicFailed": "DSH ran into an error",
+  "livePublicRunning": "DSH คือ working",
+  "livePublicWaiting": "DSH คือ waiting สำหรับ you",
+  "livePublicDone": "DSH คือ เสร็จ",
+  "livePublicFailed": "DSH ran เข้า  ข้อผิดพลาด",
   "liveSettingsTitle": "สด activity",
   "liveSettingsSwitch": "แสดง live activity",
-  "liveSettingsSubtitle": "While DSH works, waits on you or controls the phone: in the status bar chip and on the lock screen, and in the island on phones that have one",
-  "liveSettingsFooter": "Android 16 Live Updates. Shown on Xiaomi HyperOS 3.1+, OPPO / OnePlus ColorOS 16, Honor MagicOS 10 and Pixel; vivo's Atomic Island and Samsung's Now Bar are open only to apps the maker partners with.",
-  "liveUnsupported": "This phone's system doesn't support live activities yet",
-  "liveBlockedTitle": "สด activities are off for DSH Go",
-  "liveBlockedText": "Turn on live activities for DSH Go in system settings (some phones call it “Show on Live Alerts”)"
+  "liveSettingsSubtitle": "ขณะที่ DSH works, waits เปิด you ออร์ controls  phone: ใน  status bar chip แอนด์ เปิด  LOCK screen, แอนด์ ใน  island เปิด phones that have one",
+  "liveSettingsFooter": "Android 16 Live Updates. Shown เปิด Xiaomi HyperOS 3.1+, OPPO / OnePlus ColorOS 16, Honor MagicOS 10 แอนด์ Pixel; vivo's อะตอมิก Island แอนด์ Samsung's ตอนนี้ Bar are เปิด เท่านั้น ไป apps  maker partners กับ.",
+  "liveUnsupported": "This phone's ระบบ doesn't รองรับ live activities ยัง",
+  "liveBlockedTitle": "สด activities are ปิด สำหรับ DSH Go",
+  "liveBlockedText": "Turn เปิด live activities สำหรับ DSH Go ใน ระบบ ตั้งค่า (บาง phones คอลล์ it “แสดง เปิด Live Alerts”)",
+  "@liveRunsCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

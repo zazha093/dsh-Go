@@ -20,5 +20,17 @@
         "type": "String"
       }
     }
-  }
+  },
+  "privateKeyRedacted": "<private key redacted>",
+  "longLineOmitted": "<long line omitted>",
+  "systemImeEvidenceManualPrivilegedime": "## System IME evidence (manual, privilegedIme)",
+  "fixedEventsOnlyPreceding120SecondsMaximum64RetainedCaptureNotLiveMonitoring": "- Fixed events only; preceding 120 seconds, maximum 64. Retained capture, not live monitoring.",
+  "device": "], device[",
+  "device1": "], device[",
+  "manifest": "], manifest[",
+  "manifest1": "], manifest[",
+  "group": " : group}",
+  "collectSystemKeyboardEvidence": "Collect system keyboard evidence?",
+  "collectOnce": "Collect once",
+  "searchSettingsHint": "Search settings"
 }

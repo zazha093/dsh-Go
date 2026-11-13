@@ -1,8 +1,7 @@
 {
-  "@@locale": "th",
-  "phoneRuntimeUpgradeBase": "The new engine cannot be confirmed compatible with your Linux environment, so the update stopped. Your environment and installed tools were not deleted. Make a full backup and contact the maintainer for migration; do not reset or uninstall the app.",
-  "phoneRuntimeUpgradeManifest": "The runtime update manifest could not be safely identified. The update stopped and your environment was kept. Check the APK and contact the maintainer; do not reset the environment.",
-  "phoneRuntimeUpgradeInterrupted": "The runtime upgrade is incomplete. Your data and recovery state were kept. Retry installation. If it still fails, export diagnostics and contact the maintainer; do not reset or delete recovery directories.",
-  "phoneRuntimeUpgradeSymlink": "A system path was replaced by a custom link, so the environment cannot be updated safely. Your environment was kept. Back it up and contact the maintainer.",
-  "phoneRuntimeUpgradeRunning": "The engine or a leftover process has not been confirmed stopped. The update has not started. Stop the local engine and wait for cleanup before retrying; do not reset the environment."
+  "phoneRuntimeUpgradeBase": " ใหม่ engine cannot เป็น confirmed compatible กับ your Linux สภาพแวดล้อม, so  อัปเดต หยุด. Your สภาพแวดล้อม แอนด์ installed tools were นอต deleted. Make  full สำรอง แอนด์ contact  ผู้ดูแล สำหรับ migration; ทำ นอต รีเซ็ต ออร์ ถอนการติดตั้ง  app.",
+  "phoneRuntimeUpgradeManifest": " รันไทม์ อัปเดต manifest could นอต เป็น safely identified.  อัปเดต หยุด แอนด์ your สภาพแวดล้อม was kept. เช็ค  APK แอนด์ contact  ผู้ดูแล; ทำ นอต รีเซ็ต  สภาพแวดล้อม.",
+  "phoneRuntimeUpgradeInterrupted": " รันไทม์ อัปเกรด คือ incomplete. Your data แอนด์ recovery สเตท were kept. ลองใหม่ installation. ถ้า it ยัง fails, ส่งออก diagnostics แอนด์ contact  ผู้ดูแล; ทำ นอต รีเซ็ต ออร์ ลบ recovery directories.",
+  "phoneRuntimeUpgradeSymlink": " ระบบ พาธ was replaced โดย  custom ลิงก์, so  สภาพแวดล้อม cannot เป็น updated safely. Your สภาพแวดล้อม was kept. ย้อนกลับ it ขึ้น แอนด์ contact  ผู้ดูแล.",
+  "phoneRuntimeUpgradeRunning": " engine ออร์  leftover โปรเซส has นอต been confirmed หยุด.  อัปเดต has นอต started. หยุด  โลคอล engine แอนด์ wait สำหรับ cleanup ก่อน retrying; ทำ นอต รีเซ็ต  สภาพแวดล้อม."
 }

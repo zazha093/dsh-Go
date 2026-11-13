@@ -1,8 +1,7 @@
 {
-  "@@locale": "th",
   "schemaDocumentationTitle": "Field descriptions",
-  "schemaDocumentationOverview": "Overview",
-  "schemaDocumentationEach": "Each item",
+  "schemaDocumentationOverview": "ภาพรวม",
+  "schemaDocumentationEach": "แต่ละ item",
   "schemaDocumentationPosition": "Item {position}",
   "@schemaDocumentationPosition": {
     "placeholders": {
@@ -11,7 +10,7 @@
       }
     }
   },
-  "schemaDocumentationOption": "ตัวเลือก {option}",
+  "schemaDocumentationOption": "ตัวเลือก {ตัวเลือก}",
   "@schemaDocumentationOption": {
     "placeholders": {
       "option": {

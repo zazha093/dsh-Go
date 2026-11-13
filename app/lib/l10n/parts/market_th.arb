@@ -1,34 +1,33 @@
 {
-  "@@locale": "th",
-  "marketSectionOfficial": "Official",
-  "marketSectionAdapted": "Made for DSH Go",
+  "marketSectionOfficial": "ทางการ",
+  "marketSectionAdapted": "Made สำหรับ DSH Go",
   "marketSectionAll": "ทั้งหมด",
-  "marketSectionLoading": "Loading…",
-  "marketSectionFailed": "The official catalogue didn't load",
-  "marketSectionEmpty": "ไม่มี yet",
-  "marketTierOfficial": "Official",
-  "marketTierAdapted": "Made for DSH Go",
+  "marketSectionLoading": "กำลังโหลด…",
+  "marketSectionFailed": " official catalogue didn't โหลด",
+  "marketSectionEmpty": "ไม่มี ยัง",
+  "marketTierOfficial": "ทางการ",
+  "marketTierAdapted": "Made สำหรับ DSH Go",
   "marketRiskMedium": "กลาง risk",
   "marketRiskHigh": "สูง risk",
-  "marketFlagInstallScripts": "Runs install scripts",
-  "marketFlagInstallScriptsBody": "Runs the package's own scripts while installing (preinstall, install or postinstall)",
-  "marketFlagNativeCode": "Native code",
-  "marketFlagNativeCodeBody": "Contains compiled native code (.node, binding.gyp or binaries) that can't be read as source",
-  "marketFlagShell": "Runs commands",
-  "marketFlagShellBody": "Its code runs system commands (child_process)",
-  "marketFlagNetwork": "Network access",
-  "marketFlagNetworkBody": "Its code makes network requests (fetch, http, WebSocket)",
-  "marketFlagFilesystem": "Writes outside the workspace",
-  "marketFlagFilesystemBody": "Writes to paths outside the workspace",
-  "marketFlagObfuscated": "ยาก to review",
-  "marketFlagObfuscatedBody": "Has large minified or obfuscated files; hard to tell what they do",
-  "marketFlagNotAdapted": "Not made for DSH Go",
-  "marketFlagNotAdaptedBody": "Declares no DSH Go native protocol, so it has no native screens in the app",
-  "marketFlagOtherBody": "Another trait the automatic checks reported",
-  "marketChecksTitle": "Automatic checks",
+  "marketFlagInstallScripts": "Runs ติดตั้ง scripts",
+  "marketFlagInstallScriptsBody": "Runs  แพ็กเกจ's own scripts ขณะที่ installing (preinstall, ติดตั้ง ออร์ postinstall)",
+  "marketFlagNativeCode": "Native โค้ด",
+  "marketFlagNativeCodeBody": "คอนเทนส์ compiled native code (.node, binding.gyp ออร์ binaries) that can't เป็น อ่าน ในฐานะ source",
+  "marketFlagShell": "รันคำสั่ง",
+  "marketFlagShellBody": "Its code runs ระบบ commands (child_process)",
+  "marketFlagNetwork": "เครือข่าย เข้าถึง",
+  "marketFlagNetworkBody": "Its code makes เครือข่าย requests (เฟช, เอชทีTEEพี, เว็บโซเก็ต)",
+  "marketFlagFilesystem": "Writes outside  Workspace",
+  "marketFlagFilesystemBody": "Writes ไป paths outside  Workspace",
+  "marketFlagObfuscated": "ยาก ไป review",
+  "marketFlagObfuscatedBody": "Has large minified ออร์ obfuscated files; hard ไป tell what they ทำ",
+  "marketFlagNotAdapted": "นอต made สำหรับ DSH Go",
+  "marketFlagNotAdaptedBody": "Declares ไม่ DSH Go native โปรโตคอล, so it has ไม่ native screens ใน  app",
+  "marketFlagOtherBody": "Another trait  automatic checks reported",
+  "marketChecksTitle": "การตรวจสอบอัตโนมัติ",
   "marketChecksClean": "ไม่ risky traits found",
-  "marketChecksNote": "Traits the automatic checks found; they don't mean the plugin is malicious",
-  "marketCheckedOn": "ตรวจสอบแล้ว {date}",
+  "marketChecksNote": "Traits  automatic checks found; they don't mean  ปลั๊กอิน คือ malicious",
+  "marketCheckedOn": "ตรวจสอบแล้ว {เดท}",
   "@marketCheckedOn": {
     "placeholders": {
       "date": {
@@ -36,7 +35,7 @@
       }
     }
   },
-  "marketScreenshot": "สกรีนชอต {index}",
+  "marketScreenshot": "สกรีนชอต {อินเด็กซ์}",
   "@marketScreenshot": {
     "placeholders": {
       "index": {
@@ -44,7 +43,7 @@
       }
     }
   },
-  "marketRiskConfirmTitle": "{name} has risky traits",
+  "marketRiskConfirmTitle": "{ชื่อ} has risky traits",
   "@marketRiskConfirmTitle": {
     "placeholders": {
       "name": {
@@ -53,9 +52,9 @@
     }
   },
   "marketRiskConfirmAction": "ติดตั้ง anyway",
-  "marketPinnedVersion": "หมุดแล้ว version",
-  "marketRequiresApp": "Requires DSH Go",
-  "marketNeedsApp": "Needs DSH Go {version} or later",
+  "marketPinnedVersion": "หมุดแล้ว VERSION",
+  "marketRequiresApp": "ต้องการ DSH Go",
+  "marketNeedsApp": "Needs DSH Go {VERSION} ออร์ ภายหลัง",
   "@marketNeedsApp": {
     "placeholders": {
       "version": {
@@ -64,8 +63,8 @@
     }
   },
   "marketUpdateAvailable": "อัปเดต available",
-  "marketBlockedTitle": "This version was withdrawn",
-  "marketBlockedMessage": "The installed {version} was withdrawn from the plugin market. Uninstalling it is recommended.",
+  "marketBlockedTitle": "This VERSION was withdrawn",
+  "marketBlockedMessage": " installed {VERSION} was withdrawn จาก  ปลั๊กอิน market. Uninstalling it คือ recommended.",
   "@marketBlockedMessage": {
     "placeholders": {
       "version": {
@@ -73,11 +72,11 @@
       }
     }
   },
-  "marketBlockedRow": "Withdrawn version: uninstall recommended",
-  "marketBlockedBadge": "Withdrawn",
-  "marketVerifying": "Checking the version…",
-  "marketMismatchTitle": "Version check failed",
-  "marketMismatchMessage": "{version} on npm isn't the package the plugin market checked. Nothing was installed.",
+  "marketBlockedRow": "Withdrawn VERSION: ถอนการติดตั้ง recommended",
+  "marketBlockedBadge": "ถอนกลับ",
+  "marketVerifying": "Checking  VERSION…",
+  "marketMismatchTitle": "VERSION เช็ค ล้มเหลว",
+  "marketMismatchMessage": "{VERSION} เปิด npm isn't  แพ็กเกจ  ปลั๊กอิน market checked. Nothing was installed.",
   "@marketMismatchMessage": {
     "placeholders": {
       "version": {
@@ -85,9 +84,9 @@
       }
     }
   },
-  "marketSubmit": "ส่ง a plugin",
-  "marketSubmitHint": "เปิด GitHub; listed once the automatic checks pass",
-  "marketLinkNotFound": "{name} isn't in the plugin market",
+  "marketSubmit": "ส่ง  plugin",
+  "marketSubmitHint": "เปิด GitHub; listed หนึ่งครั้ง  automatic checks pass",
+  "marketLinkNotFound": "{ชื่อ} isn't ใน  ปลั๊กอิน market",
   "@marketLinkNotFound": {
     "placeholders": {
       "name": {
@@ -95,9 +94,9 @@
       }
     }
   },
-  "marketVerificationUnavailableTitle": "Could not verify the version",
-  "marketVerificationUnavailableBody": "npm did not return integrity information. Installation has not started. Check your connection and try again.",
-  "marketCombinedCount": "{count} plugins",
+  "marketVerificationUnavailableTitle": "Could นอต เวอร์ริฟาย  VERSION",
+  "marketVerificationUnavailableBody": "npm did นอต คืนค่า integrity information. Installation has นอต started. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
+  "marketCombinedCount": "{เคาท์} plugins",
   "@marketCombinedCount": {
     "placeholders": {
       "count": {

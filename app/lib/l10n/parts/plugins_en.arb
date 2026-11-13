@@ -240,7 +240,6 @@
   "pluginsDiagnosticsContents": "Versions and connection status only",
   "pluginsNotificationsPartlyBlocked": "Some blocked by system",
   "pluginsNotificationsBlocked": "Blocked by system",
-  "pluginsTurnedOn": "On",
   "pluginsNotifications": "Notifications",
   "pluginsNotificationSettingsFailed": "Couldn’t open system settings. Turn on notifications in Settings → Apps → DSH Go → Notifications.",
   "pluginsSystemNotificationsOff": "System notifications are off",
@@ -419,5 +418,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "closeCaption": "Close caption"
 }

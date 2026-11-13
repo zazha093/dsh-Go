@@ -90,7 +90,6 @@
   "searchKwRemoteAutoConnect": "auto connect,on launch",
   "searchKwPermissionCurrent": "allow for this chat,this chat",
   "searchKwPermissionDefault": "default permission,read only,workspace,full access,auto-run commands,don't ask",
-  "searchSettingsHint": "Search settings",
   "searchSuggestDark": "Dark mode",
   "searchSuggestBackground": "Background",
   "searchSuggestPermission": "Permissions",

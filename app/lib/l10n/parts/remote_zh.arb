@@ -1051,5 +1051,9 @@
       }
     }
   },
-  "code": "~/code"
+  "code": "~/code",
+  "beginOpensshPrivateKeyn": "-----BEGIN OPENSSH PRIVATE KEY-----\\n…",
+  "dshappNodshn": "DSHAPP nodsh\\n",
+  "nIfCommandVNohupDevnull21ThenNnohupFi": "N=\"\"; if command -v nohup >/dev/null 2>&1; then N=nohup; fi",
+  "datachannelClosed": "DataChannel closed"
 }

@@ -20,5 +20,17 @@
         "type": "String"
       }
     }
-  }
+  },
+  "privateKeyRedacted": "<ส่วนตัว คีย์ redacted>",
+  "longLineOmitted": "<long ไลน์ omitted>",
+  "systemImeEvidenceManualPrivilegedime": "## ระบบ IME evidence (manual, privilegedIme)",
+  "fixedEventsOnlyPreceding120SecondsMaximum64RetainedCaptureNotLiveMonitoring": "- Fixed events เท่านั้น; preceding 120 seconds, maximum 64. Retained capture, นอต live มอนิเตอร์ริ่ง.",
+  "device": "], device[",
+  "device1": "], device[",
+  "manifest": "], manifest[",
+  "manifest1": "], manifest[",
+  "group": " : กลุ่ม}",
+  "collectSystemKeyboardEvidence": "Collect ระบบ keyboard evidence?",
+  "collectOnce": "Collect หนึ่งครั้ง",
+  "searchSettingsHint": "ค้นหาการตั้งค่า"
 }

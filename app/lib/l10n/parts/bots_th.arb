@@ -1,106 +1,105 @@
 {
-  "@@locale": "th",
-  "botsFolderGone": "This folder is gone",
-  "botsFolderReadFailed": "Couldn’t read this folder",
-  "botsFolderOpenFailed": "Couldn’t open this folder",
-  "botsFolderCount": "{count, plural, other{{count} folders}}",
-  "botsWorkingFolder": "กำลังทำงาน directory",
-  "botsFolderTeamDefault": "ทีม workspace",
-  "botsFolderRoomDefault": "Each Bot’s own directory",
-  "botsFolderHint": "Folders on the connected host.",
-  "botsFolderCurrent": "Current directory",
-  "botsFolderUnavailable": "The connection or folder changed. Reopen to continue.",
-  "botsFolderNoChoices": "ไม่ other folders on the host.",
-  "botsFolderConfirm": "Use this working directory?",
-  "botsFolderRefused": "The host refused this folder. It may be gone, inaccessible or protected. Choose another or retry.",
-  "botsChildCount": "{count, plural, other{{count} child agents}}",
-  "botsCurrentChat": "Current chat",
-  "botsSubagentCount": "{count, plural, other{{count} subagents}}",
-  "botsRunningCount": "{count, plural, other{{count} running}}",
-  "botsFailedCount": "{count, plural, other{{count} failed}}",
-  "botsNestedCount": "{count, plural, other{Includes {count} child agents}}",
-  "botsBackToParent": "ย้อนกลับ to “{title}”",
-  "botsTeamMemberCount": "{count, plural, other{Agent team, {count} members}}",
-  "botsAgentTeam": "Agent team",
-  "botsSubagentRunningCount": "{count, plural, other{{count} subagents}}, {running, plural, other{{running} running}}",
-  "botsSubagents": "Subagents",
+  "botsFolderGone": "This โฟลเดอร์ คือ gone",
+  "botsFolderReadFailed": "Couldn’t อ่าน this โฟลเดอร์",
+  "botsFolderOpenFailed": "Couldn’t เปิด this โฟลเดอร์",
+  "botsFolderCount": "{เคาท์, plural, อื่นๆ{{เคาท์} folders}}",
+  "botsWorkingFolder": "กำลังทำงาน ไดเรกทอรี",
+  "botsFolderTeamDefault": "TEEม workspace",
+  "botsFolderRoomDefault": "แต่ละ Bot’s own ไดเรกทอรี",
+  "botsFolderHint": "Folders เปิด  connected โฮสต์.",
+  "botsFolderCurrent": "Current ไดเรกทอรี",
+  "botsFolderUnavailable": " การเชื่อมต่อ ออร์ โฟลเดอร์ changed. Reopen ไป ต่อ.",
+  "botsFolderNoChoices": "ไม่ อื่นๆ folders เปิด  โฮสต์.",
+  "botsFolderConfirm": "Use this working ไดเรกทอรี?",
+  "botsFolderRefused": " โฮสต์ refused this โฟลเดอร์. It พฤษภาคม เป็น gone, inaccessible ออร์ protected. Choose another ออร์ ลองใหม่.",
+  "botsChildCount": "{เคาท์, plural, อื่นๆ{{เคาท์} child agents}}",
+  "botsCurrentChat": "Current Chat",
+  "botsSubagentCount": "{เคาท์, plural, อื่นๆ{{เคาท์} subagents}}",
+  "botsRunningCount": "{เคาท์, plural, อื่นๆ{{เคาท์} กำลังทำงาน}}",
+  "botsFailedCount": "{เคาท์, plural, อื่นๆ{{เคาท์} ล้มเหลว}}",
+  "botsNestedCount": "{เคาท์, plural, อื่นๆ{Includes {เคาท์} child agents}}",
+  "botsBackToParent": "ย้อนกลับ ไป “{หัวข้อ}”",
+  "botsTeamMemberCount": "{เคาท์, plural, อื่นๆ{Agent TEEม, {เคาท์} members}}",
+  "botsAgentTeam": "Agent TEEม",
+  "botsSubagentRunningCount": "{เคาท์, plural, อื่นๆ{{เคาท์} subagents}}, {กำลังทำงาน, plural, อื่นๆ{{กำลังทำงาน} กำลังทำงาน}}",
+  "botsSubagents": "ซับเอจิ้นต์",
   "botsNoSubagents": "ไม่ subagents sent",
-  "botsOpenChatFirst": "เปิด a chat first",
-  "botsTeamReadFailed": "Couldn’t load the team",
-  "botsNoTeamOnHost": "ไม่ agent team on this host",
-  "botsTeamNotEnabled": "Agent team is off",
-  "botsTeamDescription": "Agents work together on a shared task board",
-  "botsTeamEnabling": "Turning on…",
-  "botsTeamEnable": "Turn on team",
-  "botsMembersWorking": "{count, plural, other{{count} members working}}",
-  "botsTeamStandby": "ทั้งหมด on standby",
-  "botsMembers": "Members",
+  "botsOpenChatFirst": "เปิด  chat ก่อนอื่น",
+  "botsTeamReadFailed": "Couldn’t โหลด  TEEม",
+  "botsNoTeamOnHost": "ไม่ agent team เปิด this โฮสต์",
+  "botsTeamNotEnabled": "Agent TEEม คือ ปิด",
+  "botsTeamDescription": "Agents งาน together เปิด  shared งาน board",
+  "botsTeamEnabling": "Turning เปิด…",
+  "botsTeamEnable": "Turn เปิด TEEม",
+  "botsMembersWorking": "{เคาท์, plural, อื่นๆ{{เคาท์} members working}}",
+  "botsTeamStandby": "ทั้งหมด เปิด standby",
+  "botsMembers": "สมาชิก",
   "botsTasks": "Tasks",
-  "botsTeamRecordUnreadable": "Couldn’t read a team record",
+  "botsTeamRecordUnreadable": "Couldn’t อ่าน  TEEม record",
   "botsMessages": "Messages",
   "botsOwner": "เจ้าของ",
-  "botsTeamCreateHint": "Ask AI to form a team in a chat",
+  "botsTeamCreateHint": "ถาม AI ไป form  TEEม ใน  Chat",
   "botsCurrent": "Current",
-  "botsNoTasks": "ไม่ tasks yet",
-  "botsTodo": "To do",
+  "botsNoTasks": "ไม่ tasks ยัง",
+  "botsTodo": "ไป ทำ",
   "botsUnassigned": "Unassigned",
-  "botsTaskWaitingFor": "กำลังรอ for {dependencies}",
-  "botsWriteOverlap": "Overlapping write scopes",
-  "botsWaitingDependencies": "กำลังรอ on dependencies",
-  "botsReadyToStart": "พร้อม to start",
-  "botsTaskId": "ID",
+  "botsTaskWaitingFor": "กำลังรอ สำหรับ {dependencies}",
+  "botsWriteOverlap": "Overlapping เขียน scopes",
+  "botsWaitingDependencies": "กำลังรอ เปิด dependencies",
+  "botsReadyToStart": "พร้อม ไป เริ่ม",
+  "botsTaskId": "ไอดี",
   "botsDependencies": "Dependencies",
-  "botsWriteScopes": "Write scopes",
-  "botsMessagesReadFailed": "Couldn’t load messages",
-  "botsNoMemberMessages": "ไม่ messages between members yet",
-  "botsMessagesIncomplete": "Some members’ messages didn’t load · ลองใหม่",
+  "botsWriteScopes": "เขียน scopes",
+  "botsMessagesReadFailed": "Couldn’t โหลด messages",
+  "botsNoMemberMessages": "ไม่ messages ระหว่าง members ยัง",
+  "botsMessagesIncomplete": "บาง members’ messages didn’t โหลด · ลองใหม่",
   "botsDateTime": "{date} {time}",
   "botsViewDetails": "ดู details",
   "botsAdmin": "แอดมิน",
-  "botsFullTextChanged": "This conversation has changed",
-  "botsFullTextReopen": "เปิด the message again",
-  "botsFullTextReadFailed": "Couldn’t load the full text",
-  "botsShowAll": "แสดง all",
-  "botsImagePlaceholder": "[Image]",
+  "botsFullTextChanged": "This conversation มี changed",
+  "botsFullTextReopen": "เปิด  ข้อความ อีกครั้ง",
+  "botsFullTextReadFailed": "Couldn’t โหลด  full เท็กซ์",
+  "botsShowAll": "แสดง ทั้งหมด",
+  "botsImagePlaceholder": "[รูปภาพ]",
   "botsSending": "Sending",
-  "botsWriteOwn": "Write your own",
+  "botsWriteOwn": "เขียน your own",
   "botsSubmit": "ส่ง",
-  "botsChooseModelFor": "Choose a model for {name}",
-  "botsModelGreeting": "It’ll say hello once you choose",
-  "botsChooseModel": "Choose model",
+  "botsChooseModelFor": "Choose  Model สำหรับ {ชื่อ}",
+  "botsModelGreeting": "It’ll say hello หนึ่งครั้ง you choose",
+  "botsChooseModel": "Choose Model",
   "botsSkipAnswer": "ข้าม",
-  "botsBotGone": "This bot is gone",
-  "botsWaitingModel": "Choose a model",
+  "botsBotGone": "This bot คือ gone",
+  "botsWaitingModel": "Choose  Model",
   "botsThinking": "Thinking",
   "botsMainBot": "Main bot",
   "botsIdle": "ว่าง",
-  "botsAnsweredQuestion": "You answered its question",
+  "botsAnsweredQuestion": "You answered its คำถาม",
   "botsEarlierMessages": "Earlier messages",
-  "botsComposerHint": "Message {name}…",
-  "botsDeleteNamed": "ลบ “{name}”?",
-  "botsDeleteBotBody": "Its chats stay. Its memories move to the archive.",
+  "botsComposerHint": "ข้อความ {ชื่อ}…",
+  "botsDeleteNamed": "ลบ “{ชื่อ}”?",
+  "botsDeleteBotBody": "Its chats stay. Its memories ย้าย ไป  archive.",
   "botsTokensToday": "24h tokens",
   "botsMemoryUnit": "Memories",
   "botsRoomUnit": "กลุ่ม chats",
   "botsProfile": "โปรไฟล์",
-  "botsModel": "Model",
+  "botsModel": "โมเดล",
   "botsBotName": "ชื่อ",
   "botsRole": "บทบาท",
-  "botsWriterExample": "For example: Writer",
+  "botsWriterExample": "สำหรับ ตัวอย่าง: Writer",
   "botsInstructions": "Instructions",
-  "botsInstructionsHint": "How it should work",
+  "botsInstructionsHint": "How it should งาน",
   "botsColor": "สี",
   "botsUsage": "การใช้งาน",
-  "botsUsageScanning": "Still counting older chats. Totals will fill in.",
+  "botsUsageScanning": "ยัง counting older chats. Totals will fill ใน.",
   "botsUsageRefresh": "รีเฟรช",
   "botsToday": "สุดท้าย 24 hours",
   "botsLastWeek": "สุดท้าย 7 days",
   "botsLastMonth": "สุดท้าย 30 days",
-  "botsMonthCalls": "{count, plural, other{Last 30 days · {count} calls}}",
+  "botsMonthCalls": "{เคาท์, plural, อื่นๆ{ลาสท์ 30 days · {เคาท์} calls}}",
   "botsFullRecord": "Full record",
-  "botsEveryToolCall": "Every tool call",
+  "botsEveryToolCall": "ทุก เครื่องมือ คอลล์",
   "botsUnsetMain": "Unset main bot",
-  "botsSetMain": "Set as main",
+  "botsSetMain": "เซ็ท ในฐานะ main",
   "botsDeleteBot": "ลบ bot",
   "botsEffortOff": "ไม่ thinking",
   "botsEffortMinimal": "Minimal",
@@ -108,58 +107,58 @@
   "botsEffortMedium": "กลาง",
   "botsEffortHigh": "สูง",
   "botsEffortMax": "สูงสุด",
-  "botsNamedRecord": "{name} · Full record",
+  "botsNamedRecord": "{ชื่อ} · Full record",
   "botsOrganizingNotes": "Organizing notes",
-  "botsToolRun": "run commands",
-  "botsToolRead": "view files",
-  "botsToolEdit": "edit files",
-  "botsToolSearch": "search the web",
-  "botsToolBrowse": "browse the web",
-  "botsToolMessage": "contact other bots",
-  "botsToolGroup": "chat with the group",
+  "botsToolRun": "เรียกใช้ commands",
+  "botsToolRead": "มุมมอง files",
+  "botsToolEdit": "แก้ไข files",
+  "botsToolSearch": "ค้นหา  web",
+  "botsToolBrowse": "browse  web",
+  "botsToolMessage": "contact อื่นๆ bots",
+  "botsToolGroup": "Chat กับ  กลุ่ม",
   "botsToolMemory": "organize memories",
-  "botsToolRecall": "look through records",
-  "botsToolTeam": "organize the team",
-  "botsToolAsk": "ask you something",
-  "botsToolWork": "work",
-  "botsJustNow": "Just now",
-  "botsCountHundredMillion": "{value}M",
-  "botsCountTenThousand": "{value}K",
-  "botsModelNotSelected": "Not selected",
-  "botsYourPreview": "You: {preview}",
-  "botsEventWorking": "{name} started working",
-  "botsEventApproval": "{name} needs your approval",
-  "botsEventDone": "{name} finished working",
-  "botsEventStopped": "You stopped {name}’s work",
-  "botsEventFailed": "{name} couldn’t answer",
-  "botsEventMissed": "{name} didn’t respond in time",
-  "botsEventLookup": "{name} looked through its chats",
-  "botsEventLookupQuery": "{name} searched its chats for “{query}”",
-  "botsEventResumed": "{name} resumed after restarting",
-  "botsEventCut": "{name} stopped after another restart interrupted it",
+  "botsToolRecall": "look ผ่าน records",
+  "botsToolTeam": "organize  TEEม",
+  "botsToolAsk": "ถาม you something",
+  "botsToolWork": "งาน",
+  "botsJustNow": "เพียง ตอนนี้",
+  "botsCountHundredMillion": "{ค่า}M",
+  "botsCountTenThousand": "{ค่า}K",
+  "botsModelNotSelected": "นอต selected",
+  "botsYourPreview": "You: {พรีVUE}",
+  "botsEventWorking": "{ชื่อ} started working",
+  "botsEventApproval": "{ชื่อ} needs your approval",
+  "botsEventDone": "{ชื่อ} finished working",
+  "botsEventStopped": "You หยุด {ชื่อ}’s งาน",
+  "botsEventFailed": "{ชื่อ} couldn’t คำตอบ",
+  "botsEventMissed": "{ชื่อ} didn’t respond ใน ไทม์",
+  "botsEventLookup": "{ชื่อ} looked ผ่าน its chats",
+  "botsEventLookupQuery": "{ชื่อ} searched its chats สำหรับ “{คิวรี}”",
+  "botsEventResumed": "{ชื่อ} resumed หลัง restarting",
+  "botsEventCut": "{ชื่อ} หยุด หลัง another รีสตาร์ท interrupted it",
   "botsAutomation": "Automation",
-  "botsAutomationText": "Automation: {text}",
+  "botsAutomationText": "Automation: {เท็กซ์}",
   "botsOtherBot": "Another bot",
-  "botsMessageFrom": "Message from {name}",
-  "botsEventReplied": "{name} replied",
-  "botsGroupReplied": "A reply in the group",
-  "botsNamedGroupReplied": "A reply in “{name}”",
-  "botsEventCalledStop": "{name} stopped the work",
-  "botsChooseMember": "Choose member",
+  "botsMessageFrom": "ข้อความ จาก {ชื่อ}",
+  "botsEventReplied": "{ชื่อ} replied",
+  "botsGroupReplied": " reply ใน  กลุ่ม",
+  "botsNamedGroupReplied": " reply ใน “{ชื่อ}”",
+  "botsEventCalledStop": "{ชื่อ} หยุด  งาน",
+  "botsChooseMember": "เลือก member",
   "botsMentionMember": "Mention member",
-  "botsRelayUnavailable": "Bots aren’t available over Relay",
-  "botsUseSsh": "เชื่อมต่อ to this computer over SSH to use bots",
-  "botsTeamLoadFailed": "Couldn’t load the bot team",
-  "botsBotCount": "{count, plural, other{{count} bots}}",
-  "botsRoomCount": "{count, plural, other{{count} group chats}}",
+  "botsRelayUnavailable": "Bots aren’t available เกิน Relay",
+  "botsUseSsh": "เชื่อมต่อ ไป this computer เกิน SSH ไป use bots",
+  "botsTeamLoadFailed": "Couldn’t โหลด  bot TEEม",
+  "botsBotCount": "{เคาท์, plural, อื่นๆ{{เคาท์} bots}}",
+  "botsRoomCount": "{เคาท์, plural, อื่นๆ{{เคาท์} กลุ่ม chats}}",
   "botsNewBot": "ใหม่ bot",
   "botsGroupChat": "กลุ่ม chat",
-  "botsNewGroup": "ใหม่ group",
-  "botsDuplicateCreated": "Copied. It will show up in the list shortly.",
+  "botsNewGroup": "ใหม่ กรุ๊ป",
+  "botsDuplicateCreated": "Copied. It will แสดง ขึ้น ใน  รายการ shortly.",
   "botsDuplicate": "ซ้ำ Bot",
-  "botsDuplicateHint": "Same settings, fresh chat and memory",
-  "botsDuplicateNamed": "ซ้ำ {name}?",
-  "botsDuplicateBody": "The new Bot keeps its job, instructions and model settings, starts with a fresh chat and personal memory, and gets its name from the host. When a model is available, it opens with a greeting.",
+  "botsDuplicateHint": "Same ตั้งค่า, fresh Chat แอนด์ หน่วยความจำ",
+  "botsDuplicateNamed": "ซ้ำ {ชื่อ}?",
+  "botsDuplicateBody": " ใหม่ Bot keeps its งาน, instructions แอนด์ Model ตั้งค่า, starts กับ  fresh Chat แอนด์ personal หน่วยความจำ, แอนด์ gets its ชื่อ จาก  โฮสต์. เมื่อ  Model คือ available, it opens กับ  greeting.",
   "@botsDuplicateNamed": {
     "placeholders": {
       "name": {
@@ -167,43 +166,43 @@
       }
     }
   },
-  "botsChooseModelStart": "Choose a model to start",
-  "botsNoChats": "ไม่ chats yet",
-  "botsUnreadCount": "{count, plural, other{{count} unread}}",
+  "botsChooseModelStart": "Choose  Model ไป เริ่ม",
+  "botsNoChats": "ไม่ chats ยัง",
+  "botsUnreadCount": "{เคาท์, plural, อื่นๆ{{เคาท์} unread}}",
   "botsMainTag": "Main",
-  "botsMemberNeedsApproval": "A member needs approval",
-  "botsNamedWorking": "{name} is working",
-  "botsNamesWorking": "{names} are working",
-  "botsMemberCount": "{count, plural, other{{count} members}}",
-  "botsUpdateRequired": "DS Bot needs an update",
+  "botsMemberNeedsApproval": " member needs approval",
+  "botsNamedWorking": "{ชื่อ} คือ working",
+  "botsNamesWorking": "{names} คือ กำลังทำงาน",
+  "botsMemberCount": "{เคาท์, plural, อื่นๆ{{เคาท์} members}}",
+  "botsUpdateRequired": "DS Bot needs  อัปเดต",
   "botsInstall": "ติดตั้ง DS Bot",
-  "botsUpdateForPhone": "อัปเดต to use it on your phone",
-  "botsInstallDescription": "Always-on bots, each with its own memory and role",
-  "botsInstallOnHost": "ติดตั้ง on {host} to get started",
-  "botsRunsOnHost": "Runs on {host}",
-  "botsInstalling": "Installing",
+  "botsUpdateForPhone": "อัปเดต ไป use it เปิด your phone",
+  "botsInstallDescription": "เสมอ-เปิด bots, แต่ละ กับ its own หน่วยความจำ แอนด์ บทบาท",
+  "botsInstallOnHost": "ติดตั้ง เปิด {โฮสต์} ไป get started",
+  "botsRunsOnHost": "Runs เปิด {โฮสต์}",
+  "botsInstalling": "กำลังติดตั้ง",
   "botsMemory": "หน่วยความจำ",
-  "botsEditMemory": "แก้ไข memory",
-  "botsAddMemory": "เพิ่ม memory",
-  "botsMemoryReplyExample": "For example: Keep replies short",
-  "botsMemoryDraftExample": "For example: First draft by Friday",
+  "botsEditMemory": "แก้ไข เมมโมรี่",
+  "botsAddMemory": "เพิ่ม เมมโมรี่",
+  "botsMemoryReplyExample": "สำหรับ ตัวอย่าง: Keep replies short",
+  "botsMemoryDraftExample": "สำหรับ ตัวอย่าง: เฟิร์ส draft โดย วันศุกร์",
   "botsMemoryCount": "{count, plural, other{Memory · {count}}}",
-  "botsMemoryReadFailed": "Couldn’t load memories",
+  "botsMemoryReadFailed": "Couldn’t โหลด memories",
   "botsSummary": "สรุป",
-  "botsNoMemory": "ไม่ memories yet",
-  "botsTeam": "ทีม",
+  "botsNoMemory": "ไม่ memories ยัง",
+  "botsTeam": "TEEม",
   "botsSelf": "Self",
-  "botsWrittenByYou": "Written by you",
-  "botsNameRequired": "Enter a name",
-  "botsRoleHint": "What it does, in one sentence",
-  "botsNewInstructionsHint": "How it should work and what to keep in mind",
+  "botsWrittenByYou": "Written โดย you",
+  "botsNameRequired": "เอ็นเตอร์  ชื่อ",
+  "botsRoleHint": "What it does, ใน one sentence",
+  "botsNewInstructionsHint": "How it should งาน แอนด์ what ไป keep ใน mind",
   "botsAppearance": "Appearance",
   "botsCreating": "Creating",
-  "botsGroupNameOptional": "กลุ่ม name (optional)",
-  "botsMembersSelected": "{count, plural, other{Members · {count} selected}}",
-  "botsPickTwoBots": "Pick at least two bots",
-  "botsFullText": "Full text",
-  "botsTextPartial": "Showing the first {count} characters",
+  "botsGroupNameOptional": "กลุ่ม ชื่อ (optional)",
+  "botsMembersSelected": "{เคาท์, plural, อื่นๆ{Members · {เคาท์} selected}}",
+  "botsPickTwoBots": "Pick at น้อยที่สุด two bots",
+  "botsFullText": "Full เท็กซ์",
+  "botsTextPartial": "Showing  เฟิร์ส {เคาท์} characters",
   "@botsTextPartial": {
     "placeholders": {
       "count": {
@@ -211,220 +210,220 @@
       }
     }
   },
-  "botsTextCompletenessUnknown": "Couldn’t confirm this is the complete text",
-  "botsRoomGone": "This group chat is gone",
-  "botsNamedSpeaking": "{name} is speaking",
+  "botsTextCompletenessUnknown": "Couldn’t ยืนยัน this คือ  complete เท็กซ์",
+  "botsRoomGone": "This กลุ่ม Chat คือ gone",
+  "botsNamedSpeaking": "{ชื่อ} คือ speaking",
   "botsNamedActivity": "{name}: {activity}",
   "botsWorking": "กำลังทำงาน",
   "botsDiscussing": "Discussing",
   "botsTyping": "Typing",
-  "botsGroupComposerHint": "Message everyone…",
+  "botsGroupComposerHint": "ข้อความ everyone…",
   "botsDecline": "ปฏิเสธ",
-  "botsAllowOnce": "อนุญาต once",
-  "botsPrivateChat": "Chat privately",
-  "botsSetAdmin": "Make admin",
-  "botsRemoveMember": "นำออก from group",
-  "botsDeleteRoomBody": "The group’s records stay. Its memories move to the archive.",
-  "botsNamedAdmin": "แอดมิน {name}",
-  "botsRoomWorkingCount": "{count, plural, other{{count} working}}",
+  "botsAllowOnce": "อนุญาต หนึ่งครั้ง",
+  "botsPrivateChat": "แชท privately",
+  "botsSetAdmin": "Make แอดมิน",
+  "botsRemoveMember": "นำออก จาก กรุ๊ป",
+  "botsDeleteRoomBody": " กลุ่ม’s records stay. Its memories ย้าย ไป  archive.",
+  "botsNamedAdmin": "แอดมิน {ชื่อ}",
+  "botsRoomWorkingCount": "{เคาท์, plural, อื่นๆ{{เคาท์} working}}",
   "botsMembersCountTitle": "{count, plural, other{Members · {count}}}",
   "botsStopMember": "หยุด",
   "botsAddMember": "เพิ่ม members",
-  "botsWhoAnswers": "Who answers first",
-  "botsAdminFirst": "แอดมิน first",
-  "botsEveryoneInTurn": "Take turns",
-  "botsGroupName": "กลุ่ม name",
-  "botsGroupNotice": "กลุ่ม notice",
-  "botsGroupNoticeHint": "Every member sees this before speaking",
-  "botsDeleteGroup": "ลบ group",
+  "botsWhoAnswers": "Who answers เฟิร์ส",
+  "botsAdminFirst": "แอดมิน ก่อนอื่น",
+  "botsEveryoneInTurn": "TEEก turns",
+  "botsGroupName": "กลุ่ม ชื่อ",
+  "botsGroupNotice": "กลุ่ม การแจ้งเตือน",
+  "botsGroupNoticeHint": "ทุก member sees this ก่อน speaking",
+  "botsDeleteGroup": "ลบ กรุ๊ป",
   "botsDiscardTitle": "Discard changes?",
   "botsKeepEditing": "Keep editing",
   "botsDiscard": "Discard",
   "botsProgress": "Progress",
   "botsGlyphRun": "เรียกใช้",
-  "botsGlyphJobOutput": "List background jobs",
-  "botsGlyphJobs": "Background jobs",
-  "botsGlyphStopJob": "หยุด background job",
+  "botsGlyphJobOutput": "รายการ background jobs",
+  "botsGlyphJobs": "พื้นหลัง jobs",
+  "botsGlyphStopJob": "หยุด background งาน",
   "botsGlyphRead": "อ่านแล้ว",
   "botsGlyphImage": "ดู image",
   "botsGlyphDeliver": "Present files",
-  "botsGlyphWrite": "Write",
+  "botsGlyphWrite": "เขียน",
   "botsGlyphSearch": "ค้นหา",
   "botsGlyphFindFiles": "ค้นหา files",
   "botsGlyphOpenWeb": "เปิด webpage",
-  "botsGlyphMessageAgent": "Message subagent",
-  "botsGlyphInterruptAgent": "Interrupt subagent",
-  "botsGlyphListModels": "List subagent models",
+  "botsGlyphMessageAgent": "ข้อความ subagent",
+  "botsGlyphInterruptAgent": "Interrupt ซับเอจิ้นต์",
+  "botsGlyphListModels": "รายการ subagent models",
   "botsGlyphWorkflow": "Workflow",
-  "botsGlyphLoop": "Loop task",
-  "botsGlyphSkill": "Use skill",
-  "botsGlyphTodo": "อัปเดต to-dos",
-  "botsGlyphSetGoal": "Set goal",
-  "botsGlyphViewGoal": "ดู goal",
-  "botsGlyphUpdateGoal": "อัปเดต goal",
-  "botsGlyphAsk": "Ask question",
-  "botsCommunityEmpty": "Nothing here yet",
-  "botsCommunityGroups": "Chat groups",
+  "botsGlyphLoop": "Loop งาน",
+  "botsGlyphSkill": "ใช้ skill",
+  "botsGlyphTodo": "อัปเดต ไป-dos",
+  "botsGlyphSetGoal": "เซ็ท เป้าหมาย",
+  "botsGlyphViewGoal": "ดู เป้าหมาย",
+  "botsGlyphUpdateGoal": "อัปเดต เป้าหมาย",
+  "botsGlyphAsk": "ถาม คำถาม",
+  "botsCommunityEmpty": "Nothing here ยัง",
+  "botsCommunityGroups": "แชท groups",
   "botsCommunity": "Community",
   "botsForum": "Forum",
-  "botsForumSubtitle": "Ask, share, connect",
-  "botsProjectHome": "DSH Go project home",
-  "botsOpenSource": "Open-source project",
-  "botsPluginCatalogFailed": "Couldn’t open the plugin catalog",
-  "botsTapRetry": "Tap to retry",
+  "botsForumSubtitle": "ถาม, แชร์, เชื่อมต่อ",
+  "botsProjectHome": "DSH Go โปรเจกต์ โฮม",
+  "botsOpenSource": "เปิด-source โปรเจกต์",
+  "botsPluginCatalogFailed": "Couldn’t เปิด  ปลั๊กอิน catalog",
+  "botsTapRetry": "Tap ไป ลองใหม่",
   "botsFeaturedPlugins": "แนะนำ plugins",
-  "botsPluginSource": "Plugin info from dshfind",
-  "botsPromptIdeas": "Try this",
-  "botsUpdates": "What’s new",
-  "botsLink": "link",
-  "botsLinkOpenFailed": "Couldn’t open {host}",
-  "botsYearMonth": "{month, select, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{May} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} other{{month}}} {year}",
-  "botsCopyGroupNumber": "คัดลอก group number",
-  "botsQrCodeLabel": "{title} QR code",
+  "botsPluginSource": "ปลั๊กอิน ข้อมูล จาก dshfind",
+  "botsPromptIdeas": "ทราย this",
+  "botsUpdates": "What’s ใหม่",
+  "botsLink": "ลิงก์",
+  "botsLinkOpenFailed": "Couldn’t เปิด {โฮสต์}",
+  "botsYearMonth": "{มอนท์, เซเล็ก, 1{Jan} 2{Feb} 3{Mar} 4{Apr} 5{พฤษภาคม} 6{Jun} 7{Jul} 8{Aug} 9{Sep} 10{Oct} 11{Nov} 12{Dec} อื่นๆ{{มอนท์}}} {ยีอาร์}",
+  "botsCopyGroupNumber": "คัดลอก กรุ๊ป number",
+  "botsQrCodeLabel": "{หัวข้อ} QR code",
   "botsFiles": "Files",
-  "botsEmptyCell": "(empty)",
-  "botsYesterdayTime": "เมื่อวาน {time}",
-  "botsOutsideWorkspace": "Outside the workspace",
-  "botsNotFolder": "This isn’t a folder",
-  "botsChatNotFound": "Chat not found",
-  "botsBrowseUnsupported": "This connection doesn’t support file browsing",
-  "botsWorkspace": "Workspace",
+  "botsEmptyCell": "(ว่าง)",
+  "botsYesterdayTime": "เมื่อวาน {ไทม์}",
+  "botsOutsideWorkspace": "Outside  Workspace",
+  "botsNotFolder": "This isn’t  โฟลเดอร์",
+  "botsChatNotFound": "Chat นอต found",
+  "botsBrowseUnsupported": "This การเชื่อมต่อ doesn’t รองรับ ไฟล์ browsing",
+  "botsWorkspace": "เวิร์กสเปซ",
   "botsSearchFiles": "ค้นหา files",
-  "botsGoUp": "Go up",
-  "botsEmptyFolder": "Empty folder",
-  "botsFileCount": "{count, plural, other{{count} files}}",
-  "botsTruncatedItems": "{count, plural, other{Only the first {count} items are shown}}",
+  "botsGoUp": "Go ขึ้น",
+  "botsEmptyFolder": "Empty โฟลเดอร์",
+  "botsFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
+  "botsTruncatedItems": "{เคาท์, plural, อื่นๆ{เท่านั้น  เฟิร์ส {เคาท์} items are shown}}",
   "botsMoreActions": "เพิ่มเติม actions",
-  "botsSearchFailed": "Couldn’t search",
+  "botsSearchFailed": "Couldn’t ค้นหา",
   "botsNoResults": "ไม่ results",
-  "botsCopyPath": "คัดลอก path",
-  "botsPetOutsideApp": "แสดง outside the app",
-  "botsPetNotAuthorized": "Not allowed",
-  "botsPetDisplayWhen": "When to show",
-  "botsPetWhenActive": "When active",
+  "botsCopyPath": "คัดลอก พาธ",
+  "botsPetOutsideApp": "แสดง outside  app",
+  "botsPetNotAuthorized": "นอต allowed",
+  "botsPetDisplayWhen": "เมื่อ ไป แสดง",
+  "botsPetWhenActive": "เมื่อ ใช้งาน中",
   "botsPetAlways": "เสมอ",
   "botsPetSwitchDisabled": "สวิตช์ disabled",
-  "botsPetRestrictedSettings": "อนุญาต restricted settings",
-  "botsPetHiddenToday": "ซ่อน for today",
+  "botsPetRestrictedSettings": "อนุญาต restricted ตั้งค่า",
+  "botsPetHiddenToday": "ซ่อน สำหรับ วันนี้",
   "botsPetRestore": "กู้คืน",
   "botsPetChange": "เปลี่ยน pet",
-  "botsPetHideHour": "ซ่อน for 1 hour",
-  "botsPetSettings": "Pet settings",
+  "botsPetHideHour": "ซ่อน สำหรับ 1 อาวเออร์",
+  "botsPetSettings": "Pet ตั้งค่า",
   "botsPetDeepy": "Deepy",
   "botsPetWhaleGirl": "Whale girl",
   "botsPetNone": "ไม่มี",
   "botsPets": "Pets",
-  "botsPetSource": "From DSH-TUI",
-  "botsPetImport": "Import",
-  "botsPetImportHint": "Bring your own pixel pet: a zip with pack.json and PNG frame sheets; the format is in docs/design/pets.md in the repository. Long-press an imported pet to delete it.",
-  "botsPetImportDone": "{name} is here",
-  "botsPetCodexTitle": "{name} was converted from a Codex pet",
-  "botsPetCodexBody": "Most of it carries over as it was. A few things differ:",
+  "botsPetSource": "จาก DSH-TUI",
+  "botsPetImport": "นำเข้า",
+  "botsPetImportHint": "Bring your own pixel pet:  zip กับ pack.JSON แอนด์ PNG frame sheets;  ฟอร์แมต คือ ใน docs/design/pets.md ใน  repository. Long-press  imported pet ไป ลบ it.",
+  "botsPetImportDone": "{ชื่อ} คือ here",
+  "botsPetCodexTitle": "{ชื่อ} was converted จาก  Codex pet",
+  "botsPetCodexBody": "มากที่สุด ของ it carries เกิน ในฐานะ it was.  น้อย things differ:",
   "botsPetCodexOk": "Got it",
-  "botsPetCodexLoops": "Motions loop until the state changes, instead of settling back to idle after a few rounds as in Codex",
-  "botsPetCodexRoamLeft": "Walking left mirrors the walking-right row",
-  "botsPetCodexDrag": "Dragging always uses the facing-right row",
-  "botsPetCodexSleep": "Sleeping shows the first idle frame",
-  "botsPetCodexLook": "The look-in-each-direction cells are not used",
-  "botsPetCodexWebp": "The WebP sheet was converted to PNG",
-  "botsPetCodexCustomTracks": "กำหนดเอง motion rows are not tied to any state",
-  "botsPetCodexFps": "Frame rates were rounded to whole milliseconds",
-  "botsPetCodexOneShot": "Where a play-once motion returns to is decided by DSH",
-  "botsPetCodexMissingAuthor": "The pack names no author",
-  "botsPetCodexMissingLicense": "The pack names no license",
-  "botsPetCodexMissingSource": "The pack names no source",
-  "botsPetImportReplaced": "{name} was updated",
-  "botsPetImportNotZip": "That isn't a zip file",
-  "botsPetImportNoPack": "There's no pack.json in the zip",
-  "botsPetImportBadPack": "pack.json has a problem: {detail}",
-  "botsPetImportMissingSheet": "The zip is missing the sheet {name}",
-  "botsPetImportBadSheet": "A sheet isn't right: {name} (a complete PNG, at most 4096 pixels a side, every frame inside it)",
-  "botsPetImportTooLarge": "This pet pack is too big",
-  "botsPetImportStorage": "Couldn't save it on the phone. Try again",
-  "botsPetRemoveTitle": "ลบ {name}?",
-  "botsPetRemoveBody": "You can import it again later.",
-  "botsPetRemoveFailed": "Couldn't delete {name}. Try again",
+  "botsPetCodexLoops": "Motions loop จนกว่า  สเตท changes, instead ของ settling ย้อนกลับ ไป idle หลัง  น้อย rounds ในฐานะ ใน Codex",
+  "botsPetCodexRoamLeft": "Walking left mirrors  walking-right แถว",
+  "botsPetCodexDrag": "Dragging เสมอ uses  facing-right แถว",
+  "botsPetCodexSleep": "Sleeping shows  เฟิร์ส idle frame",
+  "botsPetCodexLook": " look-ใน-แต่ละ-direction cells are นอต used",
+  "botsPetCodexWebp": " WebP sheet was converted ไป PNG",
+  "botsPetCodexCustomTracks": "กำหนดเอง motion rows are นอต tied ไป ใดๆ state",
+  "botsPetCodexFps": "Frame rates were rounded ไป whole milliseconds",
+  "botsPetCodexOneShot": "เวียร์  play-หนึ่งครั้ง motion returns ไป คือ decided โดย DSH",
+  "botsPetCodexMissingAuthor": " pack names ไม่ ผู้เขียน",
+  "botsPetCodexMissingLicense": " pack names ไม่ ใบอนุญาต",
+  "botsPetCodexMissingSource": " pack names ไม่ source",
+  "botsPetImportReplaced": "{ชื่อ} was updated",
+  "botsPetImportNotZip": "That isn't  zip ไฟล์",
+  "botsPetImportNoPack": "There's ไม่ pack.JSON ใน  zip",
+  "botsPetImportBadPack": "pack.JSON has  problem: {รายละเอียด}",
+  "botsPetImportMissingSheet": " zip คือ missing  sheet {ชื่อ}",
+  "botsPetImportBadSheet": " sheet isn't right: {ชื่อ} ( complete PNG, at มากที่สุด 4096 pixels  side, ทุก frame inside it)",
+  "botsPetImportTooLarge": "This pet pack คือ เกินไป big",
+  "botsPetImportStorage": "Couldn't บันทึก it เปิด  phone. ทราย อีกครั้ง",
+  "botsPetRemoveTitle": "ลบ {ชื่อ}?",
+  "botsPetRemoveBody": "You can นำเข้า it อีกครั้ง ภายหลัง.",
+  "botsPetRemoveFailed": "Couldn't ลบ {ชื่อ}. ทราย อีกครั้ง",
   "botsPetSize": "ขนาด",
   "botsPetQuiet": "เงียบ mode",
-  "botsPetQuietSubtitle": "Animations only, no bubbles",
-  "botsPetShowNow": "แสดง now",
-  "botsPetHiddenUntil": "ซ่อน until {time}",
+  "botsPetQuietSubtitle": "Animations เท่านั้น, ไม่ bubbles",
+  "botsPetShowNow": "แสดง ตอนนี้",
+  "botsPetHiddenUntil": "ซ่อน จนกว่า {ไทม์}",
   "botsKeyEsc": "ส่ง Esc",
   "botsKeyTab": "ส่ง Tab",
-  "botsKeyLeft": "Left",
-  "botsKeyUp": "Up",
-  "botsKeyDown": "Down",
+  "botsKeyLeft": "ซ้าย",
+  "botsKeyUp": "ขึ้น",
+  "botsKeyDown": "ลง",
   "botsKeyRight": "สิทธิ์",
   "botsKeyPipe": "Pipe",
   "botsKeyTilde": "Tilde",
   "botsKeySlash": "Slash",
   "botsKeyDash": "Hyphen",
-  "botsTerminal": "Terminal",
-  "botsTerminalRename": "Rename terminal",
-  "botsTerminalName": "Terminal name",
-  "botsTerminalRenameFailed": "Couldn’t rename",
-  "botsTerminalCloseNamed": "ปิด “{title}”?",
-  "botsTerminalCloseBody": "Processes inside will end",
-  "botsTerminalUnsupported": "Terminal isn’t available on this connection",
-  "botsTerminalSupportedHosts": "พร้อมใช้งาน on this phone, an SSH host or a Remote computer",
-  "botsTerminalOpening": "Opening terminal…",
-  "botsTerminalNone": "ไม่ open terminals",
+  "botsTerminal": "เทอร์มินัล",
+  "botsTerminalRename": "รีเนม Terminal",
+  "botsTerminalName": "Terminal ชื่อ",
+  "botsTerminalRenameFailed": "Couldn’t รีเนม",
+  "botsTerminalCloseNamed": "ปิด “{หัวข้อ}”?",
+  "botsTerminalCloseBody": "Processes inside จะ end",
+  "botsTerminalUnsupported": "Terminal isn’t available เปิด this การเชื่อมต่อ",
+  "botsTerminalSupportedHosts": "พร้อมใช้งาน เปิด this phone,  SSH โฮสต์ ออร์  รีโมต computer",
+  "botsTerminalOpening": "Opening Terminal…",
+  "botsTerminalNone": "ไม่ เปิด terminals",
   "botsTerminalNew": "ใหม่ terminal",
   "botsTerminalClose": "ปิด terminal",
-  "botsTerminalChooseShell": "Choose shell",
-  "botsTerminalShellFailed": "Couldn’t load shells",
+  "botsTerminalChooseShell": "Choose เชลล์",
+  "botsTerminalShellFailed": "Couldn’t โหลด shells",
   "botsTerminalReading": "Reading…",
   "botsTerminalDefaultShell": "ค่าเริ่มต้น shell",
-  "botsTerminalOtherDevice": "Another device is typing",
-  "botsTerminalTakeOver": "Take over",
+  "botsTerminalOtherDevice": "Another device คือ typing",
+  "botsTerminalTakeOver": "TEEก เกิน",
   "botsTerminalStarting": "Starting…",
-  "botsTerminalConnecting": "Connecting…",
-  "botsTerminalDisconnected": "Disconnected",
-  "botsTerminalReconnect": "Reconnect",
-  "botsTerminalEnded": "Ended",
-  "botsTerminalExitCode": "Ended · Exit code {code}",
-  "botsTerminalGone": "This terminal is gone",
-  "botsTerminalLimit": "ปิด unused terminals first",
+  "botsTerminalConnecting": "กำลังเชื่อมต่อ…",
+  "botsTerminalDisconnected": "ตัดการเชื่อมต่อ",
+  "botsTerminalReconnect": "เชื่อมต่อใหม่",
+  "botsTerminalEnded": "สิ้นสุด",
+  "botsTerminalExitCode": "Ended · Exit โค้ด {code}",
+  "botsTerminalGone": "This Terminal คือ gone",
+  "botsTerminalLimit": "ปิด unused terminals ก่อนอื่น",
   "botsToolWorkingRun": "กำลังทำงาน commands",
-  "botsToolApprovalRun": "{name} wants to run commands",
+  "botsToolApprovalRun": "{ชื่อ} wants ไป เรียกใช้ commands",
   "botsToolWorkingRead": "Viewing files",
-  "botsToolApprovalRead": "{name} wants to view files",
+  "botsToolApprovalRead": "{ชื่อ} wants ไป มุมมอง files",
   "botsToolWorkingEdit": "Editing files",
-  "botsToolApprovalEdit": "{name} wants to edit files",
-  "botsToolWorkingSearch": "Searching the web",
-  "botsToolApprovalSearch": "{name} wants to search the web",
-  "botsToolWorkingBrowse": "Browsing the web",
-  "botsToolApprovalBrowse": "{name} wants to browse the web",
-  "botsToolWorkingMessage": "Contacting other bots",
-  "botsToolApprovalMessage": "{name} wants to contact other bots",
-  "botsToolWorkingGroup": "Chatting with the group",
-  "botsToolApprovalGroup": "{name} wants to chat with the group",
+  "botsToolApprovalEdit": "{ชื่อ} wants ไป แก้ไข files",
+  "botsToolWorkingSearch": "Searching  web",
+  "botsToolApprovalSearch": "{ชื่อ} wants ไป ค้นหา  web",
+  "botsToolWorkingBrowse": "Browsing  web",
+  "botsToolApprovalBrowse": "{ชื่อ} wants ไป browse  web",
+  "botsToolWorkingMessage": "Contacting อื่นๆ bots",
+  "botsToolApprovalMessage": "{ชื่อ} wants ไป contact อื่นๆ bots",
+  "botsToolWorkingGroup": "Chatting กับ  กลุ่ม",
+  "botsToolApprovalGroup": "{ชื่อ} wants ไป Chat กับ  กลุ่ม",
   "botsToolWorkingMemory": "Organizing memories",
-  "botsToolApprovalMemory": "{name} wants to organize memories",
-  "botsToolWorkingRecall": "Looking through records",
-  "botsToolApprovalRecall": "{name} wants to look through records",
-  "botsToolWorkingTeam": "Organizing the team",
-  "botsToolApprovalTeam": "{name} wants to organize the team",
-  "botsToolWorkingAsk": "Preparing to ask you",
-  "botsToolApprovalAsk": "{name} wants to ask you something",
+  "botsToolApprovalMemory": "{ชื่อ} wants ไป organize memories",
+  "botsToolWorkingRecall": "Looking ผ่าน records",
+  "botsToolApprovalRecall": "{ชื่อ} wants ไป look ผ่าน records",
+  "botsToolWorkingTeam": "Organizing  TEEม",
+  "botsToolApprovalTeam": "{ชื่อ} wants ไป organize  TEEม",
+  "botsToolWorkingAsk": "Preparing ไป ถาม you",
+  "botsToolApprovalAsk": "{ชื่อ} wants ไป ถาม you something",
   "botsToolWorkingWork": "กำลังทำงาน",
-  "botsToolApprovalWork": "{name} wants to work",
+  "botsToolApprovalWork": "{ชื่อ} wants ไป งาน",
   "botsEveryone": "Everyone",
   "botsActivelyRunning": "กำลังทำงาน",
   "botsListSeparator": ", ",
   "botsNameSeparator": ", ",
-  "botsGlyphSubagent": "Subagent",
-  "botsGlyphWebSearch": "Web search",
+  "botsGlyphSubagent": "ซับเอจิ้นต์",
+  "botsGlyphWebSearch": "Web ค้นหา",
   "botsSenderPreview": "{name}: {preview}",
   "botsAgentSemantics": "{title}, {state}",
   "botsViewMetric": "{label}: {value}",
   "botsEffortXhigh": "Extra high",
-  "botsRelayLimit": "Bot relay limit",
-  "botsRelayLimitHint": "หยุดชั่วคราว after this many Bot-to-Bot calls since your last message. Enter a whole number from 1 to 200, or leave empty for the default.",
-  "botsRelayLimitDefault": "Default: {count}",
-  "botsRelayLimitInvalid": "Enter a whole number from 1 to 200.",
-  "botsRelayLimitRestore": "กู้คืน default",
-  "botsRelayLimitConnectionChanged": "The connection changed. Close this sheet and open it again.",
+  "botsRelayLimit": "Bot relay ลิมิต",
+  "botsRelayLimitHint": "หยุดชั่วคราว หลัง this มาก Bot-ไป-Bot calls ตั้งแต่ your last ข้อความ. เอ็นเตอร์  whole number จาก 1 ไป 200, ออร์ LEAF empty สำหรับ  ดีฟอลต์.",
+  "botsRelayLimitDefault": "ค่าเริ่มต้น: {เคาท์}",
+  "botsRelayLimitInvalid": "เอ็นเตอร์  whole ตัวเลข จาก 1 ไป 200.",
+  "botsRelayLimitRestore": "กู้คืน ดีฟอลต์",
+  "botsRelayLimitConnectionChanged": " การเชื่อมต่อ changed. ปิด this sheet แอนด์ เปิด it อีกครั้ง.",
   "@botsRelayLimitDefault": {
     "placeholders": {
       "count": {
@@ -432,8 +431,606 @@
       }
     }
   },
-  "botsMobileUnsupportedTitle": "DS Bot isn't on mobile yet",
-  "botsMobileApiRequired": "Use it in DSH Web for now",
-  "botsMobileApiMissing": "Not on mobile yet. Use it in DSH Web for now",
-  "botsCreationConnectionChanged": "The connection changed. Reopen this form to create on the current host."
+  "botsMobileUnsupportedTitle": "DS Bot isn't เปิด mobile ยัง",
+  "botsMobileApiRequired": "Use it ใน DSH Web สำหรับ ตอนนี้",
+  "botsMobileApiMissing": "นอต เปิด mobile ยัง. Use it ใน DSH Web สำหรับ ตอนนี้",
+  "botsCreationConnectionChanged": " การเชื่อมต่อ changed. Reopen this form ไป ครีเอท เปิด  current โฮสต์.",
+  "@botsFolderCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsChildCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsSubagentCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRunningCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsFailedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNestedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsBackToParent": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTeamMemberCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsSubagentRunningCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "running": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMembersWorking": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTaskWaitingFor": {
+    "placeholders": {
+      "dependencies": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsDateTime": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsChooseModelFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsComposerHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsDeleteNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMonthCalls": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedRecord": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsCountHundredMillion": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsCountTenThousand": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYourPreview": {
+    "placeholders": {
+      "preview": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventWorking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventApproval": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventStopped": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventMissed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventLookup": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventLookupQuery": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventResumed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventCut": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsAutomationText": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMessageFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventReplied": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedGroupReplied": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventCalledStop": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsBotCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRoomCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsUnreadCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedWorking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamesWorking": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMemberCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsInstallOnHost": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRunsOnHost": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMembersSelected": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedSpeaking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedActivity": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedAdmin": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRoomWorkingCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMembersCountTitle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsLinkOpenFailed": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYearMonth": {
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsQrCodeLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYesterdayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsFileCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTruncatedItems": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetCodexTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportReplaced": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportBadPack": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportMissingSheet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportBadSheet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetRemoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetRemoveFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetHiddenUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTerminalCloseNamed": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTerminalExitCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRun": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRead": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalSearch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalBrowse": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalGroup": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalMemory": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRecall": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalTeam": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalAsk": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalWork": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsSenderPreview": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "preview": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsAgentSemantics": {
+    "placeholders": {
+      "state": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsViewMetric": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  }
 }

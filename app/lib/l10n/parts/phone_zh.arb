@@ -669,7 +669,13 @@
   "phonePreviewDescription": "仅在预览可见时取帧。画面只留在本机；预览不可点击。",
   "phonePreviewOpen": "查看后台屏",
   "phonePreviewTask": "预览任务 {taskId}",
-  "@phonePreviewTask": {"placeholders": {"taskId": {"type": "String"}}},
+  "@phonePreviewTask": {
+    "placeholders": {
+      "taskId": {
+        "type": "String"
+      }
+    }
+  },
   "phonePreviewInUse": "正在预览另一任务",
   "phonePreviewOff": "任务已结束或预览已关闭",
   "phonePreviewUnavailable": "画面暂不可预览，或受到保护",
@@ -856,15 +862,77 @@
   "phoneSkillBundlePublishedUnverified": "文件已发布，但尚未通过完整核验。不要重复保存。",
   "phoneSkillBundleUnknown": "保存结果尚未确认，文件可能已经写入。不要重复保存。",
   "phoneSkillBundleRevision": "路线版本：{revision}",
-  "@phoneSkillBundleRevision": {"placeholders": {"revision": {"type": "String"}}},
+  "@phoneSkillBundleRevision": {
+    "placeholders": {
+      "revision": {
+        "type": "String"
+      }
+    }
+  },
   "phoneSkillReplayReview": "核对手机路线",
   "phoneSkillReplaySourceChanged": "本机会话或连接已改变，请返回当前本机会话重新选择。",
   "phoneSkillReplayUnavailable": "此路线尚不能在当前本机安全执行。仍可按普通技能模板使用。",
   "phoneSkillReplayConfirm": "我已核对这条路线与本次选择的 App。",
   "phoneSkillReplayToComposer": "放入当前对话",
   "phoneSkillReplayStartText": "本机已选择并核对手机路线。请仅调用 mcp__phone__replay，参数 {request}。若不可用或被拒绝，交回用户/模型，不要改为普通动作重放。",
-  "@phoneSkillReplayStartText": {"placeholders": {"request": {"type": "String"}}},
+  "@phoneSkillReplayStartText": {
+    "placeholders": {
+      "request": {
+        "type": "String"
+      }
+    }
+  },
   "phoneSkillReplayQueue": "发送路线（排队）",
   "phoneSkillReplayQueued": "路线消息已被接收或排队，尚不代表路线执行成功。",
-  "phoneSkillReplaySendUncertain": "路线消息未确认发送成功；没有自动重新准备或重放。请核对原对话结果。"
+  "phoneSkillReplaySendUncertain": "路线消息未确认发送成功；没有自动重新准备或重放。请核对原对话结果。",
+  "onlyDeviceSelectedChannelOrdinaryDisplayFixedTargetLaunchtreetapAndCleanupAreCovered": "Only device, selected channel, ordinary display, fixed target launch/tree/tap and cleanup are covered.",
+  "mainOnlyRecordsAnObservedWrongdisplayFailureNoMainPassOrAbsenceOfDisturbanceIsClaimed": "MAIN only records an observed wrong-display failure; no MAIN pass or absence of disturbance is claimed.",
+  "controlledRefreshDoesNotTestFpsSmoothnessOrAnUninterruptedStreamNoProducerTimestampFreshnessIsClaimed": "Controlled refresh does not test FPS, smoothness or an uninterrupted stream. No producer timestamp freshness is claimed.",
+  "onlyDeviceSelectedChannelPresentationDisplayInputReceiverAndCleanupAreCovered": "Only device, selected channel, presentation display, input receiver and cleanup are covered.",
+  "activityLaunchTextImagesContinuityMainDisturbanceAndOcrAreNotTested": "Activity launch, text, images, continuity, MAIN disturbance and OCR are not tested.",
+  "profileUnavailableNoCheckCoverageCanBeEstablished": "Profile unavailable; no check coverage can be established.",
+  "cleanupCanMeanOnlyReturnOfAnUnusedLocalReservationNotThatADisplayWasCreated": "Cleanup can mean only return of an unused local reservation, not that a display was created.",
+  "thisIsTheLatestAcceptedStatusSnapshotNotProofOfTheCurrentDeviceStaten": "This is the latest accepted status snapshot, not proof of the current device state.\\n",
+  "chinaConstructionBank": "China Construction Bank",
+  "agriculturalBankOfChina": "Agricultural Bank of China",
+  "bankOfChina": "Bank of China",
+  "chinaMerchantsBank": "China Merchants Bank",
+  "bankOfCommunications": "Bank of Communications",
+  "postalSavingsBankOfChina": "Postal Savings Bank of China",
+  "jdFinance": "JD Finance",
+  "appInfo": "App info",
+  "allowThisAppForThisTask": "Allow this app for this task",
+  "allowForThisTask": "Allow for this task",
+  "reviewInApp": "Review in app",
+  "stopTask": "Stop task",
+  "phoneControlResults": "Phone control results",
+  "viewResults": "View results",
+  "pausedTapToExpandHoldToStop": "Paused. Tap to expand, hold to stop",
+  "hideDetails": "Hide details",
+  "showDetails": "Show details",
+  "shrinkToABall": "Shrink to a ball",
+  "shrinkToABall1": "Shrink to a ball",
+  "holdTheBallForASecondToStop": "Hold the ball for a second to stop",
+  "waitingForYouBelow": "Waiting for you below",
+  "noApprovalNeeded": "No approval needed",
+  "backgroundPreviewIsUnavailable": "Background preview is unavailable.",
+  "notSentTheTaskNoLongerAcceptsThisMessageYourTextIsKept": "Not sent. The task no longer accepts this message; your text is kept.",
+  "anotherTaskIsBeingPreviewed": "Another task is being previewed",
+  "choose12Or3BackgroundTasks": "Choose 1, 2, or 3 background tasks.",
+  "couldNotSaveTheBackgroundTaskLimitPleaseTryAgain": "Could not save the background task limit. Please try again.",
+  "thisChannelDoesNotProvideTheRequiredStrictProbeAndCleanupReceiptsUpdateOrReconnectItExplicitlyNoLegacyProbeWasSent": "This channel does not provide the required strict probe and cleanup receipts. Update or reconnect it explicitly; no legacy probe was sent.",
+  "thisCleanupRequestNoLongerIdentifiesTheCurrentPendingProbeRefreshTheStatus": "This cleanup request no longer identifies the current pending probe. Refresh the status.",
+  "preparingOrCheckingTheSelectedChannelNewBackgroundResourcesWaitUntilThisCheckAndItsCleanupFinish": "Preparing or checking the selected channel. New background resources wait until this check and its cleanup finish.",
+  "localPhoneSelfcheck": "Local phone self-check",
+  "incrementTestCounter": "Increment test counter",
+  "fixedTextReplacementTest": "Fixed text replacement test",
+  "localTestPixelPattern": "Local test pixel pattern",
+  "backgroundResourcesAreOccupiedOrStillBeingCleanedUpWaitForTheOriginalTaskToFinish": "Background resources are occupied or still being cleaned up. Wait for the original task to finish.",
+  "oldBackgroundResourcesOrTheirRecordsAreNotYetVerifiedOpenBackgroundResourceRecoveryBeforeStartingANewPhoneTask": "Old background resources or their records are not yet verified. Open background resource recovery before starting a new phone task.",
+  "manualReviewTimedOutTheActualResultOfTheOriginalActionIsStillUnknownCheckItYourselfBeforeAnyFurtherRequest": "Manual review timed out. The actual result of the original action is still unknown; check it yourself before any further request.",
+  "chooseAnApp": "Choose an app",
+  "phoneBackgroundGuideSubtitle": "后台控制指南",
+  "phoneBackgroundNotificationBlocked": "后台通知被拦截",
+  "phoneYoursDenyList": "您的拒绝列表",
+  "phoneYoursTitle": "您的设置"
 }

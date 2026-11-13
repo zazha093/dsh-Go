@@ -733,5 +733,8 @@
         "type": "String"
       }
     }
-  }
+  },
+  "baseUrl": "Base URL",
+  "noSpaceLeft": "No space left",
+  "xOrNothing": "X or nothing"
 }

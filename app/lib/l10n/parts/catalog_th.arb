@@ -1,5 +1,4 @@
 {
-  "@@locale": "th",
   "catalogCurrentChat": "แชทปัจจุบัน",
   "catalogChatDetails": "รายละเอียดแชท",
   "catalogChatDetailsSummary": "แทร็กทอรี่, การเปลี่ยนแปลง และความคืบหน้า",
@@ -19,7 +18,7 @@
   "catalogSkillsSummary": "ใช้สกิลในแชท",
   "catalogSubagents": "ซับเอเจนต์",
   "catalogSubagentsSummary": "สายพันธุ์และสถานะ; แตะเพื่อแชท",
-  "catalogReference": "ไฟล์อ้างอิงและแชท",
+  "catalogReference": "FILEอ้างอิงและแชท",
   "catalogReferenceSummary": "ใช้ @ ในช่องพิมพ์",
   "catalogAutomationSection": "ระบบอัตโนมัติ",
   "catalogSchedules": "ระบบอัตโนมัติ",
@@ -44,7 +43,7 @@
   "catalogPluginInventory": "รายการปลั๊กอิน",
   "catalogPluginInventorySummary": "Plugins ที่โหลดทั้งหมด",
   "catalogCordisSummary": "แผงควบคุมแบบไดนามิกจาก Plugins",
-  "catalogAgentTeam": "ทีม Agent",
+  "catalogAgentTeam": "TEEม Agent",
   "catalogAgentTeamSummary": "สมาชิก, กระดานงาน และข้อความ",
   "catalogCotTranslation": "แปลความคิด",
   "catalogCotTranslationSummary": "ขยาย Thinking แล้วแตะ 'Translate'",
@@ -55,7 +54,7 @@
   "catalogForumSummary": "ถาม, แชร์ และเจอคนใหม่",
   "catalogCommunity": "ชุมชน",
   "catalogCommunitySummary": "ไฮไลท์และแชทกลุ่ม",
-  "catalogBotSummary": "ทีมบอทและแชทกลุ่ม",
+  "catalogBotSummary": "TEEมบอทและแชทกลุ่ม",
   "catalogShareProfile": "แชร์การตั้งค่า",
   "catalogShareProfileSummary": "ปลั๊กอิน, การตั้งค่า และสกิล",
   "catalogHostsSettingsSection": "โฮสต์และการตั้งค่า",
@@ -99,13 +98,34 @@
   "catalogCordisStopping": "กำลังหยุด…",
   "catalogCordisRemoving": "กำลังนำออก…",
   "catalogSeatGone": "ปลั๊กอินไม่พร้อมใช้งาน",
-  "catalogCordisRemoveTitle": "นำออก “{name}”?",
-  "catalogCordisRemoveVersions": "{versions, plural, other{จะหยุดและลบเวอร์ชันทั้งหมด {versions} เวอร์ชัน}}",
-  "catalogCordisVersionCount": "{count, plural, other{{count} เวอร์ชัน}}",
+  "catalogCordisRemoveTitle": "นำออก “{ชื่อ}”?",
+  "catalogCordisRemoveVersions": "{versions, plural, อื่นๆ{จะหยุดและลบเวอร์ชันทั้งหมด {versions} VERSION}}",
+  "catalogCordisVersionCount": "{เคาท์, plural, อื่นๆ{{เคาท์} VERSION}}",
   "catalogToolsSection": "เครื่องมือ",
   "catalogAllSettings": "การตั้งค่าทั้งหมด",
   "diagnosticsForAi": "ให้ AI อ่านการวินิจฉัย",
   "diagnosticsForAiHint": "เขียนสแนปชอตที่เอนจิ้นอ่านได้",
   "diagnosticsForAiDone": "เขียนแล้ว — ขอให้ AI \"ตรวจสอบการวินิจฉัย\"",
-  "diagnosticsForAiFailed": "เขียนไม่ได้: รันไทม์ท้องถิ่นยังไม่ได้ติดตั้ง"
+  "diagnosticsForAiFailed": "เขียนไม่ได้: รันไทม์ท้องถิ่นยังไม่ได้ติดตั้ง",
+  "@catalogCordisRemoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@catalogCordisRemoveVersions": {
+    "placeholders": {
+      "versions": {
+        "type": "String"
+      }
+    }
+  },
+  "@catalogCordisVersionCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
 }

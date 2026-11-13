@@ -536,7 +536,6 @@
   "pluginsDiagnosticsContents": "只含版本和连接状态",
   "pluginsNotificationsPartlyBlocked": "部分被系统关闭",
   "pluginsNotificationsBlocked": "系统已关闭",
-  "pluginsTurnedOn": "已开启",
   "pluginsNotifications": "通知",
   "pluginsNotificationSettingsFailed": "没能打开系统设置。到「设置 → 应用 → DSH Go → 通知」里开启",
   "pluginsSystemNotificationsOff": "系统通知已关闭",
@@ -884,5 +883,6 @@
         "type": "String"
       }
     }
-  }
+  },
+  "closeCaption": "Close caption"
 }

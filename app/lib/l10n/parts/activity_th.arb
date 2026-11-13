@@ -1,162 +1,161 @@
 {
-  "@@locale": "th",
-  "activityThinkingUntangle": "Hmm… let me untangle this",
-  "activityThinkingWorkThrough": "Let’s work through this",
-  "activityThinkingGears": "Brain gears turning",
-  "activityThinkingSecond": "Give me a second",
-  "activityThinkingSmoking": "Brain’s working overtime",
-  "activityThinkingOnIt": "Thinking, thinking",
-  "activityThinkingNoRush": "One thought at a time",
+  "activityThinkingUntangle": "ฮึม… ให้ฉันมองหาทางออก",
+  "activityThinkingWorkThrough": "Let’s งาน ผ่าน this",
+  "activityThinkingGears": "เซลล์สมองกำลังหมุน",
+  "activityThinkingSecond": "Give me  เซคอนด์",
+  "activityThinkingSmoking": "Brain’s กำลังทำงาน overtime",
+  "activityThinkingOnIt": "กำลังคิด คิด",
+  "activityThinkingNoRush": "One thought at  ไทม์",
   "activityThinkingPonder": "Let me ponder that",
-  "activityThinkingLogic": "กำลังทำงาน through the logic",
-  "activityThinkingBrain": "Putting my brain to work",
-  "activityThinkingSort": "Let me sort this out",
-  "activityThinkingMemory": "Searching my memory",
+  "activityThinkingLogic": "กำลังทำงาน ผ่าน  logic",
+  "activityThinkingBrain": "Putting my brain ไป งาน",
+  "activityThinkingSort": "Let me สอร์ท this ออก",
+  "activityThinkingMemory": "Searching my หน่วยความจำ",
   "activityThinkingStorm": "Brainstorming",
-  "activityThinkingSavor": "Hmm… let that sink in",
-  "activityThinkingMoment": "One moment, thinking",
+  "activityThinkingSavor": "Hmm… let that sink ใน",
+  "activityThinkingMoment": "One ช่วงเวลา, thinking",
   "activityThinkingHeadScratch": "Scratching my head…",
-  "activityThinkingPlayOut": "Let’s see where this goes",
-  "activityThinkingLoading": "Thoughts loading",
-  "activityThinkingMulling": "Mulling it over",
-  "activityThinkingBreakDown": "Hmm… let me break it down",
-  "activityThinkingTrain": "ทั้งหมด aboard the thought train",
+  "activityThinkingPlayOut": "Let’s see เวียร์ this goes",
+  "activityThinkingLoading": "Thoughts กำลังโหลด",
+  "activityThinkingMulling": "Mulling it เกิน",
+  "activityThinkingBreakDown": "Hmm… let me หยุด it ลง",
+  "activityThinkingTrain": "ทั้งหมด aboard  thought train",
   "activityThinkingSomething": "Hmm… there’s something here",
-  "activityThinkingJog": "Taking this idea for a jog",
-  "activityThinkingPicture": "Wait, I can picture it",
+  "activityThinkingJog": "Taking this idea สำหรับ  jog",
+  "activityThinkingPicture": "Wait, I สามารถ picture it",
   "activityThinkingBubbles": "Thought bubbles",
   "activityThinkingWaves": "Brainwaves incoming",
   "activityThinkingCoffee": "Brain’s brewing coffee",
-  "activityThinkingDraft": "Drafting it in my head",
-  "activityThinkingComing": "Ah, it’s coming to me",
-  "activityThinkingBubbling": "Ideas bubbling up",
+  "activityThinkingDraft": "Drafting it ใน my head",
+  "activityThinkingComing": "Ah, it’s coming ไป me",
+  "activityThinkingBubbling": "Ideas bubbling ขึ้น",
   "activityThinkingTackle": "Hmm… let’s tackle it",
-  "activityThinkingSpark": "A spark of an idea",
-  "activityThinkingLogicFirst": "Let’s sort the logic first",
+  "activityThinkingSpark": " spark ของ  idea",
+  "activityThinkingLogicFirst": "Let’s สอร์ท  logic เฟิร์ส",
   "activityThinkingLocate": "Pinpointing it",
-  "activityThinkingInvestigate": "Looking into it",
+  "activityThinkingInvestigate": "Looking เข้า it",
   "activityThinkingGif": "thinking.gif",
-  "activityThinkingLook": "Lemme take a look",
+  "activityThinkingLook": "Lemme TEEก  look",
   "activityThinkingInteresting": "Hmm… interesting",
-  "activityThinkingHands": "Warming up my brain",
-  "activityThinkingFiveMinutes": "Five minutes. Quite a project",
-  "activityThinkingSerious": "เวลา to get serious",
-  "activityThinkingTricky": "This is a bit tricky",
-  "activityThinkingAscend": "Reaching a higher plane",
-  "activityThinkingAlmostPromise": "Almost there, promise",
-  "activityThinkingLongWay": "Took the scenic route",
-  "activityThinkingWrapping": "Wrapping things up",
+  "activityThinkingHands": "Warming ขึ้น my brain",
+  "activityThinkingFiveMinutes": "Five minutes. ค่อนข้าง  โปรเจกต์",
+  "activityThinkingSerious": "เวลา ไป get serious",
+  "activityThinkingTricky": "This คือ  bit tricky",
+  "activityThinkingAscend": "Reaching  higher plane",
+  "activityThinkingAlmostPromise": "เกือบ there, พรอมิส",
+  "activityThinkingLongWay": "Took  scenic route",
+  "activityThinkingWrapping": "Wrapping things ขึ้น",
   "activityThinkingSong": "Give me one song’s worth",
-  "activityThinkingBigMove": "Preparing the big move",
-  "activityThinkingSimple": "ง่าย request. Or is it?",
-  "activityThinkingOneMinute": "One minute, still thinking",
-  "activityThinkingChallenge": "ตอนนี้ that’s a challenge",
-  "activityThinkingDig": "Let me dig a little deeper",
-  "activityThinkingNotSimple": "There’s more to this",
-  "activityThinkingDeep": "Getting deep into it",
+  "activityThinkingBigMove": "Preparing  big ย้าย",
+  "activityThinkingSimple": "ง่าย ขอ. ออร์ คือ it?",
+  "activityThinkingOneMinute": "One มินิต, ยัง thinking",
+  "activityThinkingChallenge": "ตอนนี้ that’s  challenge",
+  "activityThinkingDig": "Let me dig  little deeper",
+  "activityThinkingNotSimple": "There’s มากกว่า ไป this",
+  "activityThinkingDeep": "Getting deep เข้า it",
   "activityThinkingBurning": "Brain cells firing away",
-  "activityThinkingNearlyClear": "Almost figured it out",
-  "activityThinkingTwisty": "This one’s a little twisty…",
-  "activityThinkingWorkout": "Giving my brain a workout…",
-  "activityThinkingStay": "Stay with me, almost there",
-  "activityThinkingCloser": "Let me think this through",
-  "activityThinkingThirtySeconds": "Thirty seconds, still at it",
-  "activityThinkingSoon": "Hang tight, nearly there",
-  "activityThinkingAnotherPass": "Let me take another pass",
-  "activityThinkingTrack": "Still on track",
+  "activityThinkingNearlyClear": "เกือบ figured it ออก",
+  "activityThinkingTwisty": "This one’s  little twisty…",
+  "activityThinkingWorkout": "Giving my brain  workout…",
+  "activityThinkingStay": "Stay กับ me, เกือบ there",
+  "activityThinkingCloser": "Let me think this ผ่าน",
+  "activityThinkingThirtySeconds": "Thirty seconds, ยัง at it",
+  "activityThinkingSoon": "ค้าง tight, เกือบ there",
+  "activityThinkingAnotherPass": "Let me TEEก another ผ่าน",
+  "activityThinkingTrack": "ยัง เปิด track",
   "activityThinkingLead": "Getting somewhere",
-  "activityThinkingCircles": "Going in circles…",
-  "activityThinkingAnyMoment": "ใดก็ได้ moment now",
-  "activityThinkingStillLocate": "Still narrowing it down",
-  "activityWaitingCall": "Calling the model…",
-  "activityWaitingOnWay": "Model’s on its way",
-  "activityWaitingSpeak": "กำลังรอ for a word…",
-  "activityWaitingWords": "Finding the right words",
-  "activityWaitingAwake": "Is the model awake yet?",
+  "activityThinkingCircles": "Going ใน circles…",
+  "activityThinkingAnyMoment": "ใดก็ได้ ช่วงเวลา ตอนนี้",
+  "activityThinkingStillLocate": "ยัง narrowing it ลง",
+  "activityWaitingCall": "Calling  Model…",
+  "activityWaitingOnWay": "Model’s เปิด its way",
+  "activityWaitingSpeak": "กำลังรอ สำหรับ  word…",
+  "activityWaitingWords": "Finding  right words",
+  "activityWaitingAwake": "คือ  Model awake ยัง?",
   "activityWaitingStretch": "Letting it stretch",
-  "activityWaitingYawn": "The model just yawned",
-  "activityWaitingComing": "Model: on my way",
-  "activityWaitingText": "กำลังรอ for the first words",
-  "activityWaitingQueue": "Still in the queue",
+  "activityWaitingYawn": " Model เพียง yawned",
+  "activityWaitingComing": "Model: เปิด my way",
+  "activityWaitingText": "กำลังรอ สำหรับ  ก่อนอื่น words",
+  "activityWaitingQueue": "ยัง ใน  คิว",
   "activityWaitingBrew": "Something’s brewing",
-  "activityWaitingWater": "Model’s taking a sip",
-  "activityWaitingWarmup": "Letting it warm up",
-  "activityWaitingMeditate": "Model’s meditating",
-  "activityWaitingBlink": "กำลังรอ for it to blink",
-  "activityWaitingMoment": "It says, “one moment”",
-  "activityWritingWords": "Finding the words",
+  "activityWaitingWater": "Model’s taking  sip",
+  "activityWaitingWarmup": "Letting it warm ขึ้น",
+  "activityWaitingMeditate": "โมเดล’s meditating",
+  "activityWaitingBlink": "กำลังรอ สำหรับ it ไป blink",
+  "activityWaitingMoment": "It says, “one ช่วงเวลา”",
+  "activityWritingWords": "Finding  words",
   "activityWritingTyping": "Typing away",
-  "activityWritingInspired": "Words flowing like magic",
+  "activityWritingInspired": "Words flowing ชอบ magic",
   "activityWritingOnIt": "Writing, writing",
-  "activityWritingCareful": "Choosing each word",
-  "activityWritingFlow": "ทั้งหมด in one flow",
-  "activityWritingPlain": "Putting it in plain words",
-  "activityWritingIdeas": "Putting ideas into words",
+  "activityWritingCareful": "Choosing แต่ละ word",
+  "activityWritingFlow": "ทั้งหมด ใน one flow",
+  "activityWritingPlain": "Putting it ใน plain words",
+  "activityWritingIdeas": "Putting ideas เข้า words",
   "activityWritingKeys": "Tapping away",
-  "activityWritingAlmost": "Almost done writing",
+  "activityWritingAlmost": "เกือบ เสร็จ writing",
   "activityWritingTell": "Let me tell you",
-  "activityWritingFast": "Writing up a storm",
-  "activityWritingBreeze": "Words flying onto the page",
-  "activityWritingFormat": "Tidying up the layout",
+  "activityWritingFast": "Writing ขึ้น  storm",
+  "activityWritingBreeze": "Words flying onto  เพจ",
+  "activityWritingFormat": "Tidying ขึ้น  layout",
   "activityNightAscend": "Transcending bedtime…",
-  "activityNightHello": "A little late-night hello",
-  "activityNightOwl": "You’re a night owl too?",
-  "activityNightMoon": "If the moon’s up, I’m up",
-  "activityNightSlow": "Late-night brain, go easy",
-  "activityNightChampion": "Night owl champion online",
-  "activityNightSleepy": "Sleepy, but I’ve got this",
-  "activityNightMidnight": "Still going past midnight",
-  "activityNightOpen": "เปิด for the night shift",
-  "activityNightStars": "Even the stars are asleep",
-  "activityNightDawn": "Thinking into the small hours",
-  "activityWeekendChill": "A little weekend chill",
-  "activityWeekendHere": "Here on weekends too!",
-  "activityWeekendCompany": "Here on days off too",
+  "activityNightHello": " little late-กลางคืน hello",
+  "activityNightOwl": "You’re  กลางคืน owl เกินไป?",
+  "activityNightMoon": "ถ้า  moon’s ขึ้น, I’m ขึ้น",
+  "activityNightSlow": "Late-กลางคืน brain, go easy",
+  "activityNightChampion": "กลางคืน owl champion online",
+  "activityNightSleepy": "Sleepy, แต่ I’ve got this",
+  "activityNightMidnight": "ยัง going past midnight",
+  "activityNightOpen": "เปิด สำหรับ  กลางคืน shift",
+  "activityNightStars": "แม้  stars are asleep",
+  "activityNightDawn": "Thinking เข้า  small hours",
+  "activityWeekendChill": " little weekend chill",
+  "activityWeekendHere": "Here เปิด weekends เกินไป!",
+  "activityWeekendCompany": "Here เปิด days ปิด เกินไป",
   "activityWeekendOnline": "ไม่ weekend shutdown",
-  "activityWeekendSneak": "Sneaky weekend thinking",
-  "activityWeekendWorking": "กำลังทำงาน on the weekend too?",
-  "activityWeekendMode": "Weekend mode ON",
-  "activityWeekendBugs": "Weekend bug fixing",
-  "activityWeekendSkin": "Weekend-exclusive look",
-  "activityNewYearCheers": "Happy New Year!",
-  "activityNewYearDay": "Happy New Year",
-  "activityNewYearBugs": "ใหม่ year, new bugs",
-  "activityNewYearFirstLine": "แรกสุด line of code this year",
-  "activityNewYearWork": "Here’s to a great start",
-  "activityValentineCode": "Coding on Valentine’s Day too",
-  "activityValentineLove": "Code is true love",
-  "activityValentineDate": "ไม่ date today?",
-  "activityValentineKeyboard": "Keyboards are my roses",
-  "activityPiDay": "Happy π Day",
-  "activityPiCircle": "Extra-round circles today",
-  "activityAprilFools": "Happy April Fools’ Day",
-  "activityAprilBug": "This bug’s a prank, right?",
-  "activityAprilErrors": "ติดตาม out for prank errors",
-  "activityAprilKidding": "Just kidding, no errors",
-  "activityLaborWorking": "Still working on Labor Day",
-  "activityLaborPride": "A little pride in the work",
-  "activityLaborSpirit": "Worker mode: all in",
-  "activityChildrenDay": "Happy Children’s Day",
-  "activityChildrenHeart": "We’re all kids at heart",
-  "activityChildrenCode": "Cute code only today",
-  "activityProgrammerCheers": "Happy 1024 Programmers’ Day",
-  "activityProgrammerDay": "It’s Programmers’ Day",
-  "activityProgrammer1024": "1024, happy coding day",
-  "activityProgrammerCode": "Coding on our holiday too",
+  "activityWeekendSneak": "Sneaky วันหยุด thinking",
+  "activityWeekendWorking": "กำลังทำงาน เปิด  weekend เกินไป?",
+  "activityWeekendMode": "Weekend mode เปิด",
+  "activityWeekendBugs": "Weekend บั๊ก fixing",
+  "activityWeekendSkin": "วันหยุด-exclusive look",
+  "activityNewYearCheers": "Happy ใหม่ ยีอาร์!",
+  "activityNewYearDay": "Happy ใหม่ ยีอาร์",
+  "activityNewYearBugs": "ใหม่ ยีอาร์, ใหม่ bugs",
+  "activityNewYearFirstLine": "แรกสุด ไลน์ ของ code this ยีอาร์",
+  "activityNewYearWork": "Here’s ไป  great เริ่ม",
+  "activityValentineCode": "Coding เปิด Valentine’s เดย์ เกินไป",
+  "activityValentineLove": "Code คือ จริง love",
+  "activityValentineDate": "ไม่ เดท วันนี้?",
+  "activityValentineKeyboard": "Keyboards คือ my roses",
+  "activityPiDay": "Happy π เดย์",
+  "activityPiCircle": "Extra-round circles วันนี้",
+  "activityAprilFools": "Happy เมษายน Fools’ เดย์",
+  "activityAprilBug": "This บั๊ก’s  prank, right?",
+  "activityAprilErrors": "ติดตาม ออก สำหรับ prank errors",
+  "activityAprilKidding": "เพียง kidding, ไม่ errors",
+  "activityLaborWorking": "ยัง working เปิด Labor เดย์",
+  "activityLaborPride": " little pride ใน  งาน",
+  "activityLaborSpirit": "เวิร์กเกอร์ mode: ออล ใน",
+  "activityChildrenDay": "Happy Children’s เดย์",
+  "activityChildrenHeart": "We’re ออล kids at heart",
+  "activityChildrenCode": "Cute code เท่านั้น วันนี้",
+  "activityProgrammerCheers": "Happy 1024 Programmers’ เดย์",
+  "activityProgrammerDay": "It’s Programmers’ เดย์",
+  "activityProgrammer1024": "1024, happy coding เดย์",
+  "activityProgrammerCode": "Coding เปิด our holiday เกินไป",
   "activityHalloween": "Happy Halloween",
-  "activityHalloweenTreat": "Trick or treat",
-  "activityHalloweenCode": "Code can be spooky too",
+  "activityHalloweenTreat": "Trick ออร์ treat",
+  "activityHalloweenCode": "Code can เป็น spooky เกินไป",
   "activityChristmasEve": "Happy Christmas Eve",
-  "activityChristmasEveThinking": "Thinking on Christmas Eve too",
-  "activityChristmasEveGift": "Code tonight, gifts await",
+  "activityChristmasEveThinking": "Thinking เปิด Christmas Eve เกินไป",
+  "activityChristmasEveGift": "Code คืนนี้, gifts อะเวท",
   "activityChristmas": "Merry Christmas",
-  "activityChristmasCompany": "Here with you for Christmas",
-  "activityChristmasEgg": "A Christmas-only Easter egg",
-  "activityChristmasReindeer": "Reindeer delivering code",
-  "activityYearEndEve": "ใหม่ Year’s Eve",
-  "activityYearEndLast": "One last thought this year",
-  "activityYearEndReady": "พร้อม for the new year",
-  "activityYearEndSeeYou": "See you next year!",
+  "activityChristmasCompany": "Here กับ you สำหรับ Christmas",
+  "activityChristmasEgg": " Christmas-เท่านั้น Easter egg",
+  "activityChristmasReindeer": "Reindeer delivering โค้ด",
+  "activityYearEndEve": "ใหม่ ยีอาร์’s Eve",
+  "activityYearEndLast": "One ลาสท์ thought this ยีอาร์",
+  "activityYearEndReady": "พร้อม สำหรับ  ใหม่ ยีอาร์",
+  "activityYearEndSeeYou": "See you ถัดไป ยีอาร์!",
   "activityZodiacRat": "Rat",
   "activityZodiacOx": "Ox",
   "activityZodiacTiger": "Tiger",
@@ -169,95 +168,95 @@
   "activityZodiacRooster": "Rooster",
   "activityZodiacDog": "Dog",
   "activityZodiacPig": "Pig",
-  "activityLunarCheers": "Happy Lunar New Year!",
-  "activityLunarCode": "Still coding over New Year",
+  "activityLunarCheers": "Happy Lunar ใหม่ ยีอาร์!",
+  "activityLunarCode": "ยัง coding เกิน ใหม่ ยีอาร์",
   "activityLunarEnvelope": "Red envelopes, please",
   "activityLunarSpring": "Happy Spring Festival",
-  "activityLunarGreeting": "ใหม่ Year greetings",
-  "activityLunarCodeGreeting": "The code says Happy New Year",
+  "activityLunarGreeting": "ใหม่ ยีอาร์ greetings",
+  "activityLunarCodeGreeting": " code says Happy ใหม่ ยีอาร์",
   "activityRareSsr": "SSR! Rare Easter egg",
-  "activityRareUr": "UR drop",
-  "activityRareLegend": "Legendary drop!",
-  "activityRareOrange": "An orange-tier drop",
-  "activityRareEgg": "An Easter egg found you",
-  "activityRareChosen": "The chosen moment",
-  "activityRareHidden": "You found the hidden edition",
-  "activityRareChat": "Secret chat unlocked",
-  "activityRareMax": "Rarity MAX",
-  "activityRareLucky": "Luck is on your side",
+  "activityRareUr": "UR ดรอป",
+  "activityRareLegend": "Legendary ดรอป!",
+  "activityRareOrange": " orange-tier ดรอป",
+  "activityRareEgg": " Easter egg found you",
+  "activityRareChosen": " chosen ช่วงเวลา",
+  "activityRareHidden": "You found  ซ่อน edition",
+  "activityRareChat": "ซีคрет Chat unlocked",
+  "activityRareMax": "Rarity แม็กซ์",
+  "activityRareLucky": "Luck คือ เปิด your side",
   "activityRareCritical": "วิกฤต hit",
-  "activityRareNextLevel": "Next-level thinking",
+  "activityRareNextLevel": "ถัดไป-level thinking",
   "activityFailCrash": "Well, that went sideways",
   "activityFailOops": "Oops",
-  "activityFailRun": "That didn’t run",
-  "activityFailTrip": "A little stumble",
-  "activityFailWrong": "That’s not right",
-  "activityFailHiccup": "Hit a hiccup",
-  "activityFailBroken": "That’s not working",
-  "activityFailLocal": "It works on my machine",
-  "activityFailYesterday": "It worked yesterday",
-  "activityFailTough": "That’s a tough one",
+  "activityFailRun": "That didn’t เรียกใช้",
+  "activityFailTrip": " little stumble",
+  "activityFailWrong": "That’s นอต right",
+  "activityFailHiccup": "Hit  hiccup",
+  "activityFailBroken": "That’s นอต working",
+  "activityFailLocal": "It works เปิด my machine",
+  "activityFailYesterday": "It worked เมื่อวาน",
+  "activityFailTough": "That’s  tough one",
   "activityFailCrack": "Well, that fell apart",
-  "activityFailPressure": "Feeling the pressure",
-  "activityFailCareless": "Got a little careless there",
-  "activityFailSlip": "A slip of the keys",
-  "activityFailTryAgain": "Let’s try another way",
+  "activityFailPressure": "Feeling  pressure",
+  "activityFailCareless": "Got  little careless there",
+  "activityFailSlip": " slip ของ  keys",
+  "activityFailTryAgain": "Let’s ทราย another way",
   "activityFailChance": "Give me another shot",
   "activityTestGreen": "ทั้งหมด tests green",
   "activityTestAllGreen": "ทั้งหมด green. Nice",
-  "activityTestFirstTry": "Passed first try!",
+  "activityTestFirstTry": "Passed เฟิร์ส ทราย!",
   "activityTestNoErrors": "ไม่ errors",
   "activityTestPassed": "It passed!",
-  "activityTestSolid": "Looking solid",
+  "activityTestSolid": "Looking ทึบ",
   "activityTestRed": "Red. Let’s see what broke",
-  "activityTestInvestigate": "Tests failed. Looking into it",
-  "activityTestStubborn": "One stubborn test",
-  "activityTestFix": "Red light. Back to fixing",
+  "activityTestInvestigate": "Tests ล้มเหลว. Looking เข้า it",
+  "activityTestStubborn": "One stubborn ทดสอบ",
+  "activityTestFix": "Red light. ย้อนกลับ ไป fixing",
   "activityGitCommitSave": "Committed. Progress saved",
   "activityGitSaved": "Progress saved",
-  "activityGitCommitRelief": "Committed. Peace of mind",
+  "activityGitCommitRelief": "Committed. Peace ของ mind",
   "activityGitPushed": "พุชแล้ว",
-  "activityGitPushDone": "Pushed. Off it goes",
-  "activityGitCodeOut": "Code’s out the door",
+  "activityGitPushDone": "Pushed. ปิด it goes",
+  "activityGitCodeOut": "Code’s ออก  door",
   "activityInstallDone": "Dependencies installed",
-  "activityInstallInternet": "ดาวน์โหลดแล้ว half the internet",
+  "activityInstallInternet": "ดาวน์โหลดแล้ว half  internet",
   "activityInstallPackages": "ทั้งหมด packages present",
-  "activityMilestoneFive": "Tools x5, getting into it",
-  "activityMilestoneTen": "Tool combo x10",
-  "activityMilestoneTwenty": "Tools x20, on a roll",
-  "activityMilestoneFifty": "Tools x50, working overtime",
-  "activityRetryWait": "Hang tight, retrying",
-  "activityRetryBackoff": "Turned away. Backing off",
-  "activityRetryKnock": "Knocking once more",
-  "activityRateLimited": "อัตรา limited. Taking a break",
-  "activityRate429": "429. A breather, then retry",
-  "activityRateQueue": "Quite a queue today",
-  "activityCompactContext": "Tidying up the context…",
+  "activityMilestoneFive": "Tools x5, getting เข้า it",
+  "activityMilestoneTen": "เครื่องมือ combo x10",
+  "activityMilestoneTwenty": "Tools x20, เปิด  roll",
+  "activityMilestoneFifty": "Tools x50, กำลังทำงาน overtime",
+  "activityRetryWait": "ค้าง tight, retrying",
+  "activityRetryBackoff": "Turned away. Backing ปิด",
+  "activityRetryKnock": "Knocking หนึ่งครั้ง มากกว่า",
+  "activityRateLimited": "อัตรา limited. Taking  หยุด",
+  "activityRate429": "429.  breather, แล้ว ลองใหม่",
+  "activityRateQueue": "ค่อนข้าง  คิว วันนี้",
+  "activityCompactContext": "Tidying ขึ้น  คอนเท็กซ์…",
   "activityCompactBag": "Organizing my backpack…",
-  "activityCompactSpace": "Making some room",
-  "activityCompactMemory": "Trimming my memory",
-  "activityCompactChats": "Packing up old chats",
-  "activityReminderWater": "Half an hour. Water break?",
-  "activityReminderTenMinutes": "Ten minutes. Quite a task",
+  "activityCompactSpace": "Making บาง room",
+  "activityCompactMemory": "Trimming my หน่วยความจำ",
+  "activityCompactChats": "Packing ขึ้น old chats",
+  "activityReminderWater": "Half  อาวเออร์. Water หยุด?",
+  "activityReminderTenMinutes": "Ten minutes. ค่อนข้าง  งาน",
   "activityDiffTitle": "Turn changes",
   "activityDiffCopied": "แพทช์ copied",
   "activityDiffNoWrap": "Don’t wrap lines",
   "activityDiffWrap": "Wrap lines",
   "activityDiffCopy": "คัดลอก patch",
-  "activityDiffEmpty": "Empty file, no changes to show",
-  "activityDiffNewFile": "ใหม่ file",
-  "activityDiffUnknownLines": "Line numbers unknown",
-  "activityDiffCopyPath": "คัดลอก path",
+  "activityDiffEmpty": "Empty ไฟล์, ไม่ changes ไป แสดง",
+  "activityDiffNewFile": "ใหม่ ไฟล์",
+  "activityDiffUnknownLines": "ไลน์ numbers unknown",
+  "activityDiffCopyPath": "คัดลอก พาธ",
   "activityThinking": "Thinking",
   "activityReplyInterrupted": "ตอบกลับ (interrupted)",
-  "activityWaitingApproval": "กำลังรอ for approval",
-  "activityWaitingAnswer": "กำลังรอ for answer",
+  "activityWaitingApproval": "กำลังรอ สำหรับ approval",
+  "activityWaitingAnswer": "กำลังรอ สำหรับ answer",
   "activityWriting": "Writing reply",
   "activityThinkingNow": "Thinking",
   "activityRetrying": "Retrying",
-  "activityCompacting": "Compacting context",
+  "activityCompacting": "Compacting คอนเท็กซ์",
   "activityVerbRun": "เรียกใช้",
-  "activityVerbWrite": "Write",
+  "activityVerbWrite": "เขียน",
   "activityVerbEdit": "แก้ไข",
   "activityVerbImage": "ดู image",
   "activityVerbRead": "อ่านแล้ว",
@@ -266,17 +265,17 @@
   "activityVerbWebSearch": "ค้นหา web",
   "activityVerbWebView": "ดู web",
   "activityVerbSubagent": "ส่ง subagent",
-  "activityVerbTodo": "อัปเดต to-dos",
-  "activitySecretHide": "ซ่อน key",
-  "activitySecretShow": "แสดง key",
-  "activitySlashNoMatch": "ไม่ matching command. Send as a message",
+  "activityVerbTodo": "อัปเดต ไป-dos",
+  "activitySecretHide": "ซ่อน คีย์",
+  "activitySecretShow": "แสดง คีย์",
+  "activitySlashNoMatch": "ไม่ matching command. ส่ง ในฐานะ  ข้อความ",
   "activitySlashCommands": "Commands",
-  "activitySlashEnterArgs": "Enter arguments, then send",
-  "activityStepTitle": "Step details",
-  "activityStepMissing": "This step isn’t in the loaded history",
-  "activityStepQuestion": "Question",
+  "activitySlashEnterArgs": "เอ็นเตอร์ arguments, แล้ว ส่ง",
+  "activityStepTitle": "Step รายละเอียด",
+  "activityStepMissing": "This step isn’t ใน  loaded history",
+  "activityStepQuestion": "คำถาม",
   "activityStepSuccess": "Succeeded",
-  "activityStepNeedsPermission": "Needs permission",
+  "activityStepNeedsPermission": "Needs สิทธิ์",
   "activityTools": "Tools",
   "activityStepDispatched": "Dispatched",
   "activityStepExecution": "Execution",
@@ -284,111 +283,513 @@
   "activityStepArguments": "Arguments",
   "activityStepChanges": "Changes",
   "activityStepFullScreen": "ดู full screen",
-  "activityStepReadContent": "Content read",
-  "activityStepWrittenContent": "Content written",
+  "activityStepReadContent": "เนื้อหา อ่าน",
+  "activityStepWrittenContent": "เนื้อหา written",
   "activityStepError": "ข้อผิดพลาด",
   "activityOutput": "เอาต์พุต",
-  "activityStepResult": "Result",
-  "activityStepDeclined": "You declined this tool call",
+  "activityStepResult": "ผลลัพธ์",
+  "activityStepDeclined": "You declined this เครื่องมือ คอลล์",
   "activityStepNoOutput": "ไม่ output",
   "activityStepStart": "Started",
   "activityDuration": "ระยะเวลา",
-  "activityFirstToken": "แรกสุด token",
+  "activityFirstToken": "แรกสุด โทเค็น",
   "activityStepGeneration": "Generation",
   "activityStepSpeed": "ความเร็ว",
-  "activityModel": "Model",
+  "activityModel": "โมเดล",
   "activityStepTiming": "Timing",
   "activityUsage": "การใช้งาน",
   "activityInput": "อินพุต",
-  "activityStepCacheHit": "  Cache hit",
-  "activityStepCacheMiss": "  Cache miss",
-  "activityStepCacheWrite": "  Cache write",
+  "activityStepCacheHit": "  แคช hit",
+  "activityStepCacheMiss": "  แคช miss",
+  "activityStepCacheWrite": "  แคช เขียน",
   "activityStepReasoning": "  Reasoning",
   "activityStepAnswer": "  คำตอบ",
   "activityStepThinking": "Thinking",
   "activityStepExplanation": "Explanation",
-  "activityStepToolCalls": "Tools called in this step",
-  "activityStepProcessing": "Model is processing",
+  "activityStepToolCalls": "Tools called ใน this step",
+  "activityStepProcessing": "Model คือ processing",
   "activityApprovalAllowed": "อนุญาต",
   "activityApprovalUnanswered": "ไม่ approval received",
   "activityApprovalAnswered": "Answered",
   "activityToolRead": "อ่านแล้ว",
-  "activityToolWrite": "Write",
-  "activityToolCall": "Call tool",
+  "activityToolWrite": "เขียน",
+  "activityToolCall": "คอลล์ เครื่องมือ",
   "activityTraceTitle": "Turn trajectory",
-  "activityTraceNotLoaded": "This turn’s history hasn’t loaded yet",
-  "activityTraceOutputLimit": "เอาต์พุต limit reached",
-  "activityTraceEngineRestarted": "Interrupted by engine restart",
+  "activityTraceNotLoaded": "This turn’s history hasn’t loaded ยัง",
+  "activityTraceOutputLimit": "เอาต์พุต ลิมิต reached",
+  "activityTraceEngineRestarted": "Interrupted โดย engine รีสตาร์ท",
   "activityTraceBlocked": "บล็อก",
   "activityTraceHeading": "Turn trajectory  ",
-  "activityTraceWaiting": "กำลังรอ for you",
-  "activityTraceNoSteps": "ไม่ timed steps in this turn",
-  "activityUsageInputIncludesCache": "อินพุต includes cache hits",
-  "activityCacheHit": "Cache hit",
-  "activitySummaryTodo": "อัปเดตแล้ว to-dos",
-  "activityUsageBalance": "DeepSeek balance",
-  "activityUsageContext": "Context",
-  "activityUsageChat": "This chat",
-  "activityUsageAfterMessage": "Appears after you send a message",
-  "activityUsageWaiting": "กำลังรอ for context usage data",
-  "activityUsageProjected": "Estimated next request",
-  "activityUsageLastRequest": "สุดท้าย request",
-  "activityUsageBreakdownEstimate": "Breakdown items are independent estimates and may differ from the total",
+  "activityTraceWaiting": "กำลังรอ สำหรับ you",
+  "activityTraceNoSteps": "ไม่ timed steps ใน this turn",
+  "activityUsageInputIncludesCache": "อินพุต includes แคช hits",
+  "activityCacheHit": "แคช hit",
+  "activitySummaryTodo": "อัปเดตแล้ว ไป-dos",
+  "activityUsageBalance": "DeepSeek ยอดคงเหลือ",
+  "activityUsageContext": "คอนเท็กซ์",
+  "activityUsageChat": "This Chat",
+  "activityUsageAfterMessage": "Appears หลัง you ส่ง  ข้อความ",
+  "activityUsageWaiting": "กำลังรอ สำหรับ context usage data",
+  "activityUsageProjected": "Estimated ถัดไป คำขอ",
+  "activityUsageLastRequest": "สุดท้าย ขอ",
+  "activityUsageBreakdownEstimate": "Breakdown items are independent estimates แอนด์ พฤษภาคม differ จาก  ทอตอล",
   "activityUsageCumulativeInput": "รวม input",
-  "activityUsageContextFull": "Context nearly full. Send /compact to compact it",
+  "activityUsageContextFull": "คอนเท็กซ์ เกือบ full. ส่ง /compact ไป compact it",
   "activitySpanZero": "0 sec",
   "activitySpanTiny": "<0.1 sec",
-  "activityTokensTenThousands": "{value}K",
-  "activityTokensHundredMillions": "{value}M",
-  "activityUsageContextSemantics": "Context {percent} used, view usage",
-  "activityUsageSystemTokens": "System {tokens}",
+  "activityTokensTenThousands": "{ค่า}K",
+  "activityTokensHundredMillions": "{ค่า}M",
+  "activityUsageContextSemantics": "คอนเท็กซ์ {percent} used, มุมมอง usage",
+  "activityUsageSystemTokens": "ระบบ {tokens}",
   "activityUsageToolTokens": "Tools {tokens}",
   "activityUsageMessageTokens": "Messages {tokens}",
-  "activityUsageTurns": "{count, plural, other{{count} turns total}}",
-  "activityUsageCacheWriteTokens": "Cache write {tokens}",
-  "activitySummaryCommands": "{count, plural, other{Ran {count} commands}}",
-  "activitySummaryEditedFiles": "{count, plural, other{Edited {count} files}}",
-  "activitySummaryReadFiles": "{count, plural, other{Read {count} files}}",
-  "activitySummarySearches": "{count, plural, other{Searched {count} times}}",
-  "activitySummaryWeb": "{count, plural, other{Used the web {count} times}}",
-  "activitySummarySubagents": "{count, plural, other{Called subagents {count} times}}",
-  "activitySummaryOther": "{count, plural, other{Other tools: {count} calls}}",
-  "activitySummaryTotal": "{count, plural, other{Used {count} tools}}",
-  "activityDiffBlockMarker": "@@ Change {index}/{total} @@",
-  "activityDiffEditMarker": "แก้ไข {index} of {total}",
-  "activityTraceSpanSemantics": "{title} {detail}, duration {duration}",
+  "activityUsageTurns": "{เคาท์, plural, อื่นๆ{{เคาท์} turns ทอตอล}}",
+  "activityUsageCacheWriteTokens": "แคช เขียน {tokens}",
+  "activitySummaryCommands": "{เคาท์, plural, อื่นๆ{Ran {เคาท์} commands}}",
+  "activitySummaryEditedFiles": "{เคาท์, plural, อื่นๆ{Edited {เคาท์} files}}",
+  "activitySummaryReadFiles": "{เคาท์, plural, อื่นๆ{อ่าน {เคาท์} files}}",
+  "activitySummarySearches": "{เคาท์, plural, อื่นๆ{Searched {เคาท์} times}}",
+  "activitySummaryWeb": "{เคาท์, plural, อื่นๆ{Used  web {เคาท์} times}}",
+  "activitySummarySubagents": "{เคาท์, plural, อื่นๆ{Called subagents {เคาท์} times}}",
+  "activitySummaryOther": "{เคาท์, plural, อื่นๆ{อื่นๆ tools: {เคาท์} calls}}",
+  "activitySummaryTotal": "{เคาท์, plural, อื่นๆ{Used {เคาท์} tools}}",
+  "activityDiffBlockMarker": "@@ Change {ดัชนี}/{ทอตอล} @@",
+  "activityDiffEditMarker": "แก้ไข {อินเด็กซ์} ของ {ทอตอล}",
+  "activityTraceSpanSemantics": "{หัวข้อ} {รายละเอียด}, duration {duration}",
   "activityTraceGroupSemantics": "{label}, duration {duration}",
-  "activityTraceEstimatedCost": "{cost} (estimated at official rates)",
+  "activityTraceEstimatedCost": "{cost} (estimated ที่ official rates)",
   "activityTraceReasoningTokens": "Reasoning: {tokens}",
   "activityStepPosition": "Turn {turn} · Step {step}",
   "activityStepTokenSpeed": "{speed} tokens/sec",
-  "activityStepRetryCount": "{count, plural, other{{count} times}}",
-  "activityStepTruncated": "{text}\n… (Showing only the first {count}k characters. Copy for the full text)",
-  "activityStepLiveElapsed": "{elapsed} · In progress{suffix}",
-  "activityStepCopySection": "คัดลอก {title}",
-  "activityStepCopiedSection": "Copied {title}",
-  "activitySlashDescriptionArgs": "{description} · Enter arguments, then send",
+  "activityStepRetryCount": "{เคาท์, plural, อื่นๆ{{เคาท์} times}}",
+  "activityStepTruncated": "{เท็กซ์}\n… (Showing เท่านั้น  เฟิร์ส {เคาท์}k characters. คัดลอก สำหรับ  full เท็กซ์)",
+  "activityStepLiveElapsed": "{elapsed} · กำลังดำเนินการ{suffix}",
+  "activityStepCopySection": "คัดลอก {หัวข้อ}",
+  "activityStepCopiedSection": "Copied {หัวข้อ}",
+  "activitySlashDescriptionArgs": "{คำอธิบาย} · เอ็นเตอร์ arguments, แล้ว ส่ง",
   "activitySpanSecondsText": "{seconds} sec",
   "activitySpanSeconds": "{seconds} sec",
-  "activitySpanMinutesSeconds": "{minutes} min {seconds} sec",
-  "activitySpanHoursMinutes": "{hours} h {minutes} min",
-  "activityCostUnderCent": "Under {symbol}0.01",
+  "activitySpanMinutesSeconds": "{minutes} มิน {seconds} sec",
+  "activitySpanHoursMinutes": "{hours} h {minutes} มิน",
+  "activityCostUnderCent": "ใต้ {symbol}0.01",
   "activityCostApprox": "≈ {symbol}{amount}",
-  "activitySpanRetries": "{count, plural, other{Retried {count} times}}",
-  "activitySpanToolCalls": "{count, plural, other{Chose to call {count} tools}}",
-  "activityRunningItems": "{count, plural, other{among {count} items}}",
-  "activityRetryAttempt": "Attempt {count}",
-  "activityDiffFileCount": "{count, plural, other{{count} files}}",
-  "activityDiffFileSemantics": "{path}, {added, plural, other{{added} lines added}}, {removed, plural, other{{removed} lines removed}}",
-  "activityDiffEditNumber": "แก้ไข {edit}",
-  "activityDiffHunkNumber": "เปลี่ยน {index}",
-  "activityDiffFromLine": "From line {line}",
-  "activityDiffEditCount": "{count, plural, other{Edited {count} times}}",
-  "activityLunarZodiac": "ดี luck in the Year of the {animal}",
-  "activityReminderHours": "{hours, plural, other{{hours} hours straight. Take a break?}}",
-  "activityStepModelRequest": "One model request",
-  "activityStepModelRequestDetail": "One model request · {detail}",
+  "activitySpanRetries": "{เคาท์, plural, อื่นๆ{Retried {เคาท์} times}}",
+  "activitySpanToolCalls": "{เคาท์, plural, อื่นๆ{Chose ไป คอลล์ {เคาท์} tools}}",
+  "activityRunningItems": "{เคาท์, plural, อื่นๆ{ในหมู่ {เคาท์} items}}",
+  "activityRetryAttempt": "พยายาม {เคาท์}",
+  "activityDiffFileCount": "{เคาท์, plural, อื่นๆ{{เคาท์} files}}",
+  "activityDiffFileSemantics": "{พาธ}, {added, plural, อื่นๆ{{added} lines added}}, {removed, plural, อื่นๆ{{removed} lines removed}}",
+  "activityDiffEditNumber": "แก้ไข {แก้ไข}",
+  "activityDiffHunkNumber": "เปลี่ยน {อินเด็กซ์}",
+  "activityDiffFromLine": "จาก ไลน์ {ไลน์}",
+  "activityDiffEditCount": "{เคาท์, plural, อื่นๆ{Edited {เคาท์} times}}",
+  "activityLunarZodiac": "ดี luck ใน  ยีอาร์ ของ  {animal}",
+  "activityReminderHours": "{hours, plural, อื่นๆ{{hours} hours straight. TEEก  หยุด?}}",
+  "activityStepModelRequest": "One Model คำขอ",
+  "activityStepModelRequestDetail": "One Model คำขอ · {รายละเอียด}",
   "activityUsageEstimatedCost": "≈ {symbol}{amount}",
   "activitySlashCommandSemantics": "{label}, /{name}",
-  "activityToolListSeparator": ", "
+  "activityToolListSeparator": ", ",
+  "@activityTokensTenThousands": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityTokensHundredMillions": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageContextSemantics": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageSystemTokens": {
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageToolTokens": {
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageMessageTokens": {
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageTurns": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageCacheWriteTokens": {
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryCommands": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryEditedFiles": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryReadFiles": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummarySearches": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryWeb": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummarySubagents": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryOther": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySummaryTotal": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffBlockMarker": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffEditMarker": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityTraceSpanSemantics": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      },
+      "duration": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityTraceGroupSemantics": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityTraceEstimatedCost": {
+    "placeholders": {
+      "cost": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityTraceReasoningTokens": {
+    "placeholders": {
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepPosition": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      },
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepTokenSpeed": {
+    "placeholders": {
+      "speed": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepRetryCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepTruncated": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepLiveElapsed": {
+    "placeholders": {
+      "elapsed": {
+        "type": "String"
+      },
+      "suffix": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepCopySection": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepCopiedSection": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySlashDescriptionArgs": {
+    "placeholders": {
+      "description": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanSecondsText": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanMinutesSeconds": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      },
+      "seconds": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityCostUnderCent": {
+    "placeholders": {
+      "symbol": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityCostApprox": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "symbol": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanRetries": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySpanToolCalls": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityRunningItems": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityRetryAttempt": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffFileCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffFileSemantics": {
+    "placeholders": {
+      "added": {
+        "type": "String"
+      },
+      "path": {
+        "type": "String"
+      },
+      "removed": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffEditNumber": {
+    "placeholders": {
+      "edit": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffHunkNumber": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffFromLine": {
+    "placeholders": {
+      "line": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityDiffEditCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityLunarZodiac": {
+    "placeholders": {
+      "animal": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityReminderHours": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityStepModelRequestDetail": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@activityUsageEstimatedCost": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      },
+      "symbol": {
+        "type": "String"
+      }
+    }
+  },
+  "@activitySlashCommandSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  }
 }

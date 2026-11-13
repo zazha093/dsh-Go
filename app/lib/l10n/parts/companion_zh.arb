@@ -385,5 +385,19 @@
       }
     }
   },
-  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}"
+  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}",
+  "thisCommandSucceeded": "This command succeeded.",
+  "thisCommandFailed": "This command failed.",
+  "thisCommandWasCancelled": "This command was cancelled.",
+  "thisCommandWasNotRun": "This command was not run.",
+  "thisRequestIsNoLongerPending": "This request is no longer pending.",
+  "youAreStillHereYouCanTakeABreakIfYouWant": "You are still here. You can take a break if you want.",
+  "thisStatusIsUnavailable": "This status is unavailable.",
+  "value": ": value[",
+  "value1": ": value[",
+  "companionRoom": "Companion room",
+  "whaleGirl": "Whale girl",
+  "waitingForYouInTheRoom": "Waiting for you in the room",
+  "companionadapt": "companion-adapt",
+  "skillmd": "SKILL.md"
 }
