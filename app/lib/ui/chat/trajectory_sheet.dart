@@ -831,7 +831,7 @@ class _GroupTile extends StatelessWidget {
                             if (failed > 0) ...[
                               const SizedBox(width: 6),
                               Icon(AppIcons.failed, size: 14, color: dsh.danger),
-                              Text(l10n.failed(failed), style: AppType.monoLabel(color: dsh.danger)),
+                              Text(l10n.failed(failed.toString()), style: AppType.monoLabel(color: dsh.danger)),
                             ],
                             const SizedBox(width: 8),
                             Text(

@@ -429,7 +429,7 @@ class _TasksTab extends StatelessWidget {
         for (final (title, list) in groups)
           if (list.isNotEmpty) ...[
             ListPageCard(
-              title: l10n.titleListlength(title, list.length),
+              title: l10n.titleListlength(title, list.length.toString()),
               children: [
                 for (final task in list)
                   FadeSlideIn(

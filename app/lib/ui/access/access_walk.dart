@@ -417,6 +417,7 @@ class _StepMark extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final now = state == _Mark.now;
