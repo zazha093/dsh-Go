@@ -86,9 +86,9 @@ jobs:
             -dname "CN=Android Debug,O=Android,C=US" \
             -storepass android -keypass android
           # Also create in old location for Gradle compatibility
-          mkdir -p $HOME/.config/.android
-          chmod 777 $HOME/.config/.android
-          cp $HOME/.android/debug.keystore $HOME/.config/.android/debug.keystore
+          mkdir -p $HOME/.config/.android 2>/dev/null || true
+          chmod 777 $HOME/.config/.android 2>/dev/null || true
+          cp $HOME/.android/debug.keystore $HOME/.config/.android/debug.keystore 2>/dev/null || true
 
       - name: Flutter pub get
         working-directory: app
