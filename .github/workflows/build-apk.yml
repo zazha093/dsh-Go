@@ -85,6 +85,10 @@ jobs:
             -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
             -dname "CN=Android Debug,O=Android,C=US" \
             -storepass android -keypass android
+          # Also create in old location for Gradle compatibility
+          mkdir -p $HOME/.config/.android
+          chmod 777 $HOME/.config/.android
+          cp $HOME/.android/debug.keystore $HOME/.config/.android/debug.keystore
 
       - name: Flutter pub get
         working-directory: app
