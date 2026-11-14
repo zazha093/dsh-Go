@@ -1,0 +1,81 @@
+{
+  "phoneModeTitle": "How DSH confirms",
+  "phoneModeMessage": "You can change this ใน ตั้งค่า anytime",
+  "phoneModeAsk": "ถาม me at คีย์ steps",
+  "phoneModeAskHint": "ก่อน  ใหม่ app, sending, deleting หรือ paying",
+  "phoneModeAuto": "Fully automatic",
+  "phoneModeAutoHint": "ไม่เคย asks, ไม่เคย interrupts",
+  "phoneModeAutoNoteTitle": "These stay กับ you",
+  "phoneModeAutoNote": "ระบบ ตั้งค่า และ สิทธิ์ pages, passwords และ verification codes, และ DSH Go itself stay กับ you. Banking และ payment apps are ปิด limits โดย ค่าเริ่มต้น; you can change that ใน ตั้งค่า.",
+  "phoneModeAutoUnlockNote": "ไป let AI handle ระบบ ตั้งค่า, passwords และ  like, turn it เปิด ใน ตั้งค่า › Phone control › Lift limits.",
+  "phoneModeConfirmAuto": "Go fully automatic",
+  "phoneYoursSystem": "ระบบ ตั้งค่า และ สิทธิ์ pages",
+  "phoneYoursSecrets": "Passwords และ verification codes",
+  "phoneYoursOwnApp": "DSH Go itself",
+  "phoneUnlockTitle": "Lift limits",
+  "phoneUnlockSubtitle": "Let AI ทำ what’s yours โดย ค่าเริ่มต้น",
+  "phoneUnlockSystem": "ระบบ ตั้งค่า",
+  "phoneUnlockSystemHint": "Permissions, installers, ความปลอดภัย center, notifications",
+  "phoneUnlockSecrets": "Passwords และ codes",
+  "phoneUnlockSecretsHint": "Fill ใน passwords, verification และ payment codes",
+  "phoneUnlockOwnApp": "DSH Go itself",
+  "phoneUnlockOwnAppHint": "Tap และ type inside DSH Go",
+  "phoneUnlockBusy": "Can’t turn เปิด ขณะที่  งาน คือ กำลังทำงาน",
+  "phoneUnlockFootnote": "หนึ่งครั้ง เปิด,  consequences are yours. Turn เปิด เท่านั้น เมื่อ ต้องการ, และ ปิด เมื่อ done.",
+  "phoneUnlockBanks": "Banking และ payment apps",
+  "phoneUnlockBanksHint": "เปลี่ยน ใน App rules",
+  "phoneUnlockNone": "ไม่มี เปิด",
+  "phoneUnlockCount": "{count} เปิด}",
+  "@phoneUnlockCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "phoneUnlockedBadge": "Limits lifted",
+  "phoneUnlockConfirmSystemTitle": "Let AI operate ระบบ ตั้งค่า?",
+  "phoneUnlockConfirmSecretsTitle": "Let AI fill ใน passwords และ codes?",
+  "phoneUnlockConfirmOwnAppTitle": "Let AI operate DSH Go itself?",
+  "phoneUnlockCanTitle": "หนึ่งครั้ง เปิด, AI can",
+  "phoneUnlockRiskTitle": "What อาจจะ go wrong",
+  "phoneUnlockDisclaimerTitle": "Disclaimer",
+  "phoneUnlockSystemCan1": "เปิด และ change system ตั้งค่า, including permissions, accessibility และ developer options",
+  "phoneUnlockSystemCan2": "ติดตั้ง, อัปเดต หรือ ถอนการติดตั้ง apps ใน  installer",
+  "phoneUnlockSystemCan3": "Tap ใน  ความปลอดภัย center และ  notification shade, including buttons เปิด notifications",
+  "phoneUnlockSystemRisk1": "Malicious instructions ใน  web เพจ, ข้อความ หรือ ไฟล์ could lead AI ไป turn ปิด protections, ให้ permissions ไป other apps หรือ ติดตั้ง apps",
+  "phoneUnlockSystemRisk2": "เครือข่าย, บัญชี หรือ ความปลอดภัย ตั้งค่า changed โดย mistake are yours ไป กู้คืน",
+  "phoneUnlockSecretsCan1": "ประเภท เข้า รหัสผ่าน, verification-code และ payment-code fields",
+  "phoneUnlockSecretsCan2": "Use codes it sees ใน chats, texts หรือ notifications ไป ไซน์ ใน หรือ เวอร์ริฟาย",
+  "phoneUnlockSecretsCan3": " action บันทึก shows •••• และ ไม่เคย what was typed",
+  "phoneUnlockSecretsRisk1": "Malicious instructions could lead AI ไป เอ็นเตอร์  code somewhere มิฉะนั้น, letting someone เข้า your บัญชี",
+  "phoneUnlockSecretsRisk2": "It could complete  payment หรือ ถ่ายโอน you didn’t intend",
+  "phoneUnlockOwnAppCan1": "Tap และ type inside DSH Go, including changing ตั้งค่า",
+  "phoneUnlockOwnAppCan2": "อ่านแล้ว conversations และ ตั้งค่า เปิด DSH Go’s screens",
+  "phoneUnlockOwnAppRisk1": "Malicious instructions could lead AI ไป อนุมัติ its own requests หรือ turn confirmations ปิด",
+  "phoneUnlockOwnAppRisk2": "What’s เปิด these screens คือ sent ไป  Model",
+  "phoneUnlockDisclaimer1": "หนึ่งครั้ง เปิด, AI can ทำ  above โดยไม่มี anyone confirming.",
+  "phoneUnlockDisclaimer2": "AI can เป็น misled โดย เนื้อหา ใน web pages, messages หรือ ไฟล์.",
+  "phoneUnlockDisclaimer3": "ใดก็ได้ resulting loss ไป your accounts, money, data หรือ device คือ yours ไป bear. DSH Go และ its developers accept ไม่ liability.",
+  "phoneUnlockDisclaimer4": "Turn it เปิด เท่านั้น เมื่อ you need it, และ ปิด เมื่อ you’re เสร็จ.",
+  "phoneUnlockDisclaimer5": "We advise ต้าน turning it เปิด สำหรับ  device that holds payment หรือ banking details.",
+  "phoneUnlockHold": "I understand  risks, turn เปิด",
+  "phoneUnlockHoldHint": "Press และ hold สำหรับ เกี่ยวกับ 1.5 seconds",
+  "phoneUnlockOnNotice": "{name} “{name}” คือ เปิด",
+  "@phoneUnlockOnNotice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "phoneUnlockOffNotice": "{name} “{name}” คือ ปิด",
+  "@phoneUnlockOffNotice": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "searchKwPhoneUnlock": "lift limits,unlock,passwords,codes,ระบบ ตั้งค่า,itself,risk,disclaimer"
+}

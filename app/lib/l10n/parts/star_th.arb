@@ -1,0 +1,16 @@
+{
+  "starPromptTitle": "{hours} hours ตอนนี้~}}",
+  "@starPromptTitle": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "starPromptBody": "DSH Go คือ free และ เปิด source. ถ้า it’s made your phone  little nicer ไป use, please give it  Star — it means so much ไป this little whale!",
+  "starPromptPlea": "Pretty please~ It จริงๆ matters!!",
+  "starPromptStar": "ดาว it เปิด GitHub",
+  "starPromptDone": "แล้ว starred",
+  "starPromptLater": "ไม่แน่ใจ ภายหลัง",
+  "starSettingsTitle": "ดาว DSH Go เปิด GitHub"
+}

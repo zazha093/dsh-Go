@@ -1,0 +1,1391 @@
+{
+  "featuresCordisSubtitle": "Dynamic plugins · Cleared เมื่อ  engine restarts",
+  "featuresCordisUnavailable": "Cordis isn’t available here",
+  "featuresCordisRemoteUnavailable": "ไม่พร้อมใช้งาน เกิน DSH Remote",
+  "featuresCordisReadFailed": "Couldn’t โหลด plugins",
+  "featuresCordisEmpty": "ไม่ dynamic plugins ยัง",
+  "featuresCordisEmptyHint": "Plugins appear here หนึ่งครั้ง created",
+  "featuresCurrentChat": "แชทปัจจุบัน",
+  "featuresOtherChats": "other chats",
+  "featuresPresetDefaultSet": "{name} ใหม่ chats will use “{name}”",
+  "featuresPresetDefaultFailed": "Couldn’t เซ็ท ในฐานะ ค่าเริ่มต้น",
+  "featuresPresetDeleteTitle": "{name} ลบ “{name}”?",
+  "featuresPresetDeleteHint": "It won’t เป็น available สำหรับ ใหม่ chats. Existing chats stay ในฐานะ they are.",
+  "featuresDeleted": "ลบแล้ว",
+  "featuresDeleteFailed": "Couldn’t ลบ",
+  "featuresPresetAlreadyDefault": "ค่าเริ่มต้น สำหรับ ใหม่ chats",
+  "featuresPresetSetDefault": "Use สำหรับ ใหม่ chats",
+  "featuresPresetViewConfig": "ดู configuration",
+  "featuresPresetDuplicate": "ซ้ำ preset",
+  "featuresPresetDefaultDeleteHint": "เซ็ท another preset ในฐานะ  ค่าเริ่มต้น สำหรับ ใหม่ chats เฟิร์ส",
+  "featuresAgentPresets": "เอเจนต์ presets",
+  "featuresAgentPresetsSubtitle": "Tools และ behavior สำหรับ ใหม่ chats",
+  "featuresNew": "ใหม่",
+  "featuresPresetsReadFailed": "Couldn’t โหลด Agent presets",
+  "featuresLoadFailed": "Couldn’t โหลด",
+  "featuresNewChatDefault": "ค่าเริ่มต้นสำหรับแชทใหม่",
+  "featuresEmptyDocument": "(ว่าง)",
+  "featuresReadFailed": "Couldn’t อ่าน",
+  "featuresTodayTime": "{time} วันนี้ {time}",
+  "featuresTomorrowTime": "{time} พรุ่งนี้ {time}",
+  "featuresYesterdayTime": "{time} เมื่อวาน {time}",
+  "featuresScheduleSummaryNext": "{time} {rule} · ถัดไป {time}",
+  "featuresEnded": "สิ้นสุด",
+  "featuresScheduleSummaryEnded": "{time} Ended · Ran {time}",
+  "featuresJobElapsed": "กำลังทำงาน สำหรับ {span}",
+  "featuresJobDuration": "Took {span}",
+  "featuresPermissionReadOnly": "อ่านแล้ว เท่านั้น",
+  "featuresPermissionWorkspaceWrite": "Workspace เขียน",
+  "featuresPermissionFullAccess": "Full เข้าถึง",
+  "featuresPermissionAutoReview": "อัตไม่มัติ review",
+  "featuresPermissionCustom": "กำหนดเอง",
+  "featuresPermissionReadOnlyHint": "ดู ไฟล์ โดยไม่มี changing them",
+  "featuresPermissionWorkspaceWriteHint": "แก้ไข workspace ไฟล์; ถาม ก่อน ไป เกิน",
+  "featuresPermissionFullAccessHint": "เรียกใช้ โดยไม่มี asking",
+  "featuresPermissionAutoReviewHint": " Model reviews แต่ละ action และ asks เมื่อ unsure",
+  "featuresPresetStandard": "มาตรฐาน mode",
+  "featuresPresetPtc": "PTC mode",
+  "featuresPresetMinimal": "Minimal mode",
+  "featuresPresetCreator": "Creator mode",
+  "featuresPresetStandardDescription": "Code, ไฟล์, และ research สำหรับ มากที่สุด tasks",
+  "featuresPresetPtcDescription": "Batch เครื่องมือ calls, แล้ว ฟิลเตอร์, วิเคราะห์, และ summarize",
+  "featuresPresetMinimalDescription": "Terminal และ รูปภาพ viewing เท่านั้น, สำหรับ testing และ comparison",
+  "featuresPresetCreatorDescription": "Have  Agent เขียน plugins ไป customize DSH",
+  "featuresHostUnreachable": "{name} Can’t เชื่อมต่อ ไป “{name}”",
+  "featuresHostConnecting": "{name} Connecting ไป “{name}”…",
+  "featuresJobs": "พื้นหลัง jobs",
+  "featuresJobsSubtitle": "Cleared เมื่อ  engine restarts",
+  "featuresJobsReadFailed": "Couldn’t โหลด background jobs",
+  "featuresJobsEmpty": "ไม่ background jobs",
+  "featuresJobsEmptyHint": "Commands such ในฐานะ dev servers appear here",
+  "featuresJobsEndedCount": "{count}}}",
+  "featuresJobStopTitle": "หยุด this งาน?",
+  "featuresJobAlreadyEnded": "This งาน has แล้ว ended",
+  "featuresJobStopFailed": "Couldn’t หยุด",
+  "featuresJobOutput": "งาน output",
+  "featuresOutput": "เอาต์พุต",
+  "featuresJobRecentLines": "{count} lines}",
+  "featuresJobOutputSubject": "DSH งาน output",
+  "featuresJobOutputReadFailed": "Couldn’t อ่าน output",
+  "featuresJobOutputWaiting": "กำลังรอ สำหรับ output…",
+  "featuresJobOutputEmpty": "ไม่ output",
+  "featuresPermissionAutoTitle": "Turn เปิด Auto รีVUE?",
+  "featuresPermissionAutoWarning": " Model decides ว่า ไป อนุญาต แต่ละ action. It พฤษภาคม get it wrong.",
+  "featuresSwitchFailed": "ไม่สามารถสลับได้",
+  "featuresPermissions": "สิทธิ์การเข้าถึง",
+  "featuresPermissionsSubtitle": "เลือกเวลาที่จะถามก่อนรันคำสั่งหรือแก้ไขไฟล์",
+  "featuresPermissionsReadFailed": "ไม่สามารถโหลดสิทธิ์ได้",
+  "featuresPermissionCustomHint": "การเลือกค่าเริ่มต้นจะทับสิทธิ์ที่คุณตั้งเอง",
+  "featuresModuleInstructions": "เวิร์กสเปซ instructions",
+  "featuresModuleTime": "เวลา awareness",
+  "featuresModuleBash": "Bash คอมมานด์ เครื่องมือ",
+  "featuresModulePersistentBash": "Persistent Bash เครื่องมือ",
+  "featuresModulePowerShell": "PowerShell คอมมานด์ เครื่องมือ",
+  "featuresModuleFiles": "ไฟล์ อ่าน/เขียน เครื่องมือ",
+  "featuresModuleFileSearch": "ไฟล์ ค้นหา เครื่องมือ",
+  "featuresModuleJobs": "Background งาน เครื่องมือ",
+  "featuresModuleSchedule": "Automation เครื่องมือ",
+  "featuresModuleLocalSkills": "โลคอล skill กำลังโหลด",
+  "featuresModuleSkillTool": "Skill กำลังโหลด เครื่องมือ",
+  "featuresModuleGoalCommand": "เป้าหมาย management คอมมานด์",
+  "featuresModuleGoalTool": "เป้าหมาย management เครื่องมือ",
+  "featuresModulePlan": "แผน mode",
+  "featuresModuleCompaction": "คอนเท็กซ์ compaction",
+  "featuresModuleCompactCommand": "คอนเท็กซ์ compaction คอมมานด์",
+  "featuresModuleAskUser": "ถาม ผู้ใช้ เครื่องมือ",
+  "featuresModuleTodo": "ทูดู รายการ เครื่องมือ",
+  "featuresModuleWeb": "Web ค้นหา และ เฟช เครื่องมือ",
+  "featuresModulePresent": "ไฟล์ delivery เครื่องมือ",
+  "featuresModuleCordis": "ปลั๊กอิน API lookup เครื่องมือ",
+  "featuresModuleSubagent": "Subagent delegation เครื่องมือ",
+  "featuresModuleSubagentControl": "Subagent control เครื่องมือ",
+  "featuresModuleWorkflow": "Workflow เครื่องมือ",
+  "featuresModulePluginManager": "ปลั๊กอิน management เครื่องมือ",
+  "featuresModulePluginMarket": "ปลั๊กอิน marketplace เครื่องมือ",
+  "featuresModuleToolCalls": "เครื่องมือ คอลล์ สไตล์",
+  "featuresModuleTerminal": "Persistent Terminal บริการ",
+  "featuresModulePersona": "เอเจนต์ persona",
+  "featuresGroupDelegation": "ซับเอจิ้นต์ delegation",
+  "featuresGroupTerminal": "Persistent Terminal",
+  "featuresPresetIdRequired": "เอ็นเตอร์  ไอดี",
+  "featuresPresetIdLength": "ขึ้น ไป 40 characters",
+  "featuresPresetIdFormat": "Use lowercase letters, numbers, และ hyphens",
+  "featuresPresetIdTaken": "This ไอดี คือ แล้ว ใน use",
+  "featuresPresetCopyName": "{name} {name} คัดลอก",
+  "featuresPresetBasedOn": "Based เปิด",
+  "featuresNameRequired": "เอ็นเตอร์  ชื่อ",
+  "featuresCreatorOpenFailed": "Couldn’t เปิด Creator mode",
+  "featuresPresetNameHint": "สำหรับ ตัวอย่าง: Code รีVUE",
+  "featuresPresetId": "ไอดี",
+  "featuresPresetIdHint": "Lowercase letters, numbers, และ hyphens",
+  "featuresPresetDescription": "คำอธิบาย",
+  "featuresPresetDescriptionHint": "Describe what it’s สำหรับ ใน one sentence",
+  "featuresPresetConfigReadFailed": "Couldn’t โหลด preset CONFIG",
+  "featuresPresetCreateTitle": "ใหม่ agent preset",
+  "featuresPresetDuplicateTitle": "ซ้ำ agent preset",
+  "featuresPresetEditTitle": "แก้ไข agent preset",
+  "featuresCreatorOpening": "Opening Creator mode",
+  "featuresWaitingEngine": "กำลังรอ สำหรับ  engine",
+  "featuresCreatorUnavailable": "Creator mode unavailable",
+  "featuresPresetStartUpdate": "เริ่ม updating",
+  "featuresPresetStartCreate": "เริ่ม creating",
+  "featuresPresetSystemPrompt": "ระบบ Prompt",
+  "featuresPresetSystemPromptHint": "Who you are และ how you งาน",
+  "featuresPresetReplaceSystemPrompt": "Replace  full ระบบ Prompt",
+  "featuresPresetTools": "Tools",
+  "featuresSkills": "Skills",
+  "featuresPresetContextModes": "คอนเท็กซ์ และ modes",
+  "featuresCronMinute": "Minutes",
+  "featuresCronHour": "Hours",
+  "featuresDate": "วันที่",
+  "featuresCronMonth": "มอนท์",
+  "featuresCronWeekday": "เดย์ ของ สัปดาห์",
+  "featuresCronRequired": "เอ็นเตอร์  5-field ครอน expression",
+  "featuresCronWhitespace": "ไม่ leading หรือ trailing spaces",
+  "featuresCronFieldCount": "{count}}}",
+  "featuresCronInvalidField": "{name} {index} Field {index} ({name}) คือ invalid",
+  "featuresWeekdayMon": "จันทร์",
+  "featuresWeekdayTue": "อังคาร",
+  "featuresWeekdayWed": "พุธ",
+  "featuresWeekdayThu": "พฤหัส",
+  "featuresWeekdayFri": "ศุกร์",
+  "featuresWeekdaySat": "เสาร์",
+  "featuresWeekdaySun": "อาทิตย์",
+  "featuresMonthJan": "มกราคม",
+  "featuresMonthFeb": "กุมภาพันธ์",
+  "featuresMonthMar": "มีนาคม",
+  "featuresMonthApr": "เมษายน",
+  "featuresMonthMay": "พฤษภาคม",
+  "featuresMonthJun": "มิถุนายน",
+  "featuresMonthJul": "กรกฎาคม",
+  "featuresMonthAug": "สิงหาคม",
+  "featuresMonthSep": "กันยายน",
+  "featuresMonthOct": "ตุลาคม",
+  "featuresMonthNov": "พฤศจิกายน",
+  "featuresMonthDec": "ธันวาคม",
+  "featuresWeekdayName": "{day}",
+  "featuresCronWeekdayRange": "{first}–{last}",
+  "featuresCronEveryDay": "ทุก เดย์{months}",
+  "featuresCronMonthDays": "รายเดือน เปิด {days}{months}",
+  "featuresCronMonthDaysAndWeekdays": "รายเดือน เปิด {days}, ถ้า {weekdays}{months}",
+  "featuresCronMonthDaysOrWeekdays": "รายเดือน เปิด {days} หรือ {weekdays}{months}",
+  "featuresCronHourRange": "{last} {first} {first} ไป {last}",
+  "featuresEveryMinute": "ทุก มินิต",
+  "featuresCronEveryMinutes": "{count} minutes}",
+  "featuresEveryHour": "ทุก อาวเหรือ",
+  "featuresCronHourlyMinutes": "At มินิต {minutes} ของ ทุก อาวเหรือ",
+  "featuresCronHoursEveryMinute": "ทุก มินิต ระหว่าง อาวเหรือ {hours}",
+  "featuresCronHoursEveryMinutes": "{count} minutes ระหว่าง อาวเหรือ {hours}}",
+  "featuresCronEveryHours": "{count} hours}",
+  "featuresCronHoursMinutes": "At มินิต {minutes} ระหว่าง อาวเหรือ {hours}",
+  "featuresRepeatDaily": "รายวัน",
+  "featuresRepeatWeekdays": "Weekdays",
+  "featuresRepeatWeekly": "ราใช่ัปดาห์",
+  "featuresRepeatMonthly": "รายเดือน",
+  "featuresRepeatInterval": "อินเตอร์วัล",
+  "featuresRepeatOnce": "หนึ่งครั้ง",
+  "featuresRepeatAdvanced": "ขั้นสูง",
+  "featuresRepeatCustom": "กำหนดเอง",
+  "featuresIntervalSeconds": "Seconds",
+  "featuresZoneUnavailable": "เวลา zone unavailable",
+  "featuresChooseDay": "Choose at น้อยที่สุด one เดย์",
+  "featuresIntervalMinimum": "อินเตอร์วัล must เป็น at น้อยที่สุด 1",
+  "featuresMinimumMinute": "At น้อยที่สุด 1 มินิต",
+  "featuresTimeDoesNotExist": "This ไทม์ doesn’t exist ใน this ไทม์ zone",
+  "featuresChooseFutureTime": "Choose  ฟิวเจอร์ ไทม์",
+  "featuresCronNeverRuns": "This expression ไม่เคย runs",
+  "featuresRuleDaily": "{time} รายวัน at {time}",
+  "featuresRuleWeekdays": "{time} Weekdays at {time}",
+  "featuresRuleWeekends": "{time} Weekends at {time}",
+  "featuresRuleWeekly": "{time} ทุก {days} at {time}",
+  "featuresRuleMonthly": "{time} รายเดือน เปิด {days} at {time}",
+  "featuresRepeat": "ทำซ้ำ",
+  "featuresChat": "แชท",
+  "featuresWorkspace": "เวิร์กสเปซ",
+  "featuresInstructionRequired": "เอ็นเตอร์ instructions",
+  "featuresScheduleSaveError": "Couldn’t บันทึก: {reason}",
+  "featuresScheduleCreateError": "Couldn’t ครีเอท: {reason}",
+  "featuresScheduleNameHint": "สำหรับ ตัวอย่าง: Daily standup reminder",
+  "featuresScheduleInstruction": "Instructions",
+  "featuresScheduleInstructionHint": "สำหรับ ตัวอย่าง: Summarize เมื่อวาน’s commits สำหรับ me",
+  "featuresScheduleRunTime": "เรียกใช้ ไทม์",
+  "featuresScheduleOpenChat": "ดู chat",
+  "featuresScheduleEditTitle": "แก้ไข automation",
+  "featuresScheduleCreateTitle": "ใหม่ automation",
+  "featuresScheduleSaving": "กำลังบันทึก",
+  "featuresScheduleCreating": "Creating ใน Chat",
+  "featuresTime": "เวลา",
+  "featuresNotSelected": "ไม่ selected",
+  "featuresMonthDaysLabel": "เดย์ {days}",
+  "featuresTimeZone": "เวลา zone",
+  "featuresScheduleRunLocation": "เรียกใช้ ใน",
+  "featuresJustCreatedChat": "เพียง-created Chat",
+  "featuresModel": "Model",
+  "featuresRequestRefused": " engine didn’t accept this คำขอ",
+  "featuresScheduleNotFound": "This automation ไม่ longer exists",
+  "featuresScheduleEndedError": "This automation has ended และ can’t เป็น edited",
+  "featuresScheduleConflict": "This automation เพียง changed. Go ย้อนกลับ และ ทราย อีกครั้ง.",
+  "featuresScheduleInvalidPrompt": "เอ็นเตอร์  ชื่อ และ instructions. Names can have ขึ้น ไป 120 characters.",
+  "featuresScheduleInvalidTime": "Invalid เรียกใช้ ไทม์",
+  "featuresScheduleIntervalTooShort": "อินเตอร์วัล must เป็น at น้อยที่สุด 1 มินิต",
+  "featuresScheduleTimeOutOfRange": "เวลา คือ ออก ของ เรนจ์",
+  "featuresScheduleSubagentError": "This Chat can’t รับ automations",
+  "featuresEvery": "ทุก",
+  "featuresCronExpression": "ครอน expression",
+  "featuresCronFieldGuide": "ขั้นต่ำ  อาวเหรือ  เดย์  มอนท์  Weekday",
+  "featuresZoneTimeSuffix": " ({city} ไทม์)",
+  "featuresScheduleNextLocal": "ถัดไป runs (this phone’s ไทม์)",
+  "featuresScheduleNext": "ถัดไป runs",
+  "featuresMonthDayChoice": "{day} เดย์ {day}",
+  "featuresZonesCommon": "ทั่วไป",
+  "featuresZonesAll": "ทั้งหมด",
+  "featuresZoneSearchHint": "ค้นหา cities, ไทม์ zones, หรือ ยูTEEซี offsets",
+  "featuresZonesNoMatch": "ไม่ matching ไทม์ zones",
+  "featuresZoneUTC": "Coordinated Universal เวลา",
+  "featuresZoneShanghai": "Shanghai",
+  "featuresZoneUrumqi": "Urumqi",
+  "featuresZoneHongKong": "Hong Kong",
+  "featuresZoneMacau": "Macau",
+  "featuresZoneTaipei": "Taipei",
+  "featuresZoneTokyo": "Tokyo",
+  "featuresZoneSeoul": "Seoul",
+  "featuresZoneSingapore": "Singapore",
+  "featuresZoneKualaLumpur": "Kuala Lumpur",
+  "featuresZoneBangkok": "Bangkok",
+  "featuresZoneHoChiMinh": "Ho Chi Minh City",
+  "featuresZoneJakarta": "Jakarta",
+  "featuresZoneManila": "Manila",
+  "featuresZoneKolkata": "Kolkata",
+  "featuresZoneDubai": "Dubai",
+  "featuresZoneJerusalem": "Jerusalem",
+  "featuresZoneLondon": "London",
+  "featuresZoneDublin": "Dublin",
+  "featuresZoneLisbon": "Lisbon",
+  "featuresZoneParis": "Paris",
+  "featuresZoneBerlin": "Berlin",
+  "featuresZoneMadrid": "Madrid",
+  "featuresZoneRome": "Rome",
+  "featuresZoneAmsterdam": "Amsterdam",
+  "featuresZoneZurich": "Zurich",
+  "featuresZoneStockholm": "Stockholm",
+  "featuresZoneWarsaw": "Warsaw",
+  "featuresZoneAthens": "Athens",
+  "featuresZoneIstanbul": "Istanbul",
+  "featuresZoneMoscow": "Moscow",
+  "featuresZoneCairo": "Cairo",
+  "featuresZoneJohannesburg": "Johannesburg",
+  "featuresZoneLagos": "Lagos",
+  "featuresZoneNewYork": "ใหม่ York",
+  "featuresZoneToronto": "Toronto",
+  "featuresZoneChicago": "Chicago",
+  "featuresZoneDenver": "Denver",
+  "featuresZonePhoenix": "Phoenix",
+  "featuresZoneLosAngeles": "Los Angeles",
+  "featuresZoneVancouver": "Vancouver",
+  "featuresZoneAnchorage": "Anchorage",
+  "featuresZoneMexicoCity": "Mexico City",
+  "featuresZoneBogota": "Bogota",
+  "featuresZoneLima": "Lima",
+  "featuresZoneSantiago": "Santiago",
+  "featuresZoneSaoPaulo": "Sao Paulo",
+  "featuresZoneBuenosAires": "Buenos Aires",
+  "featuresZoneHonolulu": "Honolulu",
+  "featuresZoneAuckland": "Auckland",
+  "featuresZoneSydney": "Sydney",
+  "featuresZoneMelbourne": "Melbourne",
+  "featuresZoneBrisbane": "Brisbane",
+  "featuresZonePerth": "Perth",
+  "featuresScheduleCreated": "Created",
+  "featuresSchedulesReadFailed": "Couldn’t โหลด automations",
+  "featuresSchedulesEmpty": "ไม่ automations ยัง",
+  "featuresSchedulesEmptyHint": "ส่ง ไป  chat และ รัน automatically at  scheduled ไทม์",
+  "featuresScheduleNewTask": "ใหม่ automation",
+  "featuresSchedulesNoMatch": "ไม่ matching automations",
+  "featuresSchedulesNoActive": "ไม่ ใช้งาน中 automations",
+  "featuresSchedulesNoEnded": "ไม่ ended automations",
+  "featuresSchedules": "Automations",
+  "featuresSchedulesSubtitle": "ส่ง ไป  original chat at  scheduled ไทม์",
+  "featuresSchedulesSearch": "ค้นหา automations",
+  "featuresSchedulesAllCount": "{count}}}",
+  "featuresScheduleUntitled": "Untitled automation",
+  "featuresScheduleSent": "ส่งแล้ว ไป chat",
+  "featuresView": "ดู",
+  "featuresSendFailed": "Couldn’t ส่ง",
+  "featuresScheduleDeleteTitle": "ลบ this automation?",
+  "featuresScheduleDeleteHint": "ฟิวเจอร์ runs will หยุด และ เรียกใช้ history will เป็น deleted.  original Chat stays ในฐานะ it คือ.",
+  "featuresScheduleDeleted": "Automation deleted",
+  "featuresScheduleActive": "ใช้งานอยู่",
+  "featuresScheduleRun": "เรียกใช้",
+  "featuresScheduleNextRun": "ถัดไป",
+  "featuresScheduleLastRun": "สุดท้าย",
+  "featuresScheduleRule": "กฎ",
+  "featuresScheduleLinkedChat": "เชื่อมโยงแล้ว chat",
+  "featuresScheduleChatDeleted": "แชท deleted",
+  "featuresScheduleEdit": "แก้ไข automation",
+  "featuresScheduleRunNow": "เรียกใช้ ตอนนี้",
+  "featuresScheduleHistory": "เรียกใช้ history",
+  "featuresScheduleNeverRun": "ไม่ runs ยัง",
+  "featuresScheduleHistoryUnavailable": "ประวัติ unavailable",
+  "featuresScheduleHistoryReadFailed": "Couldn’t โหลด เรียกใช้ history",
+  "featuresScheduleDelete": "ลบ automation",
+  "featuresExportSavedTo": "{path} Saved ไป {path}",
+  "featuresExportTitle": "ส่งออก Chat logs",
+  "featuresExportSubtitle": " ZIP สำหรับ feedback หรือ สำรอง",
+  "featuresExportUnavailable": "Can’t ส่งออก เกิน this การเชื่อมต่อ",
+  "featuresExportRemoteHint": "Logs aren’t available เกิน DSH Remote. ส่งออก them จาก DSH Web เปิด your computer.",
+  "featuresExportShareHint": "Attach ไป feedback หรือ ส่ง ไป yourself",
+  "featuresExportSaveDownloads": "บันทึก ไป Downloads",
+  "featuresExportDownloadsHint": "บันทึก ใน Downloads/DSH-Go",
+  "featuresExportContents": "ทั้งหมด records และ attachments จาก this chat และ its subagents",
+  "featuresSkillUseHere": "Use ใน Chat",
+  "featuresSkillUseNew": "ใหม่ chat",
+  "featuresSkillsCallHint": "ประเภท /skill-ชื่อ ไป use",
+  "featuresSkillsReadFailed": "Couldn’t โหลด skills",
+  "featuresSkillsEmpty": "ไม่ skills ใน this chat ยัง",
+  "featuresSkillsEmptyHint": "Skills ใน .dsh/skills appear here",
+  "featuresSkillsSourceHint": "จาก  โปรเจกต์’s และ ~/.dsh skills folders",
+  "featuresSkillUsage": "สำหรับ: {usage}",
+  "featuresSkillManual": "ด้วยตนเอง เท่านั้น",
+  "featuresArtifactsSemantic": "{count} ไฟล์, มุมมอง ออล}",
+  "featuresArtifactsTitle": "เอาต์พุต ไฟล์",
+  "featuresArtifactsAllCount": "{count}}}",
+  "featuresArtifactsCount": "{count} ไฟล์}",
+  "featuresArtifactsNoFiles": "ไม่ ไฟล์ ยัง",
+  "featuresArtifactsTotal": "{count} ไฟล์ · Delivered และ generated}",
+  "featuresArtifactsEmpty": "ไม่ output ไฟล์ ยัง",
+  "featuresArtifactsEmptyHint": "ไฟล์ delivered หรือ generated โดย AI appear here",
+  "featuresListSeparator": ", ",
+  "featuresErrorReason": "{title}: {reason}",
+  "featuresYearDate": "{date}, {year}",
+  "featuresDateWeekdayTime": "{week}, {date} {time}",
+  "featuresDateWeekday": "{day}, {date}",
+  "featuresOnceDescription": "{rule} · {date} {time}",
+  "featuresCronMonthSuffix": " ({months})",
+  "featuresRuleIntervalSeconds": "{count} seconds}",
+  "featuresRuleIntervalMinutes": "{count} minutes}",
+  "featuresRuleIntervalHours": "{count} hours}",
+  "featuresSchedulesActiveCount": "{count}}}",
+  "featuresSchedulesEndedCount": "{count}}}",
+  "featuresScheduleRetention": "{count} {days} days}, entries}",
+  "featuresScheduleRetentionUnknown": "{days} days}}, entry ลิมิต unavailable",
+  "featuresArtifactsDeliveredTurn": "Turn {turn} · ส่งมอบแล้ว",
+  "featuresArtifactsGeneratedTurn": "Turn {turn} · Generated",
+  "featuresPresetCreateRequest": "{name} {id} {directory} สร้าง agent preset “{name}” ({id}): เขียน these two ไฟล์ verbatim ใน  workspace, แล้ว use plugin_manager’s install_bundle ไป ติดตั้ง  `{directory}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
+  "featuresPresetUpdateRequest": "{name} {id} {directory} อัปเดต agent preset “{name}” ({id}): เขียน these two ไฟล์ verbatim ใน  workspace. Use plugin_manager ไป ลบ bundle `{replacing}`, แล้ว use install_bundle ไป ติดตั้ง  `{directory}` ไดเรกทอรี. ทำ เท่านั้น this.\n\n",
+  "featuresZoneThisPhone": "{city} · This phone",
+  "featuresPermissionResetHint": "ค่าเริ่มต้นสำหรับแชทใหม่ไม่ถูกต้องแล้ว",
+  "featuresPermissionResetDefault": "กู้คืนค่าเริ่มต้น",
+  "skillname": "/{skill_name}",
+  "@skillname": {
+    "placeholders": {
+      "skill_name": {
+        "type": "String"
+      }
+    }
+  },
+  "titleOnrowslength": "{title} · {on}/{rows_length}",
+  "@titleOnrowslength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "on": {
+        "type": "String"
+      },
+      "rows_length": {
+        "type": "String"
+      }
+    }
+  },
+  "d": "{d}",
+  "@d": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
+  "notConnected": "ไม่ connected",
+  "dshgoManifestZerocostOnlyNotice": "ไม่ dshGo manifest: เท่านั้น zero-cost extensions such ในฐานะ เครื่องมือ cards (presentationMeta)",
+  "nativeUiShows": "Native UI shows",
+  "invalidManifestTheNativePartIsNotShown": "Invalid manifest;  native part คือ ไม่ shown",
+  "protocolVersionNotSupportedNativePartNotice": "โปรโตคอล VERSION ไม่ supported;  native part คือ ไม่ shown",
+  "appTooOldTheNativePartIsNotShown": "App เกินไป old;  native part คือ ไม่ shown",
+  "unknownIconDrawnAsTheDefaultIcon": "Unknown icon; drawn ในฐานะ  ค่าเริ่มต้น icon",
+  "missingName": "Missing ชื่อ",
+  "toolCardsPhase0NotTappableButtonsHiddenNotice": "เครื่องมือ cards (phase 0) are ไม่ tappable: buttons และ confirms are ซ่อน, options อ่าน-เท่านั้น",
+  "addLoadCheckHandlersViewFunctionsNotice": "เพิ่ม --โหลด ไป เช็ค handlers และ มุมมอง functions เกินไป",
+  "send": "ส่ง",
+  "folder": "โฟลเดอร์",
+  "open": "เปิด",
+  "link": "ลิงก์",
+  "putIntoTheComposerThePersonTapsSend": "Put เข้า  composer;  person taps ส่ง",
+  "slashCommandNameWithoutTheSlash": "Slash คอมมานด์ ชื่อ โดยไม่มี  slash",
+  "deepywhale": "deepy-whale",
+  "bottomright": "ล่าง-ขวา",
+  "ctrlk": "ctrl+k",
+  "search": "ค้นหา",
+  "hidden": "ซ่อน",
+  "ctrln": "ctrl+n",
+  "newchat": "ใหม่-Chat",
+  "ctrlshiftf": "ctrl+shift+f",
+  "altt": "alt+t",
+  "protocolMajorVersion": "โปรโตคอล major VERSION.",
+  "displayName24CharsAfterLocaleNotice": "แสดง ชื่อ, <= 24 characters หลัง โหลเคล resolution.",
+  "relativePathMustStayInPackageNotice": "Relative ไป  แพ็กเกจ ไดเรกทอรี; must stay inside it.",
+  "staticFallback24Characters": "Static fallback, <= 24 characters.",
+  "ownPanelOpenedOnTap": "Own แผง opened เปิด tap.",
+  "bcp47PassedToDataFunctionsNotice": "BCP 47; passed ไป data functions และ part ของ  data source คีย์",
+  "cancel": "ยกเลิก",
+  "v11CancelDeferredResultNotice": "v1.1: ยกเลิก  deferred ผลลัพธ์ started เปิด this การเชื่อมต่อ",
+  "microsub": "micro.ซับ",
+  "microunsub": "micro.unsub",
+  "capevent": "CAP.อีเวนต์",
+  "v11ConnectionIdSendAsInvokestreamNotice": "v1.1: ไอดี ของ this การเชื่อมต่อ; ส่ง it ในฐานะ invoke.สตรีม",
+  "data": "data",
+  "sync": "ซิงค์",
+  "error": "ข้อผิดพลาด",
+  "v11DeferredResultDelivered": "v1.1: deferred ผลลัพธ์ delivered",
+  "done": "เสร็จ",
+  "v11DeferredResultVoidNothingElseNotice": "v1.1: deferred ผลลัพธ์ วอยด์; nothing มิฉะนั้น will arrive สำหรับ this ไอดี",
+  "microdata": "micro.data",
+  "microend": "micro.end",
+  "contentHashAlsoTheEtag": "เนื้อหา Hash; also  ETag",
+  "stateOk": "สเตท == ตกลง",
+  "appExecutesLocallyNeverInvokesNotice": "Present:  app executes it locally และ ไม่เคย invokes",
+  "hasAPanelOrAnOnidHandler": "Has  แผง หรือ  เปิด(ไอดี) handler",
+  "englishForDevelopers": "English, สำหรับ developers",
+  "valuem": "{value} {value}M",
+  "confirm": "ยืนยัน",
+  "inputBindingMustBeAFieldPathUnderData": "Input binding must เป็น  field พาธ ใต้ data",
+  "checkTheHighlightedFields": "เช็ค  highlighted fields",
+  "choose": "เลือก",
+  "chooseAValidDate": "Choose  valid เดท",
+  "decreaseLabel": "Decrease {label}",
+  "eachFieldCanBindToOnlyOneInput": "แต่ละ field can bind ไป เท่านั้น one input",
+  "notSavedTryAgain": "ไม่ saved. ทราย อีกครั้ง",
+  "invalidFormulaOrFormulaLimitExceeded": "Invalid formula หรือ formula ลิมิต exceeded",
+  "thisEffectRequiresAUserTap": "This effect requires  ผู้ใช้ tap",
+  "increaseLabel": "Increase {label}",
+  "invalidValue": "Invalid ค่า",
+  "useABuiltinValidationPattern": "Use  built-ใน validation pattern",
+  "formsCannotBeNested": "Forms cannot เป็น nested",
+  "next": "ถัดไป",
+  "checkTheFormat": "เช็ค  ฟอร์แมต",
+  "previous": "ก่อนหน้า",
+  "completeThisField": "เสร็จสิ้น this field",
+  "save": "บันทึก",
+  "formNeedsASubmitAction": "Form needs  submit action",
+  "chooseAValidTime": "Choose  valid ไทม์",
+  "tooMuchContentShortenItAndTryAgain": "เกินไป much เนื้อหา. Shorten it และ ทราย อีกครั้ง",
+  "thisComponentIsNotSupportedHere": "This คอมโพเนนท์ คือ ไม่ supported here",
+  "anActionMustBeAnIdStringOrShapeIgnored": " action must เป็น  ไอดี สตริง หรือ {shape}; ignored",
+  "invalidActionIdElementNotTappableNotice": "{value} Invalid action ไอดี {value}; this element isn’t tappable",
+  "noDataYet": "ไม่ data ยัง",
+  "expectedAnArrayOfShape": "Expected  อาร์เรย์ ของ {shape}",
+  "fromName": "{name} จาก {name}",
+  "pictureIndex": "{index} Picture {index}",
+  "imageCantBeDecodedPngJpegWebpOrGifOnly": "รูปภาพ can’t เป็น decoded (PNG, JPEG, WebP หรือ GIF เท่านั้น)",
+  "imageExceedsSizeLimit4096Notice": "รูปภาพ exceeds  ไซส์ ลิมิต: 4096 per side, 4 million pixels ใน ทอตอล",
+  "cantDisplayImage": "Can’t แสดง รูปภาพ",
+  "viewMaxOnePrimaryButtonNotice": " มุมมอง has at มากที่สุด one หลัก button; this one คือ drawn ในฐานะ plain",
+  "richTextExceedsTheLimitTruncated": "Rich เท็กซ์ exceeds  ลิมิต; truncated",
+  "expectedShapeItemSkipped": "Expected {shape}; item ข้าม",
+  "thisStyleIsOnlyAvailableOnStackAndRow": "This สไตล์ คือ เท่านั้น available เปิด สแต็ก และ แถว",
+  "invalidStyleExpectedValues": "Invalid สไตล์; expected {values}",
+  "thisStyleOnlyTextMetricCalloutNotice": "This สไตล์ คือ เท่านั้น available เปิด เท็กซ์, metric และ callout",
+  "cantDisplayButtons": "Can’t แสดง buttons",
+  "cantDisplayDetails": "Can’t แสดง details",
+  "cantDisplayList": "Can’t แสดง รายการ",
+  "cantDisplayProgress": "Can’t แสดง progress",
+  "cantDisplayTable": "Can’t แสดง ตาราง",
+  "unknownIconValueDrawnWithTheDefaultIcon": "{value} Unknown icon {value}; drawn กับ  ค่าเริ่มต้น icon",
+  "unknownToneValueIgnoredNotice": "{value} Unknown tone {value}, ignored; available: good, warn, bad, ข้อมูล, muted",
+  "viewVersionUnsupportedNotice": "{version} มุมมอง VERSION {version} คือ ไม่ supported; using compatible มุมมอง",
+  "cancelledValue": "{value} ยกเลิกแล้ว: {value}",
+  "selectedValue": "{value} Selected: {value}",
+  "confirmed": "Confirmed",
+  "confirmedValue": "{value} Confirmed: {value}",
+  "audio": "ออดิโอ",
+  "chart": "Chart",
+  "diagram": "Diagram",
+  "fileTree": "ไฟล์ tree",
+  "image": "รูปภาพ",
+  "interactivePart": "Interactive part",
+  "thisPart": "This part",
+  "video": "วิดีโอ",
+  "duplicateLabelValueSkipped": "{value} Duplicate label {value}; skipped",
+  "codeBlockIsEmpty": "Code block คือ empty",
+  "expectedANonemptyArrayOfLabels": "Expected  non-empty อาร์เรย์ ของ labels",
+  "expectedAnArrayOf1ToLimitComponents": "{limit} Expected  อาร์เรย์ ของ 1 ไป {limit} components",
+  "expectedAComponentObject": "Expected  คอมโพเนนท์ ออบเจ็กต์",
+  "expectedANonemptyArrayOfShapeObjects": "Expected  non-empty อาร์เรย์ ของ {shape} objects",
+  "expectedAString": "Expected  สตริง",
+  "expired": "Expired",
+  "drawingOnlyTheFirstSeries": "Drawing เท่านั้น  เฟิร์ส series",
+  "generatingView": "Generating มุมมอง",
+  "valueb": "{value} {value}B",
+  "viewIsStillGenerating": "มุมมอง คือ ยัง generating",
+  "thisViewHasAFormattingError": "This มุมมอง has  formatting ข้อผิดพลาด",
+  "commentsOrTrailingCommasIgnored": "Comments หรือ trailing commas ignored",
+  "missingType": "Missing ประเภท",
+  "selectMultiple": "select multiple",
+  "no": "ไม่",
+  "noFiniteValues": "ไม่ finite values",
+  "noItemsToDraw": "ไม่ items ไป draw",
+  "noUsableOptions": "ไม่ usable options",
+  "noSeriesToDraw": "ไม่ series ไป draw",
+  "noStepsToDraw": "ไม่ steps ไป draw",
+  "notStarted": "ไม่ started",
+  "replied": "Replied",
+  "chooseWhenTheReplyIsComplete": "Choose เมื่อ  reply คือ complete",
+  "cancelValue": "{value} ยกเลิก: {value}",
+  "selectValue": "{value} select:",
+  "confirmValue": "{value} ยืนยัน: {value}",
+  "askToResend": "ถาม ไป resend",
+  "expectedANonemptyStringItemSkipped": "Expected  non-empty สตริง; item skipped",
+  "expectedNameValueRowSkipped": "Expected [ชื่อ, ค่า]; แถว skipped",
+  "expectedShapeStepSkipped": "Expected {shape}; step ข้าม",
+  "expectedAStringStepSkipped": "Expected  สตริง; step skipped",
+  "noteValue": "{value} Note: {value}",
+  "chartSummary": "{summary} Chart: {summary}",
+  "compareValue": "{value} Compare: {value}",
+  "optionsValue": "{value} Options: {value}",
+  "stepsValue": "{value} Steps: {value}",
+  "textValue": "{value} เท็กซ์: {value}",
+  "valuek": "{value} {value}K",
+  "truncatedTextTooLong": "Truncated: เท็กซ์ เกินไป long",
+  "truncatedValue": "{value} Truncated: {value}",
+  "cantDisplayNote": "Can’t แสดง note",
+  "cantDisplayChart": "Can’t แสดง chart",
+  "cantDisplayComparison": "Can’t แสดง comparison",
+  "cantDisplayConfirmation": "Can’t แสดง confirmation",
+  "cantDisplayThisGroup": "Can’t แสดง this กลุ่ม",
+  "cantDisplayMetric": "Can’t แสดง metric",
+  "cantDisplayOptions": "Can’t แสดง options",
+  "cantDisplayThisSection": "Can’t แสดง this section",
+  "cantDisplaySteps": "Can’t แสดง steps",
+  "cantDisplayText": "Can’t แสดง เท็กซ์",
+  "unknownToneValueDrawnAsInfoNotice": "{value} Unknown tone {value}, drawn ในฐานะ ข้อมูล; available: ข้อมูล, good, warn, bad",
+  "unknownChartValueDrawnAsBarsNotice": "{value} Unknown chart {value}, drawn ในฐานะ bars; available: bar, hbar, ไลน์, donut",
+  "unknownComponentValue": "{value} Unknown คอมโพเนนท์ {value}",
+  "unknownStatusValueDrawnAsTodoNotice": "{value} Unknown status {value}, drawn ในฐานะ ทูดู; available: เสร็จ, current, ทูดู, ล้มเหลว",
+  "unknownToneValueIgnoredAvailableNotice": "{value} Unknown tone {value}, ignored; available: good, warn, bad",
+  "yes": "ใช่",
+  "rootComponentTitleIsToolCardsSummaryNotice": " root คอมโพเนนท์. Its หัวข้อ คือ  เครื่องมือ card's collapsed สรุป.",
+  "viewDataModelMissingValuesNotice": " ค่า อ่าน จาก  มุมมอง's data Model. Missing values แสดง ในฐานะ  em dash; arrays that are missing หรือ empty แสดง ในฐานะ 'ไม่ data ยัง'.",
+  "anArrayOrABindingToOne": " อาร์เรย์, หรือ  binding ไป one.",
+  "readOnTheRootOnlyClippedTo80Characters": "อ่าน เปิด  root เท่านั้น; clipped ไป 80 characters.",
+  "readRootOnlyOmittedPreservesV1PathNotice": "อ่าน เปิด  root เท่านั้น. Omitted หรือ 1 preserves  v1 rendering พาธ; 2 enables bounded styles และ controls.",
+  "list": "รายการ",
+  "select": "select",
+  "date": "เดท",
+  "time": "ไทม์",
+  "tabs": "tabs",
+  "grid": "grid",
+  "v2InlineRunsKeepTextPlainV1FallbackNotice": "V2 inline runs. Keep เท็กซ์ ในฐานะ  plain v1 fallback; links remain invoke effects.",
+  "clippedTo12Characters": "Clipped ไป 12 characters.",
+  "clippedTo24Characters": "Clipped ไป 24 characters.",
+  "requestedEqualPaddingNotice": "Requested equal padding เปิด ออล sides.  renderer reduces ออล four sides together เมื่อ  available width cannot preserve  preferred เนื้อหา width.",
+  "oneLineClippedTo40Characters": "One ไลน์, clipped ไป 40 characters.",
+  "widthHeightOfEveryCell1ByDefault": "Width / height ของ ทุก cell; 1 โดย ค่าเริ่มต้น.",
+  "reduceColumnsVerticallyNotice": "รีดิวซ์ columns และ place action buttons vertically เมื่อ their preferred widths ทำ ไม่ fit; ไม่เคย use overflow หรือ clipping ไป claim larger targets.",
+  "pastequote": "วาง-quote",
+  "quoteClip": "Quote clip",
+  "document": "เอกสาร",
+  "panelOnly": "แผง เท่านั้น",
+  "v11WelcomeConnectionRequiredDeferredNotice": "v1.1: welcome.conn ของ  app's สตรีม การเชื่อมต่อ; required สำหรับ  deferred ผลลัพธ์ ไป เป็น delivered",
+  "putTextComposerCursorNeverSendsNotice": "Put เท็กซ์ เข้า  composer at  cursor. ไม่เคย sends.",
+  "copy": "คัดลอก",
+  "refresh": "รีเฟรช",
+  "bridgeSingleUseTokenBoundNotice": "Bridge-added ซิงเกิล-use Token, bound ไป  invoking สตรีม และ คอลแบ็ก registration.",
+  "bridgeaddedPerfileByteCap": "Bridge-added per-ไฟล์ byte CAP.",
+  "bridgeaddedTotalSelectionByteCap": "Bridge-added ทอตอล selection byte CAP.",
+  "explicitTapRequiresDeclaredFilesNotice": "Immediate explicit tap เท่านั้น; requires declared และ negotiated ไฟล์. ไม่เคย valid ในฐานะ static, deferred หรือ selection คอลแบ็ก effect.",
+  "askAiTooltip": "ถาม AI เพื่อรับคำแนะนำ",
+  "@pictureIndex": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewVersionUnsupportedNotice": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetDefaultSet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresTodayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresTomorrowTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresYesterdayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSummaryNext": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSummaryEnded": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobElapsed": {
+    "placeholders": {
+      "span": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobDuration": {
+    "placeholders": {
+      "span": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresHostUnreachable": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresHostConnecting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobsEndedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobRecentLines": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresPresetCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronFieldCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronInvalidField": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresWeekdayName": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronWeekdayRange": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronEveryDay": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDaysAndWeekdays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      },
+      "weekdays": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDaysOrWeekdays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      },
+      "weekdays": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHourRange": {
+    "placeholders": {
+      "last": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronEveryMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronHourlyMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHoursEveryMinute": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHoursEveryMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronEveryHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleDaily": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekdays": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekends": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekly": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleMonthly": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSaveError": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleCreateError": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresMonthDaysLabel": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresZoneTimeSuffix": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresMonthDayChoice": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSchedulesAllCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresExportSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSkillUsage": {
+    "placeholders": {
+      "usage": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsSemantic": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresArtifactsAllCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresArtifactsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresErrorReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresYearDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresDateWeekdayTime": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresDateWeekday": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresOnceDescription": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "rule": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthSuffix": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleIntervalSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresRuleIntervalMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresRuleIntervalHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresSchedulesActiveCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSchedulesEndedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleRetention": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresScheduleRetentionUnknown": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsDeliveredTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsGeneratedTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetCreateRequest": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "directory": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetUpdateRequest": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "directory": {
+        "type": "String"
+      },
+      "replacing": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresZoneThisPhone": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@valuem": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@decreaseLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@increaseLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@anActionMustBeAnIdStringOrShapeIgnored": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@invalidActionIdElementNotTappableNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@expectedAnArrayOfShape": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@fromName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@expectedShapeItemSkipped": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@invalidStyleExpectedValues": {
+    "placeholders": {
+      "values": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownIconValueDrawnWithTheDefaultIcon": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownToneValueIgnoredNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@cancelledValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@selectedValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@confirmedValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@duplicateLabelValueSkipped": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@expectedAnArrayOf1ToLimitComponents": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "@expectedANonemptyArrayOfShapeObjects": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@valueb": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@cancelValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@selectValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@confirmValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@expectedShapeStepSkipped": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@noteValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@chartSummary": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "@compareValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@optionsValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@stepsValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@textValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@valuek": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@truncatedValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownToneValueDrawnAsInfoNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownChartValueDrawnAsBarsNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownComponentValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownStatusValueDrawnAsTodoNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@unknownToneValueIgnoredAvailableNotice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  }
+}

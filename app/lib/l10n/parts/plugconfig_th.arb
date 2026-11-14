@@ -1,0 +1,66 @@
+{
+  "pluginConfigUnsaved": "Unsaved",
+  "pluginConfigSecretSet": "เซ็ท",
+  "pluginConfigAdvanced": "ขั้นสูง",
+  "pluginConfigSearchHint": "ค้นหา ตั้งค่า",
+  "pluginConfigNoMatch": "ไม่ matching ตั้งค่า",
+  "pluginConfigOpenWeb": "เซ็ท ขึ้น เปิด  web",
+  "pluginConfigOpenWebHint": " ปลั๊กอิน's own เพจ",
+  "pluginConfigResetAll": "รีเซ็ต ทั้งหมด ไป defaults",
+  "pluginConfigResetAllTitle": "รีเซ็ต ทั้งหมด ไป defaults?",
+  "pluginConfigReset": "รีเซ็ต",
+  "pluginConfigChanges": "{count} changes}",
+  "@pluginConfigChanges": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pluginConfigAppliesOnReload": "Saving reloads  ปลั๊กอิน",
+  "pluginConfigSaving": "กำลังบันทึก…",
+  "pluginConfigReloading": "Reloading…",
+  "pluginConfigApplied": "Applied",
+  "pluginConfigFailed": "Didn't มีผล effect",
+  "pluginConfigRestored": "ก่อนหน้า ตั้งค่า restored",
+  "pluginConfigStopped": "Didn't มีผล effect, และ  previous ตั้งค่า couldn't เป็น restored",
+  "pluginConfigRestore": "กู้คืน",
+  "pluginConfigDiscard": "Discard",
+  "pluginConfigNotStarted": " ปลั๊กอิน didn't เริ่ม",
+  "pluginConfigNone": "Nothing ไป เซ็ท",
+  "pluginConfigInvalidOperation": "This change can't เป็น applied",
+  "pluginConfigGone": " ปลั๊กอิน คือ ไม่ longer กำลังทำงาน. Refreshed.",
+  "pluginConfigUnknown": "การเชื่อมต่อ lost. ตั้งค่า reloaded.",
+  "pluginConfigUnsupported": "Can't เป็น เซ็ท here ยัง",
+  "pluginConfigSecretUnbound": "Needs ปลั๊กอิน รองรับ",
+  "pluginConfigListFailed": "Couldn't อ่าน  ปลั๊กอิน รายการ. ทราย อีกครั้ง ภายหลัง.",
+  "pluginConfigListUpdating": " ปลั๊กอิน รายการ คือ updating. ทราย อีกครั้ง ใน  ช่วงเวลา.",
+  "pluginConfigFixed": "เซ็ท โดย CONFIG ไฟล์",
+  "pluginConfigFixedNote": "เซ็ท โดย  CONFIG ไฟล์. มุมมอง เท่านั้น here.",
+  "pluginConfigReadOnly": "อ่าน-เท่านั้น",
+  "pluginConfigEntryTitle": "{bundle} · {entry}",
+  "@pluginConfigEntryTitle": {
+    "placeholders": {
+      "bundle": {
+        "type": "String"
+      },
+      "entry": {
+        "type": "String"
+      }
+    }
+  },
+  "pluginConfigNameSpeechToText": "Speech recognition",
+  "pluginConfigNameSenseVoice": "SenseVoice recognition",
+  "pluginConfigNameSpeechApi": "Transcription API",
+  "pluginConfigNameTranslator": "Translation บริการ",
+  "pluginConfigNameSessionIndex": "Session ดัชนี",
+  "pluginConfigNameSessionSearchTool": "Session ค้นหา เครื่องมือ",
+  "pluginConfigNameTerminalService": "Terminal บริการ",
+  "pluginConfigNameTerminalBash": "Bash Terminal",
+  "pluginConfigNameTerminalPwsh": "PowerShell Terminal",
+  "pluginConfigNameTerminalTools": "เทอร์มินัล tools",
+  "pluginConfigNameWorktree": "Worktree manager",
+  "pluginConfigNameWorktreeTools": "Worktree tools",
+  "pluginConfigNameRalphWorkflow": "Workflow engine",
+  "pluginConfigNameRalphTools": "Ralph tools"
+}

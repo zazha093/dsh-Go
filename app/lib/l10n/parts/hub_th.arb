@@ -1,0 +1,365 @@
+{
+  "hubSessionDetails": "รายละเอียดแชท",
+  "hubTerminal": "เทอร์มินัล",
+  "hubSessionNoTurns": "ยังไม่มีรอบที่เสร็จสิ้น",
+  "hubSessionElapsed": "เวลา",
+  "hubSessionSteps": "ขั้นตอน",
+  "hubSessionChangedFiles": "FILEที่เปลี่ยน",
+  "hubSessionTrajectoryHint": "ขั้นตอนและเวลาของแต่ละรอบจะแสดงที่นี่",
+  "hubSessionLoadEarlier": "โหลดรอบก่อนหน้า",
+  "hubSessionError": "ข้อผิดพลาด",
+  "hubSessionInterrupted": "ถูกขัดจังหวะ",
+  "hubSessionOutputLimit": "ถึงขีดจำกัดเอาต์พุต",
+  "hubSessionNoChanges": "ยังไม่มีFILEที่เปลี่ยน",
+  "hubSessionShellChangesHint": "การเปลี่ยนแปลงด้วยคำสั่ง Shell ไม่แสดงที่นี่",
+  "hubSessionChanges": "การเปลี่ยนแปลงแชท",
+  "hubSessionChangesNote": "รวมเฉพาะการเปลี่ยนแปลงจากเครื่องมือ เขียน และ แก้ไข ในประวัติที่โหลด",
+  "hubSessionNoGoal": "ยังไม่มีเป้าหมายหรือ ไป-dos",
+  "hubSessionGoalHint": "AI จะแสดง ไป-dos สำหรับงานซับซ้อน ติดตามความคืบหน้าที่นี่",
+  "hubSessionGoal": "เป้าหมาย",
+  "hubSessionPlanMode": "โหมดวางแผน",
+  "hubSessionPlanSwitching": "กำลังสลับโหมดวางแผน",
+  "hubSessionPlanHint": "AI วางแผนก่อน โดยไม่เปลี่ยนไฟล์",
+  "hubSessionTodos": "ไป-dos",
+  "hubSessionNotStarted": "ยังไม่เริ่ม",
+  "hubSessionTurnUsage": "การใช้งานต่อรอบ",
+  "hubSessionNoSubagents": "ยังไม่มี Subagents",
+  "hubSessionDelegations": "ประวัติการมอบหมาย",
+  "hubTabTrajectory": "เส้นทาง",
+  "hubTabChanges": "การเปลี่ยนแปลง",
+  "hubTabFiles": "ไฟล์",
+  "hubTabProgress": "ความคืบหน้า",
+  "hubTabContext": "บริบท",
+  "hubTabSubagents": "ซับเอจิ้นต์",
+  "hubPlugins": "ปลั๊กอิน",
+  "hubSettingsFullAccessTitle": "เปิดใช้สิทธิ์เต็ม?",
+  "hubSettingsFullAccessBody": "AI จะไม่ถามก่อนรันคำสั่งหรือเปลี่ยนไฟล์",
+  "hubSettingsStorageTitle": "อนุญาต AI เข้าถึงไฟล์โทรศัพท์?",
+  "hubSettingsStorageAllow": "อนุญาตการเข้าถึง",
+  "hubSettingsStorageDenied": "ไม่ได้รับสิทธิ์เข้าถึงที่เก็บข้อมูล อนุญาต \"ทั้งหมด ไฟล์ การเข้าถึง\" ให้ DSH Go ในการตั้งค่า",
+  "hubSettingsRestartRequired": "มีผลหลังรีเริ่มเครื่องยนต์",
+  "hubSettingsRestartNow": "รีเริ่มตอนนี้",
+  "hubSettingsInterface": "อินเทอร์เฟซ",
+  "hubSettingsChat": "แชท",
+  "hubSettingsAutoCommands": "รันคำสั่งอัตไม่มัติ",
+  "hubSettingsPhoneFiles": "เข้าถึงไฟล์โทรศัพท์",
+  "hubSettingsPhoneFilesHint": "AI อ่านและเขียนที่เก็บข้อมูลโทรศัพท์ได้",
+  "hubSettingsVisualReplies": "การตอบกลับแบบภาพ",
+  "hubSettingsVisualRepliesHint": "แผนภูมิ การเปรียบเทียบ และตัวเลือกที่แตะได้",
+  "hubSettingsPhoneControl": "ควบคุมโทรศัพท์",
+  "hubSettingsPhoneControlHint": "มองหน้าจอและแตะแทนคุณ",
+  "hubSettingsPreferences": "การตั้งค่าส่วนตัว",
+  "hubSettingsAppearance": "รูปลักษณ์",
+  "hubSettingsChatTextSize": "ขนาดข้อความแชท",
+  "hubSettingsCollapseSteps": "ย่อขั้นตอนเมื่อเสร็จ",
+  "hubSettingsCollapseStepsHint": "รวมการคิดและการเรียกเครื่องมือเป็นบรรทัดเดียว",
+  "hubSettingsWebPhoneLayout": "เลย์เอาต์โทรศัพท์บนเว็บ",
+  "hubSettingsWebPhoneLayoutHint": "ปรับ DSH Web ให้เข้ากับหน้าจอโทรศัพท์",
+  "hubSettingsEngineExtensions": "เครื่องยนต์และส่วนขยาย",
+  "hubSettingsEngine": "เครื่องยนต์ภายใน",
+  "hubSettingsProviders": "Model",
+  "hubSettingsEngineSettings": "Parameterเครื่องยนต์",
+  "hubSettingsShareConfig": "แชร์การตั้งค่า",
+  "hubSettingsAllFeatures": "ฟีเจอร์ทั้งหมด",
+  "hubSettingsAbout": "เกี่ยวกับ",
+  "hubSettingsCommunity": "ชุมชน",
+  "hubSettingsLicenses": "สัญญาอ픈ซอร์ส",
+  "hubSettingsAccount": "บัญชี DeepSeek",
+  "hubSettingsSigningIn": "กำลังเข้าสู่ระบบ…",
+  "hubSettingsInvalidKey": "API คีย์ ไม่ถูกต้อง ไม่สามารถตรวจสอบยอดได้",
+  "hubSettingsNoApiKey": "ยังไม่ได้ตั้งค่า API คีย์",
+  "hubSettingsApiKeyHint": "เพิ่ม API คีย์ เพื่อเริ่มแชท",
+  "hubSettingsSignInAccount": "เข้าสู่ระบบ DeepSeek",
+  "hubSettingsOrApiKey": "หรือเพิ่ม API คีย์",
+  "hubPluginShare": "แชร์ปลั๊กอิน",
+  "hubPluginDetails": "รายละเอียดปลั๊กอิน",
+  "hubPluginFeatured": "แนะนำบน dshfind",
+  "hubPluginWebOnly": "เว็บเท่านั้น",
+  "hubPluginStars": "ดาว",
+  "hubPluginSource": "แหล่งที่มา",
+  "hubPluginInstalledVersion": "เวอร์ชันที่ติดตั้ง",
+  "hubPluginRequiresDsh": "ต้องการ DSH",
+  "hubPluginPackageName": "ชื่อแพ็กเกจ",
+  "hubPluginHomepage": "หน้าแรก",
+  "hubPluginRepository": "รีโพสิทอรี",
+  "hubPluginManageTitle": "จัดการปลั๊กอิน",
+  "hubPluginManage": "จัดการ",
+  "hubPluginSafeModeInstall": "ไม่สามารถติดตั้งในโหมดปลอดภัย",
+  "hubPluginInstallCommand": "ดูคำสั่งติดตั้ง",
+  "hubPluginInstallComputer": "ติดตั้งบนคอมพิวเตอร์",
+  "hubPluginInstalling": "กำลังติดตั้ง…",
+  "hubPluginAllowBuilds": "อนุญาตสคริปต์และลองใหม่",
+  "hubPluginRetryInstall": "ลองติดตั้งใหม่",
+  "hubPluginOfficial": "DSH Official",
+  "hubPluginNotLoaded": "โหลดไม่ได้",
+  "hubPluginComponents": "ส่วนประกอบ",
+  "hubPluginSafeModeRemove": "ไม่สามารถถอนติดตั้งในโหมดปลอดภัย",
+  "hubPluginRemoveCommand": "ดูคำสั่งถอนติดตั้ง",
+  "hubPluginRemoveComputer": "ถอนติดตั้งบนคอมพิวเตอร์",
+  "hubPluginUninstall": "ถอนการติดตั้ง",
+  "hubSessionTurns": "{count} รอบ}",
+  "hubSessionTurnsRunning": "{count} รอบ · กำลังทำงาน}",
+  "hubSessionStepCount": "{count} ขั้นตอน}",
+  "hubSessionWaitTime": "รอคุณ {duration}",
+  "hubSessionTurn": "รอบที่ {turn}",
+  "hubSessionFileCount": "{count} ไฟล์}",
+  "hubSessionEditCount": "{count} ครั้ง}",
+  "hubSessionTurnOf": "{total} รอบ {turn} / {total}",
+  "hubSessionCacheHit": "{percent} แคช",
+  "hubSessionBlocked": "บบันทึก",
+  "hubSessionBlockedReason": "ถูกบบันทึก: {reason}",
+  "hubSessionTodoSemantics": "{content}, {status}",
+  "hubSettingsStorageBody": "AI อ่านและเปลี่ยนรูปภาพ ดาวน์โหลด และเอกสารของคุณได้ เครื่องยนต์จะรีเริ่มหนึ่งครั้ง",
+  "hubSettingsBalance": "ยอดคงเหลือ {amount}",
+  "hubSettingsBalanceLow": "ยอดคงเหลือ {amount} · ยอดต่ำ",
+  "hubSettingsAccountSemantics": "{title} {subtitle} บัญชี: ,",
+  "hubSettingsHostSemantics": "{name} โฮสต์ระยะไกล: {name}, {status}",
+  "hubSettingsApiKey": "คีย์ API DeepSeek",
+  "hubSettingsApiKeySection": "API คีย์",
+  "hubPluginBrowserFailed": "{address} เปิดเบราว์เซอร์ไม่ได้ เปิด {address} เอง",
+  "hubPluginYearMonth": "{year} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
+  "hubPluginUpdateTo": "{version} อัปเดตเป็น {version}",
+  "hubPluginInstallOn": "{host} ติดตั้งบน {host}",
+  "hubPluginComponentCount": "{count} ส่วนประกอบ}",
+  "hubPluginComponentSeparator": ", ",
+  "hubGroupAi": "AI",
+  "hubGroupCapabilities": "ความสามารถ",
+  "hubGroupGeneral": "ทั่วไป",
+  "hubGroupHosts": "โฮสต์",
+  "hubGroupHelp": "ช่วยเหลือและเกี่ยวกับ",
+  "hubPersonalization": "การปรับแต่งส่วนตัว",
+  "hubPersonalizationAboutYou": "เกี่ยวกับคุณ",
+  "hubPersonalizationReplies": "การตอบกลับ",
+  "hubPersonalizationWorkStyle": "สไตล์การทำงาน",
+  "hubPrivacy": "ความเป็นส่วนตัวและการแชร์",
+  "hubPrivacySharing": "การแชร์",
+  "hubInterfaceHome": "หน้าหลัก",
+  "hubInterfaceWebHint": "เว็บแอปของ DSH เอง",
+  "hubInterfaceOpenWeb": "เปิดเว็บแอป",
+  "hubInterfacePhoneLayout": "เลย์เอาต์โทรศัพท์",
+  "hubTableTint": "โทนสีตาราง",
+  "hubTableTintFollow": "ธีม",
+  "hubTableTintFill": "สลับสี",
+  "hubTableTintNone": "ธรรมดา",
+  "hubTableTintFillHint": "แถวสลับสี อ่านตารางยาวง่ายขึ้น",
+  "hubTableTintFollowHint": "เฉพาะส่วนหัวสีตามธีม ส่วนเนื้อหาตามการตอบกลับ",
+  "hubTableTintNoneHint": "แค่เส้นกริด แบบเบาสุด",
+  "hubAbout": "เกี่ยวกับ DSH Go",
+  "hubAboutAuthor": "ผู้เขียนต้นฉบับของ DSH Go",
+  "hubAboutBilibili": "โปรไฟล์ Bilibili",
+  "hubAboutX": "โปรไฟล์ X",
+  "hubAboutGithub": "โปรไฟล์ GitHub",
+  "hubAboutNewVersion": "มีอัปเดต",
+  "hubValueSet": "ตั้งค่าแล้ว",
+  "hubValueOff": "ปิด",
+  "hubValueOneStep": "เหลืออีกขั้นตอนเดียว",
+  "hubValueAllowed": "อนุญาตแล้ว",
+  "hubValueNeedsSetup": "ต้องตั้งค่า",
+  "hubValueHosts": "{count} โฮสต์}",
+  "@hubValueHosts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hubValueNoHosts": "ไม่มี",
+  "hubValuePlugins": "{count} ปลั๊กอิน}",
+  "@hubValuePlugins": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "hubEngineStartup": "การเริ่มต้น",
+  "hubThemeLightDark": "สว่างและมืด",
+  "hubPermissionPhone": "โทรศัพท์",
+  "hubPermissionPhoneConfirm": "ยืนยันการควบคุมโทรศัพท์",
+  "hubHardwareEnterSends": "ส่งด้วย เอ็นเตอร์ แฮร์ดแวร์",
+  "hubHardwareEnterSendsHint": "เปิดอยู่: Shift+เอ็นเตอร์ เว้นบรรทัดใหม่ แป้นพิมพ์บนหน้าจอเก็บบรรทัดใหม่ Ctrl/⌘+เอ็นเตอร์ ส่งเสมอ",
+  "hubQuickPanel": "ลัดสวายซ้าย",
+  "hubQuickPanelSwipe": "เปิดด้วยการสวายซ้าย",
+  "hubQuickPanelSwipeHint": "สวายขวาไปซ้ายเหนือแชท บบันทึกโค้ด ตาราง และเนื้อหาที่เลื่อนข้างๆ ไม่ได้รับผลกระทบ",
+  "hubQuickPanelItems": "รายการที่แสดง",
+  "hubQuickPanelItemsNone": "ไม่ได้เลือก: สวายซ้ายจะไม่เปิด",
+  "performanceChannelDetached": "ประสิทธิภาพ channel detached",
+  "parseError": "พาร์ส ข้อผิดพลาด",
+  "invalidRequest": "Invalid คำขอ",
+  "invalidPhoneRunEndContext": "Invalid phone เรียกใช้ end คอนเท็กซ์",
+  "invalidCallMetadata": "Invalid คอลล์ metadata",
+  "invalidPhoneCallerContext": "Invalid phone caller คอนเท็กซ์",
+  "methodNotFound": "เมธอด ไม่ found",
+  "outappend": "' -> ออก.append(",
+  "backgroundReleaseIsUnconfirmed": "Background รีลีส คือ unconfirmed",
+  "invoice12View": "Invoice 12 มุมมอง",
+  "invoice12Delete": "Invoice 12 ลบ",
+  "backgroundResourceAdmissionWasStopped": "Background resource admission was หยุด",
+  "originalNavigationPlanWasClosed": "Original navigation แผน was closed",
+  "onlyThisStep": "เท่านั้น this step",
+  "developerOptions": "Developer ตัวเลือก",
+  "deviceAdmin": "Device แอดมิน",
+  "installUnknown": "ติดตั้ง unknown",
+  "securityPrivacy": "ความปลอดภัย & ความเป็นส่วนตัว",
+  "deprecatedInJava": "Deprecated ใน Java",
+  "procEnumerationUnavailable": "; /proc enumeration unavailable",
+  "append": "' -> append(",
+  "enospcnoSpaceLeftOnDevice": "ENOSPC|ไม่ space left เปิด device",
+  "refused": "} refused",
+  "petOverlayEngineDetached": "Pet overlay engine detached",
+  "@hubSessionTurns": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hubSessionTurnsRunning": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hubSessionStepCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hubSessionWaitTime": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionFileCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hubSessionEditCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@hubSessionTurnOf": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionCacheHit": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionBlockedReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSessionTodoSemantics": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsBalance": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsBalanceLow": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsAccountSemantics": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "subtitle": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubSettingsHostSemantics": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginBrowserFailed": {
+    "placeholders": {
+      "address": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginYearMonth": {
+    "placeholders": {
+      "year": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginUpdateTo": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginInstallOn": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@hubPluginComponentCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

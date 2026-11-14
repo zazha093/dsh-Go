@@ -1,0 +1,422 @@
+{
+  "companionTitle": "Companion room",
+  "companionEntrySubtitle": "Spend บาง ไทม์ กับ her",
+  "companionDefaultName": "her",
+  "companionInputHint": "{name} Say something ไป {name}",
+  "companionMenu": "เพิ่มเติม",
+  "companionVoice": "Voice",
+  "companionStop": "ถาม her ไป หยุด",
+  "companionSend": "ส่ง",
+  "companionNotConnected": "I can't reach  engine right ตอนนี้. Tell me อีกครั้ง ใน  bit?",
+  "companionSendFailed": "That didn't get ผ่าน. Say it อีกครั้ง?",
+  "companionLogTitle": "บันทึก",
+  "companionContextUnsupported": "This โฮสต์ can't TEEก her คอนเท็กซ์ ยัง: her ชื่อ, persona และ what เพียง happened won't reach her, เท่านั้น what you say. อัปเดต  โฮสต์ หรือ switch ไป light mode.",
+  "companionLogEmpty": "Nothing said ยัง.",
+  "companionLogYou": "You",
+  "companionLogOpenChat": "เปิด ใน chat",
+  "companionLogOlder": "โหลด earlier messages",
+  "companionMenuHistory": "ดู chat history",
+  "companionMenuRestart": "เริ่ม เกิน",
+  "companionMenuRestartHint": "Begin  ใหม่ conversation",
+  "companionMenuRestartConfirm": "She will forget this conversation.  old record stays เปิด  โฮสต์ และ คือ ไม่ deleted.",
+  "companionMenuRemovePack": "นำออก assets",
+  "companionMenuRemoveConfirm": " character assets เปิด this phone will เป็น deleted. Chats aren't affected. You'll need ไป นำเข้า them อีกครั้ง ถัดไป ไทม์.",
+  "companionCreditAuthor": "{name} โดย {name}",
+  "companionSetupTitle": "Bring her โฮม",
+  "companionSetupBody": "Character assets aren't part ของ  app และ เท่านั้น land เปิด your phone เมื่อ you want them. นำเข้า  asset pack (zip) ไป meet her.",
+  "companionSetupImport": "นำเข้า asset pack",
+  "companionFailedTitle": "She couldn't come ออก",
+  "companionFailedBody": "กำลังโหลด ล้มเหลว เปิด this phone ({reason}). You can นำเข้า  asset pack อีกครั้ง และ retry.",
+  "companionPackBroken": "This ไฟล์ can't เป็น opened. It พฤษภาคม ไม่ เป็น  asset pack, หรือ it พฤษภาคม เป็น damaged.",
+  "companionPackRuntimeMismatch": " รันไทม์ ใน this pack doesn't match this VERSION ของ  app.",
+  "companionPackNoRuntime": "This pack เท่านั้น has  character และ there's ไม่ รันไทม์ เปิด this phone ยัง. นำเข้า  full asset pack เฟิร์ส.",
+  "companionPackNoModel": "ไม่ Live2D model (.model3.JSON) found ใน  pack. Zip  model's whole โฟลเดอร์ และ ทราย อีกครั้ง.",
+  "companionPackUnsafe": " pack has ไฟล์ หรือ paths that aren't allowed, so it wasn't imported.",
+  "companionPackTooLarge": "This asset pack คือ เกินไป large.",
+  "companionPackStorage": "Couldn't เขียน  ไฟล์. เช็ค your phone's free ที่เก็บข้อมูล.",
+  "companionGreetFirst": "{name} Hi, I'm {name}. I live here ตอนนี้, nice ไป meet you.",
+  "companionGreetMorning": "เช้า! Don't สกิป breakfast วันนี้.",
+  "companionGreetNoon": "It's noon แล้ว. Have you eaten?",
+  "companionGreetAfternoon": "ดี บ่าย. I was เพียง daydreaming.",
+  "companionGreetEvening": "ดี เย็น. How was your เดย์?",
+  "companionGreetLate": "ยัง ขึ้น this late?",
+  "companionGreetLong": "It's been  ขณะที่! I thought you'd forgotten me.",
+  "companionGreetBack": "Hm? ย้อนกลับ อีกครั้ง.",
+  "companionWake": "Mm... I wasn't asleep. เพียง resting my eyes.",
+  "companionPat1": "Hehe... you can keep ไป  little longer.",
+  "companionPat2": "Mmm, that's nice.",
+  "companionPat3": "You're messing ขึ้น my hair.",
+  "companionTapHead1": "What's ขึ้น?",
+  "companionTapHead2": "Hm?",
+  "companionTapFace1": "Don't poke my face.",
+  "companionTapFace2": "Whoa, your hands คือ cold.",
+  "companionTapFace3": "คือ there something เปิด my face?",
+  "companionTapBody1": "Oh! You startled me.",
+  "companionTapBody2": "What คือ it?",
+  "companionTapBody3": "I เพียง washed this apron!",
+  "companionTapTail1": "Tails are ไม่ สำหรับ touching!",
+  "companionTapTail2": "Eek, that tickles.",
+  "companionTapTail3": "This คือ  มาก important tail.",
+  "companionTapLegs1": "คือ something เปิด  floor?",
+  "companionTapLegs2": "เวียร์ are you looking?",
+  "companionTease1": "หยุด it, I'm getting dizzy.",
+  "companionTease2": "One มากกว่า poke และ I'm ignoring you!",
+  "companionTease3": "Don't you have anything better ไป ทำ?",
+  "companionStatusIdle": "Daydreaming",
+  "companionStatusListening": "Listening",
+  "companionStatusThinking": "Thinking",
+  "companionStatusSpeaking": "Talking",
+  "companionStatusSleeping": "Asleep",
+  "companionStatusAway": "Away",
+  "companionListening": "Listening…",
+  "companionTouchHint": "ทราย patting her head",
+  "companionArriving": "She's swimming เกิน…",
+  "companionPrivacyLine": "Assets stay เปิด this phone. Chats go ผ่าน  current โฮสต์.",
+  "companionMemoryTitle": "What she remembers",
+  "companionMemoryScope": "{host} Kept เปิด {host}. She doesn't bring these ขึ้น โดย herself ยัง;  ภายหลัง VERSION will.",
+  "companionMemoryAdd": "เพิ่ม",
+  "companionMemoryEdit": "แก้ไข",
+  "companionMemorySave": "บันทึก",
+  "companionMemoryHint": "สำหรับ ตัวอย่าง: I like unsweetened tea และ don't drink coffee",
+  "companionMemoryForget": "ลืม",
+  "companionMemoryForgetTitle": "มี her ลืม this?",
+  "companionMemoryEmpty": "Nothing saved ยัง",
+  "companionMemoryEmptyHint": "เขียน ลง what you'd like her ไป remember. It stays เปิด  current โฮสต์, และ you can แก้ไข หรือ ลบ it anytime.",
+  "companionMemoryUnsupported": "This โฮสต์ can't keep her memories ยัง",
+  "companionMemoryUnsupportedHint": "It isn't available เกิน  DSH Remote relay, หรือ this โฮสต์'s dsh-go bridge คือ older.",
+  "companionMemoryLoadFailed": "Couldn't โหลด",
+  "companionMemoryRetry": "ลองใหม่",
+  "companionMemoryConflict": "It was เพียง changed elsewhere, so it's been refreshed",
+  "companionMemoryFull": " รายการ คือ full. ลบ บาง เฟิร์ส",
+  "companionMemorySaveFailed": "Couldn't บันทึก. ทราย อีกครั้ง?",
+  "companionStatusSnacking": "Having  snack",
+  "companionStatusPlaying": "Playing กับ  bubble",
+  "companionStatusResting": "Resting เปิด  cushion",
+  "companionSnack1": "Nom! ดังนั้น good!",
+  "companionSnack2": "Seaweed flavour. Thank you.",
+  "companionSnack3": "Mm... สามารถ I มี another?",
+  "companionPlay1": "Hey, got it!",
+  "companionPlay2": " bubble คือ so squishy. Fun!",
+  "companionPlay3": "It floated ย้อนกลับ อีกครั้ง.",
+  "companionRest1": "I'll lean here สำหรับ  ขณะที่, แล้ว.",
+  "companionRest2": "Go เปิด, I'm listening.",
+  "companionTouchHintHome": "Tap  shell,  bubble และ  cushion, หรือ drag  snack ไป her mouth",
+  "companionMenuMode": "How she talks",
+  "companionModeLight": "ไลต์",
+  "companionModeLightHint": "Chat เท่านั้น.  phone talks ไป  Model; ไม่ engine",
+  "companionModeFull": "Full",
+  "companionModeFullHint": "DSH เปิด  โฮสต์, กับ tools และ phone control",
+  "companionLightNoKey": "Light mode needs  DeepSeek API คีย์. เพิ่ม one ใน ตั้งค่า และ we can talk.",
+  "companionLightBadKey": " API คีย์ seems wrong, หรือ it คือ ไม่ longer valid.",
+  "companionLightBusy": "It คือ busy เกิน there. Tell me อีกครั้ง ใน  bit?",
+  "companionNotConnectedTryLight": "I can't reach  โฮสต์ right ตอนนี้. ถ้า you เพียง want ไป Chat, switch ไป Light ใน  menu at  top right.",
+  "companionMenuRestartLightHint": "ล้าง  chat เปิด this phone",
+  "companionMenuRestartLightConfirm": "She will forget this conversation, และ  Chat เปิด this phone คือ deleted.",
+  "companionInviteRest": "เรสท์ เปิด  cushion กับ me สำหรับ  bit?",
+  "companionInviteAccept": "Sure",
+  "companionInviteDecline": "ไม่ ตอนนี้",
+  "companionInviteYes1": "Hehe, เพียง สำหรับ  little ขณะที่.",
+  "companionInviteYes2": "I'll get comfy. You relax เกินไป.",
+  "companionMenuPace": "How บ่อยครั้ง she speaks ขึ้น",
+  "companionPaceHint": "She speaks ขึ้น เท่านั้น ขณะที่ you sit quietly กับ her: asking you ไป เรสท์ together, หรือ mentioning another conversation. ไม่เคย late at กลางคืน, และ at มากที่สุด one invitation per visit.",
+  "companionPaceQuiet": "เงียบ",
+  "companionPaceQuietHint": "ไม่เคย unasked; she talks เมื่อ you talk ไป her",
+  "companionPaceRare": "ตอนนี้ และ แล้ว",
+  "companionPaceRareHint": "ขึ้น ไป 2 times  เดย์, at น้อยที่สุด 6 hours apart",
+  "companionPaceOften": "บ่อยครั้ง",
+  "companionPaceOftenHint": "ขึ้น ไป 6 times  เดย์, at น้อยที่สุด 2 hours apart",
+  "companionPaceChatty": "Chatty",
+  "companionPaceChattyHint": "ขึ้น ไป 12 times  เดย์, at น้อยที่สุด half  อาวเหรือ apart",
+  "companionSetupBundled": "Bring her โฮม",
+  "companionSetupBodyBundled": "She comes กับ  app: one tap และ she's here, unpacked เท่านั้น เปิด this phone. You can also นำเข้า another asset pack, หรือ zip ขึ้น  Live2D Model's โฟลเดอร์ และ นำเข้า that.",
+  "companionSetupImportOther": "นำเข้า another pack",
+  "companionMenuRemoveConfirmBundled": " character assets unpacked เปิด this phone will เป็น deleted. Chats aren't affected. You can bring her ย้อนกลับ anytime.",
+  "companionHug1": "Mm...  hug.",
+  "companionHug2": "I feel safe ชอบ this.",
+  "companionHug3": " little longer, เพียง  little.",
+  "companionBondTitle": "You two",
+  "companionBond0": "เพียง met",
+  "companionBond1": "Getting ไป know แต่ละ other",
+  "companionBond2": "ปิด",
+  "companionBond3": "มาก ปิด",
+  "companionCloser1": "I think... I'm ไม่ so nervous anymore.",
+  "companionCloser2": "Being กับ you feels easier และ easier.",
+  "companionCloser3": "Keep coming ย้อนกลับ, okay? I'll miss you.",
+  "companionPatClose": "I love it เมื่อ you pat my head.",
+  "companionHugClose": "You สามารถ ค้าง me tighter, you know.",
+  "companionTaskDoneUntitled": "Your งาน เกิน there คือ เสร็จ.",
+  "companionTaskFailedUntitled": "Your งาน เกิน there seems ไป have hit  ข้อผิดพลาด. TEEก  look?",
+  "companionTaskOpen": "TEEก  look",
+  "companionMenuSignals": "What she brings ขึ้น",
+  "companionSignalsHint": "These are said เท่านั้น ไป you, here ใน her room; nothing goes ไป  Model. How บ่อยครั้ง follows How บ่อยครั้ง she speaks ขึ้น, shared กับ invitations, และ ไม่เคย late at กลางคืน. เปิด Quiet she says nothing.",
+  "companionSignalState": "Keep track ของ other conversations",
+  "companionSignalStateHint": "She notices เมื่อ another conversation เปิด this โฮสต์ finishes หรือ fails",
+  "companionSignalSpeech": "Mention it",
+  "companionSignalSpeechHint": "She says  short ไลน์ ขณะที่ you're quiet",
+  "companionSignalVoice": "Say it ออก loud",
+  "companionSignalVoiceHint": "Reads  ไลน์ aloud เมื่อ her voice คือ เปิด",
+  "companionSignalNight": "Late-กลางคืน reminder ไป เรสท์",
+  "companionSignalNightHint": "หลัง  ขณะที่ ใน her room late at กลางคืน, she gently reminds you หนึ่งครั้ง",
+  "companionSignalLateUse": "It's so late และ you're ยัง here กับ me... ไม่แน่ใจ เรสท์  little?",
+  "companionRecallTitle": "Remember things ใน full mode",
+  "companionRecallHint": "Turning it เปิด starts  ใหม่ conversation; changing what she remembers turns it ปิด",
+  "companionRecallConfirm": "หนึ่งครั้ง เปิด, her confirmed memories (ขึ้น ไป 12) go ไป  model along กับ แต่ละ ของ her replies ใน full mode.  ใหม่ conversation starts;  current one stays ใน  main chat list. Changing her memories turns this ปิด, และ you can turn it เปิด อีกครั้ง.",
+  "companionRecallTurnOn": "Turn เปิด",
+  "companionRecallOn": "จาก this ใหม่ conversation เปิด, I'll keep ใน mind what you asked me ไป remember.",
+  "companionRecallBusy": "Another conversation คือ แล้ว using automatic recall. Turn it ปิด there เฟิร์ส.",
+  "companionRecallUnsupported": "This โฮสต์ can't turn เปิด automatic recall right ตอนนี้",
+  "companionRecallFailed": "Automatic recall didn't turn เปิด. ทราย อีกครั้ง.",
+  "companionRecallOff": "Automatic recall คือ ปิด. Your ถัดไป ข้อความ starts  ใหม่ conversation.",
+  "companionRecallOffFailed": "Automatic recall didn't turn ปิด. ทราย อีกครั้ง.",
+  "companionRecallStopped": "Automatic recall หยุด (what she remembers changed), so  ใหม่ conversation began. You can turn it เปิด อีกครั้ง จาก  menu.",
+  "companionMenuVoice": "Her voice",
+  "companionMenuVoiceHint": "Reads her words aloud กับ  phone's own voice",
+  "companionVoiceHello": "Hi, this คือ my voice. Keep it เปิด ถ้า you like it.",
+  "companionVoiceUnavailable": "This phone has ไม่ จีน voice ไป use. You can เพิ่ม one ใต้ เท็กซ์-ไป-speech ใน ระบบ ตั้งค่า.",
+  "companionWidgetWaiting": "กำลังรอ สำหรับ you ใน  room",
+  "companionVoiceOn": "Let her speak",
+  "companionVoiceOffHint": "เมื่อ you turn it เปิด, she says hello ใน  chosen voice เฟิร์ส.",
+  "companionVoiceOff": "ปิด",
+  "companionVoiceSource": "Voice",
+  "companionVoiceSystem": " phone's own",
+  "companionVoiceSystemHint": "ระบบ เท็กซ์-ไป-speech, works offline",
+  "companionVoiceOpenai": "OpenAI-compatible API",
+  "companionVoiceOpenaiHint": "OpenAI, SiliconFlow, และ มากที่สุด self-hosted GPT-SoVITS, CosyVoice หรือ edge-tts servers",
+  "companionVoiceCustom": "กำหนดเอง เอชทีTEEพี",
+  "companionVoiceCustomHint": "Anything มิฉะนั้น: describe  คำขอ และ  reply",
+  "companionVoiceApi": "API",
+  "companionVoiceBase": "ที่อยู่",
+  "companionVoiceBaseHelper": "ขึ้น ไป /v1;  app adds /ออดิโอ/speech",
+  "companionVoiceKeyHelper": "Kept ใน this phone's secure ที่เก็บข้อมูล",
+  "companionVoiceModel": "Model",
+  "companionVoiceVoice": "Voice",
+  "companionVoiceVoiceHelper": " บริการ's voice ชื่อ, like alloy, หรือ  speaker เปิด your own เซิร์ฟเวอร์",
+  "companionVoiceRequest": "คำขอ",
+  "companionVoiceUrl": "คำขอ URL",
+  "companionVoiceUrlHelper": "{text} {text} works ใน  URL เกินไป",
+  "companionVoiceMethod": "เมธอด",
+  "companionVoiceHeaders": "Headers",
+  "companionVoiceHeadersHelper": "One per ไลน์; kept ใน secure ที่เก็บข้อมูล",
+  "companionVoiceBody": "Body",
+  "companionVoiceBodyHelper": "{text} {text} becomes what she says",
+  "companionVoiceField": "ออดิโอ field",
+  "companionVoiceFieldHelper": "ถ้า  reply คือ JSON: เวียร์  ออดิโอ คือ (base64 หรือ  ลิงก์), like data.ออดิโอ. LEAF empty เมื่อ it returns ออดิโอ",
+  "companionVoicePrivacy": "What she says คือ sent ไป  บริการ you เอ็นเตอร์.",
+  "companionVoicePreview": "พรีVUE",
+  "companionVoicePreviewing": "Requesting…",
+  "companionVoicePreviewOk": "It works. Did you hear her?",
+  "companionVoicePreviewFailed": "Didn't งาน: {reason}",
+  "companionVoiceNotSetUp": "Fill ใน  ที่อยู่ above เฟิร์ส.",
+  "companionVoiceFallback": "Couldn't reach her voice บริการ, so  phone's own voice stood ใน",
+  "companionGreetFirstNameless": "Hi, I live here ตอนนี้. Nice ไป meet you.",
+  "companionRenamed": "{name} \"{name}\"... okay, that's my ชื่อ จาก ตอนนี้ เปิด.",
+  "companionVoicePreset": "ยอดนิยม services",
+  "companionVoicePresetHint": "Xiaomi MiMo, OpenAI, SiliconFlow, Alibaba Model Studio: เพียง เพิ่ม  คีย์",
+  "companionVoiceService": "Service",
+  "companionVoiceKeyWhere": "Get one at {site}; kept ใน this phone's secure ที่เก็บข้อมูล",
+  "companionVoiceVoiceCustomHelper": "Pick one, หรือ type  voice ไอดี  บริการ gave you",
+  "companionVoiceStyle": "Speaking สไตล์",
+  "companionVoiceStyleHelper": "Describe her tone และ  บริการ reads ใน it; LEAF empty สำหรับ  ค่าเริ่มต้น gentle girl's voice",
+  "companionVoiceFemale": "female",
+  "companionVoiceMale": "male",
+  "companionClonePreset": "Preset voices",
+  "companionCloneMine": "โคลน  voice",
+  "companionVoicePresetVoice": "Preset voice",
+  "companionCloneRecording": "Recording",
+  "companionCloneHelper": "5–30 seconds ของ one person speaking กับ ไม่ background noise, mp3 หรือ wav, ขึ้น ไป 7 MB. เท่านั้น use your own voice, หรือ one whose เจ้าของ agreed. ทุก ไลน์ she says sends this recording ไป Xiaomi.",
+  "companionCloneNone": "ไม่ recording ยัง",
+  "companionCloneReady": "{detail} อัปโหลดแล้ว · {detail}",
+  "companionCloneSeconds": "{n} s",
+  "companionClonePick": "Choose  recording",
+  "companionCloneReplace": "Replace",
+  "companionCloneTooLarge": " recording คือ เกินไป large (7 MB at มากที่สุด). Trim it และ ทราย อีกครั้ง.",
+  "companionCloneNotAudio": "เท่านั้น mp3 หรือ wav recordings งาน.",
+  "companionCloneFailed": "Couldn't อ่าน that recording.",
+  "companionMenuPersona": "เกี่ยวกับ her",
+  "companionPersonaName": "ชื่อ",
+  "companionPersonaNameHelper": "LEAF empty สำหรับ  pack's ชื่อ",
+  "companionPersonaCallMe": "What she calls you",
+  "companionPersonaCallMeHint": "e.g. Sam",
+  "companionPersonaCallMeHelper": "LEAF empty สำหรับ nothing ใน particular",
+  "companionPersonaText": "เพอร์โซนา",
+  "companionPersonaTextLabel": "Who she คือ และ how she talks",
+  "companionPersonaTextHelper": "Her personality, who she คือ, how she talks, what she won't say: ออล yours ไป เขียน หรือ ลบ. เท่านั้น  ฟอร์แมต ของ her expression marks คือ added โดย  app.",
+  "companionPersonaReset": "รีเซ็ต",
+  "companionPersonaFooter": "Light mode uses it จาก her ถัดไป reply; full mode tells her กับ your ถัดไป ข้อความ.",
+  "companionMenuMoves": "Moves และ faces",
+  "companionMovesHint": "These come กับ  Model.  ones switched เปิด are offered ไป  AI (ขึ้น ไป 24 expressions และ 24 motions, ใน รายการ ออเดอร์) และ she uses them ใน her replies; tap  ชื่อ ไป give it  clearer one, tap ▶ ไป ทราย it เปิด her.",
+  "companionMovesNone": "This Model brings ไม่ expressions หรือ motions ของ its own; she uses her built-ใน ones.",
+  "companionMovesRename": "รีเนม",
+  "companionMovesTry": "ทราย it",
+  "companionPackLegacyModel": "This คือ  old Cubism 2 Model (.moc และ Model.JSON);  รันไทม์ เปิด  phone เท่านั้น reads .moc3 จาก Cubism 3 เปิด. เปิด it ใน Cubism Editor, ส่งออก it ในฐานะ moc3 และ นำเข้า that.",
+  "companionFailedMocVersion": "{version} This Model was exported โดย newer Cubism (moc VERSION {version}); รันไทม์ เปิด phone reads ขึ้น ไป {latest}. ส่งออก it สำหรับ older VERSION ใน Cubism Editor และ นำเข้า that.",
+  "companionMenuAdapt": "Fit this Model",
+  "companionAdaptHint": "Your own Model (your คีย์, billed per คำขอ) reads this character และ matches ขึ้น her head, eyes, expressions และ เวียร์ she can เป็น touched. Sent:  Model's ชื่อ, its Parameter รายการ,  names ของ its expressions, motions และ parts, what you เขียน below และ  current fitting. ไม่เคย  Model ไฟล์ หรือ textures.",
+  "companionAdaptOffer": "This Model needs fitting: your own Model reads its Parameter รายการ และ  names ของ its expressions และ motions (ไม่เคย  Model ไฟล์), using your คีย์ หนึ่งครั้ง. ใหม่ models หลัง this are fitted เปิด their own; you can turn that ปิด ใน  menu.",
+  "companionAdaptOfferYes": "พอดี it",
+  "companionAdaptOfferNo": "ไม่ ตอนนี้",
+  "companionAdaptNote": "What's ปิด? (optional)",
+  "companionAdaptNoteHint": "สำหรับ ตัวอย่าง: patting her head does nothing, her face goes dark เมื่อ she's happy",
+  "companionAdaptRun": "Let  AI fit it",
+  "companionAdaptUndo": "ยกเลิก  fitting",
+  "companionAdaptAuto": "Fit ใหม่ models เมื่อ they're imported",
+  "companionAdaptStart": "Let me get used ไป this ใหม่ Body…",
+  "companionAdaptDone": "There, I've got  ค้าง ของ this Body.",
+  "companionAdaptDoneNote": "There, I've got  ค้าง ของ this Body. {note}",
+  "companionAdaptUndone": "ตกลง, ย้อนกลับ ไป how I was.",
+  "companionAdaptNoKey": "ไป fit me กับ your Model, เพิ่ม  API คีย์ ใน ตั้งค่า เฟิร์ส.",
+  "companionAdaptFailed": "That didn't งาน ({reason}). You can ทราย อีกครั้ง จาก Fit this Model ใน  menu.",
+  "companionAdaptUnreadable": " Model's คำตอบ made ไม่ sense",
+  "companionAdaptEmpty": " Model found nothing ไป match",
+  "companionAdaptNetwork": "ไม่ การเชื่อมต่อ",
+  "namestatus": "{name}，{status}",
+  "@namestatus": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "whoentrytext": "{who}：{entry_text}",
+  "@whoentrytext": {
+    "placeholders": {
+      "who": {
+        "type": "String"
+      },
+      "entry_text": {
+        "type": "String"
+      }
+    }
+  },
+  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}",
+  "thisCommandSucceeded": "This คอมมานด์ succeeded.",
+  "thisCommandFailed": "This คอมมานด์ ล้มเหลว.",
+  "thisCommandWasCancelled": "This คอมมานด์ was ยกเลิกแล้ว.",
+  "thisCommandWasNotRun": "This คอมมานด์ was ไม่ เรียกใช้.",
+  "thisRequestIsNoLongerPending": "This คำขอ คือ ไม่ longer รอดำเนินการ.",
+  "youAreStillHereYouCanTakeABreakIfYouWant": "You are ยัง here. You can TEEก  หยุด ถ้า you want.",
+  "thisStatusIsUnavailable": "This status คือ unavailable.",
+  "value": ": ค่า[",
+  "companionRoom": "Companion room",
+  "whaleGirl": "Whale girl",
+  "waitingForYouInTheRoom": "Waiting สำหรับ you ใน  room",
+  "companionadapt": "companion-adapt",
+  "@companionInputHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCreditAuthor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionFailedBody": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionGreetFirst": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionMemoryScope": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoiceUrlHelper": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoiceBodyHelper": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoicePreviewFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionRenamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoiceKeyWhere": {
+    "placeholders": {
+      "site": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCloneReady": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCloneSeconds": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionFailedMocVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "latest": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionAdaptDoneNote": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionAdaptFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@expressionsAndMotionsCount": {
+    "placeholders": {
+      "moves_expressions_length_moves_motions_length": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "webTitle": "DSH เว็บ",
+  "webSshAppOnly": "SSH tunnel links เท่านั้น เปิด ใน  app",
+  "webRelayUnavailable": "DSH Web isn’t available ผ่าน DSH Remote. เปิด it เปิด that computer.",
+  "webSshHost": "SSH โฮสต์",
+  "webLocalAppOnly": "This phone’s ลิงก์ has  launch Token และ เท่านั้น opens ใน  app",
+  "webEngineStatus": "Engine status",
+  "webEngineStarting": "Starting engine",
+  "webEngineStartFailed": "Couldn’t เริ่ม  engine",
+  "webEngineNotRunning": "Engine isn’t กำลังทำงาน",
+  "webEngineProblem": " engine ran เข้า  problem",
+  "webStartingSoon": "DSH Web will เป็น ready ใน  ช่วงเวลา",
+  "webStartToOpen": "เริ่ม this phone’s engine ไป เปิด DSH Web",
+  "webRestart": "รีเริ่ม",
+  "webStartEngine": "เริ่ม engine",
+  "webSwitchToWeb": "สวิตช์ ไป Web",
+  "webNativeFeatures": "Native ฟีเจอร์",
+  "webSwitchToNative": "สวิตช์ ไป native",
+  "webAppSettings": "App ตั้งค่า",
+  "webSwitchHost": "สวิตช์ โฮสต์",
+  "webAttachmentTooLarge": "Attachment คือ เกินไป large สำหรับ DSH Web",
+  "webTextCopied": "เท็กซ์ copied. วาง it เข้า  input box.",
+  "webAttachmentFailed": "Couldn’t เพิ่ม attachments ไป DSH Web",
+  "webHostUnavailable": "DSH Web isn’t available เปิด this โฮสต์",
+  "webChatGone": "This Chat คือ gone",
+  "webPageClosed": "เพจ closed",
+  "webChatsWorkspaces": "Chats และ workspaces",
+  "webRefresh": "รีเฟรช",
+  "webOpenInBrowser": "เปิด ใน browser",
+  "webBrowserUnavailable": "Can’t เปิด ใน browser",
+  "webReopen": "Reopen",
+  "webPageNotOpened": "Couldn’t เปิด  เพจ",
+  "webCheckConnection": "ตรวจสอบ your เครือข่าย หรือ engine status และ ทราย อีกครั้ง",
+  "webTargetSessionMissing": "Couldn’t ฟายด์ this Chat ใน DSH Web. You’re เปิด  โฮม เพจ.",
+  "webTargetNotLoaded": "DSH Web hasn’t finished กำลังโหลด",
+  "webTargetSettingsMissing": "Couldn’t ฟายด์ these ตั้งค่า. You พฤษภาคม need ไป ไซน์ ใน หรือ เปิดใช้  ปลั๊กอิน.",
+  "webTargetPluginMissing": "Couldn’t ฟายด์ this ปลั๊กอิน. It พฤษภาคม เป็น missing จาก this โปรไฟล์.",
+  "webTargetSidebarFailed": "Couldn’t เปิด  sidebar. เปิด this Chat ใน DSH Web และ ทราย อีกครั้ง.",
+  "webTargetCordisMissing": "Couldn’t ฟายด์  Cordis แผง.  ปลั๊กอิน พฤษภาคม have been removed.",
+  "webTargetNewChatFailed": "Couldn’t เริ่ม  Chat. You’re เปิด  DSH Web โฮม เพจ.",
+  "webTargetPageFailed": "Couldn’t เปิด this เพจ. You’re เปิด  DSH Web โฮม เพจ.",
+  "webConnectHostFirst": "เชื่อมต่อกับโฮสต์ {name} ก่อน",
+  "@webConnectHostFirst": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

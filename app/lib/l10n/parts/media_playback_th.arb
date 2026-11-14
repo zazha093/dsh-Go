@@ -1,0 +1,7 @@
+{
+  "mediaVideoLoading": "กำลังโหลด video…",
+  "mediaVideoCannotPlay": "This วิดีโอ could ไม่ เป็น played here. ลองใหม่ หรือ เปิด it ใน another app.",
+  "mediaVideoPlay": "เล่น",
+  "mediaVideoPause": "หยุดชั่วคราว",
+  "mediaVideoSaveFailed": "Couldn’t บันทึก  วิดีโอ. ทราย อีกครั้ง."
+}

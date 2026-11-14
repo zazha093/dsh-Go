@@ -1,0 +1,13 @@
+{
+  "phoneKeepTitle": "{mode, select, shizuku{Keep Shizuku channel} sui{Keep Sui channel} root{Keep root channel} adb{Keep Direct ADB channel} other{Keep this channel}}",
+  "phoneKeepRootDescription": "หลัง  ดรอป,  app รีเริ่ม หรือ  รีสตาร์ท, DSH Go asks your root manager อีกครั้ง โดย itself.  manager ยัง decides.",
+  "phoneKeepSharedDescription": "หลัง  ดรอป,  app รีเริ่ม หรือ  รีสตาร์ท, DSH Go reconnects กับ  สิทธิ์ it แล้ว has. It ไม่เคย asks สำหรับ สิทธิ์.",
+  "phoneKeepAdbDescription": "หลัง  ดรอป,  app รีเริ่ม หรือ  รีสตาร์ท, DSH Go reconnects เกิน Wi‑Fi กับ  existing pairing. กับ  สิทธิ์ จาก “กู้คืน accessibility automatically”, it also tries หนึ่งครั้ง ไป turn เปิด wireless debugging.",
+  "phoneKeepRestoring": "กำลังเชื่อมต่อใหม่",
+  "phoneKeepWaiting": "กำลังรอ สำหรับ  channel",
+  "phoneKeepWaitingService": "กำลังรอ สำหรับ  บริการ ไป รัน",
+  "phoneKeepWaitingPermission": "ไม่ authorized. Reconnects หนึ่งครั้ง you ให้ it.",
+  "phoneKeepWaitingNetwork": "กำลังรอ สำหรับ Wi‑Fi",
+  "phoneKeepNotPaired": "ไม่ paired. Pair wireless debugging เฟิร์ส.",
+  "phoneKeepFailed": "Couldn’t reconnect. Tries อีกครั้ง เมื่อ you เปิด  app หรือ เริ่ม  งาน."
+}

@@ -1,0 +1,605 @@
+{
+  "shellApiKeyPrefixWarning": "DeepSeek keys ปกติ เริ่ม กับ sk-. เช็ค you copied  right คีย์.",
+  "shellApiKeyIncompleteWarning": "This คีย์ looks incomplete. เช็ค you copied it ออล.",
+  "shellBrowserUrlCopied": "Couldn’t เปิด your browser. URL copied.",
+  "shellSaveTryAgain": "Couldn’t บันทึก. ทราย อีกครั้ง.",
+  "shellApiKeyUpdated": "API คีย์ updated",
+  "shellReplaceApiKey": "Replace API คีย์",
+  "shellEnterApiKey": "เอ็นเตอร์ API คีย์",
+  "shellApiKeyBilling": "Billed โดย  DeepSeek แพลตฟอร์ม based เปิด usage",
+  "shellSaving": "กำลังบันทึก",
+  "shellSaveContinue": "บันทึก และ ต่อ",
+  "shellSetUpLater": "เซ็ท ขึ้น ภายหลัง",
+  "shellClearField": "ล้าง",
+  "shellShow": "แสดง",
+  "shellApiKeyEncrypted": "Encrypted เปิด this phone",
+  "shellGetApiKey": "Get API คีย์",
+  "shellConnectDeepSeek": "เชื่อมต่อ DeepSeek",
+  "shellConnectDeepSeekMessage": "ไซน์ ใน ไป DeepSeek ไป เริ่ม. ไม่ API คีย์ ต้องการ.",
+  "shellAccountSignInUnsupported": "This engine doesn’t รองรับ บัญชี ไซน์-ใน",
+  "shellSignInDeepSeek": "ไซน์ ใน กับ DeepSeek",
+  "shellUseApiKey": "Use API คีย์",
+  "shellOtherProviders": "other providers",
+  "shellOnboardingStep": "Step {step} ของ {steps}",
+  "shellRuntimeUpdating": "Updating รันไทม์",
+  "shellRuntimePreparing": "Preparing รันไทม์",
+  "shellRuntimeReady": "พร้อม",
+  "shellRuntimeIncomplete": "Installation incomplete",
+  "shellRuntimeFilesKept": "Your chats และ ไฟล์ stay",
+  "shellRuntimeFirstSetup": "แรกสุด setup takes  มินิต หรือ two",
+  "shellRuntimeContinuing": "Continuing shortly",
+  "shellRuntimeRestoreFailed": "Couldn’t กู้คืน saved เนื้อหา",
+  "shellRuntimeExtractFailed": "Couldn’t extract ไฟล์",
+  "shellInstallLogs": "Installation logs",
+  "shellRuntimeLocalOnly": "Everything runs เปิด this phone",
+  "shellRuntimeContinueWithoutKept": "ดำเนินต่อ โดยไม่มี restoring",
+  "shellRuntimeAlmostDone": "เกือบ เสร็จ",
+  "shellRuntimeSecondsRemaining": "{count} seconds}",
+  "shellRuntimeMinutesRemaining": "{count} minutes}",
+  "shellEngineLogs": "Engine logs",
+  "shellWelcomeMessage": " DeepSeek Agent,\nใน your pocket",
+  "shellGetStarted": "เริ่ม",
+  "shellSearchChats": "ค้นหา chats",
+  "shellCollapseChatList": "ยุบ chat list",
+  "shellExpandChatList": "ขยาย chat list",
+  "shellChatList": "Chats",
+  "shellChatDetails": "Chat รายละเอียด",
+  "shellCollapseDetails": "ยุบ details",
+  "shellExpand": "ขยาย",
+  "shellUndo": "ยกเลิก",
+  "shellFolderDeleted": "{name} ลบแล้ว “{name}”",
+  "shellMovedToFolder": "{name} Moved ไป “{name}”",
+  "shellMovedOutOfFolder": "Moved ออก ของ โฟลเดอร์",
+  "shellUnpinFailed": "Couldn’t unpin. ทราย อีกครั้ง ภายหลัง.",
+  "shellPinFailed": "Couldn’t pin. ทราย อีกครั้ง ภายหลัง.",
+  "shellChatsUnpinned": "{count} chats}",
+  "shellChatsPinned": "{count} chats}",
+  "shellArchiveFailed": "Couldn’t archive. ทราย อีกครั้ง ภายหลัง.",
+  "shellChatsStoppedArchived": "{count} chats}",
+  "shellChatsArchived": "{count} chats}",
+  "shellFilterLabel": "ฟิลเตอร์: {label}",
+  "shellFolders": "Folders",
+  "shellNoRunningChats": "ไม่ กำลังทำงาน chats",
+  "shellNoPendingChats": "ไม่ chats need approval",
+  "shellNoUnreadChats": "ไม่ unread chats",
+  "shellNoChatsYet": "ไม่ chats ยัง",
+  "shellFolderLabel": "{name} โฟลเดอร์ “{name}”",
+  "shellFolderChatCount": "{name} {count} ”, chats}",
+  "shellSort": "เรียงลำดับ",
+  "shellRecentActivity": "ล่าสุด activity",
+  "shellCreatedTime": "วันที่ created",
+  "shellNewFolder": "ใหม่ โฟลเดอร์",
+  "shellManageFolders": "จัดการ folders",
+  "shellMultiSelect": "เลือก",
+  "shellFolderNameExists": " โฟลเดอร์ กับ this ชื่อ แล้ว exists",
+  "shellEditFolder": "แก้ไข โฟลเดอร์",
+  "shellFolderMark": "Mark",
+  "shellFolderColor": "สี {number}",
+  "shellMoveToFolder": "ย้าย ไป โฟลเดอร์",
+  "shellMoveOutOfFolder": "ย้าย ออก ของ โฟลเดอร์",
+  "shellDeleteFolder": "ลบ โฟลเดอร์",
+  "shellDragToReorder": "Drag ไป reorder",
+  "shellSelectChats": "เลือก chats",
+  "shellSelectedCount": "{count} selected}",
+  "shellDeselectAll": "ยกเลิกเลือก ทั้งหมด",
+  "shellSelectAll": "เลือก ทั้งหมด",
+  "shellUnpin": "Unpin",
+  "shellArchive": "เก็บถาวร",
+  "shellCurrentlyRunning": "กำลังทำงาน",
+  "shellUnread": "ยังไม่ได้อ่าน",
+  "shellPinned": "หมุดแล้ว",
+  "shellEngineNotRunning": "Engine isn’t กำลังทำงาน",
+  "shellHostNotConnected": "{name} ไม่ connected ไป “{name}” ยัง",
+  "shellSearchAfterConnecting": "เชื่อมต่อ ไป ค้นหา",
+  "shellChatsLoadFailed": "Couldn’t โหลด chats",
+  "shellSearchHostChats": "{name} ค้นหา chats เปิด “{name}”",
+  "shellSearchTitlesHint": "ค้นหา titles, including archived chats",
+  "shellSearchContentHint": "ค้นหา titles และ เนื้อหา, including archived chats",
+  "shellLoadingChatsEllipsis": "กำลังโหลด chats…",
+  "shellNoMatchingChats": "ไม่ matching chats",
+  "shellSearchDifferentKeywords": "ทราย another keyword, หรือ separate words กับ spaces",
+  "shellArchived": "เก็บถาวรแล้ว",
+  "shellRestoreBeforeOpening": "กู้คืน this archived chat ไป เปิด it",
+  "shellRestoreAndOpen": "กู้คืน และ เปิด",
+  "shellRestoreFailed": "Couldn’t กู้คืน. ทราย อีกครั้ง ภายหลัง.",
+  "shellSearchingMessages": "Searching ข้อความ เนื้อหา…",
+  "shellHostTitleSearchOnly": "This โฮสต์ เท่านั้น supports หัวข้อ ค้นหา",
+  "shellContentSearchFailed": "Couldn’t ค้นหา เนื้อหา. Showing หัวข้อ matches เท่านั้น.",
+  "shellContentSearchLimit": "เนื้อหา ค้นหา shows  20 มากที่สุด relevant chats",
+  "shellMoveToOtherFolder": "ย้าย ไป another โฟลเดอร์",
+  "shellArchiveStopsTurn": " current turn will หยุด",
+  "shellRenameFailed": "Couldn’t รีเนม. ทราย อีกครั้ง ภายหลัง.",
+  "shellChatStoppedArchived": "{title} หยุด และ archived “{title}”",
+  "shellChatArchived": "{title} เก็บถาวรแล้ว “{title}”",
+  "shellRenameChat": "รีเนม Chat",
+  "shellChatTitle": "Chat หัวข้อ",
+  "shellUnreadCount": "{count} unread}",
+  "shellLoadingChats": "กำลังโหลด chats",
+  "shellWorkspaceNoChats": "ไม่ chats here ยัง",
+  "shellWorkspaceNewChatsHint": "ใหม่ chats go ใน this workspace. Earlier chats are ไม่ moved here automatically; หา them ใน ทั้งหมด chats.",
+  "shellNewChatsHint": "ใหม่ chats appear here",
+  "shellEngineStarting": "Engine คือ starting",
+  "shellChatsAfterStarting": "Your chats appear หนึ่งครั้ง it starts",
+  "shellStartEngine": "เริ่ม engine",
+  "shellEngineStatusHint": "ดู status ใน “Engine”",
+  "shellHostUnreachable": "{name} Can’t reach “{name}”",
+  "shellHostReconnecting": "{name} Reconnecting ไป “{name}”…",
+  "shellRetryNow": "ลองใหม่ ตอนนี้",
+  "shellHostConnecting": "{name} Connecting ไป “{name}”…",
+  "shellHostChatsAfterConnecting": "This โฮสต์’s chats appear หนึ่งครั้ง connected",
+  "shellCurrentHostLabel": "{view} {name} Current โฮสต์: {name}, {view}. Switch โฮสต์",
+  "shellChatGone": "This Chat คือ gone",
+  "shellAccentMist": "Mist",
+  "shellAccentDaiqing": "Teal",
+  "shellAccentDusk": "อันธยาล",
+  "shellAccentTurquoise": "Aqua",
+  "shellAccentAmber": "Amber",
+  "shellAccentGraphite": "Slate",
+  "shellHideTurnFooter": "Turn footer",
+  "shellHideTokenCount": "Token เคาท์",
+  "shellHideReasoning": "Thinking",
+  "shellHideActivityStrip": "กิจกรรม strip",
+  "shellHideWhaleTail": "Whale tail",
+  "shellHideTodoPill": "ไป-ทำ bar",
+  "shellHideGoalBar": "เป้าหมาย bar",
+  "shellToday": "วันนี้",
+  "shellThisWeek": "This สัปดาห์",
+  "shellEarlier": "Earlier",
+  "shellSeatNative": "Native",
+  "shellSeatIsland": "Embedded เว็บ",
+  "shellSeatWeb": "เปิด ใน DSH Web",
+  "shellPlugins": "Plugins",
+  "shellHeaderActions": "Headเดอร์ buttons",
+  "shellAllHidden": "ทั้งหมด ซ่อน",
+  "shellSettingCount": "{count} items}",
+  "shellQuickActions": "รวดเร็ว การดำเนินการ",
+  "shellSuggestionCards": "Suggestion cards",
+  "shellSuggestionCardCount": "{count} cards}",
+  "shellDrawerGroups": "Drawer groups",
+  "shellDrawerSort": "Drawer สอร์ท ออเดอร์",
+  "shellDrawerFilter": "Drawer ฟิลเตอร์",
+  "shellPending": "รอดำเนินการ",
+  "shellAll": "ทั้งหมด",
+  "shellDensity": "Density",
+  "shellCompact": "Compact",
+  "shellSpacious": "Spacious",
+  "shellThemeMode": "Appearance mode",
+  "shellAccentColor": "เน้น สี",
+  "shellPet": "Pet",
+  "shellConfigured": "เซ็ท",
+  "shellShortcuts": "Keyboard shortcuts",
+  "shellConfigFileTooLarge": "ไฟล์ exceeds 64 KiB",
+  "shellConfigRootNotObject": "อันดับหนึ่ง level must เป็น  object",
+  "shellConfigVersionMissing": "Missing VERSION",
+  "shellConfigVersionNotInt": "VERSION must เป็น  integer",
+  "shellConfigVersionTooLow": "VERSION starts at 1",
+  "shellConfigVersionTooHigh": "{version} อัปเดต app ไป use VERSION {version}",
+  "shellConfigNotObject": "Expected  ออบเจ็กต์",
+  "shellConfigNotArray": "Expected  อาร์เรย์",
+  "shellConfigNotString": "Expected  สตริง",
+  "shellConfigNotBool": "Expected จริง หรือ เท็จ",
+  "shellConfigEmpty": "Can’t เป็น empty",
+  "shellConfigUnknownKey": "Unknown คีย์, ignored",
+  "shellConfigDuplicateKey": "ซ้ำ คีย์, เท่านั้น  last one applies",
+  "shellConfigDuplicateItem": "ทำซ้ำ, ignored",
+  "shellConfigMissing": "{key} Missing {key}",
+  "shellConfigTruncated": "{count} characters, truncated}",
+  "shellConfigTooLong": "{count} characters}",
+  "shellConfigTooMany": "{count} items, extras ignored}",
+  "shellConfigValueNoun": "ค่า",
+  "shellConfigUnsupportedValue": "{value} Unsupported {noun} “{value}”",
+  "shellConfigHeaderItem": "Expected  button ไอดี หรือ ออบเจ็กต์",
+  "shellConfigHeaderId": "ไอดีเอส can use letters, numbers, และ -, starting กับ  lowercase letter",
+  "shellConfigIdTaken": "ซ้ำ ไอดี",
+  "shellConfigCommandSlash": "คอมมานด์ names don’t include /, removed",
+  "shellConfigCommandName": "คอมมานด์ names can เท่านั้น use letters, numbers, และ : . _ -",
+  "shellConfigNoNewline": "ไลน์ breaks aren’t allowed",
+  "shellConfigHttpsOnly": "เท่านั้น HTTPเอส links are supported",
+  "shellConfigBadUrl": "Invalid ลิงก์ ฟอร์แมต",
+  "shellConfigAccentFormat": "Use #RRGGBB สำหรับ colors",
+  "shellConfigAccentBoth": "Choose either this หรือ accentPreset; accentPreset used",
+  "shellConfigPetId": "ไอดีเอส can เท่านั้น use lowercase letters, numbers, และ -",
+  "shellConfigKeysFormat": "Invalid ฟอร์แมต, สำหรับ ตัวอย่าง ctrl+k",
+  "shellConfigSystemKey": "ระบบ keys aren’t allowed",
+  "shellConfigNeedModifier": "Include ctrl หรือ alt",
+  "shellConfigReservedKey": "ใช้ไป โดย  system หรือ keyboard",
+  "shellConfigDuplicateShortcut": "Duplicates {pointer}",
+  "shellConfigSlotName": "Invalid slot ชื่อ ฟอร์แมต",
+  "shellConfigUnknownSlot": "This slot isn’t ใน DSH ยัง, kept สำหรับ ภายหลัง",
+  "shellConfigUnseatableSlot": "Plugins aren’t supported here",
+  "shellConfigPackageName": "Invalid แพ็กเกจ ชื่อ ฟอร์แมต",
+  "shellConfigActionNoun": "action",
+  "shellConfigPageNoun": "เพจ",
+  "shellConfigButtonNoun": "button",
+  "shellConfigIconNoun": "ไอคอน",
+  "shellConfigNotTextFile": "ไม่  เท็กซ์ ไฟล์",
+  "shellJsonPosition": "{line} {column} ไลน์ {line}, CURLัมน์ {CURLัมน์}: {reason}",
+  "shellJsonEmptyFile": "ไฟล์ คือ empty",
+  "shellJsonExtraContent": "Extra เนื้อหา at  end",
+  "shellJsonIncompleteFile": "ไฟล์ คือ incomplete",
+  "shellJsonCommentsUnsupported": "Comments aren’t supported",
+  "shellJsonDoubleQuotes": "Strings need ดับเบิล quotes",
+  "shellJsonMissingValue": "Missing  ค่า here",
+  "shellJsonUnknownContent": "{value} Unrecognized เนื้อหา “{value}”",
+  "shellJsonTooDeep": "Nesting คือ เกินไป deep",
+  "shellJsonExtraComma": "Extra comma",
+  "shellJsonQuotedKey": "Keys need ดับเบิล quotes",
+  "shellJsonExpectedKey": "Expected  คีย์ here",
+  "shellJsonMissingColon": "Missing  colon หลัง  คีย์",
+  "shellJsonMissingComma": "Missing  comma here",
+  "shellJsonUnexpectedContent": "{value} Unexpected “{value}” here",
+  "shellJsonUnterminatedString": "Unterminated สตริง",
+  "shellJsonBadEscape": "Invalid สตริง เอสเคป",
+  "shellJsonStringNewline": "Strings can’t contain literal ไลน์ breaks",
+  "shellJsonControlCharacter": "สตริง คอนเทนส์  control character",
+  "shellJsonBadNumber": "Invalid ตัวเลข ฟอร์แมต",
+  "shellSkillInstallPrompt": "ติดตั้ง  DSH Go interface skill {skill} เปิด this โฮสต์:",
+  "shellSkillInstallDirectory": "1. ครีเอท  เป้าหมาย โฟลเดอร์ `$DSH_HOME/skills/{skill}/` ถ้า ต้องการ (หรือ `~/.dsh/skills/{skill}/` ถ้า DSH_HOME isn’t เซ็ท).",
+  "shellSkillInstallFiles": "2. เขียน แต่ละ ไฟล์ below at its given relative พาธ, keeping  contents อย่างแม่นยำ ในฐานะ provided.",
+  "shellSkillInstallConfirm": "4. Tell me เมื่อ it’s installed.",
+  "shellSkillInstallFile": "{path} ไฟล์ `{path}`:",
+  "shellFromUiJson": "จาก ui.JSON",
+  "shellViewSource": "ดู source",
+  "shellSourcePosition": "Location",
+  "shellRestoreDefaults": "รีเซ็ต ไป ดีฟอลต์",
+  "shellConfigNotApplied": "ไม่ applied",
+  "shellConfigDroppedCount": "{count} issues ไม่ applied}",
+  "shellConfigAppliedCount": "{count} items}",
+  "shellInterfaceConfig": "UI CONFIG",
+  "shellSkillNotInstalled": "Skill ไม่ installed",
+  "shellInstallInterfaceSkill": "ติดตั้ง interface skill",
+  "shellInstallInterfaceSkillMessage": "หนึ่งครั้ง installed, AI can adjust  app’s interface ในฐานะ you ถาม",
+  "shellNoUiJson": "ไม่ ui.JSON",
+  "shellConfigUsingPrevious": "ไม่ applied, ยัง using  previous CONFIG",
+  "shellConfigDroppedHeading": "ไม่ applied",
+  "shellConfigNotesHeading": "Warnings",
+  "shellConfigAppliedHeading": "Applied",
+  "shellConfigValueOptions": "{value} Unsupported {noun} “{value}”, options: {options}",
+  "shellListSeparator": ", ",
+  "shellSkillInstallCheck": "{command} 3. เรียกใช้ {command} หลัง writing  ไฟล์. ถ้า it runs, installation คือ complete ( ข้อความ เกี่ยวกับ ui.JSON ไม่ existing ยัง คือ normal).",
+  "shellSemanticsSeparator": ", ",
+  "shellChatsArchivedPartial": "{failed} {count} chats}; chats}",
+  "shellPanelOverview": "ข้อมูล",
+  "shellPanelWorkspace": "เวิร์กสเปซ",
+  "shellPanelModel": "Model",
+  "shellPanelHost": "โฮสต์",
+  "shellPanelOpenFull": "เปิด full เพจ",
+  "shellPanelNoPlugins": "ไม่ plugin panels สำหรับ this chat ยัง",
+  "shellQuickPanel": "Shortcuts",
+  "shellQuickPanelHint": "{path} เปลี่ยน these ใน {path}",
+  "@shellQuickPanelHint": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellOnboardingStep": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      },
+      "steps": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellRuntimeSecondsRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellRuntimeMinutesRemaining": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellFolderDeleted": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellMovedToFolder": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellChatsUnpinned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellChatsPinned": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellChatsStoppedArchived": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellChatsArchived": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellFilterLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellFolderLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellFolderChatCount": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellFolderColor": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSelectedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellHostNotConnected": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSearchHostChats": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellChatStoppedArchived": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellChatArchived": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellUnreadCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellHostUnreachable": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellHostReconnecting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellHostConnecting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellCurrentHostLabel": {
+    "placeholders": {
+      "view": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSettingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellSuggestionCardCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigVersionTooHigh": {
+    "placeholders": {
+      "version": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigMissing": {
+    "placeholders": {
+      "key": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellConfigTruncated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigTooLong": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigTooMany": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigUnsupportedValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "noun": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellConfigDuplicateShortcut": {
+    "placeholders": {
+      "pointer": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellJsonPosition": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      },
+      "line": {
+        "type": "String"
+      },
+      "column": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellJsonUnknownContent": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellJsonUnexpectedContent": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSkillInstallPrompt": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSkillInstallDirectory": {
+    "placeholders": {
+      "skill": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSkillInstallFile": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellConfigDroppedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigAppliedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellConfigValueOptions": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "noun": {
+        "type": "String"
+      },
+      "options": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellSkillInstallCheck": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellChatsArchivedPartial": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
+      }
+    }
+  }
+}

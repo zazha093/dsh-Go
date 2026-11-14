@@ -1,0 +1,55 @@
+{
+  "shellDeletePermanently": "ลบ permanently",
+  "shellDeleteNoUndo": "Cannot เป็น undone; this คือ ไม่ archive",
+  "shellDeleteChecking": "Checking ว่า this โฮสต์ supports permanent deletion…",
+  "shellDeleteUnsupported": "This โฮสต์ does ไม่ รองรับ safe permanent deletion. Archive คือ ยัง available.",
+  "shellDeleteUnavailable": "Safe permanent deletion คือ unavailable. Reconnect หรือ อัปเดต this โฮสต์; nothing was archived instead.",
+  "shellDeleteChatConfirmation": "{title} Permanently ลบ “{title}”?",
+  "shellDeleteChatsConfirmation": "{count} chats?}",
+  "shellDeleteWarning": " selected Chat history will เป็น permanently deleted จาก this โฮสต์. This cannot เป็น undone และ คือ ไม่ archive.\n\nWorking directories, generated ไฟล์, forks, shared attachments และ published cloud shares are kept. Cloud shares must เป็น removed separately. ใช้งาน中 หรือ related chats พฤษภาคม เป็น refused โดย  โฮสต์.",
+  "shellDeleteOwnerChanged": " โฮสต์ หรือ การเชื่อมต่อ changed. ยกเลิก และ เริ่ม deletion อีกครั้ง;  old confirmation คือ ไม่ longer valid.",
+  "shellDeletingChats": "กำลังลบ chats…",
+  "shellChatsDeleted": "{count} chats}",
+  "shellDeletePartial": "{failed} {deleted} chats}; ล้มเหลว}",
+  "shellDeleteRunning": "หยุด กำลังทำงาน งาน ก่อน deleting.  โฮสต์ also checks ใช้งาน中 tasks และ schedules.",
+  "shellDeleteRelated": "This Chat has related subagent งาน.  โฮสต์ refused deletion ไป protect it.",
+  "shellDeleteWriterHeld": "Another โปรเซส คือ using this Chat. ปิด it there และ ทราย อีกครั้ง.",
+  "shellDeleteNotFound": " Chat ไม่ longer exists เปิด this โฮสต์. รีเฟรช  รายการ.",
+  "shellDeleteConnectionLost": " การเชื่อมต่อ was lost และ  deletion ผลลัพธ์ คือ unconfirmed. รีเฟรช  Chat รายการ ก่อน taking further action.",
+  "shellDeleteArchivePending": " archive operation คือ รอดำเนินการ. จบ หรือ undo it ก่อน deleting.",
+  "shellDeleteInventoryChanged": " Chat รายการ changed. รีเฟรช และ select  chats อีกครั้ง.",
+  "shellDeleteProtocolError": " deletion ผลลัพธ์ คือ unconfirmed. รีเฟรช  Chat รายการ ก่อน taking further action.",
+  "shellDeleteNotAttempted": "ไม่ attempted. เช็ค  Chat รายการ ก่อน trying อีกครั้ง.",
+  "shellDeleteFailed": " โฮสต์ could ไม่ ยืนยัน deletion. รีเฟรช ก่อน retrying.",
+  "@shellDeleteChatConfirmation": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@shellDeleteChatsConfirmation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellChatsDeleted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@shellDeletePartial": {
+    "placeholders": {
+      "deleted": {
+        "type": "int"
+      },
+      "failed": {
+        "type": "int"
+      }
+    }
+  }
+}

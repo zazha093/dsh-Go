@@ -1,0 +1,9 @@
+{
+  "stateWorkspaceFilesHint": "ไฟล์ uploaded ไป  current Workspace:",
+  "stateRemoteUploadNameInvalid": " โฮสต์ ปฏิเสธแล้ว  filename. Shorten it หรือ นำออก special characters และ ทราย อีกครั้ง.",
+  "stateRemoteUploadWorkspaceUnavailable": "This Chat has ไม่ writable working ไดเรกทอรี",
+  "stateRemoteUploadWorkspaceChanged": " working ไดเรกทอรี changed. เช็ค it ก่อน uploading อีกครั้ง.",
+  "stateRemoteUploadLimit": " โฮสต์ refused  อัปโหลド. เช็ค  ไฟล์ ไซส์ หรือ ทราย อีกครั้ง ภายหลัง.",
+  "stateRemoteUploadUnsupported": "This โฮสต์ does ไม่ รองรับ ไฟล์ uploads. อัปเดต its Remote ปลั๊กอิน และ reconnect.",
+  "stateRemoteUploadTooLarge": " ไฟล์ exceeds  Remote อัปโหลド โปรโตคอล's ไซส์ ลิมิต"
+}

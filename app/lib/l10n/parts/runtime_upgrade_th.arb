@@ -1,0 +1,7 @@
+{
+  "phoneRuntimeUpgradeBase": " ใหม่ engine cannot เป็น confirmed compatible กับ your Linux สภาพแวดล้อม, so  อัปเดต หยุด. Your สภาพแวดล้อม และ installed tools were ไม่ deleted. Make  full สำรอง และ contact  ผู้ดูแล สำหรับ migration; ทำ ไม่ รีเซ็ต หรือ ถอนการติดตั้ง  app.",
+  "phoneRuntimeUpgradeManifest": " รันไทม์ อัปเดต manifest could ไม่ เป็น safely identified.  อัปเดต หยุด และ your สภาพแวดล้อม was kept. เช็ค  APK และ contact  ผู้ดูแล; ทำ ไม่ รีเซ็ต  สภาพแวดล้อม.",
+  "phoneRuntimeUpgradeInterrupted": " รันไทม์ อัปเกรด คือ incomplete. Your data และ recovery สเตท were kept. ลองใหม่ installation. ถ้า it ยัง fails, ส่งออก diagnostics และ contact  ผู้ดูแล; ทำ ไม่ รีเซ็ต หรือ ลบ recovery directories.",
+  "phoneRuntimeUpgradeSymlink": " ระบบ พาธ was replaced โดย  custom ลิงก์, so  สภาพแวดล้อม cannot เป็น updated safely. Your สภาพแวดล้อม was kept. ย้อนกลับ it ขึ้น และ contact  ผู้ดูแล.",
+  "phoneRuntimeUpgradeRunning": " engine หรือ  leftover โปรเซส has ไม่ been confirmed หยุด.  อัปเดต has ไม่ started. หยุด  โลคอล engine และ wait สำหรับ cleanup ก่อน retrying; ทำ ไม่ รีเซ็ต  สภาพแวดล้อม."
+}

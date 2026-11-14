@@ -1,0 +1,23 @@
+{
+  "phoneTaskResultReady": "งาน complete · VUE ผลลัพธ์",
+  "phoneTaskEndedResult": "งาน ended · VUE ผลลัพธ์",
+  "phoneBackgroundGuideTitle": "Confirmations และ คืนค่า",
+  "phoneBackgroundGuideBody": "เมื่อ  step needs your decision,  DSH Go card appears. ถ้า  card คือ unavailable,  app tries  notification หรือ returns here. อนุญาต phone-control notifications และ ป็อป-ขึ้น alerts ใน ระบบ ตั้งค่า.",
+  "phoneBackgroundOemHint": "ใน  ระบบ permissions สำหรับ DSH Go, เช็ค “แสดง ป็อป-ขึ้น windows ขณะที่ กำลังทำงาน ใน  background”, ถ้า available. Allowing it can ช่วยเหลือ  app คืนค่า automatically. Menu names vary โดย ระบบ VERSION.",
+  "phoneBackgroundReturnHint": "ถ้า  app does ไม่ คืนค่า เมื่อ  งาน finishes, tap “งาน complete · มุมมอง ผลลัพธ์”. ถ้า ระบบ notifications หรือ background windows are ถูกบบันทึก, you พฤษภาคม need ไป เปิด DSH Go yourself.",
+  "phoneBackgroundGotIt": "Got it",
+  "phoneBackgroundOpenSettings": "เปิด system ตั้งค่า",
+  "phonePrivilegedUpgrade": "This app สร้าง does ไม่ รองรับ that privileged channel. อัปเดต DSH Go ไป use it.",
+  "phonePrivilegedSui": "Sui",
+  "phonePrivilegedRoot": "root",
+  "phonePrivilegedSuiDescription": "Use  Sui โมดูล อินเตอร์เฟซ. การอนุมัติ คือ requested เท่านั้น เมื่อ you tap.",
+  "phonePrivilegedRootDescription": "สำหรับ Magisk, KernelSU หรือ APatch.  เฟิร์ส root คอมมานด์ runs เท่านั้น หลัง you choose this channel.",
+  "phonePrivilegedRootPrepare": "อนุมัติ root",
+  "phonePrivilegedRootUnchecked": "ไม่ checked",
+  "phonePrivilegedGrantRoot": "ให้ กับ root",
+  "phonePrivilegedGrantSui": "ให้ กับ Sui",
+  "phonePrivilegedGrantSuiPermission": "อนุมัติ Sui, แล้ว ให้",
+  "phonePrivilegedSuggested": "Suggested",
+  "phonePrivilegedRootRiskTitle": "Give DSH Go root เข้าถึง?",
+  "phonePrivilegedRootRiskBody": "Your root manager (Magisk, KernelSU หรือ APatch) will ถาม you. ถ้า you อนุญาต it, DSH Go runs its own background บริการ ในฐานะ root. It asks อีกครั้ง เปิด its own หลัง  ตัดการเชื่อมต่อ หรือ รีเริ่ม เท่านั้น กับ “Keep root channel” เปิด."
+}

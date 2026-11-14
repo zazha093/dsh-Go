@@ -1,0 +1,829 @@
+{
+  "chatBackgroundTaskNotice": "Background งาน การแจ้งเตือน",
+  "chatBackgroundTaskMessage": "Background งาน ข้อความ",
+  "chatDeclineQuestion": "ข้าม",
+  "chatChats": "Chats",
+  "chatViewChatDetails": "ดู chat details",
+  "chatUnsent": "ไม่ sent",
+  "chatFailedSubmission": "ล้มเหลว · Input kept",
+  "chatEditFailedSubmission": "แก้ไข และ resend",
+  "chatErrReasoningEffortUnsupported": "This Model does ไม่ รองรับ  selected reasoning effort. Change  effort หรือ Model.",
+  "chatSteerNextStep": "Steer · ถัดไป step",
+  "chatQueuedAfterTurn": "Queued · ถัดไป turn",
+  "chatSteering": "Steering",
+  "chatQueued": "อยู่ในคิว",
+  "chatStoppingTurn": "Stopping this turn",
+  "chatSending": "Sending",
+  "chatSendNow": "ส่ง ตอนนี้",
+  "chatSwitchToSteer": "Steer instead",
+  "chatWithdraw": "ยกเลิก",
+  "chatContinuedInNewChat": "Continued ใน  ใหม่ Chat",
+  "chatReadOriginalImageFailed": "Couldn’t อ่าน  original รูปภาพ. ทราย อีกครั้ง.",
+  "chatRegenerateFailed": "Couldn’t สร้างใหม่",
+  "chatRegeneratedInNewChat": "Regenerated ใน  ใหม่ Chat",
+  "chatOpenedInNewChatReattach": "Opened ใน  ใหม่ Chat. เพิ่ม attachments อีกครั้ง.",
+  "chatOpenedInNewChat": "Opened ใน  ใหม่ Chat",
+  "chatForkQueuedLeft": "{message} {left} ( queued messages stayed behind)}",
+  "chatReturnToOriginal": "ย้อนกลับ ไป original chat",
+  "chatWaitingCount": "{count} items need approval}",
+  "chatWaitingBackToBottom": "{count} items need approval, ย้อนกลับ ไป bottom}",
+  "chatBackToBottom": "ย้อนกลับ ไป bottom",
+  "chatCreateFailed": "Couldn’t ครีเอท Chat",
+  "chatSendMode": "ส่ง mode",
+  "chatSteer": "Steer",
+  "chatSteerHint": " AI sees it ถัดไป step, โดยไม่มี interrupting",
+  "chatInterruptAndSend": "Interrupt และ ส่ง",
+  "chatInterruptHint": "หยุด  current งาน และ handle this ก่อนother",
+  "chatQueue": "คิว",
+  "chatQueueHint": "ส่ง หลัง this turn",
+  "chatWithdrawnEditable": "Undone. แก้ไข และ ส่ง อีกครั้ง.",
+  "chatWithdrawn": "Undone",
+  "chatAttachmentLimit": "{count} attachments per ข้อความ}",
+  "chatAttachmentPermission": "สิทธิ์ denied. Turn it เปิด ใน system ตั้งค่า.",
+  "chatOpenAttachmentFailed": "Couldn’t เปิด attachment",
+  "chatReadFailed": "Couldn’t อ่าน",
+  "chatReadImageFailed": "Couldn’t อ่าน รูปภาพ",
+  "chatOpenChatFirst": "เปิด  chat ก่อนother",
+  "chatTurnCompleted": "This turn คือ complete",
+  "chatTurnError": "Something went wrong this turn",
+  "chatAnswerHint": "ประเภท your answer…",
+  "chatStarting": "Starting",
+  "chatConnecting": "กำลังเชื่อมต่อ",
+  "chatDisconnected": "ตัดการเชื่อมต่อ",
+  "chatReconnecting": "กำลังเชื่อมต่อใหม่",
+  "chatGenerating": "กำลังสร้าง",
+  "chatGoToSettings": "เปิด ตั้งค่า",
+  "chatListeningEllipsis": "Listening…",
+  "chatTranscribingEllipsis": "Transcribing…",
+  "chatConnectToSend": "เชื่อมต่อ ไป  engine ไป ส่ง",
+  "chatGeneratingSteerHint": "Generating · Type ไป steer",
+  "chatComposerHint": "ข้อความ DSH…",
+  "chatStopGenerating": "หยุด generating",
+  "chatVoiceInput": "Voice input",
+  "chatStopVoiceInput": "หยุด voice input",
+  "chatGoal": "เป้าหมาย",
+  "chatGoalActions": "เป้าหมาย การดำเนินการ",
+  "chatGoalBlocked": "บบันทึก",
+  "chatGoalRoundLimit": "{max} Round {rounds} / {max}",
+  "chatGoalRound": "Round {rounds}",
+  "chatEditGoal": "แก้ไข เป้าหมาย",
+  "chatPauseGoal": "หยุดชั่วคราว",
+  "chatPauseGoalHint": "หยุดชั่วคราว automatic progress",
+  "chatResumeGoal": "ดำเนินต่อ",
+  "chatResumeGoalHint": "ดำเนินต่อ automatic progress",
+  "chatClearGoal": "ล้าง เป้าหมาย",
+  "chatGoalHint": "What ทำ you want ไป achieve?",
+  "chatClearGoalTitle": "ล้าง เป้าหมาย?",
+  "chatTodoCurrent": "{content} กำลังทำงาน เปิด: {content}",
+  "chatTodoNext": "{content} ถัดไป: {content}",
+  "chatTodoAllDone": "ทั้งหมด done",
+  "chatTodoSemantics": "{count} ไป-ทำ {count}, {label}",
+  "chatCollapseTodos": "ยุบ list",
+  "chatExpandTodos": "ขยาย list",
+  "chatDockFolded": "{count} status bars stacked}",
+  "@chatDockFolded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chatDockSpread": "ขยาย",
+  "chatDockFold": "โฟลด์  status bars",
+  "chatDockNext": "ถัดไป card",
+  "chatDockPrevious": "ก่อนหน้า card",
+  "chatTodoNotStarted": "ไม่ started",
+  "chatFile": "ไฟล์",
+  "chatFolder": "โฟลเดอร์",
+  "chatChat": "แชท",
+  "chatSubagent": "ซับเอจิ้นต์",
+  "chatRecent": "ล่าสุด",
+  "chatMentionSearching": "Searching…",
+  "chatMentionNoFiles": "ไม่ matching ไฟล์",
+  "chatMentionNoMatches": "ไม่ matching ไฟล์ หรือ chats",
+  "chatQuote": "Quote",
+  "chatOpenFolder": "เปิด โฟลเดอร์",
+  "chatJustNow": "เพียง ตอนนี้",
+  "chatMentionAgeMinutes": "{count} มิน}",
+  "chatMentionAgeHours": "{count} h}",
+  "chatMentionAgeDays": "{count} days}",
+  "chatMentionAgeMonths": "{count} months}",
+  "chatMentionAgeYears": "{count} years}",
+  "chatMermaidChart": "Mermaid chart",
+  "chatPreview": "พรีVUE",
+  "chatUnwrapLines": "Unwrap lines",
+  "chatWrapLines": "Wrap lines",
+  "chatAlertNote": "บันทึก",
+  "chatAlertTip": "เคล็ดลับ",
+  "chatAlertImportant": "Important",
+  "chatAlertWarning": "คำเตือน",
+  "chatAlertCaution": "ระวัง",
+  "chatImage": "รูปภาพ",
+  "chatImageNotFound": "รูปภาพ ไม่ found",
+  "chatImageOffline": "ไม่ connected ไป DSH",
+  "chatImageTooLarge": "รูปภาพ เกินไป large",
+  "chatImageReadFailed": "Can’t อ่าน ไฟล์",
+  "chatImageDisplayFailed": "Can’t แสดง",
+  "chatImageTapToView": "Tap ไป มุมมอง",
+  "chatImageTapToRetry": "Tap ไป ลองใหม่",
+  "chatImageUnsupportedAddress": "Unsupported ที่อยู่",
+  "chatMermaidNeedsNetwork": "Needs internet",
+  "chatMermaidSyntaxError": "ไม่ถูกต้อง chart syntax",
+  "chatChartPreview": "Chart พรีVUE",
+  "chatCopyCode": "คัดลอก code",
+  "chatChartClosed": "Chart closed",
+  "chatVoiceMicrophoneFailed": "Couldn’t เปิด microphone",
+  "chatVoicePermissionOff": "Microphone เข้าถึง คือ ปิด",
+  "chatVoicePermissionNeeded": "Voice input needs microphone เข้าถึง",
+  "chatVoiceUnavailable": "Speech recognition isn’t available เปิด this phone",
+  "chatVoiceNotHeard": "Didn’t แคช that. ทราย อีกครั้ง.",
+  "chatVoiceTranscriptionFailed": "Couldn’t transcribe this recording",
+  "chatVoiceNetworkFailed": "Couldn’t transcribe. เช็ค your การเชื่อมต่อ.",
+  "chatVoiceLanguageUnsupported": "This ภาษา isn’t supported ยัง",
+  "chatVoiceMicrophoneBusy": "Microphone คือ ใน use",
+  "chatVoiceBusy": "Speech recognition คือ busy. ทราย อีกครั้ง ภายหลัง.",
+  "chatVoiceRecognitionFailed": "Speech recognition ล้มเหลว",
+  "chatListening": "Listening",
+  "chatTranscribing": "Transcribing",
+  "chatCancelVoiceInput": "ยกเลิก voice input",
+  "chatViewTurnTrace": "ดู turn trajectory",
+  "chatTokensPerSecond": "{count} tokens/s}",
+  "chatNoTokensStreaming": "ไม่ เท็กซ์ streaming",
+  "chatCurrentStep": "This step {step}",
+  "chatTodoProgress": "{total} {done} ไป-ทำ progress {done}/{total}",
+  "chatProgress": "{total} {done} Progress {done}/{total}",
+  "chatApproveCommand": "อนุญาต this command?",
+  "chatApproveWrite": "อนุญาต writing this ไฟล์?",
+  "chatApproveEdit": "อนุญาต editing this ไฟล์?",
+  "chatApproveWebpage": "อนุญาต opening this เพจ?",
+  "chatApproveSearch": "อนุญาต web ค้นหา?",
+  "chatApproveTool": "{name} อนุญาต “{name}”?",
+  "chatDecline": "ปฏิเสธ",
+  "chatAllowOnce": "อนุญาต หนึ่งครั้ง",
+  "chatAllowForChat": "อนุญาต สำหรับ chat",
+  "chatSaveToDownloads": "บันทึก ไป Downloads",
+  "chatCopyPath": "คัดลอก พาธ",
+  "chatOpenInDefaultApp": "เปิด ใน ดีฟอลต์ app",
+  "chatDownloadsFolderHint": "Downloads/DSH-Go โฟลเดอร์",
+  "chatSavedToDownloadsPath": "{path} Saved ไป Downloads/{path}",
+  "chatSavedToPath": "{path} Saved ไป {path}",
+  "chatDeliveredFiles": "{count} ไฟล์}",
+  "chatGeneratedFiles": "{count} ไฟล์}",
+  "chatAllFiles": "{count} ไฟล์}",
+  "chatCollapseFileList": "ยุบ ไฟล์ list",
+  "chatExpandAllFiles": "{count} ไฟล์}",
+  "chatDownloading": "กำลังดาวน์โหลด…",
+  "chatDownloadingPercent": "กำลังดาวน์โหลด… {percent}%",
+  "chatOpening": "Opening…",
+  "chatSavingToDownloads": "Saving ไป Downloads…",
+  "chatOpenInPhoneApp": "เปิด ใน  app เปิด this phone",
+  "chatMoreActions": "เพิ่มเติม การดำเนินการ",
+  "chatAlreadyInDownloads": "แล้ว ใน Downloads เปิด this phone",
+  "chatArtifactCopyPathOnly": "This การเชื่อมต่อ can’t อ่าน ไฟล์. You can คัดลอก  พาธ.",
+  "chatReplying": "Replying",
+  "chatInterrupted": "Interrupted",
+  "chatGallery": "Photos",
+  "chatTakePhoto": "TEEก photo",
+  "chatAddAttachment": "เพิ่ม image หรือ ไฟล์",
+  "chatRemoveAttachment": "{name} นำออก “{name}”",
+  "chatAutoApproveCommands": "อนุญาต commands automatically",
+  "chatAutoApproving": "อัตไม่มัติ-approving",
+  "chatViewMoreChanges": "{count} มากกว่า ไฟล์}",
+  "chatViewChanges": "ดู changes",
+  "chatChangedFiles": "{count} ไฟล์}",
+  "chatMoreFiles": "{count} มากกว่า ไฟล์}",
+  "chatFileChangeSemantics": "{path} , {added} lines added}, {removed} lines deleted}",
+  "chatNewFileSuffix": "  ใหม่",
+  "chatPathCopied": "พาธ copied",
+  "chatCommandCompacted": "{count} history items (~{tokens} tokens)}",
+  "chatCommandPermissionChanged": "{name} Switched ไป {name}",
+  "chatCommandCurrentPermission": "{name} Current permissions: {name}",
+  "chatCommandUnknownPermission": "ไม่ such สิทธิ์ preset",
+  "chatCommandFeedbackRequired": "เพิ่ม feedback ก่อน sending",
+  "chatCommandFeedbackSubmitted": "ความคิดเห็น submitted",
+  "chatCommandNothingToCompact": "Nothing ไป compact ยัง",
+  "chatCommandCompactionCancelled": "Compaction ยกเลิกแล้ว",
+  "chatCommandCompactionBusy": "Busy. ทราย compacting ภายหลัง.",
+  "chatCommandCompactedSaveFailed": "Compacted, but couldn’t บันทึก",
+  "chatCommandCompactUsage": "/compact takes ไม่ arguments",
+  "chatCommandHistoryChanged": " Chat changed. ทราย อีกครั้ง.",
+  "chatCommandCompactionFailed": "Couldn’t compact. ทราย อีกครั้ง.",
+  "chatCommandCompactionIncomplete": "Compaction incomplete. เช็ค  Chat.",
+  "chatCommandPlanEnabled": "แผน mode เปิด",
+  "chatCommandPlanEnabling": "แผน mode starts ถัดไป step",
+  "chatCommandPlanDisabled": "แผน mode ปิด",
+  "chatCommandPlanDisabling": "แผน mode ends ถัดไป step",
+  "chatCommandPlanCancelled": "แผน mode entry ยกเลิกแล้ว",
+  "chatCommandPlanInactive": "แผน mode คือ ปิด",
+  "chatCommandPlanNoAttachments": "Can’t attach ไฟล์ เมื่อ leaving แผน mode",
+  "chatCommandNoGoal": "ไม่ เป้าหมาย ยัง",
+  "chatCommandGoalRequired": "เพิ่ม  ใหม่ เป้าหมาย ก่อน sending",
+  "chatCommandGoalAttachments": "ส่ง attachments กับ  เป้าหมาย",
+  "chatCommandGoalCleared": "เป้าหมาย cleared",
+  "chatCommandGoalInvalid": "Can’t ทำ that ตอนนี้. เช็ค  เป้าหมาย.",
+  "chatCommandGoalExists": " เป้าหมาย exists. แก้ไข หรือ ล้าง it เฟิร์ส.",
+  "chatCommandGoalCreated": "เป้าหมาย เซ็ท",
+  "chatCommandGoalUpdated": "เป้าหมาย updated",
+  "chatCommandGoalPaused": "เป้าหมาย paused",
+  "chatCommandGoalResumed": "เป้าหมาย resumed",
+  "chatCommandCurrentGoal": "Current เป้าหมาย",
+  "chatCommandGoalBlocked": "Needs attention",
+  "chatCommandGoalSummary": "{title} {max} {title}\n{objective}\n{status} · Round {rounds}/{max}",
+  "chatCommandFailed": "คอมมานด์ ล้มเหลว",
+  "chatImageStorageDenied": "Couldn’t บันทึก. ที่เก็บข้อมูล เข้าถึง คือ ปิด.",
+  "chatImageCannotSave": "Can’t บันทึก this รูปภาพ",
+  "chatImageDownloadFailed": "Couldn’t ดาวน์โหลด รูปภาพ. ทราย อีกครั้ง.",
+  "chatImageSaveFailed": "Couldn’t บันทึก. ทราย อีกครั้ง.",
+  "chatImageSavedToPhotos": "Saved ไป Photos",
+  "chatShareFailed": "Couldn’t เปิด sharing",
+  "chatSubmit": "ส่ง",
+  "chatSelectText": "เลือก เท็กซ์",
+  "chatRegenerate": "สร้างใหม่",
+  "chatBranchFromHere": "สาขา here",
+  "chatEditAndResend": "แก้ไข และ resend",
+  "chatRegenerateHint": "Regenerate ใน  ใหม่ Chat.  original stays ในฐานะ คือ.",
+  "chatBranchHint": "ดำเนินต่อ ใน  ใหม่ chat.  original stays ในฐานะ คือ.",
+  "chatEditResendHint": "Rewrite ใน  ใหม่ Chat.  original stays ในฐานะ คือ.",
+  "chatSaveToPhotos": "บันทึก ไป Photos",
+  "chatCopyAll": "คัดลอก ทั้งหมด",
+  "chatRequestRetrying": "คำขอ ล้มเหลว, retrying",
+  "chatRequestRetryAttempt": "{count})}}",
+  "chatRequestRetryLimit": "{max} {count} คำขอ ล้มเหลว, retrying ({count}/{max})",
+  "chatSubscriptionExpired": "{name} {name} ไซน์-ใน expired",
+  "chatProviderKeyMissing": "ไม่ API คีย์ สำหรับ this provider ยัง",
+  "chatDeepSeekKeyMissing": "ไม่ DeepSeek API คีย์ ยัง",
+  "chatOutputLimitReached": "เอาต์พุต ลิมิต reached",
+  "chatTurnBlocked": "This turn was ถูกบบันทึก",
+  "chatTurnEngineRestarted": " engine restarted, interrupting this turn",
+  "chatSignInAgain": "ไซน์ ใน อีกครั้ง",
+  "chatQuestionsTitle": "{count} questions สำหรับ you}",
+  "chatOneQuestion": " คำถาม สำหรับ you",
+  "chatMultipleChoices": "เลือก ใดๆ",
+  "chatCustomAnswer": "other answer",
+  "chatCustomAnswerHint": "ประเภท your answer",
+  "chatQuoteSemantics": "{text} Quote: {text}",
+  "chatRemoveQuote": "นำออก quote",
+  "chatReadOnlySubagent": "One-shot subagent · มุมมอง เท่านั้น",
+  "chatThinkingActive": "Thinking",
+  "chatThinking": "Thinking",
+  "chatTranslate": "Translate",
+  "chatTranslationUnavailable": "Translation unavailable",
+  "chatViewOriginal": "ดู original",
+  "chatViewTranslation": "ดู translation",
+  "chatTranslating": "Translating",
+  "chatToolFailures": "{label} {count} , ล้มเหลว}",
+  "chatToolNeedsApproval": "Approval ต้องการ ไป เรียกใช้",
+  "chatCommand": "คอมมานด์",
+  "chatToolLineRange": "{last} {first}  · Lines {first}⁠–⁠{last}",
+  "chatParameters": "Parameters",
+  "chatOutput": "เอาต์พุต",
+  "chatResult": "ผลลัพธ์",
+  "chatError": "ข้อผิดพลาด",
+  "chatChanges": "Changes",
+  "chatContent": "เนื้อหา",
+  "chatNoOutput": "ไม่ output",
+  "chatToolDeclined": "This เครื่องมือ คอลล์ was declined",
+  "chatToolRunning": "กำลังทำงาน…",
+  "chatNoDetails": "ไม่ details ยัง",
+  "chatErrApiKey": "API คีย์ คือ invalid หรือ expired",
+  "chatErrBalance": "ยอดไม่เพียงพอ",
+  "chatErrAccountQuota": "บัญชี quota used ขึ้น",
+  "chatErrRateLimit": "เกินไป มาก requests. ทราย อีกครั้ง ภายหลัง.",
+  "chatErrContextLength": "Chat เกินไป long. ส่ง /compact, แล้ว ทราย อีกครั้ง.",
+  "chatErrModelUnavailable": "Model บริการ temporarily unavailable",
+  "chatErrModelTimeout": "Model ตอบกลับ timed ออก",
+  "chatErrModelConnection": "Couldn’t reach  Model บริการ",
+  "chatErrModelEmpty": " Model returned ไม่ เนื้อหา",
+  "chatErrEngineOutdated": "This Model needs  newer engine",
+  "chatErrModelUnsupported": "This Model isn’t available",
+  "chatSwitchModel": "สวิตช์ model",
+  "chatErrTurn": "Something went wrong this turn",
+  "chatTurnSteps": "{count} steps}",
+  "chatTurnFootnoteSemantics": "{summary} This turn: {summary}, มุมมอง turn trajectory",
+  "chatTurnToolCalls": "{count} เครื่องมือ calls}",
+  "chatTurnMessages": "{count} messages}",
+  "chatTurnThoughts": "{count} thinking blocks}",
+  "chatMe": "Me",
+  "chatGoalSemantics": "เป้าหมาย, {objective}",
+  "chatGoalStateSemantics": "{state} เป้าหมาย, {objective}, {state}",
+  "chatTodoItemSemantics": "{content}, {state}",
+  "chatMentionSemantics": "{kind}: {label}",
+  "chatArtifactSemantics": "{name}, {description}",
+  "nameLabel": "{name}: {label}",
+  "@nameLabel": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      },
+      "label": {
+        "type": "int"
+      }
+    }
+  },
+  "nameFormatspantime": "{name} {formatSpan_time}",
+  "@nameFormatspantime": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      },
+      "formatSpan_time": {
+        "type": "int"
+      }
+    }
+  },
+  "failed": "{failed}",
+  "@failed": {
+    "placeholders": {
+      "failed": {
+        "type": "int"
+      }
+    }
+  },
+  "atitleAdetail": "{a_title} {a_detail}",
+  "@atitleAdetail": {
+    "placeholders": {
+      "a_title": {
+        "type": "int"
+      },
+      "a_detail": {
+        "type": "int"
+      }
+    }
+  },
+  "viewverbSummary": "{view_verb} {summary}",
+  "@viewverbSummary": {
+    "placeholders": {
+      "view_verb": {
+        "type": "int"
+      },
+      "summary": {
+        "type": "int"
+      }
+    }
+  },
+  "failed1": "{failed}",
+  "@failed1": {
+    "placeholders": {
+      "failed": {
+        "type": "int"
+      }
+    }
+  },
+  "alertTitleTextHostName": "{title}{text}{hostNameSuffix}",
+  "@alertTitleTextHostName": {
+    "placeholders": {
+      "title": {
+        "type": "int"
+      },
+      "text": {
+        "type": "int"
+      },
+      "hostNameSuffix": {
+        "type": "int"
+      }
+    }
+  },
+  "devnull": "--- /dev/นัลล์",
+  "privateKey": "ส่วนตัว คีย์-----",
+  "feedbackTextIsRequiredUsageFeedbackText": "Feedback เท็กซ์ คือ required. Usage: /feedback <เท็กซ์>",
+  "noCompactableHistoryYet": "ไม่ compactable history ยัง.",
+  "compactionCancelled": "Compaction ยกเลิกแล้ว.",
+  "compactionUnavailableActiveNotice": "Compaction คือ unavailable because this โปรเซส has  ใช้งาน中 compaction, หรือ  Agent คือ ไม่ idle.",
+  "compactionFinishedSessionNotSavedNotice": "Compaction finished, but  Session could ไม่ เป็น saved.",
+  "usageCompactNoArguments": "Usage: /compact (ไม่ arguments)",
+  "compactionNoUsefulSummaryLoggedNotice": "Compaction could ไม่ produce  useful สรุป.  พยายาม คือ recorded ใน  Session บันทึก.",
+  "compactionUncleanSessionChangedNotice": "Compaction did ไม่ จบ cleanly; บาง Session history พฤษภาคม have changed. Inspect  current Session สเตท ก่อน retrying.",
+  "planModeOnUsePlanOffToLeave": "แผน mode เปิด. Use /แผน ปิด ไป LEAF.",
+  "planModeOff": "แผน mode ปิด.",
+  "planModeEntryCancelled": "แผน mode entry ยกเลิกแล้ว.",
+  "planModeIsAlreadyInactive": "แผน mode คือ แล้ว ไม่ใช้งาน.",
+  "attachmentsCannotAccompanyPlanOff": "Attachments cannot accompany /แผน ปิด.",
+  "attachmentsOnlyForGoalsNotice": "Attachments เท่านั้น accompany  เป้าหมาย objective: /เป้าหมาย <objective> หรือ /เป้าหมาย แก้ไข <objective>.",
+  "noGoalToClear": "ไม่ เป้าหมาย ไป ล้าง.",
+  "goalCleared": "เป้าหมาย cleared.",
+  "goalCreated": "เป้าหมาย created",
+  "goalUpdated": "เป้าหมาย updated",
+  "goalPaused": "เป้าหมาย paused",
+  "goalResumed": "เป้าหมาย resumed",
+  "@chatForkQueuedLeft": {
+    "placeholders": {
+      "message": {
+        "type": "int"
+      },
+      "left": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatWaitingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatWaitingBackToBottom": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatAttachmentLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalRoundLimit": {
+    "placeholders": {
+      "rounds": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalRound": {
+    "placeholders": {
+      "rounds": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTodoCurrent": {
+    "placeholders": {
+      "content": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTodoNext": {
+    "placeholders": {
+      "content": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTodoSemantics": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "label": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeYears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTokensPerSecond": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCurrentStep": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTodoProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatProgress": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatApproveTool": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatSavedToDownloadsPath": {
+    "placeholders": {
+      "path": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatSavedToPath": {
+    "placeholders": {
+      "path": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatDeliveredFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGeneratedFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatAllFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatExpandAllFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatRemoveAttachment": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatViewMoreChanges": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatChangedFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMoreFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatFileChangeSemantics": {
+    "placeholders": {
+      "path": {
+        "type": "int"
+      },
+      "added": {
+        "type": "int"
+      },
+      "removed": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCommandCompacted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "tokens": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCommandPermissionChanged": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCommandCurrentPermission": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCommandGoalSummary": {
+    "placeholders": {
+      "status": {
+        "type": "int"
+      },
+      "title": {
+        "type": "int"
+      },
+      "objective": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      },
+      "rounds": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatRequestRetryAttempt": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatRequestRetryLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatSubscriptionExpired": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatQuestionsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatQuoteSemantics": {
+    "placeholders": {
+      "text": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatToolFailures": {
+    "placeholders": {
+      "label": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatToolLineRange": {
+    "placeholders": {
+      "last": {
+        "type": "int"
+      },
+      "first": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnSteps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnFootnoteSemantics": {
+    "placeholders": {
+      "summary": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnToolCalls": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnMessages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnThoughts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalSemantics": {
+    "placeholders": {
+      "objective": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalStateSemantics": {
+    "placeholders": {
+      "state": {
+        "type": "int"
+      },
+      "objective": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTodoItemSemantics": {
+    "placeholders": {
+      "content": {
+        "type": "int"
+      },
+      "state": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionSemantics": {
+    "placeholders": {
+      "kind": {
+        "type": "int"
+      },
+      "label": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatArtifactSemantics": {
+    "placeholders": {
+      "description": {
+        "type": "int"
+      },
+      "name": {
+        "type": "int"
+      }
+    }
+  }
+}

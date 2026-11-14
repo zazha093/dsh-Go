@@ -1,0 +1,9 @@
+{
+  "usageStatsTitle": "ส่ง anonymous usage stats",
+  "usageStatsSection": "Improve DSH Go",
+  "usageStatsFooter": "This switch controls dsh-go’s own usage counts, versions และ phone maker statistics. It includes ไม่ chats, ไฟล์ หรือ accounts, และ does ไม่ control Google ML Kit SDK statistics.",
+  "usageNoticeBody": "ไม่ chats หรือ personal ข้อมูล.\nTurn ปิด anytime.",
+  "usageUpgradeNotice": "ใหม่: anonymous usage stats, ไป ช่วยเหลือ improve DSH Go.\nไม่ chats หรือ personal ข้อมูล.",
+  "usageUpgradeLearn": "Learn มากกว่า",
+  "usageUpgradeOff": "Turn ปิด"
+}

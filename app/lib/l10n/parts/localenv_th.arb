@@ -1,0 +1,62 @@
+{
+  "localEnvChooseTitle": "เวียร์ should DSH เรียกใช้?",
+  "localEnvChooseMessage": "You can change this ภายหลัง ใน ตั้งค่า",
+  "localEnvThisPhoneDetail": "{storage} {memory} {ที่เก็บข้อมูล} MB ที่เก็บข้อมูล · {หน่วยความจำ} MB หน่วยความจำ",
+  "localEnvThisPhoneDetailShort": "{memory} {หน่วยความจำ} MB หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvLowStorage": "{needed} Needs เกี่ยวกับ {ต้องการ} MB free",
+  "localEnvRemoteDetail": "Use DSH เปิด your computer หรือ เซิร์ฟเวอร์",
+  "localEnvRecommended": "แนะนำ",
+  "localEnvInstallTitle": "ติดตั้ง เปิด this phone",
+  "localEnvInstallMessage": "เรียกใช้ DSH right เปิด this phone",
+  "localEnvFactStorage": "{storage} เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
+  "localEnvFactMemory": "{memory} เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvUseRemote": "Use  Remote โฮสต์ instead",
+  "localEnvNotInstalled": "ไม่ installed เปิด this phone",
+  "localEnvUninstall": "ถอนการติดตั้ง runtime",
+  "localEnvUninstallHint": "ว่าง ขึ้น storage",
+  "localEnvUninstallTitle": "ถอนการติดตั้ง  runtime?",
+  "localEnvUninstallBody": "Chats, workspaces, plugins, ตั้งค่า, อินเตอร์เฟซ ตั้งค่า และ skills เปิด this phone will เป็น deleted.",
+  "localEnvUninstallConfirm": "ถอนการติดตั้ง",
+  "localEnvUninstallFailed": "Couldn’t ถอนการติดตั้ง. ทราย อีกครั้ง.",
+  "localEnvPhoneNeedsRuntime": "พร้อมใช้งานหลังติดตั้งบนโทรศัพท์นี้",
+  "localEnvSignInNeedsRuntime": "Needs DSH เปิด this phone",
+  "localEnvSignInInstallFirst": "ติดตั้ง it ไป ลงนาม ใน",
+  "@localEnvThisPhoneDetail": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      },
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvThisPhoneDetailShort": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvLowStorage": {
+    "placeholders": {
+      "needed": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactStorage": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactMemory": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  }
+}

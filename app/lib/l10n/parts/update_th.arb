@@ -1,0 +1,162 @@
+{
+  "updateCheck": "ตรวจสอบ สำหรับ updates",
+  "updateAutoCheck": "ตรวจสอบ automatically",
+  "updateAutoCheckDaily": "หนึ่งครั้ง  เดย์",
+  "updateTileDownloading": "กำลังดาวน์โหลด",
+  "updateTileDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "updateTileVerifying": "กำลังตรวจสอบ",
+  "updateTileReady": "พร้อม ไป ติดตั้ง",
+  "updateTileInstalling": "กำลังติดตั้ง",
+  "updateTileSkipped": "{version} Skipped {version}",
+  "updateTileNewVersion": "{version} ใหม่: {version}",
+  "updateTileUpToDate": "ขึ้น ไป เดท",
+  "updateTileUnavailable": "Can’t เช็ค right ตอนนี้",
+  "updateUpToDate": "You’re ขึ้น ไป เดท",
+  "updateCheckUnavailable": "Can’t เช็ค สำหรับ updates right ตอนนี้. ทราย อีกครั้ง ภายหลัง.",
+  "updateDownloadInterrupted": "ดาวน์โหลด interrupted",
+  "updateDownloadInterruptedMessage": " เครือข่าย คือ disconnected หรือ เกินไป ช้า. ลองใหม่ ไป ดำเนินต่อ.",
+  "updateDownloadUnavailable": "ดาวน์โหลด ลิงก์ unavailable",
+  "updateDownloadUnavailableMessage": "ทราย อีกครั้ง ภายหลัง, หรือ ดาวน์โหลด จาก  รีลีส เพจ.",
+  "updateChecksumFailed": "แพ็กเกจ verification ล้มเหลว",
+  "updateChecksumFailedMessage": " ไฟล์ doesn’t match  รีลีส และ was deleted. ทราย อีกครั้ง.",
+  "updateChecksumMissing": "Verification ข้อมูล missing",
+  "updateChecksumMissingMessage": "สำหรับ safety, ดาวน์โหลด จาก  รีลีส เพจ ไป ติดตั้ง.",
+  "updateStorageWriteFailed": "Couldn’t บันทึก แพ็กเกจ",
+  "updateStorageWriteFailedMessage": "ที่เก็บข้อมูล พฤษภาคม เป็น full. Free ขึ้น space และ ทราย อีกครั้ง.",
+  "updateFreeSpaceRetry": "ว่าง ขึ้น space และ ทราย อีกครั้ง.",
+  "updateSpaceRequired": "{size} เกี่ยวกับ {size} ของ free space ต้องการ. Free ขึ้น space และ ทราย อีกครั้ง.",
+  "updateSettingsOpenFailed": "Couldn’t เปิด ระบบ ตั้งค่า",
+  "updateSettingsOpenFailedMessage": "อนุญาต “ติดตั้ง unknown apps” ใน ตั้งค่า → Apps → DSH Go, แล้ว รีเทิร์น ไป ติดตั้ง.",
+  "updateInstallCancelled": "Installation ยกเลิกแล้ว",
+  "updateInstallCancelledMessage": " แพ็กเกจ คือ saved. You can ติดตั้ง it anytime.",
+  "updateInstallUnconfirmed": "Installation ผลลัพธ์ ไม่ confirmed",
+  "updateInstallUnconfirmedMessage": " แพ็กเกจ คือ saved. เช็ค แอนนี่ ระบบ prompts, แล้ว ลองใหม่ หรือ เปิด it กับ  ระบบ installer.",
+  "updateSignatureMismatch": "แอป signatures don’t match",
+  "updateSignatureMismatchMessage": " DSH Go เปิด your phone has  different Signature (ปกติ  ทดสอบ สร้าง). ถอนการติดตั้ง it ก่อน installing this VERSION. Uninstalling erases your chats, Linux สภาพแวดล้อม, และ ตั้งค่า.",
+  "updateWrongPackage": "This isn’t  DSH แพ็กเกจ",
+  "updateWrongPackageMessage": " wrong ไฟล์ was downloaded และ deleted. ทราย อีกครั้ง ภายหลัง.",
+  "updateDowngradeBlocked": "Can’t ติดตั้ง  older VERSION",
+  "updateDowngradeBlockedMessage": " DSH เปิด your phone คือ newer than this แพ็กเกจ.",
+  "updateIncompatible": "Incompatible กับ this phone",
+  "updateIncompatibleMessage": " แพ็กเกจ’s required Android VERSION หรือ processor architecture doesn’t match your phone.",
+  "updatePackageCorrupt": "แพ็กเกจ คือ damaged",
+  "updatePackageCorruptMessage": "It was deleted. ดาวน์โหลด it อีกครั้ง.",
+  "updateInstallBlocked": "Installation ถูกบบันทึก",
+  "updateInstallBlockedMessage": "อนุญาต installation ใน  system prompt, หรือ ดาวน์โหลด จาก  รีลีส เพจ.",
+  "updateInstallIncomplete": "Installation incomplete",
+  "updateInstallIncompleteMessage": "ทราย อีกครั้ง, หรือ ดาวน์โหลด จาก  รีลีส เพจ.",
+  "updateBrowserOpenFailed": "{path} {host} Couldn’t เปิด your browser. Visit {host}{path} manually.",
+  "updateUpToDateVersion": "{version} You’re ขึ้น ไป เดท: {version}",
+  "updateCurrentVersion": "{version} Current {version}",
+  "updateNewVersionFound": "ใหม่ VERSION available",
+  "updateReleaseNotes": "What’s ใหม่",
+  "updateNoReleaseNotes": "ไม่ รีลีส notes สำหรับ this VERSION.",
+  "updateInstallKeepsData": "DSH Go closes ไป ติดตั้ง. Your chats และ ตั้งค่า stay.",
+  "updateNoCompatiblePackage": "ไม่ package สำหรับ this phone",
+  "updateDownloading": "กำลังดาวน์โหลด",
+  "updateDownloadSource": "Via {source}",
+  "updateDownloadInBackgroundNote": "ดาวน์โหลด continues หลัง you ปิด this window",
+  "updateVerifyingPackage": "Verifying แพ็กเกจ…",
+  "updateVerifyingPackageNote": "Checking  ไฟล์ matches  รีลีส",
+  "updateInstalling": "กำลังติดตั้ง…",
+  "updateConfirmInstallNote": "ยืนยัน installation ใน  system prompt",
+  "updatePackageDownloaded": "แพ็กเกจ downloaded",
+  "updateReadyToInstall": "ยืนยันแล้ว และ ready ไป ติดตั้ง.",
+  "updateAllowInstall": "อนุญาต DSH Go ไป ติดตั้ง apps",
+  "updateAllowInstallMessage": "Turn เปิด “ติดตั้ง unknown apps” ใน ระบบ ตั้งค่า. Installation resumes เมื่อ you คืนค่า.",
+  "updateOpenReleasePage": "เปิด รีลีส เพจ",
+  "updateUpdateNow": "อัปเดต ตอนนี้",
+  "updateSkipVersion": "ข้าม this VERSION",
+  "updateInstallWithSystem": "ติดตั้ง กับ  system installer",
+  "updateSystemInstallerFailed": "Couldn't เปิด  ระบบ installer",
+  "updateStarProject": "ดาว it",
+  "updateCancelDownload": "ยกเลิก ดาวน์โหลด",
+  "updateDownloadInBackground": "ดาวน์โหลด ใน background",
+  "updateVerifying": "กำลังตรวจสอบ…",
+  "updateInstallingBusy": "กำลังติดตั้ง…",
+  "updateOpenPermissionSettings": "Turn เปิด",
+  "updateNoAbiPackage": "ไม่ {abi} package สำหรับ this รีลีส ยัง. เช็ค  รีลีส เพจ.",
+  "updateNoPackage": "ไม่ package สำหรับ this รีลีส ยัง. เช็ค  รีลีส เพจ.",
+  "updateDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "dshLatestversionname": "DSH {latest_version_name}",
+  "@dshLatestversionname": {
+    "placeholders": {
+      "latest_version_name": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileSkipped": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileNewVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateSpaceRequired": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateBrowserOpenFailed": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      },
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateUpToDateVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateCurrentVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateNoAbiPackage": {
+    "placeholders": {
+      "abi": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
+}

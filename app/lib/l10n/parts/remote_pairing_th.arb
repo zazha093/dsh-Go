@@ -1,0 +1,88 @@
+{
+  "remotePairEntry": "Pair  computer โดย scanning",
+  "remotePairEntryHint": "สแกน  code  Remote plugin shows เปิด your computer. ไม่ Remote บัญชี ต้องการ; ลงนาม ใน ไป DeepSeek ก่อนother.",
+  "remotePairAddComputer": "เพิ่ม  computer โดย scanning",
+  "remotePairTitle": "Pair  computer",
+  "remotePairSubtitle": "ไม่ Remote บัญชี ต้องการ. Your DeepSeek รหัสผ่าน และ ลงนาม-ใน tokens are ไม่เคย sent.",
+  "remotePairNeedsDeepSeek": "ไซน์ ใน ไป DeepSeek เฟิร์ส",
+  "remotePairNeedsDeepSeekBody": "Pairing needs  DeepSeek บัญชี signed ใน เปิด DSH Go. เท่านั้น its บัญชี ไอดี goes along, ไป label this phone; ไม่ รหัสผ่าน, cookie หรือ Token.",
+  "remotePairScanHint": "พอยต์  camera at  pairing code  Remote ปลั๊กอิน shows เปิด your computer",
+  "remotePairPasteLink": "วาง pairing ลิงก์",
+  "remotePairPasteEmpty": "ไม่ pairing ลิงก์ เปิด  clipboard",
+  "remotePairScannerFailed": " QR reader คือ unavailable. วาง  pairing ลิงก์ ไป ต่อ pairing.",
+  "remotePairFromImage": "จาก photos",
+  "remotePairImageNoCode": "ไม่ QR code found ใน that image",
+  "remotePairCameraDenied": "ไม่ camera การเข้าถึง. Turn it เปิด ใน system ตั้งค่า, หรือ use จาก photos หรือ วาง pairing ลิงก์.",
+  "remotePairCameraFailed": " camera didn’t เปิด. Use จาก photos หรือ วาง pairing ลิงก์.",
+  "remotePairReading": "Reading  pairing code…",
+  "remotePairConfirmTitle": "เชื่อมต่อ ไป this computer?",
+  "remotePairComputer": "Computer",
+  "remotePairServer": "เซิร์ฟเวอร์",
+  "remotePairFingerprint": "Computer fingerprint",
+  "remotePairFingerprintHint": "ตรวจสอบ that it matches  fingerprint ใน  Remote plugin เปิด your computer ก่อน you ต่อ.",
+  "remotePairConfirm": "It’s this computer, คู่",
+  "remotePairNotThis": "ไม่ this one, scan อีกครั้ง",
+  "remotePairClaiming": "Getting  verification code…",
+  "remotePairCodeTitle": "เอ็นเตอร์ this 8-digit code เปิด  computer",
+  "remotePairCodeSemantics": "Verification โค้ด {digits}",
+  "remotePairCodeHint": "ประเภท it เข้า  Remote plugin เปิด your computer, แล้ว click ยืนยัน binding. Nothing มากกว่า ไป ทำ เปิด  phone.",
+  "remotePairOneAttempt": "One พยายาม เท่านั้น:  wrong code ends this pairing, และ you’ll need  ใหม่ code เปิด  computer.",
+  "remotePairWaiting": "กำลังรอ สำหรับ  computer · {countdown} left",
+  "remotePairApproved": " computer confirmed. Finishing…",
+  "remotePairCodeExpired": " code expired. แสดง  ใหม่ pairing code เปิด  computer.",
+  "remotePairConnecting": "{name} Paired. Connecting ไป {name}…",
+  "remotePairFailedTitle": "Couldn’t คู่",
+  "remotePairOtherServerBody": "{server} This code คือ จาก {server}, ไม่  Remote เซิร์ฟเวอร์ DSH Go uses ตอนนี้. Switch ไป it และ ต่อ? แต่ละ เซิร์ฟเวอร์ keeps its own ไซน์-ใน.",
+  "remotePairSwitchServer": "สวิตช์ เซิร์ฟเวอร์ และ ต่อ",
+  "remotePairScanAgain": "สแกน อีกครั้ง",
+  "remotePairErrInvalidCode": "That isn’t  DSH Go pairing code",
+  "remotePairErrOtherServer": "This code คือ จาก another Remote เซิร์ฟเวอร์",
+  "remotePairErrUnsupported": "This Remote เซิร์ฟเวอร์ doesn’t รองรับ pairing โดย scanning ยัง",
+  "remotePairErrExpired": " code expired หรือ was แล้ว used. แสดง  ใหม่ pairing code เปิด  computer.",
+  "remotePairErrCodeRejected": " computer entered  wrong code, so this pairing คือ เกิน. แสดง  ใหม่ pairing code เปิด  computer และ scan อีกครั้ง.",
+  "remotePairErrCancelled": "Pairing ยกเลิกแล้ว",
+  "remotePairErrAccountConflict": "This phone คือ signed ใน ไป another Remote บัญชี than  computer’s. That ไซน์-ใน คือ kept; ไป switch, ไซน์ ออก ของ Remote เฟิร์ส.",
+  "remotePairErrIdentity": " pairing ไม่ longer matches this computer หรือ this phone, so it หยุด. แสดง  ใหม่ pairing code เปิด  computer.",
+  "remotePairErrHostLimit": "This บัญชี แล้ว has  maximum ตัวเลข ของ computers",
+  "remotePairErrNetwork": "Can’t reach  Remote เซิร์ฟเวอร์. เช็ค your เครือข่าย และ ทราย อีกครั้ง.",
+  "remotePairErrFailed": "Pairing didn’t จบ. Scan อีกครั้ง.",
+  "remotePairSwitchFailedTitle": "{name} Paired กับ {name}",
+  "remotePairSwitchFailedBody": "But switching ไป it didn’t งาน. ทราย อีกครั้ง, หรือ pick it ใต้ Remote hosts.",
+  "remotePairDone": "เสร็จ",
+  "remotePairErrPinSave": "Paired, but this phone couldn’t store  computer’s fingerprint. แสดง  ใหม่ pairing code เปิด  computer และ scan it อีกครั้ง.",
+  "@remotePairCodeSemantics": {
+    "placeholders": {
+      "digits": {
+        "type": "String"
+      }
+    }
+  },
+  "@remotePairWaiting": {
+    "placeholders": {
+      "countdown": {
+        "type": "String"
+      }
+    }
+  },
+  "@remotePairConnecting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@remotePairOtherServerBody": {
+    "placeholders": {
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "@remotePairSwitchFailedTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

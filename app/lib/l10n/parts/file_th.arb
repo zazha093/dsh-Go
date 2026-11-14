@@ -1,0 +1,30 @@
+{
+  "fileImageName": "รูปภาพ",
+  "fileSharedText": "แชร์แล้ว เท็กซ์.txt",
+  "fileChatFallback": "Chat",
+  "fileUploadToHost": "ส่ง ไฟล์ ไป  computer",
+  "fileUploadToHostHint": "เข้า this conversation’s Workspace เปิด  computer, uncompressed",
+  "fileUploadProgress": "{total} {name} {done} Sending {done}/{total}: {name}",
+  "fileUploadDone": "ส่งแล้ว ไป  computer: {names}",
+  "fileUploadFailed": "Couldn’t ส่ง ไป  computer",
+  "@fileUploadProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@fileUploadDone": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  }
+}

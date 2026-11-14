@@ -1,0 +1,49 @@
+{
+  "phoneSkillSectionTitle": "เสร็จสิ้น tasks และ skills",
+  "phoneSkillAskAfterSuccess": "ถาม ไป บันทึก  skill หลัง  successful งาน",
+  "phoneSkillAskAfterSuccessHint": "ปิด โดย ดีฟอลต์.  newly เสร็จสิ้น งาน asks หนึ่งครั้ง ขณะที่ this เพจ คือ มองเห็น. You can also choose  งาน manually.",
+  "phoneSkillTask": "งาน {taskId} · {steps} steps",
+  "@phoneSkillTask": {
+    "placeholders": {
+      "taskId": {
+        "type": "int"
+      },
+      "steps": {
+        "type": "int"
+      }
+    }
+  },
+  "phoneSkillCandidateHint": "ตรวจสอบ  actual ผลลัพธ์ ก่อนother; successful tool calls ทำ ไม่ prove that your เป้าหมาย was achieved.",
+  "phoneSkillSaveAction": "บันทึก ในฐานะ  skill",
+  "phoneSkillConfirmGoal": "Did this งาน achieve your เป้าหมาย?",
+  "phoneSkillConfirmGoalBody": "ตรวจสอบ  actual ผลลัพธ์. Your confirmation creates  draft that you can review และ แก้ไข ก่อน saving.",
+  "phoneSkillGoalDone": "เป้าหมาย achieved · รีVUE draft",
+  "phoneSkillPrivacyHint": " draft stays เปิด this device. ทำ ไม่ เอ็นเตอร์ passwords, keys, หรือ verification codes. ใน this VERSION, free เท็กซ์ becomes parameters; removing หรือ reordering steps คือ kept. รีVUE  final พรีVUE.",
+  "phoneSkillGoal": "เป้าหมาย",
+  "phoneSkillPrerequisites": "Requirements (app, VERSION, ไซน์-ใน สเตท)",
+  "phoneSkillStep": "{number} Original step {ตัวเลข}",
+  "@phoneSkillStep": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "phoneSkillCheckpoint": "What should appear หลัง this step",
+  "phoneSkillMoveUp": "ย้าย step ขึ้น",
+  "phoneSkillMoveDown": "ย้าย step ลง",
+  "phoneSkillUpdatePreview": "อัปเดต  redacted ตัวอย่าง",
+  "phoneSkillPreviewTitle": "เสร็จสิ้น เนื้อหา ไป เป็น saved",
+  "phoneSkillParameterizedHint": "ว่าง เท็กซ์ has been replaced กับ parameters ไป fill ใน และ เช็ค เมื่อ using this skill.",
+  "phoneSkillFinalConfirmation": "I have reviewed  complete current พรีVUE และ agree ไป บันทึก this VERSION.",
+  "phoneSkillSavedBody": " ไฟล์ was written ไป  โลคอล skills ไดเรกทอรี.  engine’s refreshed skill รายการ has ไม่ been verified; เช็ค  Skills เพจ.",
+  "phoneSkillWriting": "Writing  skill",
+  "phoneSkillCannotCancel": " เขียน พฤษภาคม have reached its คอมมิต stage และ cannot เป็น guaranteed ไป ยกเลิก. Closing เท่านั้น closes this เพจ;  committed ไฟล์ will ยัง เป็น saved.",
+  "phoneSkillKeepWaiting": "Keep viewing",
+  "phoneSkillCheckWrite": "ตรวจสอบ เขียน ผลลัพธ์",
+  "phoneSkillStale": "This draft คือ ไม่ longer current. ปิด it และ choose  งาน อีกครั้ง.",
+  "phoneSkillSensitive": " แก้ไข คอนเทนส์ sensitive เนื้อหา. นำออก it ก่อน updating  พรีVUE.",
+  "phoneSkillInvalid": " แก้ไข หรือ step ออเดอร์ exceeds  limits. Shorten  เท็กซ์ และ keep at น้อยที่สุด one step.",
+  "phoneSkillWriteFailed": " ไฟล์ could ไม่ เป็น written. เช็ค  โลคอล รันไทม์ และ ที่เก็บข้อมูล; แก้ไข และ อัปเดต  พรีVUE ก่อน confirming another บันทึก.",
+  "phoneSkillUnavailable": "Skill drafts are unavailable. เช็ค  โลคอล engine สเตท และ ทราย อีกครั้ง."
+}

@@ -1,0 +1,239 @@
+{
+  "plugslotsSurfaceComposerTools": "Plus แผง tools",
+  "plugslotsSurfaceSessionActions": "แชท การดำเนินการ",
+  "plugslotsSurfaceTurnNote": "Turn notes",
+  "plugslotsSurfaceComposerActions": "Composer buttons",
+  "plugslotsSurfaceMessageActions": "ข้อความ menu",
+  "plugslotsSurfaceComposerStrip": "สถานะ ไลน์",
+  "plugslotsSurfacePanel": "Panels",
+  "plugslotsNativeUi": "Native UI",
+  "plugslotsIssueCount": "{count} problems}",
+  "@plugslotsIssueCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsAllGood": "ไม่ problems",
+  "plugslotsViewSize": "{size} ดู {size}",
+  "@plugslotsViewSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsInvokeMs": "{ms} ms",
+  "@plugslotsInvokeMs": {
+    "placeholders": {
+      "ms": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsLastView": "สุดท้าย VUE",
+  "plugslotsLastInvoke": "สุดท้าย response",
+  "plugslotsProblems": "Problems",
+  "plugslotsNoProblems": "ไม่ problems",
+  "plugslotsWantsDraft": "{plugin} {plugin} wants ไป อ่าน your draft",
+  "@plugslotsWantsDraft": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsWantsClipboard": "{plugin} {plugin} wants ไป อ่าน your clipboard",
+  "@plugslotsWantsClipboard": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsWantsBoth": "{plugin} {plugin} wants ไป อ่าน your draft และ clipboard",
+  "@plugslotsWantsBoth": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsWantsWhen": "เท่านั้น เมื่อ you tap it",
+  "plugslotsAllow": "อนุญาต",
+  "plugslotsNoResponse": "{plugin} {plugin} didn't respond",
+  "@plugslotsNoResponse": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsFailed": "{plugin} {plugin} ran เข้า  problem",
+  "@plugslotsFailed": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsNeedsChat": "เปิด  chat ก่อนother",
+  "plugslotsFromPlugin": "{plugin} จาก {plugin}",
+  "@plugslotsFromPlugin": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsPanelOffline": "Can't reach  ปลั๊กอิน",
+  "plugslotsIssueTooMany": "{max} ขึ้น ไป {max};  เรสท์ are ซ่อน",
+  "@plugslotsIssueTooMany": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsIssueTrimmed": "{max} เกิน {max} characters; shortened",
+  "@plugslotsIssueTrimmed": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsIssueNeedsApp": "{version} Needs DSH Go {version} หรือ ภายหลัง",
+  "@plugslotsIssueNeedsApp": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsIssueNewerProtocol": "Needs  newer app",
+  "plugslotsIssueUnknownIcon": "Unknown icon; using  ค่าเริ่มต้น",
+  "plugslotsIssueUnknownEffect": "{name} Unsupported effect \"{name}\"",
+  "@plugslotsIssueUnknownEffect": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsIssueLate": "Came ย้อนกลับ มากกว่า than 3 s หลัง  tap; ignored",
+  "plugslotsIssueHttps": "เท่านั้น HTTPเอส links",
+  "plugslotsIssueUnknownPage": "{page} ไม่ เพจ called \"{page}\"",
+  "@plugslotsIssueUnknownPage": {
+    "placeholders": {
+      "page": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsIssueThrottled": "Notices เกินไป frequent; skipped",
+  "plugslotsIssueInvoke": "{message} คอลล์ ล้มเหลว: {ข้อความ}",
+  "@plugslotsIssueInvoke": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsIssueStream": "{message} Data ล้มเหลว: {ข้อความ}",
+  "@plugslotsIssueStream": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsIssueMissing": "Missing  required field",
+  "plugslotsIssueDuplicate": "ซ้ำ ไอดี; skipped",
+  "plugslotsIssueNoPlacement": "Nowhere ไป แสดง it",
+  "plugslotsWantsMessage": "{plugin} {plugin} wants ไป อ่าน this reply",
+  "@plugslotsWantsMessage": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsCodeInvalidManifest": " declaration คือ invalid; native parts are ปิด",
+  "plugslotsCodeInvalidField": "Wrong ฟอร์แมต; skipped",
+  "plugslotsCodeUnknownField": "ไม่ทราบ field; ignored",
+  "plugslotsCodeUnknownSurface": "ไม่ supported here ยัง; ignored",
+  "plugslotsCodeTooMany": "เกินไป มาก;  extras are ซ่อน",
+  "plugslotsCodeTooLong": "เกินไป long; shortened",
+  "plugslotsCodeNoHandler": "ไม่ handled โดย  ปลั๊กอิน ยัง; ซ่อน",
+  "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but ไม่ declared; ignored",
+  "plugslotsCodeViewFile": "Couldn't อ่าน  มุมมอง ไฟล์",
+  "plugslotsCodeBadEffect": "Malformed action; ข้าม",
+  "plugslotsCodeViolation": "{count} ล้มเหลว times}",
+  "@plugslotsCodeViolation": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsCodeDegraded": "เกินไป มาก errors; ปิด จนกว่า  ถัดไป เริ่ม",
+  "plugslotsCodeTimeout": " ปลั๊กอิน didn't คำตอบ ใน ไทม์",
+  "plugslotsCodeRateLimited": "Tapped เกินไป เร็ว",
+  "plugslotsCodeNotFound": " ปลั๊กอิน คือ ปิด หรือ missing",
+  "plugslotsCodePluginError": " ปลั๊กอิน ล้มเหลว",
+  "plugslotsCodeInvalidView": " มุมมอง คือ invalid",
+  "plugslotsCodeLimit": "เกินไป มาก subscriptions",
+  "plugslotsCodeOther": "other problem",
+  "plugslotsCodeUnknownEffect": "Unsupported action; ข้าม",
+  "plugslotsNotDone": "Didn't จบ",
+  "plugslotsWorking": "กำลังทำงาน",
+  "plugslotsTapToCancel": "Tap ไป ยกเลิก",
+  "plugslotsCodeTooManyPending": "Two are ยัง กำลังทำงาน",
+  "plugslotsCodeNoStream": " การเชื่อมต่อ dropped",
+  "plugslotsVoiceAsk": "{plugin} Let {plugin} hear you speak?",
+  "@plugslotsVoiceAsk": {
+    "placeholders": {
+      "plugin": {
+        "type": "String"
+      }
+    }
+  },
+  "plugslotsVoiceWhen": "Reading stops  ช่วงเวลา you speak. Your voice คือ checked เปิด this phone, ไม่เคย saved หรือ sent",
+  "plugslotsVoiceDeny": "Don't อนุญาต",
+  "plugslotsVoiceSwitch": "Hear you speak",
+  "plugslotsPickerUnavailable": "ไฟล์ selection คือ unavailable เปิด this device",
+  "plugslotsPickerBusy": "จบ  current ไฟล์ selection เฟิร์ส",
+  "plugslotsPickerLimit": "{count} ขึ้น ไป {count} ไฟล์, 8 MiB แต่ละ และ 16 MiB ทอตอล",
+  "@plugslotsPickerLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "plugslotsPickerFailed": "Could ไม่ แชร์  ไฟล์ กับ this ปลั๊กอิน. ทราย อีกครั้ง",
+  "plugslotsWebPlacesTitle": "ใน DSH Web",
+  "plugslotsPlaceBesideComposer": "Beside  composer",
+  "plugslotsPlaceHeader": "Conversation Headเดอร์",
+  "plugslotsPlaceMessages": "ใน messages",
+  "plugslotsPlaceOverlay": "Floating layer",
+  "plugslotsPlaceSidebar": "Sidebar",
+  "plugslotsPlaceRightbar": "สิทธิ์ sidebar",
+  "plugslotsPlaceFiles": "ไฟล์ previews",
+  "plugslotsPlaceSettings": "ตั้งค่า",
+  "plugslotsPlacePlugins": "Plugins เพจ",
+  "plugslotsPlaceNewChat": "ใหม่ conversation",
+  "plugslotsPlaceElsewhere": "Elsewhere",
+  "plugslotsPlaceUnknown": "Its web อินเตอร์เฟซ",
+  "plugslotsChatEntry": "Plugins",
+  "plugslotsChatWebFrom": "เว็บ plugins · {names}",
+  "@plugslotsChatWebFrom": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  }
+}

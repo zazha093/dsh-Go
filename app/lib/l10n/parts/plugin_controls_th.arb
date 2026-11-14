@@ -1,0 +1,79 @@
+{
+  "plugInputRequired": "เสร็จสิ้น this field",
+  "plugInputInvalidValue": "Invalid ค่า",
+  "plugInputNumber": "เอ็นเตอร์  valid ตัวเลข",
+  "plugInputBounds": "{min} {max} เอ็นเตอร์  ค่า จาก {min} ไป {max}",
+  "plugInputLength": "{min} {max} Use {min}–{max} characters",
+  "plugInputPattern": "ตรวจสอบ  ฟอร์แมต",
+  "plugInputDate": "Choose  valid เดท",
+  "plugInputTime": "Choose  valid ไทม์",
+  "plugInputUnavailable": "This คอมโพเนนท์ คือ ไม่ supported here",
+  "plugInputNoPassword": "Plugins cannot use รหัสผ่าน fields",
+  "plugInputBadBinding": "อินพุต binding must เป็น  field พาธ ใต้ data",
+  "plugInputDuplicateBinding": "แต่ละ field can bind ไป เท่านั้น one input",
+  "plugInputNamedPattern": "Use  built-ใน validation pattern",
+  "plugInputNestedForm": "Forms cannot เป็น nested",
+  "plugInputSubmitMissing": "Form needs  submit action",
+  "plugInputTooLarge": "เกินไป much เนื้อหา. Shorten it และ ทราย อีกครั้ง",
+  "plugInputCheckFields": "ตรวจสอบ  highlighted fields",
+  "plugInputFailed": "ไม่ saved. ทราย อีกครั้ง",
+  "plugInputSubmit": "บันทึก",
+  "plugInputChoose": "เลือก",
+  "plugInputPrevious": "ก่อนหน้า",
+  "plugInputNext": "ถัดไป",
+  "plugInputDecrease": "Decrease {label}",
+  "plugInputIncrease": "Increase {label}",
+  "plugInputRating": "{value} {max} {label}: {value} ออก ของ {max}",
+  "plugInputFormula": "Invalid formula หรือ formula ลิมิต exceeded",
+  "plugInputDatePicker": "ปลั๊กอิน เดท",
+  "plugInputTimePicker": "ปลั๊กอิน ไทม์",
+  "plugInputChoices": "ปลั๊กอิน choices",
+  "plugInputGestureRequired": "This effect requires  ผู้ใช้ tap",
+  "@plugInputBounds": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputLength": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputDecrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputIncrease": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugInputRating": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  }
+}

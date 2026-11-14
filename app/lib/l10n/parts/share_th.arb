@@ -1,0 +1,117 @@
+{
+  "count": "{count}",
+  "@count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "delete": "ลบ",
+  "microsoftYahei": "Microsoft YaHei",
+  "segoeUi": "Segoe UI",
+  "countTokens": "{count} {count} tokens",
+  "fullText": "Full เท็กซ์",
+  "replayProgress": "Replay progress",
+  "saveChatFile": "บันทึก Chat ไฟล์",
+  "outputTruncated": "Output (truncated)",
+  "somethingWentWrong": "Something went wrong",
+  "chooseFile": "Choose ไฟล์",
+  "viewChat": "มุมมอง Chat",
+  "chooseOrDropADshgoFile": "Choose หรือ ดรอป  .dshgo ไฟล์",
+  "fileIsTooLarge": "ไฟล์ คือ เกินไป large",
+  "dropToOpen": "ดรอป ไป เปิด",
+  "cantOpenThisInYourBrowserTryANewerOne": "Can’t เปิด this ใน your browser. ทราย  newer one.",
+  "thisIsntAChatFile": "This isn’t  Chat ไฟล์",
+  "thisLinkHasExpiredOrWasDeleted": "This ลิงก์ has expired หรือ was deleted",
+  "couldntOpenCheckYourNetworkAndTryAgain": "Couldn’t เปิด. เช็ค your เครือข่าย และ ทราย อีกครั้ง.",
+  "thisLinkIsIncomplete": "This ลิงก์ คือ incomplete",
+  "thisFileIsIncompleteOrDamaged": "This ไฟล์ คือ incomplete หรือ damaged",
+  "nMin": "{n} มิน",
+  "nStep": "{n} step",
+  "nSteps": "{n} steps",
+  "nToolCall": "{n} เครื่องมือ คอลล์",
+  "nToolCalls": "{n} เครื่องมือ calls",
+  "nMessage": "{n} ข้อความ",
+  "nMessages": "{n} messages",
+  "nThought": "{n} thought",
+  "nThoughts": "{n} thoughts",
+  "countToken": "{count} {count} Token",
+  "@countTokens": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMin": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nStep": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nSteps": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nToolCall": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nToolCalls": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMessage": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMessages": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nThought": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nThoughts": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@countToken": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
+}

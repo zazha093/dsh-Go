@@ -1,0 +1,18 @@
+{
+  "a11yRestoreTitle": "กู้คืน accessibility automatically",
+  "searchKwA11yRestore": "accessibility,กู้คืน,reconnect,automatic recovery,สิทธิ์,ADB,Shizuku,Sui,root",
+  "a11yRestoreNeedsGrant": "ต้องได้รับอนุญาต",
+  "a11yRestoreNotice": "หนึ่งครั้ง authorized, accessibility will เป็น turned back เปิด ถ้า disabled ใน system ตั้งค่า. ไป หยุด phone control, turn it ปิด ใน DSH Go.",
+  "a11yRestoreForceStop": "หลัง  force หยุด, reopen DSH Go ไป กู้คืน  บริการ.",
+  "a11yRestoreGrant": "อนุมัติ และ เปิดใช้งาน",
+  "a11yRestoreGrantShizuku": "ให้ กับ Shizuku",
+  "a11yRestoreGrantShizukuPermission": "อนุมัติ Shizuku, แล้ว ให้",
+  "a11yRestoreGrantAdb": "ให้ กับ Direct ADB",
+  "a11yRestoreRootNote": "Uses  authorized root การเชื่อมต่อ ไป ให้ เท่านั้น this สิทธิ์.",
+  "a11yRestoreSetup": "เซ็ท ขึ้น Shizuku หรือ wireless debugging",
+  "a11yRestoreWaiting": "อนุญาต  ขอ ใน Shizuku",
+  "a11yRestoreWaitingSui": "อนุญาต  ขอ ใน Sui",
+  "a11yRestoreComputer": "หรือ เชื่อมต่อ ไป  computer และ เรียกใช้ หนึ่งครั้ง:",
+  "a11yRestoreCopy": "คัดลอก command",
+  "a11yRestoreCopied": "คอมมานด์ copied"
+}

@@ -1,0 +1,141 @@
+{
+  "voiceSettingsTitle": "Voice input",
+  "voiceModeAuto": "Automatic",
+  "voiceModeSystem": "ระบบ",
+  "voiceModeEngine": "Voice Model",
+  "voiceModeAutoHint": "Uses  voice Model เมื่อ it’s ready, otherwise  phone’s บริการ",
+  "voiceModeSystemHint": "Use  recognition บริการ selected เปิด this phone",
+  "voiceModeEngineHint": "Recognizes speech กับ  engine’s voice Model",
+  "voiceFallbackStarted": "Switched ไป  voice Model. Please speak อีกครั้ง.",
+  "voiceChooseSystem": "เลือก  speech recognition บริการ ใน system ตั้งค่า",
+  "voiceConfigureEngine": "ดาวน์โหลด  voice Model ใน voice ตั้งค่า เฟิร์ส",
+  "voiceConfigureEither": " phone’s บริการ isn’t available. ดาวน์โหลด  voice Model ใน voice ตั้งค่า.",
+  "voiceErrorNetworkTimeout": "Speech recognition timed ออก. เช็ค your การเชื่อมต่อ.",
+  "voiceErrorNetwork": "Speech recognition could ไม่ เชื่อมต่อ ไป  เครือข่าย",
+  "voiceErrorAudio": "ออดิโอ recording ล้มเหลว. เช็ค  microphone.",
+  "voiceErrorServer": " ระบบ speech บริการ ล้มเหลว. ทราย อีกครั้ง ภายหลัง.",
+  "voiceErrorClient": "Could ไม่ เริ่ม ระบบ recognition. เช็ค  speech บริการ.",
+  "voiceErrorSpeechTimeout": "ไม่ speech was detected. Please speak อีกครั้ง.",
+  "voiceErrorNoMatch": "Didn’t แคช that. ทราย อีกครั้ง.",
+  "voiceErrorBusy": " ระบบ speech บริการ คือ busy. ทราย อีกครั้ง ภายหลัง.",
+  "voiceErrorPermission": "Voice input needs microphone เข้าถึง",
+  "voiceErrorTooManyRequests": "เกินไป มาก speech requests. ทราย อีกครั้ง ภายหลัง.",
+  "voiceErrorDisconnected": " ระบบ speech บริการ disconnected",
+  "voiceErrorLanguageUnsupported": "ระบบ recognition does ไม่ รองรับ this ภาษา",
+  "voiceErrorLanguageUnavailable": "ดาวน์โหลด this ภาษา ใน  speech บริการ เฟิร์ส",
+  "voiceErrorSupportCheck": " speech บริการ cannot เช็ค recognition รองรับ",
+  "voiceErrorDownloadEvents": " speech บริการ cannot รายงาน Model ดาวน์โหลด progress",
+  "voiceErrorUnknown": "Speech บริการ ข้อผิดพลาด {code}. ทราย another recognition บริการ.",
+  "@voiceErrorUnknown": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceSettingsFailed": "Couldn’t อ่าน speech ตั้งค่า. ทราย อีกครั้ง.",
+  "voiceModeSection": "Recognition",
+  "voiceModelSection": "Voice Model",
+  "voiceModelFooter": "หนึ่งครั้ง downloaded, Chinese, English, Cantonese, Japanese และ Korean are recognized เปิด  phone; recordings stay เปิด it.",
+  "voiceModelWaiting": "พร้อมใช้งาน หนึ่งครั้ง  engine คือ กำลังทำงาน",
+  "voiceModelUnsupported": "This engine has ไม่ voice Model",
+  "voiceModelAbsent": "ไม่ downloaded",
+  "voiceModelDownloading": "กำลังดาวน์โหลด",
+  "voiceModelPreparing": "Checking และ กำลังโหลด",
+  "voiceModelReady": "Modelเสียงพร้อม (ขนาด )",
+  "voiceModelFailed": "ดาวน์โหลด ล้มเหลว",
+  "voiceModelBytes": "Modelเสียง: {done}/{total}",
+  "voiceModelReadyNote": "Modelเสียงพร้อม (ขนาด {size})",
+  "voiceModelAbsentNote": "Modelเสียงไม่พร้อม (ขนาด {size})",
+  "voiceModelWaitingNote": " ดาวน์โหลด starts หนึ่งครั้ง  engine คือ กำลังทำงาน",
+  "voiceModelFailNetwork": "Couldn’t reach  ดาวน์โหลด source",
+  "voiceModelFailTimeout": " ดาวน์โหลด หยุด making progress",
+  "voiceModelFailCertificate": "Secure การเชื่อมต่อ ล้มเหลว; เช็ค  phone’s เดท",
+  "voiceModelFailServer": " ดาวน์โหลด source คือ unavailable สำหรับ ตอนนี้",
+  "voiceModelFailIntegrity": " ไฟล์ didn’t ผ่าน verification",
+  "voiceModelFailStorage": "ไม่สามารถจัดเก็บModelเสียงได้ (ขนาด {size})",
+  "voiceModelFailEngine": " engine didn’t respond",
+  "voiceModelFailUnknown": " ดาวน์โหลด didn’t จบ",
+  "voiceModelDownload": "ดาวน์โหลด",
+  "voiceModelResume": "ดำเนินต่อ",
+  "voiceModelRedownload": "Re-ดาวน์โหลด",
+  "voiceModelMeteredTitle": "ดาวน์โหลด เกิน mobile data?",
+  "voiceModelMeteredBody": "กำลังตรวจสอบการใช้งานModelเสียง (ขนาด {size})",
+  "voiceModelDeleteTitle": "ลบ  voice model?",
+  "voiceModelDeleteBody": "Voice input will use  phone’s บริการ. You can ดาวน์โหลด  Model อีกครั้ง แอนนี่ ไทม์.",
+  "voiceModelDeleteFailed": "Couldn’t ลบ  voice Model. ทราย อีกครั้ง.",
+  "voiceModelDeleteStopping": " ดาวน์โหลด คือ ยัง stopping. ลบ อีกครั้ง ใน  ช่วงเวลา.",
+  "voiceModelStartedToast": "เริ่มโหลดModelเสียง (ขนาด {size})",
+  "voiceModelResumedToast": "ดำเนินการโหลดModelเสียงต่อ (ขนาด {size})",
+  "voiceModelReadyToast": "Voice input คือ ready",
+  "voiceModelFailedToast": "Voice Model ดาวน์โหลด ล้มเหลว: {reason}",
+  "voiceModelNoticeDownloading": "Downloading  voice Model {percent}%",
+  "voiceModelNoticePreparing": "Checking  voice Model",
+  "voiceModelNoticeFailed": "Voice Model ดาวน์โหลด ล้มเหลว. เปิด  app ไป ลองใหม่.",
+  "@voiceModelBytes": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelReadyNote": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelAbsentNote": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelFailStorage": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelMeteredBody": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelStartedToast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelResumedToast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelFailedToast": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelNoticeDownloading": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
+}

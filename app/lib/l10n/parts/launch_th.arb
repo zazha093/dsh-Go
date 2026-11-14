@@ -1,0 +1,47 @@
+{
+  "launchScreenTitle": "เปิด screen",
+  "launchDefault": "ค่าเริ่มต้น",
+  "launchCustom": "กำหนดเอง",
+  "launchFit": "พอดี",
+  "launchFitFill": "เติม",
+  "launchFitCenter": "กึ่งกลาง",
+  "launchBackground": "พื้นหลัง",
+  "launchBackdropAuto": "อัตไม่มัติ",
+  "launchBackdropEdge": "จาก picture",
+  "launchBackdropWhite": "White",
+  "launchBackdropBlack": "Black",
+  "launchReplace": "Replace picture หรือ วิดีโอ",
+  "launchPreview": "พรีVUE",
+  "launchFooter": "Pictures และ animations ขึ้น ไป 8 MB, videos ขึ้น ไป 30 MB. Plays ผ่าน หนึ่งครั้ง เปิด  cold เริ่ม; tap ไป สกิป.",
+  "launchChanged": "เปิด screen changed",
+  "launchChangedSize": "{size} เปิด screen changed · {size}",
+  "launchTooLarge": " picture คือ เกิน 8 MB",
+  "launchOverLimit": " ไฟล์ คือ เกิน 30 MB",
+  "launchUnsupported": "Use  PNG, JPEG, WebP, GIF หรือ MP4",
+  "launchUnreadable": "Couldn’t อ่าน this ไฟล์",
+  "launchUnavailable": "Couldn’t เปิด your photos",
+  "launchBroken": "Can’t เป็น อ่าน",
+  "iconShortcutRow": "รูป shortcut",
+  "iconShortcutRowSubtitle": "Your own picture เปิด  โฮม screen",
+  "iconShortcutPick": "Choose  picture",
+  "iconShortcutChange": "Another picture",
+  "iconShortcutHint": "Drag หรือ pinch ไป fit",
+  "iconShortcutName": "ชื่อ",
+  "iconShortcutAdd": "เพิ่ม ไป home screen",
+  "iconShortcutNote": "Android doesn’t let  app use แอนนี่ picture ในฐานะ its icon, so this adds  separate shortcut that opens DSH Go. บาง โฮม screens put  small badge เปิด its corner.",
+  "iconShortcutAdded": "Added ไป your โฮม screen",
+  "iconShortcutConfirm": "ยืนยัน ใน  dialog that appears",
+  "iconShortcutNoDialog": "ไม่ dialog? อนุญาต DSH Go ไป ครีเอท home screen shortcuts ใน system ตั้งค่า.",
+  "iconShortcutSettings": "ตั้งค่า",
+  "iconShortcutUnsupported": "This โฮม screen doesn’t TEEก shortcuts",
+  "iconShortcutFailed": "Couldn’t เพิ่ม it. ทราย อีกครั้ง ภายหลัง.",
+  "searchKwLaunchScreen": "splash,startup,launch แอนิเมชัน,opening screen",
+  "searchKwIconShortcut": "shortcut,custom icon,โฮม screen picture",
+  "@launchChangedSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  }
+}

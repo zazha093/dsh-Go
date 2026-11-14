@@ -1,0 +1,8 @@
+{
+  "phoneGateCleanupTitle": "Probe cleanup ไม่ confirmed",
+  "phoneGateCleanupUnknown": "ใหม่ background resources are blocked. Retry เท่านั้น  original cleanup ถ้า its channel คือ ยัง available. This does ไม่ rerun  probe.",
+  "phoneGateCleanupRunning": "กำลังรอ สำหรับ  original probe และ its cleanup.  channel stays pinned จนกว่า cleanup คือ confirmed.",
+  "phoneGateCleanupRetry": "ลองใหม่ cleanup เท่านั้น",
+  "phoneGateCleanupDone": "Cleanup confirmed. Choose  channel อีกครั้ง explicitly ไป เรียกใช้  fresh เช็ค.",
+  "phoneGateRetest": "ตรวจสอบ this channel อีกครั้ง"
+}

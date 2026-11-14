@@ -1,0 +1,27 @@
+{
+  "setupAppearanceTitle": "Choose  look",
+  "setupAppearanceMessage": "You can change this anytime ใน ตั้งค่า",
+  "setupLightMode": "Lightweight mode",
+  "setupCapsulePreparing": "Preparing รันไทม์",
+  "setupCapsuleProgress": "รันไทม์ {percent}%",
+  "setupCapsuleProgressSemantics": "Preparing  รันไทม์, {percent}% เสร็จ",
+  "setupCapsuleReady": "รันไทม์ ready",
+  "setupCapsuleFailed": "ติดตั้ง ล้มเหลว",
+  "setupWaitingBody": "Continues เปิด its own เมื่อ ready",
+  "setupNotifyWhenDone": "We’ll notify you เมื่อ it’s เสร็จ",
+  "setupAwaitSignIn": "DeepSeek ไซน์-ใน opens เมื่อ it’s ready",
+  "@setupCapsuleProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@setupCapsuleProgressSemantics": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
+}

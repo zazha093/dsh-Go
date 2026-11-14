@@ -1,0 +1,33 @@
+{
+  "liveThinking": "Thinking",
+  "liveWorking": "กำลังทำงาน",
+  "liveJuggling": "Subagents at งาน",
+  "liveSweeping": "Compacting  คอนเท็กซ์",
+  "liveRunsCount": "{count} chats กำลังทำงาน}",
+  "liveChipThinking": "Thinking",
+  "liveChipWorking": "กำลังทำงาน",
+  "liveChipJuggling": "Helpers",
+  "liveChipSweeping": "Tidying",
+  "liveChipApproval": "อนุมัติ",
+  "liveChipQuestion": "ตอบกลับ",
+  "liveChipDone": "เสร็จ",
+  "liveChipFailed": "ล้มเหลว",
+  "livePublicRunning": "DSH คือ working",
+  "livePublicWaiting": "DSH คือ waiting สำหรับ you",
+  "livePublicDone": "DSH คือ เสร็จ",
+  "livePublicFailed": "DSH ran เข้า  ข้อผิดพลาด",
+  "liveSettingsTitle": "สด activity",
+  "liveSettingsSwitch": "แสดง live activity",
+  "liveSettingsSubtitle": "ขณะที่ DSH works, waits เปิด you หรือ controls  phone: ใน  status bar chip และ เปิด  LOCK screen, และ ใน  island เปิด phones that have one",
+  "liveSettingsFooter": "Android 16 Live Updates. Shown เปิด Xiaomi HyperOS 3.1+, OPPO / OnePlus ColorOS 16, Honor MagicOS 10 และ Pixel; vivo's อะตอมิก Island และ Samsung's ตอนนี้ Bar are เปิด เท่านั้น ไป apps  maker partners กับ.",
+  "liveUnsupported": "This phone's ระบบ doesn't รองรับ live activities ยัง",
+  "liveBlockedTitle": "สด activities are ปิด สำหรับ DSH Go",
+  "liveBlockedText": "Turn เปิด live activities สำหรับ DSH Go ใน ระบบ ตั้งค่า (บาง phones คอลล์ it “แสดง เปิด Live Alerts”)",
+  "@liveRunsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

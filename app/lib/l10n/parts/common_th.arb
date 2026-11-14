@@ -1,0 +1,295 @@
+{
+  "commonCancel": "ยกเลิก",
+  "commonRetry": "ลองใหม่",
+  "commonClose": "ปิด",
+  "commonCopied": "คัดลอกแล้ว",
+  "commonSave": "บันทึก",
+  "commonSettings": "ตั้งค่า",
+  "commonBack": "ย้อนกลับ",
+  "commonCopy": "คัดลอก",
+  "commonDone": "เสร็จสิ้น",
+  "commonDelete": "ลบ",
+  "commonInstall": "ติดตั้ง",
+  "commonShare": "แชร์",
+  "commonAdd": "เพิ่ม",
+  "commonEdit": "แก้ไข",
+  "commonClear": "ล้าง",
+  "commonCollapse": "ย่อ",
+  "commonEnable": "เปิดใช้งาน",
+  "commonOpen": "เปิด",
+  "commonDetails": "รายละเอียด",
+  "commonMore": "เพิ่มเติม",
+  "commonCreate": "สร้าง",
+  "commonSend": "ส่ง",
+  "commonStop": "หยุด",
+  "commonPaste": "วาง",
+  "commonHide": "ซ่อน",
+  "commonLater": "ภายหลัง",
+  "commonConfirm": "ยืนยัน",
+  "commonRename": "เปลี่ยนชื่อ",
+  "commonContinue": "ดำเนินต่อ",
+  "commonNotSet": "ยังไม่ได้ตั้งค่า",
+  "commonDefault": "ค่าเริ่มต้น",
+  "commonSaved": "บันทึกแล้ว",
+  "commonSaveFailed": "บันทึกไม่สำเร็จ",
+  "commonSaveFailedRetry": "บันทึกไม่สำเร็จ ลองใหม่อีกครั้ง",
+  "commonFailedTryAgain": "เกิดข้อผิดพลาด Productionลองใหม่",
+  "commonEngineUnreachable": "เชื่อมต่อเครื่องยนต์ไม่ได้",
+  "commonStorageFull": "พื้นที่จัดเก็บไม่เพียงพอ",
+  "commonConnectionFailed": "เชื่อมต่อไม่สำเร็จ",
+  "commonCopyLink": "คัดลอกลิงก์",
+  "commonOpenWith": "เปิดในแอปother",
+  "commonOpenInWeb": "เปิดใน DSH Web",
+  "commonUntitledChat": "แชทไม่มีชื่อ",
+  "commonNewChat": "แชทใหม่",
+  "commonYesterday": "เมื่อวาน",
+  "commonSignedIn": "เข้าสู่ระบบแล้ว",
+  "commonSignIn": "เข้าสู่ระบบ",
+  "commonSignOut": "ออกจากระบบ",
+  "commonThisPhone": "เครื่องนี้",
+  "commonRemoteHost": "โฮสต์ระยะไกล",
+  "commonWeb": "เว็บ",
+  "commonFollowSystem": "ตามระบบ",
+  "commonLight": "สว่าง",
+  "commonDark": "มืด",
+  "commonInProgress": "กำลังดำเนินการ",
+  "commonCompleted": "เสร็จสิ้น",
+  "commonStopped": "หยุดแล้ว",
+  "commonCancelled": "ยกเลิกแล้ว",
+  "commonRunning": "กำลังทำงาน",
+  "commonPaused": "หยุดชั่วคราว",
+  "commonDeclined": "ปฏิเสธแล้ว",
+  "commonFailed": "ล้มเหลว",
+  "commonStopping": "กำลังหยุด",
+  "commonWaitingApproval": "รอการอนุมัติ",
+  "commonWaitingAnswer": "รอคำตอบ",
+  "commonNotConnected": "ไม่ได้เชื่อมต่อ",
+  "commonInstalled": "ติดตั้งแล้ว",
+  "commonName": "ชื่อ",
+  "commonStatus": "สถานะ",
+  "commonVersion": "VERSION",
+  "commonOther": "other",
+  "commonPin": "Pin",
+  "commonReply": "ตอบกลับ",
+  "commonUpdate": "อัปเดต",
+  "commonViewLogs": "ดู Logs",
+  "commonItemCount": "{count} รายการ}",
+  "commonMonthDay": "{month} {day} 2 3 4 5 6 7 8 9 10 11 12 other}",
+  "monthDay": "{month} {day}",
+  "@monthDay": {
+    "placeholders": {
+      "month": {
+        "type": "int"
+      },
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "titleListlength": "{title} · {list_length}",
+  "@titleListlength": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "list_length": {
+        "type": "int"
+      }
+    }
+  },
+  "labelValue": "{label} {value}",
+  "@labelValue": {
+    "placeholders": {
+      "label": {
+        "type": "int"
+      },
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "columnlettersselected2selected11": "{columnLetters_selected_2}{selected_1_1}",
+  "@columnlettersselected2selected11": {
+    "placeholders": {
+      "columnLetters_selected_2": {
+        "type": "int"
+      },
+      "selected_1_1": {
+        "type": "int"
+      }
+    }
+  },
+  "titlesubtitle": "{title}。{subtitle}",
+  "@titlesubtitle": {
+    "placeholders": {
+      "title": {
+        "type": "int"
+      },
+      "subtitle": {
+        "type": "int"
+      }
+    }
+  },
+  "labelValue1": "{label}: {value}",
+  "@labelValue1": {
+    "placeholders": {
+      "label": {
+        "type": "int"
+      },
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "dsBot": "DS Bot",
+  "nameStatuslabel": "{name} · {status_label}",
+  "@nameStatuslabel": {
+    "placeholders": {
+      "name": {
+        "type": "int"
+      },
+      "status_label": {
+        "type": "int"
+      }
+    }
+  },
+  "passEitherActionOrActionlabelNotBoth": "ผ่าน either action หรือ actionLabel, ไม่ both",
+  "notAnsweredYet": "ไม่ answered ยัง",
+  "openThisPage": "เปิด this เพจ",
+  "tab": "Tab",
+  "allFilesAccess": "ออล ไฟล์ เข้าถึง",
+  "originalPoster": "Original Poster",
+  "text": " : เท็กซ์}",
+  "noIndex": "ไม่ ดัชนี",
+  "volcengineArkImage": "Volcengine Ark · รูปภาพ",
+  "volcengineArkVideo": "Volcengine Ark · วิดีโอ",
+  "alibabaModelStudioImage": "Alibaba Model Studio · รูปภาพ",
+  "alibabaModelStudioVideo": "Alibaba Model Studio · วิดีโอ",
+  "siliconflowImage": "SiliconFlow · รูปภาพ",
+  "siliconflowVideo": "SiliconFlow · วิดีโอ",
+  "openaiImage": "OpenAI · รูปภาพ",
+  "geminiImage": "Gemini · รูปภาพ",
+  "newChat": "ใหม่ Chat",
+  "voiceInput": "Voice input",
+  "noAvailableShizukuSuiInterfaceDetected": "ไม่ available Shizuku / Sui อินเตอร์เฟซ detected",
+  "shizukuIsntRunning": "Shizuku isn’t กำลังทำงาน",
+  "wirelessDebuggingIsntPaired": "Wireless debugging isn’t paired",
+  "enterAPortFrom1To65535": "เอ็นเตอร์  Port จาก 1 ไป 65535",
+  "backgroundModeIsOff": "Background mode คือ ปิด",
+  "unknownMode": "ไม่ทราบ mode",
+  "privilegedConnectionIsntReady": "Privileged การเชื่อมต่อ isn’t ready",
+  "privilegedConnectionIsntResponding": "Privileged การเชื่อมต่อ isn’t responding",
+  "inputTestCleanupNotConfirmedReconnectNotice": "Input ทดสอบ cleanup was ไม่ confirmed. Reconnect  privileged channel ก่อน retrying.",
+  "allowOnce": "อนุญาต หนึ่งครั้ง",
+  "needsApproval": "Needs approval",
+  "couldntComplete": "Couldn’t เสร็จสิ้น",
+  "newReminder": "ใหม่ reminder",
+  "liveActivity": "Live activity",
+  "allowForTask": "อนุญาต สำหรับ งาน",
+  "phoneControlApproval": "Phone control approval",
+  "pausedTapContinueToResume": "Paused · Tap ต่อ ไป ดำเนินต่อ",
+  "allowRemainingStepsNotice": "อนุญาต  remaining steps ใน this งาน. Passwords, payments, banking และ ระบบ ตั้งค่า stay ถูกบบันทึก. ไม่ choice ใน 30 seconds means Decline",
+  "noChoiceIn30SecondsMeansDecline": "ไม่ choice ใน 30 seconds means Decline",
+  "allowAppForTask": "อนุญาต app สำหรับ งาน",
+  "allowThisStep": "อนุญาต this step",
+  "passwordsAndCodesAreYoursToEnter": "Passwords และ codes are yours ไป เอ็นเตอร์",
+  "systemSettingsAreYoursToChange": "ระบบ ตั้งค่า are yours ไป change",
+  "appsOnYourHandsoffListAreYoursToUse": "Apps เปิด your hands-ปิด รายการ are yours ไป use",
+  "limitsLifted": "Limits lifted",
+  "limitsLiftedTapToReview": "Limits lifted. Tap ไป รีVUE.",
+  "tapWlanInSettings": "Tap “WLAN” ใน “ตั้งค่า”",
+  "enterYourSigninPassword": "เอ็นเตอร์ your ไซน์-ใน รหัสผ่าน",
+  "inputTestStepNotAutoAllowedNotice": "Input ทดสอบ: this step must ไม่ เป็น allowed automatically",
+  "wirelessDebuggingPairing": "Wireless debugging pairing",
+  "enterCode": "เอ็นเตอร์ code",
+  "pairBackgroundMode": "คู่ พื้นหลัง mode",
+  "tapToEnterPairingCodeNotice": "Tap here ไป เอ็นเตอร์  code shown ใต้ “Pair device กับ pairing code”",
+  "enterAPairingCode": "เอ็นเตอร์  pairing code",
+  "pairingPortNotFoundOpenPairDeviceNotice": "Pairing Port ไม่ found. เปิด “Pair device กับ pairing code”",
+  "couldntPairGetANewPairingCode": "Couldn’t pair. Get  ใหม่ pairing code",
+  "openChat": "เปิด Chat",
+  "hideForToday": "ซ่อน สำหรับ วันนี้",
+  "petSettings": "Pet ตั้งค่า",
+  "openFromPet": "เปิด จาก pet",
+  "tapToOpen": "Tap ไป เปิด",
+  "fixSignin": "Fix ไซน์-ใน",
+  "dragToChoosenreleaseToAct": "Drag ไป choose\\nRelease ไป act",
+  "hideToday": "ซ่อน วันนี้",
+  "stopCurrentTask": "หยุด current งาน",
+  "askSomething": "ถาม something",
+  "holdToTalk": "Hold ไป talk",
+  "notSent": "ไม่ sent",
+  "didntCatchThat": "Didn’t แคช that",
+  "downloadTheVoiceModelInTheAppFirst": "ดาวน์โหลด  voice Model ใน  app เฟิร์ส",
+  "voiceNeedsThisPhonesEngineRunning": "Voice needs this phone’s engine กำลังทำงาน",
+  "allowTheMicrophoneInTheAppFirst": "อนุญาต  microphone ใน  app เฟิร์ส",
+  "couldntOpenTheMicrophone": "Couldn’t เปิด  microphone",
+  "accessibilityIsOff": "Accessibility คือ ปิด.",
+  "accessibilityIsUnavailable": "Accessibility คือ unavailable.",
+  "backgroundModeFailed": "Background mode ล้มเหลว",
+  "pressAKey": "Press  คีย์",
+  "thenSendSubmit": ", แล้ว ส่ง / submit",
+  "pressASystemKey": "Press  ระบบ คีย์",
+  "openLink": "เปิด ลิงก์",
+  "setAlarm": "เซ็ท อาลาร์ม",
+  "setTimer": "เซ็ท ไทเมอร์",
+  "createEvent": "ครีเอท อีเวนต์",
+  "openDialer": "เปิด dialer",
+  "writeTextMessage": "เขียน เท็กซ์ ข้อความ",
+  "openSettings": "เปิด ตั้งค่า",
+  "shareTo": "แชร์ ไป",
+  "listApps": "รายการ apps",
+  "listAppsFiltered": "รายการ apps (filtered)",
+  "readBackgroundDisplay": "อ่าน background แสดง",
+  "handOverToYou": "Hand เกิน ไป you",
+  "stopEngineBeforeRestoreConfigNotice": "หยุด  engine ก่อน restoring this CONFIG",
+  "noWorkingConfigurationSavedYet": "ไม่ working CONFIG saved ยัง",
+  "normalModeCouldntStartReturnedToSafeMode": "Normal mode couldn’t เริ่ม. Returned ไป Safe mode.",
+  "engineStopped": "Engine หยุด",
+  "updatingRuntime": "Updating รันไทม์",
+  "preparingRuntime": "Preparing รันไทม์",
+  "runtimeReady": "รันไทม์ ready",
+  "tapToContinue": "Tap ไป ต่อ",
+  "runtimeInstallFailed": "รันไทม์ ติดตั้ง ล้มเหลว",
+  "tapToSeeWhatHappened": "Tap ไป see what happened",
+  "stopPhoneControl": "หยุด phone control",
+  "stopEngine": "หยุด engine",
+  "setUpShizukuOrWirelessDebuggingFirst": "เซ็ท ขึ้น Shizuku หรือ wireless debugging เฟิร์ส.",
+  "rootStartupWasCancelled": "root startup was ยกเลิกแล้ว",
+  "couldNotSaveConnectionPreferenceNotice": "Could ไม่ บันทึก  การเชื่อมต่อ การตั้งค่า. เช็ค it ก่อน restarting  app.",
+  "unknownBackgroundViewportPreset": "ไม่ทราบ พื้นหลัง viewport preset",
+  "couldNotSaveBackgroundViewportPreferenceNotice": "Could ไม่ บันทึก  background viewport การตั้งค่า.",
+  "automationTasks": "Automation tasks",
+  "agentPresets": "เอเจนต์ presets",
+  "accountMenu": "บัญชี menu",
+  "openRightSidebar": "เปิด right sidebar",
+  "newTab": "ใหม่ tab",
+  "workspaceFiles": "FILEในเวิร์กสเปซ",
+  "newTerminal": "ใหม่ Terminal",
+  "openSidebar": "เปิด sidebar",
+  "newSession": "ใหม่ Session",
+  "telegram": "Telegram",
+  "settings": "ตั้งค่า",
+  "settingsgeneral": "ตั้งค่า-general",
+  "sessionview": "Session-มุมมอง",
+  "view": "มุมมอง",
+  "pluginsTurnedOn": "เปิดใช้งาน",
+  "@commonItemCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@commonMonthDay": {
+    "description": "Short date (month 1–12).",
+    "placeholders": {
+      "month": {
+        "type": "int"
+      },
+      "day": {
+        "type": "int"
+      }
+    }
+  }
+}

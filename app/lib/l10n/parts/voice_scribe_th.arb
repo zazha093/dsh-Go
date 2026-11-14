@@ -1,0 +1,25 @@
+{
+  "voiceScribeReadFailed": "Could ไม่ อ่าน voice ตั้งค่า. ลองใหม่.",
+  "voiceScribeSavedReadFailed": "Saved. รีเฟรช ไป see  latest ตั้งค่า.",
+  "voiceScribeSaveUnconfirmed": "Couldn’t ยืนยัน  บันทึก. รีเฟรช หรือ ลองใหม่.",
+  "voiceScribeTitle": "Voice ตั้งค่า",
+  "voiceScribePolishPrompt": "Polish Prompt",
+  "voiceScribeLanguage": "Recognition ภาษา",
+  "voiceScribeRefresh": "รีเฟรช",
+  "voiceScribeHostChanged": " การเชื่อมต่อ changed. Reopen ไป ต่อ.",
+  "voiceScribeUnsupported": "Voice ตั้งค่า aren’t available เปิด this การเชื่อมต่อ.",
+  "voiceScribePluginDefault": "ค่าเริ่มต้น",
+  "voiceScribeBuiltInPrompt": "Built-ใน Prompt",
+  "voiceScribeProviders": "Recognition บริการ",
+  "voiceScribeKeySet": "คีย์ เซ็ท",
+  "voiceScribeNoKey": "ไม่ คีย์",
+  "voiceScribeHotwords": "Hotwords",
+  "voiceScribeHotwordRules": "กฎคำสั่งเสียง: {count} รายการ",
+  "@voiceScribeHotwordRules": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
+}

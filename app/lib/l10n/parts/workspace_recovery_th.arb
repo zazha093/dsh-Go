@@ -1,0 +1,16 @@
+{
+  "workspaceRecoveryTitle": "Workspace ดัชนี recovery",
+  "workspaceRecoveryEnable": "Use  recovery Workspace ดัชนี",
+  "workspaceRecoveryDisable": "Use  original ดัชนี อีกครั้ง",
+  "workspaceRecoveryHint": "This phone เท่านั้น: use  separate ดัชนี ไป เข้าถึง readable conversations เมื่อ  original Workspace ดัชนี fails.",
+  "workspaceRecoveryActive": " separate recovery ดัชนี คือ selected. Both  original และ recovery indexes are retained.",
+  "workspaceRecoveryWorking": "กำลังทำงาน…",
+  "workspaceRecoveryEnableBody": " โลคอล engine will หยุด, switch ไป  separate recovery ดัชนี, และ เริ่ม อีกครั้ง.  original Workspace ดัชนี stays untouched. Conversation ไฟล์, plugins, และ credentials are ไม่ deleted.\n\nเปิด เฟิร์ส use,  ใหม่ ดัชนี คือ built จาก readable conversations whose folders ยัง exist. Old Workspace names, ออเดอร์, defaults, archived สเตท, และ pins are ไม่ inherited automatically. Empty workspaces และ conversations กับ missing folders พฤษภาคม ไม่ appear. Original โลคอล grouping และ pin preferences are retained.\n\n recovery ดัชนี คือ retained และ reused  ถัดไป ไทม์ you เปิดใช้ it. This bypasses  original ดัชนี ล้มเหลว; it does ไม่ repair  original ดัชนี.",
+  "workspaceRecoveryDisableBody": " โลคอล engine will หยุด, switch ย้อนกลับ ไป  original Workspace ดัชนี, และ เริ่ม อีกครั้ง.  original ล้มเหลว พฤษภาคม คืนค่า.\n\nConversation ไฟล์ created ระหว่าง recovery และ  recovery ดัชนี are both retained. Workspace membership และ ออเดอร์ ทำ ไม่ ซิงค์ ระหว่าง  two indexes. บาง conversations created ระหว่าง recovery พฤษภาคม ไม่ appear กับ  original ดัชนี. เปิดใช้  recovery ดัชนี อีกครั้ง ไป ต่อ using it.",
+  "workspaceRecoveryEnableStart": "เปิดใช้ และ รีเริ่ม",
+  "workspaceRecoveryDisableStart": "Use original และ รีเริ่ม",
+  "workspaceRecoveryUnavailable": "This VERSION does ไม่ รองรับ Workspace ดัชนี recovery. เช็ค  โลคอล engine status และ อัปเดต  app.",
+  "workspaceRecoveryRestartIncomplete": " ดัชนี mode changed, but  engine has ไม่ been confirmed หยุด หรือ restarted. Wait สำหรับ it ไป หยุด ก่อน starting it อีกครั้ง.",
+  "workspaceRecoverySaveFailed": " ดัชนี mode could ไม่ เป็น saved. ไม่ ใหม่ เริ่ม was requested. เช็ค  โลคอล engine status และ logs.",
+  "workspaceRecoveryFailed": " operation did ไม่ จบ. เช็ค  โลคอล engine status และ logs. This เพจ shows ว่า  ดัชนี mode changed."
+}

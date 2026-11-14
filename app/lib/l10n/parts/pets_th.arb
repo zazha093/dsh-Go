@@ -1,0 +1,25 @@
+{
+  "petProbe": "โปรบสัตว์เลี้ยง",
+  "voiceFixture": "อุปกรณ์เสียงจำลอง",
+  "petActionsProbeLocalFixture": "โปรบการกระทำสัตว์เลี้ยง — ตัวจัดการแบบเฉพาะท้องถิ่น",
+  "seedApproval": "อนุมัติเมล็ดพันธุ์",
+  "seedQuestion": "คำถามเมล็ดพันธุ์",
+  "codexwarningtextl10nCode": "· {codexWarningText_l10n_code}",
+  "@codexwarningtextl10nCode": {
+    "placeholders": {
+      "codexWarningText_l10n_code": {
+        "type": "String"
+      }
+    }
+  },
+  "whalegirl": "whale-girl",
+  "idlelook": "ว่าง-look",
+  "idlespout": "ว่าง-spout",
+  "pokeleft": "poke-ซ้าย",
+  "pokeright": "poke-ขวา",
+  "reactleft": "react-ซ้าย",
+  "reactright": "react-ขวา",
+  "reactdouble": "react-ดับเบิล",
+  "reactdrag": "react-ลาก",
+  "roamhop": "roam-hop"
+}

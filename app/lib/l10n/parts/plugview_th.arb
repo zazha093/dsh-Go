@@ -1,0 +1,177 @@
+{
+  "plugViewInvalid": "ปลั๊กอิน มุมมอง has  ข้อผิดพลาด",
+  "plugViewEmpty": "ไม่ data ยัง",
+  "plugViewImageUnavailable": "Can’t แสดง รูปภาพ",
+  "plugViewUnavailableList": "Can’t แสดง รายการ",
+  "plugViewUnavailableKeyValue": "Can’t แสดง details",
+  "plugViewUnavailableProgress": "Can’t แสดง progress",
+  "plugViewUnavailableTable": "Can’t แสดง ตาราง",
+  "plugViewUnavailableActions": "Can’t แสดง buttons",
+  "plugViewFrom": "{name} จาก {name}",
+  "@plugViewFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewUnknownTone": "{value} Unknown tone {value}, ignored; available: good, warn, bad, ข้อมูล, muted",
+  "@plugViewUnknownTone": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewBadActionId": "{value} Invalid action ไอดี {value}; this element isn’t tappable",
+  "@plugViewBadActionId": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewBadAction": " action must เป็น  ไอดี สตริง หรือ {shape}; ignored",
+  "@plugViewBadAction": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewArgsLimit": "{limit} Action args exceed bytes}; ignored",
+  "@plugViewArgsLimit": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewUnknownIcon": "{value} Unknown icon {value}; drawn กับ  ค่าเริ่มต้น icon",
+  "@plugViewUnknownIcon": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewExpectedItems": "Expected  อาร์เรย์ ของ {shape}",
+  "@plugViewExpectedItems": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewSkippedItem": "Expected {shape}; item ข้าม",
+  "@plugViewSkippedItem": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewBadMax": "แม็กซ์ must เป็น  ตัวเลข above 0; using 100",
+  "plugViewColumnLimit": "{second} {first} columns}, exceeding ลิมิต ของ",
+  "@plugViewColumnLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewFirstColumns": "{limit} Showing เท่านั้น เฟิร์ส columns}",
+  "@plugViewFirstColumns": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewFirstRows": "{limit} Showing เท่านั้น เฟิร์ส rows}",
+  "@plugViewFirstRows": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewOnePrimary": " มุมมอง has at มากที่สุด one หลัก button; this one คือ drawn ในฐานะ plain",
+  "plugViewBadImageSource": "Images มีผล  ปลั๊กอิน asset (asset:<พาธ>, png, jpg, webp หรือ gif) หรือ  data:รูปภาพ/… URL",
+  "plugViewBadAspect": "aspect must เป็น  ตัวเลข จาก 0.25 ไป 4; ignored",
+  "plugViewImageTooLarge": "{limit} data: รูปภาพ exceeds bytes}",
+  "@plugViewImageTooLarge": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewImageDecode": "รูปภาพ can’t เป็น decoded (PNG, JPEG, WebP หรือ GIF เท่านั้น)",
+  "plugViewImagePixels": "รูปภาพ exceeds  ไซส์ ลิมิต: 4096 per side, 4 million pixels ใน ทอตอล",
+  "plugViewTooDeep": "{limit} JSON nested deeper than levels}",
+  "@plugViewTooDeep": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "plugViewV2Content": "ปลั๊กอิน เนื้อหา",
+  "plugViewVersionFallback": "{version} ดู VERSION {version} คือ ไม่ supported; using compatible VUE",
+  "@plugViewVersionFallback": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewStyleInvalid": "Invalid สไตล์; expected {values}",
+  "@plugViewStyleInvalid": {
+    "placeholders": {
+      "values": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewStyleReserved": "This appearance คือ reserved สำหรับ  app; ignored",
+  "plugViewStyleContainerOnly": "This สไตล์ คือ เท่านั้น available เปิด สแต็ก และ แถว",
+  "plugViewStyleTextOnly": "This สไตล์ คือ เท่านั้น available เปิด เท็กซ์, metric และ callout",
+  "plugViewContrastAdjusted": "{before} {after} {mode}: {ก่อน} adjusted ไป {หลัง}, contrast at น้อยที่สุด {minimum}:1",
+  "@plugViewContrastAdjusted": {
+    "placeholders": {
+      "mode": {
+        "type": "String"
+      },
+      "before": {
+        "type": "String"
+      },
+      "after": {
+        "type": "String"
+      },
+      "minimum": {
+        "type": "String"
+      }
+    }
+  },
+  "plugViewRichLimit": "Rich เท็กซ์ exceeds  ลิมิต; truncated",
+  "plugViewBadTrend": "{max} trend takes 2–{max} numbers (nulls allowed); ignored",
+  "plugViewGalleryPicture": "{index} รูป {อินเด็กซ์}",
+  "@plugViewBadTrend": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@plugViewGalleryPicture": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  }
+}

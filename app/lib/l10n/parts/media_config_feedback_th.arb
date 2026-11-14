@@ -1,0 +1,39 @@
+{
+  "mediaConfigKeySaved": "Saved · ไม่ verified",
+  "mediaConfigKeyUnknown": "สถานะ unavailable",
+  "mediaConfigKeyNote": "คีย์ presence คือ reported โดย  โฮสต์. Saving  คีย์ does ไม่ เวอร์ริฟาย การตรวจสอบสิทธิ์ หรือ Model เข้าถึง.",
+  "mediaConfigConsumers": "Media services using this คีย์: {services}. Changing หรือ removing it affects ออล ของ them; other โฮสต์ integrations พฤษภาคม also use it.",
+  "mediaConfigCheck": "ตรวจสอบ saved configuration",
+  "mediaConfigCheckNote": "โลคอล สแนปชอต เท่านั้น; ไม่ โพรไวเดอร์ คำขอ หรือ generation charge. Does ไม่ เวอร์ริฟาย  คีย์, connectivity, balance, Model เข้าถึง, หรือ region.  โฮสต์ remains  authority เปิด accepted ตั้งค่า.",
+  "mediaConfigCheckReady": "ไม่ โลคอล configuration issues found",
+  "mediaConfigCheckMissingKey": " โฮสต์ has ไม่ reported  saved คีย์.",
+  "mediaConfigCheckModels": "ไม่ selected models, หรือ บาง selected models are missing หรือ use  different protocol.",
+  "mediaConfigCheckDisabled": "This บริการ คือ switched ปิด.",
+  "mediaConfigUrlInvalid": "เอ็นเตอร์  HTTPเอส API root กับ  โฮสต์, โดยไม่มี credentials, คิวรี, fragment, หรือ whitespace.",
+  "mediaConfigUrlEndpoint": "This looks like  คำขอ endpoint. เอ็นเตอร์  API root instead;  โฮสต์ appends  คำขอ พาธ.",
+  "mediaConfigUrlRoot": "This โปรโตคอล needs  ออริจิน เท่านั้น (HTTPเอส://โฮสต์), โดยไม่มี  API พาธ.",
+  "mediaConfigUrlHint": "เอ็นเตอร์  API root, ไม่  generation endpoint. OpenAI-compatible roots keep their prefix (สำหรับ ตัวอย่าง /v1).",
+  "mediaConfigPreview": "สร้าง ขอ ตัวอย่าง",
+  "mediaConfigPreviewNote": "Generation/ครีเอท คำขอ เท่านั้น; edits และ status requests พฤษภาคม use different paths. พรีVUE คือ ไม่ proof ของ connectivity หรือ โฮสต์ acceptance.",
+  "mediaConfigPreviewUnavailable": "คำขอ พาธ unavailable ใน this โฮสต์ catalogue.",
+  "mediaConfigTargetTitle": "Reuse คีย์ at  different เป้าหมาย?",
+  "mediaConfigTargetBody": "{before} {after} เป้าหมาย changes จาก {ก่อน} ไป {หลัง}. ฟิวเจอร์ requests พฤษภาคม ส่ง  referenced คีย์ ไป  ใหม่ เป้าหมาย. เท่านั้น ต่อ ถ้า you trust it.  โฮสต์ ยัง validates  change.",
+  "mediaConfigTargetConfirm": "Trust เป้าหมาย และ ต่อ",
+  "@mediaConfigConsumers": {
+    "placeholders": {
+      "services": {
+        "type": "String"
+      }
+    }
+  },
+  "@mediaConfigTargetBody": {
+    "placeholders": {
+      "before": {
+        "type": "String"
+      },
+      "after": {
+        "type": "String"
+      }
+    }
+  }
+}

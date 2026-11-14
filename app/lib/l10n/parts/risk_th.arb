@@ -1,0 +1,41 @@
+{
+  "riskDontShowAgain": "Don’t แสดง อีกครั้ง",
+  "riskAskAi": "ไม่ sure? ถาม AI",
+  "riskConfirmAlwaysAction": "ข้าม confirmation",
+  "riskFullAccessAction": "Turn เปิด Full เข้าถึง",
+  "riskAutoReviewAction": "Turn เปิด Auto รีVUE",
+  "riskAllowForChatTitle": "อนุญาต everything ใน this chat?",
+  "riskAllowForChatBody": "Commands และ changes ใน this Chat เรียกใช้ โดยไม่มี asking. Turn it ปิด above  ข้อความ box anytime.",
+  "riskAllowForChatAction": "อนุญาต ทั้งหมด",
+  "riskPetOverlayTitle": "แสดง เกิน other apps?",
+  "riskPetOverlayBody": "Turn เปิด “แสดง เกิน other apps” สำหรับ DSH Go ใน ระบบ ตั้งค่า so your pet can appear outside  app.",
+  "riskPetOverlayAction": "เปิด ตั้งค่า",
+  "askAiHelpTitle": "ช่วยเหลือ",
+  "askAiHelpSubtitle": "ถาม AI เกี่ยวกับ anything here",
+  "askAiAboutApp": "{question} เกี่ยวกับ  DSH Go app: {question}",
+  "askAiWithGuide": "{question} เกี่ยวกับ  DSH Go app: {question}\nPlease คำตอบ จาก  attached คู่มือ.",
+  "askAiNoGuide": "This โฮสต์ doesn’t have  DSH Go คู่มือ, so answers พฤษภาคม เป็น ปิด",
+  "askAiQuestionOverview": "What can DSH Go ทำ, และ เวียร์ should I เริ่ม?",
+  "askAiQuestionPhoneControl": "How does phone control งาน, และ what are  risks?",
+  "askAiQuestionPhoneAlways": "What changes กับ “เสมอ สกิป confirmation” ใน phone control, และ how คือ it riskier than asking แต่ละ ไทม์?",
+  "askAiQuestionAppRules": "What คือ  app รายการ ใน phone control สำหรับ, และ what are  risks ของ allowing banking และ payment apps?",
+  "askAiQuestionFullAccess": "What happens กับ full เข้าถึง เปิด, และ what are  risks?",
+  "askAiQuestionPhoneFiles": "กับ “เข้าถึง phone ไฟล์” เปิด, which ไฟล์ can AI อ่าน และ change, และ how ทำ I turn it ปิด?",
+  "askAiQuestionAllowForChat": "What does “อนุญาต สำหรับ Chat” let ผ่าน, และ how ทำ I turn it ปิด?",
+  "askAiQuestionPlugins": "What can plugins ทำ, และ what should I watch สำหรับ กับ third-party ones?",
+  "askAiQuestionRemote": "How ทำ I เชื่อมต่อ my own computer หรือ เซิร์ฟเวอร์, และ how คือ that different จาก this phone?",
+  "@askAiAboutApp": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
+  "@askAiWithGuide": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  }
+}
