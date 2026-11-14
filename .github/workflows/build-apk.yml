@@ -1,0 +1,92 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test/thai-build]
+
+permissions:
+  contents: read
+
+jobs:
+  build-runtime:
+    name: Build Runtime (arm64-v8a)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      UPDATE_DEB_LOCK: 1
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y gpgv xz-utils curl python3 tar
+      
+      - name: Build runtime (arm64-v8a)
+        working-directory: runtime
+        run: ./build-runtime.sh arm64-v8a
+      
+      - name: Upload runtime artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: runtime-out
+          path: runtime/out/
+          retention-days: 1
+
+  build-apk:
+    name: Build APK (arm64)
+    needs: build-runtime
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      FLUTTER_VERSION: 3.47.7
+      GRADLE_VERSION: 9.3.1
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Download runtime artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: runtime-out
+          path: runtime/out
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: ${{ env.GRADLE_VERSION }}
+
+      - name: Flutter pub get
+        working-directory: app
+        run: flutter pub get --enforce-lockfile
+
+      - name: Generate localization
+        working-directory: app
+        run: python3 tool/l10n_merge.py
+
+      - name: Build APK (arm64)
+        working-directory: app
+        run: |
+          printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$FLUTTER_ROOT" > android/local.properties
+          bash ../tooling/build-apk.sh -f arm64 --release
+
+      - name: Upload APK (arm64)
+        uses: actions/upload-artifact@v7
+        with:
+          name: dsh-go-thai-arm64
+          path: app/build/app/outputs/flutter-apk/app-arm64-release.apk
+          retention-days: 7
