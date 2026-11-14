@@ -77,6 +77,14 @@ jobs:
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
+      - name: Create debug keystore
+        run: |
+          mkdir -p "$HOME/.config/.android"
+          keytool -genkey -v -keystore "$HOME/.config/.android/debug.keystore" \
+            -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
+            -dname "CN=Android Debug,O=Android,C=US" \
+            -storepass android -keypass android
+
       - name: Flutter pub get
         working-directory: app
         run: flutter pub get --enforce-lockfile
