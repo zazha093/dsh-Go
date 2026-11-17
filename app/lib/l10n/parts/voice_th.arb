@@ -16,16 +16,16 @@
   "voiceErrorServer": "ระบบบริการเสียงล้มเหลว ลองใหม่ภายหลัง",
   "voiceErrorClient": "Could นอต เริ่ม ระบบ recognition. เช็ค  speech เซอร์วิส.",
   "voiceErrorSpeechTimeout": "ไม่ speech was detected. Please speak อีกครั้ง.",
-  "voiceErrorNoMatch": "Didn’t แคช that. ทราย อีกครั้ง.",
+  "voiceErrorNoMatch": "Didn’t แคช that. ลอง อีกครั้ง.",
   "voiceErrorBusy": "ระบบบริการเสียงกำลังใช้งาน ลองใหม่ภายหลัง",
   "voiceErrorPermission": "Voice input needs microphone เข้าถึง",
-  "voiceErrorTooManyRequests": "เกินไป มาก speech requests. ทราย อีกครั้ง ภายหลัง.",
+  "voiceErrorTooManyRequests": "เกินไป มาก speech requests. ลอง อีกครั้ง ภายหลัง.",
   "voiceErrorDisconnected": "ระบบบริการเสียงถูกตัดการเชื่อมต่อ",
-  "voiceErrorLanguageUnsupported": "ระบบ recognition does นอต รองรับ this ภาษา",
-  "voiceErrorLanguageUnavailable": "ดาวน์โหลด this ภาษา ใน  speech เซอร์วิส เฟิร์ส",
+  "voiceErrorLanguageUnsupported": "ระบบ recognition does นอต รองรับ นี้ ภาษา",
+  "voiceErrorLanguageUnavailable": "ดาวน์โหลด นี้ ภาษา ใน  speech เซอร์วิส เฟิร์ส",
   "voiceErrorSupportCheck": "บริการเสียงไม่สามารถตรวจสอบการรองรับได้",
   "voiceErrorDownloadEvents": " speech เซอร์วิส cannot รายงาน Model ดาวน์โหลด progress",
-  "voiceErrorUnknown": "Speech เซอร์วิส ข้อผิดพลาด {code}. ทราย another recognition เซอร์วิส.",
+  "voiceErrorUnknown": "Speech เซอร์วิส ข้อผิดพลาด {code}. ลอง another recognition เซอร์วิส.",
   "@voiceErrorUnknown": {
     "placeholders": {
       "code": {
@@ -33,15 +33,15 @@
       }
     }
   },
-  "voiceSettingsFailed": "Couldn’t อ่าน speech ตั้งค่า. ทราย อีกครั้ง.",
+  "voiceSettingsFailed": "Couldn’t อ่าน speech ตั้งค่า. ลอง อีกครั้ง.",
   "voiceModeSection": "Recognition",
   "voiceModelSection": "Voice Model",
-  "voiceModelFooter": "หนึ่งครั้ง downloaded, Chinese, English, Cantonese, Japanese แอนด์ Korean are recognized เปิด  phone; recordings stay เปิด it.",
+  "voiceModelFooter": "หนึ่งครั้ง downloaded, Chinese, English, Cantonese, Japanese และ Korean are recognized เปิด  phone; recordings stay เปิด it.",
   "voiceModelWaiting": "พร้อมใช้งาน หนึ่งครั้ง  engine คือ กำลังทำงาน",
   "voiceModelUnsupported": "This engine has ไม่ voice Model",
   "voiceModelAbsent": "นอต downloaded",
   "voiceModelDownloading": "กำลังดาวน์โหลด…",
-  "voiceModelPreparing": "Checking แอนด์ กำลังโหลด",
+  "voiceModelPreparing": "Checking และ กำลังโหลด",
   "voiceModelReady": "โมเดลเสียงพร้อมใช้งาน",
   "voiceModelFailed": "โหลดโมเดลเสียงไม่ได้",
   "voiceModelBytes": "โมเดลเสียง: {done}/{total}",
@@ -137,13 +137,5 @@
         "type": "String"
       }
     }
-  },
-  "voiceCloudBaseHelper": "Up to /v1; the app calls …/audio/transcriptions",
-  "voiceModeCloudHint": "An OpenAI-compatible transcription API, such as Whisper or SiliconFlow",
-  "voiceCloudFooter": "Recordings are sent to this service. The key stays on this phone.",
-  "voiceCloudSection": "Cloud recognition service",
-  "voiceModeDeepseek": "DeepSeek",
-  "voiceModeCloud": "Another cloud service",
-  "voiceModeDeepseekHint": "DeepSeek’s recognizer, paid by your signed-in account or API key",
-  "voiceCloudModelHelper": "For example whisper-1 or FunAudioLLM/SenseVoiceSmall"
+  }
 }

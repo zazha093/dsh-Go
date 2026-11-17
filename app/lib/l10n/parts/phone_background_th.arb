@@ -19,7 +19,5 @@
   "phonePrivilegedGrantSuiPermission": "อนุมัติ Sui, แล้ว ให้",
   "phonePrivilegedSuggested": "Suggested",
   "phonePrivilegedRootRiskTitle": "Give DSH Go root เข้าถึง?",
-  "phonePrivilegedRootRiskBody": "Your root manager (Magisk, KernelSU ออร์ APatch) will ถาม you. ถ้า you อนุญาต it, DSH Go runs its own background เซอร์วิส ในฐานะ root. It asks อีกครั้ง เปิด its own หลัง  ตัดการเชื่อมต่อ ออร์ รีสตาร์ท เท่านั้น กับ “Keep root channel” เปิด.",
-  "phoneBackgroundGuideSubtitle": "See confirmations and task results in time",
-  "phoneBackgroundNotificationBlocked": "Allow pop-up alerts for phone-control notifications"
+  "phonePrivilegedRootRiskBody": "Your root manager (Magisk, KernelSU ออร์ APatch) will ถาม you. ถ้า you อนุญาต it, DSH Go runs its own background เซอร์วิส ในฐานะ root. It asks อีกครั้ง เปิด its own หลัง  ตัดการเชื่อมต่อ ออร์ รีสตาร์ท เท่านั้น กับ “Keep root channel” เปิด."
 }

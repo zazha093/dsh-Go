@@ -116,11 +116,5 @@
   "searchKwWebBusySend": "ส่ง,คิว,ขณะที่ AI works",
   "searchKwPluginsMarket": "ปลั๊กอิน market,ติดตั้ง plugins,marketplace",
   "searchKwUsageStats": "statistics,stats,usage data,analytics,telemetry,anonymous,ความเป็นส่วนตัว,data",
-  "searchKwQuickPanel": "swipe,left swipe,shortcuts,gesture,quick แผง,quick เข้าถึง",
-  "searchNeedsWorkshop": "This build doesn't include the Workshop",
-  "searchKwWorkshop": "workshop,download pets,download companions,share pets,submit",
-  "searchKwVoiceReading": "read aloud,reading voice,TTS,voice,Stella,Tide,speech",
-  "searchKwPetOverlayShows": "floating companion,room companion,pixel pet,live2d",
-  "searchSettingsHint": "Search settings",
-  "searchKwPetOverlayFraming": "framing,full body,half body"
+  "searchKwQuickPanel": "swipe,left swipe,shortcuts,gesture,quick แผง,quick เข้าถึง"
 }

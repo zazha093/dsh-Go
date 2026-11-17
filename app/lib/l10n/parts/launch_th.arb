@@ -18,14 +18,14 @@
   "launchTooLarge": "รูปภาพเกิน 8 MB",
   "launchOverLimit": "ไฟล์เกิน 30 MB",
   "launchUnsupported": "ใช้ PNG, JPEG, WebP, GIF หรือ MP4",
-  "launchUnreadable": "Couldn’t อ่าน this ไฟล์",
+  "launchUnreadable": "Couldn’t อ่าน นี้ ไฟล์",
   "launchUnavailable": "Couldn’t เปิด your photos",
   "launchBroken": "Can’t เป็น อ่าน",
   "iconShortcutRow": "รูป shortcut",
   "iconShortcutRowSubtitle": "รูปภาพของคุณบนหน้าจอหลัก",
   "iconShortcutPick": "เลือกรูปภาพ",
   "iconShortcutChange": "Another picture",
-  "iconShortcutHint": "Drag ออร์ pinch ไป fit",
+  "iconShortcutHint": "Drag หรือ pinch ไป fit",
   "iconShortcutName": "ชื่อ",
   "iconShortcutAdd": "เพิ่ม ไป home screen",
   "iconShortcutNote": "Android ไม่ให้แอปใช้รูปนี้เป็นไอคอน จึงเพิ่มแยกต่างหาก",
@@ -34,7 +34,7 @@
   "iconShortcutNoDialog": "ไม่ dialog? อนุญาต DSH Go ไป ครีเอท home screen shortcuts ใน system ตั้งค่า.",
   "iconShortcutSettings": "ตั้งค่า",
   "iconShortcutUnsupported": "หน้าจอหลักนี้ไม่รองรับลัดทาง",
-  "iconShortcutFailed": "Couldn’t เพิ่ม it. ทราย อีกครั้ง ภายหลัง.",
+  "iconShortcutFailed": "Couldn’t เพิ่ม it. ลอง อีกครั้ง ภายหลัง.",
   "searchKwLaunchScreen": "splash,startup,launch แอนิเมชัน,opening screen",
   "searchKwIconShortcut": "shortcut,custom icon,โฮม screen picture",
   "@launchChangedSize": {
@@ -43,6 +43,5 @@
         "type": "String"
       }
     }
-  },
-  "launchFrame": "Reposition"
+  }
 }

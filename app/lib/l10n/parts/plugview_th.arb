@@ -158,7 +158,7 @@
     }
   },
   "plugViewRichLimit": "Rich เท็กซ์ exceeds  ลิมิต; truncated",
-  "plugViewBadTrend": "{max} trend takes 2–{แม็กซ์} numbers (nulls allowed); ignored",
+  "plugViewBadTrend": "trend รับ 2–{max} ตัวเลข (null ได้); ไม่สนใจ",
   "plugViewGalleryPicture": "{index} รูป {อินเด็กซ์}",
   "@plugViewBadTrend": {
     "placeholders": {

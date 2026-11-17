@@ -88,7 +88,7 @@
     }
   },
   "plugslotsPanelOffline": "เข้าถึงปลั๊กอินไม่ได้",
-  "plugslotsIssueTooMany": "{max} สูงสุด {max} รายการที่เหลือซ่อน",
+  "plugslotsIssueTooMany": "สูงสุด {max}; ที่เหลือถูกซ่อน",
   "@plugslotsIssueTooMany": {
     "placeholders": {
       "max": {
@@ -96,7 +96,7 @@
       }
     }
   },
-  "plugslotsIssueTrimmed": "{max} เกิน {แม็กซ์} characters; shortened",
+  "plugslotsIssueTrimmed": "เกิน {max} ตัวอักษร ถูกตัด",
   "@plugslotsIssueTrimmed": {
     "placeholders": {
       "max": {
@@ -168,7 +168,7 @@
   "plugslotsCodeTooLong": "เกินไป long; shortened",
   "plugslotsCodeNoHandler": "นอต handled โดย  ปลั๊กอิน ยัง; ซ่อน",
   "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but นอต declared; ignored",
-  "plugslotsCodeViewFile": "Couldn't อ่าน  มุมมอง ไฟล์",
+  "plugslotsCodeViewFile": "ไม่สามารถ่าน  มุมมอง ไฟล์",
   "plugslotsCodeBadEffect": "Malformed action; ข้าม",
   "plugslotsCodeViolation": "{count} ล้มเหลว times}",
   "@plugslotsCodeViolation": {
@@ -213,7 +213,7 @@
       }
     }
   },
-  "plugslotsPickerFailed": "Could นอต แชร์  files กับ this ปลั๊กอิน. ทราย อีกครั้ง",
+  "plugslotsPickerFailed": "Could นอต แชร์  files กับ this ปลั๊กอิน. ลอง อีกครั้ง",
   "plugslotsWebPlacesTitle": "ใน DSH Web",
   "plugslotsPlaceBesideComposer": "Beside  composer",
   "plugslotsPlaceHeader": "Conversation เฮดเดอร์",

@@ -20,8 +20,5 @@
   "performanceRefreshMax": "สูงสุด",
   "performanceRefreshSystem": "ระบบ",
   "performanceRefreshHint": "Auto: fastest ขณะที่ drawing, handed ย้อนกลับ เมื่อ ยัง; ระบบ:  ระบบ decides.",
-  "searchKwRefreshRate": "รีเฟรช rate high รีเฟรช 120Hz 90Hz smooth",
-  "performanceFrameCache": "Frame cache",
-  "performanceRefreshHintOhos": "Auto: fastest while things move, handed back when still; Max: always fastest, more battery and heat; System: asks for nothing extra.",
-  "performanceFrameCacheHint": "Smoother, with slightly more touch delay"
+  "searchKwRefreshRate": "รีเฟรช rate high รีเฟรช 120Hz 90Hz smooth"
 }

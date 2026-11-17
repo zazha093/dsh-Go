@@ -30,7 +30,7 @@
   "webBrowserUnavailable": "เปิดในเบราว์เซอร์ไม่ได้",
   "webReopen": "Reopen",
   "webPageNotOpened": "เปิดเพจไม่ได้",
-  "webCheckConnection": "ตรวจสอบ your เครือข่าย ออร์ engine status แอนด์ ทราย อีกครั้ง",
+  "webCheckConnection": "ตรวจสอบ your เครือข่าย ออร์ engine status แอนด์ ลอง อีกครั้ง",
   "webTargetSessionMissing": "หาแชทนี้ใน DSH Web ไม่ได้ คุณอยู่ที่หน้าหลัก",
   "webTargetNotLoaded": "DSH Web ยังโหลดไม่เสร็จ",
   "webTargetSettingsMissing": "หาตั้งค่านี้ไม่ได้ คุณอาจต้องเข้าสู่ระบบหรือเปิดปลั๊กอิน",
