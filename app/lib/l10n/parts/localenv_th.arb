@@ -1,0 +1,80 @@
+{
+  "localEnvChooseTitle": "DSH ควรทำงานที่ไหน?",
+  "localEnvChooseMessage": "คุณเปลี่ยนได้ภายหลังในตั้งค่า",
+  "localEnvThisPhoneDetail": "{storage} {memory} {storage} MB ที่เก็บข้อมูล · {memory} MB หน่วยความจำ",
+  "localEnvThisPhoneDetailShort": "{memory} MB หน่วยความจำ ขณะทำงาน",
+  "localEnvLowStorage": "{needed} Needs เกี่ยวกับ {ต้องการ} MB free",
+  "localEnvRemoteDetail": "ใช้ DSH บนคอมพิวเตอร์หรือเซิร์ฟเวอร์",
+  "localEnvRecommended": "แนะนำ",
+  "localEnvInstallTitle": "ติดตั้ง เปิด this phone",
+  "localEnvInstallMessage": "เรียกใช้ DSH right เปิด this phone",
+  "localEnvFactStorage": "{storage} เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
+  "localEnvFactMemory": "{memory} เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvUseRemote": "ใช้โฮสต์รีโมตแทน",
+  "localEnvNotInstalled": "นอต installed เปิด this phone",
+  "localEnvUninstall": "ถอนการติดตั้ง runtime",
+  "localEnvUninstallHint": "ว่าง ขึ้น storage",
+  "localEnvUninstallTitle": "ถอนการติดตั้งรันไทม์?",
+  "localEnvUninstallBody": "แชท เวิร์กสเปซ ปลั๊กอิน ตั้งค่า อินเตอร์เฟซต่างๆ จะหาย คุณแน่ใจ?",
+  "localEnvUninstallConfirm": "ถอนการติดตั้ง",
+  "localEnvUninstallFailed": "Couldn’t ถอนการติดตั้ง. ทราย อีกครั้ง.",
+  "localEnvPhoneNeedsRuntime": "พร้อมใช้งานหลังติดตั้งบนโทรศัพท์นี้",
+  "localEnvSignInNeedsRuntime": "Needs DSH เปิด this phone",
+  "localEnvSignInInstallFirst": "ติดตั้ง it ไป ลงนาม ใน",
+  "@localEnvThisPhoneDetail": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      },
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvThisPhoneDetailShort": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvLowStorage": {
+    "placeholders": {
+      "needed": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactStorage": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactMemory": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "engineCapShellBuiltin": "{count} built-in commands",
+  "localEnvTavernTitle": "Chat with characters",
+  "engineCapNone": "Unavailable",
+  "engineCapNodeScripts": "Node scripts",
+  "localEnvTavernDetail": "Bring DeepSeek chats over here too · nothing to install",
+  "engineCapKeepsRunning": "Keeps running",
+  "marketInstallRefused": "This engine can't install market plugins",
+  "engineCapMayFreeze": "May be paused by the system",
+  "engineReopenFailed": "The engine needs the app reopened before it can start again. Please reopen it.",
+  "engineCapShellSystem": "System",
+  "localEnvUnsupported": "Not supported",
+  "engineCapBackground": "In the background",
+  "engineCapYes": "Available",
+  "localEnvUnavailable": "DSH can't run on this device yet",
+  "engineCapMarket": "Market plugins",
+  "engineCapShell": "Command line",
+  "engineStartReopensApp": "The engine starts once each time the app opens, so starting it again reopens the app.",
+  "localEnvChooseUseTitle": "How will you use dsh-Go?"
+}

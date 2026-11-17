@@ -1,0 +1,4 @@
+{
+  "hostDetailsConnectionType": "การเชื่อมต่อ type",
+  "hostDetailsSshNetworkHint": "Uses  SSH tunnel. LAN / P2P route inspection แอนด์ เลทันซี่ measurements are นอต available สำหรับ this การเชื่อมต่อ."
+}

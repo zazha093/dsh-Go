@@ -1,0 +1,22 @@
+{
+  "@l10nphonelocalocrdisclosurennl10nphonelocalocrdetails": {
+    "placeholders": {
+      "l10n_phoneLocalOcrDisclosure": {
+        "type": "String"
+      },
+      "l10n_phoneLocalOcrDetails": {
+        "type": "String"
+      }
+    }
+  },
+  "@accentlabelMode": {
+    "placeholders": {
+      "accent_label": {
+        "type": "String"
+      },
+      "mode": {
+        "type": "String"
+      }
+    }
+  }
+}

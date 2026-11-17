@@ -1,0 +1,166 @@
+{
+  "updateCheck": "ตรวจสอบ สำหรับ updates",
+  "updateAutoCheck": "ตรวจสอบ automatically",
+  "updateAutoCheckDaily": "ทุกวัน",
+  "updateTileDownloading": "กำลังดาวน์โหลด",
+  "updateTileDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "updateTileVerifying": "กำลังตรวจสอบ",
+  "updateTileReady": "พร้อม ไป ติดตั้ง",
+  "updateTileInstalling": "กำลังติดตั้ง",
+  "updateTileSkipped": "{version} Skipped {version}",
+  "updateTileNewVersion": "{version} ใหม่: {version}",
+  "updateTileUpToDate": "ขึ้น ไป เดท",
+  "updateTileUnavailable": "ตรวจสอบไม่ได้ตอนนี้",
+  "updateUpToDate": "คุณเป็นเวอร์ชันล่าสุดแล้ว",
+  "updateCheckUnavailable": "ตรวจสอบอัปเดตไม่ได้ตอนนี้ ลองใหม่ภายหลัง",
+  "updateDownloadInterrupted": "ดาวน์โหลด interrupted",
+  "updateDownloadInterruptedMessage": "เครือข่ายขาดหรือช้าเกินไป ลองใหม่เพื่อดำเนินต่อ",
+  "updateDownloadUnavailable": "ดาวน์โหลด ลิงก์ unavailable",
+  "updateDownloadUnavailableMessage": "ลองใหม่ภายหลัง หรือดาวน์โหลดจากหน้ารีลีส",
+  "updateChecksumFailed": "แพ็กเกจ verification ล้มเหลว",
+  "updateChecksumFailedMessage": "ไฟล์ไม่ตรงกับรีลีสและถูกลบแล้ว ลองใหม่",
+  "updateChecksumMissing": "Verification ข้อมูล missing",
+  "updateChecksumMissingMessage": "เพื่อความปลอดภัย ดาวน์โหลดจากหน้ารีลีสเพื่อติดตั้ง",
+  "updateStorageWriteFailed": "บันทึกแพ็กเกจไม่ได้",
+  "updateStorageWriteFailedMessage": "ที่เก็บข้อมูล พฤษภาคม เป็น full. Free ขึ้น space แอนด์ ทราย อีกครั้ง.",
+  "updateFreeSpaceRetry": "ว่าง ขึ้น space แอนด์ ทราย อีกครั้ง.",
+  "updateSpaceRequired": "{size} เกี่ยวกับ {ไซส์} ของ free space ต้องการ. Free ขึ้น space แอนด์ ทราย อีกครั้ง.",
+  "updateSettingsOpenFailed": "เปิดตั้งค่าระบบไม่ได้",
+  "updateSettingsOpenFailedMessage": "อนุญาต \"ติดตั้งแอปจากแหล่งไม่รู้จัก\" ใน ตั้งค่า → แอป → DSH Go แล้วกลับมาติดตั้งต่อ",
+  "updateInstallCancelled": "Installation ยกเลิกแล้ว",
+  "updateInstallCancelledMessage": "แพ็กเกจบันทึกแล้ว คุณติดตั้งได้ทุกเมื่อ",
+  "updateInstallUnconfirmed": "Installation ผลลัพธ์ นอต confirmed",
+  "updateInstallUnconfirmedMessage": "แพ็กเกจบันทึกแล้ว ตรวจสอบพรอมป์ตระบบ แล้วลองใหม่หรือเปิดกับระบบ",
+  "updateSignatureMismatch": "ลายเซ็นแอปไม่ตรงกัน",
+  "updateSignatureMismatchMessage": "DSH Go บนโทรศัพท์ของคุณมีลายเซ็นต่างกัน (ปกติเป็นเวอร์ชันทดสอบ) ถอนการติดตั้ง",
+  "updateWrongPackage": "นี้ไม่ใช่แพ็กเกจ DSH",
+  "updateWrongPackageMessage": " wrong ไฟล์ was downloaded แอนด์ deleted. ทราย อีกครั้ง ภายหลัง.",
+  "updateDowngradeBlocked": "ติดตั้งเวอร์ชันเก่าไม่ได้",
+  "updateDowngradeBlockedMessage": " DSH เปิด your phone คือ newer than this แพ็กเกจ.",
+  "updateIncompatible": "Incompatible กับ this phone",
+  "updateIncompatibleMessage": "แพ็กเกจนี้ต้องการเวอร์ชัน Android หรือสถาปัตยกรรมโปรเซสเซอร์ที่ไม่ตรงกับโทรศัพท์ของคุณ",
+  "updatePackageCorrupt": "แพ็กเกจ คือ damaged",
+  "updatePackageCorruptMessage": "It was deleted. ดาวน์โหลด it อีกครั้ง.",
+  "updateInstallBlocked": "Installation ถูกบล็อก",
+  "updateInstallBlockedMessage": "อนุญาต installation ใน  system prompt, ออร์ ดาวน์โหลด จาก  รีลีส เพจ.",
+  "updateInstallIncomplete": "Installation incomplete",
+  "updateInstallIncompleteMessage": "ทราย อีกครั้ง, ออร์ ดาวน์โหลด จาก  รีลีส เพจ.",
+  "updateBrowserOpenFailed": "{path} {host} เปิดเบราว์เซอร์ไม่ได้ เยี่ยมชม {host}{path} เอง",
+  "updateUpToDateVersion": "{version} คุณเป็นเวอร์ชันล่าสุดแล้ว: {version}",
+  "updateCurrentVersion": "{version} Current {version}",
+  "updateNewVersionFound": "ใหม่ VERSION available",
+  "updateReleaseNotes": "มีอะไรใหม่",
+  "updateNoReleaseNotes": "ไม่ รีลีส notes สำหรับ this VERSION.",
+  "updateInstallKeepsData": "DSH Go closes ไป ติดตั้ง. Your chats แอนด์ ตั้งค่า stay.",
+  "updateNoCompatiblePackage": "ไม่ package สำหรับ this phone",
+  "updateDownloading": "กำลังดาวน์โหลด",
+  "updateDownloadSource": "Via {source}",
+  "updateDownloadInBackgroundNote": "ดาวน์โหลด continues หลัง you ปิด this window",
+  "updateVerifyingPackage": "กำลังตรวจสอบแพ็กเกจ…",
+  "updateVerifyingPackageNote": "Checking  ไฟล์ matches  รีลีส",
+  "updateInstalling": "กำลังติดตั้ง…",
+  "updateConfirmInstallNote": "ยืนยัน installation ใน  system prompt",
+  "updatePackageDownloaded": "แพ็กเกจ downloaded",
+  "updateReadyToInstall": "ยืนยันแล้ว แอนด์ ready ไป ติดตั้ง.",
+  "updateAllowInstall": "อนุญาต DSH Go ไป ติดตั้ง apps",
+  "updateAllowInstallMessage": "อนุญาต \"ติดตั้งแอปจากแหล่งไม่รู้จัก\" ใน ตั้งค่าระบบ การติดตั้งจะดำเนินต่อเมื่อคุณกลับมา",
+  "updateOpenReleasePage": "เปิด รีลีส เพจ",
+  "updateUpdateNow": "อัปเดต ตอนนี้",
+  "updateSkipVersion": "ข้าม this VERSION",
+  "updateInstallWithSystem": "ติดตั้ง กับ  system installer",
+  "updateSystemInstallerFailed": "Couldn't เปิด  ระบบ installer",
+  "updateStarProject": "ดาว it",
+  "updateCancelDownload": "ยกเลิก ดาวน์โหลด",
+  "updateDownloadInBackground": "ดาวน์โหลด ใน background",
+  "updateVerifying": "กำลังตรวจสอบ…",
+  "updateInstallingBusy": "กำลังติดตั้ง…",
+  "updateOpenPermissionSettings": "Turn เปิด",
+  "updateNoAbiPackage": "ไม่ {abi} package สำหรับ this รีลีส ยัง. เช็ค  รีลีส เพจ.",
+  "updateNoPackage": "ไม่ package สำหรับ this รีลีส ยัง. เช็ค  รีลีส เพจ.",
+  "updateDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "@dshLatestversionname": {
+    "placeholders": {
+      "latest_version_name": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileSkipped": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileNewVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateSpaceRequired": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateBrowserOpenFailed": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      },
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateUpToDateVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateCurrentVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateNoAbiPackage": {
+    "placeholders": {
+      "abi": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "updateExportApkMessage": "Copies the package downloaded and verified now into Downloads/DSH-Go, so you can sign it yourself (MT Manager and the like) and install that.\n\nA package you signed has a different signature from ours: in-app updates then always report a signature mismatch, and every later version has to be signed and installed by hand.\n\nIf the system simply blocks the install (Xiaomi and other vendors), try Shizuku or on-device ADB under Installation route first; that needs no signing.",
+  "updateExportApkFailed": "Couldn't save the package",
+  "updateExportApk": "Save the package",
+  "updateExportApkDone": "Saved to Downloads/{path}",
+  "updateExportApkTitle": "Save the package?"
+}

@@ -1,0 +1,93 @@
+{
+  "@count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@countTokens": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMin": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nStep": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nSteps": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nToolCall": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nToolCalls": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMessage": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nMessages": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nThought": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@nThoughts": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@countToken": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@countTokens1": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  }
+}

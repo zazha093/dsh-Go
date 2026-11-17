@@ -1,0 +1,23 @@
+{
+  "nearbyThisChat": "This Chat",
+  "nearbyPermissionTitle": "Permissions สำหรับ this Chat",
+  "nearbyNewChatDefault": "{name} ใหม่ chats: {ชื่อ}",
+  "@nearbyNewChatDefault": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "nearbySetAsDefault": "Use สำหรับ ใหม่ chats",
+  "nearbyManageModels": "จัดการโมเดล",
+  "nearbyPermissionPill": "{name} Permissions สำหรับ this Chat: {ชื่อ}",
+  "@nearbyPermissionPill": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "nearbyChange": "เปลี่ยน"
+}

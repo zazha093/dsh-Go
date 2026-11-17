@@ -1,0 +1,13 @@
+{
+  "phoneStartupFailureStopping": "Startup ล้มเหลว; stopping",
+  "phoneStartupFailureStoppingDetail": "Startup ล้มเหลว; stopping. {reason}",
+  "@phoneStartupFailureStoppingDetail": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "phoneStartupTokenTimeout": "Startup timed ออก: ไม่ startup โทเคน arrived within 180 seconds. เช็ค  logs.",
+  "phoneStartupPortNotReady": " startup โทเคน arrived, but  โลคอล เซอร์วิส พอร์ต did นอต become ready. เช็ค  logs."
+}

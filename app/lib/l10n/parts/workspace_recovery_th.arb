@@ -1,0 +1,16 @@
+{
+  "workspaceRecoveryTitle": "กู้คืนดัชนีเวิร์กสเปซ",
+  "workspaceRecoveryEnable": "ใช้ดัชนีเวิร์กสเปซกู้คืน",
+  "workspaceRecoveryDisable": "ใช้ดัชนีเวิร์กสเปซเดิมอีกครั้ง",
+  "workspaceRecoveryHint": "โทรศัพท์นี้เท่านั้น: ใช้ดัชนีแยกเพื่อเข้าถึงแชทที่อ่านได้เมื่อ",
+  "workspaceRecoveryActive": "ดัชนีเวิร์กสเปซกู้คืนถูกเลือก ทั้งดัชนีเดิมและกู้คืนใช้งานอยู่",
+  "workspaceRecoveryWorking": "กำลังทำงาน…",
+  "workspaceRecoveryEnableBody": "เอนจินโลคอลจะหยุด สลับไปดัชนีเวิร์กสเปซกู้คืน และเริ่มใหม่",
+  "workspaceRecoveryDisableBody": "เอนจินโลคัลจะหยุด สลับกลับดัชนีเวิร์กสเปซเดิม และเริ่มใหม่",
+  "workspaceRecoveryEnableStart": "เปิดใช้ แอนด์ รีสตาร์ท",
+  "workspaceRecoveryDisableStart": "Use original แอนด์ รีสตาร์ท",
+  "workspaceRecoveryUnavailable": "This VERSION does นอต รองรับ Workspace ดัชนี recovery. เช็ค  โลคอล engine status แอนด์ อัปเดต  app.",
+  "workspaceRecoveryRestartIncomplete": "โหมดดัชนีเปลี่ยน แต่เอนจินยังไม่ยืนยันหยุดหรือรีสตาร์ท รอ…",
+  "workspaceRecoverySaveFailed": "บันทึกโหมดดัชนีไม่ได้ ไม่มีการเริ่มใหม่ถูกขอ ตรวจสอบเอนจินโลคัล",
+  "workspaceRecoveryFailed": " operation did นอต จบ. เช็ค  โลคอล engine status แอนด์ logs. This เพจ shows ว่า  ดัชนี mode changed."
+}
