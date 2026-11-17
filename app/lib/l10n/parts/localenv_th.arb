@@ -6,20 +6,20 @@
   "localEnvLowStorage": "{needed} Needs เกี่ยวกับ {ต้องการ} MB free",
   "localEnvRemoteDetail": "ใช้ DSH บนคอมพิวเตอร์หรือเซิร์ฟเวอร์",
   "localEnvRecommended": "แนะนำ",
-  "localEnvInstallTitle": "ติดตั้ง เปิด this phone",
-  "localEnvInstallMessage": "เรียกใช้ DSH right เปิด this phone",
+  "localEnvInstallTitle": "ติดตั้ง เปิด นี้ phone",
+  "localEnvInstallMessage": "เรียกใช้ DSH right เปิด นี้ phone",
   "localEnvFactStorage": "{storage} เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
   "localEnvFactMemory": "{memory} เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
-  "localEnvUseRemote": "ใช้โฮสต์รีโมตแทน",
-  "localEnvNotInstalled": "นอต installed เปิด this phone",
+  "localEnvUseRemote": "ใช้โฮสต์ระยะไกลแทน",
+  "localEnvNotInstalled": "นอต installed เปิด นี้ phone",
   "localEnvUninstall": "ถอนการติดตั้ง runtime",
   "localEnvUninstallHint": "ว่าง ขึ้น storage",
   "localEnvUninstallTitle": "ถอนการติดตั้งรันไทม์?",
-  "localEnvUninstallBody": "แชท เวิร์กสเปซ ปลั๊กอิน ตั้งค่า อินเตอร์เฟซต่างๆ จะหาย คุณแน่ใจ?",
+  "localEnvUninstallBody": "แชท เวิร์กสเปซ ปลั๊กอิน ตั้งค่า การตั้งค่าอินเตอร์เฟซ และทักษะบนโทรศัพท์นี้จะถูกลบ คุณแน่ใจ?",
   "localEnvUninstallConfirm": "ถอนการติดตั้ง",
-  "localEnvUninstallFailed": "Couldn’t ถอนการติดตั้ง. ทราย อีกครั้ง.",
+  "localEnvUninstallFailed": "ไม่สามารถถอนการติดตั้งได้ ลองใหม่",
   "localEnvPhoneNeedsRuntime": "พร้อมใช้งานหลังติดตั้งบนโทรศัพท์นี้",
-  "localEnvSignInNeedsRuntime": "Needs DSH เปิด this phone",
+  "localEnvSignInNeedsRuntime": "Needs DSH เปิด นี้ phone",
   "localEnvSignInInstallFirst": "ติดตั้ง it ไป ลงนาม ใน",
   "@localEnvThisPhoneDetail": {
     "placeholders": {
@@ -58,23 +58,5 @@
         "type": "String"
       }
     }
-  },
-  "engineCapShellBuiltin": "{count} built-in commands",
-  "localEnvTavernTitle": "Chat with characters",
-  "engineCapNone": "Unavailable",
-  "engineCapNodeScripts": "Node scripts",
-  "localEnvTavernDetail": "Bring DeepSeek chats over here too · nothing to install",
-  "engineCapKeepsRunning": "Keeps running",
-  "marketInstallRefused": "This engine can't install market plugins",
-  "engineCapMayFreeze": "May be paused by the system",
-  "engineReopenFailed": "The engine needs the app reopened before it can start again. Please reopen it.",
-  "engineCapShellSystem": "System",
-  "localEnvUnsupported": "Not supported",
-  "engineCapBackground": "In the background",
-  "engineCapYes": "Available",
-  "localEnvUnavailable": "DSH can't run on this device yet",
-  "engineCapMarket": "Market plugins",
-  "engineCapShell": "Command line",
-  "engineStartReopensApp": "The engine starts once each time the app opens, so starting it again reopens the app.",
-  "localEnvChooseUseTitle": "How will you use dsh-Go?"
+  }
 }

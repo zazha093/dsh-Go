@@ -64,7 +64,7 @@
   "chatGoal": "เป้าหมาย",
   "chatGoalActions": "การกระทำเป้าหมาย",
   "chatGoalBlocked": "ถูกบล็อก",
-  "chatGoalRoundLimit": "{max} ราวด์ {rounds} / {max}",
+  "chatGoalRoundLimit": "รอบ {rounds} / {max}",
   "chatGoalRound": "ราวด์ {rounds}",
   "chatEditGoal": "แก้ไขเป้าหมาย",
   "chatPauseGoal": "หยุดชั่วคราว",
@@ -228,7 +228,7 @@
   "chatCommandGoalResumed": "ดำเนินต่อเป้าหมาย",
   "chatCommandCurrentGoal": "เป้าหมายปัจจุบัน",
   "chatCommandGoalBlocked": "ต้องการสนใจ",
-  "chatCommandGoalSummary": "{title} {max} {title}\n{objective}\n{status} · ราวด์ {rounds}/{max}",
+  "chatCommandGoalSummary": "{title}\n{objective}\n{status} · รอบ {rounds}/{max}",
   "chatCommandFailed": "คำสั่งล้มเหลว",
   "chatImageStorageDenied": "บันทึกไม่ได้ เข้าถึงที่เก็บข้อมูลปิด",
   "chatImageCannotSave": "บันทึกรูปภาพนี้ไม่ได้",
@@ -248,7 +248,7 @@
   "chatCopyAll": "คัดลอกทั้งหมด",
   "chatRequestRetrying": "คำขอล้มเหลว กำลังลองใหม่",
   "chatRequestRetryAttempt": "{count})}}",
-  "chatRequestRetryLimit": "{max} {count} คำขอล้มเหลว กำลังลองใหม่ ({count}/{max})",
+  "chatRequestRetryLimit": "คำขอล้มเหลว กำลังลองใหม่ ({count}/{max})",
   "chatSubscriptionExpired": "{name} {name} ไซน์อินหมดอายุ",
   "chatProviderKeyMissing": "ยังไม่มีคีย์ API สำหรับโปรไวเดอร์นี้",
   "chatDeepSeekKeyMissing": "ยังไม่มีคีย์ API DeepSeek",
@@ -309,6 +309,7 @@
   "chatTodoItemSemantics": "{content}, {state}",
   "chatMentionSemantics": "{kind}: {label}",
   "chatArtifactSemantics": "{name}, {description}",
+  "nameLabel": "{name}: {label}",
   "@nameLabel": {
     "placeholders": {
       "name": {
@@ -319,6 +320,7 @@
       }
     }
   },
+  "nameFormatspantime": "{name} {formatSpan_time}",
   "@nameFormatspantime": {
     "placeholders": {
       "name": {
@@ -329,6 +331,7 @@
       }
     }
   },
+  "failed": "{failed}",
   "@failed": {
     "placeholders": {
       "failed": {
@@ -336,6 +339,7 @@
       }
     }
   },
+  "atitleAdetail": "{a_title} {a_detail}",
   "@atitleAdetail": {
     "placeholders": {
       "a_title": {
@@ -346,6 +350,7 @@
       }
     }
   },
+  "viewverbSummary": "{view_verb} {summary}",
   "@viewverbSummary": {
     "placeholders": {
       "view_verb": {
@@ -356,6 +361,7 @@
       }
     }
   },
+  "failed1": "{failed}",
   "@failed1": {
     "placeholders": {
       "failed": {
@@ -363,6 +369,7 @@
       }
     }
   },
+  "alertTitleTextHostName": "{title}{text}{hostNameSuffix}",
   "@alertTitleTextHostName": {
     "placeholders": {
       "title": {
@@ -376,6 +383,28 @@
       }
     }
   },
+  "devnull": "--- /dev/นัลล์",
+  "privateKey": "ส่วนตัว คีย์-----",
+  "feedbackTextIsRequiredUsageFeedbackText": "Feedback เท็กซ์ คือ required. Usage: /feedback <เท็กซ์>",
+  "noCompactableHistoryYet": "ไม่ compactable history ยัง.",
+  "compactionCancelled": "Compaction ยกเลิกแล้ว.",
+  "compactionIsUnavailableBecauseThisProcessHasAnActiveCompactionOrTheAgentIsNotIdle": "บีบอัดไม่ได้เพราะโปรเซสนี้มีการบีบอัดอยู่ หรือเอจเอนต์ไม่ว่าง",
+  "compactionFinishedButTheSessionCouldNotBeSaved": "บีบอัดเสร็จ แต่เซสชันบันทึกไม่ได้",
+  "usageCompactNoArguments": "การใช้งาน: /compact (ไม่มีอาร์กิวเมนต์)",
+  "compactionCouldNotProduceAUsefulSummaryTheAttemptIsRecordedInTheSessionLog": "บีบอัดสร้างสรุปที่ใช้ไม่ได้ พยายามถูกบันทึกในบันทึกเซสชัน",
+  "compactionDidNotFinishCleanlySomeSessionHistoryMayHaveChangedInspectTheCurrentSessionStateBeforeRetrying": "บีบอัดจบไม่สะอาด ประวัติเซสชันบางส่วนอาจเปลี่ยน ตรวจสอบสถานะเซสชันปัจจุบันก่อนลองใหม่",
+  "planModeOnUsePlanOffToLeave": "โหมดแผนเปิด ใช้ /แผน ปิด เพื่อออก",
+  "planModeOff": "โหมดแผนปิด",
+  "planModeEntryCancelled": "รายการโหมดแผนยกเลิกแล้ว",
+  "planModeIsAlreadyInactive": "โหมดแผนปิดอยู่แล้ว",
+  "attachmentsCannotAccompanyPlanOff": "ไฟล์แนบไม่ได้ไปกับ /แผน ปิด",
+  "attachmentsOnlyAccompanyAGoalObjectiveGoalObjectiveOrGoalEditObjective": "ไฟล์แนบได้เฉพาะกับเป้าหมาย: /เป้าหมาย <objective> หรือ /เป้าหมาย แก้ไข <objective>",
+  "noGoalToClear": "ไม่มีเป้าหมายให้ล้าง",
+  "goalCleared": "ล้างเป้าหมายแล้ว",
+  "goalCreated": "สร้างเป้าหมายแล้ว",
+  "goalUpdated": "อัปเดตเป้าหมายแล้ว",
+  "goalPaused": "หยุดเป้าหมายชั่วคราว",
+  "goalResumed": "ดำเนินต่อเป้าหมาย",
   "@chatForkQueuedLeft": {
     "placeholders": {
       "message": {
@@ -796,17 +825,5 @@
         "type": "String"
       }
     }
-  },
-  "chatOutputCopyAll": "Copy all",
-  "chatOutputCopied": "Copied the full text",
-  "chatMessageMode": "Send a new message",
-  "chatAnswerMode": "Send text as an answer",
-  "chatOutputSummary": "{count, plural, =1{1 line} other{{lines} lines}} · {chars} characters",
-  "chatOutputHiddenLines": "{count, plural, =1{1 line hidden} other{{shown} lines hidden}}",
-  "chatErrForbidden": "Credentials unavailable or permission denied",
-  "chatOutputViewAll": "View all",
-  "chatOutputHiddenChars": "{count} characters hidden",
-  "chatQuestionAnswered": "Answered",
-  "chatOutputToEnd": "Jump to end",
-  "chatOutputToStart": "Back to top"
+  }
 }

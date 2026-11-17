@@ -81,11 +81,11 @@
   "remoteErrSshInterrupted": "SSH การเชื่อมต่อ interrupted",
   "remoteErrSshConnection": "Couldn’t เชื่อมต่อ เกิน SSH",
   "remoteErrCommandTimeout": "รีโมต คอมมานด์ timed ออก",
-  "remoteHostedErrNetwork": "Can’t reach  sharing เซอร์วิส. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
+  "remoteHostedErrNetwork": "Can’t reach  sharing เซอร์วิส. เช็ค your การเชื่อมต่อ แอนด์ ลอง อีกครั้ง.",
   "remoteHostedErrTooLarge": "Chat คือ เกินไป large ไป ครีเอท  ลิงก์",
-  "remoteHostedErrRateLimited": "Sharing เกินไป บ่อยครั้ง. ทราย อีกครั้ง ภายหลัง.",
+  "remoteHostedErrRateLimited": "Sharing เกินไป บ่อยครั้ง. ลอง อีกครั้ง ภายหลัง.",
   "remoteHostedErrCreate": "Couldn’t ครีเอท ลิงก์",
-  "remoteHostedErrUnavailable": "Sharing เซอร์วิส คือ unavailable. ทราย อีกครั้ง ภายหลัง.",
+  "remoteHostedErrUnavailable": "Sharing เซอร์วิส คือ unavailable. ลอง อีกครั้ง ภายหลัง.",
   "remoteHostedErrGone": "ลิงก์ expired ออร์ was deleted",
   "remoteHostedErrForbidden": "You don’t have สิทธิ์ ไป ลบ this ลิงก์",
   "remoteHostedErrBroken": "ลิงก์ คือ incomplete ออร์ damaged",
@@ -334,8 +334,8 @@
   "remoteUndo": "ยกเลิก",
   "remoteHostedMyLinks": "My shared links",
   "remoteHostedNoLinks": "ไม่ shared links ยัง",
-  "remoteHostedErrDeleteNetwork": "Couldn’t ลบ. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
-  "remoteHostedErrDelete": "Couldn’t ลบ. ทราย อีกครั้ง ภายหลัง.",
+  "remoteHostedErrDeleteNetwork": "Couldn’t ลบ. เช็ค your การเชื่อมต่อ แอนด์ ลอง อีกครั้ง.",
+  "remoteHostedErrDelete": "Couldn’t ลบ. ลอง อีกครั้ง ภายหลัง.",
   "remoteDirectoryPickerTitle": "Choose โฟลเดอร์",
   "remoteDirectoryChoose": "เลือก",
   "remoteDirectoryDefault": "ค่าเริ่มต้น working ไดเรกทอรี",
@@ -424,7 +424,7 @@
   "remoteNetworkMilliseconds": "{value} {ค่า} ms",
   "remoteNetworkMeasure": "รีเฟรช เครือข่าย / measure เลเทนซี่",
   "remoteNetworkMeasuring": "Measuring…",
-  "remoteNetworkMeasureFailed": "Couldn’t measure เลทันซี่. ทราย อีกครั้ง ภายหลัง.",
+  "remoteNetworkMeasureFailed": "Couldn’t measure เลทันซี่. ลอง อีกครั้ง ภายหลัง.",
   "remoteNetworkDisconnected": "Disconnected. Reconnect ไป measure เลทันซี่.",
   "remoteNetworkFallback": "Fallback reason",
   "remoteNetworkFallbackUnknown": "การเชื่อมต่อตรงไม่ได้ ใช้เส้นทางที่พร้อมใช้งานโดยอัตโนมัติ",
@@ -446,6 +446,7 @@
   "remoteErrHistoryModeChanged": " โฮสต์ ไม่ longer supports compact history. Switch ไป another โฮสต์ แอนด์ ย้อนกลับ, ออร์ รีสตาร์ท  app, ไป โหลดใหม่ history.",
   "remoteCompactHistoryHint": "Reduces historical เครื่องมือ details เปิด supporting DSH รีโมต Hosts; live replies แอนด์ approvals stay unchanged. Switch hosts ออร์ รีสตาร์ท  app ไป apply. Older Hosts keep full history.",
   "searchKwRemoteCompactHistory": "compact slim lite history tools ถ่ายโอน แบนด์วิดท์ รีโมต",
+  "sshHaddress": "SSH · {h_address}",
   "@sshHaddress": {
     "placeholders": {
       "h_address": {
@@ -453,6 +454,11 @@
       }
     }
   },
+  "code": "~/โค้ด",
+  "beginOpensshPrivateKeyn": "-----BEGIN OPENSSH ส่วนตัว คีย์-----\\n…",
+  "dshappNodshn": "DSHAPP nodsh\\n",
+  "nIfCommandVNohupDevnull21ThenNnohupFi": "N=\"\"; ถ้า คอมมานด์ -v nohup >/dev/นัลล์ 2>&1; แล้ว N=nohup; fi",
+  "datachannelClosed": "DataChannel closed",
   "@remoteReconnectAttempt": {
     "placeholders": {
       "count": {
@@ -1048,31 +1054,5 @@
         "type": "String"
       }
     }
-  },
-  "remoteHostedSaveFailed": "Changes to your shared links haven’t been saved. Please retry.",
-  "remoteSshCompressionHelp": "On by default. Negotiate compression after authentication; use uncompressed transport if unsupported.",
-  "remoteKeyStorageHelpIos": "Saved only on this phone, encrypted by the system keychain. Supports Ed25519, RSA and ECDSA.",
-  "remoteManaged": "Managed",
-  "remoteErrAttachSettings": "Enter a valid remote DSH port and launch token",
-  "remoteErrSharedInstance": "Remote managed DSH is still running, but its start command differs or its launch log is missing. To protect shared use, it was not restarted. Check the settings, use Attach only, or explicitly choose Restart managed DSH in Edit host.",
-  "remoteDshMode": "Instance management",
-  "remotePasswordStorageHelpIos": "Saved only on this phone, encrypted by the system keychain",
-  "remoteDshTokenHelp": "Enter the token from the existing instance’s launch URL. It stays in secure storage on this phone.",
-  "remoteRestartManaged": "Restart managed DSH",
-  "remoteDshToken": "DSH launch token",
-  "remoteHostedDeleteSaveFailed": "Deletion wasn’t scheduled. The link is still active. Please retry.",
-  "remoteUseServer": "Use this server",
-  "remoteDshPort": "Remote DSH port",
-  "remoteSshCompression": "SSH compression",
-  "remoteAttachWorkingDirectoryHelp": "Existing instances are not probed for a home directory. Use a remote absolute path, or leave empty for DSH’s default.",
-  "remoteRestartManagedWarning": "This stops the remote DSH recorded by the app and starts it again. Other clients and active chats may be interrupted. Continue only after checking nobody else is using it. Normal connection tests never do this.",
-  "remoteHostedLoadFailed": "Couldn’t read saved links. Please retry.",
-  "remoteManagedHelp": "Start or reuse app-managed DSH. A live instance that cannot be reused is never replaced automatically.",
-  "remoteHostedStopFailed": "Couldn’t stop sharing. The link is still active. Please retry.",
-  "remoteHostedCreatedUnsaved": "Your link is ready to copy and use, but wasn’t saved on this device. Keep a copy and retry saving in My shared links.",
-  "remoteHostedUndoUnsaved": "Deletion is cancelled for this session, but the undo wasn’t saved. It may resume after restart. Retry saving in My shared links.",
-  "remoteDshAttached": "Connected to existing DSH",
-  "remoteAttachOnly": "Attach only",
-  "remoteHostedUndoFailed": "Couldn’t restore sharing. Deletion may have started. Check My shared links.",
-  "remoteAttachOnlyHelp": "Forward only to a fixed port on remote 127.0.0.1. Never start, stop or restart DSH."
+  }
 }

@@ -107,7 +107,7 @@
   "engineFieldFollowChat": "Follow Chat",
   "engineSubagentMaxDepth": "สูงสุด recursion depth",
   "engineFieldLayersUnit": "levels",
-  "engineSubagentMaxActive": "สูงสุด ใช้งาน中 subagents",
+  "engineSubagentMaxActive": "สูงสุด ใช้งานกลาง subagents",
   "engineFieldCountUnit": "items",
   "engineSubagentAllowModelChoice": "Let AI เลือก ซับเอจิ้นต์ โมเดล",
   "engineSubagentAllowedModels": "โมเดลที่ใช้ได้",
@@ -225,6 +225,8 @@
   "engineProviderRejectedConfig": "เอนจินปฏิเสธการตั้งค่าบางอย่าง",
   "engineProviderConnection": "การเชื่อมต่อ",
   "engineProviderDefaultUrl": "ค่าเริ่มต้น URL",
+  "engineProviderBaseUrl": "BASE URL",
+  "engineProviderApiKeyLabel": "API คีย์",
   "engineProviderKeyNotRequired": "นอต ต้องการ",
   "engineProviderNoModels": "ยังไม่มีโมเดล",
   "engineProviderWebConfigured": "Configured ใน DSH Web. You can มุมมอง ออร์ ลบ it here",
@@ -287,7 +289,7 @@
   "engineSubscriptionPasteCode": "วาง  authorization code",
   "engineSubscriptionPasteHere": "วาง here",
   "engineSubscriptionConfirm": "ยืนยัน",
-  "engineSubscriptionTryAgain": "ทราย อีกครั้ง",
+  "engineSubscriptionTryAgain": "ลอง อีกครั้ง",
   "engineAccountWelcome": "{name} Welcome, {ชื่อ}",
   "engineLayerCount": "{count} levels}",
   "engineFieldDefaultValue": "{value} ค่าเริ่มต้น {ค่า}",
@@ -301,11 +303,11 @@
   "engineFieldMinutes": "{value} {ค่า} มิน",
   "engineFieldSeconds": "{value} {ค่า} s",
   "engineFieldMilliseconds": "{value} {ค่า} ms",
-  "engineFieldPositiveMax": "{max} Greater than 0, ขึ้น ไป {แม็กซ์}",
+  "engineFieldPositiveMax": "มากกว่า 0 ถึง {max}",
   "engineFieldMin": "{min} At น้อยที่สุด {มิน}",
-  "engineFieldMaxBound": "{max} At มากที่สุด {แม็กซ์}",
+  "engineFieldMaxBound": "สูงสุด {max}",
   "engineFieldBelowMin": "{min} Must เป็น at น้อยที่สุด {มิน}",
-  "engineFieldAboveMax": "{max} Must เป็น at มากที่สุด {แม็กซ์}",
+  "engineFieldAboveMax": "ต้องไม่เกิน {max}",
   "engineFieldMultiple": "Must เป็น  multiple ของ {step}",
   "engineFieldMinCharacters": "{count} characters}",
   "engineFieldMaxCharacters": "{count} characters}",
@@ -333,8 +335,8 @@
   "engineFieldMinCharactersDecimal": "At น้อยที่สุด {bound} characters",
   "engineFieldMaxCharactersDecimal": "At มากที่สุด {bound} characters",
   "engineLayerValue": "{value} {ค่า} levels",
-  "engineFieldEnterPositiveRange": "{max} เอ็นเตอร์  ตัวเลข greater than 0 แอนด์ ไม่ มากกว่า than {แม็กซ์}",
-  "engineFieldEnterBoundedRange": "{min} {max} เอ็นเตอร์  ตัวเลข จาก {มิน} ไป {แม็กซ์}",
+  "engineFieldEnterPositiveRange": "ใส่ตัวเลขมากกว่า 0 และไม่เกิน {max}",
+  "engineFieldEnterBoundedRange": "ใส่ตัวเลขตั้งแต่ {min} ถึง {max}",
   "engineModelTokenLimits": "โทเคน limits",
   "engineModelContextLength": "คอนเท็กซ์ length",
   "engineModelContextOverrideHint": "Empty uses  catalog's figure.  larger ค่า คือ what  engine counts คอนเท็กซ์ pressure แอนด์ compaction ต้าน.",
@@ -359,6 +361,7 @@
   "engineSettingsHostChanged": " โฮสต์ changed. Reopen these ตั้งค่า ไป แก้ไข.",
   "engineSecretTargetChanged": "This field changed. Reopen it ไป แก้ไข.",
   "engineSettingsGroupCount": "{count} ตั้งค่า}",
+  "command": "\\$ {command}",
   "@command": {
     "placeholders": {
       "command": {
@@ -366,6 +369,7 @@
       }
     }
   },
+  "providernameviewlabel": "{provider_name}，{view_label}",
   "@providernameviewlabel": {
     "placeholders": {
       "provider_name": {
@@ -376,6 +380,8 @@
       }
     }
   },
+  "apiKey": "API คีย์",
+  "nodevalue": "{node_value}",
   "@nodevalue": {
     "placeholders": {
       "node_value": {
@@ -383,6 +389,9 @@
       }
     }
   },
+  "baseUrl": "BASE URL",
+  "noSpaceLeft": "ไม่ space left",
+  "xOrNothing": "X ออร์ nothing",
   "@engineAccountWelcome": {
     "placeholders": {
       "name": {
@@ -727,16 +736,5 @@
         "type": "int"
       }
     }
-  },
-  "engineProviderHeaderDuplicate": "Header names must be unique (case-insensitive)",
-  "engineProviderHeaderName": "Name",
-  "engineProviderHeaderInvalidValue": "Use single-line Latin-1 values without control characters (tabs are allowed)",
-  "engineProviderHeaderReserved": "User-Agent is set by the engine; remove this header",
-  "engineProviderHeaders": "Request headers (optional)",
-  "engineProviderHeadersWarning": "Headers are stored as plain text and are not redacted from logs. Use API Key or a credential reference for sensitive credentials.",
-  "engineProviderHeaderValue": "Value",
-  "engineGeneralWebOnlyHint": "These settings only affect this host’s web app, not native chat.",
-  "engineProviderHeaderAdd": "Add header",
-  "engineProviderHeaderLocked": "Managed by the engine; the existing setting is preserved",
-  "engineProviderHeaderInvalidName": "Use letters, digits or HTTP token symbols in header names; no spaces or colons"
+  }
 }

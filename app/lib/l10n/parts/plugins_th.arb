@@ -46,7 +46,7 @@
   "pluginsOfficialPlugin": "Official ปลั๊กอิน",
   "pluginsLocalUnshareable": "ติดตั้งแล้ว locally, can’t แชร์",
   "pluginsIncludesPresets": "Includes presets “{names}”",
-  "pluginsSecretsUnshareable": "คอนเทนส์ secrets, can’t แชร์",
+  "pluginsSecretsUnshareable": "คอนเทนส์ ลับs, can’t แชร์",
   "pluginsLineCount": "{count} lines}",
   "pluginsEmptyValue": "ว่าง",
   "pluginsOnValue": "เปิด",
@@ -175,7 +175,7 @@
   "pluginsInstallHost": "{host} ติดตั้ง ไป: {โฮสต์}",
   "pluginsOfflineDescription": "ติดตั้งแล้ว plugins appear เมื่อ  engine คือ กำลังทำงาน. You can browse  market ตอนนี้.",
   "pluginsIconChanged": "ไอคอน selected. รีเทิร์น ไป your home screen ไป see  change.",
-  "pluginsIconChangeFailed": "Couldn’t change  icon. ทราย อีกครั้ง ภายหลัง.",
+  "pluginsIconChangeFailed": "Couldn’t change  icon. ลอง อีกครั้ง ภายหลัง.",
   "pluginsTheme": "ธีม",
   "pluginsAppearance": "Appearance",
   "pluginsColors": "Colors",
@@ -371,6 +371,13 @@
       }
     }
   },
+  "badeffect": "bad-effect",
+  "badeffect1": "bad-effect",
+  "badeffect2": "bad-effect",
+  "badeffect3": "bad-effect",
+  "badeffect4": "bad-effect",
+  "badeffect5": "bad-effect",
+  "name": "• {name}",
   "@name": {
     "placeholders": {
       "name": {
@@ -378,6 +385,7 @@
       }
     }
   },
+  "presetlabelpresetItemslength": "{presetLabel_preset} · {items_length}",
   "@presetlabelpresetItemslength": {
     "placeholders": {
       "presetLabel_preset": {
@@ -388,6 +396,7 @@
       }
     }
   },
+  "summaryL10npluginsloadrunningcountrunningRowslength": "{summary} · {l10n_pluginsLoadRunningCount_running_rows_length}",
   "@summaryL10npluginsloadrunningcountrunningRowslength": {
     "placeholders": {
       "summary": {
@@ -398,6 +407,8 @@
       }
     }
   },
+  "sectionLabelPageCount": "{section_label} · {page_1}/{count}",
+  "titleText": "{title} {text}",
   "@titleText": {
     "placeholders": {
       "title": {
@@ -408,6 +419,7 @@
       }
     }
   },
+  "closeCaption": "ปิด caption",
   "@pluginsIncludesPresets": {
     "placeholders": {
       "names": {
@@ -885,6 +897,5 @@
         "type": "String"
       }
     }
-  },
-  "pluginsTurnedOn": "On"
+  }
 }

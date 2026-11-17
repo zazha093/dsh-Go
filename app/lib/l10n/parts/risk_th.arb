@@ -3,7 +3,7 @@
   "riskAskAi": "นอต sure? ถาม AI",
   "riskConfirmAlwaysAction": "ข้าม confirmation",
   "riskFullAccessAction": "Turn เปิด Full เข้าถึง",
-  "riskAutoReviewAction": "Turn เปิด Auto รีVUE",
+  "riskAutoReviewAction": "Turn เปิด Auto รีวิว",
   "riskAllowForChatTitle": "อนุญาต everything ใน this chat?",
   "riskAllowForChatBody": "Commands แอนด์ changes ใน this Chat เรียกใช้ โดยไม่มี asking. Turn it ปิด above  ข้อความ box anytime.",
   "riskAllowForChatAction": "อนุญาต ทั้งหมด",
@@ -37,6 +37,5 @@
         "type": "String"
       }
     }
-  },
-  "askAiTooltip": "Ask AI"
+  }
 }

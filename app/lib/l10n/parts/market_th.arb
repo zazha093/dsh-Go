@@ -95,7 +95,7 @@
     }
   },
   "marketVerificationUnavailableTitle": "Could นอต เวอร์ริฟาย  VERSION",
-  "marketVerificationUnavailableBody": "npm did นอต คืนค่า integrity information. Installation has นอต started. เช็ค your การเชื่อมต่อ แอนด์ ทราย อีกครั้ง.",
+  "marketVerificationUnavailableBody": "npm did นอต คืนค่า integrity information. Installation has นอต started. เช็ค your การเชื่อมต่อ แอนด์ ลอง อีกครั้ง.",
   "marketCombinedCount": "{count} {เคาท์} plugins",
   "@marketCombinedCount": {
     "placeholders": {
