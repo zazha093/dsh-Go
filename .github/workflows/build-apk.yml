@@ -3,7 +3,7 @@ name: Build APK
 on:
   workflow_dispatch:
   push:
-    branches: [test/thai-build, golden/thai-9e27]
+    branches: [test/thai-build, golden/thai-9e27, feat/thai-polish]
 
 permissions:
   contents: read
