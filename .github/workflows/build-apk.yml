@@ -73,7 +73,18 @@ jobs:
       - name: Install Android NDK 28.2.13676358
         run: |
           echo "Installing Android NDK 28.2.13676358..."
-          yes | sdkmanager --install "ndk;28.2.13676358"
+          SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -f "$SDKMANAGER" ]; then
+            SDKMANAGER="$ANDROID_HOME/tools/bin/sdkmanager"
+          fi
+          if [ ! -f "$SDKMANAGER" ]; then
+            echo "sdkmanager not found at $SDKMANAGER"
+            echo "Available files in $ANDROID_HOME:"
+            find "$ANDROID_HOME" -name "sdkmanager" -type f 2>/dev/null
+            exit 1
+          fi
+          echo "Using sdkmanager at: $SDKMANAGER"
+          yes | "$SDKMANAGER" --install "ndk;28.2.13676358"
           echo "NDK installed successfully"
           # Set NDK environment variables for tawcroot build
           echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> $GITHUB_ENV
