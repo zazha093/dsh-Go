@@ -70,6 +70,30 @@ jobs:
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
+      - name: Install Android NDK 28.2.13676358
+        run: |
+          echo "Installing Android NDK 28.2.13676358..."
+          yes | sdkmanager --install "ndk;28.2.13676358"
+          echo "NDK installed successfully"
+          # Set NDK environment variables for tawcroot build
+          echo "ANDROID_NDK_HOME=$ANDROID_HOME/ndk/28.2.13676358" >> $GITHUB_ENV
+          echo "ANDROID_NDK_ROOT=$ANDROID_HOME/ndk/28.2.13676358" >> $GITHUB_ENV
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - uses: gradle/actions/setup-gradle@v6
+        with:
+          gradle-version: ${{ env.GRADLE_VERSION }}
+
       - name: Flutter pub get
         working-directory: app
         run: flutter pub get --enforce-lockfile
