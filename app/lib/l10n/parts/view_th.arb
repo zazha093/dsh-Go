@@ -1,0 +1,1380 @@
+{
+  "viewArtifactSaved": "{value} บันทึกที่ {value}",
+  "viewDownloadFolder": "ดาวน์โหลด/",
+  "viewArtifactNoPreview": "ไม่สามารถพรีวิวได้",
+  "viewArtifactNotText": "ไม่ใช่ไฟล์ข้อความ",
+  "viewArtifactLarge": "ไฟล์ขนาดใหญ่",
+  "viewArtifactMissing": "ไฟล์นี้ไม่มีแล้ว",
+  "viewArtifactNotFile": "นี้ไม่ใช่ไฟล์",
+  "viewArtifactOpenFailed": "เปิดไม่ได้",
+  "viewArtifactMore": "การกระทำเพิ่มเติม",
+  "viewWorkspace": "เวิร์กสเปซ",
+  "viewArtifactEmpty": "ไฟล์ว่าง",
+  "viewArtifactLines": "{count} ไฟล์ขนาดใหญ่ แสดงบรรทัดแรก}",
+  "viewArtifactRows": "{count} แสดงแถวแรก}",
+  "viewArtifactColumns": "แสดงคอลัมน์แรก 200 คอลัมน์",
+  "viewArtifactWorksheet": "{value} ชีต {value}",
+  "viewArtifactEmptySheet": "ชีตว่าง",
+  "viewArtifactEmptyTable": "ตารางว่าง",
+  "viewArtifactConvertFailed": "แปลงไม่ได้",
+  "viewArtifactConverting": "กำลังแปลง PDF…",
+  "viewArtifactImageFailed": "แสดงรูปภาพนี้ไม่ได้",
+  "viewArtifactPhoneOpen": "เปิดในแอปบนโทรศัพท์นี้",
+  "viewArtifactPdfFailed": "เปิด PDF นี้ไม่ได้ ลองแอปอื่น",
+  "viewArtifactPages": "{count} หน้า}",
+  "viewArtifactPage": "{value} หน้า {value}",
+  "viewBalanceInvalidKey": "คีย์ไม่ถูกต้อง เช็คยอดไม่ได้",
+  "viewBalancePrefix": "ยอดคงเหลือ ",
+  "viewBalanceLowSuffix": " · ยอดต่ำ",
+  "viewBalanceUnavailableSuffix": " · ไม่สามารถโทรได้",
+  "viewBalanceTopUp": "เติมเงิน",
+  "viewBalanceTitle": "ยอดคงเหลือ DeepSeek",
+  "viewBalanceKeyRequired": "ใส่คีย์ API เพื่อเช็คยอดคงเหลือ",
+  "viewBalanceKeyInvalid": "คีย์ API ไม่ถูกต้อง เช็คยอดไม่ได้",
+  "viewBalancePaid": "{value} จ่ายแล้ว {value}",
+  "viewBalanceGranted": "{value} โบนัส {value}",
+  "viewBalanceLow": "ยอดต่ำ",
+  "viewBalanceUnavailable": "ไม่สามารถโทรได้",
+  "viewBalanceChecking": "กำลังเช็คยอดคงเหลือ…",
+  "viewBalanceCheckFailed": "เช็คยอดไม่ได้ตอนนี้",
+  "viewBalanceNoAlert": "ปิด",
+  "viewBalanceBannerHidden": "แจ้งเตือนยอดซ่อนจนกว่า DSH Go รีสตาร์ท",
+  "viewBalanceTurnOff": "ปิด",
+  "viewBalanceBelow": "{value} ต่ำกว่า {value}",
+  "viewBalanceAlert": "แจ้งเตือนยอดต่ำ",
+  "viewBalanceThreshold": "เกณฑ์แจ้งเตือน",
+  "viewBalanceGoTopUp": "เติมเงิน",
+  "viewBalanceRemaining": "{value} เหลือ {value}",
+  "viewBalanceModelDisabled": "ยอดคงเหลือไม่เพียงพอ โหมดถูกปิดใช้งาน",
+  "viewBalanceRestore": "เติมเงินเพื่อดำเนินต่อ",
+  "viewUiIncomplete": "มุมมองยังกำลังสร้าง",
+  "viewUiInvalid": "มุมมองนี้มีข้อผิดพลาดรูปแบบ",
+  "viewUiResend": "ขอส่งใหม่",
+  "viewChartUnit": "{value} หน่วย: {value}",
+  "viewChartSeries": "{value} ชุด {value}",
+  "viewChartTotal": "รวม",
+  "viewChartBar": "แผนภาพแท่ง",
+  "viewChartHorizontalBar": "แผนภาพแท่งแนวนอน",
+  "viewChartLine": "แผนภาพเส้น",
+  "viewChartDonut": "แผนภาพโดนัท",
+  "viewUiResendMessage": "{value} มุมมอง dsh-ui ก่อนหน้าแสดงไม่ได้: {value} แก้ไขและส่งใหม่",
+  "viewUiBytesLimit": "{second} {first} มุมมองเป็นไบต์}, เกินลิมิตไบต์}",
+  "viewUiEmptyCode": "บล็อกโค้ดว่าง",
+  "viewUiInvalidJson": "{message} JSON ไม่ถูกต้อง ({message})",
+  "viewUiJsonRepaired": "คอมเมนต์และคอมมาท้าย ไม่สนใจ",
+  "viewUiExpectedObject": "คาดว่าจะเป็นออบเจ็กต์คอมโพเนนต์",
+  "viewUiDepthLimit": "{second} {first} ความลึก {first} เกินลิมิต {second}",
+  "viewUiMissingType": "ขาดประเภท",
+  "viewUiUnknownComponent": "{value} คอมโพเนนต์ไม่รู้จัก {value}",
+  "viewUiAvailableTypes": "{second} {first} {first}; ที่มี: {second}",
+  "viewUiExpectedChildren": "{limit} คาดว่าแอเรย์ 1 ถึง {limit} คอมโพเนนต์",
+  "viewUiHiddenItems": "{count} ตัดทอน: ไอเท็มมากกว่านี้ซ่อน}",
+  "viewUiNodeLimit": "{second} {first} เกินคอมโพเนนต์}; ไอเท็มท้ายถูกตัด}",
+  "viewUiChildLimit": "{second} {first} เกินไอเท็ม}; ไอเท็มท้ายถูกตัด}",
+  "viewUiExpectedString": "คาดว่าจะเป็นสตริง",
+  "viewUiTextLimit": "{second} {first} ตัวอักษร}, เกินลิมิต",
+  "viewUiTextTruncated": "ตัดทอน: ข้อความยาวเกินไป",
+  "viewUiExpectedFinite": "คาดว่าจะเป็นตัวเลขจำกัด",
+  "viewUiYes": "ใช่",
+  "viewUiNo": "ไม่",
+  "viewUiExpectedStringNumber": "คาดว่าจะเป็นสตริงหรือตัวเลข",
+  "viewUiUnknownTone": "{value} โทนไม่รู้จัก {value} ไม่สนใจ ที่มี: good, warn, bad",
+  "viewUiUnknownChart": "{value} แผนภาพไม่รู้จัก {value} วาดเป็นแท่ง ที่มี: bar, hbar, line, donut",
+  "viewUiExpectedCategories": "คาดว่าแอเรย์ไม่ว่างของป้ายกำกับ",
+  "viewUiCategoryLimit": "{second} {first} หมวดหมู่}, เกินลิมิต",
+  "viewUiFirstPoints": "{limit} แสดงเฉพาะจุดแรก}",
+  "viewUiExpectedSeries": "คาดว่าแอเรย์ไม่ว่างของออบเจ็กต์ {shape}",
+  "viewUiSkippedSeries": "คาดว่าแอเรย์ตัวเลข ชุดข้าม",
+  "viewUiValuesCategories": "{second} {first} ค่า} สำหรับหมวดหมู่}; ค่าเกินถูกตัด ค่าขาดเว้นว่าง",
+  "viewUiNonFiniteValues": "{count} ค่าไม่จำกัด} เว้นว่าง",
+  "viewUiNoSeries": "ไม่มีชุดให้วาด",
+  "viewUiDonutSeries": "{count} โดนัทใช้ชุดเดียว ชุดอื่นไม่สนใจ}",
+  "viewUiFirstSeries": "วาดเฉพาะชุดแรก",
+  "viewUiSeriesLimit": "{second} {first} ชุด}, เกินลิมิต",
+  "viewUiFirstSeriesCount": "{limit} แสดงเฉพาะชุดแรก}",
+  "viewUiNoFiniteValues": "ไม่มีค่าจำกัด",
+  "viewUiTruncated": "{value} ตัดทอน: {value}",
+  "viewUiExpectedCompare": "{limit} คาดว่าแอเรย์ 2 ถึง {limit} ออบเจ็กต์ {shape}",
+  "viewUiItemLimit": "{second} {first} ไอเท็ม}, เกินลิมิต",
+  "viewUiFirstItems": "{limit} แสดงเฉพาะไอเท็มแรก}",
+  "viewUiSkippedCompare": "คาดว่า {shape} ไอเท็มข้าม",
+  "viewUiSkippedItemLabel": "คาดว่าสตริงไม่ว่าง ไอเท็มข้าม",
+  "viewUiRowLimit": "{second} {first} rows}, exceeding ลิมิต ของ",
+  "viewUiSkippedRow": "Expected [ชื่อ, ค่า]; แถว skipped",
+  "viewUiNoItems": "ไม่ items ไป draw",
+  "viewUiFirstRows": "{limit} Showing เท่านั้น เฟิร์ส rows} per item",
+  "viewUiExpectedSteps": "Expected  non-empty อาร์เรย์ ของ {shape} objects",
+  "viewUiStepLimit": "{second} {first} steps}, exceeding ลิมิต ของ",
+  "viewUiFirstSteps": "{limit} Truncated: showing เท่านั้น เฟิร์ส steps}",
+  "viewUiSkippedStep": "Expected {shape}; step ข้าม",
+  "viewUiUnknownStatus": "{value} Unknown status {ค่า}, drawn ในฐานะ ทูดู; available: เสร็จ, current, ทูดู, ล้มเหลว",
+  "viewUiNoSteps": "ไม่ steps ไป draw",
+  "viewUiUnknownCalloutTone": "{value} Unknown tone {ค่า}, drawn ในฐานะ ข้อมูล; available: ข้อมูล, good, warn, bad",
+  "viewUiExpectedOptions": "{limit} Expected  อาร์เรย์ ของ 1 ไป {ลิมิต} {shape} options",
+  "viewUiOptionLimit": "{second} {first} options}, exceeding ลิมิต ของ",
+  "viewUiFirstOptions": "{limit} Truncated: showing เท่านั้น เฟิร์ส options}",
+  "viewUiDuplicateLabel": "{value} ซ้ำ label {ค่า}; skipped",
+  "viewUiNoOptions": "ไม่ usable options",
+  "viewUiSummaryBody": "{value} [มุมมอง] {ค่า}",
+  "viewUiSummaryTitleBody": "{second} {first} [มุมมอง] {เฟิร์ส}: {เซคอนด์}",
+  "viewUiSummaryInvalid": "[มุมมอง] (formatting ข้อผิดพลาด, couldn’t แสดง)",
+  "viewUiSummaryText": "{value} เท็กซ์: {ค่า}",
+  "viewUiSummaryChart": "{summary} Chart: {สรุป}",
+  "viewUiSummaryCompare": "{value} Compare: {ค่า}",
+  "viewUiSummarySteps": "{value} Steps: {ค่า}",
+  "viewUiSummaryCallout": "{value} Note: {ค่า}",
+  "viewUiSummaryOptions": "{value} Options: {ค่า}",
+  "viewUiSummaryConfirm": "{second} {first} ยืนยัน: {เฟิร์ส}/{เซคอนด์}",
+  "viewUiReplyChoice": "{value} select:",
+  "viewUiReplyConfirm": "{value} ยืนยัน: {ค่า}",
+  "viewUiReplyCancel": "{value} ยกเลิก: {ค่า}",
+  "viewUiReplyOther": "{value} other: {ค่า}",
+  "viewUiFreeTextHint": "other (type your own)",
+  "viewUiChosenOther": "{value} Wrote: {ค่า}",
+  "viewUiChosen": "{value} Selected: {ค่า}",
+  "viewUiConfirmed": "ยืนยันแล้ว",
+  "viewUiConfirmedValue": "{value} Confirmed: {ค่า}",
+  "viewUiCancelledValue": "{value} ยกเลิกแล้ว: {ค่า}",
+  "viewUiReplied": "Replied",
+  "viewUiGenerating": "Generating มุมมอง",
+  "viewUiReplyAfterEnd": "Choose เมื่อ  reply คือ complete",
+  "viewUiExpired": "Expired",
+  "viewUiNotStarted": "นอต started",
+  "viewUiMultiple": "เลือก multiple",
+  "viewSuggestWorkspace": "สำรวจเวิร์กสเปซ",
+  "viewSuggestWorkspacePrompt": "ตรวจสอบว่ามีไฟล์และโปรเจกต์อะไรในเวิร์กสเปซ แล้วให้ภาพรวมสั้นๆ",
+  "viewSuggestWordCount": "เขียน  script",
+  "viewSuggestWordCountPrompt": "เขียน  Python script that finds  20 มากที่สุด frequent words ใน  เท็กซ์ ไฟล์, แล้ว เรียกใช้ it แอนด์ แสดง me  results.",
+  "viewSuggestNode": "โครงการใหม่",
+  "viewSuggestNodePrompt": "สร้างโปรเจกต์ Node.js ในเวิร์กสเปซ พร้อม TypeScript และ unit test ขั้นพื้นฐาน",
+  "viewSuggestGit": "อธิบาย Git",
+  "viewSuggestGitPrompt": "ใช้ตัวอย่างที่เป็นรูปธรรมอธิบายความแตกต่างระหว่าง git rebase และ git merge พร้อมบอกเมื่อไหร่ควรใช้แต่ละอย่าง",
+  "viewSuggestWorkspaceHint": "รายการไฟล์และโปรเจกต์",
+  "viewSuggestWordCountHint": "จำนวน words, แล้ว รัน it",
+  "viewSuggestNodeHint": "Node.js พร้อมเทสต์",
+  "viewSuggestGitHint": "Rebase หรือ merge?",
+  "viewTipNext": "ถัดไป tip",
+  "viewTipLabel": "{value} Tip: {ค่า}",
+  "viewTipSteer": "ขณะทำงาน กดค้างที่ปุ่มส่งเพื่อควบคุม เพิ่มคิว หรือหยุดชั่วคราว",
+  "viewTipMidRun": "You can ข้อความ mid-เรียกใช้ — it reads it at  ถัดไป step",
+  "viewTipSlash": "ประเภท / สำหรับ commands: compact  context, switch models แอนด์ มากกว่า",
+  "viewTipMention": "ประเภท @ ไป reference  workspace ไฟล์ ออร์ another chat",
+  "viewTipReplyMenu": "Long-press  reply ไป คัดลอก, quote ออร์ regenerate it",
+  "viewTipEditResend": "Long-press your own ข้อความ ไป แก้ไข แอนด์ resend —  original stays",
+  "viewTipQuote": "เลือก part ของ  reply แอนด์ tap Quote ไป ถาม เกี่ยวกับ เพียง that",
+  "viewTipTitleDetails": "Tap  Chat หัวข้อ สำหรับ changes, files แอนด์  Terminal",
+  "viewTipContextRing": "วงกลมรอบปุ่มส่งแสดงการใช้คอนเท็กซ์ แตะเพื่อดูรายละเอียด",
+  "viewTipDrawerMenu": "Long-press  Chat ใน  sidebar ไป pin, รีเนม ออร์ archive it",
+  "viewTipSearch": "เวียร์  โฮสต์ supports it, Chat ค้นหา matches ข้อความ เนื้อหา, นอต เพียง titles",
+  "viewTipSettingsSearch": "Long-press ตั้งค่า ใน  sidebar ไป ค้นหา ตั้งค่า",
+  "viewTipQuickPanel": "Swipe left เปิด  Chat ไป เปิด  quick แผง",
+  "viewTipFolderNewChat": "Long-press  โฟลเดอร์ ใน  sidebar ไป เริ่ม  Chat inside it",
+  "viewTipSwitchHost": "Tap  โฮสต์ ชื่อ at  sidebar's foot ไป switch ไป DSH เปิด your computer",
+  "viewTipPasteImage": "Screenshots แอนด์ stickers จาก your keyboard can go straight เข้า  composer",
+  "viewTipLauncher": "Long-press  app icon ไป ถาม โดย voice ออร์ เริ่ม  ใหม่ Chat",
+  "viewTipPetBubble": "เมื่อ  pet pops  bubble, tap it ไป จัมพ์ ไป  Chat that's waiting",
+  "viewTipPetPlay": "แตะสัตว์เลี้ยงสามครั้งเพื่อจั๊กจี้มัน กดค้างเพื่อสลับ",
+  "viewTipActivityStrip": "ขณะที่ it works, tap  status strip ไป see this turn's full การติดตาม",
+  "viewTipImageZoom": "ในตัวดูรูปภาพ แตะสองครั้งหรือพินช์เพื่อซูม กดค้างเพื่อบันทึก",
+  "viewTipQueuedRecall": "ข้อความในคิวสามารถดึงกลับเข้าคอมโพเซอร์เพื่อแก้ไขได้",
+  "viewTipKeyboard": "กับ  keyboard: Ctrl+เอ็นเตอร์ sends, Esc สองครั้ง stops",
+  "viewTipShareIn": "แชร์ เท็กซ์ ออร์ images ไป DSH Go จาก another app ไป เริ่ม  ใหม่ Chat กับ them",
+  "viewTipShareSelect": "เมื่อแชร์แชท กดค้างแล้วลากเพื่อเลือกหลายข้อความพร้อมกัน",
+  "viewTipChartDrag": "Drag across  chart ใน  reply ไป อ่าน แต่ละ พอยต์",
+  "viewTipCopyPath": "Long-press  ไฟล์ ใน  changes card ไป คัดลอก its พาธ",
+  "viewTipCompanion": " Companion Room lives ใน  Switch โฮสต์ sheet",
+  "viewTipAnswerInline": "เมื่อ  AI asks you something, เพียง type  คำตอบ ใน  composer",
+  "viewTipWallpaper": "Wallpapers can เป็น dragged, zoomed, blurred แอนด์ dimmed",
+  "viewTipModelHere": "Pick  Model, preset แอนด์ permissions right here — สำหรับ this Chat เท่านั้น",
+  "viewNewChatFolder": "โฟลเดอร์",
+  "viewNewChatPresetTitle": "Preset สำหรับ this Chat",
+  "viewNewChatPermissionTitle": "Permissions สำหรับ this Chat",
+  "viewNewChatDefault": "ค่าเริ่มต้น",
+  "viewNewChatUnavailable": "ไม่พร้อมใช้งาน",
+  "viewNewChatChange": "เปลี่ยน",
+  "viewNewChatModesFailed": "Couldn’t เซ็ท  preset ออร์ permissions.  ข้อความ wasn’t sent.",
+  "viewGreetingMorning": "ดี เช้า",
+  "viewGreetingNoon": "สวัสดีตอนกลางวัน",
+  "viewGreetingAfternoon": "สวัสดีตอนบ่าย",
+  "viewGreetingEvening": "ดี เย็น",
+  "viewGreetingNight": "It’s late",
+  "viewEmptySubtitle": "วันนี้อยากทำอะไร?",
+  "viewEmptyStarting": "Starting engine…",
+  "viewEmptyConnecting": "Connecting ไป engine…",
+  "viewEmptyDisconnected": "Engine นอต connected",
+  "viewEmptyReconnect": "เชื่อมต่อใหม่",
+  "viewEmptyWorkspace": "{value} ใน “{ค่า}”",
+  "viewEmptySwitchWorkspace": "สวิตช์ workspace",
+  "viewEmptyHostDefaultDirectory": "โฮสต์ ค่าเริ่มต้น โฟลเดอร์",
+  "viewScheduleTitle": "Automations",
+  "viewScheduleRefreshFailed": "Couldn’t รีเฟรช",
+  "viewScheduleNone": "ไม่ ใช้งาน中 automations",
+  "viewScheduleNext": "{value} ถัดไป {ค่า}",
+  "viewScheduleUntitled": "Untitled automation",
+  "viewScheduleSendFailed": "Couldn’t ส่ง",
+  "viewScheduleEnded": "สิ้นสุด",
+  "viewScheduleUpcoming": "ขึ้น ถัดไป",
+  "viewScheduleSending": "Sending…",
+  "viewScheduleRunNow": "เรียกใช้ ตอนนี้",
+  "viewScheduleManage": "จัดการ",
+  "viewScheduleToday": "{value} วันนี้ {ค่า}",
+  "viewScheduleTomorrow": "{value} พรุ่งนี้ {ค่า}",
+  "viewScheduleYesterday": "{value} เมื่อวาน {ค่า}",
+  "viewScheduleWeekday": "{first} {second}",
+  "viewScheduleDue": "Due ตอนนี้",
+  "viewScheduleDaysAhead": "{count} ใน days}",
+  "viewScheduleDaysOverdue": "{count} days} overdue",
+  "viewScheduleSingleLabel": "{title} Automation: {หัวข้อ}",
+  "viewScheduleCountLabel": "{count} automations}",
+  "viewModelSelect": "Choose Model",
+  "viewModelThinkingOff": "ปิด",
+  "viewModelThinkingMinimal": "Minimal",
+  "viewModelThinkingLow": "ต่ำ",
+  "viewModelThinkingMedium": "กลาง",
+  "viewModelThinkingHigh": "สูง",
+  "viewModelThinkingMax": "สูงสุด",
+  "viewModelLabel": "{value} Model: {ค่า}",
+  "viewModelEffortLabel": "{value} Thinking effort {ค่า}",
+  "viewModelLoadFailed": "Couldn’t โหลด models",
+  "viewModelDisconnected": "Engine นอต connected",
+  "viewModelConnectHint": "เชื่อมต่อ ไป choose  model",
+  "viewModelEffort": "Thinking effort",
+  "viewModelKeyRequired": "API คีย์ ต้องการ",
+  "viewModelProvidersHint": "Supports DeepSeek แอนด์ other Model providers",
+  "viewModelEnterKey": "เอ็นเตอร์ API คีย์",
+  "viewModelAddProvider": "เพิ่ม provider",
+  "viewModelNone": "ไม่ models available",
+  "viewModelKeyHint": "คีย์ พฤษภาคม นอต เป็น ใช้งาน中 ออร์ พฤษภาคม have expired",
+  "viewModelManageProviders": "จัดการ providers",
+  "viewContinuePrompt": "ดำเนินต่อ  chat attached here:",
+  "viewContinueRange": "{second} {first} Turns – ของ {third} turns}",
+  "viewContinueHeader": "{value} > Shared DSH Go Chat · {ค่า}\n",
+  "viewContinueUser": "\n## ผู้ใช้\n\n",
+  "viewImageCount": "{count} images}",
+  "viewContinueAttachments": "{value} \n(Attachments: {ค่า})\n",
+  "viewContinueAssistant": "\n## Assistant\n\n",
+  "viewContinueInterrupted": "\n(Reply interrupted)\n",
+  "viewContinueFailed": "(ล้มเหลว)",
+  "viewContinueDeclined": "(Declined)",
+  "viewContinueCancelled": "(ยกเลิกแล้ว)",
+  "viewLinkWeek": "7 days",
+  "viewLinkMonth": "30 days",
+  "viewLinkForever": "Forever",
+  "viewShareChat": "แชท",
+  "viewShareNoPermission": "ไม่ storage สิทธิ์. Couldn’t บันทึก.",
+  "viewShareOpenFailed": "Couldn’t เปิด แชร์ sheet",
+  "viewShareLinkFailed": "Couldn’t ครีเอท ลิงก์. ทราย อีกครั้ง ภายหลัง.",
+  "viewShareLinkText": "{second} {first} “{เฟิร์ส}” · DSH Go Chat\n{เซคอนด์}",
+  "viewShareEmpty": "This Chat has ไม่ เนื้อหา ยัง",
+  "viewShareMessageCount": "{count} messages}",
+  "viewShareToolCount": "{count} เครื่องมือ calls}",
+  "viewShareFileHint": "Replay แอนด์ ต่อ ใน DSH Go",
+  "viewShareWebHint": "Opens ใน แอนนี่ browser, แม้ offline",
+  "viewShareMarkdownHint": "Plain เท็กซ์, readable anywhere",
+  "viewShareLinkHint": "End-ไป-end encrypted.  เซิร์ฟเวอร์ can’t see your เนื้อหา.",
+  "viewSharePreview": "พรีวิว",
+  "viewShareWhole": "Entire Chat",
+  "viewShareScopeReply": "This reply",
+  "viewShareScopePicked": "Selected",
+  "viewShareThinking": "Thinking",
+  "viewShareIncludeTools": "เครื่องมือ calls",
+  "viewShareChatFile": "Chat ไฟล์",
+  "viewShareWebPage": "Web เพจ",
+  "viewShareLink": "ลิงก์",
+  "viewShareAsImage": "รูปภาพ",
+  "viewShareAsFile": "ไฟล์",
+  "viewShareAsText": "เท็กซ์",
+  "viewShareRedacted": "Secrets ซ่อน",
+  "viewShareAdjust": "แก้ไข",
+  "viewShareTooLarge": "{value} เกิน MB. select fewer messages.",
+  "viewShareCreateLink": "สร้าง ลิงก์",
+  "viewShareStop": "หยุด sharing",
+  "viewShareStopTitle": "หยุด sharing?",
+  "viewShareStopped": "Sharing หยุด",
+  "viewQrCode": "QR โค้ด",
+  "viewShareTurn": "{value} Turn {ค่า}",
+  "viewReplayContinue": "ดำเนินต่อ chat",
+  "viewReplayTurns": "{second} {first} Turns {เฟิร์ส}–{เซคอนด์}",
+  "viewReplaySeconds": "{count} sec}",
+  "viewReplayMinutes": "{count} มิน}",
+  "viewReplayFull": "Full Chat",
+  "viewReplayPause": "หยุดชั่วคราว",
+  "viewReplayRestart": "Replay",
+  "viewReplayPlay": "เล่น",
+  "viewReplaySpeed": "{value} ความเร็ว {ค่า}×",
+  "viewTemplatePaper": "Paper",
+  "viewTemplateGlass": "Glass",
+  "viewTemplateCard": "Card",
+  "viewShareProjectQr": "โปรเจกต์ QR code",
+  "viewShareBrandLine": "DSH เปิด your phone · Scan ไป get it",
+  "viewShareBrandLineNoQr": "DSH เปิด your phone",
+  "viewShareSteps": "{count} steps}",
+  "viewShareWebSearch": "Web ค้นหา",
+  "viewShareOpenPage": "เปิด web เพจ",
+  "viewShareRunCommand": "เรียกใช้ command",
+  "viewShareReadFile": "ดู ไฟล์",
+  "viewShareEditFile": "แก้ไข ไฟล์",
+  "viewShareSubagent": "ซับเอจิ้นต์",
+  "viewShareSkill": "ใช้ skill",
+  "viewSharePresentFiles": "Present files",
+  "viewShareWorkflow": "Workflow",
+  "viewSharePlugin": "คอลล์ ปลั๊กอิน",
+  "viewShareStars": "Stars",
+  "viewSharePluginTitle": "{value} DSH ปลั๊กอิน “{ค่า}”",
+  "viewShareInstallCommand": "{value} ติดตั้ง: dsh ปลั๊กอิน เพิ่ม {ค่า}",
+  "viewSharePhoneInstall": "{value} ติดตั้ง เปิด your phone: {ค่า}",
+  "viewShareImages": "Images",
+  "viewSharePickMessages": "เลือก messages",
+  "viewShareDoneCount": "{count} เสร็จ ({เคาท์})",
+  "viewShareImageMarker": "[รูปภาพ]",
+  "viewShareImagesMarker": "{count} [ images}]",
+  "viewShareYou": "You",
+  "viewShareImageFailed": "Couldn’t ครีเอท รูปภาพ. ทราย อีกครั้ง.",
+  "viewShareQuestion": "คำถาม",
+  "viewShareModelSteps": "Model แอนด์ steps",
+  "viewShareImagePreview": "แชร์ รูปภาพ พรีวิว",
+  "viewShareSaveImage": "บันทึก image",
+  "viewScheduleHoursAhead": "{count} ใน h}",
+  "viewScheduleHoursOverdue": "{count} h} overdue",
+  "viewScheduleMinutesAhead": "{count} ใน มิน}",
+  "viewScheduleMinutesOverdue": "{count} มิน} overdue",
+  "viewScheduleSecondsAhead": "{count} ใน sec}",
+  "viewScheduleSecondsOverdue": "{count} sec} overdue",
+  "viewScheduleDate": "{date} {clock}",
+  "viewScheduleYearDate": "{date}, {year} {clock}",
+  "viewScheduleWeekdayName": "{day} 2 3 4 5 6 other",
+  "viewReplayDate": "{month} {day}",
+  "viewReplayHours": "{count} ชั่วโมง",
+  "viewReplayHoursMinutes": "{hours} h}} {minutes} มิน}}",
+  "viewUiHundredMillion": "{value} ร้อยล้าน",
+  "viewUiTenThousand": "{value} หมื่น",
+  "viewUiMillion": "{value} ล้าน",
+  "viewListSeparator": ", ",
+  "viewAttachmentSeparator": ", ",
+  "viewUiInvalidJsonOffset": "ข้อมูล JSON ไม่ถูกต้องที่ตำแหน่ง {offset}: {message}",
+  "viewUiUnavailableChart": "Can’t แสดง chart",
+  "viewUiUnavailableMetric": "Can’t แสดง metric",
+  "viewUiUnavailableCompare": "Can’t แสดง comparison",
+  "viewUiUnavailableSteps": "Can’t แสดง steps",
+  "viewUiUnavailableCallout": "Can’t แสดง note",
+  "viewUiUnavailableOptions": "Can’t แสดง options",
+  "viewUiUnavailableConfirm": "Can’t แสดง confirmation",
+  "viewUiUnavailableText": "Can’t แสดง เท็กซ์",
+  "viewUiUnavailableGroup": "Can’t แสดง this กลุ่ม",
+  "viewUiUnavailablePart": "Can’t แสดง this section",
+  "viewScheduleSingleNextLabel": "ครั้งถัดไป: {title} เมื่อ {when}",
+  "viewScheduleCountNextLabel": "ครั้งถัดไป {count} รายการ เมื่อ {when}",
+  "viewUiSkippedStepLabel": "คาดว่าสตริง ขั้นตอนข้าม",
+  "viewLabeledValue": "{label}: {value}",
+  "viewDescribedValue": "{label}, {description}",
+  "viewSemicolonSeparator": "; ",
+  "viewChartSemantics": "{kind}. {data}",
+  "viewMetricSemantics": "{label} {value}",
+  "viewMetricCaptionSemantics": "{label} {value}, {caption}",
+  "viewScheduleZone": "{rule} ({city} · {offset})",
+  "viewContinueNotice": "\n({text})\n",
+  "viewShareAltMarker": "[{alt}]",
+  "viewModelThinkingXhigh": "สูงมาก",
+  "viewUiDialectWebOnly": "{kind} · มุมมองใน DSH Web",
+  "viewUiDialectKindInteractive": "ส่วนโต้ตอบ",
+  "viewUiDialectKindChart": "แผนภาพ",
+  "viewUiDialectKindDiagram": "แผนภาพ",
+  "viewUiDialectKindImage": "รูปภาพ",
+  "viewUiDialectKindAudio": "ออดิโอ",
+  "viewUiDialectKindVideo": "วิดีโอ",
+  "viewUiDialectKindScene": "ฉาก 3D",
+  "viewUiDialectKindFiles": "ไฟล์ทรีย",
+  "viewUiDialectKindMap": "แผนที่",
+  "viewUiDialectKindOther": "ส่วนนี้",
+  "viewUiDialectInvalid": "บล็อกนี้แสดงใน DSH Web",
+  "viewUiDialectNote": "แสดงใน DSH Web",
+  "@viewArtifactSaved": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewArtifactLines": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewArtifactRows": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewArtifactWorksheet": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewArtifactPages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewArtifactPage": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewBalancePaid": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewBalanceGranted": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewBalanceBelow": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewBalanceRemaining": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewChartUnit": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewChartSeries": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiResendMessage": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiBytesLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiInvalidJson": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiDepthLimit": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiUnknownComponent": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiAvailableTypes": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiExpectedChildren": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiHiddenItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiNodeLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiChildLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiTextLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiUnknownTone": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiUnknownChart": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiCategoryLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstPoints": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiExpectedSeries": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiValuesCategories": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiNonFiniteValues": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiDonutSeries": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiSeriesLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstSeriesCount": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiTruncated": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiExpectedCompare": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      },
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiItemLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstItems": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiSkippedCompare": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiRowLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstRows": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiExpectedSteps": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiStepLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstSteps": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiSkippedStep": {
+    "placeholders": {
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiUnknownStatus": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiUnknownCalloutTone": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiExpectedOptions": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      },
+      "shape": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiOptionLimit": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiFirstOptions": {
+    "placeholders": {
+      "limit": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewUiDuplicateLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryBody": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryTitleBody": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryText": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryChart": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryCompare": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummarySteps": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryCallout": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryOptions": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiSummaryConfirm": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiReplyChoice": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiReplyConfirm": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiReplyCancel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiReplyOther": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiChosenOther": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiChosen": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiConfirmedValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiCancelledValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewTipLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewEmptyWorkspace": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleNext": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleToday": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleTomorrow": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleYesterday": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleWeekday": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "second": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleDaysAhead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleDaysOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleSingleLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewModelLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewModelEffortLabel": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewContinueRange": {
+    "placeholders": {
+      "first": {
+        "type": "int"
+      },
+      "second": {
+        "type": "int"
+      },
+      "third": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewContinueHeader": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewImageCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewContinueAttachments": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareLinkText": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareMessageCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewShareToolCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewShareTooLarge": {
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewShareTurn": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewReplayTurns": {
+    "placeholders": {
+      "second": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewReplaySeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewReplayMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewReplaySpeed": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareSteps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewSharePluginTitle": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareInstallCommand": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewSharePhoneInstall": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareDoneCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareImagesMarker": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleHoursAhead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleHoursOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleMinutesAhead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleMinutesOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleSecondsAhead": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleSecondsOverdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@viewScheduleDate": {
+    "placeholders": {
+      "clock": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleYearDate": {
+    "placeholders": {
+      "clock": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewReplayDate": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewReplayHours": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewReplayHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiHundredMillion": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiTenThousand": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiMillion": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiInvalidJsonOffset": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      },
+      "offset": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleSingleNextLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleCountNextLabel": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewLabeledValue": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewDescribedValue": {
+    "placeholders": {
+      "description": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewChartSemantics": {
+    "placeholders": {
+      "data": {
+        "type": "String"
+      },
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewMetricSemantics": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewMetricCaptionSemantics": {
+    "placeholders": {
+      "caption": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewScheduleZone": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      },
+      "offset": {
+        "type": "String"
+      },
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewContinueNotice": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewShareAltMarker": {
+    "placeholders": {
+      "alt": {
+        "type": "String"
+      }
+    }
+  },
+  "@viewUiDialectWebOnly": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  }
+}

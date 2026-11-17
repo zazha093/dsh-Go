@@ -1,0 +1,9 @@
+{
+  "@codexwarningtextl10nCode": {
+    "placeholders": {
+      "codexWarningText_l10n_code": {
+        "type": "String"
+      }
+    }
+  }
+}

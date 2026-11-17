@@ -1,0 +1,14 @@
+{
+  "mediaImageLoading": "กำลังโหลด image",
+  "mediaImageReload": "โหลดใหม่ image",
+  "mediaImageReloadHint": "Reads  ไฟล์ อีกครั้ง; does นอต generate อีกครั้ง ออร์ incur generation charges",
+  "mediaVideoNoPoster": "Tap ไป play วิดีโอ",
+  "mediaSavedFilesCount": "{count} Saved {เคาท์} files ไป gallery",
+  "@mediaSavedFilesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

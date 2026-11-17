@@ -1,0 +1,11 @@
+{
+  "petActionSending": "Sending…",
+  "petActionTargetChanged": "โฮสต์ changed. Reopen Quick ถาม; your เท็กซ์ คือ kept.",
+  "petActionSendFailed": "Couldn’t ส่ง. Your เท็กซ์ คือ kept; ทราย อีกครั้ง.",
+  "petActionBusy": "This Chat คือ busy. Choose ใหม่ Chat.",
+  "petActionVoiceMissing": "ดาวน์โหลด  offline voice Model ใน  app เฟิร์ส.",
+  "petActionVoiceTitle": "Voice สำหรับ Quick ถาม",
+  "petActionVoiceReturn": "ย้อนกลับ ไป pet",
+  "petActionVoiceStop": "จบ recording",
+  "petActionVoiceStart": "Record"
+}

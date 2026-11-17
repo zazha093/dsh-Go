@@ -1,0 +1,49 @@
+{
+  "phoneSkillSectionTitle": "เสร็จสิ้น tasks แอนด์ skills",
+  "phoneSkillAskAfterSuccess": "ถามบันทึกสกิลหลังงานสำเร็จ",
+  "phoneSkillAskAfterSuccessHint": "ปิดโดยค่าเริ่มต้น งานที่เสร็จใหม่จะถามครั้งเดียวขณะหน้านี้แสดง",
+  "phoneSkillTask": "งาน {taskId} · {steps} steps",
+  "@phoneSkillTask": {
+    "placeholders": {
+      "taskId": {
+        "type": "int"
+      },
+      "steps": {
+        "type": "int"
+      }
+    }
+  },
+  "phoneSkillCandidateHint": "ตรวจสอบผลลัพธ์จริงก่อน การเรียกเครื่องมือสำเร็จไม่พิสูจน์ว่าสกิลถูกต้อง",
+  "phoneSkillSaveAction": "บันทึกเป็นสกิล",
+  "phoneSkillConfirmGoal": "Did this งาน achieve your เป้าหมาย?",
+  "phoneSkillConfirmGoalBody": "ตรวจสอบผลลัพธ์จริง การยืนยันของคุณสร้าง草案ที่คุณตรวจสอบได้",
+  "phoneSkillGoalDone": "เป้าหมายสำเร็จ · ตรวจสอบ草案",
+  "phoneSkillPrivacyHint": "草案อยู่บนอุปกรณ์นี้ ไม่ใส่รหัสผ่าน คีย์ หรือข้อมูลยืนยัน",
+  "phoneSkillGoal": "เป้าหมาย",
+  "phoneSkillPrerequisites": "Requirements (app, VERSION, ไซน์-ใน สเตท)",
+  "phoneSkillStep": "{number} Original step {ตัวเลข}",
+  "@phoneSkillStep": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "phoneSkillCheckpoint": "What should appear หลัง this step",
+  "phoneSkillMoveUp": "ย้าย step ขึ้น",
+  "phoneSkillMoveDown": "ย้าย step ลง",
+  "phoneSkillUpdatePreview": "อัปเดต  redacted ตัวอย่าง",
+  "phoneSkillPreviewTitle": "เสร็จสิ้น เนื้อหา ไป เป็น saved",
+  "phoneSkillParameterizedHint": "ว่าง เท็กซ์ has been replaced กับ parameters ไป fill ใน แอนด์ เช็ค เมื่อ using this skill.",
+  "phoneSkillFinalConfirmation": "ฉันตรวจสอบพรีวิวปัจจุบันครบถ้วนแล้ว และยอมรับบันทึกเวอร์ชันนี้",
+  "phoneSkillSavedBody": "ไฟล์เขียนไปที่ไดเรกทอรีสกิลโลคอล รายการสกิลของเอนจินรีเฟรชแล้ว",
+  "phoneSkillWriting": "Writing  skill",
+  "phoneSkillCannotCancel": "การเขียนอาจถึงขั้นยืนยันแล้ว และไม่สามารถรับประกันการยกเลิกได้",
+  "phoneSkillKeepWaiting": "Keep viewing",
+  "phoneSkillCheckWrite": "ตรวจสอบ เขียน ผลลัพธ์",
+  "phoneSkillStale": "This draft คือ ไม่ longer current. ปิด it แอนด์ choose  งาน อีกครั้ง.",
+  "phoneSkillSensitive": "แก้ไขเนื้อหาสำคัญ นำออกก่อนอัปเดตพรีวิว",
+  "phoneSkillInvalid": "แก้ไขหรือลำดับขั้นตอนเกินขีดจำกัด ระบุให้สั้นลงและคงให้เหลือน้อยที่สุด",
+  "phoneSkillWriteFailed": "ไฟล์เขียนไม่ได้ ตรวจสอบรันไทม์โลคอลและที่เก็บข้อมูล แก้ไขและลองใหม่",
+  "phoneSkillUnavailable": "Skill drafts are unavailable. เช็ค  โลคอล engine สเตท แอนด์ ทราย อีกครั้ง."
+}

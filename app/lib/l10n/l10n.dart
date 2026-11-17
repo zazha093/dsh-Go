@@ -22,10 +22,11 @@ bool get wordsForIos => !kIsWeb && defaultTargetPlatform == TargetPlatform.iOS;
 abstract final class AppLocale {
   static const zhCN = Locale('zh', 'CN');
   static const en = Locale('en');
+  static const th = Locale('th');
 
   /// Locales MaterialApp offers. zh_CN (not bare zh) keeps CJK glyphs
   /// Chinese on non-Chinese systems (typography.dart「汉字字形」).
-  static const supported = [zhCN, en];
+  static const supported = [zhCN, en, th];
 
   static Locale _locale = zhCN;
   static L10n _l10n = lookupL10n(zhCN);
@@ -37,9 +38,9 @@ abstract final class AppLocale {
 
   static L10n get l10n => _l10n;
 
-  /// Switches [appL10n] to [locale] (zh_CN or en).
+  /// Switches [appL10n] to [locale] (zh_CN, en, or th).
   static void use(Locale locale) {
-    final next = locale.languageCode == 'en' ? en : zhCN;
+    final next = locale.languageCode == 'en' ? en : locale.languageCode == 'th' ? th : zhCN;
     if (next == _locale) return;
     _locale = next;
     _l10n = lookupL10n(next);
@@ -47,10 +48,11 @@ abstract final class AppLocale {
 
   /// Chinese for any Chinese system language, English for everything else.
   static Locale resolve(Locale? chosen, List<Locale>? system) {
-    if (chosen != null) return chosen.languageCode == 'en' ? en : zhCN;
+    if (chosen != null) return chosen.languageCode == 'en' ? en : chosen.languageCode == 'th' ? th : zhCN;
     for (final l in system ?? const <Locale>[]) {
       if (l.languageCode == 'zh') return zhCN;
       if (l.languageCode == 'en') return en;
+      if (l.languageCode == 'th') return th;
     }
     return (system == null || system.isEmpty) ? zhCN : en;
   }

@@ -1,0 +1,258 @@
+{
+  "mediaGenerateTile": "สร้าง",
+  "mediaAiGenerated": "สร้างโดย AI",
+  "mediaCostEstimate": "เกี่ยวกับ {amount}",
+  "@mediaCostEstimate": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaSavedCount": "{count} Saved {เคาท์} ไป Photos",
+  "@mediaSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaRegenerate": "สร้างใหม่",
+  "mediaCopyPrompt": "คัดลอก prompt",
+  "mediaFileGone": "ไฟล์ คือ gone",
+  "mediaKindImage": "รูปภาพ",
+  "mediaKindVideo": "วิดีโอ",
+  "mediaTitleImage": "ใหม่ image",
+  "mediaTitleVideo": "ใหม่ video",
+  "mediaOpenElsewhere": "เปิด ใน another app",
+  "mediaShowInFiles": "แสดง ใน files",
+  "mediaGenerating": "กำลังสร้าง",
+  "mediaGeneratingProgress": "กำลังสร้าง · {progress}",
+  "@mediaGeneratingProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaCancelled": "ยกเลิกแล้ว",
+  "mediaNotGenerated": "นอต created",
+  "mediaPartial": "{total} {done} {เสร็จ} ของ {ทอตอล}",
+  "@mediaPartial": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaCount": "{count} images}",
+  "@mediaCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaSeconds": "{seconds} s",
+  "@mediaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaImageOf": "{index} {count} รูปภาพ {อินเด็กซ์} ของ {เคาท์}",
+  "@mediaImageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaPageOf": "{index} / {count}",
+  "@mediaPageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaErrorPolicyInput": " คำอธิบาย didn't ผ่าน เนื้อหา รีVUE",
+  "mediaErrorPolicyOutput": " ผลลัพธ์ didn't ผ่าน เนื้อหา รีVUE",
+  "mediaErrorAuth": "เซอร์วิส นอต authorized",
+  "mediaErrorBalance": "ยอดไม่เพียงพอ",
+  "mediaErrorQuota": "วันนี้'s ลิมิต คือ used ขึ้น",
+  "mediaErrorUnavailable": "เซอร์วิส unavailable สำหรับ ตอนนี้",
+  "mediaErrorExpired": " ผลลัพธ์ expired",
+  "mediaErrorGeneric": "Couldn't ครีเอท it",
+  "mediaVary": "เคลื่อนไหว",
+  "mediaEdit": "แก้ไข",
+  "mediaRevise": "แก้ไข",
+  "mediaUpscale": "อัปสเกล",
+  "mediaMakeVideo": "Make  วิดีโอ",
+  "mediaDetailModel": "โมเดล",
+  "mediaDetailSize": "ขนาด",
+  "mediaDetailCost": "ต้นทุน",
+  "mediaDetailProvenance": "ที่มา",
+  "mediaDetailFile": "ไฟล์",
+  "mediaOriginalPrompt": "{text} Original: {เท็กซ์}",
+  "@mediaOriginalPrompt": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaProvenanceC2pa": "C2PA",
+  "mediaProvenanceImplicit": "ฝังอยู่",
+  "mediaProvenanceVisible": "มองเห็นได้ mark",
+  "mediaModeExit": "LEAF ครีเอท mode",
+  "mediaModeLabel": "{summary} สร้าง ตั้งค่า: {สรุป}",
+  "@mediaModeLabel": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaParamModel": "โมเดล",
+  "mediaParamAspect": "Aspect",
+  "mediaParamCount": "ตัวเลข",
+  "mediaParamQuality": "คุณภาพ",
+  "mediaParamDuration": "ความยาว",
+  "mediaQualityAuto": "อัตโนมัติ",
+  "mediaQualityStandard": "มาตรฐาน",
+  "mediaQualityHigh": "HD",
+  "mediaQuality4k": "4K",
+  "mediaQualityLevelLow": "ต่ำ",
+  "mediaQualityLevelMedium": "กลาง",
+  "mediaQualityLevelHigh": "สูง",
+  "mediaModelPick": "เลือก",
+  "mediaPickModelFirst": "Choose  Model เฟิร์ส",
+  "mediaPricePerImage": "{price} / รูปภาพ",
+  "@mediaPricePerImage": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaPricePerSecond": "{price} / s",
+  "@mediaPricePerSecond": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaManageModels": "จัดการ",
+  "mediaHintImage": "Describe  picture…",
+  "mediaHintVideo": "Describe  scene แอนด์  shot…",
+  "mediaHintEdit": "How ควร it change…",
+  "mediaFirstFrame": "แรกสุด",
+  "mediaLastFrame": "สุดท้าย",
+  "mediaNoLastFrame": "This Model takes ไม่ ลาสท์ frame",
+  "mediaNoRefs": "This Model takes ไม่ reference images",
+  "mediaRefLimit": "{count} ขึ้น ไป {เคาท์} reference images",
+  "@mediaRefLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaNoDescription": "Describe it เฟิร์ส",
+  "mediaDescriptionTooLong": "เกินไป long ไป generate. Shorten  คำอธิบาย",
+  "mediaInstallTitle": "Images แอนด์ วิดีโอ",
+  "mediaInstallBody": "This โฮสต์ has ไม่ รูปภาพ แอนด์ วิดีโอ ปลั๊กอิน ยัง",
+  "mediaInstallAction": "ติดตั้ง เปิด this โฮสต์",
+  "mediaUnavailableTitle": "โหมดสร้างไม่พร้อมใช้งาน",
+  "mediaUnavailableBody": " รูปภาพ แอนด์ วิดีโอ ปลั๊กอิน เปิด this โฮสต์ isn't compatible. You can ยัง describe what you want ใน Chat.",
+  "mediaUnavailableAction": "จัดการปลั๊กอิน",
+  "mediaSettingsTitle": "Images แอนด์ วิดีโอ",
+  "searchKwMediaGeneration": "รูปภาพ generation,เท็กซ์ ไป รูปภาพ,วิดีโอ generation,AI art,generate images,generate วิดีโอ",
+  "mediaSettingsDefaults": "ค่าเริ่มต้น",
+  "mediaSettingsLegacyDefault": "Older general ค่าเริ่มต้น",
+  "mediaSettingsLegacyDefaultHint": " 0.2.x setting; used เมื่อ  kind has ไม่ ค่าเริ่มต้น ของ its own",
+  "mediaSettingsLegacyDefaultStale": "Its เซอร์วิส คือ unavailable; ล้าง it so generation does นอต ล้มเหลว",
+  "mediaSettingsLegacyDefaultClear": "ล้าง  older general ดีฟอลต์",
+  "mediaSettingsDefaultModel": "ค่าเริ่มต้น model",
+  "mediaSettingsDefaultFooterLegacy": " older ปลั๊กอิน has one ค่าเริ่มต้น Model; อัปเดต it ไป เซ็ท images แอนด์ วิดีโอ separately.",
+  "mediaSettingsDefaultsFooter": "Choose  ค่าเริ่มต้น Model สำหรับ images แอนด์ สำหรับ วิดีโอ; LEAF it เปิด Auto ไป use  เฟิร์ส available one.",
+  "mediaSettingsNoVideoModels": "This โฮสต์'s catalogue has ไม่ วิดีโอ models ยัง",
+  "mediaSettingsServices": "บริการ",
+  "mediaSettingsAddService": "เพิ่ม เซอร์วิส",
+  "mediaSettingsAddServiceHint": "เริ่ม จาก  provider preset; endpoint, protocol แอนด์ models come filled ใน",
+  "mediaSettingsServiceLimit": "{count} ขึ้น ไป {เคาท์} services",
+  "mediaSettingsNoServices": "ไม่ services ยัง. แอด  provider ไป เริ่ม making images ออร์ video.",
+  "mediaSettingsNoModels": "ไม่ models selected",
+  "mediaSettingsKeyMissing": "ไม่ API คีย์",
+  "mediaSettingsCatalogMissing": " ปลั๊กอิน เปิด this โฮสต์ offers ไม่ Model catalogue. Existing services can ยัง เป็น edited, but nothing can เป็น added แอนด์ ไม่ ค่าเริ่มต้น chosen ยัง.",
+  "mediaSettingsCatalogBroken": " Model catalogue can't เป็น อ่าน (it พฤษภาคม เป็น  incompatible VERSION). Existing services can ยัง เป็น edited, but nothing can เป็น added แอนด์ ไม่ ค่าเริ่มต้น chosen ยัง.",
+  "mediaSettingsCatalogEmpty": " Model catalogue has ไม่ models ยัง. Existing services can ยัง เป็น edited, but nothing can เป็น added แอนด์ ไม่ ค่าเริ่มต้น chosen ยัง.",
+  "mediaSettingsNoPresets": "There are ไม่ services ไป เพิ่ม จาก this catalogue ยัง.",
+  "mediaSettingsLimits": "คำขอ limits",
+  "mediaSettingsLimitsHint": "Caps images แอนด์ bytes per คำขอ; defaults are  ปลั๊กอิน hard limits",
+  "mediaSettingsMaxImages": "Images per คำขอ",
+  "mediaSettingsMaxImageBytes": "สูงสุด bytes per original",
+  "mediaSettingsMaxResponseBytes": "สูงสุด provider response bytes",
+  "mediaSettingsMaxTotalImageBytes": "สูงสุด image bytes per ขอ",
+  "mediaSettingsMaxVideoBytes": "สูงสุด video bytes",
+  "mediaSettingsBudget": "การป้องกันต้นทุน",
+  "mediaSettingsDailyBudget": "รายวัน budget (CNY)",
+  "mediaSettingsDailyBudgetHint": "Resets เปิด  Shanghai เดท; generation pauses หนึ่งครั้ง it's used ขึ้น",
+  "mediaSettingsUnknownPriceHold": "Hold per คำขอ เมื่อ  price คือ unknown (CNY)",
+  "mediaSettingsUnknownPriceHoldHint": "Reserved per คำขอ; นอต  CAP  โพรไวเดอร์ charges โดย",
+  "mediaSettingsApiKey": "API คีย์",
+  "mediaSettingsReuseKey": "Reuse คีย์",
+  "mediaSettingsReuseKeyHint": "Images แอนด์ วิดีโอ จาก one โพรไวเดอร์ can แชร์ one API คีย์; ไม่ need ไป เอ็นเตอร์ it อีกครั้ง.",
+  "mediaSettingsReuseKeyNone": "ไม่ other เซอร์วิส จาก this provider ยัง.",
+  "mediaSettingsReuseKeyShared": "แชร์แล้ว",
+  "mediaSettingsModels": "โมเดล",
+  "mediaSettingsModelsEmpty": " catalogue has ไม่ models สำหรับ this โปรโตคอล",
+  "mediaSettingsModelKeepOne": "Keep at น้อยที่สุด one Model",
+  "mediaSettingsModelMissing": "นอต ใน  catalogue",
+  "mediaSettingsAdvanced": "ขั้นสูง",
+  "mediaSettingsBaseUrl": "API BASE URL",
+  "mediaSettingsBaseUrlInvalid": " ที่อยู่ must เริ่ม กับ HTTPเอส://",
+  "mediaSettingsProvider": "โพรไวเดอร์ ไอดี",
+  "mediaSettingsKeyRef": "Credential ชื่อ",
+  "mediaSettingsKeyRefInvalid": "Use letters, digits แอนด์ underscores เท่านั้น",
+  "mediaSettingsResponseFormat": "ตอบกลับ ฟอร์แมต",
+  "mediaSettingsResponseFormatAuto": "โดย โปรโตคอล",
+  "mediaSettingsServiceId": "เซอร์วิส ไอดี",
+  "mediaSettingsServiceGone": "This เซอร์วิส คือ gone",
+  "mediaSettingsServiceGoneBody": "It พฤษภาคม have been removed elsewhere. Go ย้อนกลับ ไป เพิ่ม it อีกครั้ง.",
+  "mediaSettingsDelete": "ลบ เซอร์วิส",
+  "mediaSettingsDeleteTitle": "{name} ลบ “{ชื่อ}”?",
+  "mediaSettingsDeleteBody": "เท่านั้น this โฮสต์'s เซอร์วิส entry คือ removed;  API คีย์ คือ kept. Defaults pointing at it are cleared เกินไป.",
+  "mediaSettingsNoImageModels": " catalogue has ไม่ รูปภาพ models ยัง",
+  "mediaSettingsNoAvailableService": "ไม่ เซอร์วิส คือ ready ยัง (แอด one แอนด์ เอ็นเตอร์ its คีย์)",
+  "mediaSettingsNoImageService": "ไม่ image เซอร์วิส คือ ready ยัง (แอด one แอนด์ เอ็นเตอร์ its คีย์)",
+  "mediaSettingsNoVideoService": "ไม่ video เซอร์วิส คือ ready ยัง (แอด one แอนด์ เอ็นเตอร์ its คีย์)",
+  "mediaSettingsKeyExternal": "Managed โดย another setting; เท่านั้น referenced here",
+  "mediaSettingsEnabledHint": "Turns this เซอร์วิส ปิด สำหรับ generation",
+  "@mediaSettingsServiceLimit": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@mediaSettingsDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

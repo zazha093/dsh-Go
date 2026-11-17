@@ -1,0 +1,742 @@
+{
+  "engineNewChatDefaultsLast": "ค่าเริ่มต้นแชทใหม่ (ตัวเลือกครั้งล่าสุด)",
+  "engineNewChatDefaultsFixed": "ค่าเริ่มต้นแชทใหม่ (คงที่)",
+  "engineNewChatUseLast": "ตัวเลือกครั้งล่าสุด",
+  "engineNewChatUseFixed": "แก้ไขแล้ว ดีฟอลต์",
+  "engineNewChatDefaultsHint": "บันทึกที่โฮสต์ปัจจุบัน ใช้ได้กับโมเดลและการตั้งค่านี้เท่านั้น",
+  "engineNewChatDefaultsLegacy": "เอนจินนี้รองรับการจำค่าเลือกครั้งล่าสุดเท่านั้น ไม่ใช่ค่าเริ่มต้นคงที่ ไม่สามารถยืนยันได้ว่าบันทึกค่าเริ่มต้นแล้วเมื่อสลับโมเดล",
+  "engineNewChatDefaultsUnsupported": "โฮสต์นี้ไม่มีการตั้งค่าโมเดลเริ่มต้นที่แก้ไขได้",
+  "engineNewChatDefaultsSelectionUnavailable": "โมเดลนี้หรือระดับการคิดไม่พร้อมใช้งานแล้ว เลือกใหม่",
+  "engineNewChatDefaultsInheritedEffort": "โฮสต์ระบุระดับการคิดที่ไม่สามารถล้างได้ที่นี่สำหรับ",
+  "engineNewChatDefaultsSaving": "กำลังบันทึกและยืนยันค่าเริ่มต้น…",
+  "engineNewChatDefaultsUnconfirmed": "ยืนยันค่าเริ่มต้นไม่ได้ รีเฟรชและเช็คโมเดลและระดับการคิด",
+  "engineModelDefaultSaveFailed": "โมเดลเปลี่ยนสำหรับแชทนี้ แต่ค่าเริ่มต้นแชทใหม่ไม่ได้บันทึก เช็คการตั้งค่า",
+  "engineAccountSignedIn": "Signed ใน ไป DeepSeek",
+  "engineAccountSignOutTitle": "ไซน์ ออก ของ DeepSeek?",
+  "engineAccountSignOutBusy": "บางงานกำลังใช้โมเดลบัญชี การออกจากระบบจะหยุดงานเหล่านั้นทันที แชทและไฟล์ของคุณยังคงอยู่",
+  "engineAccountSignOutBody": "โมเดลบัญชีจะไม่สามารถใช้งานได้ แชท ไฟล์ และคีย์ API ของคุณยังคงอยู่ คุณสามารถเข้าสู่ระบบใหม่ได้ทุกเมื่อ",
+  "engineAccountSignOutUnknown": "ตรวจสอบไม่ได้ว่ามีงานใช้โมเดลบัญชีหรือไม่ การออกจากระบบจะหยุดงานที่ใช้อยู่",
+  "engineAccountSignOutFailed": "ออกจากระบบไม่ได้ ลองใหม่ภายหลัง",
+  "engineAccountTitle": "บัญชี",
+  "engineAccountRefresh": "รีเฟรช",
+  "engineAccountDeepSeek": "DeepSeek บัญชี",
+  "engineAccountProfileUnavailable": "โหลดรายละเอียดบัญชีไม่ได้ตอนนี้",
+  "engineAccountBalance": "ยอดคงเหลือ",
+  "engineAccountBalanceHint": "โมเดลบัญชีจะถูกหักจากยอดคงเหลือของคุณ",
+  "engineAccountBalanceEngineOff": "เริ่มเอนจินเพื่อดูยอดคงเหลือ",
+  "engineAccountTopUp": "อันดับหนึ่ง ขึ้น",
+  "engineAccountUsageDetails": "รายละเอียดการใช้งาน",
+  "engineAccountToppedUpBalance": "เติมยอดคงเหลือแล้ว",
+  "engineAccountGrantedBalance": "ให้สิทธิ์ยอดคงเหลือ",
+  "engineAccountBalanceUnavailable": "Can’t โหลด your balance right ตอนนี้",
+  "engineAccountNoKeyNeeded": "ไม่ API คีย์ ต้องการ เมื่อ signed ใน",
+  "engineAccountUnsupported": "This engine doesn’t รองรับ บัญชี ไซน์-ใน",
+  "engineAccountSignInDeepSeek": "เข้าสู่ระบบด้วย DeepSeek",
+  "engineAccountAutoStart": "Signing ใน starts  engine automatically",
+  "engineAccountReplaceKey": "Replace คีย์",
+  "engineAccountClearKeyTitle": "ล้าง API คีย์?",
+  "engineAccountClearKeyBody": "Deletes  คีย์ saved ใน  app. ขณะที่  engine เปิด this phone คือ กำลังทำงาน,  คีย์ ใน  engine คือ deleted เกินไป.",
+  "engineAccountBrowserFailed": "Couldn’t เปิด  browser",
+  "engineAccountSignInSuccess": "Signed ใน",
+  "engineAccountAlmostReady": "เกือบ ready",
+  "engineAccountStartingEngine": "Starting engine",
+  "engineAccountOpenSignInNext": "หน้าเข้าสู่ระบบเปิดถัดไป",
+  "engineAccountPreparingSignIn": "Preparing ไซน์-ใน",
+  "engineAccountOpenDeepSeekNext": "Opening DeepSeek ไซน์-ใน",
+  "engineAccountFinishInBrowser": "จบ ไซน์-ใน ใน your browser",
+  "engineAccountReturnToDsh": "คืนค่า ไป DSH Go หลัง signing ใน",
+  "engineAccountFinishingSignIn": "Finishing ไซน์-ใน",
+  "engineAccountSavingSignIn": "Saving ไซน์-ใน details",
+  "engineAccountAwaitingResult": "ยัง waiting สำหรับ ไซน์-ใน",
+  "engineAccountCopySignInLink": "คัดลอก ลงนาม-ใน ลิงก์",
+  "engineAccountReopenSignIn": "Reopen ไซน์-ใน",
+  "engineAccountCancelSignIn": "ยกเลิก ลงนาม-ใน",
+  "engineAccountSignInLinkCopied": "ไซน์-ใน ลิงก์ copied",
+  "engineAccountSigningIn": "Signing ใน",
+  "engineAccountSignedOut": "Signed ออก",
+  "engineAccountUsageFact": "การใช้งานจะถูกหักจากยอดคงเหลือของคุณ",
+  "engineAccountBrowserFact": "ไซน์ ใน กับ your browser. DSH ไม่เคย sees your รหัสผ่าน",
+  "engineAccountCredentialsFact": "ไซน์-ใน credentials stay เปิด this phone",
+  "engineSubagentTitle": "ซับเอจิ้นต์",
+  "engineAgentLoopTitle": "ลูป Agent",
+  "engineShellTitle": "การรันคำสั่ง",
+  "engineSearchTitle": "Web ค้นหา",
+  "engineSearchNewApiBadge": "ใหม่ API",
+  "engineGeneralTitle": "ทั่วไป",
+  "engineSettingsTitle": "Engine parameters",
+  "engineSettingsReadFailed": "Couldn’t โหลด ตั้งค่า",
+  "engineSettingsRun": "รันไทม์",
+  "engineSettingsPlugins": "Plugins",
+  "engineSettingsPluginInventory": "ปลั๊กอิน inventory",
+  "engineSettingsPluginStopped": "ปลั๊กอินไม่ได้ทำงาน",
+  "engineSettingsEnablePlugin": "เปิดใช้ it ไป change its ตั้งค่า",
+  "engineSettingsNoEditableFields": "ไม่ ตั้งค่า ไป change here",
+  "engineFieldRestoreDefault": "รีเซ็ต ไป ดีฟอลต์",
+  "engineFieldDecrease": "Decrease",
+  "engineFieldIncrease": "Increase",
+  "engineFieldRemove": "นำออก",
+  "engineFieldShow": "แสดง",
+  "engineFieldFromEnvironment": "Provided โดย  startup สภาพแวดล้อม",
+  "engineFieldItem": "item",
+  "engineFieldAlreadyAdded": "แล้ว added",
+  "engineFieldEnterName": "เอ็นเตอร์  ชื่อ",
+  "engineFieldEnterNumber": "เอ็นเตอร์  ตัวเลข",
+  "engineFieldValue": "ค่า",
+  "engineFieldNew": "ใหม่",
+  "engineFieldRequired": "จำเป็น",
+  "engineGeneralMissing": "โฮสต์นี้ไม่มีการตั้งค่าทั่วไป",
+  "engineSettingsVersionRequired": "ต้องการ DSH 0.2.1 หรือใหม่กว่า",
+  "engineGeneralWebDisplay": "การแสดงผลเว็บ",
+  "engineGeneralWebSending": "การส่งผ่านเว็บ",
+  "engineGeneralData": "ข้อมูล",
+  "engineSubagentModelsTitle": "ซับเอจิ้นต์ โมเดล",
+  "engineChatLogTitle": "แชท logs",
+  "engineThinkingTranslationTitle": "Thinking translation",
+  "enginePluginIndexesTitle": "ปลั๊กอิน market indexes",
+  "enginePermissionTitle": "สิทธิ์",
+  "engineAgentPresetsTitle": "เอเจนต์ presets",
+  "engineDefaultModelTitle": "โมเดลเริ่มต้น",
+  "engineWebAppearanceTitle": "เว็บ appearance",
+  "engineLanguageTitle": "ภาษา",
+  "engineFieldCommandTimeout": "คอมมานด์ หมดเวลา",
+  "engineFieldMaxOutput": "เอาต์พุต ลิมิต",
+  "engineFieldMaxTimeout": "สูงสุด requested timeout",
+  "engineFieldMaxSpill": "Spill ไฟล์ ลิมิต",
+  "engineFieldGracePeriod": "Termination grace period",
+  "engineFieldDefaultCwd": "ค่าเริ่มต้น working ไดเรกทอรี",
+  "engineFieldFollowChat": "Follow Chat",
+  "engineSubagentMaxDepth": "สูงสุด recursion depth",
+  "engineFieldLayersUnit": "levels",
+  "engineSubagentMaxActive": "สูงสุด ใช้งาน中 subagents",
+  "engineFieldCountUnit": "items",
+  "engineSubagentAllowModelChoice": "Let AI เลือก ซับเอจิ้นต์ โมเดล",
+  "engineSubagentAllowedModels": "โมเดลที่ใช้ได้",
+  "engineAgentMaxParallelCalls": "ขนาน เครื่องมือ calls per step",
+  "engineFieldSearchProvider": "ค้นหา เซอร์วิส",
+  "engineFieldFetchProvider": "Web เฟช เซอร์วิส",
+  "engineFieldBaseUrl": "เซอร์วิส URL",
+  "engineSearchMaxUses": "สูงสุด searches per ขอ",
+  "engineFieldTimesUnit": "times",
+  "engineSearchHelperModel": "Helper Model",
+  "engineFieldApiVersion": "API VERSION",
+  "engineFieldMaxTokens": "สูงสุด output length",
+  "engineSearchResultsPerSearch": "Results per ค้นหา",
+  "engineFieldResultsUnit": "ผลลัพธ์",
+  "engineSearchSendOriginalQuestion": "Include your original คำถาม ใน searches",
+  "engineChatLogUpload": "อัปโหลド Chat logs ไป DeepSeek",
+  "engineTranslationProvider": "Translation เซอร์วิส",
+  "engineTranslationAccountPaid": "DeepSeek บัญชี (paid)",
+  "engineTranslationApiPaid": "DeepSeek API (paid)",
+  "engineTranslationTargetLanguage": "เป้าหมาย ภาษา",
+  "engineTranslationFollowLanguage": "Follow อินเตอร์เฟซ ภาษา",
+  "engineTranslationLanguageHint": "เอ็นเตอร์ auto ออร์  ภาษา code, such ในฐานะ zh, en ออร์ ja",
+  "enginePluginIndexSources": "ดัชนี sources",
+  "enginePluginIndexUrl": "ดัชนี URL",
+  "engineFieldHttpUrlHint": "URL เริ่มต้นด้วย http:// หรือ https://",
+  "enginePermissionNewChat": "ใหม่ chat permissions",
+  "engineAgentDefaultPreset": "ค่าเริ่มต้น agent preset",
+  "engineProviderTitle": "โพรไวเดอร์",
+  "engineModelTitle": "โมเดล",
+  "engineFieldReasoningEffort": "Thinking depth",
+  "engineGeneralShowCodingView": "แสดง coding VUE",
+  "engineGeneralWorkDetails": "งาน details",
+  "engineFieldCompact": "Compact",
+  "engineFieldStandard": "มาตรฐาน",
+  "engineFieldDetailed": "Detailed",
+  "engineFieldVerbose": "ละเอียด",
+  "engineGeneralCollapseTiming": "เมื่อ ไป collapse งาน details",
+  "engineGeneralOnCompletion": "เปิด completion",
+  "engineGeneralOnNewMessage": "เปิด ใหม่ ข้อความ",
+  "engineGeneralPerformanceUsage": "ประสิทธิภาพ & usage",
+  "engineGeneralLinkOpening": "เปิด links ใน",
+  "engineGeneralAppSidebar": "แอป sidebar",
+  "engineGeneralDefaultBrowser": "ค่าเริ่มต้น browser",
+  "engineGeneralBusySend": "ส่ง ขณะที่ AI คือ working",
+  "engineGeneralQueueSend": "คิว",
+  "engineGeneralSteerSend": "Steer",
+  "engineFieldTheme": "ธีม",
+  "engineFieldFontSize": "เท็กซ์ ไซส์",
+  "engineFieldCodeFontSize": "Code font ไซส์",
+  "engineFieldTerminalFontSize": "Terminal font ไซส์",
+  "engineFieldTextFont": "เท็กซ์ font",
+  "engineFieldCodeFont": "โค้ด ฟอนต์",
+  "engineFieldTerminalFont": "เทอร์มินัล ฟอนต์",
+  "engineFieldInterfaceLanguage": "อินเตอร์เฟซ ภาษา",
+  "engineFieldSecondsUnit": "s",
+  "engineFieldBytesUnit": "bytes",
+  "engineFieldGreaterThanZero": "มากกว่า 0",
+  "engineFieldEnterNumeric": "เอ็นเตอร์  ตัวเลข",
+  "engineFieldEnterInteger": "เอ็นเตอร์  whole ตัวเลข",
+  "engineFieldInvalidFormat": "Invalid ฟอร์แมต",
+  "engineFieldAddress": "ที่อยู่",
+  "engineFieldToken": "โทเคน",
+  "engineFieldService": "Service",
+  "engineFieldTimeout": "หมดเวลา",
+  "engineFieldQuantity": "จำนวน",
+  "engineFieldMaxUses": "สูงสุด uses",
+  "engineFieldMaxRetries": "สูงสุด retries",
+  "engineFieldConcurrency": "Concurrency",
+  "engineFieldInterval": "อินเตอร์วัล",
+  "engineFieldPrompt": "พรอมต์",
+  "engineFieldSystemPrompt": "ระบบ Prompt",
+  "engineFieldTemperature": "Temperature",
+  "engineFieldDebugMode": "โหมดดีบั๊ก",
+  "engineFieldVerboseLogs": "ละเอียด logs",
+  "engineFieldPath": "พาธ",
+  "engineFieldCwd": "กำลังทำงาน ไดเรกทอรี",
+  "engineFieldCommand": "คอมมานด์",
+  "engineFieldArguments": "Arguments",
+  "engineFieldEnvironment": "สภาพแวดล้อม variables",
+  "engineFieldHeaders": "Headers",
+  "engineFieldProxy": "พร็อกซี่",
+  "engineFieldAuto": "อัตโนมัติ",
+  "engineFieldEnabled": "เปิดใช้งานแล้ว",
+  "engineFieldOn": "เปิด",
+  "engineFieldOff": "ปิด",
+  "engineFieldLow": "ต่ำ",
+  "engineFieldMedium": "กลาง",
+  "engineFieldHigh": "สูง",
+  "engineFieldMax": "สูงสุด",
+  "engineFieldNone": "ไม่มี",
+  "engineFieldModified": "Modified",
+  "engineFieldLocked": "แก้ไขแล้ว โดย CONFIG ไฟล์",
+  "engineFieldSharedWithModel": "แชร์กับโมเดลแล้ว",
+  "engineFieldNotConfigured": "นอต configured",
+  "engineFieldConfigured": "Configured",
+  "engineSettingsMissing": "This โฮสต์ has ไม่ such setting",
+  "engineSettingsPluginDisabled": "จำเป็น plugin isn’t enabled",
+  "engineSettingsReadOnly": "Engine ตั้งค่า are อ่าน-เท่านั้น",
+  "engineSubagentSavedUnavailable": "Saved แต่ currently unavailable",
+  "engineSubagentKeepOneModel": "เก็บโมเดลไว้อย่างน้อยหนึ่งตัว",
+  "engineSubagentLimits": "ขีดจำกัด",
+  "engineSubagentModelSelection": "การเลือกโมเดล",
+  "engineSubagentPickFirstModel": "เลือกโมเดลเพื่อใช้งาน",
+  "engineSubagentReadModelsFailed": "ไม่สามารถโหลดโมเดลได้",
+  "engineSubagentNoModels": "ยังไม่มีโมเดล",
+  "engineSubagentConnectModel": "เพิ่ม provider",
+  "engineSearchDeepSeek": "DeepSeek ค้นหา",
+  "engineSearchNewApi": "ใหม่ ค้นหา API",
+  "engineProviderDeleteBody": "This deletes  โพรไวเดอร์ แอนด์ its API คีย์. Chats using it will need another Model.",
+  "engineProviderReadFailed": "Couldn’t โหลด providers",
+  "engineProviderGone": "This โพรไวเดอร์ คือ gone",
+  "engineProviderProtocol": "โปรโตคอล",
+  "engineProviderEnterKey": "เอ็นเตอร์ API คีย์",
+  "engineProviderIssues": "ปัญหา",
+  "engineProviderRejectedConfig": "เอนจินปฏิเสธการตั้งค่าบางอย่าง",
+  "engineProviderConnection": "การเชื่อมต่อ",
+  "engineProviderDefaultUrl": "ค่าเริ่มต้น URL",
+  "engineProviderKeyNotRequired": "นอต ต้องการ",
+  "engineProviderNoModels": "ยังไม่มีโมเดล",
+  "engineProviderWebConfigured": "Configured ใน DSH Web. You can มุมมอง ออร์ ลบ it here",
+  "engineProviderDelete": "ลบ provider",
+  "engineProviderConfigFile": "Provided โดย  engine CONFIG ไฟล์. Can’t ลบ it here",
+  "engineProviderTesting": "Testing",
+  "engineProviderTestConnection": "ทดสอบ connection",
+  "engineProviderKeyFirst": "เอ็นเตอร์  API คีย์ เฟิร์ส",
+  "engineProviderNoDiscoveredModels": "บริการไม่ได้รายการโมเดล ใส่เอง",
+  "engineProviderNeedModel": "ใส่อย่างน้อยหนึ่งโมเดล",
+  "engineProviderEdit": "แก้ไข provider",
+  "engineProviderAdd": "เพิ่ม provider",
+  "engineProviderBasicInfo": "พื้นฐาน ข้อมูล",
+  "engineProviderNameHint": "e.g. My เกตเวย์",
+  "engineProviderCompatibleProtocol": "Compatible โปรโตคอล",
+  "engineProviderKeepStoredKey": "Saved. LEAF blank ไป keep it",
+  "engineProviderSaving": "กำลังบันทึก",
+  "engineProviderWaitingEngine": "กำลังรอ สำหรับ engine",
+  "engineProviderFetchingModels": "Fetching โมเดล",
+  "engineProviderFetchModels": "ดึงโมเดล",
+  "engineProviderAddManually": "เพิ่ม manually",
+  "engineProviderManualModel": "เพิ่มโมเดลเอง",
+  "engineProviderModelId": "Model ไอดี",
+  "engineProviderSelectModels": "เลือกโมเดล",
+  "engineProviderSearchModels": "ค้นหาโมเดล",
+  "engineProviderDeselectAll": "ยกเลิกเลือก ทั้งหมด",
+  "engineProviderSelectAll": "เลือก ทั้งหมด",
+  "engineProviderNoMatchingModels": "ไม่พบโมเดลที่ตรง",
+  "engineProviderAlreadyAdded": "Added",
+  "engineProviderReady": "พร้อม",
+  "engineProviderMissingKey": "Missing API คีย์",
+  "engineProviderMisconfigured": "Invalid CONFIG",
+  "engineProviderInactive": "นอต enabled",
+  "engineProviderConfiguredInWeb": "Configured ใน Web",
+  "engineProvidersTitle": "โมเดล",
+  "engineProvidersNotConnected": "นอต connected ไป  engine",
+  "engineProvidersStartEngine": "เริ่ม  engine ไป แอด providers",
+  "engineProvidersUnsupported": "This โฮสต์ doesn’t รองรับ custom providers",
+  "engineProvidersNotConfiguredHere": "นอต configured เปิด this โฮสต์",
+  "engineProvidersSigningIn": "Signing ใน…",
+  "engineProvidersSignInOrKey": "ไซน์ ใน ออร์ เอ็นเตอร์  API คีย์",
+  "engineProvidersOfficial": "ทางการ",
+  "engineProvidersSubscription": "Subscriptions",
+  "engineProvidersCustom": "กำหนดเอง",
+  "engineProvidersCompatibleHint": "OpenAI- แอนด์ Anthropic-compatible services",
+  "engineProvidersReadOnly": "Engine ตั้งค่า are อ่าน-เท่านั้น. Can’t เพิ่ม providers",
+  "engineSubscriptionSignOutBody": "โมเดลของมันจะถูกลบจากตัวเลือกโมเดล",
+  "engineSubscriptionNoModels": "ไม่มีโมเดล",
+  "engineSubscriptionModelsFailed": "โหลดโมเดลไม่ได้",
+  "engineSubscriptionPreparing": "Preparing…",
+  "engineSubscriptionCancelled": "ไซน์-ใน ยกเลิกแล้ว",
+  "engineSubscriptionIncomplete": "ไซน์-ใน incomplete",
+  "engineSubscriptionWaitingSignIn": "กำลังรอ สำหรับ ลงนาม-ใน…",
+  "engineSubscriptionReopen": "Reopen",
+  "engineSubscriptionCode": "Verification โค้ด",
+  "engineSubscriptionWaitingVerification": "กำลังรอ สำหรับ verification…",
+  "engineSubscriptionCopyCode": "คัดลอก code",
+  "engineSubscriptionOpenVerification": "เปิด verification",
+  "engineSubscriptionPasteRedirect": "วาง  redirected URL",
+  "engineSubscriptionPasteCode": "วาง  authorization code",
+  "engineSubscriptionPasteHere": "วาง here",
+  "engineSubscriptionConfirm": "ยืนยัน",
+  "engineSubscriptionTryAgain": "ทราย อีกครั้ง",
+  "engineAccountWelcome": "{name} Welcome, {ชื่อ}",
+  "engineLayerCount": "{count} levels}",
+  "engineFieldDefaultValue": "{value} ค่าเริ่มต้น {ค่า}",
+  "engineFieldDefaultValueUnit": "{value} ค่าเริ่มต้น {ค่า} {unit}",
+  "engineFieldCurrentValue": "{value} Current {ค่า}",
+  "engineFieldRemoveItem": "{name} นำออก {ชื่อ}",
+  "engineFieldAddItem": "เพิ่ม {item}",
+  "engineFieldItemIndex": "{index} Item {ดัชนี}",
+  "engineFieldByteCount": "{count} bytes}",
+  "engineFieldHours": "{value} {ค่า} h",
+  "engineFieldMinutes": "{value} {ค่า} มิน",
+  "engineFieldSeconds": "{value} {ค่า} s",
+  "engineFieldMilliseconds": "{value} {ค่า} ms",
+  "engineFieldPositiveMax": "{max} Greater than 0, ขึ้น ไป {แม็กซ์}",
+  "engineFieldMin": "{min} At น้อยที่สุด {มิน}",
+  "engineFieldMaxBound": "{max} At มากที่สุด {แม็กซ์}",
+  "engineFieldBelowMin": "{min} Must เป็น at น้อยที่สุด {มิน}",
+  "engineFieldAboveMax": "{max} Must เป็น at มากที่สุด {แม็กซ์}",
+  "engineFieldMultiple": "Must เป็น  multiple ของ {step}",
+  "engineFieldMinCharacters": "{count} characters}",
+  "engineFieldMaxCharacters": "{count} characters}",
+  "engineSubagentUnavailableProvider": "{provider} · ไม่พร้อมใช้งานขณะนี้",
+  "engineProviderDeleteTitle": "{name} ลบ “{ชื่อ}”?",
+  "engineProviderDeleteFailed": "{error} Couldn’t ลบ: {ข้อผิดพลาด}",
+  "engineProviderModelCount": "{count}}}",
+  "engineProviderContext": "{size} คอนเท็กซ์ {ไซส์}",
+  "engineProviderTestPassed": "{count} โมเดล}",
+  "engineProviderCompletedUrl": "{url} เสร็จสิ้น ในฐานะ",
+  "engineProviderSaveFailed": "{error} Couldn’t บันทึก: {ข้อผิดพลาด}",
+  "engineProviderCandidateCount": "{count} ทอตอล}",
+  "engineProviderAddModels": "{count} โมเดล}",
+  "engineProviderModels": "{count} โมเดล}",
+  "engineProvidersSummary": "{total} providers} · {ready} ready",
+  "engineProvidersAccount": "{name} บัญชี · {ชื่อ}",
+  "engineProvidersSignedInAccount": "{account} Signed ใน · {บัญชี}",
+  "engineSubscriptionSignIn": "{provider} ไซน์ ใน ไป {โพรไวเดอร์}",
+  "engineSubscriptionSignOutTitle": "{provider} ไซน์ ออก ของ {โพรไวเดอร์}?",
+  "engineSubscriptionSignOutFailed": "{error} Couldn’t ไซน์ ออก: {ข้อผิดพลาด}",
+  "engineSubscriptionCodeSemantics": "Verification โค้ด {code}",
+  "engineFieldItemCount": "{count} items}",
+  "engineFieldUseCount": "{count} times}",
+  "engineFieldResultCount": "{count} results}",
+  "engineFieldMinCharactersDecimal": "At น้อยที่สุด {bound} characters",
+  "engineFieldMaxCharactersDecimal": "At มากที่สุด {bound} characters",
+  "engineLayerValue": "{value} {ค่า} levels",
+  "engineFieldEnterPositiveRange": "{max} เอ็นเตอร์  ตัวเลข greater than 0 แอนด์ ไม่ มากกว่า than {แม็กซ์}",
+  "engineFieldEnterBoundedRange": "{min} {max} เอ็นเตอร์  ตัวเลข จาก {มิน} ไป {แม็กซ์}",
+  "engineModelTokenLimits": "โทเคน limits",
+  "engineModelContextLength": "คอนเท็กซ์ length",
+  "engineModelContextOverrideHint": "Empty uses  catalog's figure.  larger ค่า คือ what  engine counts คอนเท็กซ์ pressure แอนด์ compaction ต้าน.",
+  "engineModelMaxOutput": "สูงสุด output",
+  "engineModelDefaultSize": "{size} ค่าเริ่มต้น {ไซส์}",
+  "@engineModelDefaultSize": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "engineModelCapabilities": "Capabilities",
+  "engineModelInputType": "อินพุต",
+  "engineModelInputText": "เท็กซ์",
+  "engineModelInputTextImage": "เท็กซ์ + รูปภาพ",
+  "engineModelThinking": "Thinking",
+  "engineModelVision": "Vision",
+  "engineModelLevels": "พร้อมใช้งาน levels",
+  "engineModelNeedLevel": "Pick at น้อยที่สุด one level",
+  "engineFieldEditOnWeb": "แก้ไข this item เปิด  web",
+  "engineSettingsHostChanged": " โฮสต์ changed. Reopen these ตั้งค่า ไป แก้ไข.",
+  "engineSecretTargetChanged": "This field changed. Reopen it ไป แก้ไข.",
+  "engineSettingsGroupCount": "{count} ตั้งค่า}",
+  "@command": {
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    }
+  },
+  "@providernameviewlabel": {
+    "placeholders": {
+      "provider_name": {
+        "type": "String"
+      },
+      "view_label": {
+        "type": "String"
+      }
+    }
+  },
+  "@nodevalue": {
+    "placeholders": {
+      "node_value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineAccountWelcome": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineLayerCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldDefaultValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldDefaultValueUnit": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "unit": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldCurrentValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldRemoveItem": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldAddItem": {
+    "placeholders": {
+      "item": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldItemIndex": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldByteCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldHours": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMinutes": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldSeconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMilliseconds": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldPositiveMax": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMin": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMaxBound": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldBelowMin": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldAboveMax": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMultiple": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMinCharacters": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldMaxCharacters": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineSubagentUnavailableProvider": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderDeleteFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderModelCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderContext": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderTestPassed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineProviderCompletedUrl": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderSaveFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProviderCandidateCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineProviderAddModels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineProviderModels": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineProvidersSummary": {
+    "placeholders": {
+      "total": {
+        "type": "int"
+      },
+      "ready": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineProvidersAccount": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineProvidersSignedInAccount": {
+    "placeholders": {
+      "account": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineSubscriptionSignIn": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineSubscriptionSignOutTitle": {
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineSubscriptionSignOutFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineSubscriptionCodeSemantics": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldItemCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldUseCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldResultCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@engineFieldMinCharactersDecimal": {
+    "placeholders": {
+      "bound": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldMaxCharactersDecimal": {
+    "placeholders": {
+      "bound": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineLayerValue": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldEnterPositiveRange": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineFieldEnterBoundedRange": {
+    "placeholders": {
+      "min": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@engineSettingsGroupCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "engineProviderHeaderDuplicate": "Header names must be unique (case-insensitive)",
+  "engineProviderHeaderName": "Name",
+  "engineProviderHeaderInvalidValue": "Use single-line Latin-1 values without control characters (tabs are allowed)",
+  "engineProviderHeaderReserved": "User-Agent is set by the engine; remove this header",
+  "engineProviderHeaders": "Request headers (optional)",
+  "engineProviderHeadersWarning": "Headers are stored as plain text and are not redacted from logs. Use API Key or a credential reference for sensitive credentials.",
+  "engineProviderHeaderValue": "Value",
+  "engineGeneralWebOnlyHint": "These settings only affect this host’s web app, not native chat.",
+  "engineProviderHeaderAdd": "Add header",
+  "engineProviderHeaderLocked": "Managed by the engine; the existing setting is preserved",
+  "engineProviderHeaderInvalidName": "Use letters, digits or HTTP token symbols in header names; no spaces or colons"
+}
