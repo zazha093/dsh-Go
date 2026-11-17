@@ -21,16 +21,16 @@
       }
     }
   },
-  "privateKeyRedacted": "<ส่วนตัว คีย์ redacted>",
-  "longLineOmitted": "<long ไลน์ omitted>",
-  "systemImeEvidenceManualPrivilegedime": "## ระบบ IME evidence (manual, privilegedIme)",
-  "fixedEventsOnlyPreceding120SecondsMaximum64RetainedCaptureNotLiveMonitoring": "- Fixed events เท่านั้น; preceding 120 seconds, maximum 64. Retained capture, นอต live มอนิเตอร์ริ่ง.",
+  "privateKeyRedacted": "<คีย์ส่วนตัว redacted>",
+  "longLineOmitted": "<บรรทัดยาว omitted>",
+  "systemImeEvidenceManualPrivilegedime": "## หลักฐานระบบ IME (manual, privilegedIme)",
+  "fixedEventsOnlyPreceding120SecondsMaximum64RetainedCaptureNotLiveMonitoring": "- เฉพาะเหตุการณ์คงที่; ก่อนหน้า 120 วินาที สูงสุด 64 จับภาพ ไม่ใช่การตรวจสอบสด",
   "device": "], device[",
   "device1": "], device[",
   "manifest": "], manifest[",
   "manifest1": "], manifest[",
   "group": " : กลุ่ม}",
-  "collectSystemKeyboardEvidence": "Collect ระบบ keyboard evidence?",
-  "collectOnce": "Collect หนึ่งครั้ง",
+  "collectSystemKeyboardEvidence": "รวบรวมหลักฐานคีย์บอร์ดระบบ?",
+  "collectOnce": "รวบรวมครั้งเดียว",
   "searchSettingsHint": "ค้นหาการตั้งค่า"
 }
