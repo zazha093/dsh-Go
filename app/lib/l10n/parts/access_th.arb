@@ -5,7 +5,7 @@
   "accessSkip": "ข้าม",
   "accessFeatureFiles": "อ่านและเขียนไฟล์ในโทรศัพท์",
   "accessFeatureFilesNeeds": "ต้องการสิทธิ์เข้าถึงไฟล์",
-  "accessFeaturePet": "เพททับแอปอื่น",
+  "accessFeaturePet": "สัตว์เลี้ยงทับแอปอื่น",
   "accessFeaturePetNeeds": "ต้องการสิทธิ์แสดงทับแอปอื่น",
   "accessFeaturePhone": "ควบคุมโทรศัพท์",
   "accessFeaturePhoneNeeds": "ต้องการสิทธิ์เข้าถึงและการแจ้งเตือน",
@@ -98,7 +98,7 @@
     }
   },
   "accessOverlayTitle": "อนุญาตให้แสดงทับแอปอื่น",
-  "accessOverlayWhy": "อนุญาตให้เพทของคุณปรากฏทับแอปอื่น",
+  "accessOverlayWhy": "อนุญาตให้สัตว์เลี้ยงของคุณปรากฏทับแอปอื่น",
   "accessOverlayGreyed": "สวิตช์เป็นสีเทา?",
   "accessRestrictedTitle": "อนุญาตการตั้งค่าจำกัดก่อน",
   "accessRestrictedTap": "ในการเข้าถึง กด \"DSH Phone Control\"; เมื่อ \"Restricted setting\" ปรากฏ กด ตกลง",

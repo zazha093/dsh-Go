@@ -353,7 +353,7 @@
   "pluginsInventorySemantics": "{title}, {status}",
   "pluginsSettingsChanges": "{count} {shown} แอนด์ มากกว่า · items}",
   "pluginsLoadStatus": "โหลด status",
-  "pluginsLoadPartial": "Partly ใช้งาน中",
+  "pluginsLoadPartial": "Partly ใช้งานอยู่",
   "pluginsLoadFailed": "โหลด ล้มเหลว",
   "pluginsLoadNotReady": "นอต ready",
   "pluginsLoadMetadata": "Metadata diagnostics",

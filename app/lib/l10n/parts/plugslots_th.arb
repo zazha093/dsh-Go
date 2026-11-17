@@ -70,7 +70,7 @@
       }
     }
   },
-  "plugslotsFailed": "{plugin} {ปลั๊กอิน} ran เข้า  problem",
+  "plugslotsFailed": "{plugin} {ปลั๊กอิน} พบปัญหา",
   "@plugslotsFailed": {
     "placeholders": {
       "plugin": {
@@ -78,7 +78,7 @@
       }
     }
   },
-  "plugslotsNeedsChat": "เปิด  chat ก่อนother",
+  "plugslotsNeedsChat": "เปิดแชทก่อน",
   "plugslotsFromPlugin": "{plugin} จาก {ปลั๊กอิน}",
   "@plugslotsFromPlugin": {
     "placeholders": {
@@ -87,8 +87,8 @@
       }
     }
   },
-  "plugslotsPanelOffline": "Can't reach  ปลั๊กอิน",
-  "plugslotsIssueTooMany": "{max} ขึ้น ไป {แม็กซ์};  เรสท์ are ซ่อน",
+  "plugslotsPanelOffline": "เข้าถึงปลั๊กอินไม่ได้",
+  "plugslotsIssueTooMany": "{max} สูงสุด {max} รายการที่เหลือซ่อน",
   "@plugslotsIssueTooMany": {
     "placeholders": {
       "max": {
@@ -112,7 +112,7 @@
       }
     }
   },
-  "plugslotsIssueNewerProtocol": "Needs  newer app",
+  "plugslotsIssueNewerProtocol": "ต้องการแอปใหม่กว่า",
   "plugslotsIssueUnknownIcon": "Unknown icon; using  ค่าเริ่มต้น",
   "plugslotsIssueUnknownEffect": "{name} Unsupported effect \"{ชื่อ}\"",
   "@plugslotsIssueUnknownEffect": {
@@ -123,7 +123,7 @@
     }
   },
   "plugslotsIssueLate": "Came ย้อนกลับ มากกว่า than 3 s หลัง  tap; ignored",
-  "plugslotsIssueHttps": "เท่านั้น HTTPเอส links",
+  "plugslotsIssueHttps": "เฉพาะลิงก์ HTTPS",
   "plugslotsIssueUnknownPage": "{page} ไม่ เพจ called \"{เพจ}\"",
   "@plugslotsIssueUnknownPage": {
     "placeholders": {
@@ -160,7 +160,7 @@
       }
     }
   },
-  "plugslotsCodeInvalidManifest": " declaration คือ invalid; native parts are ปิด",
+  "plugslotsCodeInvalidManifest": "ประกาศไม่ถูกต้อง ส่วนเนทีฟปิด",
   "plugslotsCodeInvalidField": "Wrong ฟอร์แมต; skipped",
   "plugslotsCodeUnknownField": "ไม่ทราบ field; ignored",
   "plugslotsCodeUnknownSurface": "นอต supported here ยัง; ignored",
@@ -179,11 +179,11 @@
     }
   },
   "plugslotsCodeDegraded": "เกินไป มาก errors; ปิด จนกว่า  ถัดไป เริ่ม",
-  "plugslotsCodeTimeout": " ปลั๊กอิน didn't คำตอบ ใน ไทม์",
+  "plugslotsCodeTimeout": "ปลั๊กอินตอบไม่ทัน",
   "plugslotsCodeRateLimited": "Tapped เกินไป เร็ว",
-  "plugslotsCodeNotFound": " ปลั๊กอิน คือ ปิด ออร์ missing",
-  "plugslotsCodePluginError": " ปลั๊กอิน ล้มเหลว",
-  "plugslotsCodeInvalidView": " มุมมอง คือ invalid",
+  "plugslotsCodeNotFound": "ปลั๊กอินปิดหรือหาย",
+  "plugslotsCodePluginError": "ปลั๊กอินล้มเหลว",
+  "plugslotsCodeInvalidView": "มุมมองไม่ถูกต้อง",
   "plugslotsCodeLimit": "เกินไป มาก subscriptions",
   "plugslotsCodeOther": "other problem",
   "plugslotsCodeUnknownEffect": "Unsupported action; ข้าม",
@@ -223,12 +223,12 @@
   "plugslotsPlaceRightbar": "สิทธิ์ sidebar",
   "plugslotsPlaceFiles": "ไฟล์ previews",
   "plugslotsPlaceSettings": "ตั้งค่า",
-  "plugslotsPlacePlugins": "Plugins เพจ",
+  "plugslotsPlacePlugins": "หน้าปลั๊กอิน",
   "plugslotsPlaceNewChat": "ใหม่ conversation",
   "plugslotsPlaceElsewhere": "Elsewhere",
   "plugslotsPlaceUnknown": "Its web อินเตอร์เฟซ",
-  "plugslotsChatEntry": "Plugins",
-  "plugslotsChatWebFrom": "เว็บ plugins · {names}",
+  "plugslotsChatEntry": "ปลั๊กอิน",
+  "plugslotsChatWebFrom": "เว็บปลั๊กอิน · {names}",
   "@plugslotsChatWebFrom": {
     "placeholders": {
       "names": {

@@ -1,7 +1,7 @@
 {
   "phoneSkillSectionTitle": "เสร็จสิ้น tasks แอนด์ skills",
-  "phoneSkillAskAfterSuccess": "ถาม ไป บันทึก  skill หลัง  successful งาน",
-  "phoneSkillAskAfterSuccessHint": "ปิด โดย ดีฟอลต์.  newly เสร็จสิ้น งาน asks หนึ่งครั้ง ขณะที่ this เพจ คือ มองเห็น. You can also choose  งาน manually.",
+  "phoneSkillAskAfterSuccess": "ถามบันทึกสกิลหลังงานสำเร็จ",
+  "phoneSkillAskAfterSuccessHint": "ปิดโดยค่าเริ่มต้น งานที่เสร็จใหม่จะถามครั้งเดียวขณะหน้านี้แสดง",
   "phoneSkillTask": "งาน {taskId} · {steps} steps",
   "@phoneSkillTask": {
     "placeholders": {
@@ -13,12 +13,12 @@
       }
     }
   },
-  "phoneSkillCandidateHint": "ตรวจสอบ  actual ผลลัพธ์ ก่อนother; successful tool calls ทำ นอต prove that your เป้าหมาย was achieved.",
-  "phoneSkillSaveAction": "บันทึก ในฐานะ  skill",
+  "phoneSkillCandidateHint": "ตรวจสอบผลลัพธ์จริงก่อน การเรียกเครื่องมือสำเร็จไม่พิสูจน์ว่าสกิลถูกต้อง",
+  "phoneSkillSaveAction": "บันทึกเป็นสกิล",
   "phoneSkillConfirmGoal": "Did this งาน achieve your เป้าหมาย?",
-  "phoneSkillConfirmGoalBody": "ตรวจสอบ  actual ผลลัพธ์. Your confirmation creates  draft that you can review แอนด์ แก้ไข ก่อน saving.",
-  "phoneSkillGoalDone": "เป้าหมาย achieved · รีVUE draft",
-  "phoneSkillPrivacyHint": " draft stays เปิด this device. ทำ นอต เอ็นเตอร์ passwords, keys, ออร์ verification codes. ใน this VERSION, free เท็กซ์ becomes parameters; removing ออร์ reordering steps คือ kept. รีVUE  final พรีVUE.",
+  "phoneSkillConfirmGoalBody": "ตรวจสอบผลลัพธ์จริง การยืนยันของคุณสร้าง草案ที่คุณตรวจสอบได้",
+  "phoneSkillGoalDone": "เป้าหมายสำเร็จ · ตรวจสอบ草案",
+  "phoneSkillPrivacyHint": "草案อยู่บนอุปกรณ์นี้ ไม่ใส่รหัสผ่าน คีย์ หรือข้อมูลยืนยัน",
   "phoneSkillGoal": "เป้าหมาย",
   "phoneSkillPrerequisites": "Requirements (app, VERSION, ไซน์-ใน สเตท)",
   "phoneSkillStep": "{number} Original step {ตัวเลข}",
@@ -35,15 +35,15 @@
   "phoneSkillUpdatePreview": "อัปเดต  redacted ตัวอย่าง",
   "phoneSkillPreviewTitle": "เสร็จสิ้น เนื้อหา ไป เป็น saved",
   "phoneSkillParameterizedHint": "ว่าง เท็กซ์ has been replaced กับ parameters ไป fill ใน แอนด์ เช็ค เมื่อ using this skill.",
-  "phoneSkillFinalConfirmation": "I have reviewed  complete current พรีVUE แอนด์ agree ไป บันทึก this VERSION.",
-  "phoneSkillSavedBody": " ไฟล์ was written ไป  โลคอล skills ไดเรกทอรี.  engine’s refreshed skill รายการ has นอต been verified; เช็ค  Skills เพจ.",
+  "phoneSkillFinalConfirmation": "ฉันตรวจสอบพรีวิวปัจจุบันครบถ้วนแล้ว และยอมรับบันทึกเวอร์ชันนี้",
+  "phoneSkillSavedBody": "ไฟล์เขียนไปที่ไดเรกทอรีสกิลโลคอล รายการสกิลของเอนจินรีเฟรชแล้ว",
   "phoneSkillWriting": "Writing  skill",
-  "phoneSkillCannotCancel": " เขียน พฤษภาคม have reached its คอมมิต stage แอนด์ cannot เป็น guaranteed ไป ยกเลิก. Closing เท่านั้น closes this เพจ;  committed ไฟล์ will ยัง เป็น saved.",
+  "phoneSkillCannotCancel": "การเขียนอาจถึงขั้นยืนยันแล้ว และไม่สามารถรับประกันการยกเลิกได้",
   "phoneSkillKeepWaiting": "Keep viewing",
   "phoneSkillCheckWrite": "ตรวจสอบ เขียน ผลลัพธ์",
   "phoneSkillStale": "This draft คือ ไม่ longer current. ปิด it แอนด์ choose  งาน อีกครั้ง.",
-  "phoneSkillSensitive": " แก้ไข คอนเทนส์ sensitive เนื้อหา. นำออก it ก่อน updating  พรีVUE.",
-  "phoneSkillInvalid": " แก้ไข ออร์ step ออเดอร์ exceeds  limits. Shorten  เท็กซ์ แอนด์ keep at น้อยที่สุด one step.",
-  "phoneSkillWriteFailed": " ไฟล์ could นอต เป็น written. เช็ค  โลคอล รันไทม์ แอนด์ ที่เก็บข้อมูล; แก้ไข แอนด์ อัปเดต  พรีVUE ก่อน confirming another บันทึก.",
+  "phoneSkillSensitive": "แก้ไขเนื้อหาสำคัญ นำออกก่อนอัปเดตพรีวิว",
+  "phoneSkillInvalid": "แก้ไขหรือลำดับขั้นตอนเกินขีดจำกัด ระบุให้สั้นลงและคงให้เหลือน้อยที่สุด",
+  "phoneSkillWriteFailed": "ไฟล์เขียนไม่ได้ ตรวจสอบรันไทม์โลคอลและที่เก็บข้อมูล แก้ไขและลองใหม่",
   "phoneSkillUnavailable": "Skill drafts are unavailable. เช็ค  โลคอล engine สเตท แอนด์ ทราย อีกครั้ง."
 }

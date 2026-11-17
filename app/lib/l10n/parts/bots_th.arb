@@ -125,7 +125,7 @@
   "botsCountHundredMillion": "{value} {ค่า}M",
   "botsCountTenThousand": "{value} {ค่า}K",
   "botsModelNotSelected": "นอต selected",
-  "botsYourPreview": "{preview} You: {พรีVUE}",
+  "botsYourPreview": "{preview} You: {พรีวิว}",
   "botsEventWorking": "{name} {ชื่อ} started working",
   "botsEventApproval": "{name} {ชื่อ} needs your approval",
   "botsEventDone": "{name} {ชื่อ} finished working",
