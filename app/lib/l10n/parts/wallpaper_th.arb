@@ -23,5 +23,6 @@
   "wallpaperSampleAnswer": "ใช่. วันเสาร์ บ่าย คือ sunny กับ  light breeze แอนด์ waves ใต้ half  metre,  best เดย์ this สัปดาห์.",
   "wallpaperSampleNote": "It cools ลง เร็ว ใน  เย็น, so bring  light jacket.",
   "wallpaperSampleTool": "ตรวจสอบแล้ว 3 weather sources",
-  "searchKwWallpaper": "background,background รูปภาพ,Chat background,custom background,backdrop,blur,photo"
+  "searchKwWallpaper": "background,background รูปภาพ,Chat background,custom background,backdrop,blur,photo",
+  "@@locale": "th"
 }

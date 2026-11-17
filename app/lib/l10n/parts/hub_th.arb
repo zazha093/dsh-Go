@@ -115,7 +115,6 @@
   "hubSettingsAccountSemantics": "{title} {subtitle} บัญชี: ,",
   "hubSettingsHostSemantics": "{name} โฮสต์ระยะไกล: {ชื่อ}, {status}",
   "hubSettingsApiKey": "คีย์ API DeepSeek",
-  "hubSettingsApiKeySection": "API คีย์",
   "hubPluginBrowserFailed": "{address} เปิดเบราว์เซอร์ไม่ได้ เปิด {ที่อยู่} เอง",
   "hubPluginYearMonth": "{year} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
   "hubPluginUpdateTo": "{version} อัปเดตเป็น {version}",
@@ -183,41 +182,6 @@
   "hubQuickPanelSwipeHint": "สวายขวาไปซ้ายเหนือแชท บล็อกโค้ด ตาราง และเนื้อหาที่เลื่อนข้างๆ ไม่ได้รับผลกระทบ",
   "hubQuickPanelItems": "รายการที่แสดง",
   "hubQuickPanelItemsNone": "ไม่ได้เลือก: สวายซ้ายจะไม่เปิด",
-  "performanceChannelDetached": "ประสิทธิภาพ channel detached",
-  "performanceChannelDetached1": "ประสิทธิภาพ channel detached",
-  "parseError": "พาร์ส ข้อผิดพลาด",
-  "invalidRequest": "Invalid คำขอ",
-  "invalidRequest1": "Invalid คำขอ",
-  "invalidPhoneRunEndContext": "Invalid phone เรียกใช้ end คอนเท็กซ์",
-  "invalidCallMetadata": "Invalid คอลล์ metadata",
-  "invalidPhoneCallerContext": "Invalid phone caller คอนเท็กซ์",
-  "methodNotFound": "เมธอด นอต found",
-  "outappend": "' -> ออก.append(",
-  "backgroundReleaseIsUnconfirmed": "Background รีลีส คือ unconfirmed",
-  "invoice12View": "Invoice 12 มุมมอง",
-  "invoice12Delete": "Invoice 12 ลบ",
-  "backgroundResourceAdmissionWasStopped": "Background resource admission was หยุด",
-  "backgroundResourceAdmissionWasStopped1": "Background resource admission was หยุด",
-  "backgroundResourceAdmissionWasStopped2": "Background resource admission was หยุด",
-  "backgroundResourceAdmissionWasStopped3": "Background resource admission was หยุด",
-  "originalNavigationPlanWasClosed": "Original navigation แผน was closed",
-  "originalNavigationPlanWasClosed1": "Original navigation แผน was closed",
-  "onlyThisStep": "เท่านั้น นี้ step",
-  "developerOptions": "Developer ตัวเลือก",
-  "deviceAdmin": "Device แอดมิน",
-  "installUnknown": "ติดตั้ง unknown",
-  "securityPrivacy": "ความปลอดภัย & ความเป็นส่วนตัว",
-  "deprecatedInJava": "Deprecated ใน Java",
-  "deprecatedInJava1": "Deprecated ใน Java",
-  "procEnumerationUnavailable": "; /proc enumeration unavailable",
-  "append": "' -> append(",
-  "enospcnoSpaceLeftOnDevice": "ENOSPC|ไม่ space left เปิด device",
-  "append1": "' -> append(",
-  "deprecatedInJava2": "Deprecated ใน Java",
-  "deprecatedInJava3": "Deprecated ใน Java",
-  "refused": "} refused",
-  "deprecatedInJava4": "Deprecated ใน Java",
-  "petOverlayEngineDetached": "Pet overlay engine detached",
   "@hubSessionTurns": {
     "placeholders": {
       "count": {
@@ -372,5 +336,6 @@
         "type": "int"
       }
     }
-  }
+  },
+  "@@locale": "th"
 }

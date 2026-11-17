@@ -12,5 +12,6 @@
   "starPromptStar": "ดาว it เปิด GitHub",
   "starPromptDone": "แล้ว starred",
   "starPromptLater": "ไม่แน่ใจ ภายหลัง",
-  "starSettingsTitle": "ดาว DSH Go เปิด GitHub"
+  "starSettingsTitle": "ดาว DSH Go เปิด GitHub",
+  "@@locale": "th"
 }

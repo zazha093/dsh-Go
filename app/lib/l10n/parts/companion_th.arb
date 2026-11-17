@@ -269,43 +269,6 @@
   "companionAdaptUnreadable": " Model's คำตอบ made ไม่ sense",
   "companionAdaptEmpty": " Model found nothing ไป match",
   "companionAdaptNetwork": "ไม่ การเชื่อมต่อ",
-  "namestatus": "{name}，{status}",
-  "@namestatus": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      },
-      "status": {
-        "type": "String"
-      }
-    }
-  },
-  "whoentrytext": "{who}：{entry_text}",
-  "@whoentrytext": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      },
-      "entry_text": {
-        "type": "String"
-      }
-    }
-  },
-  "expressionsAndMotionsCount": "{moves_expressions_length_moves_motions_length}",
-  "thisCommandSucceeded": "This คอมมานด์ succeeded.",
-  "thisCommandFailed": "This คอมมานด์ ล้มเหลว.",
-  "thisCommandWasCancelled": "This คอมมานด์ was ยกเลิกแล้ว.",
-  "thisCommandWasNotRun": "This คอมมานด์ was นอต เรียกใช้.",
-  "thisRequestIsNoLongerPending": "This คำขอ คือ ไม่ longer รอดำเนินการ.",
-  "youAreStillHereYouCanTakeABreakIfYouWant": "You are ยัง here. You can TEEก  หยุด ถ้า you want.",
-  "thisStatusIsUnavailable": "This status คือ unavailable.",
-  "value": ": ค่า[",
-  "value1": ": ค่า[",
-  "companionRoom": "Companion room",
-  "whaleGirl": "Whale girl",
-  "waitingForYouInTheRoom": "Waiting สำหรับ you ใน  room",
-  "companionadapt": "companion-adapt",
-  "skillmd": "SKILL.md",
   "@companionInputHint": {
     "placeholders": {
       "name": {
@@ -414,11 +377,9 @@
       }
     }
   },
-  "@expressionsAndMotionsCount": {
-    "placeholders": {
-      "moves_expressions_length_moves_motions_length": {
-        "type": "String"
-      }
-    }
-  }
+  "companionShake2": "I'm so dizzy… the water's sloshing everywhere.",
+  "companionFailedBodyPlain": "Your companion didn't load just now. Try again first; if that doesn't help, import the asset pack again.",
+  "companionShake3": "Keep that up and I'll start blowing bubbles!",
+  "companionShake1": "Whoa, stop shaking!",
+  "@@locale": "th"
 }

@@ -1032,5 +1032,23 @@
         "type": "String"
       }
     }
-  }
+  },
+  "botsPetOverlayPixel": "Pixel pet",
+  "botsPetOverlayPackBroken": "The character pack is incomplete. Import it again in the Companion Room",
+  "botsPetOverlayFramingHint": "Changing the framing reloads the character",
+  "botsPetOverlayCompanionHint": "Tap to play with her, tap twice to open the chat. Uses more battery than the pixel pet. It stops when the screen is off or the window is hidden",
+  "botsPetOverlayCompanionNamed": "{name} from the Room",
+  "botsPetOverlayUnavailable": "This phone can't show your companion right now",
+  "botsPetMake": "Make a pet with AI",
+  "botsPetCustomSize": "Custom size",
+  "botsPetOverlayNoPack": "Invite a character in the Companion Room first",
+  "botsPetOverlayCompanion": "Room companion",
+  "botsPetOverlayFraming": "Framing",
+  "botsPetOverlayFallback": "Your companion couldn't come out. The pixel pet is filling in",
+  "botsPetOverlayShows": "Show in the floating window",
+  "botsPetOverlayLoading": "Bringing your companion out…",
+  "botsPetOverlayFramingFull": "Full body",
+  "botsPetOverlayFramingHalf": "Half body",
+  "botsPetMakeSubtitle": "Turn GIFs, stickers or a theme into a pet pack",
+  "@@locale": "th"
 }

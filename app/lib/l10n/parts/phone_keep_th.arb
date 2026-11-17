@@ -9,5 +9,6 @@
   "phoneKeepWaitingPermission": "นอต authorized. Reconnects หนึ่งครั้ง you ให้ it.",
   "phoneKeepWaitingNetwork": "กำลังรอ สำหรับ Wi‑Fi",
   "phoneKeepNotPaired": "นอต paired. Pair wireless debugging เฟิร์ส.",
-  "phoneKeepFailed": "Couldn’t reconnect. Tries อีกครั้ง เมื่อ you เปิด  app ออร์ เริ่ม  งาน."
+  "phoneKeepFailed": "Couldn’t reconnect. Tries อีกครั้ง เมื่อ you เปิด  app ออร์ เริ่ม  งาน.",
+  "@@locale": "th"
 }

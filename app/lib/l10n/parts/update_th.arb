@@ -78,14 +78,6 @@
   "updateNoAbiPackage": "ไม่ {abi} package สำหรับ นี้ รีลีส ยัง. เช็ค  รีลีส เพจ.",
   "updateNoPackage": "ไม่ package สำหรับ นี้ รีลีส ยัง. เช็ค  รีลีส เพจ.",
   "updateDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
-  "dshLatestversionname": "DSH {latest_version_name}",
-  "@dshLatestversionname": {
-    "placeholders": {
-      "latest_version_name": {
-        "type": "String"
-      }
-    }
-  },
   "@updateTileDownloadingPercent": {
     "placeholders": {
       "percent": {
@@ -158,5 +150,11 @@
         "type": "String"
       }
     }
-  }
+  },
+  "updateExportApkDone": "Saved to Downloads/{path}",
+  "updateExportApkTitle": "Save the package?",
+  "updateExportApkFailed": "Couldn't save the package",
+  "updateExportApk": "Save the package",
+  "updateExportApkMessage": "Copies the package downloaded and verified now into Downloads/DSH-Go, so you can sign it yourself (MT Manager and the like) and install that.\n\nA package you signed has a different signature from ours: in-app updates then always report a signature mismatch, and every later version has to be signed and installed by hand.\n\nIf the system simply blocks the install (Xiaomi and other vendors), try Shizuku or on-device ADB under Installation route first; that needs no signing.",
+  "@@locale": "th"
 }

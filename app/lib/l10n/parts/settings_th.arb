@@ -1,36 +1,3 @@
 {
-  "l10nphonelocalocrdisclosurennl10nphonelocalocrdetails": "{l10n_phoneLocalOcrDisclosure}\n\n{l10n_phoneLocalOcrDetails}",
-  "@l10nphonelocalocrdisclosurennl10nphonelocalocrdetails": {
-    "placeholders": {
-      "l10n_phoneLocalOcrDisclosure": {
-        "type": "String"
-      },
-      "l10n_phoneLocalOcrDetails": {
-        "type": "String"
-      }
-    }
-  },
-  "accentlabelMode": "{accent_label} · {mode}",
-  "@accentlabelMode": {
-    "placeholders": {
-      "accent_label": {
-        "type": "String"
-      },
-      "mode": {
-        "type": "String"
-      }
-    }
-  },
-  "privateKeyRedacted": "<คีย์ส่วนตัว redacted>",
-  "longLineOmitted": "<บรรทัดยาว omitted>",
-  "systemImeEvidenceManualPrivilegedime": "## หลักฐานระบบ IME (manual, privilegedIme)",
-  "fixedEventsOnlyPreceding120SecondsMaximum64RetainedCaptureNotLiveMonitoring": "- เฉพาะเหตุการณ์คงที่; ก่อนหน้า 120 วินาที สูงสุด 64 จับภาพ ไม่ใช่การตรวจสอบสด",
-  "device": "], device[",
-  "device1": "], device[",
-  "manifest": "], manifest[",
-  "manifest1": "], manifest[",
-  "group": " : กลุ่ม}",
-  "collectSystemKeyboardEvidence": "รวบรวมหลักฐานคีย์บอร์ดระบบ?",
-  "collectOnce": "รวบรวมครั้งเดียว",
-  "searchSettingsHint": "ค้นหาการตั้งค่า"
+  "@@locale": "th"
 }

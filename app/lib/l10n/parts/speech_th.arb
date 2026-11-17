@@ -1,5 +1,4 @@
 {
-  "@@locale": "th",
   "speechReadAloud": "Read aloud",
   "speechReadAloudStop": "Stop reading",
   "speechReadSection": "Read aloud",
@@ -135,5 +134,6 @@
   "speechCallVisualRing": "Ring",
   "speechCallVisualMono": "Line",
   "speechCallVisualGlass": "Orb",
-  "speechInsecure": "That service's address isn't https; the key can't be sent that way"
+  "speechInsecure": "That service's address isn't https; the key can't be sent that way",
+  "@@locale": "th"
 }

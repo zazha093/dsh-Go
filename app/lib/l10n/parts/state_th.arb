@@ -783,5 +783,12 @@
         "type": "String"
       }
     }
-  }
+  },
+  "statePasteFailed": "Could not read the clipboard. Try again or enter the text manually.",
+  "statePasteEmpty": "The clipboard has no text to paste.",
+  "stateSizeCustom": "Custom",
+  "statePasteDenied": "Paste was not authorized. Tap the Paste button again.",
+  "statePasteBusy": "The paste window is still active or closing. Finish or cancel it, then try again.",
+  "stateChatFormatUnsupported": "This engine cannot read this chat's log format. Export diagnostics to investigate.",
+  "@@locale": "th"
 }

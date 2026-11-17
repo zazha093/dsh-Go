@@ -62,5 +62,6 @@
   "pluginConfigNameWorktree": "Worktree manager",
   "pluginConfigNameWorktreeTools": "Worktree tools",
   "pluginConfigNameRalphWorkflow": "Workflow engine",
-  "pluginConfigNameRalphTools": "Ralph tools"
+  "pluginConfigNameRalphTools": "Ralph tools",
+  "@@locale": "th"
 }

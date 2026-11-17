@@ -791,5 +791,27 @@
         "type": "String"
       }
     }
-  }
+  },
+  "activityQuotaSevenDay": "7 days",
+  "activityQuotaUsed": "{value} used",
+  "activityQuotaSevenDayOpus": "7 days · Opus",
+  "activityQuotaUnavailable": "Can't load subscription usage right now. Try again later.",
+  "activitySlashRunIntent": "Command · Run",
+  "activityQuotaSecondary": "Secondary limit",
+  "activityQuotaPermissionDenied": "This subscription does not have permission to access usage.",
+  "activityQuotaLoading": "Loading subscription usage…",
+  "activityQuotaUnsupported": "This host does not support subscription usage",
+  "activityQuotaSevenDaySonnet": "7 days · Sonnet",
+  "activityQuotaFiveHour": "5 hours",
+  "activityQuotaReset": "Resets: {time}",
+  "activitySlashInsertIntent": "Command · Insert",
+  "activitySlashSkillIntent": "Skill · Insert",
+  "activityQuotaRateLimited": "Too many requests. Try again later.",
+  "activityQuotaRefresh": "Refresh usage",
+  "activityQuotaNetworkError": "Network error. Try again later.",
+  "activityQuotaTitle": "Subscription usage",
+  "activityQuotaAuthError": "Sign-in expired or access denied. Check your subscription sign-in.",
+  "activityQuotaSignedOut": "Subscription is signed out",
+  "activityQuotaPrimary": "Primary limit",
+  "@@locale": "th"
 }

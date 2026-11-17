@@ -12,5 +12,6 @@
   "workspaceRecoveryUnavailable": "This VERSION does นอต รองรับ Workspace ดัชนี recovery. เช็ค  โลคอล engine status แอนด์ อัปเดต  app.",
   "workspaceRecoveryRestartIncomplete": "โหมดดัชนีเปลี่ยน แต่เอนจินยังไม่ยืนยันหยุดหรือรีสตาร์ท รอ…",
   "workspaceRecoverySaveFailed": "บันทึกโหมดดัชนีไม่ได้ ไม่มีการเริ่มใหม่ถูกขอ ตรวจสอบเอนจินโลคัล",
-  "workspaceRecoveryFailed": " operation did นอต จบ. เช็ค  โลคอล engine status แอนด์ logs. This เพจ shows ว่า  ดัชนี mode changed."
+  "workspaceRecoveryFailed": " operation did นอต จบ. เช็ค  โลคอล engine status แอนด์ logs. This เพจ shows ว่า  ดัชนี mode changed.",
+  "@@locale": "th"
 }

@@ -133,12 +133,7 @@
   },
   "accessPageTitle": "สิทธิ์ระบบ",
   "accessPageSubtitle": "แต่ละฟีเจอร์ต้องการสิทธิ์อะไรจาก Android",
-  "index": "{index}",
-  "@index": {
-    "placeholders": {
-      "index": {
-        "type": "String"
-      }
-    }
-  }
+  "accessFeatureAlerts": "Reply alerts",
+  "accessFeatureAlertsNeeds": "Needs notifications",
+  "@@locale": "th"
 }

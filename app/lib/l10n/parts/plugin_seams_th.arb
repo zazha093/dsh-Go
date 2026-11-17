@@ -1,9 +1,9 @@
 {
-  "@@locale": "th",
   "seamsTitle": "In-app interface",
   "seamsOverlay": "Chat overlay",
   "seamsOverlayNote": "Stays over the chat and yields when memory is tight",
   "seamsSidebarPage": "Sidebar entry",
   "seamsSettingsPage": "Plugin settings page",
-  "seamsDetailPage": "Plugin detail extension"
+  "seamsDetailPage": "Plugin detail extension",
+  "@@locale": "th"
 }
