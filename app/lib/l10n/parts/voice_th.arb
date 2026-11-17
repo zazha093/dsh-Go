@@ -137,5 +137,14 @@
         "type": "String"
       }
     }
-  }
+  },
+  "voiceModeCloudHint": "An OpenAI-compatible transcription API, such as Whisper or SiliconFlow",
+  "voiceModeDeepseekHint": "DeepSeek’s recognizer, paid by your signed-in account or API key",
+  "voiceModeCloud": "Another cloud service",
+  "voiceCloudFooter": "Recordings are sent to this service. The key stays on this phone.",
+  "voiceModeDeepseek": "DeepSeek",
+  "voiceCloudSection": "Cloud recognition service",
+  "voiceCloudBaseHelper": "Up to /v1; the app calls …/audio/transcriptions",
+  "voiceCloudModelHelper": "For example whisper-1 or FunAudioLLM/SenseVoiceSmall",
+  "@@locale": "th"
 }

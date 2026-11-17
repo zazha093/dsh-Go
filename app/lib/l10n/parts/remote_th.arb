@@ -446,19 +446,6 @@
   "remoteErrHistoryModeChanged": " โฮสต์ ไม่ longer supports compact history. Switch ไป another โฮสต์ แอนด์ ย้อนกลับ, ออร์ รีสตาร์ท  app, ไป โหลดใหม่ history.",
   "remoteCompactHistoryHint": "Reduces historical เครื่องมือ details เปิด supporting DSH รีโมต Hosts; live replies แอนด์ approvals stay unchanged. Switch hosts ออร์ รีสตาร์ท  app ไป apply. Older Hosts keep full history.",
   "searchKwRemoteCompactHistory": "compact slim lite history tools ถ่ายโอน แบนด์วิดท์ รีโมต",
-  "sshHaddress": "SSH · {h_address}",
-  "@sshHaddress": {
-    "placeholders": {
-      "h_address": {
-        "type": "String"
-      }
-    }
-  },
-  "code": "~/โค้ด",
-  "beginOpensshPrivateKeyn": "-----BEGIN OPENSSH ส่วนตัว คีย์-----\\n…",
-  "dshappNodshn": "DSHAPP nodsh\\n",
-  "nIfCommandVNohupDevnull21ThenNnohupFi": "N=\"\"; ถ้า คอมมานด์ -v nohup >/dev/นัลล์ 2>&1; แล้ว N=nohup; fi",
-  "datachannelClosed": "DataChannel closed",
   "@remoteReconnectAttempt": {
     "placeholders": {
       "count": {
@@ -1054,5 +1041,32 @@
         "type": "String"
       }
     }
-  }
+  },
+  "remoteManagedHelp": "Start or reuse app-managed DSH. A live instance that cannot be reused is never replaced automatically.",
+  "remoteDshMode": "Instance management",
+  "remoteErrSharedInstance": "Remote managed DSH is still running, but its start command differs or its launch log is missing. To protect shared use, it was not restarted. Check the settings, use Attach only, or explicitly choose Restart managed DSH in Edit host.",
+  "remoteHostedDeleteSaveFailed": "Deletion wasn’t scheduled. The link is still active. Please retry.",
+  "remoteHostedLoadFailed": "Couldn’t read saved links. Please retry.",
+  "remoteHostedStopFailed": "Couldn’t stop sharing. The link is still active. Please retry.",
+  "remoteDshPort": "Remote DSH port",
+  "remoteDshToken": "DSH launch token",
+  "remoteDshAttached": "Connected to existing DSH",
+  "remoteHostedCreatedUnsaved": "Your link is ready to copy and use, but wasn’t saved on this device. Keep a copy and retry saving in My shared links.",
+  "remoteHostedSaveFailed": "Changes to your shared links haven’t been saved. Please retry.",
+  "remoteRestartManagedWarning": "This stops the remote DSH recorded by the app and starts it again. Other clients and active chats may be interrupted. Continue only after checking nobody else is using it. Normal connection tests never do this.",
+  "remoteSshCompressionHelp": "On by default. Negotiate compression after authentication; use uncompressed transport if unsupported.",
+  "remoteKeyStorageHelpIos": "Saved only on this phone, encrypted by the system keychain. Supports Ed25519, RSA and ECDSA.",
+  "remoteAttachOnly": "Attach only",
+  "remoteHostedUndoFailed": "Couldn’t restore sharing. Deletion may have started. Check My shared links.",
+  "remoteAttachWorkingDirectoryHelp": "Existing instances are not probed for a home directory. Use a remote absolute path, or leave empty for DSH’s default.",
+  "remoteRestartManaged": "Restart managed DSH",
+  "remotePasswordStorageHelpIos": "Saved only on this phone, encrypted by the system keychain",
+  "remoteSshCompression": "SSH compression",
+  "remoteHostedUndoUnsaved": "Deletion is cancelled for this session, but the undo wasn’t saved. It may resume after restart. Retry saving in My shared links.",
+  "remoteManaged": "Managed",
+  "remoteErrAttachSettings": "Enter a valid remote DSH port and launch token",
+  "remoteAttachOnlyHelp": "Forward only to a fixed port on remote 127.0.0.1. Never start, stop or restart DSH.",
+  "remoteUseServer": "Use this server",
+  "remoteDshTokenHelp": "Enter the token from the existing instance’s launch URL. It stays in secure storage on this phone.",
+  "@@locale": "th"
 }

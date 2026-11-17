@@ -1,5 +1,4 @@
 {
-  "@@locale": "en",
   "systemActionsTitle": "System actions",
   "systemActionsSubtitle": "Let the AI open apps and system pages for you. Turn it off anytime",
   "systemActionsReady": "On",
@@ -70,5 +69,6 @@
   "systemActionsResultNotRun": "Nothing ran.",
   "catalogSystemActions": "System actions",
   "catalogSystemActionsSummary": "Open apps and system pages",
-  "searchKwSystemActions": "phone control,control phone,open app,open link,calendar,dialer,share,navigation,notification,clipboard,hand back,alarm,timer"
+  "searchKwSystemActions": "phone control,control phone,open app,open link,calendar,dialer,share,navigation,notification,clipboard,hand back,alarm,timer",
+  "@@locale": "th"
 }

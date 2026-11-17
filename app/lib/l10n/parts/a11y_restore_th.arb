@@ -14,5 +14,6 @@
   "a11yRestoreWaitingSui": "อนุญาต  ขอ ใน Sui",
   "a11yRestoreComputer": "ออร์ เชื่อมต่อ ไป  computer แอนด์ เรียกใช้ หนึ่งครั้ง:",
   "a11yRestoreCopy": "คัดลอก command",
-  "a11yRestoreCopied": "คอมมานด์ copied"
+  "a11yRestoreCopied": "คอมมานด์ copied",
+  "@@locale": "th"
 }

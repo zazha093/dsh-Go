@@ -9,5 +9,6 @@
   "brandHuaweiOs": "Huawei / Honor (HarmonyOS, MagicOS)",
   "brandOppoOs": "OPPO / OnePlus / realme (ColorOS)",
   "brandSamsungOs": "Samsung (One UI)",
-  "brandZhihu": "Zhihu"
+  "brandZhihu": "Zhihu",
+  "@@locale": "th"
 }

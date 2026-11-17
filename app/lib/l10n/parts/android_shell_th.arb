@@ -1,5 +1,4 @@
 {
-  "@@locale": "th",
   "androidShellTitle": "Android Shell",
   "androidShellEntryHint": "Separate system-command channel, off by default",
   "androidShellSubtitle": "Run Android system commands on this phone through Shizuku or self-ADB, not bash inside Ubuntu.",
@@ -81,5 +80,6 @@
   "androidShellErrorInvalidResponse": "No valid native status was received. Refresh or update the app.",
   "androidShellErrorStopped": "This round has ended or is paused. Turn it on again and retry.",
   "androidShellErrorStopFailed": "Stopping was not confirmed. Refresh the status and retry stopping.",
-  "androidShellErrorUnknown": "The outcome could not be confirmed. Verify it first; never automatically retry a dispatched command."
+  "androidShellErrorUnknown": "The outcome could not be confirmed. Verify it first; never automatically retry a dispatched command.",
+  "@@locale": "th"
 }

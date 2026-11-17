@@ -1,5 +1,4 @@
 {
-  "@@locale": "th",
   "selfUpdateTransport": "Installation route",
   "selfUpdateSystem": "Normal installation (default)",
   "selfUpdateShizuku": "Shizuku",
@@ -51,5 +50,6 @@
     }
   },
   "selfUpdateEndWaiting": "End this wait",
-  "selfUpdateEndWaitingNote": "End this wait only after confirming the system is no longer installing. Clearing the record does not cancel a system installation or retry/switch routes. Native confirmation is required again."
+  "selfUpdateEndWaitingNote": "End this wait only after confirming the system is no longer installing. Clearing the record does not cancel a system installation or retry/switch routes. Native confirmation is required again.",
+  "@@locale": "th"
 }

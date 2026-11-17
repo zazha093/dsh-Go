@@ -1,7 +1,3 @@
 {
-  "phoneResourceRecoveryTitle": "พื้นหลัง resources ต้องการ verification",
-  "phoneResourceRecoveryRunning": "Checking  original resource records. ใหม่ phone tasks will wait จนกว่า this finishes.",
-  "phoneResourceRecoveryStorage": " resource record could นอต เป็น อ่าน ออร์ saved. ลองใหม่ saving ออร์ reading it.  confirmed รีลีส คือ นอต repeated, แอนด์ past actions are นอต replayed.",
-  "phoneResourceRecoveryPending": "Old background resources have นอต been verified. ใหม่ phone tasks are ถูกบล็อก. Choose  original authorized channel แอนด์ ลองใหม่; ถ้า verification remains unavailable, รีสตาร์ท  device แอนด์ เช็ค อีกครั้ง. Past actions พฤษภาคม แล้ว have happened. Reading  งาน interruption การแจ้งเตือน does นอต ล้าง these resources.",
-  "phoneResourceRecoveryRetry": "ลองใหม่ resource verification"
+  "@@locale": "th"
 }

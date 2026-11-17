@@ -45,5 +45,6 @@
   "phoneSkillSensitive": "แก้ไขเนื้อหาสำคัญ นำออกก่อนอัปเดตพรีวิว",
   "phoneSkillInvalid": "แก้ไขหรือลำดับขั้นตอนเกินขีดจำกัด ระบุให้สั้นลงและคงให้เหลือน้อยที่สุด",
   "phoneSkillWriteFailed": "ไฟล์เขียนไม่ได้ ตรวจสอบรันไทม์โลคอลและที่เก็บข้อมูล แก้ไขและลองใหม่",
-  "phoneSkillUnavailable": "Skill drafts are unavailable. เช็ค  โลคอล engine สเตท และ ลอง อีกครั้ง."
+  "phoneSkillUnavailable": "Skill drafts are unavailable. เช็ค  โลคอล engine สเตท และ ลอง อีกครั้ง.",
+  "@@locale": "th"
 }

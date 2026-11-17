@@ -225,8 +225,6 @@
   "engineProviderRejectedConfig": "เอนจินปฏิเสธการตั้งค่าบางอย่าง",
   "engineProviderConnection": "การเชื่อมต่อ",
   "engineProviderDefaultUrl": "ค่าเริ่มต้น URL",
-  "engineProviderBaseUrl": "BASE URL",
-  "engineProviderApiKeyLabel": "API คีย์",
   "engineProviderKeyNotRequired": "นอต ต้องการ",
   "engineProviderNoModels": "ยังไม่มีโมเดล",
   "engineProviderWebConfigured": "Configured ใน DSH Web. You can มุมมอง ออร์ ลบ it here",
@@ -361,37 +359,6 @@
   "engineSettingsHostChanged": " โฮสต์ changed. Reopen these ตั้งค่า ไป แก้ไข.",
   "engineSecretTargetChanged": "This field changed. Reopen it ไป แก้ไข.",
   "engineSettingsGroupCount": "{count} ตั้งค่า}",
-  "command": "\\$ {command}",
-  "@command": {
-    "placeholders": {
-      "command": {
-        "type": "String"
-      }
-    }
-  },
-  "providernameviewlabel": "{provider_name}，{view_label}",
-  "@providernameviewlabel": {
-    "placeholders": {
-      "provider_name": {
-        "type": "String"
-      },
-      "view_label": {
-        "type": "String"
-      }
-    }
-  },
-  "apiKey": "API คีย์",
-  "nodevalue": "{node_value}",
-  "@nodevalue": {
-    "placeholders": {
-      "node_value": {
-        "type": "String"
-      }
-    }
-  },
-  "baseUrl": "BASE URL",
-  "noSpaceLeft": "ไม่ space left",
-  "xOrNothing": "X ออร์ nothing",
   "@engineAccountWelcome": {
     "placeholders": {
       "name": {
@@ -736,5 +703,17 @@
         "type": "int"
       }
     }
-  }
+  },
+  "engineProviderHeaderName": "Name",
+  "engineProviderHeaderInvalidValue": "Use single-line Latin-1 values without control characters (tabs are allowed)",
+  "engineProviderHeaderInvalidName": "Use letters, digits or HTTP token symbols in header names; no spaces or colons",
+  "engineProviderHeaders": "Request headers (optional)",
+  "engineGeneralWebOnlyHint": "These settings only affect this host’s web app, not native chat.",
+  "engineProviderHeadersWarning": "Headers are stored as plain text and are not redacted from logs. Use API Key or a credential reference for sensitive credentials.",
+  "engineProviderHeaderReserved": "User-Agent is set by the engine; remove this header",
+  "engineProviderHeaderValue": "Value",
+  "engineProviderHeaderDuplicate": "Header names must be unique (case-insensitive)",
+  "engineProviderHeaderLocked": "Managed by the engine; the existing setting is preserved",
+  "engineProviderHeaderAdd": "Add header",
+  "@@locale": "th"
 }

@@ -58,5 +58,24 @@
         "type": "String"
       }
     }
-  }
+  },
+  "engineCapShellSystem": "System",
+  "engineCapBackground": "In the background",
+  "engineCapNodeScripts": "Node scripts",
+  "engineCapShellBuiltin": "{count} built-in commands",
+  "engineReopenFailed": "The engine needs the app reopened before it can start again. Please reopen it.",
+  "engineCapYes": "Available",
+  "localEnvChooseUseTitle": "How will you use dsh-Go?",
+  "marketInstallRefused": "This engine can't install market plugins",
+  "localEnvUnavailable": "DSH can't run on this device yet",
+  "localEnvTavernTitle": "Chat with characters",
+  "engineCapShell": "Command line",
+  "localEnvUnsupported": "Not supported",
+  "engineCapNone": "Unavailable",
+  "engineCapMarket": "Market plugins",
+  "engineCapKeepsRunning": "Keeps running",
+  "localEnvTavernDetail": "Bring DeepSeek chats over here too · nothing to install",
+  "engineCapMayFreeze": "May be paused by the system",
+  "engineStartReopensApp": "The engine starts once each time the app opens, so starting it again reopens the app.",
+  "@@locale": "th"
 }

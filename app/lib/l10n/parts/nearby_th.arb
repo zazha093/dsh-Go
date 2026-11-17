@@ -19,5 +19,6 @@
       }
     }
   },
-  "nearbyChange": "เปลี่ยน"
+  "nearbyChange": "เปลี่ยน",
+  "@@locale": "th"
 }

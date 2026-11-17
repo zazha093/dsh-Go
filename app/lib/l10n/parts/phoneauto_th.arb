@@ -77,5 +77,8 @@
       }
     }
   },
-  "searchKwPhoneUnlock": "lift limits,unlock,passwords,codes,ระบบ ตั้งค่า,itself,risk,disclaimer"
+  "searchKwPhoneUnlock": "lift limits,unlock,passwords,codes,ระบบ ตั้งค่า,itself,risk,disclaimer",
+  "phoneYoursTitle": "These stay with you",
+  "phoneYoursDenyList": "Apps set to Hands off in App rules, banking and payment by default",
+  "@@locale": "th"
 }

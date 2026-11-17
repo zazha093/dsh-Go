@@ -43,5 +43,7 @@
         "type": "String"
       }
     }
-  }
+  },
+  "launchFrame": "Reposition",
+  "@@locale": "th"
 }

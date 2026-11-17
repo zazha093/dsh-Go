@@ -5,10 +5,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/l10n.dart';
 import '../../state/locale_state.dart';
-import '../theme/app_icons.dart';
+import '../theme/app_icons.dart'
 import 'settings_widgets.dart';
 
-/// 设置 → 外观: 语言 (跟随系统 / 简体中文 / English). Language names are
+/// 设置 → 外观: 语言 (跟随系统 / 简体中文 / English / ไทย). Language names are
 /// written in their own language, the way system pickers show them.
 class LanguageSettingsTile extends ConsumerWidget {
   const LanguageSettingsTile({super.key, this.tint = 0});
@@ -28,9 +28,10 @@ class LanguageSettingsTile extends ConsumerWidget {
         PillSegment(AppLanguage.system, l10n.localeSystem),
         PillSegment(AppLanguage.zh, l10n.localeZh),
         PillSegment(AppLanguage.en, l10n.localeEn),
+        PillSegment(AppLanguage.th, l10n.localeTh),
       ],
       selected: language,
       onChanged: (v) => unawaited(ref.read(appLanguageProvider.notifier).set(v)),
-    );
+    )
   }
 }

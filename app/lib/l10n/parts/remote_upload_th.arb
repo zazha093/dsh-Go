@@ -5,5 +5,6 @@
   "stateRemoteUploadWorkspaceChanged": " working ไดเรกทอรี changed. เช็ค it ก่อน uploading อีกครั้ง.",
   "stateRemoteUploadLimit": " โฮสต์ refused  อัปโหลド. เช็ค  ไฟล์ ไซส์ ออร์ ลอง อีกครั้ง ภายหลัง.",
   "stateRemoteUploadUnsupported": "This โฮสต์ does นอต รองรับ ไฟล์ uploads. อัปเดต its รีโมต ปลั๊กอิน แอนด์ reconnect.",
-  "stateRemoteUploadTooLarge": " ไฟล์ exceeds  รีโมต อัปโหลド โปรโตคอล's ไซส์ ลิมิต"
+  "stateRemoteUploadTooLarge": " ไฟล์ exceeds  รีโมต อัปโหลド โปรโตคอล's ไซส์ ลิมิต",
+  "@@locale": "th"
 }

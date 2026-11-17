@@ -37,5 +37,7 @@
         "type": "String"
       }
     }
-  }
+  },
+  "askAiTooltip": "Ask AI",
+  "@@locale": "th"
 }
