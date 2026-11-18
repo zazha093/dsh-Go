@@ -21,14 +21,6 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-
-    resolutionStrategy {
-        // Force Kotlin 2.4.0 instead of 2.2.21 (which doesn't exist in Plugin Portal)
-        // flutter-plugin-loader 1.0.0 has bad transitive dependency on kotlin-stdlib:2.2.21
-        force("org.jetbrains.kotlin:kotlin-stdlib:2.4.0")
-        force("org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.0")
-        force("org.jetbrains.kotlin:kotlin-gradle-plugins-bom:2.4.0")
-    }
 }
 
 plugins {

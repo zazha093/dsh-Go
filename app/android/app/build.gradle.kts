@@ -178,3 +178,15 @@ dependencies {
     implementation("org.bouncycastle:bcpkix-jdk15to18:1.81")
     implementation("androidx.webkit:webkit:1.15.0") // Apache-2.0: web islands' force dark (webview_flutter's own version)
 }
+
+// Force Kotlin 2.4.0 instead of 2.2.21 (which doesn't exist in Plugin Portal)
+// flutter-plugin-loader 1.0.0 has bad transitive dependency on kotlin-stdlib:2.2.21
+configurations.all {
+    resolutionStrategy {
+        force("org.jetbrains.kotlin:kotlin-stdlib:2.4.0")
+        force("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.0")
+        force("org.jetbrains.kotlin:kotlin-reflect:2.4.0")
+        force("org.jetbrains.kotlin:kotlin-gradle-plugin:2.4.0")
+        force("org.jetbrains.kotlin:kotlin-gradle-plugins-bom:2.4.0")
+    }
+}
