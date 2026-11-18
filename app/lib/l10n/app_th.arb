@@ -3091,6 +3091,7 @@
   "localeSystem": "ระบบ",
   "localeZh": "จีน",
   "localeEn": "อังกฤษ",
+  "localeTh": "ไทย",
   "localEnvChooseTitle": "DSH ควรทำงานที่ไหน?",
   "localEnvChooseMessage": "คุณเปลี่ยนได้ภายหลังในตั้งค่า",
   "localEnvThisPhoneDetail": "{storage} {memory} {storage} MB ที่เก็บข้อมูล · {memory} MB หน่วยความจำ",
