@@ -111,7 +111,7 @@ jobs:
 
       - name: Generate localization
         working-directory: app
-        run: python3 tool/l10n_merge.py
+        run: python3 tool/l10n_merge.py --locale th
 
       - name: Build APK (arm64)
         working-directory: app
