@@ -9,3 +9,4 @@ output-class: L10n
 nullable-getter: false
 relax-syntax: true
 format: true
+supported-locales: ["zh", "en", "th"]
