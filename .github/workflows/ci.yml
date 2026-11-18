@@ -175,17 +175,21 @@ jobs:
             sudo apt-get install -y --no-install-recommends fish zsh
           fi
       - run: flutter pub get --enforce-lockfile
-      - name: Generate merged ARB files (including Thai)
-        if: matrix.shard == 0
-        run: |
-          python3 tool/l10n_merge.py --locale th
       - name: Add Thai locale to l10n.yaml for flutter gen-l10n
         if: matrix.shard == 0
         run: |
-          # Add Thai locale to l10n.yaml for flutter gen-l10n
+          # Add Thai locale to l10n.yaml BEFORE running l10n_merge
           sed -i '/^format: true/a supported-locales: [zh, en, th]' app/l10n.yaml
           echo "=== l10n.yaml after modification ==="
           cat app/l10n.yaml
+      - name: Generate merged ARB files (including Thai, no gen)
+        if: matrix.shard == 0
+        run: |
+          python3 tool/l10n_merge.py --locale th --no-gen
+      - name: Generate localized Dart files (flutter gen-l10n)
+        if: matrix.shard == 0
+        run: |
+          flutter gen-l10n
       - name: Analyze, and generated localization matches its source
         if: matrix.shard == 0
         run: |
