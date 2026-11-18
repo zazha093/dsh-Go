@@ -179,6 +179,11 @@ jobs:
         if: matrix.shard == 0
         run: |
           python3 tool/l10n_merge.py --locale th
+      - name: Add Thai locale to l10n.yaml for flutter gen-l10n
+        if: matrix.shard == 0
+        run: |
+          # Add Thai locale to l10n.yaml for flutter gen-l10n
+          sed -i '/^format: true/a supported-locales: [zh, en, th]' app/l10n.yaml
       - name: Analyze, and generated localization matches its source
         if: matrix.shard == 0
         run: |
