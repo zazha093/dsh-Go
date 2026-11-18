@@ -194,6 +194,7 @@ jobs:
         if: matrix.shard == 0
         run: |
           flutter analyze --no-pub
+          python3 tool/l10n_merge.py --locale th --check
           git diff --exit-code -- lib/l10n
       - name: Verify Thai localization generated
         if: matrix.shard == 0
