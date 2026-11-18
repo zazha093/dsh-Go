@@ -430,7 +430,7 @@
   "botsViewMetric": "{label}: {value}",
   "botsEffortXhigh": "Extra high",
   "botsRelayLimit": "Bot relay limit",
-  "botsRelayLimitHint": "Pause after this many Bot-to-Bot calls since your last message. Enter a whole number from 1 to 200, or leave empty for the default.",
+  "botsRelayLimitHint": "Pause after {count} Bot-to-Bot calls since your last message. Enter a whole number from 1 to 200, or leave empty for the default.",
   "botsRelayLimitDefault": "Default: {count}",
   "botsRelayLimitInvalid": "Enter a whole number from 1 to 200.",
   "botsRelayLimitRestore": "Restore default",

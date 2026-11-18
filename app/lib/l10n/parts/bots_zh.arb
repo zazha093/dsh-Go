@@ -1041,7 +1041,7 @@
   },
   "botsEffortXhigh": "超高",
   "botsRelayLimit": "Bot 互叫上限",
-  "botsRelayLimitHint": "从你最近一次发言起，Bot 之间互叫达到此次数后暂停。填写 1–200 的整数，留空使用默认值。",
+  "botsRelayLimitHint": "从你最近一次发言起，Bot 之间互叫达到 {count} 次后暂停。填写 1–200 的整数，留空使用默认值。",
   "botsRelayLimitDefault": "默认：{count}",
   "botsRelayLimitInvalid": "请填写 1–200 的整数",
   "botsRelayLimitRestore": "恢复默认",
