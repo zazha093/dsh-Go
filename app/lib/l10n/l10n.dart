@@ -46,13 +46,19 @@ abstract final class AppLocale {
     _l10n = lookupL10n(next);
   }
 
-  /// Chinese for any Chinese system language, English for everything else.
+  /// Chinese for any Chinese system language, Thai for Thai, English for everything else.
   static Locale resolve(Locale? chosen, List<Locale>? system) {
-    if (chosen != null) return chosen.languageCode == 'en' ? en : chosen.languageCode == 'th' ? th : zhCN;
+    if (chosen != null) {
+      return switch (chosen.languageCode) {
+        'en' => en,
+        'th' => th,
+        _ => zhCN,
+      };
+    }
     for (final l in system ?? const <Locale>[]) {
       if (l.languageCode == 'zh') return zhCN;
-      if (l.languageCode == 'en') return en;
       if (l.languageCode == 'th') return th;
+      if (l.languageCode == 'en') return en;
     }
     return (system == null || system.isEmpty) ? zhCN : en;
   }
