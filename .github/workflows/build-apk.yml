@@ -114,6 +114,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           echo "Setting up permanent keystore..."
+          mkdir -p app/android/keystore
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
           cat > app/android/key.properties <<'EOF'
           storeFile=keystore/release.keystore
