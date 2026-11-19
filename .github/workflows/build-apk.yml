@@ -114,8 +114,8 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           echo "Setting up permanent keystore..."
-          mkdir -p app/android/keystore
-          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
+          mkdir -p app/android/app/keystore
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/app/keystore/release.keystore
           cat > app/android/key.properties <<'EOF'
           storeFile=keystore/release.keystore
           storePassword=${{ secrets.KEYSTORE_PASSWORD }}
@@ -124,7 +124,7 @@ jobs:
           EOF
           echo "Keystore configured for permanent signing"
           # Print certificate fingerprint for verification
-          keytool -printcert -jarfile app/android/keystore/release.keystore 2>/dev/null | grep -A1 "SHA256:" | tail -1 | xargs || true
+          keytool -printcert -jarfile app/android/app/keystore/release.keystore 2>/dev/null | grep -A1 "SHA256:" | tail -1 | xargs || true
 
       - name: Check signing mode
         run: |
@@ -132,7 +132,7 @@ jobs:
             echo "SIGNING_MODE=permanent" >> $GITHUB_ENV
             echo "This build will be signed with permanent keystore"
             # Print certificate SHA-256 fingerprint
-            keytool -printcert -jarfile app/android/keystore/release.keystore 2>/dev/null | grep "SHA256:" | head -1 | sed 's/.*SHA256: //' | xargs -I{} echo "CERT_SHA256={}" || true
+            keytool -printcert -jarfile app/android/app/keystore/release.keystore 2>/dev/null | grep "SHA256:" | head -1 | sed 's/.*SHA256: //' | xargs -I{} echo "CERT_SHA256={}" || true
           else
             echo "SIGNING_MODE=debug" >> $GITHUB_ENV
             echo "This build will be signed with debug keystore (no permanent keystore configured)"
