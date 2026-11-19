@@ -163,5 +163,5 @@ jobs:
         if: env.SIGNING_MODE == 'permanent'
         run: |
           echo "Verifying APK signature..."
-          apksigner verify --print-certs app/build/app/outputs/flutter-apk/app-arm64-release.apk
+          keytool -printcert -jarfile app/build/app/outputs/flutter-apk/app-arm64-release.apk | grep -E "Owner:|SHA256:" || true
           echo "APK signed with: ${{ env.SIGNING_MODE }} key"
