@@ -106,7 +106,7 @@ jobs:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
       - name: Setup Keystore
-        if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEYSTORE_PASSWORD != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' }}
+        if: secrets.KEYSTORE_BASE64 != '' && secrets.KEYSTORE_PASSWORD != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != ''
         run: |
           echo "Setting up permanent keystore..."
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
