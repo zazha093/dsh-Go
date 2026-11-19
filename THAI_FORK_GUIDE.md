@@ -32,9 +32,9 @@
 
 ### 2.2 Thai Localization System
 
-#### Thai ARB Files (61 part files + 1 merged)
+#### Thai ARB Files (80 part files + 1 merged)
 
-All Thai translations are in `app/lib/l10n/parts/*_th.arb` (61 files):
+All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
 - Core UI: `common_th.arb`, `hub_th.arb`, `chat_th.arb`, `star_th.arb`, etc.
 - Phone Control: `phone_th.arb`, `phone_gate_cleanup_th.arb`, `phone_resource_recovery_th.arb`, etc.
 - Companion: `companion_th.arb`
@@ -96,7 +96,7 @@ python3 app/tool/l10n_merge.py --locale th
 
 **Expected Output (--check)**:
 ```
-✓ 61 parts, 6122 keys (zh, en, th)
+✓ 80 parts, 8329 keys (zh, en, th)
 ```
 
 ### 3.3 Common Thai Patterns
@@ -205,7 +205,7 @@ Currently uses **permanent keystore** stored at `~/dsh-go-keystore/release.keyst
 | **Alias** | `release` |
 | **Key Algorithm** | RSA 4096 |
 | **Validity** | 10,000 days |
-| **SHA-256 Fingerprint** | `3d88f13b7c73fc74ed682f484a66fb419681285c0000b9a619bbddf56d67a5b5` |
+| **SHA-256 Fingerprint** | `814e236582857a68db081ef4fa8fa91bcbce098d6b3207f0f0db6653d82f27c0` |
 
 ### 5.3 Required GitHub Secrets
 
@@ -295,12 +295,15 @@ kotlin -e 'import java.time.*; val t=OffsetDateTime.now(ZoneOffset.ofHours(8)); 
 
 Before starting work on this fork:
 
-- [ ] Read this guide completely
-- [ ] Verify git remotes: `git remote -v` (origin + upstream)
-- [ ] Sync to latest upstream: `git fetch upstream main && git merge --ff-only upstream/main` (on main branch)
-- [ ] Run `python3 app/tool/l10n_merge.py --locale th --check` (must pass)
-- [ ] Test build: `tooling/build-apk.sh --build-name <x.y.z>`
-- [ ] For Thai changes: edit `app/lib/l10n/parts/*_th.arb` → run `l10n_merge.py --locale th --no-gen` → verify with `--check`
+- [x] Read this guide completely
+- [x] Verify git remotes: `git remote -v` (origin + upstream)
+- [x] Sync to latest upstream: `git fetch upstream main && git merge --ff-only upstream/main` (on main branch)
+- [x] Run `python3 app/tool/l10n_merge.py --locale th --check` (must pass)
+- [x] Test build: `tooling/build-apk.sh --build-name <x.y.z>`
+- [x] For Thai changes: edit `app/lib/l10n/parts/*_th.arb` → run `l10n_merge.py --locale th --no-gen` → verify with `--check`
+- [x] GitHub Secrets setup: `KEYSTORE_BASE64`, `KEYSTORE_PASSWORD`, `KEY_ALIAS`, `KEY_PASSWORD` configured via GitHub UI
+- [x] Default branch set to `thai/release` in GitHub repository settings
+- [x] Real device APK install verification completed
 
 ---
 
