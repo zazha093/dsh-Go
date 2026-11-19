@@ -31,7 +31,7 @@
   "speechCloudNotice": "Your voice is sent to DeepSeek to be recognized. To recognize on the phone, switch to the voice model.",
   "speechCloudNotSetUp": "No cloud recognition service is set up",
   "speechCallTile": "Voice call",
-  "speechCallSection": "Voice calls",
+  "speechCallSection": "การโทรทางเสียง",
   "speechCallFooter": "In a call, pause after you speak and it is sent; the answer is read while it is written.",
   "speechCallBargeIn": "Interrupt by speaking",
   "speechCallBargeInHint": "When you speak over the AI it goes quiet; a “yeah” lets it go on, anything else stops it",

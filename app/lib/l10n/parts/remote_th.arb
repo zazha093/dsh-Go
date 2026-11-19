@@ -1,7 +1,23 @@
 {
-  "remoteStartupSection": "การเริ่มต้น",
+  "remoteDshMode": "จัดการอินสแตนซ์",
+  "remoteManaged": "จัดการโดยแอป",
+  "remoteAttachOnly": "แค่แนบต่อ",
+  "remoteManagedHelp": "เริ่มหรือใช้ซ้ำ DSH ที่จัดการโดยแอป อินสแตนซ์ที่ใช้ซ้ำไม่ได้จะไม่ถูกแทนที่อัตโนมัติ",
+  "remoteAttachOnlyHelp": "ส่งต่อไปพอร์ตคงที่บน remote 127.0.0.1 เท่านั้น ไม่เคยเริ่ม หยุด หรือรีสตาร์ท DSH",
+  "remoteDshPort": "พอร์ต DSH ระยะไกล",
+  "remoteDshToken": "โทเคนการเริ่ม DSH",
+  "remoteDshTokenHelp": "ใส่โทเคนจาก URL การเริ่มของอินสแตนซ์ที่มีอยู่ มันจะอยู่ในที่เก็บข้อมูลปลอดภัยบนโทรศัพท์นี้",
+  "remoteAttachWorkingDirectoryHelp": "อินสแตนซ์ที่มีอยู่ไม่ได้ถูกตรวจสอบหาโฮมไดเรกทอรี ใช้พาธแบบสัมบูรณ์ของ remote หรือว่างไว้เพื่อใช้ค่าเริ่มต้นของ DSH",
+  "remoteSshCompression": "การบีบอัด SSH",
+  "remoteSshCompressionHelp": "เปิดโดยค่าเริ่มต้น เจรจาการบีบอัดหลังการรับรอง ใช้การขนส่งไม่บีบอัดหากไม่รองรับ",
+  "remoteRestartManaged": "รีสตาร์ท DSH ที่จัดการ",
+  "remoteRestartManagedWarning": "นี้จะหยุด DSH ระยะไกลที่แอปบันทึกไว้ และเริ่มมันใหม่ ไคลเอนต์อื่นและแชทที่ทำงานอยู่อาจถูกขัดจังหวะ ดำเนินต่อหลังตรวจสอบว่าไม่มีใครใช้อยู่ การทดสอบการเชื่อมต่อปกติไม่ทำอย่างนี้",
+  "remoteErrSharedInstance": "DSH ระยะไกลที่จัดการยังทำงานอยู่ แตคำสั่งเริ่มต่างหรือขาดการ์ดเริ่ม เพื่อปกป้องการใช้ร่วมกัน จึงไม่ได้รีสตาร์ท ตรวจสอบการตั้งค่า ใช้ แค่แนบต่อ หรือเลือก รีสตาร์ท DSH ที่จัดการ ในแก้ไขโฮสต์โดยตรง",
+  "remoteErrAttachSettings": "ใส่พอร์ต DSH ระยะไกลและโทเคนการเริ่มที่ถูกต้อง",
+  "remoteDshAttached": "เชื่อมต่อกับ DSH ที่มีอยู่แล้ว",
+  "remoteStartupSection": "ขณะเริ่ม",
   "remoteAutoConnectOnStartup": "เชื่อมต่อโฮสต์ล่าสุดอัตโนมัติ",
-  "remoteAutoConnectOnStartupHint": "เมื่อปิด จะเริ่มเชื่อมต่อโทรศัพท์นี้",
+  "remoteAutoConnectOnStartupHint": "เมื่อปิด จะเริ่มบนโทรศัพท์นี้",
   "remoteStepConnect": "เชื่อมต่อไปเซิร์ฟเวอร์",
   "remoteStepVerifyHostKey": "ยืนยันฟิงเกอร์พรินต์โฮสต์",
   "remoteStepStartDsh": "เริ่ม DSH",
@@ -9,13 +25,13 @@
   "remoteConnecting": "กำลังเชื่อมต่อ",
   "remoteConnected": "เชื่อมต่อแล้ว",
   "remoteReconnecting": "กำลังเชื่อมต่อใหม่",
-  "remoteReconnectAttempt": "{count} กำลังเชื่อมต่อใหม่ · พยายาม {เคาท์}",
+  "remoteReconnectAttempt": "กำลังเชื่อมต่อใหม่ · พยายาม {count}",
   "remoteErrInvalidServer": "ที่อยู่เซิร์ฟเวอร์ไม่ถูกต้อง",
   "remoteErrEmailPassword": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
   "remoteErrHostNotInAccount": "โฮสต์นี้ไม่อยู่ในบัญชีของคุณ",
   "remoteHostFallback": "โฮสต์นี้",
   "remoteErrHostOffline": "โฮสต์ออฟไลน์",
-  "remoteErrHostRemoved": "{name} {ชื่อ} ไม่ได้อยู่ในบัญชี DSH รีโมตของคุณอีกต่อไป",
+  "remoteErrHostRemoved": "{name} ไม่ได้อยู่ในบัญชี DSH รีโมตของคุณอีกต่อไป",
   "remoteErrRelaySignInExpired": "การเข้าสู่ระบบ DSH รีโมตหมดอายุ",
   "remoteErrIdentityKeyChanged": "คีย์ตัวตนโฮสต์เปลี่ยนไป",
   "remoteErrIdentityUnconfirmed": "ฟิงเกอร์พรินต์ตัวตนโฮสต์ยังไม่ได้ยืนยัน",
@@ -35,10 +51,10 @@
   "remoteUnavailable": "ไม่พร้อมใช้งาน",
   "remoteErrHostNotFound": "ไม่พบโฮสต์",
   "remoteConnectionStopped": "การเชื่อมต่อรีโมตหยุด",
-  "remoteBootstrapReusePort": "{port} ใช้ DSH ที่กำลังทำงานอยู่ (พอร์ต {พอร์ต})",
+  "remoteBootstrapReusePort": "ใช้ DSH ที่กำลังทำงานอยู่ (พอร์ต {port})",
   "remoteBootstrapStarting": "กำลังเริ่ม DSH รีโมต…",
-  "remoteErrCommandNotFound": "{command} “{คอมมานด์}” ไม่พบในโฮสต์",
-  "remoteErrDshMissing": "dsh ไม่ได้ติดตั้งในโฮสต์ ติดตั้งมันและลองใหม่ หรือใส่พาธเต็มเป็นคำสั่งเริ่มต้น",
+  "remoteErrCommandNotFound": "\"{command}\" ไม่พบบนโฮสต์",
+  "remoteErrDshMissing": "dsh ไม่ได้ติดตั้งในโฮสต์ ติดตั้งมันและลองใหม่ หรือใส่พาธเต็มเป็นคำสั่งเริ่ม",
   "remoteStartCommandExample": "ตัวอย่างคำสั่งเริ่ม: ~/.nvm/versions/node/v22.0.0/bin/dsh web",
   "remoteErrDshStartTimeout": "DSH รีโมตใช้เวลานานเกินไปในการเริ่ม",
   "remoteErrDshExited": "DSH รีโมตออกทันทีหลังเริ่ม",
@@ -52,30 +68,30 @@
   "remoteErrDshPort": "เข้าถึงพอร์ต DSH รีโมตไม่ได้",
   "remoteDshReused": "ใช้ DSH ที่กำลังทำงานอยู่ในโฮสต์แล้ว",
   "remoteDshStarted": "เริ่ม DSH ในโฮสต์แล้ว",
-  "remoteErrDshTokenRejected": "DSH รีโมตปฏิเสธโทเคนการเข้าสู่ระบบ",
+  "remoteErrDshTokenRejected": "DSH รีโมตปฏิเสธโทเคน ไม่ได้รีสตาร์ท ตรวจสอบโทเคน หรือรีสตาร์ทอินสแตนซ์ที่จัดการในแก้ไขโฮสต์โดยตรง",
   "remoteErrDshSignIn": "เข้าสู่ระบบ DSH รีโมตไม่ได้",
   "remoteErrDshTunnel": "เชื่อมต่อไป DSH ผ่านอุโมงค์ไม่ได้",
   "remoteErrDshSignInExpired": "การเข้าสู่ระบบ DSH รีโมตหมดอายุ",
   "remoteErrDshStopped": "DSH รีโมตหยุดทำงาน",
   "remoteErrSshDisconnected": "SSH ถูกตัดการเชื่อมต่อ",
   "remoteErrSshUnresponsive": "SSH ไม่ตอบสนอง",
-  "remoteRetryCount": "{count} ครั้ง}",
+  "remoteRetryCount": "{count, plural, =1{ลองใหม่ 1 ครั้ง} other{ลองใหม่ {count} ครั้ง}}",
   "remoteErrSshNetworkChanged": "SSH ถูกตัดหลังเครือข่ายเปลี่ยน",
   "remoteErrReadFingerprint": "อ่านฟิงเกอร์พรินต์โฮสต์ไม่ได้",
   "remoteErrNoFingerprint": "เซิร์ฟเวอร์ไม่ได้ให้ฟิงเกอร์พรินต์โฮสต์",
   "remoteErrPasswordMissing": "กรุณาใส่รหัสผ่าน",
-  "remoteErrAddressUnresponsive": "{port} {host} {โฮสต์}:{พอร์ต} ไม่ตอบสนอง",
+  "remoteErrAddressUnresponsive": "{host}:{port} ไม่ตอบสนอง",
   "remoteErrPrivateKeyMissing": "กรุณาใส่คีย์ส่วนตัว",
   "remoteErrKeyNeedsPassword": "คีย์ส่วนตัวนี้ต้องการพาสเฟรส",
   "remoteErrKeyPassword": "พาสเฟรสคีย์ส่วนตัวไม่ถูกต้อง",
   "remoteErrKeyUnreadable": "อ่านคีย์ส่วนตัวไม่ได้",
-  "remotePrivateKeyFormats": "{error} รองรับคีย์ส่วนตัว Ed25519, RSA และ ECDSA ในรูปแบบ OpenSSH และ PEM\n{ข้อผิดพลาด}",
-  "remoteErrAddressRejected": "{address} {ที่อยู่} ปฏิเสธการเชื่อมต่อ",
-  "remoteErrSshHostNotFound": "{host} โฮสต์ {โฮสต์} ไม่พบ",
-  "remoteErrSshAddressUnresponsive": "{address} {ที่อยู่} ไม่ตอบสนอง",
+  "remotePrivateKeyFormats": "รองรับคีย์ส่วนตัว Ed25519, RSA และ ECDSA ในรูปแบบ OpenSSH และ PEM\n{error}",
+  "remoteErrAddressRejected": "{address} ปฏิเสธการเชื่อมต่อ",
+  "remoteErrSshHostNotFound": "โฮสต์ {host} ไม่พบ",
+  "remoteErrSshAddressUnresponsive": "{address} ไม่ตอบสนอง",
   "remoteErrUsernamePassword": "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง",
   "remoteErrPrivateKeyRejected": "เซิร์ฟเวอร์ไม่ยอมรับคีย์ส่วนตัวนี้",
-  "remoteAuthorizedKeysHelp": "{username} {error} ตรวจสอบว่าคีย์สาธารณะอยู่ใน ~/.ssh/authorized_keys ของ {ชื่อผู้ใช้}\n{ข้อผิดพลาด}",
+  "remoteAuthorizedKeysHelp": "ตรวจสอบว่าคีย์สาธารณะอยู่ใน ~/.ssh/authorized_keys ของ {username}\n{error}",
   "remoteErrFingerprintUntrusted": "ฟิงเกอร์พรินต์โฮสต์ไม่ไว้ใจได้",
   "remoteErrSshHandshakeTimeout": "SSH handshake หมดเวลา",
   "remoteErrSshInterrupted": "การเชื่อมต่อ SSH ถูกขัดจังหวะ",
@@ -103,17 +119,17 @@
   "remoteForumLikesReceived": "ชอบที่ได้รับ",
   "remoteForumDaysVisited": "วันที่มาเยือน",
   "remoteForumNotifications": "การแจ้งเตือน",
-  "remoteForumUnreadCount": "{count} ยังไม่ได้อ่าน}",
+  "remoteForumUnreadCount": "{count, plural, =1{ยังไม่ได้อ่าน 1} other{ยังไม่ได้อ่าน {count}}}",
   "remoteForumErrAddress": "ที่อยู่ไม่ถูกต้อง",
   "remoteForumAddress": "ที่อยู่ Forum",
-  "remoteForumDefaultAddress": "{host} ค่าเริ่มต้น: {โฮสต์}",
+  "remoteForumDefaultAddress": "ค่าเริ่มต้น: {host}",
   "remoteRestoreDefault": "กู้คืนค่าเริ่มต้น",
   "remoteForumUploadingImage": "กำลังอัปโหลดรูปภาพ…",
   "remoteForumErrUploadImage": "อัปโหลดรูปภาพไม่ได้",
   "remoteForumTitleRequired": "กรุณาใส่หัวข้อ",
   "remoteForumCategoryRequired": "เลือกหมวดหมู่",
   "remoteForumBodyRequired": "เขียนข้อความก่อนส่ง",
-  "remoteForumReplyCaption": "{username} {title} ตอบกลับ @{ชื่อผู้ใช้} · {หัวข้อ}",
+  "remoteForumReplyCaption": "ตอบกลับ @{username} · {title}",
   "remoteForumNewTopic": "หัวข้อใหม่",
   "remoteForumTitle": "ชื่อเรื่อง",
   "remoteForumComposerHint": "เขียนข้อความ Markdown รองรับ",
@@ -127,7 +143,7 @@
   "remoteForumNoTopics": "ยังไม่มีหัวข้อ",
   "remoteForumPost": "โพสต์",
   "remoteForum": "Forum",
-  "remoteForumNotificationsUnread": "{count} ยังไม่ได้อ่าน}",
+  "remoteForumNotificationsUnread": "{count, plural, =1{การแจ้งเตือน ยังไม่ได้อ่าน 1} other{การแจ้งเตือน ยังไม่ได้อ่าน {count}}}",
   "remoteForumSearch": "ค้นหา",
   "remoteForumSearchHint": "ค้นหาหัวข้อและโพสต์",
   "remoteForumSignedIn": "เข้าสู่ระบบ Forum แล้ว",
@@ -141,9 +157,9 @@
   "remoteForumNotificationReply": "{who} ตอบกลับคุณ",
   "remoteForumNotificationQuote": "{who} โค้ทคุณ",
   "remoteForumNotificationEdit": "{who} แก้ไขโพสต์ของคุณ",
-  "remoteForumNotificationLikes": "{who} {count} และคนอื่นๆ (people) ชอบโพสต์ของคุณ}",
+  "remoteForumNotificationLikes": "{count, plural, =1{{who} ชอบโพสต์ของคุณ} other{{who} และคนอื่นๆ ({count} คน) ชอบโพสต์ของคุณ}}",
   "remoteForumNotificationLike": "{who} ชอบโพสต์ของคุณ",
-  "remoteForumNotificationLikedPosts": "{who} {count} ชอบโพสต์ของคุณ}",
+  "remoteForumNotificationLikedPosts": "{count, plural, =1{{who} ชอบ 1 โพสต์ของคุณ} other{{who} ชอบ {count} โพสต์ของคุณ}}",
   "remoteForumNotificationReaction": "{who} ให้รีแอคชันกับโพสต์ของคุณ",
   "remoteForumNotificationMessage": "{who} ส่งข้อความส่วนตัวให้คุณ",
   "remoteForumNotificationMessageInvite": "{who} เชิญคุณไปข้อความส่วนตัว",
@@ -151,10 +167,10 @@
   "remoteForumNotificationNewReply": "{who} โพสต์ตอบกลับใหม่",
   "remoteForumNotificationNewTopic": "{who} โพสต์หัวข้อใหม่",
   "remoteForumNotificationLink": "{who} ลิงก์ไปโพสต์ของคุณ",
-  "remoteForumNotificationBadge": "ได้รับ “{badge}” แบดจ์",
+  "remoteForumNotificationBadge": "ได้รับ \"{badge}\" แบดจ์",
   "remoteForumNotificationMoved": "{who} ย้ายโพสต์ของคุณ",
-  "remoteForumBookmarkReminder": "Bookmark reminder",
-  "remoteForumTopicReminder": "Topic reminder",
+  "remoteForumBookmarkReminder": "บุ๊กมาร์คเตือน",
+  "remoteForumTopicReminder": "หัวข้อเตือน",
   "remoteForumPostApproved": "โพสต์ของคุณได้รับอนุมัติแล้ว",
   "remoteForumAdminProblems": "Forum มีปัญหาที่ต้องแก้",
   "remoteForumNewNotification": "การแจ้งเตือนใหม่",
@@ -165,7 +181,7 @@
   "remoteForumEmbed": "เนื้อหาซ้อน",
   "remoteForumVoteOnWeb": "โหวตบนเว็บ",
   "remoteForumErrSearch": "ค้นหาไม่ได้",
-  "remoteForumNoSearchResults": "ไม่พบผลลัพธ์สำหรับ “{term}”",
+  "remoteForumNoSearchResults": "ไม่พบผลลัพธ์สำหรับ \"{term}\"",
   "remoteForumBookmarkRemoved": "ลบบุ๊กมาร์คแล้ว",
   "remoteForumBookmarkAdded": "บุ๊กมาร์คแล้ว",
   "remoteLinkCopied": "คัดลอกลิงก์แล้ว",
@@ -173,7 +189,7 @@
   "remoteForumTopicClosed": "หัวข้อนี้ปิดแล้ว",
   "remoteForumReplyHint": "เขียนตอบกลับ…",
   "remoteForumSignInToReply": "เข้าสู่ระบบเพื่อตอบกลับ",
-  "remoteForumReplyTo": "{username} ตอบกลับ @{ชื่อผู้ใช้}",
+  "remoteForumReplyTo": "ตอบกลับ @{username}",
   "remoteForumPostDeleted": "โพสต์ถูกลบ",
   "remoteForumPostHidden": "โพสต์ถูกซ่อน",
   "remoteForumUnlike": "ไม่ชอบ",
@@ -196,28 +212,28 @@
   "remoteForumActionUpdated": "อัปเดตหัวข้อแล้ว",
   "remoteLoading": "กำลังโหลด",
   "remoteForumJustNow": "เมื่อสักครู่",
-  "remoteForumMinutesAgo": "{count} นาทีที่แล้ว}",
-  "remoteForumHoursAgo": "{count} ชั่วโมงที่แล้ว}",
-  "remoteForumDaysAgo": "{count} วันที่แล้ว}",
-  "remoteForumReplyCount": "{count} ตอบกลับ}",
-  "remoteForumNewReplyCount": "{count} ตอบกลับใหม่}",
+  "remoteForumMinutesAgo": "{count, plural, =1{1 นาทีที่แล้ว} other{{count} นาทีที่แล้ว}}",
+  "remoteForumHoursAgo": "{count, plural, =1{1 ชั่วโมงที่แล้ว} other{{count} ชั่วโมงที่แล้ว}}",
+  "remoteForumDaysAgo": "{count, plural, =1{1 วันที่แล้ว} other{{count} วันที่แล้ว}}",
+  "remoteForumReplyCount": "{count, plural, =1{1 ตอบกลับ} other{{count} ตอบกลับ}}",
+  "remoteForumNewReplyCount": "{count, plural, =1{1 ตอบกลับใหม่} other{{count} ตอบกลับใหม่}}",
   "remoteForumNew": "ใหม่",
-  "remoteForumErrorRetry": "{error} {ข้อผิดพลาด} · ลองใหม่",
+  "remoteForumErrorRetry": "{error} · ลองใหม่",
   "remoteForumNoMore": "ไม่มีมากกว่านี้",
   "remoteHostKeyTrustTitle": "เชื่อถือโฮสต์นี้?",
-  "remoteHostKeyFirstConnection": "{name} {address} การเชื่อมต่อครั้งแรกไป “{ชื่อ}” ({ที่อยู่}) เช็คฟิงเกอร์พรินต์เพื่อยืนยันว่าเป็นโฮสต์ของคุณ",
+  "remoteHostKeyFirstConnection": "การเชื่อมต่อครั้งแรกไป \"{name}\" ({address}) เช็คฟิงเกอร์พรินต์เพื่อยืนยันว่าเป็นโฮสต์ของคุณ",
   "remoteHostKeyTrustConnect": "เชื่อถือและเชื่อมต่อ",
   "remoteHostKeyChangedTitle": "ตัวตนฟิงเกอร์พรินต์เปลี่ยน",
-  "remoteRelayKeyChangedBody": "{name} คีย์ตัวตนสำหรับ “{ชื่อ}” เปลี่ยนไป ต่อเมื่อคุณติดตั้งปลั๊กอินรีโมตใหม่บนโฮสต์นี้ ใครบางคนอาจปลอมแปลงมัน",
-  "remoteRelayKeyFirstBody": "{name} การเชื่อมต่อครั้งแรกไป “{name}” เช็คตัวตน",
+  "remoteRelayKeyChangedBody": "คีย์ตัวตนสำหรับ \"{name}\" เปลี่ยนไป ต่อเมื่อคุณติดตั้งปลั๊กอินรีโมตใหม่บนโฮสต์นี้ ใครบางคนอาจปลอมแปลงมัน",
+  "remoteRelayKeyFirstBody": "การเชื่อมต่อครั้งแรกไป \"{name}\" เช็คตัวตนฟิงเกอร์พรินต์ให้ตรงกับที่โชว์โดยปลั๊กอินรีโมตของโฮสต์ก่อนต่อ",
   "remoteHostKeyChangeWarning": "DSH จะปฏิเสธการเชื่อมต่อ หากฟิงเกอร์พรินต์เปลี่ยน",
   "remoteHostKeyTrustAgain": "เชื่อถืออีกครั้ง",
   "remoteHostKeyReading": "กำลังอ่านฟิงเกอร์พรินต์โฮสต์…",
-  "remoteHostSwitcherSemantics": "{name} โฮสต์ปัจจุบัน: {ชื่อ}, {status} สลับโฮสต์",
+  "remoteHostSwitcherSemantics": "โฮสต์ปัจจุบัน: {name}, {status}. สลับโฮสต์",
   "remoteSwitchHost": "สลับโฮสต์",
   "remoteThisPhoneDsh": "DSH บนโทรศัพท์นี้",
   "remoteRemoteLabel": "รีโมต",
-  "remoteRemotePlatform": "{platform} รีโมต · {แพลตฟอร์ม}",
+  "remoteRemotePlatform": "รีโมต · {platform}",
   "remoteRelaySwitchWarning": "DSH รีโมตเชื่อมต่อไปโฮสต์เดียวในเวลาเดียวกัน การสลับจะตัดการเชื่อมต่อโฮสต์ก่อนหน้า",
   "remoteConnectComputer": "เชื่อมต่อคอมพิวเตอร์หรือเซิร์ฟเวอร์",
   "remoteManageHosts": "จัดการโฮสต์รีโมต",
@@ -225,7 +241,8 @@
   "remoteRelayLoginRequired": "ใส่ที่อยู่เซิร์ฟเวอร์ อีเมล และรหัสผ่าน",
   "remoteErrSignIn": "เข้าสู่ระบบไม่ได้",
   "remoteSelfHostedServer": "เซิร์ฟเวอร์โฮสต์เอง",
-  "remoteSelfHostedSignInHelp": "เข้าสู่ระบบเซิร์ฟเวอร์ ds-harness รีโมตของคุณเองด้วยอีเมลและรหัสผ่าน",
+  "remoteSelfHostedSignInHelp": "ใส่ที่อยู่เซิร์ฟเวอร์ของคุณเอง เข้าสู่ระบบด้วยอีเมลและรหัสผ่าน หรือใช้เซิร์ฟเวอร์นี้เพื่อเลือกวิธีเข้าสู่ระบบอื่น",
+  "remoteUseServer": "ใช้เซิร์ฟเวอร์นี้",
   "remoteServerAddress": "ที่อยู่เซิร์ฟเวอร์",
   "remoteEmail": "อีเมล",
   "remotePassword": "รหัสผ่าน",
@@ -239,7 +256,7 @@
   "remoteOtherMethods": "วิธีอื่นๆ",
   "remoteWebConsole": "คอนโซลเว็บรีโมต",
   "remoteWebConsoleProvider": "dsh.r2049.cn · หน้าบุคคลที่สาม",
-  "remoteActiveHost": "{name} ใช้ “{ชื่อ}”",
+  "remoteActiveHost": "ใช้ \"{name}\"",
   "remoteSwitchToPhone": "ใช้โทรศัพท์นี้",
   "remoteSignInAgain": "เข้าสู่ระบบอีกครั้ง",
   "remoteHostSettings": "ตั้งค่าโฮสต์",
@@ -247,7 +264,7 @@
   "remoteReconnectingEllipsis": "กำลังเชื่อมต่อใหม่…",
   "remoteReconnectReason": "กำลังเชื่อมต่อใหม่ · {reason}",
   "remoteConnectedEncrypted": "เชื่อมต่อแล้ว · เข้ารหัสปลายทางถึงปลายทาง",
-  "remoteConnectedVia": "{path} เชื่อมต่อ · {พาธ} · เข้ารหัสปลายทางถึงปลายทาง",
+  "remoteConnectedVia": "เชื่อมต่อ · {path} · เข้ารหัสปลายทางถึงปลายทาง",
   "@remoteConnectedVia": {
     "placeholders": {
       "path": {
@@ -258,7 +275,7 @@
   "remotePathDirect": "โดยตรง",
   "remotePathTurn": "TURN",
   "remotePathRelay": "Relay",
-  "remoteConnectedSsh": "{address} เชื่อมต่อ · SSH {ที่อยู่}",
+  "remoteConnectedSsh": "เชื่อมต่อ · SSH {address}",
   "remoteErrRefreshHosts": "รีเฟรชรายการโฮสต์ไม่ได้",
   "remoteSwitchWarning": "เชื่อมต่อไปโฮสต์เดียวในเวลาเดียวกัน การสลับจะตัดการเชื่อมต่อโฮสต์ก่อนหน้า",
   "remoteRefreshHosts": "รีเฟรชโฮสต์",
@@ -290,9 +307,9 @@
   "remoteHostKeyResetTitle": "รีเซ็ตฟิงเกอร์พรินต์โฮสต์?",
   "remoteHostKeyResetBody": "ทำอย่างนี้ก็ต่อเมื่อโฮสต์ติดตั้งใหม่หรือถูกแทนที่ คุณจะถูกขอเช็คฟิงเกอร์พรินต์ครั้งต่อไปที่เชื่อมต่อ",
   "remoteReset": "รีเซ็ต",
-  "remoteDeleteHostTitle": "{name} ลบ “{ชื่อ}”?",
+  "remoteDeleteHostTitle": "ลบ \"{name}\"?",
   "remoteDeleteHostBody": "การตั้งค่า รหัสผ่าน และคีย์ส่วนตัวของโฮสต์นี้ที่บันทึกในโทรศัพท์นี้จะถูกลบ DSH และแชทบนโฮสต์จะอยู่",
-  "remoteErrReadKey": "{error} อ่านไม่ได้: {ข้อผิดพลาด}",
+  "remoteErrReadKey": "อ่านไม่ได้: {error}",
   "remoteErrPublicKeyFile": "นี่ไม่ใช่คีย์ส่วนตัว เลือกไฟล์ที่ไม่มี .pub (เช่น id_ed25519)",
   "remotePrivateKeyImported": "นำเข้าคีย์ส่วนตัวแล้ว คุณสามารถลบไฟล์ต้นฉบับได้",
   "remoteEditHost": "แก้ไขโฮสต์",
@@ -306,6 +323,8 @@
   "remoteAuthentication": "วิธีเข้าสู่ระบบ",
   "remotePasswordStorageHelp": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย Android Keystore",
   "remoteKeyStorageHelp": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย Android Keystore รองรับ Ed25519, RSA และ ECDSA",
+  "remotePasswordStorageHelpIos": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย keychain ของระบบ",
+  "remoteKeyStorageHelpIos": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย keychain ของระบบ รองรับ Ed25519, RSA และ ECDSA",
   "remotePrivateKey": "คีย์ส่วนตัว",
   "remoteShow": "แสดง",
   "remoteImportKeyFile": "นำเข้าจากไฟล์",
@@ -327,9 +346,9 @@
   "remoteHostedExpired": "หมดอายุ",
   "remoteHostedExpiresToday": "หมดอายุวันนี้",
   "remoteHostedExpiresTomorrow": "หมดอายุพรุ่งนี้",
-  "remoteHostedExpiresOn": "{date} หมดอายุ {เดท}",
+  "remoteHostedExpiresOn": "หมดอายุ {date}",
   "remoteHostedDeleteTitle": "ลบลิงก์นี้?",
-  "remoteHostedDeleteBody": "{title} ลิงก์สำหรับ “{หัวข้อ}” จะหยุดทำงานทันที",
+  "remoteHostedDeleteBody": "ลิงก์สำหรับ \"{title}\" จะหยุดทำงานทันที",
   "remoteHostedLinkDeleted": "ลบลิงก์แล้ว",
   "remoteUndo": "ยกเลิก",
   "remoteHostedMyLinks": "ลิงก์แชร์ของฉัน",
@@ -349,28 +368,28 @@
   "remoteDirectoryRecent": "ล่าสุด",
   "remoteDirectoryEnterPath": "ใส่พาธ",
   "remoteDirectoryGo": "ไป",
-  "remoteDirectoryAbsolutePath": "ใส่พาธเต็ม เริ่มด้วย “/”",
+  "remoteDirectoryAbsolutePath": "ใส่พาธเต็ม เริ่มด้วย \"/\"",
   "remoteDirectoryNewFolder": "โฟลเดอร์ใหม่",
-  "remoteDirectoryParentCaption": "{name} ใน “{ชื่อ}”",
+  "remoteDirectoryParentCaption": "ใน \"{name}\"",
   "remoteDirectoryFolderName": "ชื่อโฟลเดอร์",
   "remoteDirectoryRoot": "รูท",
   "remoteDirectoryErrCreate": "สร้างโฟลเดอร์ไม่ได้",
   "remoteDirectoryNoSubfolders": "ไม่มีซับโฟลเดอร์ที่นี่",
   "remoteDirectoryHideHidden": "ซ่อนโฟลเดอร์ซ่อน",
-  "remoteDirectoryShowHidden": "{count} โฟลเดอร์ซ่อน}",
+  "remoteDirectoryShowHidden": "{count, plural, =1{แสดงโฟลเดอร์ซ่อน 1} other{แสดงโฟลเดอร์ซ่อน {count}}}",
   "remoteDirectoryTruncated": "โฟลเดอร์มากเกินไป แสดงเฉพาะตัวแรกเท่านั้น",
   "remoteWorkspaceAdd": "เพิ่มเวิร์กสเปซ",
-  "remoteWorkspaceAdded": "{name} เพิ่ม “{ชื่อ}”",
+  "remoteWorkspaceAdded": "เพิ่ม \"{name}\"",
   "remoteWorkspaceErrAdd": "เพิ่มเวิร์กสเปซไม่ได้",
   "remoteWorkspaceNoChats": "ไม่มีแชท",
-  "remoteWorkspaceChatCount": "{count} แชท}",
+  "remoteWorkspaceChatCount": "{count, plural, =1{1 แชท} other{{count} แชท}}",
   "remoteWorkspaceErrRename": "เปลี่ยนชื่อไม่ได้",
-  "remoteWorkspaceRemoved": "{name} นำ “{ชื่อ}” ออก",
+  "remoteWorkspaceRemoved": "นำ \"{name}\" ออก",
   "remoteWorkspaceErrRemove": "นำเวิร์กสเปซออกไม่ได้",
   "remoteWorkspaceRename": "เปลี่ยนชื่อเวิร์กสเปซ",
   "remoteWorkspaceName": "ชื่อเวิร์กสเปซ",
   "remoteWorkspaceNameRequired": "ให้ชื่อมัน",
-  "remoteWorkspaceRemoveTitle": "{name} นำ “{ชื่อ}” ออก?",
+  "remoteWorkspaceRemoveTitle": "นำ \"{name}\" ออก?",
   "remoteWorkspaceRemoveBody": "โฟลเดอร์และแชทยังอยู่",
   "remoteWorkspaceRemove": "นำออก",
   "remoteWorkspace": "เวิร์กสเปซ",
@@ -381,8 +400,8 @@
   "remoteWorkspaceRemoveAction": "นำเวิร์กสเปซออก",
   "remoteWorkspaceNewGroup": "กลุ่มใหม่",
   "remoteWorkspaceGroupName": "ชื่อกลุ่ม",
-  "remoteDirectoryPhonePath": "{path} ที่เก็บข้อมูลโทรศัพท์/{พาธ}",
-  "remoteDirectoryInvalidName": "ชื่อต้องไม่มี “/”",
+  "remoteDirectoryPhonePath": "ที่เก็บข้อมูลโทรศัพท์/{path}",
+  "remoteDirectoryInvalidName": "ชื่อต้องไม่มี \"/\"",
   "remoteWorkspaceErrNameConflict": "เวิร์กสเปซชื่อนี้มีอยู่แล้ว",
   "remoteWorkspaceErrInvalidPath": "โฟลเดอร์นี้ไม่สามารถใช้เป็นเวิร์กสเปซได้",
   "remoteWorkspaceErrNotFound": "เวิร์กสเปซนี้ไม่มีอยู่แล้ว",
@@ -391,26 +410,26 @@
   "remoteDirectoryErrUnavailable": "โฮสต์นี้ไม่สามารถเรียกดูโฟลเดอร์ที่นี่ได้",
   "remoteWorkspaceErrUnsupported": "โฮสต์นี้ไม่รองรับการกระทำนี้",
   "remoteWorkspaceAllChats": "แชททั้งหมด",
-  "remoteWorkspaceSwitcherSemantics": "{name} เวิร์กสเปซ: {ชื่อ} สลับเวิร์กสเปซ",
+  "remoteWorkspaceSwitcherSemantics": "เวิร์กสเปซ: {name}. สลับเวิร์กสเปซ",
   "remoteWorkspaceManage": "จัดการเวิร์กสเปซ",
   "remoteWorkspaceErrLoad": "โหลดเวิร์กสเปซไม่ได้",
   "remoteWorkspaceEmpty": "ยังไม่มีเวิร์กสเปซ",
   "remoteWorkspaceEmptyHint": "เพิ่มโฟลเดอร์ที่คุณใช้บ่อยที่สุด",
-  "remoteWorkspaceCount": "{count} เวิร์กสเปซ}",
-  "remoteDirectoryConfirmFolder": "{action} “{name}”",
-  "remoteHostKeyMismatchDetail": "ถ้าโฮสต์ติดตั้งใหม่หรือถูกแทนที่ รีเซ็ตฟิงเกอร์พรินต์ในตั้งค่าโฮสต์\nSaved: {saved}\nReceived: {received} ({type})",
+  "remoteWorkspaceCount": "{count, plural, =1{1 เวิร์กสเปซ} other{{count} เวิร์กสเปซ}}",
+  "remoteDirectoryConfirmFolder": "{action} \"{name}\"",
+  "remoteHostKeyMismatchDetail": "ถ้าโฮสต์ติดตั้งใหม่หรือถูกแทนที่ รีเซ็ตฟิงเกอร์พรินต์ในตั้งค่าโฮสต์\nบันทึก: {saved}\nรับ: {received} ({type})",
   "remoteForumCompactReplies": "{count, plural, =1{{label} ตอบกลับ} other{{label} ตอบกลับ}}",
   "remoteForumCompactViews": "{count, plural, =1{{label} มุมมอง} other{{label} มุมมอง}}",
-  "remoteForumYearDate": "{day} {month} {year} 2 3 4 5 6 7 8 9 10 11 12 อื่นๆ} ,",
-  "remoteHostedMonthDate": "{day} {month} 2 3 4 5 6 7 8 9 10 11 12 อื่นๆ}",
-  "remoteHostedYearDate": "{day} {month} {year} 2 3 4 5 6 7 8 9 10 11 12 อื่นๆ} ,",
+  "remoteForumYearDate": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {day}, {year}",
+  "remoteHostedMonthDate": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {day}",
+  "remoteHostedYearDate": "{month, select, 1{ม.ค.} 2{ก.พ.} 3{มี.ค.} 4{เม.ย.} 5{พ.ค.} 6{มิ.ย.} 7{ก.ค.} 8{ส.ค.} 9{ก.ย.} 10{ต.ค.} 11{พ.ย.} 12{ธ.ค.} other{{month}}} {day}, {year}",
   "remoteForumTenThousands": "{value} × 10,000",
   "remoteForumSemanticsSeparator": ", ",
   "remoteHostKeyVerifyCommand": "เรียกใช้ {command} บนโฮสต์เพื่อดูฟิงเกอร์พรินต์เดียวกัน DSH จะปฏิเสธการเชื่อมต่อถ้ามันเปลี่ยน",
-  "remoteSshInstallCommand": "{command} DSH ไม่ได้ติดตั้ง? เรียกใช้ {คอมมานด์} บนโฮสต์",
-  "remoteRelayProvider": "{project} บริการโดย {โปรเจกต์}",
-  "remoteRelayProviderServer": "{server} {project} บริการโดย {โปรเจกต์} · เซิร์ฟเวอร์ปัจจุบัน: {เซิร์ฟเวอร์}",
-  "remoteQuotedHostName": "“{name}”",
+  "remoteSshInstallCommand": "DSH ไม่ได้ติดตั้ง? เรียกใช้ {command} บนโฮสต์",
+  "remoteRelayProvider": "บริการโดย {project}",
+  "remoteRelayProviderServer": "บริการโดย {project} · เซิร์ฟเวอร์ปัจจุบัน: {server}",
+  "remoteQuotedHostName": "\"{name}\"",
   "remoteErrorDetail": "{message} ({detail})",
   "remotePathLan": "LAN",
   "remotePathP2p": "P2P",
@@ -421,13 +440,13 @@
   "remoteNetworkRoundTripTime": "เวลาไป-กลับ (RTT)",
   "remoteNetworkUnmeasured": "ยังไม่ได้วัด",
   "remoteNetworkUnknownPath": "ยังไม่ได้ยืนยัน",
-  "remoteNetworkMilliseconds": "{value} {ค่า} ms",
+  "remoteNetworkMilliseconds": "{value} ms",
   "remoteNetworkMeasure": "รีเฟรชเครือข่าย / วัดเลเทนซี่",
   "remoteNetworkMeasuring": "กำลังวัด…",
   "remoteNetworkMeasureFailed": "วัดเลเทนซี่ไม่ได้ ลองอีกครั้งภายหลัง",
   "remoteNetworkDisconnected": "ตัดการเชื่อมต่อ เชื่อมต่อใหม่เพื่อวัดเลเทนซี่",
   "remoteNetworkFallback": "เหตุผล fallback",
-  "remoteNetworkFallbackUnknown": "เชื่อมต่อตรงไม่ได้ ใช้เส้นทางที่พร้อมอัตโนมัติ",
+  "remoteNetworkFallbackUnknown": "การเชื่อมต่อตรงไม่ได้ ใช้เส้นทางที่พร้อมอัตโนมัติ",
   "remoteNetworkFallbackWebrtcUnavailable": "WebRTC ไม่พร้อมบนอุปกรณ์นี้ ใช้ Relay",
   "remoteNetworkFallbackDirectFailed": "LAN / P2P เชื่อมต่อไม่ได้ ลองเส้นทางถัดไปที่พร้อม",
   "remoteNetworkFallbackDirectTimeout": "LAN / P2P หมดเวลา ลองเส้นทางถัดไปที่พร้อม",
@@ -438,635 +457,20 @@
   "remoteNetworkFallbackPathUnverified": "ประเภทเส้นทาง WebRTC ยังไม่ได้ยืนยัน",
   "remoteNetworkSnapshotHint": "แสดงเส้นทางที่ยืนยันล่าสุดและเลเทนซี่ รีเฟรชเพื่อเช็คอีกครั้ง",
   "remoteNetworkObservedAt": "เช็คครั้งล่าสุด",
-  "remoteNetworkLocalIpVersion": "Phone ICE IP VERSION",
-  "remoteNetworkRemoteIpVersion": "โฮสต์ ICE IP VERSION",
+  "remoteHostedLoadFailed": "อ่านลิงก์ที่บันทึกไม่ได้ โปรดลองใหม่",
+  "remoteHostedSaveFailed": "การเปลี่ยนแปลงลิงก์แชร์ของคุณยังไม่ได้บันทึก โปรดลองใหม่",
+  "remoteHostedDeleteSaveFailed": "การลบไม่ได้ถูกจัดตาราง ลิงก์ยังทำงานอยู่ โปรดลองใหม่",
+  "remoteHostedUndoUnsaved": "การลบยกเลิกสำหรับเซสชันนี้ แต่อาจกลับมาหลังรีสตาร์ท ลองบันทึกใน ลิงก์แชร์ของฉัน",
+  "remoteHostedUndoFailed": "กู้คืนการแชร์ไม่ได้ การลบอาจเริ่มแล้ว ตรวจสอบ ลิงก์แชร์ของฉัน",
+  "remoteHostedCreatedUnsaved": "ลิงก์ของคุณพร้อมคัดลอกและใช้ แตยังไม่ได้บันทึกบนอุปกรณ์นี้ เก็บสำเนาไว้และลองบันทึกใน ลิงก์แชร์ของฉัน",
+  "remoteHostedStopFailed": "หยุดการแชร์ไม่ได้ ลิงก์ยังทำงานอยู่ โปรดลองใหม่",
+  "remoteNetworkLocalIpVersion": "Phone ICE IP เวอร์ชัน",
+  "remoteNetworkRemoteIpVersion": "โฮสต์ ICE IP เวอร์ชัน",
   "remoteNetworkIceProtocol": "ICE โปรโตคอล",
   "remoteTransferSettings": "การถ่ายโอนรีโมต",
   "remoteCompactHistory": "บีบอัดประวัติ",
   "remoteErrHistoryModeChanged": "โฮสต์ไม่รองรับ compact history แล้ว สลับไปโฮสต์อื่นและกลับมา หรือรีสตาร์ทแอปเพื่อโหลดประวัติใหม่",
   "remoteCompactHistoryHint": "ลดรายละเอียดเครื่องมือในประวัติสำหรับโฮสต์ DSH รีโมตที่รองรับ การตอบกลับสดและอนุมัติยังคงเหมือนเดิม สลับโฮสต์หรือรีสตาร์ทแอปเพื่อใช้ โฮสต์เก่ายังคงประวัติเต็ม",
-  "searchKwRemoteCompactHistory": "compact slim lite history tools ถ่ายโอน แบนด์วิดท์ รีโมต",
-  "@remoteReconnectAttempt": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrHostRemoved": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteBootstrapReusePort": {
-    "placeholders": {
-      "port": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrCommandNotFound": {
-    "placeholders": {
-      "command": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteExitCode": {
-    "placeholders": {
-      "code": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRetryCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteErrAddressUnresponsive": {
-    "placeholders": {
-      "host": {
-        "type": "String"
-      },
-      "port": {
-        "type": "String"
-      }
-    }
-  },
-  "@remotePrivateKeyFormats": {
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrAddressRejected": {
-    "placeholders": {
-      "address": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrSshHostNotFound": {
-    "placeholders": {
-      "host": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrSshAddressUnresponsive": {
-    "placeholders": {
-      "address": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteAuthorizedKeysHelp": {
-    "placeholders": {
-      "error": {
-        "type": "String"
-      },
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumUnreadCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumDefaultAddress": {
-    "placeholders": {
-      "host": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumReplyCaption": {
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationsUnread": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumNotificationMention": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationGroupMention": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationReply": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationQuote": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationEdit": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationLikes": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumNotificationLike": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationLikedPosts": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumNotificationReaction": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationMessage": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationMessageInvite": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationTopicInvite": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationNewReply": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationNewTopic": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationLink": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationBadge": {
-    "placeholders": {
-      "badge": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNotificationMoved": {
-    "placeholders": {
-      "who": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumNoSearchResults": {
-    "placeholders": {
-      "term": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumReplyTo": {
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumMinutesAgo": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumHoursAgo": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumDaysAgo": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumReplyCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumNewReplyCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumErrorRetry": {
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostKeyFirstConnection": {
-    "placeholders": {
-      "address": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRelayKeyChangedBody": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRelayKeyFirstBody": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostSwitcherSemantics": {
-    "placeholders": {
-      "status": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRemotePlatform": {
-    "placeholders": {
-      "platform": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteActiveHost": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteReconnectReason": {
-    "placeholders": {
-      "reason": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteConnectedSsh": {
-    "placeholders": {
-      "address": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteDeleteHostTitle": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrReadKey": {
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostedExpiresOn": {
-    "placeholders": {
-      "date": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostedDeleteBody": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteDirectoryParentCaption": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteDirectoryShowHidden": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteWorkspaceAdded": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteWorkspaceChatCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteWorkspaceRemoved": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteWorkspaceRemoveTitle": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteDirectoryPhonePath": {
-    "placeholders": {
-      "path": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteWorkspaceSwitcherSemantics": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteWorkspaceCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteDirectoryConfirmFolder": {
-    "placeholders": {
-      "action": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostKeyMismatchDetail": {
-    "placeholders": {
-      "received": {
-        "type": "String"
-      },
-      "saved": {
-        "type": "String"
-      },
-      "type": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumCompactReplies": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      },
-      "label": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumCompactViews": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      },
-      "label": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteForumYearDate": {
-    "placeholders": {
-      "year": {
-        "type": "int"
-      },
-      "month": {
-        "type": "String"
-      },
-      "day": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteHostedMonthDate": {
-    "placeholders": {
-      "month": {
-        "type": "String"
-      },
-      "day": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteHostedYearDate": {
-    "placeholders": {
-      "year": {
-        "type": "int"
-      },
-      "month": {
-        "type": "String"
-      },
-      "day": {
-        "type": "int"
-      }
-    }
-  },
-  "@remoteForumTenThousands": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteHostKeyVerifyCommand": {
-    "placeholders": {
-      "command": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteSshInstallCommand": {
-    "placeholders": {
-      "command": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRelayProvider": {
-    "placeholders": {
-      "project": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteRelayProviderServer": {
-    "placeholders": {
-      "project": {
-        "type": "String"
-      },
-      "server": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteQuotedHostName": {
-    "placeholders": {
-      "name": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteErrorDetail": {
-    "placeholders": {
-      "detail": {
-        "type": "String"
-      },
-      "message": {
-        "type": "String"
-      }
-    }
-  },
-  "@remoteNetworkMilliseconds": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "remoteManagedHelp": "เริ่มหรือใช้ซ้ำ DSH ที่จัดการโดยแอป インスタンスที่ใช้ซ้ำไม่ได้จะไม่ถูกแทนที่อัตโนมัติ",
-  "remoteDshMode": "การจัดการอินสแตนซ์",
-  "remoteErrSharedInstance": "DSH รีโมตที่จัดการยังทำงานอยู่ แต่คำสั่งเริ่มต่างหรือล็อกการเริ่มหายไป เพื่อปกป้องการใช้ร่วมกัน จึงไม่ได้รีสตาร์ท ตรวจสอบการตั้งค่า ใช้ Attach only หรือเลือก Restart managed DSH ใน Edit host อย่างชัดเจน",
-  "remoteHostedDeleteSaveFailed": "การลบไม่ได้ถูกจัดตาราง ลิงก์ยังใช้งานอยู่ โปรดลองใหม่",
-  "remoteHostedLoadFailed": "อ่านลิงก์ที่บันทึกไม่ได้ โปรดลองใหม่",
-  "remoteHostedStopFailed": "หยุดแชร์ไม่ได้ ลิงก์ยังใช้งานอยู่ โปรดลองใหม่",
-  "remoteDshPort": "พอร์ต DSH รีโมต",
-  "remoteDshToken": "โทเคนการเริ่ม DSH",
-  "remoteDshAttached": "เชื่อมต่อกับ DSH ที่มีอยู่แล้ว",
-  "remoteHostedCreatedUnsaved": "ลิงก์ของคุณพร้อมคัดลอกและใช้ แต่ยังไม่ได้บันทึกบนอุปกรณ์นี้ เก็บสำเนาไว้และลองบันทึกอีกครั้งใน My shared links",
-  "remoteHostedSaveFailed": "การเปลี่ยนแปลงลิงก์แชร์ของคุณยังไม่ได้บันทึก โปรดลองใหม่",
-  "remoteRestartManagedWarning": "นี่จะหยุด DSH รีโมตที่บันทึกโดยแอปและเริ่มใหม่ ลูกค้าอื่นและแชทที่ใช้งานอยู่อาจถูกขัดจังหวะ ดำเนินต่อหลังเช็คว่าไม่มีใครใช้อยู่ การทดสอบการเชื่อมต่อปกติไม่ทำอย่างนี้",
-  "remoteSshCompressionHelp": "เปิดโดยค่าเริ่มต้น โชเฟชั่นหลังการตรวจสอบสิทธิ์ ใช้การขนส่งไม่บีบอัดหากไม่รองรับ",
-  "remoteKeyStorageHelpIos": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย system keychain รองรับ Ed25519, RSA และ ECDSA",
-  "remoteAttachOnly": "Attach only",
-  "remoteHostedUndoFailed": "กู้คืนการแชร์ไม่ได้ การลบอาจเริ่มแล้ว ตรวจสอบ My shared links",
-  "remoteAttachWorkingDirectoryHelp": "อินสแตนซ์ที่มีอยู่ไม่ได้โปรบหาโฮมไดเรกทอรี ใช้พาธ absolute รีโมต หรือเว้นว่างสำหรับค่าเริ่มต้นของ DSH",
-  "remoteRestartManaged": "Restart managed DSH",
-  "remotePasswordStorageHelpIos": "บันทึกเฉพาะบนโทรศัพท์นี้ เข้ารหัสโดย system keychain",
-  "remoteSshCompression": "การบีบอัด SSH",
-  "remoteHostedUndoUnsaved": "การลบถูกยกเลิกสำหรับเซสชันนี้ แต่อันดับ undo ไม่ได้บันทึก อาจดำเนินต่อหลังรีสตาร์ท ลองบันทึกอีกครั้งใน My shared links",
-  "remoteManaged": "Managed",
-  "remoteErrAttachSettings": "ใส่พอร์ต DSH รีโมตที่ถูกต้องและโทเคนการเริ่ม",
-  "remoteAttachOnlyHelp": "ส่งต่อไปพอร์ตคงที่บน remote 127.0.0.1 เท่านั้น ไม่เคยเริ่ม หยุด หรือรีสตาร์ท DSH",
-  "remoteUseServer": "ใช้เซิร์ฟเวอร์นี้",
-  "remoteDshTokenHelp": "ใส่โทเคนจาก URL การเริ่มของอินสแตนซ์ที่มีอยู่ มันจะอยู่ในที่เก็บปลอดภัยบนโทรศัพท์นี้",
+  "searchKwRemoteCompactHistory": "compact slim lite history tools transfer bandwidth remote",
   "@@locale": "th"
 }

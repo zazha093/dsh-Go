@@ -8,7 +8,7 @@
   "systemImeRetained": "Evidence retained",
   "systemImeNoEvents": "ไม่ matching events found",
   "systemImeUnavailable": "ไม่ selected, live privileged channel",
-  "systemImeUnsupported": "This VERSION ออร์ channel does นอต รองรับ capture",
+  "systemImeUnsupported": "เวอร์ชันนี้หรือช่องทางนี้ไม่รองรับการจับภาพ",
   "systemImeDenied": "This พยายาม was นอต อนุมัติแล้ว",
   "systemImeCancelled": "This พยายาม was ยกเลิกแล้ว",
   "systemImeBusy": "Channel busy; ลอง อีกครั้ง ภายหลัง",

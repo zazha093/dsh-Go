@@ -249,7 +249,7 @@
   "companionMovesRename": "Rename",
   "companionMovesTry": "Try it",
   "companionPackLegacyModel": "This is old Cubism 2 Model (.moc and Model.JSON) runtime on phone only reads .moc3 from Cubism 3 Open it in Cubism Editor export it as moc3 and import that",
-  "companionFailedMocVersion": "{version} This Model was exported by newer Cubism (moc VERSION {version}) runtime on phone reads up to {latest} Export it for older VERSION in Cubism Editor and import that",
+  "companionFailedMocVersion": "{version} โมเดลนี้ถูกส่งออกโดย Cubism ใหม่กว่า (moc เวอร์ชัน {version}) รันไทม์บนโทรศัพท์รองรับสูงสุด {latest} โปรดส่งออกสำหรับเวอร์ชันเก่ากว่าใน Cubism Editor และนำเข้าสิ่งนั้น",
   "companionMenuAdapt": "Fit this Model",
   "companionAdaptHint": "Your own Model (your key billed per request) reads this character and matches up her head eyes expressions and where she can be touched Sent: Model's name its parameter list names of its expressions motions and parts what you write below and current fitting Never Model files or textures",
   "companionAdaptOffer": "This model needs adaptation: your model reads parameter list and emotion and motion names (never model files) use your key once new model after this will adapt itself You can turn it off in menu",

@@ -1,13 +1,13 @@
 {
-  "plugViewInvalid": "ปลั๊กอิน มุมมอง has  ข้อผิดพลาด",
-  "plugViewEmpty": "ไม่ data ยัง",
-  "plugViewImageUnavailable": "Can’t แสดง รูปภาพ",
-  "plugViewUnavailableList": "Can’t แสดง รายการ",
-  "plugViewUnavailableKeyValue": "Can’t แสดง details",
-  "plugViewUnavailableProgress": "Can’t แสดง progress",
-  "plugViewUnavailableTable": "Can’t แสดง ตาราง",
-  "plugViewUnavailableActions": "Can’t แสดง buttons",
-  "plugViewFrom": "{name} จาก {ชื่อ}",
+  "plugViewInvalid": "มุมมองปลั๊กอินมีข้อผิดพลาด",
+  "plugViewEmpty": "ยังไม่มีข้อมูล",
+  "plugViewImageUnavailable": "ไม่สามารถแสดงรูปภาพได้",
+  "plugViewUnavailableList": "ไม่สามารถแสดงรายการได้",
+  "plugViewUnavailableKeyValue": "ไม่สามารถแสดงรายละเอียดได้",
+  "plugViewUnavailableProgress": "ไม่สามารถแสดงความคืบหน้าได้",
+  "plugViewUnavailableTable": "ไม่สามารถแสดงตารางได้",
+  "plugViewUnavailableActions": "ไม่สามารถแสดงปุ่มได้",
+  "plugViewFrom": "จาก {name}",
   "@plugViewFrom": {
     "placeholders": {
       "name": {
@@ -15,7 +15,7 @@
       }
     }
   },
-  "plugViewUnknownTone": "{value} Unknown tone {ค่า}, ignored; available: good, warn, bad, ข้อมูล, muted",
+  "plugViewUnknownTone": "โทนไม่รู้จัก {value} ถูกละเว้น ค่าที่ใช้ได้: good, warn, bad, info, muted",
   "@plugViewUnknownTone": {
     "placeholders": {
       "value": {
@@ -23,7 +23,7 @@
       }
     }
   },
-  "plugViewBadActionId": "{value} Invalid action ไอดี {ค่า}; this element isn’t tappable",
+  "plugViewBadActionId": "Action ID ไม่ถูกต้อง {value} องค์ประกอบนี้แตะไม่ได้",
   "@plugViewBadActionId": {
     "placeholders": {
       "value": {
@@ -31,7 +31,7 @@
       }
     }
   },
-  "plugViewBadAction": " action must เป็น  ไอดี สตริง ออร์ {shape}; ignored",
+  "plugViewBadAction": "Action ต้องเป็น ID สตริง หรือ {shape} ถูกละเว้น",
   "@plugViewBadAction": {
     "placeholders": {
       "shape": {
@@ -39,7 +39,7 @@
       }
     }
   },
-  "plugViewArgsLimit": "{limit} Action args exceed bytes}; ignored",
+  "plugViewArgsLimit": "อาร์กิวเมนต์ Action เกิน {limit, plural, =1{1 ไบต์} other{{limit} ไบต์}} ถูกละเว้น",
   "@plugViewArgsLimit": {
     "placeholders": {
       "limit": {
@@ -47,7 +47,7 @@
       }
     }
   },
-  "plugViewUnknownIcon": "{value} Unknown icon {ค่า}; drawn กับ  ค่าเริ่มต้น icon",
+  "plugViewUnknownIcon": "ไอคอนไม่รู้จัก {value} ใช้ไอคอนค่าเริ่มต้น",
   "@plugViewUnknownIcon": {
     "placeholders": {
       "value": {
@@ -55,7 +55,7 @@
       }
     }
   },
-  "plugViewExpectedItems": "Expected  อาร์เรย์ ของ {shape}",
+  "plugViewExpectedItems": "คาดหวังอาร์เรย์ของ {shape}",
   "@plugViewExpectedItems": {
     "placeholders": {
       "shape": {
@@ -63,7 +63,7 @@
       }
     }
   },
-  "plugViewSkippedItem": "Expected {shape}; item ข้าม",
+  "plugViewSkippedItem": "คาดหวัง {shape} ไอเท็มถูกข้าม",
   "@plugViewSkippedItem": {
     "placeholders": {
       "shape": {
@@ -71,8 +71,8 @@
       }
     }
   },
-  "plugViewBadMax": "แม็กซ์ must เป็น  ตัวเลข above 0; using 100",
-  "plugViewColumnLimit": "{second} {first} columns}, exceeding ลิมิต ของ",
+  "plugViewBadMax": "max ต้องเป็นตัวเลขมากกว่า 0 ใช้ 100",
+  "plugViewColumnLimit": "{first, plural, =1{1 คอลัมน์} other{{first} คอลัมน์}} เกินขีดจำกัดของ {second}",
   "@plugViewColumnLimit": {
     "placeholders": {
       "first": {
@@ -83,7 +83,7 @@
       }
     }
   },
-  "plugViewFirstColumns": "{limit} Showing เท่านั้น เฟิร์ส columns}",
+  "plugViewFirstColumns": "แสดงเฉพาะ {limit, plural, =1{1 คอลัมน์} other{{limit} คอลัมน์}} แรก",
   "@plugViewFirstColumns": {
     "placeholders": {
       "limit": {
@@ -91,7 +91,7 @@
       }
     }
   },
-  "plugViewFirstRows": "{limit} Showing เท่านั้น เฟิร์ส rows}",
+  "plugViewFirstRows": "แสดงเฉพาะ {limit, plural, =1{1 แถว} other{{limit} แถว}} แรก",
   "@plugViewFirstRows": {
     "placeholders": {
       "limit": {
@@ -99,10 +99,10 @@
       }
     }
   },
-  "plugViewOnePrimary": " มุมมอง has at มากที่สุด one หลัก button; this one คือ drawn ในฐานะ plain",
-  "plugViewBadImageSource": "Images TEEก  ปลั๊กอิน asset (asset:<พาธ>, png, jpg, webp ออร์ gif) ออร์  data:รูปภาพ/… URL",
-  "plugViewBadAspect": "aspect must เป็น  ตัวเลข จาก 0.25 ไป 4; ignored",
-  "plugViewImageTooLarge": "{limit} data: รูปภาพ exceeds bytes}",
+  "plugViewOnePrimary": "มุมมองมีปุ่มหลักได้สูงสุด 1 ปุ่ม ปุ่มนี้แสดงเป็นแบบธรรมดา",
+  "plugViewBadImageSource": "รูปภาพใช้แอสเซ็ตปลั๊กอิน (asset:<พาธ>, png, jpg, webp หรือ gif) หรือ URL data:image/…",
+  "plugViewBadAspect": "aspect ต้องเป็นตัวเลข 0.25 ถึง 4 ถูกละเว้น",
+  "plugViewImageTooLarge": "data: รูปภาพเกิน {limit, plural, =1{1 ไบต์} other{{limit} ไบต์}}",
   "@plugViewImageTooLarge": {
     "placeholders": {
       "limit": {
@@ -110,9 +110,9 @@
       }
     }
   },
-  "plugViewImageDecode": "รูปภาพ can’t เป็น decoded (PNG, JPEG, WebP ออร์ GIF เท่านั้น)",
-  "plugViewImagePixels": "รูปภาพ exceeds  ไซส์ ลิมิต: 4096 per side, 4 million pixels ใน ทอตอล",
-  "plugViewTooDeep": "{limit} JSON nested deeper than levels}",
+  "plugViewImageDecode": "รูปภาพถอดรหัสไม่ได้ (PNG, JPEG, WebP หรือ GIF เท่านั้น)",
+  "plugViewImagePixels": "รูปภาพเกินขีดจำกัดขนาด: 4096 ต่อด้าน 4 ล้านพิกเซลรวม",
+  "plugViewTooDeep": "JSON ซ้อนลึกเกิน {limit, plural, =1{1 ระดับ} other{{limit} ระดับ}}",
   "@plugViewTooDeep": {
     "placeholders": {
       "limit": {
@@ -120,8 +120,8 @@
       }
     }
   },
-  "plugViewV2Content": "ปลั๊กอิน เนื้อหา",
-  "plugViewVersionFallback": "{version} ดู VERSION {version} คือ นอต supported; using compatible VUE",
+  "plugViewV2Content": "เนื้อหาปลั๊กอิน",
+  "plugViewVersionFallback": "เวอร์ชันมุมมอง {version} ไม่รองรับ ใช้มุมมองที่เข้ากันได้แทน",
   "@plugViewVersionFallback": {
     "placeholders": {
       "version": {
@@ -129,7 +129,7 @@
       }
     }
   },
-  "plugViewStyleInvalid": "Invalid สไตล์; expected {values}",
+  "plugViewStyleInvalid": "สไตล์ไม่ถูกต้อง คาดหวัง {values}",
   "@plugViewStyleInvalid": {
     "placeholders": {
       "values": {
@@ -137,10 +137,10 @@
       }
     }
   },
-  "plugViewStyleReserved": "This appearance คือ reserved สำหรับ  app; ignored",
-  "plugViewStyleContainerOnly": "This สไตล์ คือ เท่านั้น available เปิด สแต็ก แอนด์ แถว",
-  "plugViewStyleTextOnly": "This สไตล์ คือ เท่านั้น available เปิด เท็กซ์, metric แอนด์ callout",
-  "plugViewContrastAdjusted": "{before} {after} {mode}: {ก่อน} adjusted ไป {หลัง}, contrast at น้อยที่สุด {minimum}:1",
+  "plugViewStyleReserved": "ลักษณะนี้สงวนไว้ให้แอป ถูกละเว้น",
+  "plugViewStyleContainerOnly": "สไตล์นี้ใช้ได้เฉพาะกับสแต็กและแถว",
+  "plugViewStyleTextOnly": "สไตล์นี้ใช้ได้เฉพาะกับข้อความ เมตริก และคอลเอาต์",
+  "plugViewContrastAdjusted": "{mode}: {before} ปรับเป็น {after} คอนทราสต์อย่างน้อย {minimum}:1",
   "@plugViewContrastAdjusted": {
     "placeholders": {
       "mode": {
@@ -157,9 +157,9 @@
       }
     }
   },
-  "plugViewRichLimit": "Rich เท็กซ์ exceeds  ลิมิต; truncated",
-  "plugViewBadTrend": "trend รับ 2–{max} ตัวเลข (null ได้); ไม่สนใจ",
-  "plugViewGalleryPicture": "{index} รูป {อินเด็กซ์}",
+  "plugViewRichLimit": "Rich text เกินขีดจำกัด ถูกตัด",
+  "plugViewBadTrend": "trend รับตัวเลข 2–{max} (null ได้) ถูกละเว้น",
+  "plugViewGalleryPicture": "รูป {index}",
   "@plugViewBadTrend": {
     "placeholders": {
       "max": {

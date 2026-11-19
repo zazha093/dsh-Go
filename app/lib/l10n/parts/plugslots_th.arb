@@ -1,13 +1,13 @@
 {
-  "plugslotsSurfaceComposerTools": "Plus แผง tools",
-  "plugslotsSurfaceSessionActions": "แชท actions",
-  "plugslotsSurfaceTurnNote": "Turn notes",
-  "plugslotsSurfaceComposerActions": "Composer buttons",
-  "plugslotsSurfaceMessageActions": "ข้อความ menu",
-  "plugslotsSurfaceComposerStrip": "สถานะ ไลน์",
-  "plugslotsSurfacePanel": "Panels",
-  "plugslotsNativeUi": "Native UI",
-  "plugslotsIssueCount": "{count} problems}",
+  "plugslotsSurfaceComposerTools": "แผ่นเครื่องมือเพิ่มเติม",
+  "plugslotsSurfaceSessionActions": "การกระทำแชท",
+  "plugslotsSurfaceTurnNote": "บันทึกรอบ",
+  "plugslotsSurfaceComposerActions": "ปุ่มคอมโพเซอร์",
+  "plugslotsSurfaceMessageActions": "เมนูข้อความ",
+  "plugslotsSurfaceComposerStrip": "แถบสถานะ",
+  "plugslotsSurfacePanel": "แผ่น",
+  "plugslotsNativeUi": "UI ネイティブ",
+  "plugslotsIssueCount": "{count, plural, =1{1 ปัญหา} other{{count} ปัญหา}}",
   "@plugslotsIssueCount": {
     "placeholders": {
       "count": {
@@ -15,8 +15,8 @@
       }
     }
   },
-  "plugslotsAllGood": "ไม่ problems",
-  "plugslotsViewSize": "{size} ดู {ไซส์}",
+  "plugslotsAllGood": "ไม่มีปัญหา",
+  "plugslotsViewSize": "มุมมอง {size}",
   "@plugslotsViewSize": {
     "placeholders": {
       "size": {
@@ -24,7 +24,7 @@
       }
     }
   },
-  "plugslotsInvokeMs": "{ms} ms",
+  "plugslotsInvokeMs": "{ms} มิลลิวินาที",
   "@plugslotsInvokeMs": {
     "placeholders": {
       "ms": {
@@ -32,11 +32,11 @@
       }
     }
   },
-  "plugslotsLastView": "สุดท้าย VUE",
-  "plugslotsLastInvoke": "สุดท้าย response",
-  "plugslotsProblems": "Problems",
-  "plugslotsNoProblems": "ไม่ problems",
-  "plugslotsWantsDraft": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your draft",
+  "plugslotsLastView": "มุมมองล่าสุด",
+  "plugslotsLastInvoke": "การตอบกลับล่าสุด",
+  "plugslotsProblems": "ปัญหา",
+  "plugslotsNoProblems": "ไม่มีปัญหา",
+  "plugslotsWantsDraft": "{plugin} ต้องการอ่านดราฟต์ของคุณ",
   "@plugslotsWantsDraft": {
     "placeholders": {
       "plugin": {
@@ -44,7 +44,7 @@
       }
     }
   },
-  "plugslotsWantsClipboard": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your clipboard",
+  "plugslotsWantsClipboard": "{plugin} ต้องการอ่านคลิปบอร์ดของคุณ",
   "@plugslotsWantsClipboard": {
     "placeholders": {
       "plugin": {
@@ -52,7 +52,7 @@
       }
     }
   },
-  "plugslotsWantsBoth": "{plugin} {ปลั๊กอิน} wants ไป อ่าน your draft แอนด์ clipboard",
+  "plugslotsWantsBoth": "{plugin} ต้องการอ่านดราฟต์และคลิปบอร์ดของคุณ",
   "@plugslotsWantsBoth": {
     "placeholders": {
       "plugin": {
@@ -60,9 +60,9 @@
       }
     }
   },
-  "plugslotsWantsWhen": "เท่านั้น เมื่อ you tap it",
+  "plugslotsWantsWhen": "เฉพาะเมื่อคุณแตะ",
   "plugslotsAllow": "อนุญาต",
-  "plugslotsNoResponse": "{plugin} {ปลั๊กอิน} didn't respond",
+  "plugslotsNoResponse": "{plugin} ไม่ตอบสนอง",
   "@plugslotsNoResponse": {
     "placeholders": {
       "plugin": {
@@ -70,7 +70,7 @@
       }
     }
   },
-  "plugslotsFailed": "{plugin} {ปลั๊กอิน} พบปัญหา",
+  "plugslotsFailed": "{plugin} พบปัญหา",
   "@plugslotsFailed": {
     "placeholders": {
       "plugin": {
@@ -79,7 +79,7 @@
     }
   },
   "plugslotsNeedsChat": "เปิดแชทก่อน",
-  "plugslotsFromPlugin": "{plugin} จาก {ปลั๊กอิน}",
+  "plugslotsFromPlugin": "จาก {plugin}",
   "@plugslotsFromPlugin": {
     "placeholders": {
       "plugin": {
@@ -88,7 +88,7 @@
     }
   },
   "plugslotsPanelOffline": "เข้าถึงปลั๊กอินไม่ได้",
-  "plugslotsIssueTooMany": "สูงสุด {max}; ที่เหลือถูกซ่อน",
+  "plugslotsIssueTooMany": "สูงสุด {max} ที่เหลือถูกซ่อน",
   "@plugslotsIssueTooMany": {
     "placeholders": {
       "max": {
@@ -104,7 +104,7 @@
       }
     }
   },
-  "plugslotsIssueNeedsApp": "{version} Needs DSH Go {version} ออร์ ภายหลัง",
+  "plugslotsIssueNeedsApp": "ต้องการ DSH Go {version} หรือใหม่กว่า",
   "@plugslotsIssueNeedsApp": {
     "placeholders": {
       "version": {
@@ -113,8 +113,8 @@
     }
   },
   "plugslotsIssueNewerProtocol": "ต้องการแอปใหม่กว่า",
-  "plugslotsIssueUnknownIcon": "Unknown icon; using  ค่าเริ่มต้น",
-  "plugslotsIssueUnknownEffect": "{name} Unsupported effect \"{ชื่อ}\"",
+  "plugslotsIssueUnknownIcon": "ไอคอนไม่รู้จัก ใช้ค่าเริ่มต้น",
+  "plugslotsIssueUnknownEffect": "เอฟเฟกต์ไม่รองรับ \"{name}\"",
   "@plugslotsIssueUnknownEffect": {
     "placeholders": {
       "name": {
@@ -122,9 +122,9 @@
       }
     }
   },
-  "plugslotsIssueLate": "Came ย้อนกลับ มากกว่า than 3 s หลัง  tap; ignored",
+  "plugslotsIssueLate": "กลับมาช้ากว่า 3 วินาทีหลังแตะ ถูกละเว้น",
   "plugslotsIssueHttps": "เฉพาะลิงก์ HTTPS",
-  "plugslotsIssueUnknownPage": "{page} ไม่ เพจ called \"{เพจ}\"",
+  "plugslotsIssueUnknownPage": "ไม่มีเพจชื่อ \"{page}\"",
   "@plugslotsIssueUnknownPage": {
     "placeholders": {
       "page": {
@@ -132,8 +132,8 @@
       }
     }
   },
-  "plugslotsIssueThrottled": "Notices เกินไป frequent; skipped",
-  "plugslotsIssueInvoke": "{message} คอลล์ ล้มเหลว: {ข้อความ}",
+  "plugslotsIssueThrottled": "การแจ้งเตือนบ่อยเกินไป ข้าม",
+  "plugslotsIssueInvoke": "การเรียกใช้ล้มเหลว: {message}",
   "@plugslotsIssueInvoke": {
     "placeholders": {
       "message": {
@@ -141,7 +141,7 @@
       }
     }
   },
-  "plugslotsIssueStream": "{message} Data ล้มเหลว: {ข้อความ}",
+  "plugslotsIssueStream": "ข้อมูลล้มเหลว: {message}",
   "@plugslotsIssueStream": {
     "placeholders": {
       "message": {
@@ -149,10 +149,10 @@
       }
     }
   },
-  "plugslotsIssueMissing": "Missing  required field",
-  "plugslotsIssueDuplicate": "ซ้ำ ไอดี; skipped",
-  "plugslotsIssueNoPlacement": "Nowhere ไป แสดง it",
-  "plugslotsWantsMessage": "{plugin} {ปลั๊กอิน} wants ไป อ่าน this reply",
+  "plugslotsIssueMissing": "ขาดฟิลด์ที่จำเป็น",
+  "plugslotsIssueDuplicate": "ID ซ้ำ ข้าม",
+  "plugslotsIssueNoPlacement": "ไม่มีที่แสดง",
+  "plugslotsWantsMessage": "{plugin} ต้องการอ่านการตอบกลับนี้",
   "@plugslotsWantsMessage": {
     "placeholders": {
       "plugin": {
@@ -160,17 +160,17 @@
       }
     }
   },
-  "plugslotsCodeInvalidManifest": "ประกาศไม่ถูกต้อง ส่วนเนทีฟปิด",
-  "plugslotsCodeInvalidField": "Wrong ฟอร์แมต; skipped",
-  "plugslotsCodeUnknownField": "ไม่ทราบ field; ignored",
-  "plugslotsCodeUnknownSurface": "นอต supported here ยัง; ignored",
-  "plugslotsCodeTooMany": "เกินไป มาก;  extras are ซ่อน",
-  "plugslotsCodeTooLong": "เกินไป long; shortened",
-  "plugslotsCodeNoHandler": "นอต handled โดย  ปลั๊กอิน ยัง; ซ่อน",
-  "plugslotsCodeUndeclared": "ลงทะเบียนแล้ว but นอต declared; ignored",
-  "plugslotsCodeViewFile": "ไม่สามารถ่าน  มุมมอง ไฟล์",
-  "plugslotsCodeBadEffect": "Malformed action; ข้าม",
-  "plugslotsCodeViolation": "{count} ล้มเหลว times}",
+  "plugslotsCodeInvalidManifest": "การประกาศไม่ถูกต้อง ส่วนเนทีฟปิด",
+  "plugslotsCodeInvalidField": "รูปแบบผิด ข้าม",
+  "plugslotsCodeUnknownField": "ฟิลด์ไม่รู้จัก ข้าม",
+  "plugslotsCodeUnknownSurface": "ยังไม่รองรับที่นี่ ข้าม",
+  "plugslotsCodeTooMany": "มากเกินไป ส่วนที่เกินถูกซ่อน",
+  "plugslotsCodeTooLong": "ยาวเกินไป ตัดสั้น",
+  "plugslotsCodeNoHandler": "ปลั๊กอินยังไม่จัดการ ซ่อน",
+  "plugslotsCodeUndeclared": "ลงทะเบียนแล้วแต่มิได้ประกาศ ข้าม",
+  "plugslotsCodeViewFile": "อ่านไฟล์มุมมองไม่ได้",
+  "plugslotsCodeBadEffect": "การกระทำผิดรูปแบบ ข้าม",
+  "plugslotsCodeViolation": "ล้มเหลว {count, plural, =1{1 ครั้ง} other{{count} ครั้ง}}",
   "@plugslotsCodeViolation": {
     "placeholders": {
       "count": {
@@ -178,21 +178,21 @@
       }
     }
   },
-  "plugslotsCodeDegraded": "เกินไป มาก errors; ปิด จนกว่า  ถัดไป เริ่ม",
+  "plugslotsCodeDegraded": "ข้อผิดพลาดมากเกินไป ปิดจนกว่าจะเริ่มใหม่",
   "plugslotsCodeTimeout": "ปลั๊กอินตอบไม่ทัน",
-  "plugslotsCodeRateLimited": "Tapped เกินไป เร็ว",
-  "plugslotsCodeNotFound": "ปลั๊กอินปิดหรือหาย",
+  "plugslotsCodeRateLimited": "แตะเร็วเกินไป",
+  "plugslotsCodeNotFound": "ปลั๊กอินปิดหรือหายไป",
   "plugslotsCodePluginError": "ปลั๊กอินล้มเหลว",
   "plugslotsCodeInvalidView": "มุมมองไม่ถูกต้อง",
-  "plugslotsCodeLimit": "เกินไป มาก subscriptions",
-  "plugslotsCodeOther": "other problem",
-  "plugslotsCodeUnknownEffect": "Unsupported action; ข้าม",
-  "plugslotsNotDone": "Didn't จบ",
+  "plugslotsCodeLimit": "การสมัครรับข้อมูลมากเกินไป",
+  "plugslotsCodeOther": "ปัญหาอื่น",
+  "plugslotsCodeUnknownEffect": "การกระทำไม่รองรับ ข้าม",
+  "plugslotsNotDone": "ยังไม่เสร็จ",
   "plugslotsWorking": "กำลังทำงาน",
-  "plugslotsTapToCancel": "Tap ไป ยกเลิก",
-  "plugslotsCodeTooManyPending": "Two are ยัง กำลังทำงาน",
-  "plugslotsCodeNoStream": " การเชื่อมต่อ dropped",
-  "plugslotsVoiceAsk": "{plugin} Let {ปลั๊กอิน} hear you speak?",
+  "plugslotsTapToCancel": "แตะเพื่อยกเลิก",
+  "plugslotsCodeTooManyPending": "ยังมี 2 ตัวกำลังทำงานอยู่",
+  "plugslotsCodeNoStream": "การเชื่อมต่อหลุด",
+  "plugslotsVoiceAsk": "ให้ {plugin} ได้ยินคุณพูด?",
   "@plugslotsVoiceAsk": {
     "placeholders": {
       "plugin": {
@@ -200,12 +200,12 @@
       }
     }
   },
-  "plugslotsVoiceWhen": "Reading stops  ช่วงเวลา you speak. Your voice คือ checked เปิด this phone, ไม่เคย saved ออร์ sent",
-  "plugslotsVoiceDeny": "Don't อนุญาต",
-  "plugslotsVoiceSwitch": "Hear you speak",
-  "plugslotsPickerUnavailable": "ไฟล์ selection คือ unavailable เปิด this device",
-  "plugslotsPickerBusy": "จบ  current ไฟล์ selection เฟิร์ส",
-  "plugslotsPickerLimit": "{count} ขึ้น ไป {เคาท์} files, 8 MiB แต่ละ แอนด์ 16 MiB ทอตอล",
+  "plugslotsVoiceWhen": "การอ่านหยุดทันทีที่คุณพูด เสียงของคุณถูกตรวจสอบบนโทรศัพท์นี้เท่านั้น ไม่เคยบันทึกหรือส่ง",
+  "plugslotsVoiceDeny": "ไม่อนุญาต",
+  "plugslotsVoiceSwitch": "ได้ยินคุณพูด",
+  "plugslotsPickerUnavailable": "การเลือกไฟล์ไม่พร้อมใช้งานบนอุปกรณ์นี้",
+  "plugslotsPickerBusy": "เสร็จสิ้นการเลือกไฟล์ปัจจุบันก่อน",
+  "plugslotsPickerLimit": "สูงสุด {count} ไฟล์ 8 MiB ต่อไฟล์ และ 16 MiB รวม",
   "@plugslotsPickerLimit": {
     "placeholders": {
       "count": {
@@ -213,28 +213,21 @@
       }
     }
   },
-  "plugslotsPickerFailed": "Could นอต แชร์  files กับ this ปลั๊กอิน. ลอง อีกครั้ง",
+  "plugslotsPickerFailed": "แชร์ไฟล์กับปลั๊กอินนี้ไม่ได้ ลองอีกครั้ง",
   "plugslotsWebPlacesTitle": "ใน DSH Web",
-  "plugslotsPlaceBesideComposer": "Beside  composer",
-  "plugslotsPlaceHeader": "Conversation เฮดเดอร์",
-  "plugslotsPlaceMessages": "ใน messages",
-  "plugslotsPlaceOverlay": "Floating layer",
-  "plugslotsPlaceSidebar": "Sidebar",
-  "plugslotsPlaceRightbar": "สิทธิ์ sidebar",
-  "plugslotsPlaceFiles": "ไฟล์ previews",
+  "plugslotsPlaceBesideComposer": "ข้างคอมโพเซอร์",
+  "plugslotsPlaceHeader": "ส่วนหัวการสนทนา",
+  "plugslotsPlaceMessages": "ในข้อความ",
+  "plugslotsPlaceOverlay": "เลเยอร์ลอย",
+  "plugslotsPlaceSidebar": "แถบด้านข้าง",
+  "plugslotsPlaceRightbar": "แถบด้านข้างขวา",
+  "plugslotsPlaceFiles": "ตัวอย่างไฟล์",
   "plugslotsPlaceSettings": "ตั้งค่า",
   "plugslotsPlacePlugins": "หน้าปลั๊กอิน",
-  "plugslotsPlaceNewChat": "ใหม่ conversation",
-  "plugslotsPlaceElsewhere": "Elsewhere",
-  "plugslotsPlaceUnknown": "Its web อินเตอร์เฟซ",
+  "plugslotsPlaceNewChat": "การสนทนาใหม่",
+  "plugslotsPlaceElsewhere": "ที่อื่น",
+  "plugslotsPlaceUnknown": "เว็บอินเตอร์เฟซของมัน",
   "plugslotsChatEntry": "ปลั๊กอิน",
-  "plugslotsChatWebFrom": "เว็บปลั๊กอิน · {names}",
-  "@plugslotsChatWebFrom": {
-    "placeholders": {
-      "names": {
-        "type": "String"
-      }
-    }
-  },
+  "plugslotsChatWebFrom": "ปลั๊กอินเว็บ · {names}",
   "@@locale": "th"
 }

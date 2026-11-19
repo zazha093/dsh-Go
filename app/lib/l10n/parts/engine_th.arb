@@ -118,7 +118,7 @@
   "engineSearchMaxUses": "ค้นหาสูงสุดต่อคำขอ",
   "engineFieldTimesUnit": "ครั้ง",
   "engineSearchHelperModel": "Helper Model",
-  "engineFieldApiVersion": "API VERSION",
+  "engineFieldApiVersion": "API เวอร์ชัน",
   "engineFieldMaxTokens": "สูงสุด output length",
   "engineSearchResultsPerSearch": "ผลลัพธ์ต่อการค้นหา",
   "engineFieldResultsUnit": "ผลลัพธ์",
