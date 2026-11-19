@@ -1,10 +1,10 @@
 {
-  "usageStatsTitle": "ส่ง anonymous usage stats",
-  "usageStatsSection": "Improve DSH Go",
-  "usageStatsFooter": "This switch controls dsh-go’s own usage counts, versions แอนด์ phone maker statistics. It includes ไม่ chats, files ออร์ accounts, แอนด์ does นอต control Google ML Kit SDK statistics.",
-  "usageNoticeBody": "ไม่ chats ออร์ personal ข้อมูล.\nTurn ปิด anytime.",
-  "usageUpgradeNotice": "ใหม่: anonymous usage stats, ไป ช่วยเหลือ improve DSH Go.\nไม่ chats ออร์ personal ข้อมูล.",
-  "usageUpgradeLearn": "Learn มากกว่า",
-  "usageUpgradeOff": "Turn ปิด",
+  "usageStatsTitle": "ส่งสถิติการใช้งานแบบไม่ระบุตัวตน",
+  "usageStatsSection": "ช่วยปรับปรุง DSH Go",
+  "usageStatsFooter": "สลับนี้ควบคุมสถิติของ DSH Go เอง: จำนวนการใช้งานฟีเจอร์ (รวมข้อความใน Tavern, การเข้าห้องคอมเพลน และการโทรทางเสียง), จำนวนโทเค็นที่โมเดลตอบกลับ, เวอร์ชัน, รุ่นและยี่ห้อโทรศัพท์, และเวอร์ชันระบบ ไม่รวมแชท, บัตรตัวละคร, ไฟล์ หรือบัญชี และไม่ควบคุมสถิติของ Google ML Kit SDK",
+  "usageNoticeBody": "ไม่มีแชทหรือข้อมูลส่วนตัว\nปิดได้ทุกเมื่อ",
+  "usageUpgradeNotice": "ใหม่: สถิติการใช้งานแบบไม่ระบุตัวตน เพื่อช่วยปรับปรุง DSH Go\nไม่มีแชทหรือข้อมูลส่วนตัว",
+  "usageUpgradeLearn": "เรียนรู้เพิ่มเติม",
+  "usageUpgradeOff": "ปิดการใช้งาน",
   "@@locale": "th"
 }

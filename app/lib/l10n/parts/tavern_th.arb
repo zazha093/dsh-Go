@@ -1748,7 +1748,7 @@
   "tavernToolPolicyMode": "Keeping notes",
   "tavernToolPolicyModeAsk": "Ask me first",
   "tavernToolPolicyModeAuto": "Automatically",
-  "tavernToolPolicyDiagnostics": "Part of this setting couldn't be read; the tool it belongs to is off for now",
+  "tavernToolPolicyDiagnostics": "ส่วนหนึ่งของการตั้งค่านี้อ่านไม่ได้ เครื่องมือที่มันเป็นของอยู่ปิดอยู่ตอนนี้",
   "tavernToolPolicyNote": "Replies only use these with DeepSeek and thinking off; a change applies from the next turn, and a character card can turn them off",
   "tavernToolPolicyFailed": "Didn't change: {detail}",
   "@tavernToolPolicyFailed": {

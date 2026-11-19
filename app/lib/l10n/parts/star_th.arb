@@ -7,11 +7,11 @@
       }
     }
   },
-  "starPromptBody": "DSH Go คือ free แอนด์ เปิด source. ถ้า it’s made your phone  little nicer ไป use, please give it  Star — it means so much ไป this little whale!",
-  "starPromptPlea": "Pretty please~ It จริงๆ matters!!",
-  "starPromptStar": "ดาว it เปิด GitHub",
-  "starPromptDone": "แล้ว starred",
+  "starPromptBody": "DSH Go ฟรีและโอเพนซอร์ส หากมันทำให้โทรศัพท์ของคุณดีนิดหน่อย โปรดให้ดาวบน GitHub — มันสำคัญมากกับแมวน้ำน้อยตัวนี้!",
+  "starPromptPlea": "ช่วยหน่อยสิ~ มันสำคัญจริงๆ!!",
+  "starPromptStar": "ติดดาว (Star) ให้ DSH Go บน GitHub",
+  "starPromptDone": "ติดดาวแล้ว",
   "starPromptLater": "ไม่แน่ใจ ภายหลัง",
-  "starSettingsTitle": "ดาว DSH Go เปิด GitHub",
+  "starSettingsTitle": "ติดดาว (Star) ให้ DSH Go บน GitHub",
   "@@locale": "th"
 }
