@@ -3,7 +3,7 @@ name: Build APK
 on:
   workflow_dispatch:
   push:
-    branches: [test/thai-build, golden/thai-9e27, feat/thai-polish, ci/thai-test]
+    branches: [test/thai-build, golden/thai-9e27, feat/thai-polish, ci/thai-test, thai/release]
 
 permissions:
   contents: read
@@ -105,6 +105,33 @@ jobs:
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
+      - name: Setup Keystore
+        if: ${{ secrets.KEYSTORE_BASE64 != '' && secrets.KEYSTORE_PASSWORD != '' && secrets.KEY_ALIAS != '' && secrets.KEY_PASSWORD != '' }}
+        run: |
+          echo "Setting up permanent keystore..."
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
+          cat > app/android/key.properties <<EOF
+storeFile=keystore/release.keystore
+storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+keyAlias=${{ secrets.KEY_ALIAS }}
+keyPassword=${{ secrets.KEY_PASSWORD }}
+EOF
+          echo "Keystore configured for permanent signing"
+          # Print certificate fingerprint for verification
+          keytool -printcert -jarfile app/android/keystore/release.keystore 2>/dev/null | grep -A1 "SHA256:" | tail -1 | xargs || true
+
+      - name: Check signing mode
+        run: |
+          if [ -f app/android/key.properties ]; then
+            echo "SIGNING_MODE=permanent" >> $GITHUB_ENV
+            echo "This build will be signed with permanent keystore"
+            # Print certificate SHA-256 fingerprint
+            keytool -printcert -jarfile app/android/keystore/release.keystore 2>/dev/null | grep "SHA256:" | head -1 | sed 's/.*SHA256: //' | xargs -I{} echo "CERT_SHA256={}" || true
+          else
+            echo "SIGNING_MODE=debug" >> $GITHUB_ENV
+            echo "This build will be signed with debug keystore (no permanent keystore configured)"
+          fi
+
       - name: Flutter pub get
         working-directory: app
         run: flutter pub get --enforce-lockfile
@@ -125,3 +152,10 @@ jobs:
           name: dsh-go-thai-arm64
           path: app/build/app/outputs/flutter-apk/app-arm64-release.apk
           retention-days: 7
+
+      - name: Verify APK signature
+        if: env.SIGNING_MODE == 'permanent'
+        run: |
+          echo "Verifying APK signature..."
+          apksigner verify --print-certs app/build/app/outputs/flutter-apk/app-arm64-release.apk
+          echo "APK signed with: ${{ env.SIGNING_MODE }} key"
