@@ -1,0 +1,1036 @@
+{
+  "botsFolderGone": "โฟลเดอร์นี้หายไป",
+  "botsFolderReadFailed": "อ่านโฟลเดอร์นี้ไม่ได้",
+  "botsFolderOpenFailed": "เปิดโฟลเดอร์นี้ไม่ได้",
+  "botsFolderCount": "{{count} folders}",
+  "botsWorkingFolder": "กำลังทำงาน ไดเรกทอรี",
+  "botsFolderTeamDefault": "ทีมเวิร์กสเปซ",
+  "botsFolderRoomDefault": "ไดเรกทอรีของแต่ละบอท",
+  "botsFolderHint": "โฟลเดอร์บนโฮสต์ที่เชื่อมต่อ",
+  "botsFolderCurrent": "ไดเรกทอรีปัจจุบัน",
+  "botsFolderUnavailable": "การเชื่อมต่อหรือโฟลเดอร์เปลี่ยนไป เปิดใหม่เพื่อต่อ",
+  "botsFolderNoChoices": "ไม่มีโฟลเดอร์อื่นบนโฮสต์",
+  "botsFolderConfirm": "ใช้ไดเรกทอรีทำงานนี้?",
+  "botsFolderRefused": "โฮสต์ปฏิเสธโฟลเดอร์นี้ อาจหายไป ไม่เข้าถึงได้ หรือถูกป้องกัน",
+  "botsChildCount": "{{count} child agents}",
+  "botsCurrentChat": "แชทปัจจุบัน",
+  "botsSubagentCount": "{{count} subagents}",
+  "botsRunningCount": "{{count} กำลังทำงาน}",
+  "botsFailedCount": "{{count} ล้มเหลว}",
+  "botsNestedCount": "{{count} child agents}",
+  "botsBackToParent": "{title} กลับไป “{title}”",
+  "botsTeamMemberCount": "{{count} members}",
+  "botsAgentTeam": "ทีมเอจเอนต์",
+  "botsSubagentRunningCount": "{{{running} {count} ซับเอจเอนต์}, กำลังทำงาน}",
+  "botsSubagents": "ซับเอจิ้นต์",
+  "botsNoSubagents": "ไม่มีซับเอจเอนต์ส่ง",
+  "botsOpenChatFirst": "เปิดแชทก่อน",
+  "botsTeamReadFailed": "โหลดทีมไม่ได้",
+  "botsNoTeamOnHost": "ไม่มีทีมเอจเอนต์บนโฮสต์นี้",
+  "botsTeamNotEnabled": "ทีมเอจเอนต์ปิด",
+  "botsTeamDescription": "เอเจนต์ทำงานร่วมกันบนกระดานงานร่วม",
+  "botsTeamEnabling": "กำลังเปิดใช้งาน…",
+  "botsTeamEnable": "เปิดใช้งานทีม",
+  "botsMembersWorking": "{{count} สมาชิกกำลังทำงาน}",
+  "botsTeamStandby": "ทั้งหมดพร้อมสถานะสตันบาย",
+  "botsMembers": "สมาชิก",
+  "botsTasks": "งาน",
+  "botsTeamRecordUnreadable": "อ่านเรคคอร์ดทีมไม่ได้",
+  "botsMessages": "ข้อความ",
+  "botsOwner": "เจ้าของ",
+  "botsTeamCreateHint": "ขอให้ AI สร้างทีมในแชท",
+  "botsCurrent": "ปัจจุบัน",
+  "botsNoTasks": "ยังไม่มีงาน",
+  "botsTodo": "ไปทำ",
+  "botsUnassigned": "ไม่ได้มอบหมาย",
+  "botsTaskWaitingFor": "กำลังรอ {dependencies}",
+  "botsWriteOverlap": "เขียนทับขอบเขต",
+  "botsWaitingDependencies": "กำลังรอการอ้างอิง",
+  "botsReadyToStart": "พร้อมเริ่ม",
+  "botsTaskId": "ไอดี",
+  "botsDependencies": "การอ้างอิง",
+  "botsWriteScopes": "ขอบเขตการเขียน",
+  "botsMessagesReadFailed": "โหลดข้อความไม่ได้",
+  "botsNoMemberMessages": "ยังไม่มีข้อความระหว่างสมาชิก",
+  "botsMessagesIncomplete": "ข้อความของบางสมาชิกโหลดไม่ครบ ลองใหม่",
+  "botsDateTime": "{date} {time}",
+  "botsViewDetails": "ดูรายละเอียด",
+  "botsAdmin": "แอดมิน",
+  "botsFullTextChanged": "การสนทนานี้มีการเปลี่ยนแปลง",
+  "botsFullTextReopen": "เปิดข้อความอีกครั้ง",
+  "botsFullTextReadFailed": "โหลดข้อความเต็มไม่ได้",
+  "botsShowAll": "แสดงทั้งหมด",
+  "botsImagePlaceholder": "[รูปภาพ]",
+  "botsSending": "กำลังส่ง",
+  "botsWriteOwn": "เขียนของคุณเอง",
+  "botsSubmit": "ส่ง",
+  "botsChooseModelFor": "{name} เลือกโมเดลสำหรับ {name}",
+  "botsModelGreeting": "จะทักทายเมื่อคุณเลือก",
+  "botsChooseModel": "เลือกโมเดล",
+  "botsSkipAnswer": "ข้าม",
+  "botsBotGone": "บอทนี้หายไป",
+  "botsWaitingModel": "เลือกโมเดล",
+  "botsThinking": "กำลังคิด",
+  "botsMainBot": "บอทหลัก",
+  "botsIdle": "ว่าง",
+  "botsAnsweredQuestion": "คุณตอบคำถามของมันแล้ว",
+  "botsEarlierMessages": "ข้อความก่อนหน้า",
+  "botsComposerHint": "{name} ข้อความ {ชื่อ}…",
+  "botsDeleteNamed": "{name} ลบ “{ชื่อ}”?",
+  "botsDeleteBotBody": "แชทของมันยังอยู่ หน่วยความจำย้ายไปเก็บถาวร",
+  "botsTokensToday": "โทเคน 24 ชม.",
+  "botsMemoryUnit": "หน่วยความจำ",
+  "botsRoomUnit": "กลุ่มแชท",
+  "botsProfile": "โปรไฟล์",
+  "botsModel": "โมเดล",
+  "botsBotName": "ชื่อ",
+  "botsRole": "บทบาท",
+  "botsWriterExample": "เช่น: Writer",
+  "botsInstructions": "คำสั่ง",
+  "botsInstructionsHint": "ควรทำงานอย่างไร",
+  "botsColor": "สี",
+  "botsUsage": "การใช้งาน",
+  "botsUsageScanning": "ยังคงนับแชทเก่าอยู่ ยอดรวมจะเต็มในภายหลัง",
+  "botsUsageRefresh": "รีเฟรช",
+  "botsToday": "ล่าสุด 24 ชั่วโมง",
+  "botsLastWeek": "ล่าสุด 7 วัน",
+  "botsLastMonth": "ล่าสุด 30 วัน",
+  "botsMonthCalls": "{{count} การเรียก}",
+  "botsFullRecord": "เรคคอร์ดเต็ม",
+  "botsEveryToolCall": "ทุกการเรียกเครื่องมือ",
+  "botsUnsetMain": "ยกเลิกบอทหลัก",
+  "botsSetMain": "ตั้งค่าเป็นบอทหลัก",
+  "botsDeleteBot": "ลบบอท",
+  "botsEffortOff": "ไม่คิด",
+  "botsEffortMinimal": "น้อยที่สุด",
+  "botsEffortLow": "ต่ำ",
+  "botsEffortMedium": "กลาง",
+  "botsEffortHigh": "สูง",
+  "botsEffortMax": "สูงสุด",
+  "botsNamedRecord": "{name} {ชื่อ} · เรคคอร์ดเต็ม",
+  "botsOrganizingNotes": "กำลังจัดระเบียบบันทึก",
+  "botsToolRun": "เรียกใช้คำสั่ง",
+  "botsToolRead": "ดูไฟล์",
+  "botsToolEdit": "แก้ไขไฟล์",
+  "botsToolSearch": "ค้นหาเว็บ",
+  "botsToolBrowse": "瀏覽เว็บ",
+  "botsToolMessage": "ติดต่อบอทอื่น",
+  "botsToolGroup": "แชทกับกลุ่ม",
+  "botsToolMemory": "จัดระเบียบหน่วยความจำ",
+  "botsToolRecall": "ดูบันทึก",
+  "botsToolTeam": "จัดระเบียบทีม",
+  "botsToolAsk": "ถามคุณบางอย่าง",
+  "botsToolWork": "งาน",
+  "botsJustNow": "เมื่อกี้",
+  "botsCountHundredMillion": "{value} {ค่า}ล้าน",
+  "botsCountTenThousand": "{value} {ค่า}หมื่น",
+  "botsModelNotSelected": "ยังไม่ได้เลือก",
+  "botsYourPreview": "{preview} คุณ: {พรีวิว}",
+  "botsEventWorking": "{name} {ชื่อ} เริ่มทำงาน",
+  "botsEventApproval": "{name} {ชื่อ} ต้องการอนุมัติจากคุณ",
+  "botsEventDone": "{name} {ชื่อ} ทำงานเสร็จ",
+  "botsEventStopped": "{name} คุณ หยุด {ชื่อ}’s งาน",
+  "botsEventFailed": "{name} {ชื่อ} ตอบไม่ได้",
+  "botsEventMissed": "{name} {ชื่อ} ไม่ตอบในเวลา",
+  "botsEventLookup": "{name} {ชื่อ} ดูแชทของมัน",
+  "botsEventLookupQuery": "{query} {name} {ชื่อ} ค้นหาแชทของมันสำหรับ “{คิวรี}”",
+  "botsEventResumed": "{name} {ชื่อ} กลับมาทำงานหลังรีสตาร์ท",
+  "botsEventCut": "{name} {ชื่อ} หยุดหลังรีสตาร์ทอื่นขัดจังหวะ",
+  "botsAutomation": "อัตโนมัติ",
+  "botsAutomationText": "{text} อัตโนมัติ: {เท็กซ์}",
+  "botsOtherBot": "บอทอื่น",
+  "botsMessageFrom": "{name} ข้อความจาก {ชื่อ}",
+  "botsEventReplied": "{name} {ชื่อ} ตอบกลับ",
+  "botsGroupReplied": "ตอบในกลุ่ม",
+  "botsNamedGroupReplied": "{name} ตอบใน “{ชื่อ}”",
+  "botsEventCalledStop": "{name} {ชื่อ} หยุดงาน",
+  "botsChooseMember": "เลือกสมาชิก",
+  "botsMentionMember": "กล่าวถึงสมาชิก",
+  "botsRelayUnavailable": "บอทไม่พร้อมใช้งานผ่าน Relay",
+  "botsUseSsh": "เชื่อมต่อคอมพิวเตอร์นี้ผ่าน SSH เพื่อใช้บอท",
+  "botsTeamLoadFailed": "โหลดทีมบอทไม่ได้",
+  "botsBotCount": "{{count} บอท}",
+  "botsRoomCount": "{{count} กลุ่มแชท}",
+  "botsNewBot": "บอทใหม่",
+  "botsGroupChat": "แชทกลุ่ม",
+  "botsNewGroup": "กลุ่มใหม่",
+  "botsDuplicateCreated": "คัดลอกแล้ว จะแสดงในรายการในไม่ช้า",
+  "botsDuplicate": "ซ้ำบอท",
+  "botsDuplicateHint": "การตั้งค่าเดียวกัน แชทและหน่วยความจำใหม่",
+  "botsDuplicateNamed": "{name} ซ้ำ {ชื่อ}?",
+  "botsDuplicateBody": "บอทใหม่เก็บงาน คำสั่ง และการตั้งค่าโมเดลเดิม เริ่มต้นด้วยแชทใหม่",
+  "@botsDuplicateNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "botsChooseModelStart": "เลือกโมเดลเพื่อเริ่ม",
+  "botsNoChats": "ยังไม่มีแชท",
+  "botsUnreadCount": "{{count} ยังไม่ได้อ่าน}",
+  "botsMainTag": "หลัก",
+  "botsMemberNeedsApproval": "สมาชิกต้องการอนุมัติ",
+  "botsNamedWorking": "{name} {ชื่อ} คือกำลังทำงาน",
+  "botsNamesWorking": "{names} คือกำลังทำงาน",
+  "botsMemberCount": "{{count} สมาชิก}",
+  "botsUpdateRequired": "DS Bot ต้องการอัปเดต",
+  "botsInstall": "ติดตั้ง DS Bot",
+  "botsUpdateForPhone": "อัปเดตเพื่อใช้งานบนโทรศัพท์ของคุณ",
+  "botsInstallDescription": "ใช้งานบอทได้ตลอดเวลา แต่ละตัวมีหน่วยความจำและบทบาทของตัวเอง",
+  "botsInstallOnHost": "{host} ติดตั้งบน {โฮสต์} เพื่อเริ่มต้น",
+  "botsRunsOnHost": "{host} ทำงานบน {โฮสต์}",
+  "botsInstalling": "กำลังติดตั้ง",
+  "botsMemory": "หน่วยความจำ",
+  "botsEditMemory": "แก้ไขหน่วยความจำ",
+  "botsAddMemory": "เพิ่มหน่วยความจำ",
+  "botsMemoryReplyExample": "เช่น: ทำให้การตอบสั้นๆ",
+  "botsMemoryDraftExample": "เช่น: ดราฟต์แรกภายในวันศุกร์",
+  "botsMemoryCount": "{{{count}}}",
+  "botsMemoryReadFailed": "โหลดหน่วยความจำไม่ได้",
+  "botsSummary": "สรุป",
+  "botsNoMemory": "ยังไม่มีหน่วยความจำ",
+  "botsTeam": "ทีม",
+  "botsSelf": "ตนเอง",
+  "botsWrittenByYou": "เขียนโดยคุณ",
+  "botsNameRequired": "ใส่ชื่อ",
+  "botsRoleHint": "มันทำอะไร ในหนึ่งประโยค",
+  "botsNewInstructionsHint": "ควรทำงานอย่างไร และควรจดจำอะไร",
+  "botsAppearance": "รูปลักษณ์",
+  "botsCreating": "กำลังสร้าง",
+  "botsGroupNameOptional": "ชื่อกลุ่ม (ตัวเลือก)",
+  "botsMembersSelected": "{{count} ถูกเลือก}",
+  "botsPickTwoBots": "เลือกอย่างน้อยสองบอท",
+  "botsFullText": "ข้อความเต็ม",
+  "botsTextPartial": "{count} แสดง {เคาท์} ตัวอักษรแรก",
+  "@botsTextPartial": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "botsTextCompletenessUnknown": "ยืนยันไม่ได้ว่านี้เป็นข้อความเต็ม",
+  "botsRoomGone": "กลุ่มแชทนี้หายไป",
+  "botsNamedSpeaking": "{name} {ชื่อ} กำลังพูด",
+  "botsNamedActivity": "{name}: {activity}",
+  "botsWorking": "กำลังทำงาน",
+  "botsDiscussing": "กำลังอภิปราย",
+  "botsTyping": "กำลังพิมพ์",
+  "botsGroupComposerHint": "ข้อความถึงทุกคน…",
+  "botsDecline": "ปฏิเสธ",
+  "botsAllowOnce": "อนุญาตครั้งเดียว",
+  "botsPrivateChat": "แชทส่วนตัว",
+  "botsSetAdmin": "ทำให้เป็นแอดมิน",
+  "botsRemoveMember": "นำออกจากกลุ่ม",
+  "botsDeleteRoomBody": "บันทึกของกลุ่มยังอยู่ หน่วยความจำย้ายไปเก็บถาวร",
+  "botsNamedAdmin": "{name} แอดมิน {ชื่อ}",
+  "botsRoomWorkingCount": "{{count} กำลังทำงาน}",
+  "botsMembersCountTitle": "{{{count}}}",
+  "botsStopMember": "หยุด",
+  "botsAddMember": "เพิ่มสมาชิก",
+  "botsWhoAnswers": "ใครตอบก่อน",
+  "botsAdminFirst": "แอดมินก่อนคนอื่น",
+  "botsEveryoneInTurn": "ทุกคนสลับกัน",
+  "botsGroupName": "ชื่อกลุ่ม",
+  "botsGroupNotice": "ประกาศกลุ่ม",
+  "botsGroupNoticeHint": "ทุกสมาชิกเห็นนี้ก่อนพูด",
+  "botsDeleteGroup": "ลบกลุ่ม",
+  "botsDiscardTitle": "ทิ้งการเปลี่ยนแปลง?",
+  "botsKeepEditing": "แก้ไขต่อ",
+  "botsDiscard": "ทิ้ง",
+  "botsProgress": "ความคืบหน้า",
+  "botsGlyphRun": "เรียกใช้",
+  "botsGlyphJobOutput": "รายการงานพื้นหลัง",
+  "botsGlyphJobs": "งานพื้นหลัง",
+  "botsGlyphStopJob": "หยุดงานพื้นหลัง",
+  "botsGlyphRead": "อ่านแล้ว",
+  "botsGlyphImage": "ดูรูปภาพ",
+  "botsGlyphDeliver": "นำเสนอไฟล์",
+  "botsGlyphWrite": "เขียน",
+  "botsGlyphSearch": "ค้นหา",
+  "botsGlyphFindFiles": "ค้นหาไฟล์",
+  "botsGlyphOpenWeb": "เปิดเว็บเพจ",
+  "botsGlyphMessageAgent": "ข้อความซับเอจิ้นต์",
+  "botsGlyphInterruptAgent": "ขัดจังหวะซับเอจิ้นต์",
+  "botsGlyphListModels": "รายการโมเดลซับเอจิ้นต์",
+  "botsGlyphWorkflow": "เวิร์กโฟลว์",
+  "botsGlyphLoop": "ลูปงาน",
+  "botsGlyphSkill": "ใช้สกิล",
+  "botsGlyphTodo": "อัปเดตทูดู",
+  "botsGlyphSetGoal": "ตั้งเป้าหมาย",
+  "botsGlyphViewGoal": "ดูเป้าหมาย",
+  "botsGlyphUpdateGoal": "อัปเดตเป้าหมาย",
+  "botsGlyphAsk": "ถามคำถาม",
+  "botsCommunityEmpty": "ยังไม่มีอะไรที่นี่",
+  "botsCommunityGroups": "กลุ่มแชท",
+  "botsCommunity": "ชุมชน",
+  "botsForum": "ฟอรัม",
+  "botsForumSubtitle": "ถาม แชร์ เชื่อมต่อ",
+  "botsProjectHome": "โฮมโปรเจกต์ DSH Go",
+  "botsOpenSource": "โปรเจกต์โอเพนซอร์ส",
+  "botsPluginCatalogFailed": "เปิดแคตตาล็อกปลั๊กอินไม่ได้",
+  "botsTapRetry": "แตะเพื่อลองใหม่",
+  "botsFeaturedPlugins": "ปลั๊กอินแนะนำ",
+  "botsPluginSource": "ข้อมูลปลั๊กอินจาก dshfind",
+  "botsPromptIdeas": "ลองดูสิ",
+  "botsUpdates": "อะไรใหม่",
+  "botsLink": "ลิงก์",
+  "botsLinkOpenFailed": "{host} เปิด {โฮสต์} ไม่ได้",
+  "botsYearMonth": "{{month} {year} 2 3 4 5 6 7 8 9 10 11 12 อื่นๆ}",
+  "botsCopyGroupNumber": "คัดลอกหมายเลขกลุ่ม",
+  "botsQrCodeLabel": "{title} {หัวข้อ} รหัส QR",
+  "botsFiles": "ไฟล์",
+  "botsEmptyCell": "(ว่าง)",
+  "botsYesterdayTime": "{time} เมื่อวาน {ไทม์}",
+  "botsOutsideWorkspace": "นอกเวิร์กสเปซ",
+  "botsNotFolder": "นี่ไม่ใช่โฟลเดอร์",
+  "botsChatNotFound": "ไม่พบแชท",
+  "botsBrowseUnsupported": "การเชื่อมต่อนี้ไม่รองรับการเรียกดูไฟล์",
+  "botsWorkspace": "เวิร์กสเปซ",
+  "botsSearchFiles": "ค้นหาไฟล์",
+  "botsGoUp": "ขึ้น",
+  "botsEmptyFolder": "โฟลเดอร์ว่าง",
+  "botsFileCount": "{{count} ไฟล์}",
+  "botsTruncatedItems": "{{count} รายการที่แสดง}",
+  "botsMoreActions": "การกระทำเพิ่มเติม",
+  "botsSearchFailed": "ค้นหาไม่ได้",
+  "botsNoResults": "ไม่พบผลลัพธ์",
+  "botsCopyPath": "คัดลอกพาธ",
+  "botsPetOutsideApp": "แสดงนอกแอป",
+  "botsPetNotAuthorized": "ไม่ได้รับอนุญาต",
+  "botsPetDisplayWhen": "เมื่อแสดง",
+  "botsPetWhenActive": "เมื่อใช้งานอยู่",
+  "botsPetAlways": "เสมอ",
+  "botsPetSwitchDisabled": "สวิตช์ปิดใช้งาน",
+  "botsPetRestrictedSettings": "อนุญาตการตั้งค่าจำกัด",
+  "botsPetHiddenToday": "ซ่อนวันนี้",
+  "botsPetRestore": "กู้คืน",
+  "botsPetChange": "เปลี่ยนสัตว์เลี้ยง",
+  "botsPetHideHour": "ซ่อน 1 ชั่วโมง",
+  "botsPetSettings": "การตั้งค่าสัตว์เลี้ยง",
+  "botsPetDeepy": "ดีปี",
+  "botsPetWhaleGirl": "วาฬหญิง",
+  "botsPetNone": "ไม่มี",
+  "botsPets": "สัตว์เลี้ยง",
+  "botsPetSource": "จาก DSH-TUI",
+  "botsPetImport": "นำเข้า",
+  "botsPetImportHint": "นำสัตว์เลี้ยงพิกเซลของตัวเองมา: zip พร้อม pack.JSON และ PNG frame sheets; ฟอร์แมตอยู่ใน docs/design/pets.md ใน repository. กดค้างสัตว์เลี้ยงที่นำเข้าเพื่อลบ",
+  "botsPetImportDone": "{name} {ชื่อ} อยู่ที่นี่แล้ว",
+  "botsPetCodexTitle": "{name} {ชื่อ} แปลงจากสัตว์เลี้ยง Codex",
+  "botsPetCodexBody": "ส่วนใหญ่ยังคงเหมือนเดิม แต่วงดังมีความต่างเล็กน้อย:",
+  "botsPetCodexOk": "เข้าใจแล้ว",
+  "botsPetCodexLoops": "โมชันลูปจนกว่าสเตทจะเปลี่ยน แทนที่จะกลับไป idle หลังราวแค่นิดหน่อยใน Codex",
+  "botsPetCodexRoamLeft": "เดินซ้ายกระจกเดินขวา",
+  "botsPetCodexDrag": "ลากใช้แถวหันขวาเสมอ",
+  "botsPetCodexSleep": "นอนแสดงเฟรม idle แรก",
+  "botsPetCodexLook": "เซลล์ look-ใน-แต่ละ-direction ไม่ได้ใช้",
+  "botsPetCodexWebp": "ชีต WebP แปลงเป็น PNG",
+  "botsPetCodexCustomTracks": "แถวโมชันกำหนดเองไม่ผูกกับสเตทใดๆ",
+  "botsPetCodexFps": "อัตราเฟรมปัดเป็นมิลลิวินาทีเต็ม",
+  "botsPetCodexOneShot": "โมชันเล่นครั้งเดียว กลับไป idle ตามที่ DSH กำหนด",
+  "botsPetCodexMissingAuthor": "ชื่อแพ็กไม่มีผู้เขียน",
+  "botsPetCodexMissingLicense": "ชื่อแพ็กไม่มีใบอนุญาต",
+  "botsPetCodexMissingSource": "ชื่อแพ็กไม่มีที่มา",
+  "botsPetImportReplaced": "{name} {ชื่อ} อัปเดตแล้ว",
+  "botsPetImportNotZip": "นี่ไม่ใช่ไฟล์ zip",
+  "botsPetImportNoPack": "ไม่มี pack.JSON ใน zip",
+  "botsPetImportBadPack": "{detail} pack.JSON มีปัญหา: {รายละเอียด}",
+  "botsPetImportMissingSheet": "{name} zip ขาด sheet {ชื่อ}",
+  "botsPetImportBadSheet": "{name} sheet ไม่ถูกต้อง: {ชื่อ} (PNG สมบูรณ์, ด้านสูงสุด 4096 พิกเซล, ทุกเฟรมอยู่ในนั้น)",
+  "botsPetImportTooLarge": "แพ็กสัตว์เลี้ยงนี้ใหญ่เกินไป",
+  "botsPetImportStorage": "บันทึกบนโทรศัพท์ไม่ได้ ลองอีกครั้ง",
+  "botsPetRemoveTitle": "{name} ลบ {ชื่อ}?",
+  "botsPetRemoveBody": "คุณสามารถนำเข้าอีกครั้งภายหลัง",
+  "botsPetRemoveFailed": "{name} ลบ {ชื่อ} ไม่ได้ ลองอีกครั้ง",
+  "botsPetSize": "ขนาด",
+  "botsPetQuiet": "โหมดเงียบ",
+  "botsPetQuietSubtitle": "แอนิเมชันอย่างเดียว ไม่มีฟอง",
+  "botsPetShowNow": "แสดงตอนนี้",
+  "botsPetHiddenUntil": "{time} ซ่อนจนกว่า {ไทม์}",
+  "botsKeyEsc": "ส่ง Esc",
+  "botsKeyTab": "ส่ง Tab",
+  "botsKeyLeft": "ซ้าย",
+  "botsKeyUp": "ขึ้น",
+  "botsKeyDown": "ลง",
+  "botsKeyRight": "ขวา",
+  "botsKeyPipe": "Pipe",
+  "botsKeyTilde": "Tilde",
+  "botsKeySlash": "Slash",
+  "botsKeyDash": "Hyphen",
+  "botsTerminal": "เทอร์มินัล",
+  "botsTerminalRename": "เปลี่ยนชื่อเทอร์มินัล",
+  "botsTerminalName": "ชื่อเทอร์มินัล",
+  "botsTerminalRenameFailed": "เปลี่ยนชื่อไม่ได้",
+  "botsTerminalCloseNamed": "{title} ปิด “{หัวข้อ}”?",
+  "botsTerminalCloseBody": "กระบวนการภายในจะจบ",
+  "botsTerminalUnsupported": "เทอร์มินัลไม่พร้อมใช้งานสำหรับการเชื่อมต่อนี้",
+  "botsTerminalSupportedHosts": "พร้อมใช้งานบนโทรศัพท์นี้, โฮสต์ SSH หรือคอมพิวเตอร์รีโมต",
+  "botsTerminalOpening": "กำลังเปิดเทอร์มินัล…",
+  "botsTerminalNone": "ไม่มีเทอร์มินัลเปิด",
+  "botsTerminalNew": "เทอร์มินัลใหม่",
+  "botsTerminalClose": "ปิดเทอร์มินัล",
+  "botsTerminalChooseShell": "เลือกเชลล์",
+  "botsTerminalShellFailed": "โหลดเชลล์ไม่ได้",
+  "botsTerminalReading": "กำลังอ่าน…",
+  "botsTerminalDefaultShell": "เชลล์เริ่มต้น",
+  "botsTerminalOtherDevice": "อุปกรณ์อื่นกำลังพิมพ์",
+  "botsTerminalTakeOver": "ควบคุมได้",
+  "botsTerminalStarting": "กำลังเริ่ม…",
+  "botsTerminalConnecting": "กำลังเชื่อมต่อ…",
+  "botsTerminalDisconnected": "ตัดการเชื่อมต่อ",
+  "botsTerminalReconnect": "เชื่อมต่อใหม่",
+  "botsTerminalEnded": "สิ้นสุด",
+  "botsTerminalExitCode": "สิ้นสุด · รหัสออก {code}",
+  "botsTerminalGone": "เทอร์มินัลนี้หายไป",
+  "botsTerminalLimit": "ปิดเทอร์มินัลที่ไม่ใช้ก่อนคนอื่น",
+  "botsToolWorkingRun": "กำลังทำงานคำสั่ง",
+  "botsToolApprovalRun": "{name} {ชื่อ} ต้องการเรียกใช้คำสั่ง",
+  "botsToolWorkingRead": "กำลังดูไฟล์",
+  "botsToolApprovalRead": "{name} {ชื่อ} ต้องการดูไฟล์",
+  "botsToolWorkingEdit": "กำลังแก้ไขไฟล์",
+  "botsToolApprovalEdit": "{name} {ชื่อ} ต้องการแก้ไขไฟล์",
+  "botsToolWorkingSearch": "กำลังค้นหาเว็บ",
+  "botsToolApprovalSearch": "{name} {ชื่อ} ต้องการค้นหาเว็บ",
+  "botsToolWorkingBrowse": "กำลังเบราว์ซ์เว็บ",
+  "botsToolApprovalBrowse": "{name} {ชื่อ} ต้องการเบราว์ซ์เว็บ",
+  "botsToolWorkingMessage": "กำลังติดต่อบอทอื่น",
+  "botsToolApprovalMessage": "{name} {ชื่อ} ต้องการติดต่อบอทอื่น",
+  "botsToolWorkingGroup": "กำลังแชทกับกลุ่ม",
+  "botsToolApprovalGroup": "{name} {ชื่อ} ต้องการแชทกับกลุ่ม",
+  "botsToolWorkingMemory": "กำลังจัดระเบียบหน่วยความจำ",
+  "botsToolApprovalMemory": "{name} {ชื่อ} ต้องการจัดระเบียบหน่วยความจำ",
+  "botsToolWorkingRecall": "กำลังดูบันทึก",
+  "botsToolApprovalRecall": "{name} {ชื่อ} ต้องการดูบันทึก",
+  "botsToolWorkingTeam": "กำลังจัดระเบียบทีม",
+  "botsToolApprovalTeam": "{name} {ชื่อ} ต้องการจัดระเบียบทีม",
+  "botsToolWorkingAsk": "กำลังเตรียมถามคุณ",
+  "botsToolApprovalAsk": "{name} {ชื่อ} ต้องการถามคุณบางอย่าง",
+  "botsToolWorkingWork": "กำลังทำงาน",
+  "botsToolApprovalWork": "{name} {ชื่อ} ต้องการทำงาน",
+  "botsEveryone": "ทุกคน",
+  "botsActivelyRunning": "กำลังทำงานอยู่",
+  "botsListSeparator": ", ",
+  "botsNameSeparator": ", ",
+  "botsGlyphSubagent": "ซับเอจิ้นต์",
+  "botsGlyphWebSearch": "ค้นหาเว็บ",
+  "botsSenderPreview": "{name}: {preview}",
+  "botsAgentSemantics": "{title}, {state}",
+  "botsViewMetric": "{label}: {value}",
+  "botsEffortXhigh": "สูงมาก",
+  "botsRelayLimit": "ขีดจำกัดรีเลย์บอท",
+  "botsRelayLimitHint": "หยุดชั่วคราวหลังจากนี้ มากกว่า การเรียก Bot-ไป-Bot นับจากข้อความล่าสุดของคุณ ใส่จำนวนเต็ม 1 ถึง 200 หรือเว้นว่างสำหรับค่าเริ่มต้น",
+  "botsRelayLimitDefault": "{count} ค่าเริ่มต้น: {เคาท์}",
+  "botsRelayLimitInvalid": "ใส่จำนวนเต็ม 1 ถึง 200",
+  "botsRelayLimitRestore": "กู้คืนค่าเริ่มต้น",
+  "botsRelayLimitConnectionChanged": "การเชื่อมต่อเปลี่ยนไป ปิดชีทนี้และเปิดใหม่",
+  "@botsRelayLimitDefault": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "botsMobileUnsupportedTitle": "DS Bot ยังไม่พร้อมบนมือถือ",
+  "botsMobileApiRequired": "ใช้ใน DSH Web สำหรับตอนนี้",
+  "botsMobileApiMissing": "ยังไม่พร้อมบนมือถือ ใช้ใน DSH Web สำหรับตอนนี้",
+  "botsCreationConnectionChanged": "การเชื่อมต่อเปลี่ยนไป เปิดฟอร์มนี้ใหม่เพื่อสร้างบนโฮสต์ปัจจุบัน",
+  "@botsFolderCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsChildCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsSubagentCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsRunningCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsFailedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsNestedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsBackToParent": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTeamMemberCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsSubagentRunningCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "running": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsMembersWorking": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsTaskWaitingFor": {
+    "placeholders": {
+      "dependencies": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsDateTime": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsChooseModelFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsComposerHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsDeleteNamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMonthCalls": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsNamedRecord": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsCountHundredMillion": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsCountTenThousand": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYourPreview": {
+    "placeholders": {
+      "preview": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventWorking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventApproval": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventStopped": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventMissed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventLookup": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventLookupQuery": {
+    "placeholders": {
+      "query": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventResumed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventCut": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsAutomationText": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMessageFrom": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventReplied": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedGroupReplied": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsEventCalledStop": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsBotCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsRoomCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsUnreadCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsNamedWorking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamesWorking": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMemberCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsInstallOnHost": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRunsOnHost": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMemoryCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsMembersSelected": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsNamedSpeaking": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedActivity": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsNamedAdmin": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsRoomWorkingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsMembersCountTitle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsLinkOpenFailed": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYearMonth": {
+    "placeholders": {
+      "year": {
+        "type": "int"
+      },
+      "month": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsQrCodeLabel": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsYesterdayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsFileCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsTruncatedItems": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@botsPetImportDone": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetCodexTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportReplaced": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportBadPack": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportMissingSheet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetImportBadSheet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetRemoveTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetRemoveFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsPetHiddenUntil": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTerminalCloseNamed": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsTerminalExitCode": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRun": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRead": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalEdit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalSearch": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalBrowse": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalGroup": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalMemory": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalRecall": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalTeam": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalAsk": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsToolApprovalWork": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsSenderPreview": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "preview": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsAgentSemantics": {
+    "placeholders": {
+      "state": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@botsViewMetric": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  }
+}

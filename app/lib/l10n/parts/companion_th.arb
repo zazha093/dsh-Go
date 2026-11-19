@@ -1,0 +1,366 @@
+{
+  "companionTitle": "ห้องคอมเพลน",
+  "companionEntrySubtitle": "ใช้เวลาสักครู่กับเธอ",
+  "companionDefaultName": "เธอ",
+  "companionInputHint": "พูดคุยกับ {name} ซิ",
+  "companionMenu": "เพิ่มเติม",
+  "companionVoice": "เสียง",
+  "companionStop": "ขอให้เธอหยุดซิ",
+  "companionSend": "ส่ง",
+  "companionNotConnected": "ติดต่อเอนจินไม่ได้ตอนนี้ ลองบอกอีกครั้งในสักครู่นะ?",
+  "companionSendFailed": "ส่งไม่สำเร็จ พูดอีกครั้งได้มั้ย?",
+  "companionLogTitle": "บันทึก",
+  "companionContextUnsupported": "โฮสต์นี้ยังรับบริบทของเธอไม่ได้: ชื่อ เพอร์โซน่า และสิ่งที่เพิ่งเกิดขึ้นจะไม่ถึงเธอ ได้แค่สิ่งที่คุณพูด ให้อัปเดตโฮสต์ หรือสลับไปโหมดเบาแทน",
+  "companionLogEmpty": "ยังไม่มีการพูดเลย",
+  "companionLogYou": "คุณ",
+  "companionLogOpenChat": "เปิดในแชท",
+  "companionLogOlder": "โหลดข้อความก่อนหน้า",
+  "companionMenuHistory": "ดูประวัติแชท",
+  "companionMenuRestart": "เริ่มใหม่",
+  "companionMenuRestartHint": "เริ่มแชทใหม่",
+  "companionMenuRestartConfirm": "เธอจะลืมแชทนี้ บันทึกเก่ายังอยู่ที่โฮสต์และไม่ได้ถูกลบ",
+  "companionMenuRemovePack": "นำแอสเซทออก",
+  "companionMenuRemoveConfirm": "แอสเซทตัวละครบนโทรศัพท์นี้จะถูกลบ แชทไม่ได้รับผลกระทบ",
+  "companionCreditAuthor": "โดย {name}",
+  "companionSetupTitle": "พาเธอกลับบ้าน",
+  "companionSetupBody": "แอสเซทตัวละครไม่ใช่ส่วนของแอป และจะอยู่บนโทรศัพท์คุณเมื่อคุณต้องการ นำเข้า asset pack (zip) เพื่อมาเจอเธอ",
+  "companionSetupImport": "นำเข้า asset pack",
+  "companionFailedTitle": "เธอไม่สามารถออกมาได้",
+  "companionFailedBody": "โหลดล้มเหลวบนโทรศัพท์นี้ ({reason}) คุณสามารถนำเข้า asset pack อีกครั้งและลองใหม่",
+  "companionPackBroken": "ไฟล์นี้เปิดไม่ได้ อาจไม่ใช่ asset pack หรืออาจเสียหาย",
+  "companionPackRuntimeMismatch": "รันไทม์ในแพ็คนี้ไม่ตรงกับเวอร์ชันแอปนี้",
+  "companionPackNoRuntime": "แพ็คนี้มีแค่ตัวละคร ไม่มีรันไทม์สำหรับโทรศัพท์นี้ นำเข้า full asset pack ก่อน",
+  "companionPackNoModel": "ไม่พบโมเดล Live2D (.model3.json) ในแพ็ค Zip โฟลเดอร์โมเดลทั้งหมดและลองใหม่",
+  "companionPackUnsafe": "แพ็คมีไฟล์หรือพาธที่ไม่ได้อนุญาต จึงไม่ได้นำเข้า",
+  "companionPackTooLarge": "Asset pack นี้ใหญ่เกินไป",
+  "companionPackStorage": "บันทึกไฟล์ไม่ได้ เช็คพื้นที่ว่างของโทรศัพท์",
+  "companionGreetFirst": "ฮาย! ไอแอม {name} ไลฟ์ ヒア ナウ ナイス トゥ ミート ユー",
+  "companionGreetMorning": "เช้า! ดอนท์ สกิป บรีคเฟสต์ ทูเดย์",
+  "companionGreetNoon": "อิทส นูน อลเรดดี้ แฮฟ ยู อีทัน",
+  "companionGreetAfternoon": "สวัสดีตอนบ่าย ฉันเพิ่งลุกจากฝันถึงเธอ",
+  "companionGreetEvening": "ดีเย็น ฮาว วอズ ユア デイ",
+  "companionGreetLate": "ยัง อัพ ディス レイト",
+  "companionGreetLong": "อิทส ビーン ア ホワイル! ไอ ทอught ユード フォーゴットン ミー",
+  "companionGreetBack": "ฮึม? ย้อนกลับ อีกครั้ง",
+  "companionWake": "มม... ไอ ワズント アスリープ ジャスト レスティング マイ アイズ",
+  "companionPat1": "เฮเฮ... ยู キャン キープ ゴーイング リトル ロンガー",
+  "companionPat2": "มมม แททส ナイス",
+  "companionPat3": "ยูอ メスシング アップ マイ ヘアー",
+  "companionTapHead1": "วอทส อัป?",
+  "companionTapHead2": "ฮึม?",
+  "companionTapFace1": "ดอนท์ โป๊ค マイ フェイス",
+  "companionTapFace2": "โว้ ยัว แฮนด์ส アー コールド",
+  "companionTapFace3": "อิส デア サムシング オン マイ フェイス",
+  "companionTapBody1": "โอ้! ยู สตาร์ทล็ด ミー",
+  "companionTapBody2": "วอท อイズ イット?",
+  "companionTapBody3": "ไอ ジャスト ウォッシュド ディス エプロン!",
+  "companionTapTail1": "เทลส アー ノット フォー トアチング!",
+  "companionTapTail2": "อีค แทท ティเคิลス",
+  "companionTapTail3": "ディス イズ ベリー インポータント テイル",
+  "companionTapLegs1": "อิส サムシング オン フロアー?",
+  "companionTapLegs2": "เวียร์ アー ユー ルッキング?",
+  "companionTease1": "หยุด อิต ไอเอム ゲッティング ディジー",
+  "companionTease2": "ワン モア ポーク アンド ไอเอム イグノーリング ユー!",
+  "companionTease3": "ดอนท์ ユー ハブ エニシング ベター トゥ ドゥ?",
+  "companionStatusIdle": "ดายดรีมมิ่ง",
+  "companionStatusListening": "ลิสเทนนิง",
+  "companionStatusThinking": "ทินกิ้ง",
+  "companionStatusSpeaking": "ทอล์กิง",
+  "companionStatusSleeping": "อะสลีป",
+  "companionStatusAway": "อเวイ",
+  "companionListening": "กำลังฟัง…",
+  "companionTouchHint": "ลองปัทติ้ง เฮดของเธอ",
+  "companionArriving": "ชีーズ สวิมミング オーヴァー…",
+  "companionPrivacyLine": "แอสเซทอยู่บนโทรศัพท์นี้ แชทผ่านโฮสต์ปัจจุบัน",
+  "companionMemoryTitle": "สิ่งที่เธอจำได้",
+  "companionMemoryScope": "{host} เก็บไว้ที่ {โฮสต์} เธอไม่ได้นำสิ่งเหล่านี้ขึ้นมาด้วยตัวเองยัง ภายหลัง เวอร์ชัน จะทำ",
+  "companionMemoryAdd": "เพิ่ม",
+  "companionMemoryEdit": "แก้ไข",
+  "companionMemorySave": "บันทึก",
+  "companionMemoryHint": "สำหรับตัวอย่าง: ฉันชอบชาไม่หวาน และไม่ดื่มกาแฟ",
+  "companionMemoryForget": "ลืม",
+  "companionMemoryForgetTitle": "มีเธอลืมสิ้นี้?",
+  "companionMemoryEmpty": "ยังไม่มีการบันทึก",
+  "companionMemoryEmptyHint": "เขียนสิ่งที่คุณอยากให้เธอจำไว้ มันอยู่บนโฮสต์ปัจจุบัน คุณสามารถแก้ไขหรือลบได้ตลอดเวลา",
+  "companionMemoryUnsupported": "โฮสต์นี้เก็บความทรงจำของเธอไม่ได้",
+  "companionMemoryUnsupportedHint": "ไม่พร้อมใช้งานผ่าน DSH รีโมต รีเลย์ หรือโฮสต์นี้ dsh-go bridge เก่า",
+  "companionMemoryLoadFailed": "ไม่สามารถโหลดได้",
+  "companionMemoryRetry": "ลองใหม่",
+  "companionMemoryConflict": "เพิ่งเปลี่ยนที่อื่น จึงรีเฟรชแล้ว",
+  "companionMemoryFull": "รายการเต็ม ลบบางส่วนก่อน",
+  "companionMemorySaveFailed": "บันทึกไม่ได้ ลองอีกครั้ง?",
+  "companionStatusSnacking": "กำลังกินขนม",
+  "companionStatusPlaying": "เล่นกับฟองน้ำ",
+  "companionStatusResting": "พักผ่อนบนหมอน",
+  "companionSnack1": "นอม! อร่อยมาก!",
+  "companionSnack2": "รสสาหร่าย ขอบคุณ",
+  "companionSnack3": "มม... สามารถขออีกได้ไหม?",
+  "companionPlay1": "เฮ้ ได้แล้ว!",
+  "companionPlay2": "ฟองน้ำนุ่มมาก สนุก!",
+  "companionPlay3": "มันลอยกลับมาอีกครั้ง",
+  "companionRest1": "アイ ル レン ヒア フォー ア ワイル アレディ",
+  "companionRest2": "ゴー オン アイム リスニング",
+  "companionTouchHintHome": "แตะเชลล์ ฟองน้ำ และ หมอน หรือ ดราก สแน็ก ไป ฮีア マウス",
+  "companionMenuMode": "เธอพูดอย่างไร",
+  "companionModeLight": "ไลต์",
+  "companionModeLightHint": "แชทอย่างเดียว โทรศัพท์คุยกับโมเดล ไม่ใช้เอนจิน",
+  "companionModeFull": "เต็ม",
+  "companionModeFullHint": "DSH บนโฮสต์ พร้อมเครื่องมือและควบคุมโทรศัพท์",
+  "companionLightNoKey": "โหมดเบาต้องการคีย์ API DeepSeek ใส่ในตั้งค่า แล้วเราจะคุยกันได้",
+  "companionLightBadKey": "คีย์ API ดูผิด หรือมันหมดอายุแล้ว",
+  "companionLightBusy": "มันยุ่งเกินไปที่นี่ บอกมาอีกครั้งในสักครู่นะ?",
+  "companionNotConnectedTryLight": "ไอ แคนท リーチ ザ ホスト ライト ナウ イフ ユー ジャスト ウォント トゥ チャット スイッチ トゥ ライト イン ザ メニュー アット トップ ライト",
+  "companionMenuRestartLightHint": "ล้างแชทบนโทรศัพท์นี้",
+  "companionMenuRestartLightConfirm": "เธอจะลืมการสนทนานี้ และแชทบนโทรศัพท์นี้จะถูกลบ",
+  "companionInviteRest": "เรสท์ オン ザ カッション ウィズ ミー フォー ア ビット?",
+  "companionInviteAccept": "ซัวร์",
+  "companionInviteDecline": "ノット ナウ",
+  "companionInviteYes1": "ヘヘ ジャスト フォー ア リトル ワイル",
+  "companionInviteYes2": "アイル ゲット カムフィ ユー リラックス オーヴァー ゼア",
+  "companionMenuPace": "เธอพูดบ่อยแค่ไหน",
+  "companionPaceHint": "เธอพูดขึ้นเท่านั้นขณะที่คุณนั่งเงียบกับเธอ: ขอให้คุณพักด้วย หรือกล่าวถึงอีกการสนทนา ไม่เคยล่าช้าตอนกลางคืน และสูงสุดหนึ่งครั้งต่อการมาเยือน",
+  "companionPaceQuiet": "เงียบ",
+  "companionPaceQuietHint": "ไม่เคยพูดเอง เธอพูดตอนคุณพูดกับเธอ",
+  "companionPaceRare": "ตอนนี้และแล้ว",
+  "companionPaceRareHint": "ขึ้นไป 2 ครั้งต่อวัน ห่างกันอย่างน้อย 6 ชั่วโมง",
+  "companionPaceOften": "บ่อย",
+  "companionPaceOftenHint": "ขึ้นไป 6 ครั้งต่อวัน ห่างกันอย่างน้อย 2 ชั่วโมง",
+  "companionPaceChatty": "คแชทตี้",
+  "companionPaceChattyHint": "ขึ้นไป 12 ครั้งต่อวัน ห่างกันอย่างน้อยครึ่งชั่วโมง",
+  "companionSetupBundled": "พาเธอกลับบ้าน",
+  "companionSetupBodyBundled": "เธอมาพร้อมแอป: แตะครั้งเดียวและเธออยู่ที่นี่ แตกซิปอย่างเดียว",
+  "companionSetupImportOther": "นำเข้าแพ็คอื่น",
+  "companionMenuRemoveConfirmBundled": "แอสเซทตัวละครที่แตกซิปบนโทรศัพท์นี้จะถูกลบ แชทไม่ได้รับผลกระทบ คุณสามารถพาเธอกลับมาได้ทุกเมื่อ",
+  "companionHug1": "มม... ฮัก",
+  "companionHug2": "アイ フィール セーフ ライク ディス",
+  "companionHug3": "リトル ロンガー ジャスト ア リトル",
+  "companionBondTitle": "คุณทั้งสอง",
+  "companionBond0": "เพิ่งเจอ",
+  "companionBond1": "ゲッティング トゥ ノウ イーチ アザー",
+  "companionBond2": "クロース",
+  "companionBond3": "ベリー クローズ",
+  "companionCloser1": "アイ ティンク... アイム ノット ソー ナーバス エニモア",
+  "companionCloser2": "ビーイング ウィズ ユー フィールズ イージアー アンド イージアー",
+  "companionCloser3": "キープ カミング バック オーケー? アイル ミス ユー",
+  "companionPatClose": "アイ ラブ イット ウェン ユー パット マイ ヘッド",
+  "companionHugClose": "ユー キャン ホールド ミー タイター ユー ノウ",
+  "companionTaskDoneUntitled": "ユア タスク オーバー ゼア イズ ダン",
+  "companionTaskFailedUntitled": "タスク オブ ユア ルックス ライク イット ヒット アン エラー チェック イット",
+  "companionTaskOpen": "試してみて",
+  "companionMenuSignals": "สิ่งที่เธอนำขึ้นมา",
+  "companionSignalsHint": "สิ่งเหล่านี้พูดให้คุณฟังเท่านั้น ที่นี่ในห้องของเธอ ไม่มีอะไรส่งไปโมเดル ความถี่ตามความถี่ที่เธอพูด ร่วมกับการเชิญ และไม่เคยสายตอนกลางคืน เปิด Quiet เธอไม่พูดอะไร",
+  "companionSignalState": "ติดตามการสนทนาอื่นๆ",
+  "companionSignalStateHint": "เธอสังเกตเมื่อการสนทนาอื่นบนโฮสต์นี้จบหรือล้มเหลว",
+  "companionSignalSpeech": "กล่าวถึงมัน",
+  "companionSignalSpeechHint": "เธอพูดเส้นสั้นขณะที่คุณนั่งเงียบกับเธอ",
+  "companionSignalVoice": "พูดออกมาให้ดัง",
+  "companionSignalVoiceHint": "อ่านเส้นออกเสียงเมื่อเสียงของเธอเปิด",
+  "companionSignalNight": "レート-ナカユク リマインド ゴー トゥ レスト",
+  "companionSignalNightHint": "アフター ア ワイル イン ハー ルーム レイト アット ミッドナイト シー ジェントリー リマインズ ユー ワンス",
+  "companionSignalLateUse": "イッツ ソー レイト アンド ユーア スティル ヒア ウィズ ミー... ノット シュア レスト ア リトル?",
+  "companionRecallTitle": "จำได้ในโหมดเต็ม",
+  "companionRecallHint": "เปิดมันเริ่มการสนทนาใหม่ การเปลี่ยนสิ่งที่เธอจำจะปิดมัน",
+  "companionRecallConfirm": "เมื่อเปิด จดหมายยืนยันของเธอ (สูงสุด 12) จะไปกับโมเดลพร้อมทุกการตอบของเธอในโหมดเต็ม แชทใหม่เริ่มต้น แชทปัจจุบันอยู่ในรายการแชทหลัก การเปลี่ยนจดหมายจะปิดนี้ และคุณเปิดใหม่ได้",
+  "companionRecallTurnOn": "เปิด",
+  "companionRecallOn": "จากนี้ การสนทนาใหม่จะเปิด アイ ウィル キープ イン マインド ワット ユー アスクド ミー トゥ リメンバー",
+  "companionRecallBusy": "アナザー コンバセーション イズ オールレディ ユージング オートマティック リコール ターン イット オフ ゼア ファースト",
+  "companionRecallUnsupported": "ディス ホスト キャント ターン オン オートマティック リコール ライト ナウ",
+  "companionRecallFailed": "オートマティック リコール ディドント ターン オン トライ アゲイン",
+  "companionRecallOff": "オートマティック リコール イズ オフ ユア ネクスト メッセージ スターツ ア ニュー コンバセーション",
+  "companionRecallOffFailed": "オートマティック リコール ディドント ターン オフ トライ アゲイン",
+  "companionRecallStopped": "オートマティック リコール ストップド (ワット シー リメンバーズ チェンジド) ソー ア ニュー コンバセーション ビガン ユー キャン ターン イット オン アゲイン フロム ザ メニュー",
+  "companionMenuVoice": "เสียงของเธอ",
+  "companionMenuVoiceHint": "อ่านคำของเธอออกเสียงด้วยเสียงของโทรศัพท์เอง",
+  "companionVoiceHello": "ฮาย ディス イズ マイ ボイス キープ イット オン イフ ユー ライク イット",
+  "companionVoiceUnavailable": "โทรศัพท์นี้ไม่มีเสียงจีนให้ใช้ คุณสามารถเพิ่มได้ใต้ text-to-speech ในตั้งค่าระบบ",
+  "companionWidgetWaiting": "กำลังรอ สำหรับ you 在 room",
+  "companionVoiceOn": "ให้เธอพูด",
+  "companionVoiceOffHint": "เมื่อคุณเปิดมัน เธอจะทักทายด้วยเสียงที่เลือกครั้งแรก",
+  "companionVoiceOff": "ปิด",
+  "companionVoiceSource": "เสียง",
+  "companionVoiceSystem": "ของโทรศัพท์เอง",
+  "companionVoiceSystemHint": "ระบบ text-to-speech ทำงานออฟไลน์",
+  "companionVoiceOpenai": "OpenAI-compatible API",
+  "companionVoiceOpenaiHint": "OpenAI, SiliconFlow, และส่วนใหญ่ self-hosted GPT-SoVITS, CosyVoice หรือ edge-tts servers",
+  "companionVoiceCustom": "กำหนดเอง HTTP",
+  "companionVoiceCustomHint": "อะไรก็ได้ที่ไม่ใช่นั้น: อธิบายคำขอและ リプライ",
+  "companionVoiceApi": "API",
+  "companionVoiceBase": "ที่อยู่",
+  "companionVoiceBaseHelper": "ขึ้นไป /v1; แอปเพิ่ม /audio/speech",
+  "companionVoiceKeyHelper": "เก็บในที่เก็บข้อมูลปลอดภัยของโทรศัพท์นี้",
+  "companionVoiceModel": "โมเดล",
+  "companionVoiceVoice": "Voice",
+  "companionVoiceVoiceHelper": "ชื่อเสียงของเซอร์วิส เช่น alloy หรือ speaker บนเซิร์ฟเวอร์ของคุณเอง",
+  "companionVoiceRequest": "คำขอ",
+  "companionVoiceUrl": "คำขอ URL",
+  "companionVoiceUrlHelper": "{text} {テキスト} works 在 URL がナガイスギル",
+  "companionVoiceMethod": "メソッド",
+  "companionVoiceHeaders": "Headers",
+  "companionVoiceHeadersHelper": "One per line; kept in secure データストレージ",
+  "companionVoiceBody": "ボディ",
+  "companionVoiceBodyHelper": "{text} {テキスト} becomes what she says",
+  "companionVoiceField": "オーディオ field",
+  "companionVoiceFieldHelper": "イフ reply は JSON: ウェア オーディオ は (base64 または リンク), like data.audio リーフ empty ウェン イット リターンズ オーディオ",
+  "companionVoicePrivacy": "What she says is sent to the service you enter",
+  "companionVoicePreview": "プレビュー",
+  "companionVoicePreviewing": "กำลังリクエスト…",
+  "companionVoicePreviewOk": "It works Did you hear her",
+  "companionVoicePreviewFailed": "Didn't work: {reason}",
+  "companionVoiceNotSetUp": "Fill in the address above first",
+  "companionVoiceFallback": "Cannot her voice service so phone's own voice stood in",
+  "companionGreetFirstNameless": "Hi I live here now Nice to meet you",
+  "companionRenamed": "{name} \"{名前}\"... okay that's my name from now on",
+  "companionVoicePreset": "Popular services",
+  "companionVoicePresetHint": "Xiaomi MiMo, OpenAI, SiliconFlow, Alibaba Model Studio: Just add key",
+  "companionVoiceService": "Service",
+  "companionVoiceKeyWhere": "Get one at {site} kept in this phone's secure storage",
+  "companionVoiceVoiceCustomHelper": "Pick one or type voice ID service gave you",
+  "companionVoiceStyle": "Speaking style",
+  "companionVoiceStyleHelper": "Describe her tone and service reads in it LEAF empty for default gentle girl's voice",
+  "companionVoiceFemale": "female",
+  "companionVoiceMale": "male",
+  "companionClonePreset": "Preset voices",
+  "companionCloneMine": "Clone voice",
+  "companionVoicePresetVoice": "Preset voice",
+  "companionCloneRecording": "Recording",
+  "companionCloneHelper": "5–30 seconds of one person speaking with no background noise mp3 or wav up to 7 MB Only use your own voice or one whose owner agreed Every line she says sends this recording to Xiaomi",
+  "companionCloneNone": "No recording yet",
+  "companionCloneReady": "{detail} アップロードデキタ · {ディテール}",
+  "companionCloneSeconds": "{n} s",
+  "companionClonePick": "Choose recording",
+  "companionCloneReplace": "Replace",
+  "companionCloneTooLarge": "Recording is too large (7 MB at most) Trim it and try again",
+  "companionCloneNotAudio": "Only mp3 or wav recordings work",
+  "companionCloneFailed": "Cannot save that recording",
+  "companionMenuPersona": "เกี่ยวกับเธอ",
+  "companionPersonaName": "名前",
+  "companionPersonaNameHelper": "LEAF empty for pack's name",
+  "companionPersonaCallMe": "What she calls you",
+  "companionPersonaCallMeHint": "e.g. Sam",
+  "companionPersonaCallMeHelper": "LEAF empty for nothing in particular",
+  "companionPersonaText": "ペルソナ",
+  "companionPersonaTextLabel": "Who she is and how she talks",
+  "companionPersonaTextHelper": "Her personality who she is how she talks what she won't say: all yours to write or delete Only the format of her expression marks is added by app",
+  "companionPersonaReset": "リセット",
+  "companionPersonaFooter": "ライトモードハ ツカウ ツギ ノ へンシカラ フルモード ワ ツゲル ツギ ノ メッセージ デ",
+  "companionMenuMoves": "Moves と faces",
+  "companionMovesHint": "These come with the Model ones switched on are offered to AI (up to 24 expressions and 24 motions in list order) and she uses them in her replies tap name to give it clearer one tap ▶ to try it on her",
+  "companionMovesNone": "This is old Cubism 2 Model (.moc and Model.JSON) runtime on phone only reads .moc3 from Cubism 3 Open it in Cubism Editor export it as moc3 and import that",
+  "companionMovesRename": "Rename",
+  "companionMovesTry": "Try it",
+  "companionPackLegacyModel": "This is old Cubism 2 Model (.moc and Model.JSON) runtime on phone only reads .moc3 from Cubism 3 Open it in Cubism Editor export it as moc3 and import that",
+  "companionFailedMocVersion": "このモデルは新しいキュービズムで書き出されました (mocバージョン {version}) このスマホのランタイムは {latest} まで対応しています キュービズムエディターで古いバージョンで書き出してそれをインポートしてください",
+  "companionMenuAdapt": "Fit this Model",
+  "companionAdaptHint": "Your own Model (your key billed per request) reads this character and matches up her head eyes expressions and where she can be touched Sent: Model's name its parameter list names of its expressions motions and parts what you write below and current fitting Never Model files or textures",
+  "companionAdaptOffer": "This model needs adaptation: your model reads parameter list and emotion and motion names (never model files) use your key once new model after this will adapt itself You can turn it off in menu",
+  "companionAdaptOfferYes": "Just right",
+  "companionAdaptOfferNo": "Not now",
+  "companionAdaptNote": "What's off? (optional)",
+  "companionAdaptNoteHint": "For example: patting her head does nothing her face goes dark when she's happy",
+  "companionAdaptRun": "Let AI fit it",
+  "companionAdaptUndo": "Cancel fitting",
+  "companionAdaptAuto": "Adapt model on import",
+  "companionAdaptStart": "Let me get used to this new body…",
+  "companionAdaptDone": "There I've got the hang of this body",
+  "companionAdaptDoneNote": "There I've got the hang of this body {note}",
+  "companionAdaptUndone": "Okay back to how I was",
+  "companionAdaptNoKey": "To fit me with your Model add API key in settings first",
+  "companionAdaptFailed": "That didn't work ({reason}) You can try again from Fit this Model in menu",
+  "companionAdaptUnreadable": "Model's answer made no sense",
+  "companionAdaptEmpty": "Model found nothing to match",
+  "companionAdaptNetwork": "No connection",
+  "@companionInputHint": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCreditAuthor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionFailedBody": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionGreetFirst": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionMemoryScope": {
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoicePreviewFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionRenamed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionVoiceKeyWhere": {
+    "placeholders": {
+      "site": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCloneReady": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionCloneSeconds": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionFailedMocVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      },
+      "latest": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionAdaptDoneNote": {
+    "placeholders": {
+      "note": {
+        "type": "String"
+      }
+    }
+  },
+  "@companionAdaptFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  }
+}

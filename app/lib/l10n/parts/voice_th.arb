@@ -1,0 +1,141 @@
+{
+  "voiceSettingsTitle": "ตั้งค่าเสียง",
+  "voiceModeAuto": "อัตโนมัติ",
+  "voiceModeSystem": "ระบบ",
+  "voiceModeEngine": "โมเดลเสียง",
+  "voiceModeAutoHint": "ใช้โมเดลเสียงเมื่อพร้อม มิฉะนั้นใช้บริการของโทรศัพท์",
+  "voiceModeSystemHint": "ใช้บริการรับรู้เสียงที่เลือกสำหรับโทรศัพท์นี้",
+  "voiceModeEngineHint": "รับรู้เสียงด้วยโมเดลเสียงของเอนจิน",
+  "voiceFallbackStarted": "สลับไปใช้โมเดลเสียง กรุณาพูดอีกครั้ง",
+  "voiceChooseSystem": "เลือกบริการรับรู้เสียงในตั้งค่าระบบ",
+  "voiceConfigureEngine": "ดาวน์โหลดโมเดลเสียงในตั้งค่าเสียงก่อน",
+  "voiceConfigureEither": "บริการของโทรศัพท์ไม่พร้อม ดาวน์โหลดโมเดลเสียงในตั้งค่าเสียงก่อน",
+  "voiceErrorNetworkTimeout": "การรับรู้เสียงหมดเวลา ตรวจสอบการเชื่อมต่อของคุณ",
+  "voiceErrorNetwork": "การรับรู้เสียงไม่สามารถเชื่อมต่อกับเครือข่ายได้",
+  "voiceErrorAudio": "การบันทึกเสียงล้มเหลว โปรดตรวจสอบไมโครโฟน",
+  "voiceErrorServer": "ระบบบริการเสียงล้มเหลว ลองใหม่ภายหลัง",
+  "voiceErrorClient": "ไม่สามารถเริ่มระบบรับรู้เสียงได้ โปรดตรวจสอบบริการรับรู้เสียง",
+  "voiceErrorSpeechTimeout": "ไม่ตรวจพบเสียงพูด กรุณาพูดอีกครั้ง",
+  "voiceErrorNoMatch": "ไม่เข้าใจ กรุณาลองอีกครั้ง",
+  "voiceErrorBusy": "ระบบบริการเสียงกำลังใช้งาน ลองใหม่ภายหลัง",
+  "voiceErrorPermission": "การป้อนเสียงต้องการสิทธิ์เข้าถึงไมโครโฟน",
+  "voiceErrorTooManyRequests": "คำขอรับรู้เสียงมากเกินไป ลองใหม่ภายหลัง",
+  "voiceErrorDisconnected": "ระบบบริการเสียงถูกตัดการเชื่อมต่อ",
+  "voiceErrorLanguageUnsupported": "ระบบรับรู้เสียงไม่รองรับภาษานี้",
+  "voiceErrorLanguageUnavailable": "โปรดดาวน์โหลดภาษานี้ในบริการรับรู้เสียงก่อน",
+  "voiceErrorSupportCheck": "บริการเสียงไม่สามารถตรวจสอบการรองรับได้",
+  "voiceErrorDownloadEvents": "บริการรับรู้เสียงไม่สามารถรายงานความคืบหน้าการดาวน์โหลดโมเดลได้",
+  "voiceErrorUnknown": "บริการรับรู้เสียงข้อผิดพลาด {code} โปรดลองบริการรับรู้เสียงอื่น",
+  "@voiceErrorUnknown": {
+    "placeholders": {
+      "code": {
+        "type": "int"
+      }
+    }
+  },
+  "voiceSettingsFailed": "ไม่สามารถอ่านการตั้งค่าระบบรับรู้เสียงได้ โปรดลองใหม่",
+  "voiceModeSection": "การรับรู้เสียง",
+  "voiceModelSection": "โมเดลเสียง",
+  "voiceModelFooter": "ดาวน์โหลดครั้งเดียว ภาษาจีน อังกฤษ 廣東話 日語 และ韓語 จะถูกจดจำได้เมื่อเปิดโทรศัพท์ การบันทึกเสียงจะอยู่บนโทรศัพท์",
+  "voiceModelWaiting": "พร้อมใช้งาน หนึ่งครั้งเอนจินเริ่มทำงาน",
+  "voiceModelUnsupported": "เอนจินนี้ไม่มีโมเดลเสียง",
+  "voiceModelAbsent": "ยังไม่ได้ดาวน์โหลด",
+  "voiceModelDownloading": "กำลังดาวน์โหลด…",
+  "voiceModelPreparing": "กำลังตรวจสอบและดาวน์โหลด",
+  "voiceModelReady": "โมเดลเสียงพร้อมใช้งาน",
+  "voiceModelFailed": "โหลดโมเดลเสียงไม่ได้",
+  "voiceModelBytes": "โมเดลเสียง: {done}/{total}",
+  "voiceModelReadyNote": "โมเดลเสียงพร้อมใช้งาน (ขนาด {size})",
+  "voiceModelAbsentNote": "โมเดลเสียงไม่พร้อม (ขนาด {size})",
+  "voiceModelWaitingNote": "ดาวน์โหลดเริ่มต้นหนึ่งครั้ง เอนจินกำลังทำงาน",
+  "voiceModelFailNetwork": "เข้าถึงแหล่งดาวน์โหลดไม่ได้",
+  "voiceModelFailTimeout": "การดาวน์โหลดหยุดไม่มีความคืบหน้า",
+  "voiceModelFailCertificate": "การเชื่อมต่อปลอดภัยล้มเหลว โปรดตรวจสอบวันที่ของโทรศัพท์",
+  "voiceModelFailServer": "แหล่งดาวน์โหลดไม่พร้อมใช้งานสำหรับตอนนี้",
+  "voiceModelFailIntegrity": "ไฟล์ไม่ผ่านการตรวจสอบความสมบูรณ์",
+  "voiceModelFailStorage": "ไม่สามารถจัดเก็บโมเดลเสียงได้ (ขนาด {size})",
+  "voiceModelFailEngine": "เอนจินไม่ตอบสนอง",
+  "voiceModelFailUnknown": "การดาวน์โหลดไม่เสร็จสิ้น",
+  "voiceModelDownload": "ดาวน์โหลด",
+  "voiceModelResume": "ดำเนินต่อ",
+  "voiceModelRedownload": "ดาวน์โหลดใหม่",
+  "voiceModelMeteredTitle": "ดาวน์โหลดเกินข้อมูลมือถือ?",
+  "voiceModelMeteredBody": "กำลังตรวจสอบการใช้งานโมเดลเสียง (ขนาด {size})",
+  "voiceModelDeleteTitle": "ลบโมเดลเสียง?",
+  "voiceModelDeleteBody": "การป้อนเสียงจะใช้บริการของโทรศัพท์ คุณสามารถดาวน์โหลดโมเดลได้อีกครั้งเมื่อไหร่ก็ได้",
+  "voiceModelDeleteFailed": "ลบโมเดลเสียงไม่ได้ โปรดลองใหม่",
+  "voiceModelDeleteStopping": "การดาวน์โหลดยังหยุดไม่เสร็จ ลองลบอีกครั้งในภายหลัง",
+  "voiceModelStartedToast": "เริ่มโหลดโมเดลเสียง (ขนาด {size})",
+  "voiceModelResumedToast": "ดำเนินการโหลดโมเดลเสียงต่อ (ขนาด {size})",
+  "voiceModelReadyToast": "การป้อนเสียงพร้อมใช้งาน",
+  "voiceModelFailedToast": "โมเดลเสียงดาวน์โหลดล้มเหลว: {reason}",
+  "voiceModelNoticeDownloading": "กำลังดาวน์โหลดโมเดลเสียง {percent}%",
+  "voiceModelNoticePreparing": "กำลังตรวจสอบโมเดลเสียง",
+  "voiceModelNoticeFailed": "โมเดลเสียงดาวน์โหลดล้มเหลว โปรดเปิดแอปแล้วลองใหม่",
+  "@voiceModelBytes": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelReadyNote": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelAbsentNote": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelFailStorage": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelMeteredBody": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelStartedToast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelResumedToast": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelFailedToast": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@voiceModelNoticeDownloading": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
+}

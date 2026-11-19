@@ -1,0 +1,62 @@
+{
+  "localEnvChooseTitle": "DSH ควรทำงานที่ไหน?",
+  "localEnvChooseMessage": "คุณเปลี่ยนได้ภายหลังในตั้งค่า",
+  "localEnvThisPhoneDetail": "{storage} {memory} {storage} MB ที่เก็บข้อมูล · {memory} MB หน่วยความจำ",
+  "localEnvThisPhoneDetailShort": "{memory} MB หน่วยความจำ ขณะทำงาน",
+  "localEnvLowStorage": "{needed} Needs เกี่ยวกับ {ต้องการ} MB free",
+  "localEnvRemoteDetail": "ใช้ DSH บนคอมพิวเตอร์หรือเซิร์ฟเวอร์",
+  "localEnvRecommended": "แนะนำ",
+  "localEnvInstallTitle": "ติดตั้ง เปิด นี้ phone",
+  "localEnvInstallMessage": "เรียกใช้ DSH right เปิด นี้ phone",
+  "localEnvFactStorage": "{storage} เกี่ยวกับ {ที่เก็บข้อมูล} MB ของ ที่เก็บข้อมูล",
+  "localEnvFactMemory": "{memory} เกี่ยวกับ {หน่วยความจำ} MB ของ หน่วยความจำ ขณะที่ กำลังทำงาน",
+  "localEnvUseRemote": "ใช้โฮสต์ระยะไกลแทน",
+  "localEnvNotInstalled": "นอต installed เปิด นี้ phone",
+  "localEnvUninstall": "ถอนการติดตั้ง runtime",
+  "localEnvUninstallHint": "ว่าง ขึ้น storage",
+  "localEnvUninstallTitle": "ถอนการติดตั้งรันไทม์?",
+  "localEnvUninstallBody": "แชท เวิร์กสเปซ ปลั๊กอิน ตั้งค่า การตั้งค่าอินเตอร์เฟซ และทักษะบนโทรศัพท์นี้จะถูกลบ คุณแน่ใจ?",
+  "localEnvUninstallConfirm": "ถอนการติดตั้ง",
+  "localEnvUninstallFailed": "ไม่สามารถถอนการติดตั้งได้ ลองใหม่",
+  "localEnvPhoneNeedsRuntime": "พร้อมใช้งานหลังติดตั้งบนโทรศัพท์นี้",
+  "localEnvSignInNeedsRuntime": "Needs DSH เปิด นี้ phone",
+  "localEnvSignInInstallFirst": "ติดตั้ง it ไป ลงนาม ใน",
+  "@localEnvThisPhoneDetail": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      },
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvThisPhoneDetailShort": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvLowStorage": {
+    "placeholders": {
+      "needed": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactStorage": {
+    "placeholders": {
+      "storage": {
+        "type": "String"
+      }
+    }
+  },
+  "@localEnvFactMemory": {
+    "placeholders": {
+      "memory": {
+        "type": "String"
+      }
+    }
+  }
+}

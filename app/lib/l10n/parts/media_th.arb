@@ -1,0 +1,258 @@
+{
+  "mediaGenerateTile": "สร้าง",
+  "mediaAiGenerated": "สร้างโดย AI",
+  "mediaCostEstimate": "ประมาณ {amount}",
+  "@mediaCostEstimate": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaSavedCount": "บันทึก {count} ไปที่รูปภาพ",
+  "@mediaSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaRegenerate": "สร้างใหม่",
+  "mediaCopyPrompt": "คัดลอกพรอมป์",
+  "mediaFileGone": "ไฟล์หายไป",
+  "mediaKindImage": "รูปภาพ",
+  "mediaKindVideo": "วิดีโอ",
+  "mediaTitleImage": "รูปภาพใหม่",
+  "mediaTitleVideo": "วิดีโอใหม่",
+  "mediaOpenElsewhere": "เปิดในแอปอื่น",
+  "mediaShowInFiles": "แสดงในไฟล์",
+  "mediaGenerating": "กำลังสร้าง",
+  "mediaGeneratingProgress": "กำลังสร้าง · {progress}",
+  "@mediaGeneratingProgress": {
+    "placeholders": {
+      "progress": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaCancelled": "ยกเลิกแล้ว",
+  "mediaNotGenerated": "ยังไม่ได้สร้าง",
+  "mediaPartial": "{done} จาก {total}",
+  "@mediaPartial": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaCount": "{count, plural, =1{1 รูปภาพ} other{{count} รูปภาพ}}",
+  "@mediaCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaSeconds": "{seconds} วิ",
+  "@mediaSeconds": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaImageOf": "รูปภาพ {index} จาก {count}",
+  "@mediaImageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaPageOf": "{index} / {count}",
+  "@mediaPageOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaErrorPolicyInput": "คำอธิบายไม่ผ่านการตรวจสอบเนื้อหา",
+  "mediaErrorPolicyOutput": "ผลลัพธ์ไม่ผ่านการตรวจสอบเนื้อหา",
+  "mediaErrorAuth": "เซอร์วิสไม่ได้รับอนุญาต",
+  "mediaErrorBalance": "ยอดคงเหลือไม่เพียงพอ",
+  "mediaErrorQuota": "โควต้าวันนี้หมดแล้ว",
+  "mediaErrorUnavailable": "เซอร์วิสไม่พร้อมใช้งานขณะนี้",
+  "mediaErrorExpired": "ผลลัพธ์หมดอายุ",
+  "mediaErrorGeneric": "ไม่สามารถสร้างได้",
+  "mediaVary": "วาไรอัติ",
+  "mediaEdit": "แก้ไข",
+  "mediaRevise": "ปรับปรุง",
+  "mediaUpscale": "อัปสเกล",
+  "mediaMakeVideo": "สร้างวิดีโอ",
+  "mediaDetailModel": "โมเดล",
+  "mediaDetailSize": "ขนาด",
+  "mediaDetailCost": "ต้นทุน",
+  "mediaDetailProvenance": "ที่มา",
+  "mediaDetailFile": "ไฟล์",
+  "mediaOriginalPrompt": "ต้นฉบับ: {text}",
+  "@mediaOriginalPrompt": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaProvenanceC2pa": "C2PA",
+  "mediaProvenanceImplicit": "ฝังอยู่",
+  "mediaProvenanceVisible": "เครื่องหมายที่มองเห็นได้",
+  "mediaModeExit": "ออกจากโหมดสร้าง",
+  "mediaModeLabel": "การตั้งค่าสร้าง: {summary}",
+  "@mediaModeLabel": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaParamModel": "โมเดล",
+  "mediaParamAspect": "อัตราส่วน",
+  "mediaParamCount": "จำนวน",
+  "mediaParamQuality": "คุณภาพ",
+  "mediaParamDuration": "ความยาว",
+  "mediaQualityAuto": "อัตโนมัติ",
+  "mediaQualityStandard": "มาตรฐาน",
+  "mediaQualityHigh": "HD",
+  "mediaQuality4k": "4K",
+  "mediaQualityLevelLow": "ต่ำ",
+  "mediaQualityLevelMedium": "กลาง",
+  "mediaQualityLevelHigh": "สูง",
+  "mediaModelPick": "เลือก",
+  "mediaPickModelFirst": "เลือกโมเดลก่อน",
+  "mediaPricePerImage": "{price} / รูปภาพ",
+  "@mediaPricePerImage": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaPricePerSecond": "{price} / วิ",
+  "@mediaPricePerSecond": {
+    "placeholders": {
+      "price": {
+        "type": "String"
+      }
+    }
+  },
+  "mediaManageModels": "จัดการ",
+  "mediaHintImage": "อธิบายรูปภาพ…",
+  "mediaHintVideo": "อธิบายฉากและการถ่าย…",
+  "mediaHintEdit": "ควรเปลี่ยนอย่างไร…",
+  "mediaFirstFrame": "เฟรมแรก",
+  "mediaLastFrame": "เฟรมสุดท้าย",
+  "mediaNoLastFrame": "โมเดลนี้ไม่รับเฟรมสุดท้าย",
+  "mediaNoRefs": "โมเดลนี้ไม่รับรูปภาพอ้างอิง",
+  "mediaRefLimit": "สูงสุด {count} รูปภาพอ้างอิง",
+  "@mediaRefLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "mediaNoDescription": "อธิบายก่อน",
+  "mediaDescriptionTooLong": "ยาวเกินไปสร้างไม่ได้ ลดความยาวคำอธิบาย",
+  "mediaInstallTitle": "รูปภาพและวิดีโอ",
+  "mediaInstallBody": "โฮสต์นี้ยังไม่มีปลั๊กอินรูปภาพและวิดีโอ",
+  "mediaInstallAction": "ติดตั้งบนโฮสต์นี้",
+  "mediaUnavailableTitle": "โหมดสร้างไม่พร้อมใช้งาน",
+  "mediaUnavailableBody": "ปลั๊กอินรูปภาพและวิดีโอของโฮสต์นี้ไม่เข้ากันได้ คุณยังอธิบายสิ่งที่ต้องการในแชทได้",
+  "mediaUnavailableAction": "จัดการปลั๊กอิน",
+  "mediaSettingsTitle": "รูปภาพและวิดีโอ",
+  "searchKwMediaGeneration": "สร้างรูปภาพ,ข้อความเป็นรูปภาพ,สร้างวิดีโอ,AI art,สร้างรูปภาพ,สร้างวิดีโอ",
+  "mediaSettingsDefaults": "ค่าเริ่มต้น",
+  "mediaSettingsLegacyDefault": "ค่าเริ่มต้นทั่วไปเก่า",
+  "mediaSettingsLegacyDefaultHint": "การตั้งค่า 0.2.x ใช้เมื่อประเภทไม่มีค่าเริ่มต้นของตัวเอง",
+  "mediaSettingsLegacyDefaultStale": "เซอร์วิสของมันไม่ว่าง ล้างเพื่อไม่ให้การสร้างล้มเหลว",
+  "mediaSettingsLegacyDefaultClear": "ล้างค่าเริ่มต้นทั่วไปเก่า",
+  "mediaSettingsDefaultModel": "โมเดลค่าเริ่มต้น",
+  "mediaSettingsDefaultFooterLegacy": "ปลั๊กอินเก่ามีค่าเริ่มต้นโมเดลเดียว อัปเดตเพื่อตั้งค่ารูปภาพและวิดีโอแยกกัน",
+  "mediaSettingsDefaultsFooter": "เลือกโมเดลค่าเริ่มต้นสำหรับรูปภาพและวิดีโอ ปล่อย Auto จะใช้ตัวแรกที่พร้อมใช้งาน",
+  "mediaSettingsNoVideoModels": "แคตตาล็อกของโฮสต์นี้ยังไม่มีโมเดลวิดีโอ",
+  "mediaSettingsServices": "บริการ",
+  "mediaSettingsAddService": "เพิ่มบริการ",
+  "mediaSettingsAddServiceHint": "เริ่มจาก preset ของโพรไวเดอร์ endpoint, protocol และโมเดลจะถูกกรอกให้",
+  "mediaSettingsServiceLimit": "สูงสุด {count} บริการ",
+  "mediaSettingsNoServices": "ยังไม่มีบริการ เพิ่มโพรไวเดอร์เพื่อเริ่มสร้างรูปภาพหรือวิดีโอ",
+  "mediaSettingsNoModels": "ยังไม่ได้เลือกโมเดล",
+  "mediaSettingsKeyMissing": "ไม่มี API คีย์",
+  "mediaSettingsCatalogMissing": "ปลั๊กอินบนโฮสต์นี้ไม่มีแคตตาล็อกโมเดล บริการที่มีอยู่แก้ไขได้ แต่มาใหม่ไม่ได้ และเลือกค่าเริ่มต้นไม่ได้",
+  "mediaSettingsCatalogBroken": "อ่านแคตตาล็อกโมเดลไม่ได้ (อาจเป็นเวอร์ชันที่ไม่เข้ากัน) บริการที่มีอยู่แก้ไขได้ แต่มาใหม่ไม่ได้ และเลือกค่าเริ่มต้นไม่ได้",
+  "mediaSettingsCatalogEmpty": "แคตตาล็อกโมเดลยังไม่มีโมเดล บริการที่มีอยู่แก้ไขได้ แต่มาใหม่ไม่ได้ และเลือกค่าเริ่มต้นไม่ได้",
+  "mediaSettingsNoPresets": "ยังไม่มีบริการให้เพิ่มจากแคตตาล็อกนี้",
+  "mediaSettingsLimits": "ขีดจำกัดคำขอ",
+  "mediaSettingsLimitsHint": "จำกัดรูปภาพและไบต์ต่อคำขอ ค่าเริ่มต้นคือขีดจำกัดของปลั๊กอิน",
+  "mediaSettingsMaxImages": "รูปภาพต่อคำขอ",
+  "mediaSettingsMaxImageBytes": "สูงสุดไบต์ต่อต้นฉบับ",
+  "mediaSettingsMaxResponseBytes": "สูงสุดไบต์การตอบกลับของโพรไวเดอร์",
+  "mediaSettingsMaxTotalImageBytes": "สูงสุดไบต์รูปภาพต่อคำขอ",
+  "mediaSettingsMaxVideoBytes": "สูงสุดไบต์วิดีโอ",
+  "mediaSettingsBudget": "การคุ้มครองต้นทุน",
+  "mediaSettingsDailyBudget": "งบประมาณรายวัน (CNY)",
+  "mediaSettingsDailyBudgetHint": "รีเซ็ตตามวันที่ไชน่าหาย จำกัดการสร้างเมื่อใช้หมด",
+  "mediaSettingsUnknownPriceHold": "หักต่อคำขอเมื่อราคาไม่ทราบ (CNY)",
+  "mediaSettingsUnknownPriceHoldHint": "จองต่อคำขอ ไม่ใช่ขีดจำกัดที่โพรไวเดอร์เรียกเก็บ",
+  "mediaSettingsApiKey": "API คีย์",
+  "mediaSettingsReuseKey": "ใช้คีย์ซ้ำ",
+  "mediaSettingsReuseKeyHint": "รูปภาพและวิดีโอจากโพรไวเดอร์เดียวกันใช้ API คีย์ร่วมกัน ไม่ต้องกรอกซ้ำ",
+  "mediaSettingsReuseKeyNone": "ยังไม่มีบริการอื่นจากโพรไวเดอร์นี้",
+  "mediaSettingsReuseKeyShared": "แชร์แล้ว",
+  "mediaSettingsModels": "โมเดล",
+  "mediaSettingsModelsEmpty": "แคตตาล็อกไม่มีโมเดลสำหรับโปรโตคอลนี้",
+  "mediaSettingsModelKeepOne": "เก็บอย่างน้อย 1 โมเดล",
+  "mediaSettingsModelMissing": "ไม่อยู่ในแคตตาล็อก",
+  "mediaSettingsAdvanced": "ขั้นสูง",
+  "mediaSettingsBaseUrl": "API BASE URL",
+  "mediaSettingsBaseUrlInvalid": "ที่อยู่ต้องขึ้นต้นด้วย https://",
+  "mediaSettingsProvider": "ID โพรไวเดอร์",
+  "mediaSettingsKeyRef": "ชื่อ Credential",
+  "mediaSettingsKeyRefInvalid": "ใช้ตัวอักษร ตัวเลข และ underscore เท่านั้น",
+  "mediaSettingsResponseFormat": "รูปแบบการตอบกลับ",
+  "mediaSettingsResponseFormatAuto": "ตามโปรโตคอล",
+  "mediaSettingsServiceId": "Service ID",
+  "mediaSettingsServiceGone": "บริการนี้หายไปแล้ว",
+  "mediaSettingsServiceGoneBody": "อาจถูกลบที่อื่น กลับไปเพิ่มใหม่",
+  "mediaSettingsDelete": "ลบบริการ",
+  "mediaSettingsDeleteTitle": "ลบ \"{name}\"?",
+  "mediaSettingsDeleteBody": "ลบเฉพาะรายการบริการของโฮสต์นี้ API คีย์จะคงอยู่ ค่าเริ่มต้นที่ชี้มาจะถูกล้าง",
+  "mediaSettingsNoImageModels": "แคตตาล็อกยังไม่มีโมเดลรูปภาพ",
+  "mediaSettingsNoAvailableService": "ยังไม่มีบริการพร้อมใช้งาน (เพิ่มและกรอกคีย์)",
+  "mediaSettingsNoImageService": "ยังไม่มีบริการรูปภาพพร้อมใช้งาน (เพิ่มและกรอกคีย์)",
+  "mediaSettingsNoVideoService": "ยังไม่มีบริการวิดีโอพร้อมใช้งาน (เพิ่มและกรอกคีย์)",
+  "mediaSettingsKeyExternal": "จัดการโดยการตั้งค่าอื่น มีแค่อ้างอิงที่นี่",
+  "mediaSettingsEnabledHint": "ปิดบริการนี้สำหรับการสร้าง",
+  "@mediaSettingsServiceLimit": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@mediaSettingsDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

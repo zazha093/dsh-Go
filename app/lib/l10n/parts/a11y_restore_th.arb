@@ -1,0 +1,18 @@
+{
+  "a11yRestoreTitle": "กู้คืนการเข้าถึงอัตโนมัติ",
+  "searchKwA11yRestore": "การเข้าถึง,กู้คืน,เชื่อมต่อใหม่,กู้คืนอัตโนมัติ,สิทธิ์,ADB,Shizuku,Sui,root",
+  "a11yRestoreNeedsGrant": "ต้องอนุญาตก่อน",
+  "a11yRestoreNotice": "อนุญาตแล้ว การเข้าถึงจะเปิดกลับมาเองถ้าถูกปิดในตั้งค่าระบบ อยากหยุดควบคุมโทรศัพท์ ให้ปิดใน DSH Go",
+  "a11yRestoreForceStop": "Force stop แล้ว เปิด DSH Go ใหม่เพื่อกู้คืนเซอร์วิส",
+  "a11yRestoreGrant": "อนุญาตและเปิดใช้",
+  "a11yRestoreGrantShizuku": "อนุญาตผ่าน Shizuku",
+  "a11yRestoreGrantShizukuPermission": "อนุญาต Shizuku แล้วให้สิทธิ์",
+  "a11yRestoreGrantAdb": "อนุญาตผ่าน Direct ADB",
+  "a11yRestoreRootNote": "ใช้การเชื่อมต่อ root ที่อนุญาตแล้ว ให้สิทธิ์อย่างเดียวนี้",
+  "a11yRestoreSetup": "ตั้งค่า Shizuku หรือ wireless debugging",
+  "a11yRestoreWaiting": "อนุญาตคำขอใน Shizuku",
+  "a11yRestoreWaitingSui": "อนุญาตคำขอใน Sui",
+  "a11yRestoreComputer": "หรือต่อคอมพิวเตอร์ แล้วรันคำสั่งครั้งเดียว:",
+  "a11yRestoreCopy": "คัดลอกคำสั่ง",
+  "a11yRestoreCopied": "คัดลอกคำสั่งแล้ว"
+}

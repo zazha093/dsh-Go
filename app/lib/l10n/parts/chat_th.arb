@@ -1,0 +1,733 @@
+{
+  "chatBackgroundTaskNotice": "การแจ้งเตือนงานพื้นหลัง",
+  "chatBackgroundTaskMessage": "ข้อความงานพื้นหลัง",
+  "chatDeclineQuestion": "ข้าม",
+  "chatChats": "แชท",
+  "chatViewChatDetails": "ดูรายละเอียดแชท",
+  "chatUnsent": "ยังไม่ส่ง",
+  "chatFailedSubmission": "ล้มเหลว · เก็บอินพุตไว้",
+  "chatEditFailedSubmission": "แก้ไขและส่งใหม่",
+  "chatErrReasoningEffortUnsupported": "โมเดลนี้ไม่รองรับระดับการคิดที่เลือก เปลี่ยนระดับหรือโมเดล",
+  "chatSteerNextStep": "ควบคุม · ขั้นตอนถัดไป",
+  "chatQueuedAfterTurn": "คิว · เทิร์นถัดไป",
+  "chatSteering": "กำลังควบคุม",
+  "chatQueued": "อยู่ในคิว",
+  "chatStoppingTurn": "หยุดเทิร์นนี้",
+  "chatSending": "กำลังส่ง",
+  "chatSendNow": "ส่งตอนนี้",
+  "chatSwitchToSteer": "ใช้ควบคุมแทน",
+  "chatWithdraw": "ยกเลิก",
+  "chatContinuedInNewChat": "ดำเนินต่อในแชทใหม่",
+  "chatReadOriginalImageFailed": "อ่านรูปภาพต้นฉบับไม่ได้ ลองใหม่",
+  "chatRegenerateFailed": "สร้างใหม่ไม่ได้",
+  "chatRegeneratedInNewChat": "สร้างใหม่ในแชทใหม่",
+  "chatOpenedInNewChatReattach": "เปิดในแชทใหม่ เพิ่มไฟล์แนบอีกครั้ง",
+  "chatOpenedInNewChat": "เปิดในแชทใหม่",
+  "chatForkQueuedLeft": "{{message} {left} (ข้อความในคิวยังคงอยู่)}",
+  "chatReturnToOriginal": "กลับไปแชทต้นฉบับ",
+  "chatWaitingCount": "{{count} รายการต้องอนุมัติ}",
+  "chatWaitingBackToBottom": "{{count} รายการต้องอนุมัติ กลับไปล่างสุด}",
+  "chatBackToBottom": "กลับไปล่างสุด",
+  "chatCreateFailed": "สร้างแชทไม่ได้",
+  "chatSendMode": "โหมดส่ง",
+  "chatSteer": "ควบคุม",
+  "chatSteerHint": " AI จะเห็นขั้นตอนถัดไป โดยไม่รบกวน",
+  "chatInterruptAndSend": "หยุดและส่ง",
+  "chatInterruptHint": "หยุดงานปัจจุบันและจัดการนี้ก่อน",
+  "chatQueue": "คิว",
+  "chatQueueHint": "ส่งหลังเทิร์นนี้",
+  "chatWithdrawnEditable": "ยกเลิกแล้ว แก้ไขและส่งอีกครั้ง",
+  "chatWithdrawn": "ยกเลิกแล้ว",
+  "chatAttachmentLimit": "{{count} ไฟล์แนบต่อข้อความ}",
+  "chatAttachmentPermission": "สิทธิ์ถูกปฏิเสธ เปิดในตั้งค่าระบบ",
+  "chatOpenAttachmentFailed": "เปิดไฟล์แนบไม่ได้",
+  "chatReadFailed": "อ่านไม่ได้",
+  "chatReadImageFailed": "อ่านรูปภาพไม่ได้",
+  "chatOpenChatFirst": "เปิดแชทก่อน",
+  "chatTurnCompleted": "เทิร์นนี้เสร็จแล้ว",
+  "chatTurnError": "มีบางอย่างผิดพลาดในเทิร์นนี้",
+  "chatAnswerHint": "พิมพ์คำตอบ…",
+  "chatStarting": "กำลังเริ่ม",
+  "chatConnecting": "กำลังเชื่อมต่อ",
+  "chatDisconnected": "ตัดการเชื่อมต่อ",
+  "chatReconnecting": "กำลังเชื่อมต่อใหม่",
+  "chatGenerating": "กำลังสร้าง",
+  "chatGoToSettings": "เปิดตั้งค่า",
+  "chatListeningEllipsis": "กำลังฟัง…",
+  "chatTranscribingEllipsis": "กำลังถอดเสียง…",
+  "chatConnectToSend": "เชื่อมต่อกับเอนจินเพื่อส่ง",
+  "chatGeneratingSteerHint": "กำลังสร้าง · พิมพ์เพื่อควบคุม",
+  "chatComposerHint": "ข้อความ DSH…",
+  "chatStopGenerating": "หยุดการสร้าง",
+  "chatVoiceInput": "อินพุตเสียง",
+  "chatStopVoiceInput": "หยุดอินพุตเสียง",
+  "chatGoal": "เป้าหมาย",
+  "chatGoalActions": "การกระทำเป้าหมาย",
+  "chatGoalBlocked": "ถูกบล็อก",
+  "chatGoalRoundLimit": "รอบ {rounds} / {max}",
+  "chatGoalRound": "ราวด์ {rounds}",
+  "chatEditGoal": "แก้ไขเป้าหมาย",
+  "chatPauseGoal": "หยุดชั่วคราว",
+  "chatPauseGoalHint": "หยุดความคืบหน้าอัตโนมัติชั่วคราว",
+  "chatResumeGoal": "ดำเนินต่อ",
+  "chatResumeGoalHint": "ดำเนินต่อความคืบหน้าอัตโนมัติ",
+  "chatClearGoal": "ล้างเป้าหมาย",
+  "chatGoalHint": "คุณต้องการให้ทำอะไร?",
+  "chatClearGoalTitle": "ล้างเป้าหมาย?",
+  "chatTodoCurrent": "{content} กำลังทำ: {content}",
+  "chatTodoNext": "{content} ถัดไป: {content}",
+  "chatTodoAllDone": "ทั้งหมดเสร็จแล้ว",
+  "chatTodoSemantics": "{count} ทูดู {count}, {label}",
+  "chatCollapseTodos": "ยุบรายการ",
+  "chatExpandTodos": "ขยายรายการ",
+  "chatDockFolded": "{{count} แถบสถานะซ้อนกัน}",
+  "@chatDockFolded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chatDockSpread": "ขยาย",
+  "chatDockFold": "พับแถบสถานะ",
+  "chatDockNext": "การ์ดถัดไป",
+  "chatDockPrevious": "การ์ดก่อนหน้า",
+  "chatTodoNotStarted": "ยังไม่เริ่ม",
+  "chatFile": "ไฟล์",
+  "chatFolder": "โฟลเดอร์",
+  "chatChat": "แชท",
+  "chatSubagent": "ซับเอจเอนต์",
+  "chatRecent": "ล่าสุด",
+  "chatMentionSearching": "กำลังค้นหา…",
+  "chatMentionNoFiles": "ไม่พบไฟล์ที่ตรง",
+  "chatMentionNoMatches": "ไม่พบไฟล์หรือแชทที่ตรง",
+  "chatQuote": "โค้ท",
+  "chatOpenFolder": "เปิดโฟลเดอร์",
+  "chatJustNow": "เมื่อสักครู่",
+  "chatMentionAgeMinutes": "{{count} นาที}",
+  "chatMentionAgeHours": "{{count} ชั่วโมง}",
+  "chatMentionAgeDays": "{{count} วัน}",
+  "chatMentionAgeMonths": "{{count} เดือน}",
+  "chatMentionAgeYears": "{{count} ปี}",
+  "chatMermaidChart": "แผนภาพ Mermaid",
+  "chatPreview": "พรีวิว",
+  "chatUnwrapLines": "ไม่ห่อบรรทัด",
+  "chatWrapLines": "ห่อบรรทัด",
+  "chatAlertNote": "บันทึก",
+  "chatAlertTip": "เคล็ดลับ",
+  "chatAlertImportant": "สำคัญ",
+  "chatAlertWarning": "คำเตือน",
+  "chatAlertCaution": "ระวัง",
+  "chatImage": "รูปภาพ",
+  "chatImageNotFound": "ไม่พบรูปภาพ",
+  "chatImageOffline": "ไม่ได้เชื่อมต่อ DSH",
+  "chatImageTooLarge": "รูปภาพใหญ่เกินไป",
+  "chatImageReadFailed": "อ่านไฟล์ไม่ได้",
+  "chatImageDisplayFailed": "แสดงไม่ได้",
+  "chatImageTapToView": "แตะเพื่อดู",
+  "chatImageTapToRetry": "แตะเพื่อลองใหม่",
+  "chatImageUnsupportedAddress": "ที่อยู่ไม่รองรับ",
+  "chatMermaidNeedsNetwork": "ต้องอินเทอร์เน็ต",
+  "chatMermaidSyntaxError": "ไวยากรณ์แผนภาพไม่ถูกต้อง",
+  "chatChartPreview": "พรีวิวแผนภาพ",
+  "chatCopyCode": "คัดลอกโค้ด",
+  "chatChartClosed": "ปิดแผนภาพแล้ว",
+  "chatVoiceMicrophoneFailed": "เปิดไมโครโฟนไม่ได้",
+  "chatVoicePermissionOff": "เข้าถึงไมโครโฟนปิด",
+  "chatVoicePermissionNeeded": "อินพุตเสียงต้องการเข้าถึงไมโครโฟน",
+  "chatVoiceUnavailable": "การรู้จำเสียงไม่พร้อมบนโทรศัพท์นี้",
+  "chatVoiceNotHeard": "ไม่ได้ยิน ลองใหม่",
+  "chatVoiceTranscriptionFailed": "ถอดเสียงบันทึกนี้ไม่ได้",
+  "chatVoiceNetworkFailed": "ถอดเสียงไม่ได้ เช็คการเชื่อมต่อ",
+  "chatVoiceLanguageUnsupported": "ภาษานี้ยังไม่รองรับ",
+  "chatVoiceMicrophoneBusy": "ไมโครโฟนกำลังใช้งาน",
+  "chatVoiceBusy": "การรู้จำเสียงกำลังใช้งาน ลองใหม่ภายหลัง",
+  "chatVoiceRecognitionFailed": "การรู้จำเสียงล้มเหลว",
+  "chatListening": "กำลังฟัง",
+  "chatTranscribing": "กำลังถอดเสียง",
+  "chatCancelVoiceInput": "ยกเลิกอินพุตเสียง",
+  "chatViewTurnTrace": "ดูเส้นทางเทิร์น",
+  "chatTokensPerSecond": "{{count} โทเคน/วินาที}",
+  "chatNoTokensStreaming": "ไม่มีข้อความสตรีม",
+  "chatCurrentStep": "ขั้นตอนนี้ {step}",
+  "chatTodoProgress": "{total} {done} ความคืบหน้าทูดู {done}/{total}",
+  "chatProgress": "{total} {done} ความคืบหน้า {done}/{total}",
+  "chatApproveCommand": "อนุญาตคำสั่งนี้?",
+  "chatApproveWrite": "อนุญาตเขียนไฟล์นี้?",
+  "chatApproveEdit": "อนุญาตแก้ไขไฟล์นี้?",
+  "chatApproveWebpage": "อนุญาตเปิดเพจนี้?",
+  "chatApproveSearch": "อนุญาตค้นหาเว็บ?",
+  "chatApproveTool": "{name} อนุญาต “{name}”?",
+  "chatDecline": "ปฏิเสธ",
+  "chatAllowOnce": "อนุญาตครั้งเดียว",
+  "chatAllowForChat": "อนุญาตสำหรับแชทนี้",
+  "chatSaveToDownloads": "บันทึกลงดาวน์โหลด",
+  "chatCopyPath": "คัดลอกพาธ",
+  "chatOpenInDefaultApp": "เปิดในแอปเริ่มต้น",
+  "chatDownloadsFolderHint": "โฟลเดอร์ Downloads/DSH-Go",
+  "chatSavedToDownloadsPath": "{path} บันทึกลง Downloads/{path}",
+  "chatSavedToPath": "{path} บันทึกลง {path}",
+  "chatDeliveredFiles": "{{count} ไฟล์}",
+  "chatGeneratedFiles": "{{count} ไฟล์}",
+  "chatAllFiles": "{{count} ไฟล์}",
+  "chatCollapseFileList": "ยุบรายการไฟล์",
+  "chatExpandAllFiles": "{{count} ไฟล์}",
+  "chatDownloading": "กำลังดาวน์โหลด…",
+  "chatDownloadingPercent": "กำลังดาวน์โหลด… {percent}%",
+  "chatOpening": "กำลังเปิด…",
+  "chatSavingToDownloads": "กำลังบันทึกลงดาวน์โหลด…",
+  "chatOpenInPhoneApp": "เปิดในแอปบนโทรศัพท์นี้",
+  "chatMoreActions": "การกระทำเพิ่มเติม",
+  "chatAlreadyInDownloads": "อยู่ในดาวน์โหลดบนโทรศัพท์นี้แล้ว",
+  "chatArtifactCopyPathOnly": "การเชื่อมต่อนี้อ่านไฟล์ไม่ได้ คุณสามารถคัดลอกพาธได้",
+  "chatReplying": "กำลังตอบ",
+  "chatInterrupted": "ถูกขัดจังหวะ",
+  "chatGallery": "รูปภาพ",
+  "chatTakePhoto": "ถ่ายรูป",
+  "chatAddAttachment": "เพิ่มรูปภาพหรือไฟล์",
+  "chatRemoveAttachment": "{name} นำออก “{name}”",
+  "chatAutoApproveCommands": "อนุญาตคำสั่งอัตโนมัติ",
+  "chatAutoApproving": "อนุญาตอัตโนมัติ",
+  "chatViewMoreChanges": "{{count} ไฟล์เพิ่มเติม}",
+  "chatViewChanges": "ดูการเปลี่ยนแปลง",
+  "chatChangedFiles": "{{count} ไฟล์}",
+  "chatMoreFiles": "{{count} ไฟล์เพิ่มเติม}",
+  "chatFileChangeSemantics": "{{{path} , {added} บรรทัดเพิ่ม}, {removed} บรรทัดลบ}",
+  "chatNewFileSuffix": " ใหม่",
+  "chatPathCopied": "คัดลอกพาธแล้ว",
+  "chatCommandCompacted": "{{count} รายการประวัติ (~{tokens} โทเคน)}",
+  "chatCommandPermissionChanged": "{name} สลับไป {name}",
+  "chatCommandCurrentPermission": "{name} สิทธิ์ปัจจุบัน: {name}",
+  "chatCommandUnknownPermission": "ไม่มีชุดสิทธิ์นี้",
+  "chatCommandFeedbackRequired": "เพิ่มฟีดแบ็กก่อนส่ง",
+  "chatCommandFeedbackSubmitted": "ส่งฟีดแบ็กแล้ว",
+  "chatCommandNothingToCompact": "ยังไม่มีอะไรให้บีบอัด",
+  "chatCommandCompactionCancelled": "ยกเลิกการบีบอัดแล้ว",
+  "chatCommandCompactionBusy": "กำลังใช้งาน ลองบีบอัดภายหลัง",
+  "chatCommandCompactedSaveFailed": "บีบอัดแล้ว แต่บันทึกไม่ได้",
+  "chatCommandCompactUsage": "/compact ไม่มีอาร์กิวเมนต์",
+  "chatCommandHistoryChanged": " แชทเปลี่ยน ลองใหม่",
+  "chatCommandCompactionFailed": "บีบอัดไม่ได้ ลองใหม่",
+  "chatCommandCompactionIncomplete": "บีบอัดไม่สมบูรณ์ เช็คแชท",
+  "chatCommandPlanEnabled": "โหมดแผนเปิด",
+  "chatCommandPlanEnabling": "โหมดแผนเริ่มเทิร์นถัดไป",
+  "chatCommandPlanDisabled": "โหมดแผนปิด",
+  "chatCommandPlanDisabling": "โหมดแผนจบเทิร์นถัดไป",
+  "chatCommandPlanCancelled": "รายการโหมดแผนยกเลิกแล้ว",
+  "chatCommandPlanInactive": "โหมดแผนปิดอยู่",
+  "chatCommandPlanNoAttachments": "แนบไฟล์ไม่ได้เมื่อออกจากโหมดแผน",
+  "chatCommandNoGoal": "ยังไม่มีเป้าหมาย",
+  "chatCommandGoalRequired": "เพิ่มเป้าหมายใหม่ก่อนส่ง",
+  "chatCommandGoalAttachments": "ส่งไฟล์แนบกับเป้าหมาย",
+  "chatCommandGoalCleared": "ล้างเป้าหมายแล้ว",
+  "chatCommandGoalInvalid": "ทำไม่ได้ตอนนี้ เช็คเป้าหมาย",
+  "chatCommandGoalExists": " มีเป้าหมาย แก้ไขหรือล้างก่อน",
+  "chatCommandGoalCreated": "ตั้งเป้าหมายแล้ว",
+  "chatCommandGoalUpdated": "อัปเดตเป้าหมายแล้ว",
+  "chatCommandGoalPaused": "หยุดเป้าหมายชั่วคราว",
+  "chatCommandGoalResumed": "ดำเนินต่อเป้าหมาย",
+  "chatCommandCurrentGoal": "เป้าหมายปัจจุบัน",
+  "chatCommandGoalBlocked": "ต้องการสนใจ",
+  "chatCommandGoalSummary": "{title}\n{objective}\n{status} · รอบ {rounds}/{max}",
+  "chatCommandFailed": "คำสั่งล้มเหลว",
+  "chatImageStorageDenied": "บันทึกไม่ได้ เข้าถึงที่เก็บข้อมูลปิด",
+  "chatImageCannotSave": "บันทึกรูปภาพนี้ไม่ได้",
+  "chatImageDownloadFailed": "ดาวน์โหลดรูปภาพไม่ได้ ลองใหม่",
+  "chatImageSaveFailed": "บันทึกไม่ได้ ลองใหม่",
+  "chatImageSavedToPhotos": "บันทึกลงรูปภาพแล้ว",
+  "chatShareFailed": "เปิดการแชร์ไม่ได้",
+  "chatSubmit": "ส่ง",
+  "chatSelectText": "เลือกข้อความ",
+  "chatRegenerate": "สร้างใหม่",
+  "chatBranchFromHere": "แยกสาขาจากที่นี่",
+  "chatEditAndResend": "แก้ไขและส่งใหม่",
+  "chatRegenerateHint": "สร้างใหม่ในแชทใหม่ ต้นฉบับคงอยู่",
+  "chatBranchHint": "ดำเนินต่อในแชทใหม่ ต้นฉบับคงอยู่",
+  "chatEditResendHint": "เขียนใหม่ในแชทใหม่ ต้นฉบับคงอยู่",
+  "chatSaveToPhotos": "บันทึกลงรูปภาพ",
+  "chatCopyAll": "คัดลอกทั้งหมด",
+  "chatRequestRetrying": "คำขอล้มเหลว กำลังลองใหม่",
+  "chatRequestRetryAttempt": "{{{count})}}",
+  "chatRequestRetryLimit": "คำขอล้มเหลว กำลังลองใหม่ ({count}/{max})",
+  "chatSubscriptionExpired": "{name} {name} ไซน์อินหมดอายุ",
+  "chatProviderKeyMissing": "ยังไม่มีคีย์ API สำหรับโปรไวเดอร์นี้",
+  "chatDeepSeekKeyMissing": "ยังไม่มีคีย์ API DeepSeek",
+  "chatOutputLimitReached": "ถึงลิมิตเอาต์พุต",
+  "chatTurnBlocked": "เทิร์นนี้ถูกบล็อก",
+  "chatTurnEngineRestarted": " เอนจินรีสตาร์ท ขัดจังหวะเทิร์นนี้",
+  "chatSignInAgain": "เข้าสู่ระบบอีกครั้ง",
+  "chatQuestionsTitle": "{{count} คำถามสำหรับคุณ}",
+  "chatOneQuestion": " คำถามสำหรับคุณ",
+  "chatMultipleChoices": "เลือกอย่างใดอย่างหนึ่ง",
+  "chatCustomAnswer": "คำตอบอื่น",
+  "chatCustomAnswerHint": "พิมพ์คำตอบของคุณ",
+  "chatQuoteSemantics": "{text} โค้ท: {text}",
+  "chatRemoveQuote": "นำโค้ทออก",
+  "chatReadOnlySubagent": "ซับเอจเอนต์ครั้งเดียว · ดูอย่างเดียว",
+  "chatThinkingActive": "กำลังคิด",
+  "chatThinking": "กำลังคิด",
+  "chatTranslate": "แปล",
+  "chatTranslationUnavailable": "ไม่สามารถแปลได้",
+  "chatViewOriginal": "ดูต้นฉบับ",
+  "chatViewTranslation": "ดูการแปล",
+  "chatTranslating": "กำลังแปล",
+  "chatToolFailures": "{{label} {count} , ล้มเหลว}",
+  "chatToolNeedsApproval": "ต้องอนุมัติเพื่อเรียกใช้",
+  "chatCommand": "คำสั่ง",
+  "chatToolLineRange": "{last} {first}  ·  บรรทัด {first}–{last}",
+  "chatParameters": "พารามิเตอร์",
+  "chatOutput": "เอาต์พุต",
+  "chatResult": "ผลลัพธ์",
+  "chatError": "ข้อผิดพลาด",
+  "chatChanges": "การเปลี่ยนแปลง",
+  "chatContent": "เนื้อหา",
+  "chatNoOutput": "ไม่มีเอาต์พุต",
+  "chatToolDeclined": "การเรียกเครื่องมือนี้ถูกปฏิเสธ",
+  "chatToolRunning": "กำลังทำงาน…",
+  "chatNoDetails": "ยังไม่มีรายละเอียด",
+  "chatErrApiKey": "คีย์ API ไม่ถูกต้องหรือหมดอายุ",
+  "chatErrBalance": "ยอดไม่เพียงพอ",
+  "chatErrAccountQuota": "โควต้าบัญชีใช้หมด",
+  "chatErrRateLimit": "คำขอมากเกินไป ลองใหม่ภายหลัง",
+  "chatErrContextLength": "แชทยาวเกินไป ส่ง /compact แล้วลองใหม่",
+  "chatErrModelUnavailable": "บริการโมเดลไม่พร้อมชั่วคราว",
+  "chatErrModelTimeout": "โมเดลตอบช้าเกินไป",
+  "chatErrModelConnection": "เข้าถึงบริการโมเดลไม่ได้",
+  "chatErrModelEmpty": " โมเดลไม่คืนเนื้อหา",
+  "chatErrEngineOutdated": "โมเดลนี้ต้องการเอนจินใหม่กว่า",
+  "chatErrModelUnsupported": "โมเดลนี้ไม่พร้อมใช้งาน",
+  "chatSwitchModel": "สลับโมเดล",
+  "chatErrTurn": "มีบางอย่างผิดพลาดในเทิร์นนี้",
+  "chatTurnSteps": "{{count} ขั้นตอน}",
+  "chatTurnFootnoteSemantics": "{summary} เทิร์นนี้: {summary}, มุมมองเส้นทางเทิร์น",
+  "chatTurnToolCalls": "{{count} การเรียกเครื่องมือ}",
+  "chatTurnMessages": "{{count} ข้อความ}",
+  "chatTurnThoughts": "{{count} บล็อกการคิด}",
+  "chatMe": "ฉัน",
+  "chatGoalSemantics": "เป้าหมาย, {objective}",
+  "chatGoalStateSemantics": "{state} เป้าหมาย, {objective}, {state}",
+  "chatTodoItemSemantics": "{content}, {state}",
+  "chatMentionSemantics": "{kind}: {label}",
+  "chatArtifactSemantics": "{name}, {description}",
+  "@chatForkQueuedLeft": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      },
+      "left": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatWaitingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatWaitingBackToBottom": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatAttachmentLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalRoundLimit": {
+    "placeholders": {
+      "rounds": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatGoalRound": {
+    "placeholders": {
+      "rounds": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTodoCurrent": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTodoNext": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTodoSemantics": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatMentionAgeMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMentionAgeYears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTokensPerSecond": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCurrentStep": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTodoProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatProgress": {
+    "placeholders": {
+      "done": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatApproveTool": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatSavedToDownloadsPath": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatSavedToPath": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatDeliveredFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGeneratedFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatAllFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatExpandAllFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatRemoveAttachment": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatViewMoreChanges": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatChangedFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatMoreFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatFileChangeSemantics": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      },
+      "added": {
+        "type": "int"
+      },
+      "removed": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatCommandCompacted": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "tokens": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatCommandPermissionChanged": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatCommandCurrentPermission": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatCommandGoalSummary": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      },
+      "objective": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "rounds": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatRequestRetryAttempt": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatRequestRetryLimit": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatSubscriptionExpired": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatQuestionsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatQuoteSemantics": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatToolFailures": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatToolLineRange": {
+    "placeholders": {
+      "last": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTurnSteps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnFootnoteSemantics": {
+    "placeholders": {
+      "summary": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTurnToolCalls": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnMessages": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatTurnThoughts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@chatGoalSemantics": {
+    "placeholders": {
+      "objective": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatGoalStateSemantics": {
+    "placeholders": {
+      "state": {
+        "type": "String"
+      },
+      "objective": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatTodoItemSemantics": {
+    "placeholders": {
+      "content": {
+        "type": "String"
+      },
+      "state": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatMentionSemantics": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "@chatArtifactSemantics": {
+    "placeholders": {
+      "description": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

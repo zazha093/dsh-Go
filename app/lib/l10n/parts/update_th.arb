@@ -1,0 +1,154 @@
+{
+  "updateCheck": "ตรวจสอบอัปเดต",
+  "updateAutoCheck": "ตรวจสอบอัตโนมัติ",
+  "updateAutoCheckDaily": "ทุกวัน",
+  "updateTileDownloading": "กำลังดาวน์โหลด",
+  "updateTileDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "updateTileVerifying": "กำลังตรวจสอบ",
+  "updateTileReady": "พร้อมติดตั้ง",
+  "updateTileInstalling": "กำลังติดตั้ง",
+  "updateTileSkipped": "ข้าม {version}",
+  "updateTileNewVersion": "ใหม่: {version}",
+  "updateTileUpToDate": "เป็นเวอร์ชันล่าสุด",
+  "updateTileUnavailable": "ตรวจสอบไม่ได้ตอนนี้",
+  "updateUpToDate": "คุณเป็นเวอร์ชันล่าสุดแล้ว",
+  "updateCheckUnavailable": "ตรวจสอบอัปเดตไม่ได้ตอนนี้ ลองใหม่ภายหลัง",
+  "updateDownloadInterrupted": "ดาวน์โหลดถูกขัดจังหวะ",
+  "updateDownloadInterruptedMessage": "เครือข่ายขาดหรือช้าเกินไป ลองใหม่เพื่อดำเนินต่อ",
+  "updateDownloadUnavailable": "ลิงก์ดาวน์โหลดไม่พร้อมใช้งาน",
+  "updateDownloadUnavailableMessage": "ลองใหม่ภายหลัง หรือดาวน์โหลดจากหน้ารีลีส",
+  "updateChecksumFailed": "การตรวจสอบแพ็กเกจล้มเหลว",
+  "updateChecksumFailedMessage": "ไฟล์ไม่ตรงกับรีลีสและถูกลบแล้ว ลองใหม่",
+  "updateChecksumMissing": "ข้อมูลการตรวจสอบหายไป",
+  "updateChecksumMissingMessage": "เพื่อความปลอดภัย ดาวน์โหลดจากหน้ารีลีสเพื่อติดตั้ง",
+  "updateStorageWriteFailed": "บันทึกแพ็กเกจไม่ได้",
+  "updateStorageWriteFailedMessage": "ที่เก็บข้อมูลอาจเต็ม ว่างพื้นที่และลองใหม่",
+  "updateFreeSpaceRetry": "ว่างพื้นที่และลองใหม่",
+  "updateSpaceRequired": "ต้องการพื้นที่ว่างประมาณ {size} ว่างพื้นที่และลองใหม่",
+  "updateSettingsOpenFailed": "เปิดการตั้งค่าระบบไม่ได้",
+  "updateSettingsOpenFailedMessage": "อนุญาต \"ติดตั้งแอปจากแหล่งไม่รู้จัก\" ใน การตั้งค่า → แอป → DSH Go แล้วกลับมาติดตั้งต่อ",
+  "updateInstallCancelled": "ยกเลิกการติดตั้งแล้ว",
+  "updateInstallCancelledMessage": "แพ็กเกจบันทึกแล้ว คุณติดตั้งได้ทุกเมื่อ",
+  "updateInstallUnconfirmed": "ผลการติดตั้งยังไม่ได้รับการยืนยัน",
+  "updateInstallUnconfirmedMessage": "แพ็กเกจบันทึกแล้ว ตรวจสอบพรอมต์ระบบ แล้วลองใหม่หรือเปิดกับระบบ",
+  "updateSignatureMismatch": "ลายเซ็นแอปไม่ตรงกัน",
+  "updateSignatureMismatchMessage": "DSH Go บนโทรศัพท์ของคุณมีลายเซ็นต่างกัน (ปกติเป็นเวอร์ชันทดสอบ) ถอนการติดตั้ง",
+  "updateWrongPackage": "นี้ไม่ใช่แพ็กเกจ DSH",
+  "updateWrongPackageMessage": "ไฟล์ผิดถูกดาวน์โหลดและลบแล้ว ลองอีกครั้งภายหลัง",
+  "updateDowngradeBlocked": "ติดตั้งเวอร์ชันเก่าไม่ได้",
+  "updateDowngradeBlockedMessage": "DSH บนโทรศัพท์ของคุณใหม่กว่าแพ็กเกจนี้",
+  "updateIncompatible": "ไม่เข้ากับโทรศัพท์นี้",
+  "updateIncompatibleMessage": "แพ็กเกจนี้ต้องการเวอร์ชัน Android หรือสถาปัตยกรรมโปรเซสเซอร์ที่ไม่ตรงกับโทรศัพท์ของคุณ",
+  "updatePackageCorrupt": "แพ็กเกจเสียหาย",
+  "updatePackageCorruptMessage": "ถูกลบแล้ว ดาวน์โหลดใหม่",
+  "updateInstallBlocked": "การติดตั้งถูกบล็อก",
+  "updateInstallBlockedMessage": "อนุญาตการติดตั้งในพรอมต์ระบบ หรือ ดาวน์โหลดจากหน้ารีลีส",
+  "updateInstallIncomplete": "การติดตั้งไม่สมบูรณ์",
+  "updateInstallIncompleteMessage": "ลองอีกครั้ง หรือ ดาวน์โหลดจากหน้ารีลีส",
+  "updateBrowserOpenFailed": "{path} {host} เปิดเบราว์เซอร์ไม่ได้ เยี่ยมชม {host}{path} เอง",
+  "updateUpToDateVersion": "{version} คุณเป็นเวอร์ชันล่าสุดแล้ว: {version}",
+  "updateCurrentVersion": "{version} เวอร์ชันปัจจุบัน: {version}",
+  "updateNewVersionFound": "พบเวอร์ชันใหม่",
+  "updateReleaseNotes": "มีอะไรใหม่",
+  "updateNoReleaseNotes": "ไม่มีบันทึกรีลีสสำหรับเวอร์ชันนี้",
+  "updateInstallKeepsData": "DSH Go ปิดเพื่อติดตั้ง แชทและการตั้งค่าของคุณจะคงอยู่",
+  "updateNoCompatiblePackage": "ไม่มีแพ็กเกจสำหรับโทรศัพท์นี้",
+  "updateDownloading": "กำลังดาวน์โหลด",
+  "updateDownloadSource": "ผ่าน {source}",
+  "updateDownloadInBackgroundNote": "ดาวน์โหลดดำเนินต่อหลังคุณปิดหน้าต่างนี้",
+  "updateVerifyingPackage": "กำลังตรวจสอบแพ็กเกจ…",
+  "updateVerifyingPackageNote": "ตรวจสอบว่าไฟล์ตรงกับรีลีส",
+  "updateInstalling": "กำลังติดตั้ง…",
+  "updateConfirmInstallNote": "ยืนยันการติดตั้งในพรอมต์ระบบ",
+  "updatePackageDownloaded": "ดาวน์โหลดแพ็กเกจแล้ว",
+  "updateReadyToInstall": "ตรวจสอบแล้วและพร้อมติดตั้ง",
+  "updateAllowInstall": "อนุญาต DSH Go ติดตั้งแอป",
+  "updateAllowInstallMessage": "เปิด \"ติดตั้งแอปจากแหล่งไม่รู้จัก\" ในการตั้งค่าระบบ การติดตั้งจะดำเนินต่อเมื่อคุณกลับมา",
+  "updateOpenReleasePage": "เปิดหน้ารีลีส",
+  "updateUpdateNow": "อัปเดตตอนนี้",
+  "updateSkipVersion": "ข้ามเวอร์ชันนี้",
+  "updateInstallWithSystem": "ติดตั้งด้วยติดตั้งระบบ",
+  "updateSystemInstallerFailed": "ไม่สามารถเปิดติดตั้งระบบได้",
+  "updateStarProject": "ดาวมัน",
+  "updateCancelDownload": "ยกเลิกดาวน์โหลด",
+  "updateDownloadInBackground": "ดาวน์โหลดในพื้นหลัง",
+  "updateVerifying": "กำลังตรวจสอบ…",
+  "updateInstallingBusy": "กำลังติดตั้ง…",
+  "updateOpenPermissionSettings": "เปิด",
+  "updateNoAbiPackage": "ไม่มีแพ็กเกจ {abi} สำหรับรีลีสนี้ ยัง ตรวจสอบหน้ารีลีส",
+  "updateNoPackage": "ไม่มีแพ็กเกจสำหรับรีลีสนี้ ยัง ตรวจสอบหน้ารีลีส",
+  "updateDownloadingPercent": "กำลังดาวน์โหลด {percent}%",
+  "@updateTileDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileSkipped": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateTileNewVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateSpaceRequired": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateBrowserOpenFailed": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      },
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateUpToDateVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateCurrentVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadSource": {
+    "placeholders": {
+      "source": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateNoAbiPackage": {
+    "placeholders": {
+      "abi": {
+        "type": "String"
+      }
+    }
+  },
+  "@updateDownloadingPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "marketSectionOfficial": "ทางการ",
+  "marketSectionAdapted": "ทำสำหรับ DSH Go",
+  "marketSectionAll": "ทั้งหมด",
+  "marketSectionLoading": "กำลังโหลด…",
+  "marketSectionFailed": "แคตตาล็อกทางการไม่โหลด",
+  "marketSectionEmpty": "ยังไม่มี",
+  "marketTierOfficial": "ทางการ",
+  "marketTierAdapted": "ทำสำหรับ DSH Go",
+  "marketRiskMedium": "ความเสี่ยงปานกลาง",
+  "marketRiskHigh": "ความเสี่ยงสูง",
+  "marketFlagInstallScripts": "รันสคริปต์ติดตั้ง",
+  "marketFlagInstallScriptsBody": "รันสคริปต์ของแพ็กเกจขณะติดตั้ง (preinstall, install หรือ postinstall)",
+  "marketFlagNativeCode": "โค้ดเนทีฟ",
+  "marketFlagNativeCodeBody": "มีโค้ดเนทีฟที่คอมไพล์แล้ว (.node, binding.gyp หรือไบนารี) ที่อ่านเป็นซอร์สไม่ได้",
+  "marketFlagShell": "รันคำสั่ง",
+  "marketFlagShellBody": "โค้ดของมันรันคำสั่งระบบ (child_process)",
+  "marketFlagNetwork": "เข้าถึงเครือข่าย",
+  "marketFlagNetworkBody": "โค้ดของมันทำคำขอเครือข่าย (fetch, HTTP, WebSocket)",
+  "marketFlagFilesystem": "เขียนนอกเวิร์กสเปซ",
+  "marketFlagFilesystemBody": "เขียนไปพาธนอกเวิร์กสเปซ",
+  "marketFlagObfuscated": "ยากต่อการรีวิว",
+  "marketFlagObfuscatedBody": "มีไฟล์ที่มินิฟายหรือオブฟัสเคตขนาดใหญ่ ยากจะบอกว่าทำอะไร",
+  "marketFlagNotAdapted": "ไม่ได้ทำสำหรับ DSH Go",
+  "marketFlagNotAdaptedBody": "ไม่ได้ประกาศโปรโตคอลเนทีฟของ DSH Go จึงไม่มีหน้าจอเนทีฟในแอป",
+  "marketFlagOtherBody": "ลักษณะอื่นที่การตรวจสอบอัตโนมัติรายงาน",
+  "marketChecksTitle": "การตรวจสอบอัตโนมัติ",
+  "marketChecksClean": "ไม่พบลักษณะเสี่ยง",
+  "marketChecksNote": "ลักษณะที่การตรวจสอบอัตโนมัติพบ ไม่ได้หมายถึงปลั๊กอินเป็นมัลแวร์",
+  "marketCheckedOn": "ตรวจสอบแล้ว {date}",
+  "@marketCheckedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "marketScreenshot": "สกรีนชอต {index}",
+  "@marketScreenshot": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "marketRiskConfirmTitle": "{name} มีลักษณะเสี่ยง",
+  "@marketRiskConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "marketRiskConfirmAction": "ติดตั้งดี",
+  "marketPinnedVersion": "เวอร์ชันที่หมุด",
+  "marketRequiresApp": "ต้องการ DSH Go",
+  "marketNeedsApp": "ต้องการ DSH Go {version} หรือใหม่กว่า",
+  "@marketNeedsApp": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "marketUpdateAvailable": "มีอัปเดต",
+  "marketBlockedTitle": "เวอร์ชันนี้ถูกถอนกลับ",
+  "marketBlockedMessage": "เวอร์ชันที่ติดตั้ง {version} ถูกถอนจากตลาดปลั๊กอิน แนะนำให้ถอนการติดตั้ง",
+  "@marketBlockedMessage": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "marketBlockedRow": "เวอร์ชันถูกถอน: แนะนำให้ถอนการติดตั้ง",
+  "marketBlockedBadge": "ถูกถอน",
+  "marketVerifying": "กำลังตรวจสอบเวอร์ชัน…",
+  "marketMismatchTitle": "การตรวจสอบเวอร์ชันล้มเหลว",
+  "marketMismatchMessage": "{version} บน npm ไม่ใช่แพ็กเกจที่ตลาดปลั๊กอินตรวจสอบ ไม่ได้ติดตั้งอะไรเลย",
+  "@marketMismatchMessage": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "marketSubmit": "ส่งปลั๊กอิน",
+  "marketSubmitHint": "บน GitHub จะแสดงรายการเมื่อการตรวจสอบอัตโนมัติผ่าน",
+  "marketLinkNotFound": "{name} ไม่อยู่ในตลาดปลั๊กอิน",
+  "@marketLinkNotFound": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "marketVerificationUnavailableTitle": "ไม่สามารถยืนยันเวอร์ชันได้",
+  "marketVerificationUnavailableBody": "npm ไม่ได้คืนข้อมูลความสมบูรณ์ การติดตั้งยังไม่เริ่ม โปรดตรวจสอบการเชื่อมต่อแล้วลองอีกครั้ง",
+  "marketCombinedCount": "{count} ปลั๊กอิน",
+  "@marketCombinedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
+}

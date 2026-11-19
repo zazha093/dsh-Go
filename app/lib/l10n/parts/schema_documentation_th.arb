@@ -1,0 +1,21 @@
+{
+  "schemaDocumentationTitle": "Field descriptions",
+  "schemaDocumentationOverview": "ภาพรวม",
+  "schemaDocumentationEach": "แต่ละ item",
+  "schemaDocumentationPosition": "Item {position}",
+  "@schemaDocumentationPosition": {
+    "placeholders": {
+      "position": {
+        "type": "int"
+      }
+    }
+  },
+  "schemaDocumentationOption": "{option} ตัวเลือก {ตัวเลือก}",
+  "@schemaDocumentationOption": {
+    "placeholders": {
+      "option": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -1,0 +1,904 @@
+{
+  "featuresCordisSubtitle": "ปลั๊กอินไดนามิก · ล้างเมื่อเริ่มเอนจินใหม่",
+  "featuresCordisUnavailable": "Cordis isn’t available here",
+  "featuresCordisRemoteUnavailable": "ไม่พร้อมใช้งานเกิน DSH รีโมต",
+  "featuresCordisReadFailed": "โหลดปลั๊กอินไม่ได้",
+  "featuresCordisEmpty": "ยังไม่มีปลั๊กอินไดนามิก",
+  "featuresCordisEmptyHint": "ปลั๊กอินจะปรากฏที่นี่เมื่อสร้างแล้ว",
+  "featuresCurrentChat": "แชทปัจจุบัน",
+  "featuresOtherChats": "other chats",
+  "featuresPresetDefaultSet": "{name} แชทใหม่จะใช้ “{name}”",
+  "featuresPresetDefaultFailed": "ตั้งเป็นค่าเริ่มต้นไม่ได้",
+  "featuresPresetDeleteTitle": "{name} ลบ “{name}”?",
+  "featuresPresetDeleteHint": "จะไม่พร้อมสำหรับแชทใหม่ แชทที่มีอยู่คงเดิม",
+  "featuresDeleted": "ลบแล้ว",
+  "featuresDeleteFailed": "ลบไม่ได้",
+  "featuresPresetAlreadyDefault": "ค่าเริ่มต้นสำหรับแชทใหม่",
+  "featuresPresetSetDefault": "ใช้สำหรับแชทใหม่",
+  "featuresPresetViewConfig": "ดูการตั้งค่า",
+  "featuresPresetDuplicate": "ซ้ำพรีเซ็ต",
+  "featuresPresetDefaultDeleteHint": "ตั้งพรีเซ็ตอื่นเป็นค่าเริ่มต้นแชทใหม่ก่อน",
+  "featuresAgentPresets": "พรีเซ็ตเอจเอนต์",
+  "featuresAgentPresetsSubtitle": "เครื่องมือและพฤติกรรมสำหรับแชทใหม่",
+  "featuresNew": "ใหม่",
+  "featuresPresetsReadFailed": "โหลดพรีเซ็ตเอจเอนต์ไม่ได้",
+  "featuresLoadFailed": "โหลดไม่ได้",
+  "featuresNewChatDefault": "ค่าเริ่มต้นสำหรับแชทใหม่",
+  "featuresEmptyDocument": "(ว่าง)",
+  "featuresReadFailed": "อ่านไม่ได้",
+  "featuresTodayTime": "{time} วันนี้ {time}",
+  "featuresTomorrowTime": "{time} พรุ่งนี้ {time}",
+  "featuresYesterdayTime": "{time} เมื่อวาน {time}",
+  "featuresScheduleSummaryNext": "{time} {rule} · ถัดไป {time}",
+  "featuresEnded": "สิ้นสุด",
+  "featuresScheduleSummaryEnded": "{time} จบ · รัน {time}",
+  "featuresJobElapsed": "กำลังทำงาน {span}",
+  "featuresJobDuration": "ใช้เวลา {span}",
+  "featuresPermissionReadOnly": "อ่านอย่างเดียว",
+  "featuresPermissionWorkspaceWrite": "เขียนเวิร์กสเปซ",
+  "featuresPermissionFullAccess": "เข้าถึงเต็มที่",
+  "featuresPermissionAutoReview": "รีวิวอัตโนมัติ",
+  "featuresPermissionCustom": "กำหนดเอง",
+  "featuresPermissionReadOnlyHint": "ดูไฟล์โดยไม่เปลี่ยนแปลง",
+  "featuresPermissionWorkspaceWriteHint": "แก้ไขไฟล์เวิร์กสเปซ ถามก่อนทำอย่างอื่น",
+  "featuresPermissionFullAccessHint": "เรียกใช้โดยไม่ถาม",
+  "featuresPermissionAutoReviewHint": "โมเดลตรวจสอบการกระทำแต่ละอย่างและถามเมื่อไม่แน่ใจ",
+  "featuresPresetStandard": "โหมดมาตรฐาน",
+  "featuresPresetPtc": "โหมด PTC",
+  "featuresPresetMinimal": "โหมดขั้นต่ำ",
+  "featuresPresetCreator": "โหมดครีเอเตอร์",
+  "featuresPresetStandardDescription": "โค้ด ไฟล์ และการค้นคว้าสำหรับงานส่วนใหญ่",
+  "featuresPresetPtcDescription": "เรียกเครื่องมือแบบแบทช์ แล้วกรอง วิเคราะห์ และสรุป",
+  "featuresPresetMinimalDescription": "เทอร์มินัลและดูรูปภาพอย่างเดียว สำหรับทดสอบและเปรียบเทียบ",
+  "featuresPresetCreatorDescription": "ให้เอเจนต์เขียนปลั๊กอินเพื่อปรับแต่ง DSH",
+  "featuresHostUnreachable": "{name} เข้าถึง “{name}” ไม่ได้",
+  "featuresHostConnecting": "{name} กำลังเชื่อมต่อ “{name}”…",
+  "featuresJobs": "งานพื้นหลัง",
+  "featuresJobsSubtitle": "ล้างเมื่อเริ่มเอนจินใหม่",
+  "featuresJobsReadFailed": "โหลดงานพื้นหลังไม่ได้",
+  "featuresJobsEmpty": "ไม่มีงานพื้นหลัง",
+  "featuresJobsEmptyHint": "คำสั่งอย่างเซิร์ฟเวอร์พัฒนาจะอยู่ที่นี่",
+  "featuresJobsEndedCount": "{{{count}}}",
+  "featuresJobStopTitle": "หยุดงานนี้?",
+  "featuresJobAlreadyEnded": "งานนี้จบแล้ว",
+  "featuresJobStopFailed": "หยุดไม่ได้",
+  "featuresJobOutput": "เอาต์พุตงาน",
+  "featuresOutput": "เอาต์พุต",
+  "featuresJobRecentLines": "{{count} บรรทัด}",
+  "featuresJobOutputSubject": "เอาต์พุตงาน DSH",
+  "featuresJobOutputReadFailed": "อ่านเอาต์พุตไม่ได้",
+  "featuresJobOutputWaiting": "กำลังรอเอาต์พุต…",
+  "featuresJobOutputEmpty": "ไม่มีเอาต์พุต",
+  "featuresPermissionAutoTitle": "เปิดออโต้ รีวิว?",
+  "featuresPermissionAutoWarning": "โมเดลจะตัดสินใจอนุญาตการกระทำแต่ละอย่าง อาจผิดพลาดได้",
+  "featuresSwitchFailed": "สลับไม่ได้",
+  "featuresPermissions": "สิทธิ์การเข้าถึง",
+  "featuresPermissionsSubtitle": "เลือกเวลาถามก่อนรันคำสั่งหรือแก้ไขไฟล์",
+  "featuresPermissionsReadFailed": "โหลดสิทธิ์ไม่ได้",
+  "featuresPermissionCustomHint": "ค่าเริ่มต้นที่เลือกจะทับสิทธิ์ที่ตั้งเอง",
+  "featuresModuleInstructions": "คำสั่งเวิร์กสเปซ",
+  "featuresModuleTime": "รับรู้เวลา",
+  "featuresModuleBash": "เครื่องมือคำสั่ง Bash",
+  "featuresModulePersistentBash": "เครื่องมือ Bash ถาวร",
+  "featuresModulePowerShell": "เครื่องมือคำสั่ง PowerShell",
+  "featuresModuleFiles": "เครื่องมือไฟล์ อ่าน/เขียน",
+  "featuresModuleFileSearch": "เครื่องมือค้นหาไฟล์",
+  "featuresModuleJobs": "เครื่องมืองานพื้นหลัง",
+  "featuresModuleSchedule": "เครื่องมืออัตโนมัติ",
+  "featuresModuleLocalSkills": "โหลดสกิลโลคอล",
+  "featuresModuleSkillTool": "เครื่องมือโหลดสกิล",
+  "featuresModuleGoalCommand": "คำสั่งจัดการเป้าหมาย",
+  "featuresModuleGoalTool": "เครื่องมือจัดการเป้าหมาย",
+  "featuresModulePlan": "โหมดแผน",
+  "featuresModuleCompaction": "บีบอัดคอนเท็กซ์",
+  "featuresModuleCompactCommand": "คำสั่งบีบอัดคอนเท็กซ์",
+  "featuresModuleAskUser": "เครื่องมือถามผู้ใช้",
+  "featuresModuleTodo": "เครื่องมือรายการทูดู",
+  "featuresModuleWeb": "เครื่องมือค้นหาและดึงเว็บ",
+  "featuresModulePresent": "เครื่องมือส่งมอบไฟล์",
+  "featuresModuleCordis": "เครื่องมือค้นหา API ปลั๊กอิน",
+  "featuresModuleSubagent": "เครื่องมือมอบหมายซับเอจเอนต์",
+  "featuresModuleSubagentControl": "เครื่องมือควบคุมซับเอจเอนต์",
+  "featuresModuleWorkflow": "เครื่องมือเวิร์กโฟลว์",
+  "featuresModulePluginManager": "เครื่องมือจัดการปลั๊กอิน",
+  "featuresModulePluginMarket": "เครื่องมือตลาดปลั๊กอิน",
+  "featuresModuleToolCalls": "สไตล์การเรียกเครื่องมือ",
+  "featuresModuleTerminal": "บริการเทอร์มินัลถาวร",
+  "featuresModulePersona": "เพอร์โซน่าเอจเอนต์",
+  "featuresGroupDelegation": "มอบหมายซับเอจเอนต์",
+  "featuresGroupTerminal": "เทอร์มินัลถาวร",
+  "featuresPresetIdRequired": "ใส่ไอดี",
+  "featuresPresetIdLength": "สูงสุด 40 ตัวอักษร",
+  "featuresPresetIdFormat": "ใช้ตัวพิมพ์เล็ก ตัวเลข และขีดกลาง",
+  "featuresPresetIdTaken": "ไอดีนี้ใช้งานแล้ว",
+  "featuresPresetCopyName": "{name} {name} คัดลอก",
+  "featuresPresetBasedOn": "ขึ้นจาก",
+  "featuresNameRequired": "ใส่ชื่อ",
+  "featuresCreatorOpenFailed": "เปิดโหมดครีเอเตอร์ไม่ได้",
+  "featuresPresetNameHint": "เช่น: โค้ด รีวิว",
+  "featuresPresetId": "ไอดี",
+  "featuresPresetIdHint": "ตัวพิมพ์เล็ก ตัวเลข และขีดกลาง",
+  "featuresPresetDescription": "คำอธิบาย",
+  "featuresPresetDescriptionHint": "อธิบายว่าทำอะไรในหนึ่งประโยค",
+  "featuresPresetConfigReadFailed": "โหลดการตั้งค่าพรีเซ็ตไม่ได้",
+  "featuresPresetCreateTitle": "พรีเซ็ตเอจเอนต์ใหม่",
+  "featuresPresetDuplicateTitle": "ซ้ำพรีเซ็ตเอจเอนต์",
+  "featuresPresetEditTitle": "แก้ไขพรีเซ็ตเอจเอนต์",
+  "featuresCreatorOpening": "กำลังเปิดโหมดครีเอเตอร์",
+  "featuresWaitingEngine": "กำลังรอเอนจิน",
+  "featuresCreatorUnavailable": "โหมดครีเอเตอร์ไม่พร้อม",
+  "featuresPresetStartUpdate": "เริ่มอัปเดต",
+  "featuresPresetStartCreate": "เริ่มสร้าง",
+  "featuresPresetSystemPrompt": "พรอมพ์ระบบ",
+  "featuresPresetSystemPromptHint": "คุณคือใคร และทำงานอย่างไร",
+  "featuresPresetReplaceSystemPrompt": "แทนที่พรอมพ์ระบบทั้งหมด",
+  "featuresPresetTools": "เครื่องมือ",
+  "featuresSkills": "สกิล",
+  "featuresPresetContextModes": "คอนเท็กซ์และโหมด",
+  "featuresCronMinute": "นาที",
+  "featuresCronHour": "ชั่วโมง",
+  "featuresDate": "วันที่",
+  "featuresCronMonth": "เดือน",
+  "featuresCronWeekday": "วันของสัปดาห์",
+  "featuresCronRequired": "ใส่นิพจน์ครอน 5 ฟิลด์",
+  "featuresCronWhitespace": "ห้ามช่องว่างนำหน้าหรือท้าย",
+  "featuresCronFieldCount": "{{{count}}}",
+  "featuresCronInvalidField": "{name} {index} Field {ดัชนี} ({ชื่อ}) คือ invalid",
+  "featuresWeekdayMon": "จันทร์",
+  "featuresWeekdayTue": "อังคาร",
+  "featuresWeekdayWed": "พุธ",
+  "featuresWeekdayThu": "พฤหัส",
+  "featuresWeekdayFri": "ศุกร์",
+  "featuresWeekdaySat": "เสาร์",
+  "featuresWeekdaySun": "อาทิตย์",
+  "featuresMonthJan": "มกราคม",
+  "featuresMonthFeb": "กุมภาพันธ์",
+  "featuresMonthMar": "มีนาคม",
+  "featuresMonthApr": "เมษายน",
+  "featuresMonthMay": "พฤษภาคม",
+  "featuresMonthJun": "มิถุนายน",
+  "featuresMonthJul": "กรกฎาคม",
+  "featuresMonthAug": "สิงหาคม",
+  "featuresMonthSep": "กันยายน",
+  "featuresMonthOct": "ตุลาคม",
+  "featuresMonthNov": "พฤศจิกายน",
+  "featuresMonthDec": "ธันวาคม",
+  "featuresWeekdayName": "{day}",
+  "featuresCronWeekdayRange": "{first}–{last}",
+  "featuresCronEveryDay": "ทุก เดย์{months}",
+  "featuresCronMonthDays": "รายเดือน เปิด {days}{months}",
+  "featuresCronMonthDaysAndWeekdays": "รายเดือน เปิด {days}, ถ้า {weekdays}{months}",
+  "featuresCronMonthDaysOrWeekdays": "รายเดือน เปิด {days} หรือ {weekdays}{months}",
+  "featuresCronHourRange": "{last} {first} {เฟิร์ส} ไป {ลาสท์}",
+  "featuresEveryMinute": "ทุกนาที",
+  "featuresCronEveryMinutes": "{{count} นาที}",
+  "featuresEveryHour": "ทุกชั่วโมง",
+  "featuresCronHourlyMinutes": "ที่นาที {minutes} ของทุกชั่วโมง",
+  "featuresCronHoursEveryMinute": "ทุกนาทีระหว่างชั่วโมง {hours}",
+  "featuresCronHoursEveryMinutes": "{{count} นาทีระหว่างชั่วโมง {hours}}",
+  "featuresCronEveryHours": "{{count} ชั่วโมง}",
+  "featuresCronHoursMinutes": "ที่นาที {minutes} ระหว่างชั่วโมง {hours}",
+  "featuresRepeatDaily": "รายวัน",
+  "featuresRepeatWeekdays": "วันจันทร์-ศุกร์",
+  "featuresRepeatWeekly": "รายสัปดาห์",
+  "featuresRepeatMonthly": "รายเดือน",
+  "featuresRepeatInterval": "ช่วงเวลา",
+  "featuresRepeatOnce": "ครั้งเดียว",
+  "featuresRepeatAdvanced": "ขั้นสูง",
+  "featuresRepeatCustom": "กำหนดเอง",
+  "featuresIntervalSeconds": "วินาที",
+  "featuresZoneUnavailable": "โซนเวลาไม่พร้อมใช้งาน",
+  "featuresChooseDay": "เลือกอย่างน้อยหนึ่งวัน",
+  "featuresIntervalMinimum": "ช่วงเวลาต้องอย่างน้อย 1",
+  "featuresMinimumMinute": "อย่างน้อย 1 นาที",
+  "featuresTimeDoesNotExist": "เวลานี้ไม่มีในโซนเวลานี้",
+  "featuresChooseFutureTime": "เลือกเวลาในอนาคต",
+  "featuresCronNeverRuns": "นิพจน์นี้ไม่เคยรัน",
+  "featuresRuleDaily": "{time} ทุกวันที่ {time}",
+  "featuresRuleWeekdays": "{time} จันทร์-ศุกร์ ที่ {time}",
+  "featuresRuleWeekends": "{time} เสาร์-อาทิตย์ ที่ {time}",
+  "featuresRuleWeekly": "{time} ทุก {days} ที่ {time}",
+  "featuresRuleMonthly": "{time} รายเดือน วันที่ {days} ที่ {time}",
+  "featuresRepeat": "ทำซ้ำ",
+  "featuresChat": "แชท",
+  "featuresWorkspace": "เวิร์กสเปซ",
+  "featuresInstructionRequired": "ใส่คำสั่ง",
+  "featuresScheduleSaveError": "บันทึกไม่ได้: {reason}",
+  "featuresScheduleCreateError": "สร้างไม่ได้: {reason}",
+  "featuresScheduleNameHint": "เช่น: แจ้งเตือนสแตนด์อัปประจำวัน",
+  "featuresScheduleInstruction": "คำสั่ง",
+  "featuresScheduleInstructionHint": "เช่น: สรุปคอมมิตเมื่อวานให้ฉัน",
+  "featuresScheduleRunTime": "เวลาเรียกใช้",
+  "featuresScheduleOpenChat": "ดูแชท",
+  "featuresScheduleEditTitle": "แก้ไขอัตโนมัติ",
+  "featuresScheduleCreateTitle": "อัตโนมัติใหม่",
+  "featuresScheduleSaving": "กำลังบันทึก",
+  "featuresScheduleCreating": "กำลังสร้างในแชท",
+  "featuresTime": "เวลา",
+  "featuresNotSelected": "ไม่ได้เลือก",
+  "featuresMonthDaysLabel": "วันที่ {days}",
+  "featuresTimeZone": "โซนเวลา",
+  "featuresScheduleRunLocation": "เรียกใช้ที่",
+  "featuresJustCreatedChat": "แชทเพิ่งสร้าง",
+  "featuresModel": "โมเดล",
+  "featuresRequestRefused": "엔진이 이 요청을 수락하지 않았습니다",
+  "featuresScheduleNotFound": "อัตโนมัตินี้ไม่มีอยู่แล้ว",
+  "featuresScheduleEndedError": "อัตโนมัตินี้จบแล้ว แก้ไขไม่ได้",
+  "featuresScheduleConflict": "อัตโนมัตินี้เพิ่งเปลี่ยน กลับไปลองใหม่",
+  "featuresScheduleInvalidPrompt": "ใส่ชื่อและคำสั่ง ชื่อได้สูงสุด 120 ตัวอักษร",
+  "featuresScheduleInvalidTime": "เวลาเรียกใช้ไม่ถูกต้อง",
+  "featuresScheduleIntervalTooShort": "ช่วงเวลาต้องอย่างน้อย 1 นาที",
+  "featuresScheduleTimeOutOfRange": "เวลานอยก่อนช่วง",
+  "featuresScheduleSubagentError": "แชทนี้รับอัตโนมัติไม่ได้",
+  "featuresEvery": "ทุก",
+  "featuresCronExpression": "นิพจน์ครอน",
+  "featuresCronFieldGuide": "ขั้นต่ำ ชั่วโมง วัน เดือน วันสัปดาห์",
+  "featuresZoneTimeSuffix": " ({city} เวลา)",
+  "featuresScheduleNextLocal": "รันถัดไป (เวลาโทรศัพท์นี้)",
+  "featuresScheduleNext": "รันถัดไป",
+  "featuresMonthDayChoice": "{day} วันที่ {day}",
+  "featuresZonesCommon": "ทั่วไป",
+  "featuresZonesAll": "ทั้งหมด",
+  "featuresZoneSearchHint": "ค้นหาเมือง โซนเวลา หรือออฟเซ็ต UTC",
+  "featuresZonesNoMatch": "ไม่พบโซนเวลาที่ตรง",
+  "featuresZoneUTC": "เวลาสากลสอดคล้อง",
+  "featuresZoneShanghai": "เซี่ยงไฮ้",
+  "featuresZoneUrumqi": "อูรุมชี",
+  "featuresZoneHongKong": "ฮ่องกง",
+  "featuresZoneMacau": "มาคאו",
+  "featuresZoneTaipei": "ไทเป",
+  "featuresZoneTokyo": "โตเกียว",
+  "featuresZoneSeoul": "โซล",
+  "featuresZoneSingapore": "สิงคโปร์",
+  "featuresZoneKualaLumpur": "คัวลาลัมปอร์",
+  "featuresZoneBangkok": "กรุงเทพฯ",
+  "featuresZoneHoChiMinh": "โฮจิมิน",
+  "featuresZoneJakarta": "จาการ์ตา",
+  "featuresZoneManila": "มอนอิล่า",
+  "featuresZoneKolkata": "โกลกาตา",
+  "featuresZoneDubai": "ดูไบ",
+  "featuresZoneJerusalem": "เยรูซาเลม",
+  "featuresZoneLondon": "ลอนดอน",
+  "featuresZoneDublin": "ดับลิน",
+  "featuresZoneLisbon": "ลิสบอน",
+  "featuresZoneParis": "ปารีส",
+  "featuresZoneBerlin": "เบอร์ลิน",
+  "featuresZoneMadrid": "มาดริด",
+  "featuresZoneRome": "โรม",
+  "featuresZoneAmsterdam": "แอมสเตอร์ดัม",
+  "featuresZoneZurich": "ชูริค",
+  "featuresZoneStockholm": "สต็อกโฮล์ม",
+  "featuresZoneWarsaw": "วอร์ซอว์",
+  "featuresZoneAthens": "אתונה",
+  "featuresZoneIstanbul": "อิสตันบูล",
+  "featuresZoneMoscow": "มอสโก",
+  "featuresZoneCairo": "ไคโร",
+  "featuresZoneJohannesburg": "โฮฮันเนสเบิร์ก",
+  "featuresZoneLagos": "ลาเกาส",
+  "featuresZoneNewYork": "นิวยอร์ก",
+  "featuresZoneToronto": "ทอรอนโต",
+  "featuresZoneChicago": "ชิคาโก",
+  "featuresZoneDenver": "เดนเวอร์",
+  "featuresZonePhoenix": "ฟีนิกซ์",
+  "featuresZoneLosAngeles": "ลอสแองเจลิส",
+  "featuresZoneVancouver": "แวนคูเวอร์",
+  "featuresZoneAnchorage": "แองคอเรจ",
+  "featuresZoneMexicoCity": "เม็กซิโกซิตี",
+  "featuresZoneBogota": "โบโกตา",
+  "featuresZoneLima": "ลิมา",
+  "featuresZoneSantiago": "サンティアゴ",
+  "featuresZoneSaoPaulo": "เซาเปาโล",
+  "featuresZoneBuenosAires": "บรูนอสไอเรส",
+  "featuresZoneHonolulu": "โฮโนลูลู",
+  "featuresZoneAuckland": "ออคแลนด์",
+  "featuresZoneSydney": "ซิดนีย์",
+  "featuresZoneMelbourne": "เมลเบิร์น",
+  "featuresZoneBrisbane": "บริสเบน",
+  "featuresZonePerth": "เพิร์ธ",
+  "featuresScheduleCreated": "สร้างแล้ว",
+  "featuresSchedulesReadFailed": "โหลดอัตโนมัติไม่ได้",
+  "featuresSchedulesEmpty": "ยังไม่มีอัตโนมัติ",
+  "featuresSchedulesEmptyHint": "ส่งไปแชท แล้วรันอัตโนมัติตามเวลาที่กำหนด",
+  "featuresScheduleNewTask": "อัตโนมัติใหม่",
+  "featuresSchedulesNoMatch": "ไม่พบอัตโนมัติที่ตรง",
+  "featuresSchedulesNoActive": "ไม่มีอัตโนมัติใช้งาน",
+  "featuresSchedulesNoEnded": "ไม่มีอัตโนมัติที่จบ",
+  "featuresSchedules": "อัตโนมัติ",
+  "featuresSchedulesSubtitle": "ส่งไปแชทต้นฉบับตามเวลาที่กำหนด",
+  "featuresSchedulesSearch": "ค้นหาอัตโนมัติ",
+  "featuresSchedulesAllCount": "{{{count}}}",
+  "featuresScheduleUntitled": "อัตโนมัติไม่มีชื่อ",
+  "featuresScheduleSent": "ส่งไปแชทแล้ว",
+  "featuresView": "ดู",
+  "featuresSendFailed": "ส่งไม่ได้",
+  "featuresScheduleDeleteTitle": "ลบอัตโนมัตินี้?",
+  "featuresScheduleDeleteHint": "การรันในอนาคตจะหยุด และประวัติการรันจะถูกลบ แชทต้นฉบับยังคงอยู่",
+  "featuresScheduleDeleted": "ลบอัตโนมัติแล้ว",
+  "featuresScheduleActive": "ใช้งานอยู่",
+  "featuresScheduleRun": "เรียกใช้",
+  "featuresScheduleNextRun": "ถัดไป",
+  "featuresScheduleLastRun": "ล่าสุด",
+  "featuresScheduleRule": "กฎ",
+  "featuresScheduleLinkedChat": "เชื่อมโยงแชทแล้ว",
+  "featuresScheduleChatDeleted": "แชทถูกลบ",
+  "featuresScheduleEdit": "แก้ไขอัตโนมัติ",
+  "featuresScheduleRunNow": "เรียกใช้ตอนนี้",
+  "featuresScheduleHistory": "ประวัติการรัน",
+  "featuresScheduleNeverRun": "ยังไม่เคยรัน",
+  "featuresScheduleHistoryUnavailable": "ไม่มีประวัติ",
+  "featuresScheduleHistoryReadFailed": "โหลดประวัติการรันไม่ได้",
+  "featuresScheduleDelete": "ลบอัตโนมัติ",
+  "featuresExportSavedTo": "{path} บันทึกที่ {path}",
+  "featuresExportTitle": "ส่งออกบันทึกแชท",
+  "featuresExportSubtitle": "ZIP สำหรับฟีดแบ็กหรือสำรอง",
+  "featuresExportUnavailable": "ส่งออกไม่ได้ในการเชื่อมต่อนี้",
+  "featuresExportRemoteHint": "บันทึกไม่ได้ผ่าน DSH รีโมต ส่งออกจาก DSH Web บนคอมพิวเตอร์",
+  "featuresExportShareHint": "แนบไปฟีดแบ็ก หรือส่งให้ตัวเอง",
+  "featuresExportSaveDownloads": "บันทึกลงดาวน์โหลด",
+  "featuresExportDownloadsHint": "บันทึกที่ Downloads/DSH-Go",
+  "featuresExportContents": "ทุกรายการและไฟล์แนบจากแชทนี้และซับเอจเอนต์",
+  "featuresSkillUseHere": "ใช้ในแชทนี้",
+  "featuresSkillUseNew": "แชทใหม่",
+  "featuresSkillsCallHint": "พิมพ์ /skill-ชื่อ เพื่อใช้",
+  "featuresSkillsReadFailed": "โหลดสกิลไม่ได้",
+  "featuresSkillsEmpty": "ยังไม่มีสกิลในแชทนี้",
+  "featuresSkillsEmptyHint": "สกิลใน .dsh/skills จะอยู่ที่นี่",
+  "featuresSkillsSourceHint": "จากโฟลเดอร์โปรเจกต์และ ~/.dsh skills",
+  "featuresSkillUsage": "สำหรับ: {usage}",
+  "featuresSkillManual": "ด้วยตนเองอย่างเดียว",
+  "featuresArtifactsSemantic": "{{count} ไฟล์ มุมมองทั้งหมด}",
+  "featuresArtifactsTitle": "ไฟล์เอาต์พุต",
+  "featuresArtifactsAllCount": "{{{count}}}",
+  "featuresArtifactsCount": "{{count} ไฟล์}",
+  "featuresArtifactsNoFiles": "ยังไม่มีไฟล์",
+  "featuresArtifactsTotal": "{{count} ไฟล์ · ส่งมอบและสร้าง}",
+  "featuresArtifactsEmpty": "ยังไม่มีไฟล์เอาต์พุต",
+  "featuresArtifactsEmptyHint": "ไฟล์ที่ส่งมอบหรือสร้างโดย AI จะอยู่ที่นี่",
+  "featuresListSeparator": ", ",
+  "featuresErrorReason": "{title}: {reason}",
+  "featuresYearDate": "{date}, {year}",
+  "featuresDateWeekdayTime": "{week}, {date} {time}",
+  "featuresDateWeekday": "{day}, {date}",
+  "featuresOnceDescription": "{rule} · {date} {time}",
+  "featuresCronMonthSuffix": " ({months})",
+  "featuresRuleIntervalSeconds": "{{count} วินาที}",
+  "featuresRuleIntervalMinutes": "{{count} นาที}",
+  "featuresRuleIntervalHours": "{{count} ชั่วโมง}",
+  "featuresSchedulesActiveCount": "{{{count}}}",
+  "featuresSchedulesEndedCount": "{{{count}}}",
+  "featuresScheduleRetention": "{{{count} {days} วัน}, รายการ}",
+  "featuresScheduleRetentionUnknown": "{{{days} วัน}}, ลิมิตรายการไม่พร้อม",
+  "featuresArtifactsDeliveredTurn": "เทิร์น {turn} · ส่งมอบแล้ว",
+  "featuresArtifactsGeneratedTurn": "เทิร์น {turn} · สร้างแล้ว",
+  "featuresPresetCreateRequest": "{name} {id} {directory} สร้าง agent preset “{name}” ({id}): เขียนสองไฟล์นี้ในเวิร์กสเปซ แล้วใช้ plugin_manager install_bundle ติดตั้ง `{directory}` เฉพาะอย่างเดียว\n\n",
+  "featuresPresetUpdateRequest": "{name} {id} {directory} อัปเดต agent preset “{name}” ({id}): เขียนสองไฟล์นี้ในเวิร์กสเปซ ใช้ plugin_manager ลบ bundle `{replacing}` แล้ว install_bundle ติดตั้ง `{directory}` เฉพาะอย่างเดียว\n\n",
+  "featuresZoneThisPhone": "{city} · โทรศัพท์นี้",
+  "featuresPermissionResetHint": "ค่าเริ่มต้นแชทใหม่ไม่ถูกต้องแล้ว",
+  "featuresPermissionResetDefault": "กู้คืนค่าเริ่มต้น",
+  "@featuresPresetDefaultSet": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetDeleteTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresTodayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresTomorrowTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresYesterdayTime": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSummaryNext": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSummaryEnded": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobElapsed": {
+    "placeholders": {
+      "span": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobDuration": {
+    "placeholders": {
+      "span": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresHostUnreachable": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresHostConnecting": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobsEndedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresJobRecentLines": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresPresetCopyName": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronFieldCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronInvalidField": {
+    "placeholders": {
+      "index": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresWeekdayName": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronWeekdayRange": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronEveryDay": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDaysAndWeekdays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      },
+      "weekdays": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthDaysOrWeekdays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "months": {
+        "type": "String"
+      },
+      "weekdays": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHourRange": {
+    "placeholders": {
+      "last": {
+        "type": "String"
+      },
+      "first": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronEveryMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronHourlyMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHoursEveryMinute": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronHoursEveryMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronEveryHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresCronHoursMinutes": {
+    "placeholders": {
+      "hours": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleDaily": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekdays": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekends": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleWeekly": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleMonthly": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleSaveError": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleCreateError": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresMonthDaysLabel": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresZoneTimeSuffix": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresMonthDayChoice": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSchedulesAllCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresExportSavedTo": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSkillUsage": {
+    "placeholders": {
+      "usage": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsSemantic": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresArtifactsAllCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresArtifactsTotal": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresErrorReason": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresYearDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresDateWeekdayTime": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      },
+      "week": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresDateWeekday": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresOnceDescription": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "rule": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresCronMonthSuffix": {
+    "placeholders": {
+      "months": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresRuleIntervalSeconds": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresRuleIntervalMinutes": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresRuleIntervalHours": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresSchedulesActiveCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresSchedulesEndedCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresScheduleRetention": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@featuresScheduleRetentionUnknown": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsDeliveredTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresArtifactsGeneratedTurn": {
+    "placeholders": {
+      "turn": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetCreateRequest": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "directory": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresPresetUpdateRequest": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      },
+      "directory": {
+        "type": "String"
+      },
+      "replacing": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@featuresZoneThisPhone": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  }
+}

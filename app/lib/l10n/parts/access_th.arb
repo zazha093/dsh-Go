@@ -1,0 +1,137 @@
+{
+  "@@locale": "th",
+  "accessPickTitle": "DSH Go จะช่วยอะไร?",
+  "accessPickMessage": "เลือกได้หมด แล้วค่อยเปิดทีละตัว",
+  "accessPickConfirm": "เปิดที่เลือกแล้ว",
+  "accessSkip": "ข้าม",
+  "accessFeatureFiles": "อ่านเขียนไฟล์ในโทรศัพท์",
+  "accessFeatureFilesNeeds": "ต้องการสิทธิ์เข้าถึงไฟล์",
+  "accessFeaturePet": "สัตว์เลี้ยงทับแอปอื่น",
+  "accessFeaturePetNeeds": "ต้องการแสดงทับแอปอื่น",
+  "accessFeaturePhone": "ควบคุมโทรศัพท์",
+  "accessFeaturePhoneNeeds": "ต้องการการเข้าถึงและแจ้งเตือน",
+  "accessFeatureBackground": "ทำงานต่อในพื้นหลัง",
+  "accessFeatureBackgroundNeeds": "แจ้งตอนงานเสร็จ ต้องการแจ้งเตือนและเข้าถึงพื้นหลัง",
+  "accessFeatureVoice": "ป้อนเสียง",
+  "accessFeatureVoiceNeeds": "ต้องการไมโครโฟน",
+  "accessVoiceModel": "ทำงานออฟไลน์ ดาวน์โหลดโมเดลเสียงประมาณ {size} MB",
+  "@accessVoiceModel": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "accessVoiceMetered": "ใช้เน็ตมือถืออยู่ ดาวน์โหลดจะกินเน็ตนี้",
+  "accessFilesRiskBody": "AI อ่านแก้รูปภาพ ไฟล์ดาวน์โหลด เอกสารของคุณได้",
+  "accessStepCount": "{index} / {total}",
+  "@accessStepCount": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "accessTurnOn": "เปิดใช้",
+  "accessOpenSettings": "เปิดตั้งค่า",
+  "accessItsSet": "ตั้งค่าแล้ว",
+  "accessOpenAgain": "เปิดอีกครั้ง",
+  "accessIsOn": "เปิดอยู่",
+  "accessNotOnYet": "ยังไม่ได้เปิด",
+  "accessDidYouSet": "คุณเปิดที่นั่นแล้วหรือยัง?",
+  "accessWhere": "ที่: {path}",
+  "@accessWhere": {
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "accessOpenFailed": "เปิดตั้งค่าระบบไม่ได้",
+  "accessMicTitle": "อนุญาตไมโครโฟน",
+  "accessMicWhy": "สำหรับป้อนเสียง",
+  "accessStorageTitle": "อนุญาตเข้าถึงไฟล์",
+  "accessStorageWhy": "ให้ AI อ่านเขียนรูปภาพ ไฟล์ดาวน์โหลด เอกสารได้",
+  "accessNotifyTitle": "อนุญาตแจ้งเตือน",
+  "accessNotifyWhy": "แจ้งตอนงานเสร็จหรือต้องการคุณ",
+  "accessBatteryTitle": "อนุญาตทำงานพื้นหลัง",
+  "accessBatteryWhy": "งานทำต่อไปตอนสลับแอป",
+  "accessVendorBackgroundWhy": "กันระบบตัดงานพื้นหลัง",
+  "accessAutostartTitle": "อนุญาตเริ่มอัตโนมัติ",
+  "accessAutostartWhy": "ให้ DSH Go กลับมาทำงานหลังระบบล้างหน่วยความจำ",
+  "accessVivoAutostartPath": "จัดการสิทธิ์ › เริ่มอัตโนมัติ › {app}",
+  "@accessVivoAutostartPath": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "accessXiaomiAutostartPath": "จัดการแอป › {app} › เริ่มอัตโนมัติ",
+  "@accessXiaomiAutostartPath": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "accessA11yTitle": "เปิดการเข้าถึง",
+  "accessA11yWhy": "ควบคุมโทรศัพท์อ่านหน้าจอ แตะผ่านมัน",
+  "accessPopupTitle": "อนุญาตป็อปอัปพื้นหลัง",
+  "accessPopupWhy": "นำกลับไป DSH Go ตอนควบคุมโทรศัพท์เสร็จ",
+  "accessVivoPopupPath": "จัดการสิทธิ์ › {app} › แสดงป็อปอัปทับแอปอื่นในพื้นหลัง",
+  "@accessVivoPopupPath": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "accessXiaomiPopupPath": "จัดการแอป › {app} › สิทธิ์อื่น › แสดงป็อปอัปขณะทำงานพื้นหลัง",
+  "@accessXiaomiPopupPath": {
+    "placeholders": {
+      "app": {
+        "type": "String"
+      }
+    }
+  },
+  "accessOverlayTitle": "อนุญาตแสดงทับแอปอื่น",
+  "accessOverlayWhy": "ให้สัตว์เลี้ยงแสดงทับแอปอื่นได้",
+  "accessOverlayGreyed": "สวิตช์กดไม่ได้?",
+  "accessRestrictedTitle": "อนุญาตตั้งค่าจำกัดก่อน",
+  "accessRestrictedTap": "ในการเข้าถึง กด \"DSH Phone Control\" พอ \"Restricted setting\" ปรากฏ กด ตกลง",
+  "accessRestrictedMenu": "ในข้อมูลแอป แตะสามจุดมุมขวาบน เลือก \"อนุญาต restricted setting\"",
+  "accessRestrictedAdvanced": "ในข้อมูลแอป เปิด \"Advanced settings\" แล้วเปิด \"อนุญาต restricted setting\"",
+  "accessRestrictedBack": "กลับไป การเข้าถึง เปิด \"DSH Phone Control\"",
+  "accessRestrictedHelp": "ดูวิธีทำ",
+  "accessOpenA11y": "เปิดการเข้าถึง",
+  "accessOpenAppInfo": "เปิดข้อมูลแอป",
+  "accessStateOn": "เปิด",
+  "accessStateOff": "ปิด",
+  "accessStateVisited": "เข้าแล้ว",
+  "accessStateUnknown": "ตั้งค่า",
+  "accessSummaryAllSet": "ทั้งหมดพร้อมแล้ว",
+  "accessSummaryLeft": "{count, plural, =1{ยังปิด 1 อย่าง} other{ยังปิด {count} อย่าง}}",
+  "@accessSummaryLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "accessSummaryMessage": "เปิดส่วนที่เหลือได้ตลอดใน การตั้งค่า › ทั่วไป › สิทธิ์ระบบ",
+  "accessFinishFailed": "จบการตั้งค่าไม่ได้",
+  "accessVoiceDownload": "โมเดลเสียง (ประมาณ {size} MB) เริ่มดาวน์โหลดตอนเอนจินพร้อม ติดตามได้ใน การตั้งค่า › ทั่วไป › การป้อนเสียง",
+  "@accessVoiceDownload": {
+    "placeholders": {
+      "size": {
+        "type": "int"
+      }
+    }
+  },
+  "accessPageTitle": "สิทธิ์ระบบ",
+  "accessPageSubtitle": "แต่ละฟีเจอร์ต้องการสิทธิ์อะไรจาก Android"
+}

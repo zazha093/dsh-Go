@@ -1,0 +1,50 @@
+{
+  "webTitle": "DSH เว็บ",
+  "webSshAppOnly": "อุโมงค์ SSH เฉพาะในแอป",
+  "webRelayUnavailable": "DSH Web ไม่พร้อมผ่าน DSH รีโมต เปิดบนคอมพิวเตอร์นั้น",
+  "webSshHost": "SSH โฮสต์",
+  "webLocalAppOnly": "ลิงก์โทรศัพท์นี้มีโทเคนเปิด และเปิดในแอปเท่านั้น",
+  "webEngineStatus": "Engine status",
+  "webEngineStarting": "Starting engine",
+  "webEngineStartFailed": "เริ่มเอนจินไม่ได้",
+  "webEngineNotRunning": "เอนจินไม่ได้ทำงาน",
+  "webEngineProblem": "เอนจินพบปัญหา",
+  "webStartingSoon": "DSH Web จะพร้อมในไม่ช้า",
+  "webStartToOpen": "เริ่มเอนจินโทรศัพท์นี้เพื่อเปิด DSH Web",
+  "webRestart": "รีสตาร์ท",
+  "webStartEngine": "เริ่ม engine",
+  "webSwitchToWeb": "สวิตช์ ไป Web",
+  "webNativeFeatures": "Native ฟีเจอร์",
+  "webSwitchToNative": "สวิตช์ ไป native",
+  "webAppSettings": "App ตั้งค่า",
+  "webSwitchHost": "สวิตช์ โฮสต์",
+  "webAttachmentTooLarge": "Attachment คือ เกินไป large สำหรับ DSH Web",
+  "webTextCopied": "เท็กซ์ copied. วาง it เข้า  input box.",
+  "webAttachmentFailed": "เพิ่มไฟล์แนบไป DSH Web ไม่ได้",
+  "webHostUnavailable": "DSH Web ไม่พร้อมบนโฮสต์นี้",
+  "webChatGone": "This Chat คือ gone",
+  "webPageClosed": "เพจ closed",
+  "webChatsWorkspaces": "แชทและเวิร์กสเปซ",
+  "webRefresh": "รีเฟรช",
+  "webOpenInBrowser": "เปิด ใน browser",
+  "webBrowserUnavailable": "เปิดในเบราว์เซอร์ไม่ได้",
+  "webReopen": "Reopen",
+  "webPageNotOpened": "เปิดเพจไม่ได้",
+  "webCheckConnection": "ตรวจสอบ your เครือข่าย ออร์ engine status แอนด์ ลอง อีกครั้ง",
+  "webTargetSessionMissing": "หาแชทนี้ใน DSH Web ไม่ได้ คุณอยู่ที่หน้าหลัก",
+  "webTargetNotLoaded": "DSH Web ยังโหลดไม่เสร็จ",
+  "webTargetSettingsMissing": "หาตั้งค่านี้ไม่ได้ คุณอาจต้องเข้าสู่ระบบหรือเปิดปลั๊กอิน",
+  "webTargetPluginMissing": "หาปลั๊กอินนี้ไม่ได้ อาจหายจากโปรไฟล์นี้",
+  "webTargetSidebarFailed": "เปิดไซด์บาร์ไม่ได้ เปิดแชทนี้ใน DSH Web แล้วลองใหม่",
+  "webTargetCordisMissing": "หาแผง Cordis ไม่ได้ ปลั๊กอินอาจถูกลบ",
+  "webTargetNewChatFailed": "เริ่มแชทใหม่ไม่ได้ คุณอยู่ที่หน้าหลัก DSH Web",
+  "webTargetPageFailed": "เปิดเพจนี้ไม่ได้ คุณอยู่ที่หน้าหลัก DSH Web",
+  "webConnectHostFirst": "เชื่อมต่อกับโฮสต์ {name} ก่อน",
+  "@webConnectHostFirst": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

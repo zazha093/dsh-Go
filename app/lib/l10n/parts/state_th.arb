@@ -1,0 +1,787 @@
+{
+  "stateDiagnosticsSubject": "ชุดวินิจฉัย DSH Go",
+  "stateStoragePermission": "ไม่มีสิทธิ์จัดเก็บ ไปที่ Downloads",
+  "stateDiagnosticsStorageFull": "ที่เก็บข้อมูลไม่พอสำหรับสร้างรายงานวินิจฉัย",
+  "stateDiagnosticsExportFailed": "ส่งออกชุดวินิจฉัยไม่ได้",
+  "stateForumUnreachable": "เข้าถึงฟอรัมไม่ได้",
+  "stateSignInExpired": "การเข้าสู่ระบบหมดอายุ โปรดเข้าสู่ระบบอีกครั้ง",
+  "stateForbidden": "ถูกปฏิเสธสิทธิ์",
+  "stateForumContentMissing": "ไม่พบเนื้อหาหรือถูกลบ",
+  "stateTooManyActions": "การกระทำมากเกินไป ลองอีกครั้งภายหลัง",
+  "stateForumSendFailed": "ส่งไม่ได้",
+  "stateForumServerError": "ฟอรัมมีปัญหา",
+  "stateBrowserOpenFailed": "เปิดเบราว์เซอร์ไม่ได้",
+  "stateSignInStartFailed": "เริ่มการเข้าสู่ระบบไม่ได้",
+  "stateSignInIncompleteRetry": "การเข้าสู่ระบบไม่สมบูรณ์ ลองอีกครั้ง",
+  "statePluginLabel": "ปลั๊กอิน",
+  "stateConfigLabel": "การตั้งค่า",
+  "stateConfigShare": "แชร์แล้ว configuration",
+  "stateShareCode": "แชร์ code",
+  "stateCopyShareCodeFirst": "คัดลอกโค้ดแชร์จากแชร์ก่อน",
+  "stateFileOpenFailed": "เปิดไฟล์นี้ไม่ได้",
+  "stateLinkOpenFailed": "เปิดลิงก์นี้ไม่ได้",
+  "stateAlertPublicDone": "เทิร์นเสร็จ",
+  "stateAlertPublicFailed": "เทิร์นล้มเหลว",
+  "stateAlertPublicStopped": "เทิร์นหยุด",
+  "stateAlertPublicApproval": "ขั้นตอนต้องการอนุมัติ",
+  "stateAlertPublicQuestion": "คำถามต้องการคำตอบจากคุณ",
+  "stateAlertTurnDone": "เทิร์นนี้เสร็จสิ้น",
+  "stateAlertOutputLimit": "สิ้นสุด · ถึงขีดจำกัดเอาต์พุต",
+  "stateAlertTurnBlocked": "เทิร์นนี้ถูกบล็อก",
+  "stateAlertEngineRestarted": "ขัดจังหวะ · เอนจินรีสตาร์ท",
+  "stateAlertMissingKey": "ข้อผิดพลาด · ไม่มีคีย์ API",
+  "stateAlertTurnFailed": "เทิร์นนี้ล้มเหลว",
+  "stateRunCommand": "เรียกใช้คำสั่ง",
+  "stateWriteFile": "เขียนไฟล์",
+  "stateEditFile": "แก้ไขไฟล์",
+  "stateOpenPage": "เปิดเว็บเพจ",
+  "stateWebSearch": "ค้นหาเว็บ",
+  "stateAlertQuestion": "คำถามสำหรับคุณ",
+  "stateSizeSmall": "เล็ก",
+  "stateSizeStandard": "มาตรฐาน",
+  "stateSizeLarge": "ใหญ่",
+  "statePetDone": "เสร็จ",
+  "statePetFailed": "มีบางอย่างผิดพลาด",
+  "statePhoneNotReady": "ควบคุมโทรศัพท์ยังไม่พร้อม",
+  "stateBackgroundRestricted": "การเข้าถึงเครือข่ายพื้นหลังถูกจำกัด",
+  "stateBackgroundFinish": "ให้แชทจบในพื้นหลัง",
+  "stateDeepSeekAccount": "บัญชี DeepSeek",
+  "stateAccountUnreachable": "เข้าถึง DeepSeek ไม่ได้",
+  "stateAccountUnavailable": "การเข้าสู่ระบบ DeepSeek ไม่พร้อมใช้งาน",
+  "stateSignInIncomplete": "การเข้าสู่ระบบไม่สมบูรณ์",
+  "stateSignInTimeout": "การเข้าสู่ระบบหมดเวลา",
+  "stateSignInSaveFailed": "บันทึกรายละเอียดการเข้าสู่ระบบไม่ได้",
+  "stateEngineNotReady": "เอนจินยังไม่พร้อม",
+  "stateSignInInterrupted": "การเข้าสู่ระบบถูกขัดจังหวะ",
+  "stateAccountUnsupported": "เอนจินนี้ไม่รองรับการเข้าสู่ระบบบัญชี",
+  "stateCheckPhoneNetwork": "ตรวจสอบเครือข่ายโทรศัพท์ของคุณและลองอีกครั้ง",
+  "stateServiceUnavailableRetry": "บริการไม่พร้อมใช้งาน ลองอีกครั้งภายหลัง",
+  "stateAuthorizationFailed": "การอนุมัติล้มเหลว โปรดเข้าสู่ระบบอีกครั้ง",
+  "stateAuthorizationExpired": "การอนุมัติหมดอายุ โปรดเข้าสู่ระบบอีกครั้ง",
+  "stateRestartEngineRetry": "รีสตาร์ทจากเอนจิน แล้วลองอีกครั้ง",
+  "stateEngineStartingRetry": "เอนจินกำลังเริ่มต้น ลองอีกครั้งภายหลัง",
+  "stateEngineDisconnectedSignIn": "เอนจินตัดการเชื่อมต่อ โปรดเข้าสู่ระบบอีกครั้ง",
+  "stateUpdateRuntimeOrKey": "อัปเดตรันไทม์หรือใช้คีย์ API",
+  "stateEngineDisconnected": "Engine ตัดการเชื่อมต่อ",
+  "stateAgentError": "ข้อผิดพลาด",
+  "stateNotRunning": "ไม่ได้ทำงาน",
+  "stateAgentOneShot": "ทำครั้งเดียว",
+  "stateAgentContinuable": "ต่อเนื่องได้",
+  "stateAgentExternal": "งานภายนอก",
+  "stateSubagent": "ซับเอจิ้นต์",
+  "stateParentChat": "แชทแม่",
+  "statePreparing": "กำลังเตรียม",
+  "stateIconMist": "น้ำเงินหมอก",
+  "stateIconNight": "พลบค่ำ",
+  "stateIconFrost": "ขาวควัน้ำแข็ง",
+  "stateIconInk": "หมึก",
+  "stateAppDisclaimer": "สร้างบน DeepSeek Harness · แอป DeepSeek ไม่เป็นทางการ",
+  "stateWallpaper": "วอลล์เปเปอร์",
+  "stateFileMissing": "ไม่พบไฟล์ อาจถูกลบหรือย้าย",
+  "stateFileNoApp": "ไม่มีแอปบนโทรศัพท์นี้ที่เปิดประเภทไฟล์นี้ได้",
+  "stateFileConnectionLimit": "ไฟล์ใหญ่เกินไปสำหรับการเชื่อมต่อนี้",
+  "stateFileReadUnsupported": "การเชื่อมต่อนี้อ่านไฟล์ไม่ได้",
+  "stateArtifactImage": "รูปภาพ",
+  "stateArtifactDocument": "เอกสาร",
+  "stateArtifactSheet": "สเปรดชีต",
+  "stateArtifactSlides": "งานนำเสนอ",
+  "stateArtifactArchive": "เก็บถาวร",
+  "stateArtifactAudio": "ออดิโอ",
+  "stateArtifactVideo": "วิดีโอ",
+  "stateArtifactWeb": "เว็บเพจ",
+  "stateArtifactText": "เท็กซ์",
+  "stateArtifactFile": "ไฟล์",
+  "statePrivateKeyTooLarge": "ไฟล์ใหญ่เกินไปสำหรับคีย์ส่วนตัว",
+  "stateBotTeamBusy": "DSH อื่นกำลังใช้ทีมนี้",
+  "stateBotOperationFailed": "ดำเนินการไม่เสร็จ ลองอีกครั้ง",
+  "stateBotMissing": "โฮสต์นี้ไม่มี DS Bot",
+  "stateHostAuthFailed": "การตรวจสอบสิทธิ์โฮสต์ล้มเหลว",
+  "stateUnexpectedError": "มีบางอย่างผิดพลาด",
+  "stateGroupChat": "แชทกลุ่ม",
+  "stateBotNewMessage": "ข้อความบอทใหม่",
+  "stateChatAgentBusy": "AI ยุ่ง ลองอีกครั้งภายหลัง",
+  "stateChatWriterHeld": "แชทนี้ใช้งานที่อื่นอยู่",
+  "stateChatModelUnavailable": "โมเดลนี้ไม่พร้อมใช้งาน",
+  "stateChatAttachmentInvalid": "ส่งไฟล์แนบนี้ไม่ได้",
+  "stateChatForkUnavailable": "แยกสาขาที่นี่ไม่ได้",
+  "stateChatImagesTooLarge": "รูปภาพใหญ่เกินไป ส่งน้อยลงในครั้งเดียว",
+  "stateChatSyncInterrupted": "ซิงค์แชทถูกขัดจังหวะ",
+  "stateChatSynchronizing": "กำลังซิงค์แชท",
+  "stateChatSyncRetry": "ซิงค์อีกครั้ง",
+  "stateChatSyncRequired": "แชทยังไม่ได้ซิงค์ ซิงค์อีกครั้งและลองใหม่",
+  "stateChatAutoApproveFailed": "อนุญาตอัตโนมัติไม่ได้",
+  "stateCommandMissing": "ไม่พบคำสั่ง",
+  "stateCommandFailed": "คำสั่งไม่ได้รัน",
+  "stateChatStopSteered": "หยุดเทิร์นนี้ไม่ได้ ส่งเป็นการควบคุมแทน",
+  "stateChatTextOnlyModel": "ส่งเป็นไฟล์: โมเดลนี้ไม่ระบุอินพุตรูปภาพ",
+  "stateAttachmentUploadFailed": "Couldn’t อัปโหลド attachment",
+  "stateChatImageModelRequired": "โมเดลนี้ไม่รับรูปภาพ สลับโมเดลหรือเปิดอินพุตรูปภาพ",
+  "stateSendFailed": "ส่งไม่ได้",
+  "stateChatStopFailed": "หยุดไม่ได้ ลองอีกครั้ง",
+  "stateChatTurnEnded": "เทิร์นนี้จบแล้ว ข้อความของคุณจะเริ่มเทิร์นใหม่",
+  "stateChatSteerFailed": "ควบคุมไม่ได้",
+  "stateChatUndoTooLate": "สายเกินไป AI อ่านข้อความนี้แล้ว",
+  "stateChatUndoFailed": "ย้อนกลับไม่ได้",
+  "stateChatApprovalFailed": "ส่งอนุมัติไม่ได้",
+  "stateChatAnswerFailed": "ส่งคำตอบไม่ได้",
+  "stateChatModelSwitchFailed": "สลับโมเดลไม่ได้",
+  "stateChatHistoryFailed": "โหลดประวัติไม่ได้",
+  "stateChatBranchLastReply": "สาขาจากการตอบล่าสุดของเทิร์นที่เสร็จ",
+  "stateChatBranchFailed": "แยกสาขาไม่ได้",
+  "stateChatEarlierHistoryFailed": "โหลดประวัติก่อนหน้าไม่ได้",
+  "stateChatNoEarlierHistory": "ไม่มีประวัติ ก่อนข้อความนี้ เริ่มแชทใหม่",
+  "stateCommandNewDescription": "เริ่มแชทใหม่",
+  "stateModelLabel": "โมเดล",
+  "stateCommandModelDescription": "เปลี่ยนโมเดลและความลึกของการคิด",
+  "stateCommandExportLabel": "ส่งออกบันทึก",
+  "stateCommandExportDescription": "ส่งออกประวัติเต็มของแชทนี้เป็น ZIP ไปแชร์หรือบันทึกลง Downloads",
+  "stateAllFeatures": "ฟีเจอร์ทั้งหมด",
+  "stateCommandFeaturesDescription": "เข้าถึงฟีเจอร์ทั้งหมดใน DSH Web",
+  "stateCompactLabel": "กระชับ",
+  "stateCommandCompactDescription": "บีบอัดแชทด้านบนเพื่อปลดคอนเท็กซ์",
+  "statePermissionLabel": "สิทธิ์",
+  "stateCommandPermissionDescription": "สลับพรีเซ็ตสิทธิ์ (โหมดแซนด์บอกซ์ + นโยบายอนุมัติ)",
+  "stateCommandPermissionHint": "<preset ชื่อ>",
+  "statePlanLabel": "แผน",
+  "stateCommandPlanDescription": "ใส่หรือเว้นแผนโหมด",
+  "stateGoalLabel": "เป้าหมาย",
+  "stateCommandGoalDescription": "ตั้งค่าหรือดูเป้าหมายสำหรับงานที่ใช้เวลานาน",
+  "stateFeedbackLabel": "ความคิดเห็น",
+  "stateCommandFeedbackDescription": "ส่งความคิดเห็นในแชทนี้",
+  "stateCommandFeedbackHint": "<ข้อความ>",
+  "stateShareFileTooLarge": "ไฟล์ใหญ่เกินไปจึงไม่ได้เพิ่ม",
+  "stateShareFileUnreadable": "อ่านไฟล์ไม่ได้",
+  "stateShareImagesOnly": "โฮสต์นี้ส่งรูปภาพได้อย่างเดียว",
+  "stateComposerInserted": "เพิ่มในคอมโพเซอร์แล้ว",
+  "stateCordisPending": "รอดำเนินการ",
+  "stateCordisStarting": "กำลังเริ่ม",
+  "stateCordisRunFailed": "รันล้มเหลว",
+  "stateCordisNoApproval": "ไม่ได้รับอนุญาตสิทธิ์การเรียกใช้",
+  "stateCordisBackendFailed": "เริ่มคอมโพเนนท์พื้นหลังไม่ได้",
+  "stateCordisClientLoadFailed": "โหลดอินเตอร์เฟซไม่ได้",
+  "stateCordisRenderFailed": "แสดงอินเตอร์เฟซไม่ได้",
+  "stateCordisFailed": "เรียกใช้ไม่ได้",
+  "stateDrawerAll": "ทั้งหมด",
+  "stateDrawerUnread": "ยังไม่ได้อ่าน",
+  "stateDrawerToday": "วันนี้",
+  "stateDrawerThisWeek": "สัปดาห์นี้",
+  "stateDrawerEarlier": "ก่อนหน้า",
+  "stateEngineAuthFailed": "การตรวจสอบสิทธิ์เอนจินล้มเหลว",
+  "stateChatMissing": "แชทนี้หายไป",
+  "stateEngineUnsupported": "ไม่รองรับโดยเอนจินเวอร์ชันนี้",
+  "stateEngineServiceUnavailable": "บริการเอนจินที่จำเป็นไม่พร้อม เช็คล็อกเอนจินหรือส่งออกข้อมูลวินิจฉัย",
+  "stateEngineOperationUnavailable": "เอนจินไม่สามารถเรียกใช้งานนี้ได้ตอนนี้ เช็คล็อกเอนจิน",
+  "stateSettingsRefreshed": "เปลี่ยนที่อื่น รีเฟรชแล้ว",
+  "stateCredentialFromEnvironment": "คีย์นี้มาจากสภาพแวดล้อมเอนจิน ไม่สามารถเปลี่ยนที่นี่ได้",
+  "stateSettingsFromFile": "ตั้งค่าโดยไฟล์ CONFIG",
+  "stateSettingsInteger": "ใส่จำนวนเต็ม",
+  "stateSettingsInvalidFormat": "รูปแบบไม่ถูกต้อง",
+  "stateSettingsReadOnly": "การตั้งค่าเอนจินเป็นแบบอ่านอย่างเดียว",
+  "statePluginDisabled": "ปลั๊กอินปิดใช้งาน",
+  "stateSettingsRestartRequired": "รีสตาร์ทเอนจินเพื่อเปลี่ยนค่านี้",
+  "stateSettingsInvalidValue": "ค่าไม่ถูกต้อง",
+  "stateSettingsRejected": "เอนจินไม่ยอมรับค่านี้",
+  "stateInventoryEnabled": "เปิดใช้งานแล้ว",
+  "stateInventoryDisabled": "ปิดใช้งานแล้ว",
+  "stateLoading": "กำลังโหลด",
+  "stateInventoryWaiting": "กำลังรอการอ้างอิง",
+  "stateInventoryConditional": "มีเงื่อนไข",
+  "stateBundleBuiltIn": "สร้างใน DSH",
+  "stateBundleHeadless": "เฮดเลส",
+  "stateConfigFile": "ไฟล์การตั้งค่า",
+  "stateGoalEmpty": "เป้าหมายไม่สามารถว่างได้",
+  "stateGoalPauseFailed": "หยุดชั่วคราวไม่ได้",
+  "stateGoalResumeFailed": "ดำเนินต่อไม่ได้",
+  "stateGoalClearOffline": "ล้างไม่ได้: เข้าถึงเอนจินไม่ได้",
+  "stateGoalClearFailed": "ล้างไม่ได้",
+  "stateGoalStale": "เป้าหมายเปลี่ยนไป ลองอีกครั้ง",
+  "stateGoalMissing": "เป้าหมายหายไป",
+  "stateGoalChatNotReady": "แชทยังไม่พร้อม ลองอีกครั้งภายหลัง",
+  "stateGoalTurnsExhausted": "ไม่เหลือเทิร์น",
+  "stateGoalStateChanged": "สถานะเป้าหมายเปลี่ยน",
+  "stateSshHost": "SSH โฮสต์",
+  "stateHostBrowserFailed": "เปิดเบราว์เซอร์ไม่ได้ คัดลอกลิงก์เข้าสู่ระบบและเปิดในเบราว์เซอร์",
+  "stateSignInFailed": "เข้าสู่ระบบไม่ได้",
+  "stateMarketTooLarge": "แคตตาล็อกปลั๊กอินใหญ่เกินไป ดาวน์โหลดหยุด",
+  "stateMarketUnreachable": "เข้าถึงแคตตาล็อกปลั๊กอินไม่ได้",
+  "stateMarketInsecure": "เชื่อมต่อปลั๊กอินแคตตาล็อกไม่ปลอดภัย",
+  "stateMarketTimeout": "แคตตาล็อกปลั๊กอินหมดเวลา",
+  "stateMarketInterrupted": "ดาวน์โหลดแคตตาล็อกปลั๊กอินถูกขัดจังหวะ",
+  "stateRegistryDefault": "ค่าเริ่มต้น registry",
+  "stateRegistryNpm": "ทางการ npm registry",
+  "stateRegistryMirror": "npmmirror mirror",
+  "statePluginIncompatible": "ปลั๊กอินนี้ไม่รองรับ DSH เวอร์ชันปัจจุบัน",
+  "statePluginInstallCancelled": "การติดตั้งยกเลิกแล้ว",
+  "statePluginNoChanges": "ไม่มีการเปลี่ยนแปลง",
+  "statePluginIncompatibleTitle": "ไม่เข้ากับ DSH นี้",
+  "statePluginNetworkFailed": "เชื่อมต่อไม่ได้",
+  "statePluginSourceUnreachable": "เข้าถึงเว็บไซต์แหล่งปลั๊กอินไม่ได้",
+  "statePluginDownloadTimeout": "ดาวน์โหลดหมดเวลา",
+  "statePluginRegistryUnavailable": "รีจิสทรีไม่ตอบสนอง",
+  "statePluginPnpmMissing": "ขาด pnpm",
+  "statePluginPhonePnpmMissing": "ขาด pnpm บนโทรศัพท์นี้",
+  "statePluginHostPnpmMissing": "ขาด pnpm บนโฮสต์นี้",
+  "statePluginNotFound": "ไม่พบปลั๊กอิน",
+  "statePluginPackageMissing": "ไม่พบแพ็กเกจในรีจิสทรี",
+  "statePluginTooNew": "เวอร์ชันใหม่เกินไป",
+  "statePluginWaitForRelease": "พร้อมติดตั้ง 24 ชั่วโมงหลังปล่อย",
+  "statePluginVersionMissing": "ไม่พบเวอร์ชัน",
+  "statePluginRegistryVersionMissing": "เวอร์ชันนี้ยังไม่ได้อยู่ในรีจิสทรี",
+  "stateDeviceStorageFull": "พื้นที่จัดเก็บอุปกรณ์ไม่พอ",
+  "statePluginNoWritePermission": "ไม่มีสิทธิ์เขียน",
+  "statePluginConfigReadOnly": "ไดเรกทอรี CONFIG เอนจินเขียนไม่ได้",
+  "statePluginIntegrityFailed": "การตรวจสอบไฟล์ล้มเหลว",
+  "statePluginDownloadIncomplete": "ดาวน์โหลดแล้วแต่ไฟล์ไม่สมบูรณ์",
+  "statePluginBuildScripts": "ต้องมีสคริปต์บิลด์",
+  "statePluginBuildApproval": "สคริปต์บิลด์ต้องการอนุมัติ",
+  "statePluginAlreadyInstalled": "ติดตั้งแล้ว",
+  "statePluginUninstallFirst": "ถอนการติดตั้งก่อนสลับเวอร์ชัน",
+  "statePluginInvalid": "ไม่ใช่ปลั๊กอิน DSH",
+  "statePluginNoEntry": "แพ็กเกจนี้ไม่มีรายการปลั๊กอิน การติดตั้งย้อนกลับ",
+  "statePluginInUse": "ปลั๊กอินใช้งานอยู่",
+  "statePluginHasDependents": "ปลั๊กอินอื่นอ้างอิงมัน",
+  "statePluginManagedElsewhere": "ไม่สามารถเปลี่ยนที่นี่ได้",
+  "statePluginEngineManaged": "ปลั๊กอินนี้จัดการโดยเอนจิน",
+  "statePluginAuthorizationExpired": "การอนุมัติหมดอายุ",
+  "statePluginBuildChanged": "สคริปต์บิลด์เปลี่ยน ติดตั้งปลั๊กอินใหม่",
+  "statePluginInvalidAddress": "URL ติดตั้งไม่ถูกต้อง",
+  "statePluginCatalogInvalidAddress": "URL ติดตั้งแคตตาล็อกไม่ถูกต้อง",
+  "statePluginOperationIncomplete": "การดำเนินการไม่เสร็จ",
+  "statePluginRemoteForbidden": "โฮสต์นี้ไม่อนุญาตติดตั้งรีโมต",
+  "statePluginRelayToggleOnly": "การเชื่อมต่อ Relay สลับปลั๊กอินเปิด/ปิดได้อย่างเดียว",
+  "statePluginManagementUnsupported": "โฮสต์ไม่รองรับการจัดการปลั๊กอิน",
+  "statePluginEngineUnsupported": "เอนจินนี้ไม่รองรับการจัดการปลั๊กอิน",
+  "statePluginResultMissing": "ไม่ได้ผลการติดตั้ง",
+  "statePluginResultPending": "ผลการติดตั้งรอดำเนินการ",
+  "statePluginDisconnected": "ตัดการเชื่อมต่อ",
+  "statePluginQueued": "อยู่ในคิว",
+  "statePluginRemoving": "ถอนติดตั้งเวอร์ชันเก่า",
+  "statePluginInstalling": "กำลังดาวน์โหลดและติดตั้ง",
+  "statePluginApplying": "กำลังเปิดใช้งาน",
+  "statePluginCancelling": "กำลังยกเลิก",
+  "statePluginInstalledRestart": "ติดตั้งแล้ว รีสตาร์ทเพื่อใช้งาน",
+  "statePluginInstallFailed": "ติดตั้งไม่ได้",
+  "statePluginConnectFirst": "เชื่อมต่อก่อนติดตั้งปลั๊กอิน",
+  "stateProviderOpenAi": "เข้ากันได้กับ OpenAI",
+  "stateProviderAnthropic": "เข้ากันได้กับ Anthropic",
+  "stateProviderUrlRequired": "ใส่ BASE URL",
+  "stateProviderUrlInvalid": "ใส่ URL เต็มเริ่มต้นด้วย http:// หรือ https://",
+  "stateProviderUrlSuffix": "นำส่วนหลัง ? หรือ # ออก",
+  "stateProviderKeyRequired": "ใส่คีย์ API",
+  "stateProviderKeyOnly": "วางคีย์อย่างเดียว ไม่มีตัวแปรชื่อ",
+  "stateProviderKeyQuotes": "นำเครื่องหมายคำพูดรอบนอกออก",
+  "stateProviderKeyInvalid": "คีย์มีอักขระไม่ถูกต้อง",
+  "stateProviderModelRequired": "ใส่ไอดีโมเดล",
+  "stateProviderModelSpaces": "ไอดีโมเดลต้องไม่มีช่องว่าง",
+  "stateProviderAlreadyAdded": "เพิ่มแล้ว",
+  "stateProviderConflict": "ผู้ให้บริการเปลี่ยนไป กลับไปและลองอีกครั้ง",
+  "stateProviderUnsupported": "เอนจินเวอร์ชันนี้ไม่รองรับการกระทำนี้",
+  "stateProviderKeyRejected": "คีย์ API ไม่ถูกต้องหรือขาดสิทธิ์",
+  "stateProviderModelsMissing": "ไม่พบรายการโมเดล เช็ค BASE URL",
+  "stateProviderRateLimited": "คำขอมากเกินไป ลองอีกครั้งภายหลัง",
+  "stateProviderResponseTooLarge": "การตอบกลับใหญ่เกินไป",
+  "stateProviderUnreachable": "เข้าถึงที่อยู่นี้ไม่ได้ เช็ค BASE URL และเครือข่าย",
+  "stateProviderModelsUnreadable": "อ่านรายการโมเดลไม่ได้ เช็ค BASE URL",
+  "stateProviderManualModels": "โปรโตคอลนี้ไม่แสดงโมเดล เพิ่มด้วยตนเอง",
+  "stateProviderConfigRejected": "เอนจินปฏิเสธ CONFIG นี้ เช็คโปรโตคอลและโมเดล",
+  "stateProviderOffline": "เข้าถึงเอนจินไม่ได้",
+  "stateSafeStartupFailed": "เริ่มต้นล้มเหลว",
+  "stateSafeCrashedEarly": "แครชไม่กี่อายุหลังเริ่ม",
+  "stateSafeCrashedLate": "แครชขณะทำงาน",
+  "stateSafeKilled": "ถูกหยุดโดยระบบ",
+  "stateSafeManualEntry": "เข้าสู่โหมดปลอดภัยด้วยตนเอง",
+  "stateScheduleNotCreated": "แชทจบโดยไม่สร้างอัตโนมัติ",
+  "stateScheduleChatFailed": "แชทล้มเหลว",
+  "stateScheduleResultPending": "ยังรอผลลัพธ์",
+  "statePlanPending": "แผนรอรีวิว",
+  "stateQuestionPending": "ต้องการคำตอบ",
+  "stateExportRelayUnsupported": "ส่งออกไม่พร้อมผ่าน Relay",
+  "stateExportChatMissing": "ไม่พบแชท",
+  "stateExportFailed": "ส่งออกไม่ได้",
+  "stateSizeExtraLarge": "ใหญ่พิเศษ",
+  "stateSubscriptionUnsupported": "เอนจินนี้ไม่รองรับการสมัครสมาชิกเข้าสู่ระบบ",
+  "stateSubscriptionUnreachable": "เข้าถึงบริการเข้าสู่ระบบไม่ได้ เช็คเครือข่ายและลองอีกครั้ง",
+  "stateSubscriptionSignInFailed": "สมัครสมาชิกไม่เสร็จ ลองอีกครั้ง",
+  "stateSubscriptionTimeout": "คำขอหมดเวลา เช็คเครือข่ายและลองอีกครั้ง",
+  "stateSubscriptionDisconnected": "เอนจินตัดการเชื่อมต่อ ลองอีกครั้งภายหลัง",
+  "stateTerminalLimit": "ถึงขีดจำกัดเทอร์มินัล",
+  "stateTerminalStartFailed": "เริ่มเทอร์มินัลไม่ได้",
+  "stateTerminalDisabledOnHost": "คอมพิวเตอร์นี้ปิดเทอร์มินัลรีโมต โปรดเปิด “Terminal” ในตั้งค่ารีโมตบนคอมพิวเตอร์ แล้วลองอีกครั้ง",
+  "stateTileDuotone": "ดูโอโทน",
+  "stateTileGeometric": "เรขาคณิต",
+  "stateTileGlassy": "แก้ว",
+  "stateUiNative": "เนทีฟ",
+  "stateDefaultWorkspace": "เวิร์กสเปซเริ่มต้น",
+  "stateDiagnosticsSaved": "{where} บันทึกไป {ที่นี่}",
+  "stateDownloadsPrefix": "Downloads/",
+  "stateSharePluginCount": "{{count} ปลั๊กอิน}",
+  "stateShareSkillCount": "{{count} สกิล}",
+  "stateShareSettingCount": "{{count} ตั้งค่า groups}",
+  "stateAlertCompletedReply": "เสร็จสิ้น · {reply}",
+  "stateAlertErrorDetail": "{detail} ข้อผิดพลาด · {รายละเอียด}",
+  "stateAlertUseTool": "{name} ใช้เครื่องมือ {ชื่อ}",
+  "stateAlertApprovalAction": "ต้องการอนุมัติ: {action}",
+  "stateAlertApprovalReason": "ต้องการอนุมัติ: {action} · {reason}",
+  "stateAlertQuestions": "{{question} {count} (ทั้งหมด)}",
+  "stateAlertQuestionText": "{question} คำถามสำหรับคุณ: {คำถาม}",
+  "statePetChatsDone": "{{count} แชทเสร็จ}",
+  "statePetChatsFailed": "{{count} chats ล้มเหลว}",
+  "statePetChatsApproval": "{{count} แชทต้องการอนุมัติ}",
+  "statePetChatsQuestion": "{{count} แชทต้องการคำตอบจากคุณ}",
+  "stateAttachmentEmpty": "{name} “{ชื่อ}” ว่าง",
+  "stateAttachmentImageLimit": "{name} รูปภาพ “{ชื่อ}” เกิน 20 MB",
+  "stateAttachmentFileLimit": "{name} ไฟล์ “{ชื่อ}” เกิน 200 MB",
+  "stateAttachmentTotalLimit": "ไฟล์แนบเกิน 400 MB รวม",
+  "stateBotFinished": "{name} {ชื่อ} ทำงานเสร็จ",
+  "stateBotQuestion": "{text} {name} {ชื่อ} ถาม: {เท็กซ์}",
+  "stateBotApproval": "{text} {name} {ชื่อ} ต้องการอนุมัติ: {เท็กซ์}",
+  "stateCommandPlanHint": "[ปิด | คำขอ]",
+  "stateCommandGoalHint": "[เป้าหมาย | ล้าง | หยุดชั่วคราว | ดำเนินต่อ]",
+  "stateShareReadFailed": "{name} อ่าน “{ชื่อ}” ไม่ได้",
+  "stateShareAttachmentLimit": "{{count} ไฟล์แนบต่อข้อความ}",
+  "stateShareNamedFileTooLarge": "{name} “{ชื่อ}” ใหญ่เกินไปจึงไม่ได้เพิ่ม",
+  "stateShareTextTruncated": "{{count} ตัวอักษร.}",
+  "stateSettingsMinimum": "ต้องไม่น้อยกว่า {bound}",
+  "stateSettingsMaximum": "ต้องไม่เกิน {bound}",
+  "stateSettingsMultiple": "ต้องเป็นตัวคูณของ {bound}",
+  "stateSettingsMinLength": "{{count} ตัวอักษร}",
+  "stateSettingsMaxLength": "{{count} ตัวอักษร}",
+  "stateEngineHttpRejected": "เอนจินปฏิเสธคำขอ ({status})",
+  "stateGoalActionOffline": "{action}: เข้าถึงเอนจินไม่ได้",
+  "stateHostRemoteLabel": "{name} {ชื่อ} · รีโมต",
+  "stateMarketHttpError": "เปิดแคตตาล็อกปลั๊กอินไม่ได้ (HTTP {status})",
+  "statePluginRuntimeIncompatible": "{version} ปลั๊กอินนี้ไม่รองรับ DSH เวอร์ชันปัจจุบัน ({version})",
+  "statePluginRequiredVersion": "ปลั๊กอินนี้ต้องการ DSH {wanted} เวอร์ชันปัจจุบัน: {current}",
+  "statePluginRegistryUnreachable": "เข้าถึงรีจิสทรีไม่ได้",
+  "statePluginNamedRegistryUnreachable": "เข้าถึงรีจิสทรี ({registry}) ไม่ได้",
+  "statePluginBuildsPending": "ต้องการอนุมัติ: {builds}",
+  "statePluginRegistryProgress": "{attempt} {attempts} {registry} ดาวน์โหลดจาก (รีจิสทรี /)",
+  "stateProviderServiceUnavailable": "บริการไม่พร้อม ({status})",
+  "stateProviderServiceStatus": "บริการส่งคืน {status}",
+  "stateProviderKeySaveFailed": "ผู้ให้บริการบันทึกแล้ว แต่คีย์ไม่ได้: {reason}",
+  "stateSafeSuspectPlugins": "{what}, ปลั๊กอินที่สงสัย: {plugins}",
+  "stateSafePreflightFailed": "{what}, ตรวจสอบเริ่มต้นล้มเหลว: {checks}",
+  "stateListSeparator": ", ",
+  "stateSafeRepairPrompt": "DSH ของฉันมีปัญหาในโหมดปกติ ({what}) โปรดทำตามคำแนะนำโหมดปลอดภัยเพื่อหาสาเหตุ แก้ CONFIG เว็บด้วยการเปลี่ยนแปลงที่ย้อนกลับได้ เวอร์ริฟายการเริ่มต้นด้วย dsh-app-plugins แล้วบอกฉันว่าอะไรเปลี่ยน",
+  "stateScheduleCreatePrompt": "{title} สร้างอัตโนมัติ “{หัวข้อ}”: {rule}.\nเรียก schedule_create อย่างแม่นยำ หนึ่งครั้ง ใช้ arguments เหล่านี้แบบไม่เปลี่ยน อย่ารันงานตอนนี้\n\n```JSON\n{args}\n```",
+  "stateActionReason": "{action}: {reason}",
+  "stateAlertPreviewRun": "{value} เรียกใช้: {ค่า}",
+  "stateAlertPreviewWrite": "{value} เขียน: {ค่า}",
+  "stateAlertPreviewEdit": "{value} แก้ไข: {ค่า}",
+  "stateAlertPreviewOpen": "{value} เปิด: {ค่า}",
+  "stateAlertPreviewUse": "{value} ใช้เครื่องมือ: {ค่า}",
+  "stateUiWeb": "เว็บ",
+  "statePluginRegistryProgressUnknown": "{attempt} ดาวน์โหลดจาก {registry} (รีจิสทรี {พยายาม}/null)",
+  "stateProviderTokenCountInvalid": "ใส่ตัวเลข เช่น 128K",
+  "appSlogan": "ทุกเมื่อ ทุกที่ เพียง Go!",
+  "@stateDiagnosticsSaved": {
+    "placeholders": {
+      "where": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSharePluginCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateShareSkillCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateShareSettingCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateAlertCompletedReply": {
+    "placeholders": {
+      "reply": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertErrorDetail": {
+    "placeholders": {
+      "detail": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertUseTool": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertApprovalAction": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertApprovalReason": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertQuestions": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateAlertQuestionText": {
+    "placeholders": {
+      "question": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePetChatsDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@statePetChatsFailed": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@statePetChatsApproval": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@statePetChatsQuestion": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateAttachmentEmpty": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAttachmentImageLimit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAttachmentFileLimit": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateBotFinished": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateBotQuestion": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateBotApproval": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateShareReadFailed": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateShareAttachmentLimit": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateShareNamedFileTooLarge": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateShareTextTruncated": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateSettingsMinimum": {
+    "placeholders": {
+      "bound": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSettingsMaximum": {
+    "placeholders": {
+      "bound": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSettingsMultiple": {
+    "placeholders": {
+      "bound": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSettingsMinLength": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateSettingsMaxLength": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateEngineHttpRejected": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateGoalActionOffline": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateHostRemoteLabel": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateMarketHttpError": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginRuntimeIncompatible": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginRequiredVersion": {
+    "placeholders": {
+      "current": {
+        "type": "String"
+      },
+      "wanted": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginNamedRegistryUnreachable": {
+    "placeholders": {
+      "registry": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginBuildsPending": {
+    "placeholders": {
+      "builds": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginRegistryProgress": {
+    "placeholders": {
+      "registry": {
+        "type": "String"
+      },
+      "attempt": {
+        "type": "int"
+      },
+      "attempts": {
+        "type": "int"
+      }
+    }
+  },
+  "@stateProviderServiceUnavailable": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateProviderServiceStatus": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateProviderKeySaveFailed": {
+    "placeholders": {
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSafeSuspectPlugins": {
+    "placeholders": {
+      "plugins": {
+        "type": "String"
+      },
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSafePreflightFailed": {
+    "placeholders": {
+      "checks": {
+        "type": "String"
+      },
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateSafeRepairPrompt": {
+    "placeholders": {
+      "what": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateScheduleCreatePrompt": {
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      },
+      "args": {
+        "type": "String"
+      },
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateActionReason": {
+    "placeholders": {
+      "action": {
+        "type": "String"
+      },
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertPreviewRun": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertPreviewWrite": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertPreviewEdit": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertPreviewOpen": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@stateAlertPreviewUse": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "@statePluginRegistryProgressUnknown": {
+    "placeholders": {
+      "registry": {
+        "type": "String"
+      },
+      "attempt": {
+        "type": "String"
+      }
+    }
+  }
+}
