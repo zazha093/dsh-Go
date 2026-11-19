@@ -61,7 +61,7 @@
   "phoneUnlockDisclaimer5": "We advise ต้าน turning it เปิด สำหรับ  device that holds payment ออร์ banking details.",
   "phoneUnlockHold": "I understand  risks, turn เปิด",
   "phoneUnlockHoldHint": "Press แอนด์ hold สำหรับ เกี่ยวกับ 1.5 seconds",
-  "phoneUnlockOnNotice": "{name} “{ชื่อ}” คือ เปิด",
+  "phoneUnlockOnNotice": "{name} “{name}” คือ เปิด",
   "@phoneUnlockOnNotice": {
     "placeholders": {
       "name": {
@@ -69,7 +69,7 @@
       }
     }
   },
-  "phoneUnlockOffNotice": "{name} “{ชื่อ}” คือ ปิด",
+  "phoneUnlockOffNotice": "{name} “{name}” คือ ปิด",
   "@phoneUnlockOffNotice": {
     "placeholders": {
       "name": {

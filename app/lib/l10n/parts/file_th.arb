@@ -4,7 +4,7 @@
   "fileChatFallback": "Chat",
   "fileUploadToHost": "ส่ง files ไป  computer",
   "fileUploadToHostHint": "เข้า this conversation’s Workspace เปิด  computer, uncompressed",
-  "fileUploadProgress": "{total} {name} {done} Sending {เสร็จ}/{ทอตอล}: {ชื่อ}",
+  "fileUploadProgress": "{total} {name} {done} Sending {เสร็จ}/{ทอตอล}: {name}",
   "fileUploadDone": "ส่งแล้ว ไป  computer: {names}",
   "fileUploadFailed": "Couldn’t ส่ง ไป  computer",
   "@fileUploadProgress": {

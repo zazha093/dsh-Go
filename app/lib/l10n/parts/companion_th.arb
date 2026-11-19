@@ -74,7 +74,7 @@
   "companionArriving": "ชีーズ สวิมミング オーヴァー…",
   "companionPrivacyLine": "แอสเซทอยู่บนโทรศัพท์นี้ แชทผ่านโฮสต์ปัจจุบัน",
   "companionMemoryTitle": "สิ่งที่เธอจำได้",
-  "companionMemoryScope": "{host} เก็บไว้ที่ {โฮสต์} เธอไม่ได้นำสิ่งเหล่านี้ขึ้นมาด้วยตัวเองยัง ภายหลัง เวอร์ชัน จะทำ",
+  "companionMemoryScope": "{host} เก็บไว้ที่ {host} เธอไม่ได้นำสิ่งเหล่านี้ขึ้นมาด้วยตัวเองยัง ภายหลัง เวอร์ชัน จะทำ",
   "companionMemoryAdd": "เพิ่ม",
   "companionMemoryEdit": "แก้ไข",
   "companionMemorySave": "บันทึก",

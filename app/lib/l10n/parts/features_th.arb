@@ -143,7 +143,7 @@
   "featuresCronRequired": "ใส่นิพจน์ครอน 5 ฟิลด์",
   "featuresCronWhitespace": "ห้ามช่องว่างนำหน้าหรือท้าย",
   "featuresCronFieldCount": "{{{count}}}",
-  "featuresCronInvalidField": "{name} {index} Field {ดัชนี} ({ชื่อ}) คือ invalid",
+  "featuresCronInvalidField": "{name} {index} Field {index} ({name}) คือ invalid",
   "featuresWeekdayMon": "จันทร์",
   "featuresWeekdayTue": "อังคาร",
   "featuresWeekdayWed": "พุธ",

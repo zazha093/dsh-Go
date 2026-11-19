@@ -46,7 +46,7 @@
   "remotePairErrHostLimit": "This บัญชี แล้ว has  maximum ตัวเลข ของ computers",
   "remotePairErrNetwork": "เข้าถึงเซิร์ฟเวอร์รีโมตไม่ได้ ตรวจสอบเครือข่ายของคุณและลองใหม่",
   "remotePairErrFailed": "การจับคู่ไม่สำเร็จ สแกนอีกครั้ง",
-  "remotePairSwitchFailedTitle": "{name} Paired กับ {ชื่อ}",
+  "remotePairSwitchFailedTitle": "{name} Paired กับ {name}",
   "remotePairSwitchFailedBody": "แต่การสลับไปใช้ไม่ได้ ลองใหม่ หรือเลือกในโฮสต์รีโมต",
   "remotePairDone": "เสร็จ",
   "remotePairErrPinSave": "จับคู่แล้ว แต่โทรศัพท์นี้บันทึกลายนิ้วมือของคอมพิวเตอร์ไม่ได้ แสดงรหัสจับคู่ใหม่บนคอมพิวเตอร์",

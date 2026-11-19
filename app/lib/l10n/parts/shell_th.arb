@@ -237,7 +237,7 @@
   "shellSkillInstallDirectory": "1. สร้างโฟลเดอร์เป้าหมาย `$DSH_HOME/skills/{skill}/` ถ้าต้องการ (หรือ `~/.dsh/skills/{skill}/` ถ้า DSH_HOME ไม่ได้เซ็ท)",
   "shellSkillInstallFiles": "2. เขียนไฟล์แต่ละไฟล์ด้านล่างที่พาธที่กำหนด เก็บเนื้อหาให้แม่นยำตามที่ให้มา",
   "shellSkillInstallConfirm": "4. บอกฉันตอนติดตั้งเสร็จ",
-  "shellSkillInstallFile": "{path} ไฟล์ `{พาธ}`:",
+  "shellSkillInstallFile": "{path} ไฟล์ `{path}`:",
   "shellFromUiJson": "จาก ui.json",
   "shellViewSource": "ดู source",
   "shellSourcePosition": "ตำแหน่ง",
@@ -266,7 +266,7 @@
   "shellPanelOpenFull": "เปิดเพจเต็ม",
   "shellPanelNoPlugins": "ไม่มี plugin panels สำหรับแชทนี้",
   "shellQuickPanel": "Shortcuts",
-  "shellQuickPanelHint": "{path} เปลี่ยนสิ่งเหล่านี้ใน {พาธ}",
+  "shellQuickPanelHint": "{path} เปลี่ยนสิ่งเหล่านี้ใน {path}",
   "@shellQuickPanelHint": {
     "placeholders": {
       "path": {

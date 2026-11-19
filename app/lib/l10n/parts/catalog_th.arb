@@ -98,7 +98,7 @@
   "catalogCordisStopping": "กำลังหยุด…",
   "catalogCordisRemoving": "กำลังนำออก…",
   "catalogSeatGone": "ปลั๊กอินไม่พร้อมใช้งาน",
-  "catalogCordisRemoveTitle": "{name} นำออก “{ชื่อ}”?",
+  "catalogCordisRemoveTitle": "{name} นำออก “{name}”?",
   "catalogCordisRemoveVersions": "{{{versions} เวอร์ชัน}}",
   "catalogCordisVersionCount": "{{count} เวอร์ชัน}",
   "catalogToolsSection": "เครื่องมือ",
