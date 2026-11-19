@@ -146,6 +146,10 @@ jobs:
         working-directory: app
         run: python3 tool/l10n_merge.py --locale th
 
+      - name: Flutter analyze
+        working-directory: app
+        run: flutter analyze
+
       - name: Build APK (arm64)
         working-directory: app
         run: |

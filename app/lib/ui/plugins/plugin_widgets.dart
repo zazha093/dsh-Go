@@ -183,7 +183,12 @@ class PluginInstallButton extends StatelessWidget {
         elevation: 0,
         textStyle: theme.textTheme.labelLarge?.copyWith(fontSize: 13.5),
       ),
-      onPressed: onPressed,
+      onPressed: onPressed != null
+          ? () {
+              HapticFeedback.lightImpact();
+              onPressed!();
+            }
+          : null,
       child: AnimatedSwitcher(
         duration: AppMotion.of(context, AppMotion.quick),
         child: Row(

@@ -86,7 +86,7 @@
   "pluginsDshOfficial": "DSH ทางการ",
   "pluginsOfficialToggleOnly": "คอมโพเนนต์ทางการสลับเปิด/ปิดได้อย่างเดียว และใช้กับทุกแชทบนโฮสต์นี้",
   "pluginsOfficial": "ทางการ",
-  "pluginsNoThirdParty": "ยังไม่มีปลั๊กอินบุคคลที่สาม",
+  "pluginsNoThirdParty": "ยังไม่มีปลั๊กอินที่ติดตั้ง",
   "pluginsPluginsDescription": "เพิ่ม tools, เมมโมรี่, และ models ไป DSH",
   "pluginsBrowseMarket": "เรียกดูปลั๊กอิน",
   "pluginsLoading": "กำลังโหลด",
