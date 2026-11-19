@@ -1,0 +1,93 @@
+name: Weekly Upstream Check
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Every Monday 08:00 UTC (15:00 Thailand)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-upstream:
+    name: Check upstream/main ahead of fork/main
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout fork
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: zazha093/dsh-Go
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: false
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/ccch1mneyyy/dsh-Go.git
+
+      - name: Fetch upstream/main
+        run: git fetch upstream main
+
+      - name: Count commits ahead
+        id: count
+        run: |
+          # Count commits in upstream/main not in fork/main
+          AHEAD=$(git rev-list --count main..upstream/main 2>/dev/null || echo "0")
+          echo "ahead=$AHEAD" >> $GITHUB_OUTPUT
+          echo "Upstream/main is ahead by $AHEAD commits"
+
+      - name: Check for existing open issue
+        if: steps.count.outputs.ahead > 0
+        id: existing
+        run: |
+          # Check if there's already an open issue about upstream sync
+          ISSUE=$(gh issue list --repo zazha093/dsh-Go --state open --label "sync:upstream" --json number --jq '.[0].number' 2>/dev/null || echo "")
+          echo "issue=$ISSUE" >> $GITHUB_OUTPUT
+
+      - name: Create sync issue
+        if: steps.count.outputs.ahead > 0 && steps.existing.outputs.issue == ''
+        run: |
+          AHEAD=${{ steps.count.outputs.ahead }}
+          gh issue create \
+            --repo zazha093/dsh-Go \
+            --title "Sync needed: upstream/main is ahead by $AHEAD commits" \
+            --body "## Upstream Sync Required
+
+**Upstream/main is ahead of fork/main by $AHEAD commits.**
+
+### Recommended Action
+1. Create a sync branch from latest upstream/main:
+   \`\`\`bash
+   git fetch upstream main
+   git checkout -b sync-$(date +%Y%m%d) upstream/main
+   \`\`\`
+
+2. Apply fork customizations:
+   - Thai ARB files (keep from thai/release)
+   - applicationId with .thai suffix in build.gradle.kts
+   - AndroidManifest.xml label: \"DSH Go (Thai)\"
+   - .github/workflows/build-apk.yml (fork version)
+   - fork-tools/ directory
+
+3. Revert ci.yml to upstream version (already done)
+
+4. Run validation:
+   \`\`\`bash
+   python3 app/tool/l10n_merge.py --locale th --no-gen
+   python3 app/tool/l10n_merge.py --locale th --check
+   tooling/build-apk.sh --build-name <version>
+   \`\`\`
+
+5. Merge to thai/release after verification.
+
+### Reference
+- Fork: zazha093/dsh-Go
+- Upstream: ccch1mneyyy/dsh-Go
+- Guide: THAI_FORK_GUIDE.md
+
+/label sync:upstream" \
+            --label "sync:upstream"
+
+      - name: Log no action needed
+        if: steps.count.outputs.ahead == '0'
+        run: echo "Fork/main is up to date with upstream/main"

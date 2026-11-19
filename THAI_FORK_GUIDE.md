@@ -12,7 +12,8 @@
 |------|-------|
 | **Upstream Repository** | `https://github.com/ccch1mneyyy/dsh-Go` |
 | **Fork Repository** | `https://github.com/zazha093/dsh-Go` |
-| **Primary Branch** | `ci/thai-test` (contains all Thai localization changes) |
+| **Primary Branch** | `thai/release` (contains all Thai localization changes + fork customizations) |
+| **Default Branch** | `thai/release` |
 | **Clean Branch** | `i18n-thai-complete` (only Thai ARB files + merged app_th.arb) |
 
 ---
@@ -24,10 +25,10 @@
 | File | Change | Purpose |
 |------|--------|---------|
 | `app/android/app/build.gradle.kts` | `namespace = "io.github.ccch1mneyyy.dsh_app"` | Unique namespace for fork |
-| `app/android/app/build.gradle.kts` | `applicationId = "io.github.ccch1mneyyy.dsh_app"` | Unique application ID for fork (allows parallel install with upstream) |
-| `app/android/app/src/main/AndroidManifest.xml` | Application label/branding | Custom app name/icon for fork |
+| `app/android/app/build.gradle.kts` | `applicationId = "io.github.ccch1mneyyy.dsh_app.thai"` | Unique application ID with `.thai` suffix for parallel install with upstream |
+| `app/android/app/src/main/AndroidManifest.xml` | `android:label="DSH Go (Thai)"` | Custom app name for fork |
 
-**Key Point**: The fork uses `io.github.ccch1mneyyy.dsh_app` instead of upstream's `io.github.ccch1mneyyy.dsh_app` (same namespace but different signing key allows parallel install only with different keystore).
+**Key Point**: The fork uses `applicationId = "io.github.ccch1mneyyy.dsh_app.thai"` with `.thai` suffix, allowing parallel installation with upstream app. The label is "DSH Go (Thai)" for clear identification.
 
 ### 2.2 Thai Localization System
 
@@ -52,9 +53,17 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (61 files):
 
 | File | Description |
 |------|-------------|
-| `.github/workflows/build-apk.yml` | New workflow for APK builds with keystore support |
-| `.github/workflows/ci.yml` | Modified CI pipeline |
+| `.github/workflows/build-apk.yml` | Fork-specific workflow for APK builds with keystore support |
+| `.github/workflows/ci.yml` | **Reverted to upstream/main** - no fork modifications to reduce sync conflicts |
 | `tooling/build-apk.sh` | Build script with keystore integration |
+
+### 2.4 Fork Tools
+
+| File | Description |
+|------|-------------|
+| `fork-tools/scan_th.py` | Thai localization scanner for coverage and quality checks |
+| `fork-tools/scan_report.json` | Latest scan report output |
+| `fork-tools/README.md` | Documentation for fork tools |
 
 ---
 
@@ -66,11 +75,11 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (61 files):
 2. **Tech Terms**: Keep common terms in English: Agent, Prompt, Token, Model, API, Plugin, Workspace, Session, Cache, WebSocket, WebRTC, TURN, PRoot, Node.js, Gradle, APK, SDK, ABI, NDK, JNI, JSON, HTTP, HTTPS, TLS, SSL, UI, UX, CLI, GUI, IDE, Git, GitHub, PR, CI, CD, YAML, JSON, Markdown, Regex, Regex
 3. **Buttons**: Short, verb-first: "บันทึก" (Save), "ลบ" (Delete), "แก้ไข" (Edit), "ยกเลิก" (Cancel), "ตกลง" (OK), "ลองใหม่" (Retry)
 4. **No Word-for-Word**: Translate meaning, not words. E.g., "Interrupt by speaking" → "ทับพูดเพื่อหยุด" (not "ขัดจังหวะด้วยการพูด")
-4. **Placeholders**: Preserve exactly: `{name}`, `{count}`, `{reason}`, `{text}`, `{host}`, `{site}`, `{detail}`, `{n}`, `{version}`, `{latest}`
-5. **ICU Syntax**: Must match English exactly:
+5. **Placeholders**: Preserve exactly: `{name}`, `{count}`, `{reason}`, `{text}`, `{host}`, `{site}`, `{detail}`, `{n}`, `{version}`, `{latest}`
+6. **ICU Syntax**: Must match English exactly:
    - Plural: `{count, plural, one{...} other{...}}`
    - Select: `{gender, select, male{...} female{...} other{...}}`
-5. **Thai Plural**: Thai has no grammatical plural → always use `other` case only
+7. **Thai Plural**: Thai has no grammatical plural → always use `other` case only
 
 ### 3.2 l10n_merge.py Commands
 
@@ -134,36 +143,42 @@ git fetch upstream main
 # 2. Create/sync working branch from latest upstream
 git checkout -b sync-<date> upstream/main
 # OR if branch exists:
-git checkout sync-branch
-git merge --ff-only upstream/main
+git checkout thai/release
+git merge --no-commit --no-ff upstream/main
 
-# 3. Apply fork customizations (cherry-pick or re-apply)
-# - Thai ARB files (copy from ci/thai-test)
-# - applicationId changes in build.gradle.kts
-# - AndroidManifest.xml branding
-# - CI workflow files
+# 3. Resolve conflicts (only fork-specific files should conflict):
+#    - Thai ARB files: keep Thai versions
+#    - applicationId in build.gradle.kts: keep .thai suffix
+#    - AndroidManifest.xml label: keep "DSH Go (Thai)"
+#    - .github/workflows/build-apk.yml: keep fork version
+#    - ci.yml: REVERT to upstream (already done)
+#    - fork-tools/: keep fork version
 
-# 4. Run l10n_merge to regenerate merged ARB
+# 4. Complete merge
+git commit -m "chore: sync with upstream/main <date>"
+
+# 5. Run l10n_merge to regenerate merged ARB
 python3 app/tool/l10n_merge.py --locale th --no-gen
 python3 app/tool/l10n_merge.py --locale th --check
 
-# 5. Verify build
+# 6. Verify build
 tooling/build-apk.sh --build-name <x.y.z>
 
-# 6. Push to fork
-git push origin <branch-name>
+# 7. Push to fork
+git push origin thai/release
 ```
 
 ### 4.3 Files That Need Manual Re-application After Sync
 
 | Category | Files | Notes |
 |----------|-------|-------|
-| Thai ARB | All `app/lib/l10n/parts/*_th.arb` | Copy from `ci/thai-test` branch |
-| App ID | `app/android/app/build.gradle.kts` | `applicationId` & `namespace` |
-| Manifest | `app/android/app/src/main/AndroidManifest.xml` | App label/icon |
-| CI | `.github/workflows/build-apk.yml` | New file |
-| CI | `.github/workflows/ci.yml` | Modified |
-| Build | `tooling/build-apk.sh` | May have updates |
+| Thai ARB | All `app/lib/l10n/parts/*_th.arb` | Keep Thai versions (they're in thai/release) |
+| App ID | `app/android/app/build.gradle.kts` | Keep `applicationId` with `.thai` suffix |
+| Manifest | `app/android/app/src/main/AndroidManifest.xml` | Keep label "DSH Go (Thai)" |
+| CI | `.github/workflows/build-apk.yml` | Keep fork version |
+| CI | `.github/workflows/ci.yml` | **Use upstream version** (reverted) |
+| Build | `tooling/build-apk.sh` | Keep fork version if modified |
+| Tools | `fork-tools/` | Keep fork tools |
 
 ---
 
@@ -179,90 +194,165 @@ keyAlias=release
 keyPassword=<KEY_PASSWORD>
 ```
 
-Currently uses **debug keystore** (random per build) because `key.properties` is not committed.
+Currently uses **permanent keystore** stored at `~/dsh-go-keystore/release.keystore` (RSA 4096, 10,000 days validity).
 
-### 5.2 Required GitHub Secrets
+### 5.2 Keystore Details
+
+| Property | Value |
+|----------|-------|
+| **Location** | `~/dsh-go-keystore/release.keystore` |
+| **Base64** | `~/dsh-go-keystore/keystore.base64` |
+| **Alias** | `release` |
+| **Key Algorithm** | RSA 4096 |
+| **Validity** | 10,000 days |
+| **SHA-256 Fingerprint** | `3d88f13b7c73fc74ed682f484a66fb419681285c0000b9a619bbddf56d67a5b5` |
+
+### 5.3 Required GitHub Secrets
 
 Add these to **GitHub Repository Settings → Secrets and variables → Actions**:
 
 | Secret Name | Value | Description |
 |-------------|-------|-------------|
-| `KEYSTORE_BASE64` | Base64-encoded `.keystore` file | `base64 -w0 release.keystore` |
-| `KEYSTORE_PASSWORD` | Store password | Keystore store password |
-| `KEY_ALIAS` | Key alias | Usually `release` |
-| `KEY_PASSWORD` | Key password | Key password (may equal store password) |
+| `KEYSTORE_BASE64` | Base64-encoded `.keystore` file | From `~/dsh-go-keystore/keystore.base64` |
+| `KEYSTORE_PASSWORD` | Store password | Stored in secure password manager |
+| `KEY_ALIAS` | `release` | Key alias |
+| `KEY_PASSWORD` | Key password | Same as store password (PKCS12) |
 
-### 5.3 CI Integration (build-apk.yml)
-
-The `.github/workflows/build-apk.yml` should:
-
-1. Decode `KEYSTORE_BASE64` → `app/android/keystore/release.keystore`
-2. Generate `app/android/key.properties` from secrets
-3. Run `tooling/build-apk.sh --build-name <version>`
-
-**Example workflow snippet**:
-
-```yaml
-- name: Setup Keystore
-  run: |
-    echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
-    cat > app/android/key.properties <<EOF
-    storeFile=keystore/release.keystore
-    storePassword=${{ secrets.KEYSTORE_PASSWORD }}
-    keyAlias=${{ secrets.KEY_ALIAS }}
-    keyPassword=${{ secrets.KEY_PASSWORD }}
-    EOF
-```
-
-### 5.4 Key Generation (One-time)
-
+**Setup via GitHub CLI (if authorized):**
 ```bash
-# Generate keystore (run once, store securely)
-keytool -genkeypair \
-  -alias release \
-  -keyalg RSA \
-  -keysize 2048 \
-  -validity 10000 \
-  -keystore release.keystore \
-  -storepass <STORE_PASSWORD> \
-  -keypass <KEY_PASSWORD> \
-  -dname "CN=dsh-Go, OU=Engineering, O=zazha093, L=Bangkok, ST=Bangkok, C=TH"
-
-# Encode for GitHub Secrets
-base64 -w0 release.keystore  # → KEYSTORE_BASE64
+gh secret set KEYSTORE_BASE64 --repo zazha093/dsh-Go < ~/dsh-go-keystore/keystore.base64
+gh secret set KEYSTORE_PASSWORD --repo zazha093/dsh-Go --body "<password>"
+gh secret set KEY_ALIAS --repo zazha093/dsh-Go --body "release"
+gh secret set KEY_PASSWORD --repo zazha093/dsh-Go --body "<password>"
 ```
 
-**⚠️ Critical**: Store the keystore file and passwords in a secure password manager. Losing the keystore = cannot update existing installs.
+**Setup via GitHub UI:**
+1. Go to: https://github.com/zazha093/dsh-Go/settings/secrets/actions
+2. Click "New repository secret" for each:
+   - `KEYSTORE_BASE64`: Paste content of `~/dsh-go-keystore/keystore.base64`
+   - `KEYSTORE_PASSWORD`: Enter keystore password
+   - `KEY_ALIAS`: Enter `release`
+   - `KEY_PASSWORD`: Enter key password (same as store)
+
+### 5.4 CI Integration (build-apk.yml)
+
+The `.github/workflows/build-apk.yml` automatically:
+1. Decodes `KEYSTORE_BASE64` → `app/android/keystore/release.keystore`
+2. Generates `app/android/key.properties` from secrets
+3. Runs `tooling/build-apk.sh --build-name <version>`
+
+### 5.5 Security Notes
+- **Never commit** keystore file or passwords to any repository
+- Store keystore and passwords in a secure password manager (Bitwarden, 1Password, KeePass)
+- Backup keystore to encrypted USB drive and secure cloud storage
+- **If keystore is lost**: Existing installed apps CANNOT be updated; must create new keystore → new applicationId → users must uninstall old app
 
 ---
 
-## 6. Branch Structure
+## 6. versionCode Strategy
+
+### 6.1 Source
+The `versionCode` is generated by `buildMinuteVersionCode()` in `app/android/app/build.gradle.kts`:
+
+```kotlin
+fun buildMinuteVersionCode(): Int {
+    val t = OffsetDateTime.now(ZoneOffset.ofHours(8))
+    return (t.year - 2026) * 100_000_000 + t.monthValue * 1_000_000 + t.dayOfMonth * 10_000 + t.hour * 100 + t.minute
+}
+```
+
+**Formula**: `(year - 2026) * 10^8 + MMDDhhmm` at UTC+8 (Thailand timezone)
+
+### 6.2 Properties
+- Increases every minute (UTC+8)
+- Always increases with each build
+- Fork-only: Uses upstream base formula + fork's build timestamp
+- Ensures no versionCode collision with upstream builds
+
+### 6.3 Verification
+```bash
+# Test versionCode generation
+cd /root/workspace/dsh-Go
+kotlin -e 'import java.time.*; val t=OffsetDateTime.now(ZoneOffset.ofHours(8)); println((t.year-2026)*100_000_000 + t.monthValue*1_000_000 + t.dayOfMonth*10_000 + t.hour*100 + t.minute)'
+```
+
+---
+
+## 7. Branch Structure
 
 | Branch | Purpose |
 |--------|---------|
 | `main` | Clean sync with upstream (no Thai changes) |
-| `ci/thai-test` | **Primary working branch** - all Thai changes, CI validation |
+| `thai/release` | **Primary working branch** - all Thai changes, fork customizations, CI validation |
 | `i18n-thai-complete` | Clean branch: only Thai ARB files + merged app_th.arb |
 | `dev/*` | Experimental / work-in-progress |
 
-**Important**: Never commit directly to `main`. Always work on feature branches, validate, then merge to `ci/thai-test`.
+**Important**: Never commit directly to `main`. Always work on `thai/release` or feature branches, validate, then merge.
 
 ---
 
-## 7. AI Agent Onboarding Checklist
+## 8. AI Agent Onboarding Checklist
 
 Before starting work on this fork:
 
 - [ ] Read this guide completely
 - [ ] Verify git remotes: `git remote -v` (origin + upstream)
-- [ ] Sync to latest upstream: `git fetch upstream main && git merge --ff-only upstream/main`
+- [ ] Sync to latest upstream: `git fetch upstream main && git merge --ff-only upstream/main` (on main branch)
 - [ ] Run `python3 app/tool/l10n_merge.py --locale th --check` (must pass)
 - [ ] Test build: `tooling/build-apk.sh --build-name <x.y.z>`
 - [ ] For Thai changes: edit `app/lib/l10n/parts/*_th.arb` → run `l10n_merge.py --locale th --no-gen` → verify with `--check`
 
 ---
 
-## 8. Quick Reference
+## 9. ถ้าต้นฉบับรับ PR ไทยของเรา (If Upstream Accepts Our Thai PR)
+
+If the upstream repository (`ccch1mneyyy/dsh-Go`) accepts a PR containing our Thai translations:
+
+### 9.1 What Changes
+- Thai ARB files (`app/lib/l10n/parts/*_th.arb`) become part of upstream
+- Merged `app_th.arb` becomes part of upstream
+- `l10n_merge.py` may be updated upstream to include Thai by default
+- Thai locale may be added to `app/l10n.yaml` upstream
+
+### 9.2 Fork Adaptation Required
+
+| Action | Description |
+|--------|-------------|
+| **Remove Thai ARB files from fork** | Delete `app/lib/l10n/parts/*_th.arb` from `thai/release` (they're now in upstream) |
+| **Update l10n_merge.py call** | Remove `--locale th` flag if upstream handles Thai natively |
+| **Keep fork customizations** | Retain: applicationId `.thai` suffix, label "DSH Go (Thai)", build-apk.yml, fork-tools/ |
+| **Sync normally** | Future syncs will bring Thai translations automatically from upstream |
+
+### 9.3 Post-PR Sync Procedure
+
+```bash
+# 1. Fetch and merge upstream (now includes Thai)
+git fetch upstream main
+git checkout thai/release
+git merge --no-commit --no-ff upstream/main
+
+# 2. Resolve conflicts - KEEP fork customizations:
+#    - applicationId = "io.github.ccch1mneyyy.dsh_app.thai" (KEEP .thai suffix)
+#    - android:label="DSH Go (Thai)" (KEEP custom label)
+#    - .github/workflows/build-apk.yml (KEEP fork workflow)
+#    - fork-tools/ (KEEP fork tools)
+#    - Thai ARB files: ACCEPT upstream versions (they're now upstream)
+
+# 3. Complete merge
+git commit -m "chore: sync with upstream/main (Thai now upstream)"
+
+# 4. Verify build still works
+tooling/build-apk.sh --build-name <x.y.z>
+```
+
+### 9.4 Benefits
+- Reduced maintenance burden (Thai translations maintained upstream)
+- Automatic Thai updates with upstream releases
+- Fork only maintains branding/build customizations
+
+---
+
+## 10. Quick Reference
 
 ### Key Commands
 
@@ -277,10 +367,13 @@ python3 app/tool/l10n_merge.py --locale th --no-gen
 tooling/build-apk.sh --build-name 1.2.3
 
 # Sync from upstream
-git fetch upstream main && git merge --ff-only upstream/main
+git fetch upstream main && git merge --no-commit --no-ff upstream/main
 
 # View Thai vs upstream diff
-git diff upstream/main ci/thai-test --name-only
+git diff upstream/main thai/release --name-only
+
+# Run fork tools
+python3 fork-tools/scan_th.py
 ```
 
 ### Key Files
@@ -289,14 +382,31 @@ git diff upstream/main ci/thai-test --name-only
 |------|---------|
 | `app/lib/l10n/parts/*_th.arb` | Thai translation inputs (edit these) |
 | `app/lib/l10n/app_th.arb` | Auto-generated merged catalog |
-| `app/android/app/build.gradle.kts` | App ID, signing config |
+| `app/android/app/build.gradle.kts` | App ID, signing config, versionCode |
+| `app/android/app/src/main/AndroidManifest.xml` | App label "DSH Go (Thai)" |
 | `app/android/key.properties` | Keystore config (gitignored, generated in CI) |
-| `.github/workflows/build-apk.yml` | APK build workflow |
+| `.github/workflows/build-apk.yml` | APK build workflow (fork-specific) |
+| `.github/workflows/ci.yml` | **Upstream version** (no fork changes) |
 | `tooling/build-apk.sh` | Build script |
+| `fork-tools/` | Fork maintenance scripts |
 
 ---
 
-## 9. Support & Escalation
+## 11. Weekly Upstream Check Workflow
+
+A scheduled workflow (`.github/workflows/weekly-upstream-check.yml`) runs weekly to:
+1. Check how many commits `upstream/main` is ahead of fork's `main` branch
+2. Open an issue in the fork if there are new upstream commits
+3. Avoid duplicate issues (only opens if no existing open issue)
+
+### 11.1 Manual Trigger
+```bash
+gh workflow run weekly-upstream-check --repo zazha093/dsh-Go
+```
+
+---
+
+## 12. Support & Escalation
 
 - **Upstream Issues**: https://github.com/ccch1mneyyy/dsh-Go/issues
 - **Fork Issues**: https://github.com/zazha093/dsh-Go/issues
@@ -304,4 +414,4 @@ git diff upstream/main ci/thai-test --name-only
 
 ---
 
-*Last Updated: 2026-11-19 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go*
+*Last Updated: 2026-11-19 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release*
