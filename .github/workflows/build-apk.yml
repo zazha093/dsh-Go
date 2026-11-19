@@ -110,12 +110,12 @@ jobs:
         run: |
           echo "Setting up permanent keystore..."
           echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > app/android/keystore/release.keystore
-          cat > app/android/key.properties <<EOF
-storeFile=keystore/release.keystore
-storePassword=${{ secrets.KEYSTORE_PASSWORD }}
-keyAlias=${{ secrets.KEY_ALIAS }}
-keyPassword=${{ secrets.KEY_PASSWORD }}
-EOF
+          cat > app/android/key.properties <<'EOF'
+          storeFile=keystore/release.keystore
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          EOF
           echo "Keystore configured for permanent signing"
           # Print certificate fingerprint for verification
           keytool -printcert -jarfile app/android/keystore/release.keystore 2>/dev/null | grep -A1 "SHA256:" | tail -1 | xargs || true
