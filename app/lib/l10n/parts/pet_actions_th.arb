@@ -7,6 +7,6 @@
   "petActionVoiceTitle": "Voice สำหรับ Quick ถาม",
   "petActionVoiceReturn": "ย้อนกลับ ไป pet",
   "petActionVoiceStop": "จบ recording",
-  "petActionVoiceStart": "Record",
+  "petActionVoiceStart": "บันทึก",
   "@@locale": "th"
 }

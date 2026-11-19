@@ -1,5 +1,5 @@
 {
-  "starPromptTitle": "{hours} hours ตอนนี้~}}",
+  "starPromptTitle": "{{{hours} hours ตอนนี้~}}",
   "@starPromptTitle": {
     "placeholders": {
       "hours": {

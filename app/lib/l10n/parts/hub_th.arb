@@ -97,13 +97,13 @@
   "hubPluginRemoveCommand": "ดูคำสั่งถอนติดตั้ง",
   "hubPluginRemoveComputer": "ถอนติดตั้งบนคอมพิวเตอร์",
   "hubPluginUninstall": "ถอนการติดตั้ง",
-  "hubSessionTurns": "{count} รอบ}",
-  "hubSessionTurnsRunning": "{count} รอบ · กำลังทำงาน}",
-  "hubSessionStepCount": "{count} ขั้นตอน}",
+  "hubSessionTurns": "{{count} รอบ}",
+  "hubSessionTurnsRunning": "{{count} รอบ · กำลังทำงาน}",
+  "hubSessionStepCount": "{{count} ขั้นตอน}",
   "hubSessionWaitTime": "รอคุณ {duration}",
   "hubSessionTurn": "รอบที่ {turn}",
-  "hubSessionFileCount": "{count} ไฟล์}",
-  "hubSessionEditCount": "{count} ครั้ง}",
+  "hubSessionFileCount": "{{count} ไฟล์}",
+  "hubSessionEditCount": "{{count} ครั้ง}",
   "hubSessionTurnOf": "{total} รอบ {turn} / {ทอตอล}",
   "hubSessionCacheHit": "{percent} แคช",
   "hubSessionBlocked": "บล็อก",
@@ -116,10 +116,10 @@
   "hubSettingsHostSemantics": "{name} โฮสต์ระยะไกล: {ชื่อ}, {status}",
   "hubSettingsApiKey": "คีย์ API DeepSeek",
   "hubPluginBrowserFailed": "{address} เปิดเบราว์เซอร์ไม่ได้ เปิด {ที่อยู่} เอง",
-  "hubPluginYearMonth": "{year} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
+  "hubPluginYearMonth": "{{year} {month} 2 3 4 5 6 7 8 9 10 11 12 other}",
   "hubPluginUpdateTo": "{version} อัปเดตเป็น {version}",
   "hubPluginInstallOn": "{host} ติดตั้งบน {โฮสต์}",
-  "hubPluginComponentCount": "{count} ส่วนประกอบ}",
+  "hubPluginComponentCount": "{{count} ส่วนประกอบ}",
   "hubPluginComponentSeparator": ", ",
   "hubGroupAi": "AI",
   "hubGroupCapabilities": "ความสามารถ",
@@ -154,7 +154,7 @@
   "hubValueOneStep": "เหลืออีกขั้นตอนเดียว",
   "hubValueAllowed": "อนุญาตแล้ว",
   "hubValueNeedsSetup": "ต้องตั้งค่า",
-  "hubValueHosts": "{count} โฮสต์}",
+  "hubValueHosts": "{{count} โฮสต์}",
   "@hubValueHosts": {
     "placeholders": {
       "count": {
@@ -163,7 +163,7 @@
     }
   },
   "hubValueNoHosts": "ไม่มี",
-  "hubValuePlugins": "{count} ปลั๊กอิน}",
+  "hubValuePlugins": "{{count} ปลั๊กอิน}",
   "@hubValuePlugins": {
     "placeholders": {
       "count": {

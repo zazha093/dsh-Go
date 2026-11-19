@@ -636,7 +636,7 @@
     }
   },
   "tavernStorybookWhole": "The whole story",
-  "tavernStorybookWholeNote": "{count, plural, =1{1 line} other{{count} lines}}; hidden messages are left out. The EPUB opens in Apple Books and most reading apps.",
+  "tavernStorybookWholeNote": "{count, plural, =1{1 line} other{{count} lines}}; hidden messages are left out. The EPUB opens in Apple Books and most reading apps.}",
   "@tavernStorybookWholeNote": {
     "placeholders": {
       "count": {
@@ -658,7 +658,7 @@
   },
   "tavernStorybookSave": "Save to photos",
   "tavernStorybookShare": "Share the image",
-  "tavernStorybookEarlier": "{count, plural, =1{1 earlier line is} other{{count} earlier lines are}} left out of the image; export the e-book for all of it.",
+  "tavernStorybookEarlier": "{count, plural, =1{1 earlier line is} other{{count} earlier lines are}} left out of the image; export the e-book for all of it.}",
   "@tavernStorybookEarlier": {
     "placeholders": {
       "count": {
@@ -666,7 +666,7 @@
       }
     }
   },
-  "tavernStorybookEarlierShort": "… {count, plural, =1{1 line} other{{count} lines}} before this …",
+  "tavernStorybookEarlierShort": "… {count, plural, =1{1 line} other{{count} lines}} before this …}",
   "@tavernStorybookEarlierShort": {
     "placeholders": {
       "count": {
@@ -1203,7 +1203,7 @@
   "tavernIslandOffline": "Keep those pages offline",
   "tavernIslandOfflineSubtitle": "Only pictures and fonts inside the card; nothing is loaded from the internet",
   "tavernSessionUsage": "This chat's usage",
-  "tavernSessionUsageNote": "{count, plural, =1{1 reply on the current line} other{{count} replies on the current line}}, added up; replaced alternatives aren't counted",
+  "tavernSessionUsageNote": "{count, plural, =1{1 reply on the current line} other{{count} replies on the current line}}, added up; replaced alternatives aren't counted}",
   "@tavernSessionUsageNote": {
     "placeholders": {
       "count": {

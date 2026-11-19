@@ -1,161 +1,161 @@
 {
-  "activityThinkingUntangle": "ฮึม… ให้ฉันมองหาทางออก",
-  "activityThinkingWorkThrough": "มาทำงานผ่านนี้",
-  "activityThinkingGears": "เซลล์สมองกำลังหมุน",
-  "activityThinkingSecond": "ให้ฉันสักครู่",
-  "activityThinkingSmoking": "สมองกำลังทำงานหนัก",
-  "activityThinkingOnIt": "กำลังคิด คิด",
-  "activityThinkingNoRush": "คิดทีละอย่าง",
-  "activityThinkingPonder": "ให้ฉันทบทวนสิ่งนี้",
-  "activityThinkingLogic": "กำลังทำงานผ่านตรรกะ",
-  "activityThinkingBrain": "นำสมองไปทำงาน",
-  "activityThinkingSort": "ให้ฉันจัดเรียงนี้",
-  "activityThinkingMemory": "ค้นหาในหน่วยความจำของฉัน",
-  "activityThinkingStorm": "กำลังแลกเปลี่ยนความคิด",
-  "activityThinkingSavor": "ฮึม… ให้มันซึมเข้าไป",
-  "activityThinkingMoment": "ช่วงเวลาหนึ่ง กำลังคิด",
+  "activityThinkingUntangle": "ฮึม… ให้ฉันแกะงอ้นี้ให้เรียบร้อย",
+  "activityThinkingWorkThrough": "มาทำให้เสร็จสิ้นกันเถอะ",
+  "activityThinkingGears": "เฟืองในสมองกำลังหมุน",
+  "activityThinkingSecond": "ขอสักครู่นะ",
+  "activityThinkingSmoking": "สมองทำงานหนักเกินรอบ",
+  "activityThinkingOnIt": "กำลังคิด อยู่… คิดอยู่…",
+  "activityThinkingNoRush": "คิดทีละขั้นตอน",
+  "activityThinkingPonder": "ให้ฉันคิดดูซักพัก",
+  "activityThinkingLogic": "กำลังคิดหาตรงชี้",
+  "activityThinkingBrain": "กำลังใช้สมองเต็มที่",
+  "activityThinkingSort": "ให้ฉันเรียงลำดับเรื่องนี้",
+  "activityThinkingMemory": "กำลังค้นหาในหน่วยความจำ",
+  "activityThinkingStorm": "กำลังไขไอเดีย",
+  "activityThinkingSavor": "ฮึม… ให้มันซึมซบเข้าไป",
+  "activityThinkingMoment": "สักครู่ กำลังคิด",
   "activityThinkingHeadScratch": "กำลังขูดหัว…",
-  "activityThinkingPlayOut": "ลองดูสิว่าจะเป็นอย่างไร",
-  "activityThinkingLoading": "ความคิดกำลังโหลด",
-  "activityThinkingMulling": "คิดมูลมันซะ",
-  "activityThinkingBreakDown": "ฮึม… ให้ฉันแยกมัน",
-  "activityThinkingTrain": "ทุกคนขึ้นรถไฟความคิด",
-  "activityThinkingSomething": "ฮึม… มีบางอย่างที่นี่",
-  "activityThinkingJog": "นำความคิดนี้ไปวิ่ง",
-  "activityThinkingPicture": "รอ ฉันจินตนาการได้",
+  "activityThinkingPlayOut": "มาดูว่าเรื่องนี้จะไปไหน",
+  "activityThinkingLoading": "กำลังโหลดความคิด",
+  "activityThinkingMulling": "กำลังคิดซ้ำๆ",
+  "activityThinkingBreakDown": "ฮึม… ให้ฉันแยกส่วนออกมาดู",
+  "activityThinkingTrain": "ขึ้นรถไฟความคิดได้เลย",
+  "activityThinkingSomething": "ฮึม… นี่มีบางอย่าง",
+  "activityThinkingJog": "พาไอเดียนี้ไปวิ่งเล่นๆ",
+  "activityThinkingPicture": "รอๆ ฉันจินตนาการได้แล้ว",
   "activityThinkingBubbles": "ฟองความคิด",
-  "activityThinkingWaves": "คลื่นความคิดเข้าใกล้",
+  "activityThinkingWaves": "คลื่นความคิดกำลังมา",
   "activityThinkingCoffee": "สมองกำลังชงกาแฟ",
-  "activityThinkingDraft": "เขียนแบบในหัว",
-  "activityThinkingComing": "อ่า มันมาในฉันแล้ว",
-  "activityThinkingBubbling": "ความคิดกำลังล้นลอยขึ้น",
-  "activityThinkingTackle": "ฮึม… มาแก้มันซะ",
-  "activityThinkingSpark": "แรงบันดาลใจของความคิด",
-  "activityThinkingLogicFirst": "มาสอร์ทตรรกะก่อน",
-  "activityThinkingLocate": "กำลังระบุตำแหน่งมัน",
-  "activityThinkingInvestigate": "กำลังสืบสวนเข้าไป",
+  "activityThinkingDraft": "กำลังเขียนแบบในหัว",
+  "activityThinkingComing": "อ้า มันขึ้นมาแล้ว",
+  "activityThinkingBubbling": "ไอเดียกำลังฟورانขึ้น",
+  "activityThinkingTackle": "ฮึม… มาแกะเรื่องนี้ซะ",
+  "activityThinkingSpark": "ประกายไอเดียหนึ่งชิ้น",
+  "activityThinkingLogicFirst": "มาจัดการตรรกะก่อน",
+  "activityThinkingLocate": "กำลังระบุตำแหน่ง",
+  "activityThinkingInvestigate": "กำลังตรวจสอบ",
   "activityThinkingGif": "thinking.gif",
-  "activityThinkingLook": "ลองดู",
+  "activityThinkingLook": "ขอดูก่อน",
   "activityThinkingInteresting": "ฮึม… น่าสนใจ",
-  "activityThinkingHands": "กำลังทำให้สมองอุ่นขึ้น",
-  "activityThinkingFiveMinutes": "ห้านาที ค่อนข้างโปรเจกต์ใหญ่",
-  "activityThinkingSerious": "เวลาไปทำจริงแล้ว",
-  "activityThinkingTricky": "นี่ซับซ่อนนิดหน่อย",
-  "activityThinkingAscend": "กำลังขึ้นสู่ระดับสูงกว่า",
-  "activityThinkingAlmostPromise": "เกือบถึงแล้ว สัญญา",
-  "activityThinkingLongWay": "เลือกเส้นทางวิวที่สวย",
-  "activityThinkingWrapping": "กำลังห่อหุ้มสิ่งต่างๆ",
-  "activityThinkingSong": "ขอเพลงหนึ่งเพลงเท่าความคิด",
-  "activityThinkingBigMove": "กำลังเตรียมย้ายใหญ่",
-  "activityThinkingSimple": "ง่าย ขอ. หรือ คือ มัน?",
+  "activityThinkingHands": "กำลังอุ่นเครื่องสมอง",
+  "activityThinkingFiveMinutes": "ห้านาที โปรเจ็กต์ใหญ่เลย",
+  "activityThinkingSerious": "ถึงเวลาจริงจังแล้ว",
+  "activityThinkingTricky": "นี่ทริกกี้หน่อย",
+  "activityThinkingAscend": "ลุยขึ้นระดับสูงขึ้น",
+  "activityThinkingAlmostPromise": "เกือบเสร็จแล้ว คำให้สัญญา",
+  "activityThinkingLongWay": "เลือกเส้นทางวิวสวยๆ",
+  "activityThinkingWrapping": "กำลังพับขึ้นทีละชิ้น",
+  "activityThinkingSong": "ขอเวลาประมาณเพลงหนึ่งเพลง",
+  "activityThinkingBigMove": "กำลังเตรียมการกระทำใหญ่",
+  "activityThinkingSimple": "คำขอน่ายๆ หรือไม่?",
   "activityThinkingOneMinute": "หนึ่งนาที ยังคิดอยู่",
-  "activityThinkingChallenge": "ตอนนี้นี่คือความท้าทาย",
-  "activityThinkingDig": "ขุดลึกลงไปอีกนิด",
-  "activityThinkingNotSimple": "มีอะไรมากกว่านี้",
-  "activityThinkingDeep": "ลึกเข้าไปในมัน",
-  "activityThinkingBurning": "เซลล์สมองกำลังทำงานเต็มที่",
+  "activityThinkingChallenge": "นี่คือความท้าทาย",
+  "activityThinkingDig": "ให้ฉันขุดลึกขึ้นอีกนิด",
+  "activityThinkingNotSimple": "เรื่องนี้มีอะไรมากกว่าที่คิด",
+  "activityThinkingDeep": "ลุยลึกลงไป",
+  "activityThinkingBurning": "เซลล์สมองกำลังยิงไฟ",
   "activityThinkingNearlyClear": "เกือบเข้าใจแล้ว",
-  "activityThinkingTwisty": "เรื่องนี้มีเลี้ยวโค้งนิดหน่อย…",
+  "activityThinkingTwisty": "เรื่องนี้มีอะไรซับซ้อนนิดหน่อย…",
   "activityThinkingWorkout": "กำลังออกกำลังกายสมอง…",
-  "activityThinkingStay": "อยู่กับฉันไป เกือบถึงแล้ว",
-  "activityThinkingCloser": "ให้ฉันคิดผ่านเรื่องนี้",
+  "activityThinkingStay": "อยู่กับฉันต่อไปนะ เกือบเสร็จแล้ว",
+  "activityThinkingCloser": "ให้ฉันคิดเรื่องนี้จนจบ",
   "activityThinkingThirtySeconds": "สามสิบวินาที ยังทำอยู่",
-  "activityThinkingSoon": "แน่นแฟ้น เกือบถึงแล้ว",
-  "activityThinkingAnotherPass": "ลองผ่านอีกครั้ง",
-  "activityThinkingTrack": "ยังคงตามรอย",
-  "activityThinkingLead": "กำลังไปถึงที่ไหนที่นี่",
-  "activityThinkingCircles": "หมุนวนอยู่…",
-  "activityThinkingAnyMoment": "ช่วงเวลาไหนก็ได้ ตอนนี้",
-  "activityThinkingStillLocate": "ยังคงแคบขอบลง",
+  "activityThinkingSoon": "อดทนซักพัก เกือบเสร็จแล้ว",
+  "activityThinkingAnotherPass": "ให้ฉันอ่านอีกรอบ",
+  "activityThinkingTrack": "ยังอยู่บนราง",
+  "activityThinkingLead": "กำลังไปไหนสักที่",
+  "activityThinkingCircles": "กำลังคิดวนๆ…",
+  "activityThinkingAnyMoment": "ทุกขณะนี้",
+  "activityThinkingStillLocate": "ยังคงระบุจุดอยู่",
   "activityWaitingCall": "กำลังเรียกโมเดล…",
   "activityWaitingOnWay": "โมเดลกำลังมา",
-  "activityWaitingSpeak": "กำลังรอคำ…",
-  "activityWaitingWords": "กำลังหาคำที่ถูกต้อง",
-  "activityWaitingAwake": "โมเดลตื่นอยู่ไหม?",
-  "activityWaitingStretch": "ปล่อยให้มันยืด",
+  "activityWaitingSpeak": "รอคำพูด…",
+  "activityWaitingWords": "กำลังหาคำที่เหมาะสม",
+  "activityWaitingAwake": "โมเดลตื่นรึยัง?",
+  "activityWaitingStretch": "ปล่อยให้มันยืดตัว",
   "activityWaitingYawn": "โมเดลเพิ่งหาว",
   "activityWaitingComing": "โมเดล: กำลังมา",
-  "activityWaitingText": "กำลังรอคำก่อนหน้า",
-  "activityWaitingQueue": "ยังอยู่ในคิว",
-  "activityWaitingBrew": "มีอะไรกำลังเดือด",
-  "activityWaitingWater": "โมเดลดื่มน้ำ一口",
-  "activityWaitingWarmup": "ปล่อยให้มันอุ่นขึ้น",
+  "activityWaitingText": "รอคำแรกๆ",
+  "activityWaitingQueue": "ยังคงอยู่ในคิว",
+  "activityWaitingBrew": "มีอะไรกำลังเครื่อง",
+  "activityWaitingWater": "โมเดลกำลังชิบน้ำ",
+  "activityWaitingWarmup": "ปล่อยให้มันอุ่นเครื่อง",
   "activityWaitingMeditate": "โมเดลกำลังทำสมาธิ",
-  "activityWaitingBlink": "กำลังรอให้มันกระพริบ",
-  "activityWaitingMoment": "มันพูดว่า “หนึ่งช่วงเวลา”",
+  "activityWaitingBlink": "รอให้มันกระพริบ",
+  "activityWaitingMoment": "มันบอกว่า “สักครู่”",
   "activityWritingWords": "กำลังหาคำ",
-  "activityWritingTyping": "กำลังพิมพ์",
-  "activityWritingInspired": "คำไหลไหลอย่างมหัศจรรย์",
+  "activityWritingTyping": "กำลังพิมพ์อยู่",
+  "activityWritingInspired": "คำไหลไหวเหมือนเวทมนตร์",
   "activityWritingOnIt": "เขียน เขียน",
-  "activityWritingCareful": "เลือกคำทีละคำ",
-  "activityWritingFlow": "ทั้งหมดในกระแสเดียว",
-  "activityWritingPlain": "ใส่ในคำพูดธรรมดา",
-  "activityWritingIdeas": "ใส่ความคิดเข้าไปในคำ",
-  "activityWritingKeys": "กำลังกดแป้น",
-  "activityWritingAlmost": "เกือบจบการเขียน",
-  "activityWritingTell": "ให้ฉันบอกคุณ",
-  "activityWritingFast": "เขียนขึ้นพายุ",
-  "activityWritingBreeze": "คำบินไปที่หน้า",
-  "activityWritingFormat": "จัดระเบียบเลย์เอาต์",
-  "activityNightAscend": "ล้ำขีดเวลานอน…",
-  "activityNightHello": "สวัสดีกลางคืน",
-  "activityNightOwl": "คุณเป็นนกกลางคืนเกินไป?",
-  "activityNightMoon": "ถ้าเดือนขึ้น ฉันก็ขึ้น",
-  "activityNightSlow": "สมองกลางคืน ทำเป็นน้อยๆ",
-  "activityNightChampion": "แชมป์นกกลางคืนออนไลน์",
-  "activityNightSleepy": "ง่วง แต่ฉันมีนี่",
-  "activityNightMidnight": "ยังทำงานผ่านเที่ยงคืน",
-  "activityNightOpen": "เปิดสำหรับกะกลางคืน",
-  "activityNightStars": "แม้ดวงดาวจะหลับ",
-  "activityNightDawn": "คิดเข้าไปในช่วงเวลาเล็กน้อย",
-  "activityWeekendChill": "สุดสัปดาห์เฉยๆ",
-  "activityWeekendHere": "นี่คือสุดสัปดาห์เกินไป!",
-  "activityWeekendCompany": "นี่คือวันที่ปิดเกินไป",
+  "activityWritingCareful": "เลือกทุกคำให้ดี",
+  "activityWritingFlow": "ไหลไปหมดในครั้งเดียว",
+  "activityWritingPlain": "แปลให้เข้าใจง่าย",
+  "activityWritingIdeas": "แปลงไอเดียเป็นคำ",
+  "activityWritingKeys": "กำลังแตะแป้น",
+  "activityWritingAlmost": "เกือบเขียนเสร็จ",
+  "activityWritingTell": "ขอเล่าให้ฟัง",
+  "activityWritingFast": "เขียนเร็วเหมือนพายุ",
+  "activityWritingBreeze": "คำบินขึ้นหน้ากระดาษ",
+  "activityWritingFormat": "กำลังจัดรูปแบบ",
+  "activityNightAscend": "ลุ่มลึกข้ามเวลานอน…",
+  "activityNightHello": "ทักทายค่ำคืนสักนิด",
+  "activityNightOwl": "คุณก็นกฮูกกลางคืนเหรอ?",
+  "activityNightMoon": "ถ้าดวงจันทร์ขึ้น ฉันก็ยังไม่หลับ",
+  "activityNightSlow": "สมองกลางคืน ช้าๆ นะ",
+  "activityNightChampion": "แชมป์นกฮูกออนไลน์",
+  "activityNightSleepy": "ง่วง แต่ทำได้",
+  "activityNightMidnight": "ยังทำงานเที่ยงคืน",
+  "activityNightOpen": "เปิดให้บริการกะดึก",
+  "activityNightStars": "ดวงดาวก็หลับแล้ว",
+  "activityNightDawn": "คิดถึงก่อนอรุณอytuc",
+  "activityWeekendChill": "ผ่อนคลายสุดสัปดาห์นิดหน่อย",
+  "activityWeekendHere": "สุดสัปดาห์ก็อยู่ที่นี่!",
+  "activityWeekendCompany": "วันหยุดก็มาอยู่ด้วย",
   "activityWeekendOnline": "ไม่มีการปิดตัวสุดสัปดาห์",
-  "activityWeekendSneak": "วันหยุดขโมยความคิด",
-  "activityWeekendWorking": "กำลังทำงานในสุดสัปดาห์เกินไป?",
-  "activityWeekendMode": "โหมดสุดสัปดาห์เปิด",
-  "activityWeekendBugs": "ซั่วบั๊กวันสุดสัปดาห์",
-  "activityWeekendSkin": "ลุคพิเศษวันหยุด",
-  "activityNewYearCheers": "Happy New Year!",
-  "activityNewYearDay": "Happy New Year",
+  "activityWeekendSneak": "คิดงานสุดสัปดาห์ลับๆ",
+  "activityWeekendWorking": "สุดสัปดาห์ก็ทำงานไหม?",
+  "activityWeekendMode": "โหมดสุดสัปดาห์ เปิดแล้ว!",
+  "activityWeekendBugs": "ล่าบั๊กสุดสัปดาห์",
+  "activityWeekendSkin": "ลุคพิเศษสุดสัปดาห์",
+  "activityNewYearCheers": "สวัสดีปีใหม่!",
+  "activityNewYearDay": "สวัสดีปีใหม่",
   "activityNewYearBugs": "ปีใหม่ บั๊กใหม่",
-  "activityNewYearFirstLine": "บรรทัดแรกของโค้ดปีนี้",
-  "activityNewYearWork": "นี่คือการเริ่มต้นที่ยอดเยี่ยม",
-  "activityValentineCode": "เขียนโค้ดในวันวาเลนไทน์เกินไป",
-  "activityValentineLove": "โค้ดคือความรักจริง",
-  "activityValentineDate": "ไม่มีเดทวันนี้?",
+  "activityNewYearFirstLine": "บรรทัดโค้ดแรกของปี",
+  "activityNewYearWork": "ขอให้ปีนี้เริ่มต้นสุขสันต์",
+  "activityValentineCode": "วันวาเลนไทน์ก็เขียนโค้ดอยู่",
+  "activityValentineLove": "โค้ดคือรักจริง",
+  "activityValentineDate": "วันนี้ไม่มีเดท?",
   "activityValentineKeyboard": "คีย์บอร์ดคือกุหลาบของฉัน",
-  "activityPiDay": "Happy π Day",
-  "activityPiCircle": "วงกลมกลมพิเศษวันนี้",
-  "activityAprilFools": "Happy April Fools' Day",
-  "activityAprilBug": "บั๊กนี้เป็นประนักหรือ?",
-  "activityAprilErrors": "ตามหาออกเพื่อข้อผิดพลาดปลอม",
-  "activityAprilKidding": "เพียงเล่นๆ ไม่มีข้อผิดพลาด",
-  "activityLaborWorking": "ยังทำงานในวันแรงงาน",
-  "activityLaborPride": "ภูมิใจในงาน",
-  "activityLaborSpirit": "โหมดเวิร์กเกอร์: ทั้งหมดเข้า",
-  "activityChildrenDay": "Happy Children's Day",
-  "activityChildrenHeart": "เราทุกคนใจเป็นเด็ก",
-  "activityChildrenCode": "โค้ดน่ารักอย่างเดียววันนี้",
-  "activityProgrammerCheers": "Happy 1024 Programmers' Day",
-  "activityProgrammerDay": "วันนี้คือ Programmers' Day",
-  "activityProgrammer1024": "1024, happy coding day",
-  "activityProgrammerCode": "เขียนโค้ดในวันหยุดของเราเกินไป",
-  "activityHalloween": "Happy Halloween",
-  "activityHalloweenTreat": "Trick or treat",
-  "activityHalloweenCode": "โค้ดอาจดูน่ากลัวเกินไป",
-  "activityChristmasEve": "Happy Christmas Eve",
-  "activityChristmasEveThinking": "คิดในคริสต์มาสอีฟเกินไป",
-  "activityChristmasEveGift": "โค้ดคืนนี้ ของขวัญอะเวท",
-  "activityChristmas": "Merry Christmas",
-  "activityChristmasCompany": "อยู่กับคุณในวันคริสต์มาส",
-  "activityChristmasEgg": "ไข่อีสเตอร์เฉพาะคริสต์มาส",
-  "activityChristmasReindeer": "รูดอล์ฟส่งโค้ด",
-  "activityYearEndEve": "New Year's Eve",
-  "activityYearEndLast": "ความคิดสุดท้ายปีนี้",
+  "activityPiDay": "สวัสดีวันพาย (π Day)",
+  "activityPiCircle": "วันนี้วงกลมกลมกว่าปกติ",
+  "activityAprilFools": "สวัสดีวันอפריל ฟูล!",
+  "activityAprilBug": "บั๊กนี้เป็นโจ๊กเหรอ?",
+  "activityAprilErrors": "ระวังข้อผิดพลาดล่อลวง",
+  "activityAprilKidding": "แค่เล่นๆ ไม่มีข้อผิดพลาดจริง",
+  "activityLaborWorking": "วันแรงงานก็ยังทำงาน",
+  "activityLaborPride": "ภูมิใจนิดหน่อยในงานที่ทำ",
+  "activityLaborSpirit": "โหมดคนงาน: ดูดซับทั้งหมด",
+  "activityChildrenDay": "สวัสดีวันเด็ก",
+  "activityChildrenHeart": "เราทุกคนใจยังเป็นเด็ก",
+  "activityChildrenCode": "วันนี้โค้ดน่ารักเท่านั้น",
+  "activityProgrammerCheers": "สวัสดีวันโปรแกรมเมอร์ 1024!",
+  "activityProgrammerDay": "วันนี้เป็นวันโปรแกรมเมอร์",
+  "activityProgrammer1024": "1024 สุขสันต์วันเขียนโค้ด",
+  "activityProgrammerCode": "วันหยุดของเราก็เขียนโค้ดอยู่ดี",
+  "activityHalloween": "สวัสดีวันฮัลโลวีน",
+  "activityHalloweenTreat": "ขนมหรือขโมย",
+  "activityHalloweenCode": "โค้ดก็สามารถน่ากลัวได้",
+  "activityChristmasEve": "สุขสันต์คริสต์มาสอีฟ",
+  "activityChristmasEveThinking": "คืนคริสต์มาสก็ยังคิด",
+  "activityChristmasEveGift": "เขียนโค้ดคืนนี้ ของขวัญรอข้างหน้า",
+  "activityChristmas": "เมอร์รี่ คริสต์มาส",
+  "activityChristmasCompany": "คริสต์มาสนี้อยู่กับคุณ",
+  "activityChristmasEgg": "อีสเตอร์เอ็กพิเศษวันคริสต์มาส",
+  "activityChristmasReindeer": "รูดลฟ์ส่งโค้ดมาถึง",
+  "activityYearEndEve": "คืนวันสิ้นปี",
+  "activityYearEndLast": "ความคิดสุดท้ายของปีนี้",
   "activityYearEndReady": "พร้อมสำหรับปีใหม่",
-  "activityYearEndSeeYou": "See you next year!",
+  "activityYearEndSeeYou": "เจอกันปีหน้า!",
   "activityZodiacRat": "หนู",
   "activityZodiacOx": "วัว",
   "activityZodiacTiger": "เสือ",
@@ -168,650 +168,248 @@
   "activityZodiacRooster": "ไก่",
   "activityZodiacDog": "หมา",
   "activityZodiacPig": "หมู",
-  "activityLunarCheers": "Happy Lunar New Year!",
-  "activityLunarCode": "ยังเขียนโค้ดเกินปีใหม่",
-  "activityLunarEnvelope": "ซองแดง ขอหน่อย",
-  "activityLunarSpring": "Happy Spring Festival",
-  "activityLunarGreeting": "ขอให้โชคดีปีใหม่",
-  "activityLunarCodeGreeting": "โค้ดพูด Happy New Year",
-  "activityRareSsr": "SSR! ไข่อีสเตอร์หายาก",
-  "activityRareUr": "UR ดรอป",
-  "activityRareLegend": "Legendary ดรอป!",
-  "activityRareOrange": "ดรอประดับส้ม",
-  "activityRareEgg": "อีสเตอร์อีกก็พบคุณ",
-  "activityRareChosen": "ช่วงเวลาที่ถูกเลือก",
-  "activityRareHidden": "คุณพบฉบับซ่อน",
-  "activityRareChat": "แชทลับถูกปลดล็อก",
-  "activityRareMax": "ความหายากสูงสุด",
-  "activityRareLucky": "โชคอยู่ฝ่ายคุณ",
-  "activityRareCritical": "โจมตีสำคัญ",
-  "activityRareNextLevel": "คิดระดับถัดไป",
-  "activityFailCrash": "Well, that went sideways",
-  "activityFailOops": "Oops",
-  "activityFailRun": "That didn't run",
-  "activityFailTrip": "ล้มเล็กน้อย",
-  "activityFailWrong": "That's not right",
-  "activityFailHiccup": "โจมตี hiccup",
-  "activityFailBroken": "That's not working",
-  "activityFailLocal": "It works on my machine",
-  "activityFailYesterday": "It worked yesterday",
-  "activityFailTough": "That's a tough one",
-  "activityFailCrack": "Well, that fell apart",
+  "activityLunarCheers": "สวัสดีปีใหม่จีน!",
+  "activityLunarCode": "วันปีใหม่ก็ยังเขียนโค้ด",
+  "activityLunarEnvelope": "อั่งเปาเอาไว้หน่อย",
+  "activityLunarSpring": "สุขสันต์เทศกาลฤดูใบไม้ผลิ",
+  "activityLunarGreeting": "ทักทายปีใหม่",
+  "activityLunarCodeGreeting": "โค้ดพูด สวัสดีปีใหม่",
+  "activityRareSsr": "SSR! ไข่ปาสต่างหายาก",
+  "activityRareUr": "ได้ UR!",
+  "activityRareLegend": "ได้ไอเทมตำนาน!",
+  "activityRareOrange": "ได้ไอเทมระดับส้ม",
+  "activityRareEgg": "ไข่ปาสลับมาเจอคุณ",
+  "activityRareChosen": "ช่วงเวลาถูกเลือก",
+  "activityRareHidden": "คุณเจอรุ่นซ่อน",
+  "activityRareChat": "ปลดล็อกแชทลับ",
+  "activityRareMax": "ความหายากระดับ MAX",
+  "activityRareLucky": "โชคดีอยู่ข้างคุณ",
+  "activityRareCritical": "โจมตีสำคัญ!",
+  "activityRareNextLevel": "คิดแบบระดับต่อไป",
+  "activityFailCrash": "โค้ดร่วงทางลับ",
+  "activityFailOops": "อุ๊ปซิ์",
+  "activityFailRun": "มันรันไม่ได้",
+  "activityFailTrip": "ล้ม लड़खล่ำนิดหน่อย",
+  "activityFailWrong": "มันไม่ถูกต้อง",
+  "activityFailHiccup": "เจออุปสรรคนิดหน่อย",
+  "activityFailBroken": "มันทำงานไม่ได้",
+  "activityFailLocal": "บนเครื่องฉันรันได้",
+  "activityFailYesterday": "เมื่อวานรันได้",
+  "activityFailTough": "เรื่องนี้ยากจริง",
+  "activityFailCrack": "แตกสลายไปหมด",
   "activityFailPressure": "รู้สึกกดดัน",
-  "activityFailCareless": "ประมาทเล็กน้อย",
-  "activityFailSlip": "สลิปของคีย์",
-  "activityFailTryAgain": "ลองอีกทางหนึ่ง",
-  "activityFailChance": "ให้โอกาสอีกครั้ง",
-  "activityTestGreen": "ทุกเทสต์ผ่าน",
-  "activityTestAllGreen": "ทั้งหมดเขียว Nice",
-  "activityTestFirstTry": "ผ่านครั้งแรก!",
+  "activityFailCareless": "ประมาทนิดหน่อย",
+  "activityFailSlip": "ลื่นนิ้วสักนิด",
+  "activityFailTryAgain": "ลองวิธีอื่นดู",
+  "activityFailChance": "ขออีกโอกาสหน่อย",
+  "activityTestGreen": "เทสทุกตัวผ่าน",
+  "activityTestAllGreen": "เขียวหมด เยี่ยม",
+  "activityTestFirstTry": "ผ่านครั้งแรกเลย!",
   "activityTestNoErrors": "ไม่มีข้อผิดพลาด",
   "activityTestPassed": "ผ่านแล้ว!",
-  "activityTestSolid": "มั่นคง",
-  "activityTestRed": "แดง มาดูว่าอะไรแตก",
-  "activityTestInvestigate": "เทสต์ล้มเหลว กำลังตรวจสอบ",
-  "activityTestStubborn": "เทสต์ตึงๆ หนึ่งอัน",
-  "activityTestFix": "ไฟแดง ย้อนกลับไปแก้",
-  "activityGitCommitSave": "คอมมิตแล้ว ความคืบหน้าบันทึก",
-  "activityGitSaved": "ความคืบหน้าบันทึก",
-  "activityGitCommitRelief": "คอมมิตแล้ว จิตใจสบาย",
-  "activityGitPushed": "พุชแล้ว",
-  "activityGitPushDone": "Pushed. ปิดแล้วมันไป",
-  "activityGitCodeOut": "โค้ดออกประตู",
-  "activityInstallDone": "ติดตั้ง dependencies แล้ว",
+  "activityTestSolid": "ดูมั่นใจ",
+  "activityTestRed": "แดง มาดูว่าอะไรพัง",
+  "activityTestInvestigate": "เทสไม่ผ่าน กำลังตรวจสอบ",
+  "activityTestStubborn": "มีเทสตัวหนึ่งขี้อายา",
+  "activityTestFix": "ไฟแดง กลับไปแก้ต่อ",
+  "activityGitCommitSave": "คอมมิตแล้ว บันทึกความคืบหน้า",
+  "activityGitSaved": "บันทึกความคืบหน้าแล้ว",
+  "activityGitCommitRelief": "คอมมิตแล้ว ระงับใจ",
+  "activityGitPushed": "พัชแล้ว",
+  "activityGitPushDone": "พัชแล้ว ส่งออกไปแล้ว",
+  "activityGitCodeOut": "โค้ดออกไปแล้ว",
+  "activityInstallDone": "ติดตั้ง dependencies เสร็จแล้ว",
   "activityInstallInternet": "ดาวน์โหลดครึ่งอินเทอร์เน็ต",
-  "activityInstallPackages": "แพ็กเกจทั้งหมดพร้อม",
-  "activityMilestoneFive": "Tools x5, กำลังเข้าใจ",
+  "activityInstallPackages": "แพ็กเกจครบทุกตัว",
+  "activityMilestoneFive": "เครื่องมือ x5 เริ่มเข้าใจระบบ",
   "activityMilestoneTen": "คอมโบเครื่องมือ x10",
-  "activityMilestoneTwenty": "Tools x20, เริ่มลุย",
-  "activityMilestoneFifty": "Tools x50, ทำงานโอที",
-  "activityRetryWait": "ค้างแน่น รีทราย",
-  "activityRetryBackoff": "ถูกขับไล่ ถอยหลัง",
-  "activityRetryKnock": "เคาะประตูมากกว่าหนึ่งครั้ง",
-  "activityRateLimited": "อัตราถูกจำกัด หยุดพัก",
-  "activityRate429": "429 พักหายใจ แล้วลองใหม่",
-  "activityRateQueue": "ค่อนข้างคิววันนี้",
-  "activityCompactContext": "จัดระเบียบคอนเท็กซ์…",
-  "activityCompactBag": "จัดกระเป๋าเป้…",
-  "activityCompactSpace": "สร้างพื้นที่บ้าง",
-  "activityCompactMemory": "ตัดแต่งหน่วยความจำ",
-  "activityCompactChats": "บีบอัดแชทเก่า",
-  "activityReminderWater": "ครึ่งชั่วโมง น้ำหยุด?",
-  "activityReminderTenMinutes": "สิบนาที ค่อนข้างงาน",
-  "activityDiffTitle": "การเปลี่ยนแปลงเทิร์น",
-  "activityDiffCopied": "แพทช์คัดลอกแล้ว",
-  "activityDiffNoWrap": "ไม่ห่อบรรทัด",
-  "activityDiffWrap": "ห่อบรรทัด",
-  "activityDiffCopy": "คัดลอกแพทช์",
+  "activityMilestoneTwenty": "เครื่องมือ x20 ก้าวหน้าตรง",
+  "activityMilestoneFifty": "เครื่องมือ x50 ทำงานหนัก",
+  "activityRetryWait": "อดทนซักพัก รีทราย…",
+  "activityRetryBackoff": "ถูกปฏิเสธ ย้อนหลังหน่อย",
+  "activityRetryKnock": "เคาะประตูอีกรอบ",
+  "activityRateLimited": "ถูกจำกัดอัตรา พักก่อน",
+  "activityRate429": "429 พักก่อน แล้วค่อยลองใหม่",
+  "activityRateQueue": "วันนี้คิวเยอะ",
+  "activityCompactContext": "กำลังระเบียบบริบท…",
+  "activityCompactBag": "กำลังจัดกระเป๋า…",
+  "activityCompactSpace": "กำลังทำพื้นที่",
+  "activityCompactMemory": "กำลังตัดหน่วยความจำ",
+  "activityCompactChats": "กำลังแพ็คแชทเก่า",
+  "activityReminderWater": "ครึ่งชั่วโมง หยุดดื่มน้ำหน่อย?",
+  "activityReminderTenMinutes": "สิบนาที งานใหญ่เลย",
+  "activityDiffTitle": "การเปลี่ยนแปลงในเทิร์น",
+  "activityDiffCopied": "คัดลอกแพชแล้ว",
+  "activityDiffNoWrap": "อย่าพับบรรทัด",
+  "activityDiffWrap": "พับบรรทัด",
+  "activityDiffCopy": "คัดลอกแพช",
   "activityDiffEmpty": "ไฟล์ว่าง ไม่มีการเปลี่ยนแปลง",
   "activityDiffNewFile": "ไฟล์ใหม่",
   "activityDiffUnknownLines": "หมายเลขบรรทัดไม่ทราบ",
   "activityDiffCopyPath": "คัดลอกพาธ",
   "activityThinking": "กำลังคิด",
-  "activityReplyInterrupted": "ตอบกลับ (interrupted)",
-  "activityWaitingApproval": "กำลังรออนุมัติ",
-  "activityWaitingAnswer": "กำลังรอคำตอบ",
+  "activityReplyInterrupted": "ตอบกลับ (ถูกขัดจังหวะ)",
+  "activityWaitingApproval": "รอการอนุมัติ",
+  "activityWaitingAnswer": "รอคำตอบ",
   "activityWriting": "กำลังเขียนตอบ",
   "activityThinkingNow": "กำลังคิด",
   "activityRetrying": "กำลังลองใหม่",
-  "activityCompacting": "กำลังบีบอัดคอนเท็กซ์",
-  "activityVerbRun": "เรียกใช้",
+  "activityCompacting": "กำลังบีบอัดบริบท",
+  "activityVerbRun": "รัน",
   "activityVerbWrite": "เขียน",
   "activityVerbEdit": "แก้ไข",
   "activityVerbImage": "ดูรูปภาพ",
-  "activityVerbRead": "อ่านแล้ว",
-  "activityVerbFind": "ค้นหา",
+  "activityVerbRead": "อ่าน",
+  "activityVerbFind": "หา",
   "activityVerbSearch": "ค้นหา",
-  "activityVerbWebSearch": "ค้นหาเว็บ",
+  "activityVerbWebSearch": "ค้นหาบนเว็บ",
   "activityVerbWebView": "ดูเว็บ",
-  "activityVerbSubagent": "ส่งซับเอจิ้นต์",
-  "activityVerbTodo": "อัปเดตไป-dos",
+  "activityVerbSubagent": "ส่งซับเอเจนต์",
+  "activityVerbTodo": "อัปเดตทูดู",
   "activitySecretHide": "ซ่อนคีย์",
   "activitySecretShow": "แสดงคีย์",
-  "activitySlashNoMatch": "ไม่มีคำสั่งตรง ส่งเป็นข้อความ",
+  "activitySlashNoMatch": "ไม่พบคำสั่งที่ตรง ส่งเป็นข้อความแทน",
   "activitySlashCommands": "คำสั่ง",
   "activitySlashEnterArgs": "ใส่อาร์กิวเมนต์ แล้วส่ง",
+  "activitySlashRunIntent": "คำสั่ง · รัน",
+  "activitySlashInsertIntent": "คำสั่ง · แทรก",
+  "activitySlashSkillIntent": "สกิล · แทรก",
   "activityStepTitle": "รายละเอียดขั้นตอน",
   "activityStepMissing": "ขั้นตอนนี้ไม่อยู่ในประวัติที่โหลด",
   "activityStepQuestion": "คำถาม",
   "activityStepSuccess": "สำเร็จ",
-  "activityStepNeedsPermission": "ต้องการสิทธิ์",
+  "activityStepNeedsPermission": "ต้องการอนุญาต",
   "activityTools": "เครื่องมือ",
-  "activityStepDispatched": "ส่งออกแล้ว",
+  "activityStepDispatched": "ส่งแล้ว",
   "activityStepExecution": "การดำเนินการ",
   "activityStepLocation": "ตำแหน่ง",
   "activityStepArguments": "อาร์กิวเมนต์",
   "activityStepChanges": "การเปลี่ยนแปลง",
   "activityStepFullScreen": "ดูเต็มหน้าจอ",
-  "activityStepReadContent": "เนื้อหาอ่าน",
-  "activityStepWrittenContent": "เนื้อหาเขียน",
+  "activityStepReadContent": "อ่านเนื้อหาแล้ว",
+  "activityStepWrittenContent": "เขียนเนื้อหาแล้ว",
   "activityStepError": "ข้อผิดพลาด",
   "activityOutput": "เอาต์พุต",
   "activityStepResult": "ผลลัพธ์",
   "activityStepDeclined": "คุณปฏิเสธการเรียกใช้เครื่องมือนี้",
   "activityStepNoOutput": "ไม่มีเอาต์พุต",
-  "activityStepStart": "เริ่มแล้ว",
+  "activityStepStart": "เริ่มต้น",
   "activityDuration": "ระยะเวลา",
-  "activityFirstToken": "โทเค็นแรก",
+  "activityFirstToken": "โทเคนแรก",
   "activityStepGeneration": "การสร้าง",
   "activityStepSpeed": "ความเร็ว",
   "activityModel": "โมเดล",
-  "activityStepTiming": "ไทมมิ่ง",
+  "activityStepTiming": "ไทมิง",
   "activityUsage": "การใช้งาน",
   "activityInput": "อินพุต",
-  "activityStepCacheHit": "แคชโจมตี",
-  "activityStepCacheMiss": "แคชพลาด",
-  "activityStepCacheWrite": "แคชเขียน",
-  "activityStepReasoning": "Reasoning",
-  "activityStepAnswer": "คำตอบ",
-  "activityStepThinking": "Thinking",
-  "activityStepExplanation": "Explanation",
-  "activityStepToolCalls": "เครื่องมือถูกเรียกในขั้นตอนนี้",
+  "activityStepCacheHit": "  แคชฮิต",
+  "activityStepCacheMiss": "  แคชมิส",
+  "activityStepCacheWrite": "  เขียนแคช",
+  "activityStepReasoning": "  การให้เหตุผล",
+  "activityStepAnswer": "  คำตอบ",
+  "activityStepThinking": "กำลังคิด",
+  "activityStepExplanation": "คำอธิบาย",
+  "activityStepToolCalls": "เครื่องมือที่เรียกในขั้นตอนนี้",
   "activityStepProcessing": "โมเดลกำลังประมวลผล",
   "activityApprovalAllowed": "อนุญาต",
-  "activityApprovalUnanswered": "ไม่ได้รับอนุมัติ",
+  "activityApprovalUnanswered": "ไม่ได้รับการอนุมัติ",
   "activityApprovalAnswered": "ตอบแล้ว",
-  "activityToolRead": "อ่านแล้ว",
+  "activityToolRead": "อ่าน",
   "activityToolWrite": "เขียน",
   "activityToolCall": "เรียกเครื่องมือ",
-  "activityTraceTitle": "เส้นทางเทิร์น",
-  "activityTraceNotLoaded": "ประวัติเทิร์นนี้ยังไม่ได้โหลด",
+  "activityTraceTitle": "แนวทางของเทิร์น",
+  "activityTraceNotLoaded": "ประวัติของเทิร์นนี้ยังไม่ได้โหลด",
   "activityTraceOutputLimit": "ถึงขีดจำกัดเอาต์พุต",
-  "activityTraceEngineRestarted": "ถูกขัดจังหวะโดยเอนจินรีสตาร์ท",
+  "activityTraceEngineRestarted": "ถูกขัดจังหวะโดยการรีสตาร์ทเอนจิน",
   "activityTraceBlocked": "ถูกบล็อก",
-  "activityTraceHeading": "เส้นทางเทิร์น",
-  "activityTraceWaiting": "กำลังรอคุณ",
+  "activityTraceHeading": "แนวทางของเทิร์น ",
+  "activityTraceWaiting": "รอคุณ",
   "activityTraceNoSteps": "ไม่มีขั้นตอนที่มีเวลาในเทิร์นนี้",
-  "activityUsageInputIncludesCache": "อินพุตรวมแคชโจมตี",
-  "activityCacheHit": "แคชโจมตี",
-  "activitySummaryTodo": "อัปเดตไป-dos แล้ว",
+  "activityUsageInputIncludesCache": "อินพุตรวมแคชฮิต",
+  "activityCacheHit": "แคชฮิต",
+  "activitySummaryTodo": "อัปเดตทูดูแล้ว",
   "activityUsageBalance": "ยอดคงเหลือ DeepSeek",
-  "activityUsageContext": "คอนเท็กซ์",
+  "activityUsageContext": "บริบท",
   "activityUsageChat": "แชทนี้",
   "activityUsageAfterMessage": "ปรากฏหลังคุณส่งข้อความ",
-  "activityUsageWaiting": "กำลังรอข้อมูลการใช้งานคอนเท็กซ์",
-  "activityUsageProjected": "ประมาณการคำขอถัดไป",
+  "activityUsageWaiting": "รอข้อมูลการใช้งานบริบท",
+  "activityUsageProjected": "ประมาณคำขอถัดไป",
   "activityUsageLastRequest": "คำขอล่าสุด",
-  "activityUsageBreakdownEstimate": "รายการแยกเป็นการประมาณอิสระ อาจต่างจากทอตอล",
-  "activityUsageCumulativeInput": "อินพุตสะสม",
-  "activityUsageContextFull": "คอนเท็กซ์เกือบเต็ม ส่ง /compact เพื่อบีบอัด",
-  "activitySpanZero": "0 วินาที",
-  "activitySpanTiny": "<0.1 วินาที",
-  "activityTokensTenThousands": "{value} {ค่า}K",
-  "activityTokensHundredMillions": "{value} {ค่า}M",
-  "activityUsageContextSemantics": "คอนเท็กซ์ {percent} used, มุมมอง usage",
+  "activityUsageBreakdownEstimate": "รายการแบ่งส่วนเป็นการประมาณอิสระ อาจต่างจากรวม",
+  "activityUsageCumulativeInput": "อินพุทรวม",
+  "activityUsageContextFull": "บริบทเกือบเต็ม ส่ง /compact เพื่อบีบอัด",
   "activityUsageSystemTokens": "ระบบ {tokens}",
-  "activityUsageToolTokens": "Tools {tokens}",
-  "activityUsageMessageTokens": "Messages {tokens}",
-  "activityUsageTurns": "{count} turns ทอตอล}",
-  "activityUsageCacheWriteTokens": "แคชเขียน {tokens}",
-  "activitySummaryCommands": "{count} commands}",
-  "activitySummaryEditedFiles": "{count} files}",
-  "activitySummaryReadFiles": "{count} files}",
-  "activitySummarySearches": "{count} times}",
-  "activitySummaryWeb": "{count} times}",
-  "activitySummarySubagents": "{count} times}",
-  "activitySummaryOther": "{count} calls}",
-  "activitySummaryTotal": "{count} tools}",
-  "activityDiffBlockMarker": "{total} {index} @@ Change {ดัชนี}/{ทอตอล} @@",
-  "activityDiffEditMarker": "{total} {index} แก้ไข {อินเด็กซ์} ของ {ทอตอล}",
-  "activityTraceSpanSemantics": "{title} {detail} {หัวข้อ} {รายละเอียด}, duration {duration}",
-  "activityTraceGroupSemantics": "{label}, duration {duration}",
-  "activityTraceEstimatedCost": "{cost} (estimated ที่ official rates)",
-  "activityTraceReasoningTokens": "Reasoning: {tokens}",
-  "activityStepPosition": "Turn {turn} · Step {step}",
-  "activityStepTokenSpeed": "{speed} tokens/sec",
-  "activityStepRetryCount": "{count} times}",
-  "activityStepTruncated": "{text} {count} {เท็กซ์}\n… (แสดงเฉพาะเฟิร์ส {เคาท์}k characters. คัดลอกสำหรับ full text)",
+  "activityUsageToolTokens": "เครื่องมือ {tokens}",
+  "activityUsageMessageTokens": "ข้อความ {tokens}",
+  "activityUsageTurns": "{count, plural, =1{1 เทิร์นรวม} other{{count} เทิร์นรวม}}",
+  "activityUsageCacheWriteTokens": "เขียนแคช {tokens}",
+  "activitySummaryCommands": "{count, plural, =1{รัน 1 คำสั่ง} other{รัน {count} คำสั่ง}}",
+  "activitySummaryEditedFiles": "{count, plural, =1{แก้ไข 1 ไฟล์} other{แก้ไข {count} ไฟล์}}",
+  "activitySummaryReadFiles": "{count, plural, =1{อ่าน 1 ไฟล์} other{อ่าน {count} ไฟล์}}",
+  "activitySummarySearches": "{count, plural, =1{ค้นหา 1 ครั้ง} other{ค้นหา {count} ครั้ง}}",
+  "activitySummaryWeb": "{count, plural, =1{ใช้เว็บ 1 ครั้ง} other{ใช้เว็บ {count} ครั้ง}}",
+  "activitySummarySubagents": "{count, plural, =1{เรียกซับเอเจนต์ 1 ครั้ง} other{เรียกซับเอเจนต์ {count} ครั้ง}}",
+  "activitySummaryOther": "{count, plural, =1{เครื่องมืออื่น: 1 ครั้ง} other{เครื่องมืออื่น: {count} ครั้ง}}",
+  "activitySummaryTotal": "{count, plural, =1{ใช้ 1 เครื่องมือ} other{ใช้ {count} เครื่องมือ}}",
+  "activityDiffBlockMarker": "@@ การเปลี่ยนแปลง {index}/{total} @@",
+  "activityDiffEditMarker": "แก้ไข {index} จาก {total}",
+  "activityTraceSpanSemantics": "{title} {detail}, ระยะเวลา {duration}",
+  "activityTraceGroupSemantics": "{label}, ระยะเวลา {duration}",
+  "activityTraceEstimatedCost": "{cost} (ประมาณตามอัตราราชการ)",
+  "activityTraceReasoningTokens": "การให้เหตุผล: {tokens}",
+  "activityStepPosition": "รอบ {turn} · ขั้นตอน {step}",
+  "activityStepTokenSpeed": "{speed} โทเคน/วินาที",
+  "activityStepRetryCount": "{count, plural, =1{1 ครั้ง} other{{count} ครั้ง}}",
+  "activityStepTruncated": "{text}\n… (แสดงเฉพาะ {count}k ตัวอักษรแรก คัดลอกเพื่อดูทั้งหมด)",
   "activityStepLiveElapsed": "{elapsed} · กำลังดำเนินการ{suffix}",
-  "activityStepCopySection": "{title} คัดลอก {หัวข้อ}",
-  "activityStepCopiedSection": "{title} Copied {หัวข้อ}",
-  "activitySlashDescriptionArgs": "{description} {คำอธิบาย} · ใส่อาร์กิวเมนต์ แล้วส่ง",
+  "activityStepCopySection": "คัดลอก {title}",
+  "activityStepCopiedSection": "คัดลอก {title} แล้ว",
+  "activitySlashDescriptionArgs": "{description} · ใส่อาร์กิวเมนต์ แล้วส่ง",
   "activitySpanSecondsText": "{seconds} วินาที",
   "activitySpanSeconds": "{seconds} วินาที",
   "activitySpanMinutesSeconds": "{minutes} นาที {seconds} วินาที",
   "activitySpanHoursMinutes": "{hours} ชม {minutes} นาที",
-  "activityCostUnderCent": "ใต้ {symbol}0.01",
+  "activityCostUnderCent": "ต่ำกว่า {symbol}0.01",
   "activityCostApprox": "≈ {symbol}{amount}",
-  "activitySpanRetries": "{count} ครั้ง}",
-  "activitySpanToolCalls": "{count} เครื่องมือ}",
-  "activityRunningItems": "{count} รายการ}",
-  "activityRetryAttempt": "{count} พยายาม {เคาท์}",
-  "activityDiffFileCount": "{count} files}",
-  "activityDiffFileSemantics": "{path} , {added} lines added}, {removed} lines removed}",
-  "activityDiffEditNumber": "{edit} แก้ไข {แก้ไข}",
-  "activityDiffHunkNumber": "{index} เปลี่ยน {อินเด็กซ์}",
-  "activityDiffFromLine": "{line} จาก ไลน์ {ไลน์}",
-  "activityDiffEditCount": "{count} ครั้ง}",
-  "activityLunarZodiac": "ดูดวงโชคในปี {animal}",
-  "activityReminderHours": "{hours} ชั่วโมงติดต่อกัน หยุดพัก?",
-  "activityStepModelRequest": "One Model คำขอ",
-  "activityStepModelRequestDetail": "{detail} One Model คำขอ · {รายละเอียด}",
+  "activitySpanRetries": "{count, plural, =1{ลองใหม่ 1 ครั้ง} other{ลองใหม่ {count} ครั้ง}}",
+  "activitySpanToolCalls": "{count, plural, =1{เลือกเรียก 1 เครื่องมือ} other{เลือกเรียก {count} เครื่องมือ}}",
+  "activityRunningItems": "{count, plural, =1{ใน 1 รายการ} other{ใน {count} รายการ}}",
+  "activityRetryAttempt": "พยายามครั้งที่ {count}",
+  "activityDiffFileCount": "{count, plural, =1{1 ไฟล์} other{{count} ไฟล์}}",
+  "activityDiffFileSemantics": "{path}, {added, plural, =1{เพิ่ม 1 บรรทัด} other{เพิ่ม {added} บรรทัด}}, {removed, plural, =1{ลบ 1 บรรทัด} other{ลบ {removed} บรรทัด}}",
+  "activityDiffEditNumber": "แก้ไข {edit}",
+  "activityDiffHunkNumber": "การเปลี่ยนแปลง {index}",
+  "activityDiffFromLine": "จากบรรทัด {line}",
+  "activityDiffEditCount": "{count, plural, =1{แก้ไข 1 ครั้ง} other{แก้ไข {count} ครั้ง}}",
+  "activityLunarZodiac": "ขอโชคดีในปี{animal}",
+  "activityReminderHours": "{hours, plural, =1{หนึ่งชั่วโมงติดต่อกัน หยุดพักไหม?} other{{hours} ชั่วโมงติดต่อกัน หยุดพักไหม?}}",
+  "activityStepModelRequest": "คำขอโมเดลหนึ่งครั้ง",
+  "activityStepModelRequestDetail": "คำขอโมเดลหนึ่งครั้ง · {detail}",
   "activityUsageEstimatedCost": "≈ {symbol}{amount}",
   "activitySlashCommandSemantics": "{label}, /{name}",
-  "activityToolListSeparator": ", ",
-  "@activityTokensTenThousands": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityTokensHundredMillions": {
-    "placeholders": {
-      "value": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageContextSemantics": {
-    "placeholders": {
-      "percent": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageSystemTokens": {
-    "placeholders": {
-      "tokens": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageToolTokens": {
-    "placeholders": {
-      "tokens": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageMessageTokens": {
-    "placeholders": {
-      "tokens": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageTurns": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityUsageCacheWriteTokens": {
-    "placeholders": {
-      "tokens": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySummaryCommands": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummaryEditedFiles": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummaryReadFiles": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummarySearches": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummaryWeb": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummarySubagents": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummaryOther": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySummaryTotal": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityDiffBlockMarker": {
-    "placeholders": {
-      "index": {
-        "type": "String"
-      },
-      "total": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityDiffEditMarker": {
-    "placeholders": {
-      "index": {
-        "type": "String"
-      },
-      "total": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityTraceSpanSemantics": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      },
-      "detail": {
-        "type": "String"
-      },
-      "duration": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityTraceGroupSemantics": {
-    "placeholders": {
-      "duration": {
-        "type": "String"
-      },
-      "label": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityTraceEstimatedCost": {
-    "placeholders": {
-      "cost": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityTraceReasoningTokens": {
-    "placeholders": {
-      "tokens": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepPosition": {
-    "placeholders": {
-      "step": {
-        "type": "String"
-      },
-      "turn": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepTokenSpeed": {
-    "placeholders": {
-      "speed": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepRetryCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityStepTruncated": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      },
-      "text": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepLiveElapsed": {
-    "placeholders": {
-      "elapsed": {
-        "type": "String"
-      },
-      "suffix": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepCopySection": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepCopiedSection": {
-    "placeholders": {
-      "title": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySlashDescriptionArgs": {
-    "placeholders": {
-      "description": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySpanSecondsText": {
-    "placeholders": {
-      "seconds": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySpanSeconds": {
-    "placeholders": {
-      "seconds": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySpanMinutesSeconds": {
-    "placeholders": {
-      "minutes": {
-        "type": "String"
-      },
-      "seconds": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySpanHoursMinutes": {
-    "placeholders": {
-      "hours": {
-        "type": "String"
-      },
-      "minutes": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityCostUnderCent": {
-    "placeholders": {
-      "symbol": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityCostApprox": {
-    "placeholders": {
-      "amount": {
-        "type": "String"
-      },
-      "symbol": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySpanRetries": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activitySpanToolCalls": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityRunningItems": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityRetryAttempt": {
-    "placeholders": {
-      "count": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityDiffFileCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityDiffFileSemantics": {
-    "placeholders": {
-      "path": {
-        "type": "String"
-      },
-      "added": {
-        "type": "int"
-      },
-      "removed": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityDiffEditNumber": {
-    "placeholders": {
-      "edit": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityDiffHunkNumber": {
-    "placeholders": {
-      "index": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityDiffFromLine": {
-    "placeholders": {
-      "line": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityDiffEditCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "@activityLunarZodiac": {
-    "placeholders": {
-      "animal": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityReminderHours": {
-    "placeholders": {
-      "hours": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityStepModelRequestDetail": {
-    "placeholders": {
-      "detail": {
-        "type": "String"
-      }
-    }
-  },
-  "@activityUsageEstimatedCost": {
-    "placeholders": {
-      "amount": {
-        "type": "String"
-      },
-      "symbol": {
-        "type": "String"
-      }
-    }
-  },
-  "@activitySlashCommandSemantics": {
-    "placeholders": {
-      "label": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      }
-    }
-  },
+  "activityQuotaTitle": "การใช้งานสมาชิก",
+  "activityQuotaRefresh": "รีเฟรชการใช้งาน",
+  "activityQuotaPermissionDenied": "สมาชิกนี้ไม่มีสิทธิ์เข้าถึงการใช้งาน",
+  "activityQuotaAuthError": "ลงชื่อเข้าใช้หมดอายุหรือถูกปฏิเสธการเข้าถึง ตรวจสอบการลงชื่อเข้าใช้สมาชิก",
+  "activityQuotaNetworkError": "ข้อผิดพลาดเครือข่าย ลองใหม่ภายหลัง",
+  "activityQuotaRateLimited": "คำขอมากเกินไป ลองใหม่ภายหลัง",
+  "activityQuotaLoading": "กำลังโหลดการใช้งานสมาชิก…",
+  "activityQuotaUnavailable": "โหลดการใช้งานสมาชิกไม่ได้ตอนนี้ ลองใหม่ภายหลัง",
+  "activityQuotaUnsupported": "โฮสต์นี้ไม่รองรับการใช้งานสมาชิก",
+  "activityQuotaSignedOut": "สมาชิกออกจากระบบแล้ว",
+  "activityQuotaPrimary": "ขีดจำกัดหลัก",
+  "activityQuotaSecondary": "ขีดจำกัดรอง",
+  "activityQuotaFiveHour": "5 ชั่วโมง",
   "activityQuotaSevenDay": "7 วัน",
-  "activityQuotaUsed": "{value} used",
-  "activityQuotaSevenDayOpus": "7 days · Opus",
-  "activityQuotaUnavailable": "Can't load subscription usage right now. Try again later.",
-  "activitySlashRunIntent": "Command · Run",
-  "activityQuotaSecondary": "Secondary limit",
-  "activityQuotaPermissionDenied": "This subscription does not have permission to access usage.",
-  "activityQuotaLoading": "Loading subscription usage…",
-  "activityQuotaUnsupported": "This host does not support subscription usage",
-  "activityQuotaSevenDaySonnet": "7 days · Sonnet",
-  "activityQuotaFiveHour": "5 hours",
-  "activityQuotaReset": "Resets: {time}",
-  "activitySlashInsertIntent": "Command · Insert",
-  "activitySlashSkillIntent": "Skill · Insert",
-  "activityQuotaRateLimited": "Too many requests. Try again later.",
-  "activityQuotaRefresh": "Refresh usage",
-  "activityQuotaNetworkError": "Network error. Try again later.",
-  "activityQuotaTitle": "Subscription usage",
-  "activityQuotaAuthError": "Sign-in expired or access denied. Check your subscription sign-in.",
-  "activityQuotaSignedOut": "Subscription is signed out",
-  "activityQuotaPrimary": "Primary limit",
+  "activityQuotaSevenDaySonnet": "7 วัน · Sonnet",
+  "activityQuotaSevenDayOpus": "7 วัน · Opus",
+  "activityQuotaUsed": "ใช้แล้ว {value}",
+  "activityQuotaReset": "รีเซ็ต: {time}",
+  "activityToolListSeparator": ", ",
+  "activitySpanZero": "0 วินาที",
+  "activitySpanTiny": "<0.1 วินาที",
+  "activityTokensTenThousands": "{value}K",
+  "activityTokensHundredMillions": "{value}M",
+  "activityUsageContextSemantics": "ใช้ Context ไปแล้ว {percent}% ดูข้อมูลการใช้งาน",
   "@@locale": "th"
 }

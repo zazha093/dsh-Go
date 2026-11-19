@@ -39,7 +39,7 @@
       }
     }
   },
-  "plugViewArgsLimit": "อาร์กิวเมนต์ Action เกิน {limit, plural, =1{1 ไบต์} other{{limit} ไบต์}} ถูกละเว้น",
+  "plugViewArgsLimit": "อาร์กิวเมนต์ Action เกิน {limit, plural, =1{1 ไบต์} other{{limit} ไบต์}} ถูกละเว้น}",
   "@plugViewArgsLimit": {
     "placeholders": {
       "limit": {
@@ -83,7 +83,7 @@
       }
     }
   },
-  "plugViewFirstColumns": "แสดงเฉพาะ {limit, plural, =1{1 คอลัมน์} other{{limit} คอลัมน์}} แรก",
+  "plugViewFirstColumns": "แสดงเฉพาะ {limit, plural, =1{1 คอลัมน์} other{{limit} คอลัมน์}} แรก}",
   "@plugViewFirstColumns": {
     "placeholders": {
       "limit": {
@@ -91,7 +91,7 @@
       }
     }
   },
-  "plugViewFirstRows": "แสดงเฉพาะ {limit, plural, =1{1 แถว} other{{limit} แถว}} แรก",
+  "plugViewFirstRows": "แสดงเฉพาะ {limit, plural, =1{1 แถว} other{{limit} แถว}} แรก}",
   "@plugViewFirstRows": {
     "placeholders": {
       "limit": {

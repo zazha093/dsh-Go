@@ -25,7 +25,7 @@
   "phoneUnlockBanks": "Banking แอนด์ payment apps",
   "phoneUnlockBanksHint": "เปลี่ยน ใน App rules",
   "phoneUnlockNone": "ไม่มี เปิด",
-  "phoneUnlockCount": "{count} เปิด}",
+  "phoneUnlockCount": "{{count} เปิด}",
   "@phoneUnlockCount": {
     "placeholders": {
       "count": {

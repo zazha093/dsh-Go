@@ -9,7 +9,7 @@
   "pluginConfigResetAll": "รีเซ็ต ทั้งหมด ไป defaults",
   "pluginConfigResetAllTitle": "รีเซ็ต ทั้งหมด ไป defaults?",
   "pluginConfigReset": "รีเซ็ต",
-  "pluginConfigChanges": "{count} changes}",
+  "pluginConfigChanges": "{{count} changes}",
   "@pluginConfigChanges": {
     "placeholders": {
       "count": {

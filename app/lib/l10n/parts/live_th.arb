@@ -3,7 +3,7 @@
   "liveWorking": "กำลังทำงาน",
   "liveJuggling": "Subagents at งาน",
   "liveSweeping": "Compacting  คอนเท็กซ์",
-  "liveRunsCount": "{count} chats กำลังทำงาน}",
+  "liveRunsCount": "{{count} chats กำลังทำงาน}",
   "liveChipThinking": "Thinking",
   "liveChipWorking": "กำลังทำงาน",
   "liveChipJuggling": "Helpers",

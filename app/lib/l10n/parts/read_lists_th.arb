@@ -1,6 +1,6 @@
 {
   "readListUpdating": "กำลังอัปเดต · ก่อนหน้า ผลลัพธ์",
   "readListOffline": "ออฟไลน์ · ก่อนหน้า ผลลัพธ์",
-  "readListFailed": "นอต updated · previous results",
+  "readListFailed": "ไม่ updated · previous results",
   "@@locale": "th"
 }
