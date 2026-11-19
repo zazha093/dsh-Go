@@ -35,6 +35,7 @@ jobs:
       app: ${{ github.event_name != 'pull_request' || steps.filter.outputs.app == 'true' }}
       packages: ${{ github.event_name != 'pull_request' || steps.filter.outputs.packages == 'true' }}
       runtime: ${{ github.event_name != 'pull_request' || steps.filter.outputs.runtime == 'true' }}
+      ios_runtime: ${{ steps.filter.outputs.ios_runtime }}
     steps:
       - id: filter
         if: github.event_name == 'pull_request'
@@ -43,9 +44,27 @@ jobs:
           # The paths outside each area's own are files its tests read.
           filters: |
             ci: &ci .github/workflows/ci.yml
-            app: [*ci, 'app/**', 'packages/**', 'sdk/plugin-kit/**', 'site/share/**', 'docs/guide/**', 'THIRD_PARTY_NOTICES.md']
+            app: [*ci, 'app/**', 'packages/**', 'sdk/plugin-kit/**', 'runtime/tests/direct/**', 'site/share/**', 'docs/guide/**', 'THIRD_PARTY_NOTICES.md', 'tooling/fixtures/diagnostic-redaction.json']
             packages: [*ci, 'packages/**']
-            runtime: [*ci, 'runtime/**', 'examples/**', 'sdk/plugin-kit/**', 'app/tool/engine_auth/**', 'app/test/plugin_config/fixtures/**', 'app/test/media/fixtures/**']
+            runtime: [*ci, 'runtime/**', 'app/ohos/entry/src/main/ets/runtime/**', 'tooling/ohos/**', 'examples/**', 'sdk/plugin-kit/**', 'app/tool/engine_auth/**', 'app/test/plugin_config/fixtures/**', 'app/test/media/fixtures/**', 'app/android/app/src/main/kotlin/io/github/ccch1mneyyy/dsh_app/runtime/SafeMode.kt', 'app/android/app/src/main/kotlin/io/github/ccch1mneyyy/dsh_app/phone/PhoneGuest.kt']
+            ios_runtime:
+              - *ci
+              - '.github/workflows/ios-compile.yml'
+              - 'runtime/**'
+              - 'tooling/ios/**'
+              - 'app/ohos/entry/src/main/cpp/**'
+              - 'app/ohos/entry/src/main/ets/runtime/RuntimeCore.ets'
+              - 'app/ios/**'
+              - 'app/integration_test/ios_engine_check.dart'
+              - 'packages/dsh_client/**'
+
+  ios-runtime:
+    name: iOS runtime regression
+    needs: changes
+    if: github.event_name == 'pull_request' && needs.changes.outputs.ios_runtime == 'true'
+    uses: ./.github/workflows/ios-compile.yml
+    with:
+      regression_only: true
 
   checks:
     name: Generated files, tooling, SDK, web
@@ -76,6 +95,8 @@ jobs:
           for dir in tooling runtime/tests app/tool; do
             "$RUNNER_TEMP/venv/bin/python" -m unittest discover -s "$dir" -p 'test_*.py'
           done
+      - name: OHOS gate runner contract
+        run: python3 tooling/ohos/tests/run-gates.test.py
       - name: Plugin SDK
         working-directory: sdk/plugin-kit
         run: |
@@ -145,6 +166,14 @@ jobs:
         run: |
           sudo install -Dm644 -t "$DSH_TEST_FONT_DIR" ~/test-fonts/NotoSansCJK-*.ttc
           sudo install -Dm644 ~/test-fonts/NotoColorEmoji.ttf /usr/share/fonts/noto/NotoColorEmoji.ttf
+      - name: Install account shells for SSH bootstrap tests
+        run: |
+          if find test -name '*_test.dart' | sort | awk 'NR % 3 == ${{ matrix.shard }} && $0 == "test/remote/ssh_start_completion_test.dart" { found = 1 } END { exit !found }'; then
+            if [ '${{ steps.fonts.outputs.cache-hit }}' = 'true' ]; then
+              sudo apt-get update -q
+            fi
+            sudo apt-get install -y --no-install-recommends fish zsh
+          fi
       - run: flutter pub get --enforce-lockfile
       - name: Analyze, and generated localization matches its source
         if: matrix.shard == 0
@@ -176,9 +205,24 @@ jobs:
       - *checkout
       - *flutter
       - run: |
-          for pkg in packages/dsh_client packages/dsh_remote; do
+          for pkg in packages/dsh_client packages/dsh_remote packages/dsh_tavern; do
             (cd "$pkg" && dart pub get --enforce-lockfile && dart analyze && dart test)
           done
+      - name: Install OpenSSH for transport interoperability tests
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends openssh-server
+          sudo mkdir -p /run/sshd
+      - name: SSH compression and OpenSSH interoperability
+        working-directory: packages/dartssh2
+        env:
+          SSH_COMPRESSION_TEST: 1
+          PUB_HOSTED_URL: https://pub.dev
+        run: |
+          dart pub get
+          dart analyze
+          dart test
+          dart test --platform chrome test/src/ssh_compression_web_test.dart
 
   runtime:
     name: Runtime and bridge
@@ -191,7 +235,16 @@ jobs:
     steps:
       - *checkout
       - *node
+      - name: Restore the patched DSH and pnpm prefixes
+        id: runtime-prefixes
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ${{ runner.temp }}/dsh
+            ${{ runner.temp }}/pnpm
+          key: runtime-prefixes-v1-${{ runner.os }}-${{ runner.arch }}-node${{ env.NODE_VERSION }}-${{ hashFiles('.github/workflows/ci.yml', 'runtime/locks/**/package*.json', 'runtime/patches/**', 'runtime/session-deletion/**', 'runtime/lib/rtbuild.py', 'runtime/build-runtime.sh') }}
       - name: Install a throwaway patched DSH
+        if: steps.runtime-prefixes.outputs.cache-hit != 'true'
         run: |
           version=$(sed -nE 's/^DSH_VERSION="\$\{DSH_VERSION:-(.+)\}"$/\1/p' runtime/build-runtime.sh)
           prefix="$RUNNER_TEMP/dsh"
@@ -199,12 +252,25 @@ jobs:
           cp "runtime/locks/dsh-$version/package.json" "runtime/locks/dsh-$version/package-lock.json" "$prefix/"
           npm ci --prefix "$prefix" --ignore-scripts --no-audit --no-fund
           cp "$prefix/node_modules/@deepseek-ai/dsh-fs-local/lib/index.js" "$prefix/fs-local-original.js"
-          python3 -I runtime/lib/rtbuild.py patch-dsh --prefix "$prefix" --dsh-version "$version"
+          python3 -I runtime/lib/rtbuild.py patch-dsh --prefix "$prefix" --dsh-version "$version" --target android
           pnpm_version=$(sed -nE 's/^PNPM_VERSION="\$\{PNPM_VERSION:-(.+)\}"$/\1/p' runtime/build-runtime.sh)
           pnpm_prefix="$RUNNER_TEMP/pnpm"
           mkdir "$pnpm_prefix"
           cp "runtime/locks/pnpm-$pnpm_version/package.json" "runtime/locks/pnpm-$pnpm_version/package-lock.json" "$pnpm_prefix/"
           npm ci --prefix "$pnpm_prefix" --ignore-scripts --no-audit --no-fund
+      # Save before tests: some tests deliberately modify their disposable prefix.
+      - name: Save the prepared prefixes
+        if: steps.runtime-prefixes.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            ${{ runner.temp }}/dsh
+            ${{ runner.temp }}/pnpm
+          key: ${{ steps.runtime-prefixes.outputs.cache-primary-key }}
+      - name: Export the runtime test paths
+        run: |
+          prefix="$RUNNER_TEMP/dsh"
+          pnpm_prefix="$RUNNER_TEMP/pnpm"
           {
             echo "DSH_PREFIX=$prefix"
             echo "DSH_TEST_PREFIX=$prefix"
@@ -216,6 +282,10 @@ jobs:
       - name: Unit tests
         run: |
           node --test runtime/tests/*.test.mjs app/tool/engine_auth/*.test.mjs
+          node_headers="$(node -p 'require("node:path").resolve(require("node:path").dirname(process.execPath), "../include/node")')"
+          test -f "$node_headers/node_api.h"
+          c++ -std=c++17 -shared -fPIC -I "$node_headers" tooling/ohos/tests/runtime-zip-zlib.cc -lz -o "$RUNNER_TEMP/ohos-test-zlib.node"
+          OHOS_TEST_ZLIB_ADDON="$RUNNER_TEMP/ohos-test-zlib.node" node --test tooling/ohos/tests/lifecycle-host.test.mjs tooling/ohos/tests/transient-task.test.mjs tooling/ohos/tests/runtime-channel.test.mjs
           python3 -I runtime/tests/test_patch_dsh.py
       - name: Media and example plugins
         run: |
@@ -252,15 +322,20 @@ jobs:
       - uses: gradle/actions/setup-gradle@8da46b539cd8fe6ab27ca75128919a18d757604c # v6.4.1
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
+      - name: Runtime process cleanup and startup policy
+        run: python3 runtime/tests/direct/startup-policy.py --output "$RUNNER_TEMP/startup-policy"
       - working-directory: app/android
         run: gradle --stacktrace :app:testArm64DebugUnitTest
 
   ci-ok:
     name: CI OK
     if: always()
-    needs: [changes, checks, flutter, dart, runtime, android]
+    needs: [changes, checks, flutter, dart, runtime, android, ios-runtime]
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
-      - if: needs.changes.result != 'success' || contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled')
+      - if: >-
+          needs.changes.result != 'success' || contains(needs.*.result, 'failure') ||
+          contains(needs.*.result, 'cancelled') ||
+          (github.event_name == 'pull_request' && needs.changes.outputs.ios_runtime == 'true' && needs.ios-runtime.result != 'success')
         run: exit 1

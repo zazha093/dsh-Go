@@ -99,7 +99,9 @@ for part, th_dict in th_data.items():
         caps[part] = caps_list
 
 # ── จ. CJK in TH (excluding locale markers) ──
-cjk_re = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF\u20000-\u2A6DF\u2A700-\u2B73F\u2B740-\u2B81F\u2B820-\u2CEAF\u2CEB0-\u2EBEF\u3000-\u303F\uFF00-\uFFEF]')
+# Fixed: removed invalid 5-digit \u escapes (\uXXXXX not supported in Python, only \uXXXX)
+# Covers: Hiragana, Katakana, CJK Unified Ideographs, CJK Ext A, CJK Compat, CJK Symbols, Fullwidth
+cjk_re = re.compile(r'[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\u3400-\u4DBF\uF900-\uFAFF\u3000-\u303F\uFF00-\uFFEF]')
 cjk_in_th = {}
 for part, th_dict in th_data.items():
     cjk_list = []

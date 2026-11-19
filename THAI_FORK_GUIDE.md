@@ -99,6 +99,8 @@ python3 app/tool/l10n_merge.py --locale th
 ✓ 80 parts, 8329 keys (zh, en, th)
 ```
 
+**Important**: The `--check` command requires the `--locale th` flag to include Thai in the validation. Generated `app_*.arb` files are now in `.gitignore` and should NOT be committed. After running the check, `git status` must be clean (no deleted/modified `app_*.arb` files). If they appear as deleted, run `git restore --staged app/lib/l10n/app_*.arb` to unstage the deletion (they're already in `.gitignore`).
+
 ### 3.3 Common Thai Patterns
 
 | English | Thai | Notes |
@@ -389,7 +391,7 @@ python3 fork-tools/scan_th.py
 | `app/android/app/src/main/AndroidManifest.xml` | App label "DSH Go (Thai)" |
 | `app/android/key.properties` | Keystore config (gitignored, generated in CI) |
 | `.github/workflows/build-apk.yml` | APK build workflow (fork-specific) |
-| `.github/workflows/ci.yml` | **Upstream version** (no fork changes) |
+| `.github/workflows/ci.yml` | **Upstream version + --locale th** for Thai validation |
 | `tooling/build-apk.sh` | Build script |
 | `fork-tools/` | Fork maintenance scripts |
 
@@ -409,7 +411,31 @@ gh workflow run weekly-upstream-check --repo zazha093/dsh-Go
 
 ---
 
-## 12. Support & Escalation
+## 12. แปลเฉพาะ key ใหม่ตอนซิงก์ upstream
+
+เมื่อซิงก์ upstream/main ลง thai/release:
+1. รัน `git diff upstream/main thai/release --name-only | grep '_th.arb'` เพื่อดู part ไหนมีการเปลี่ยนแปลง
+2. เฉพาะ key ใหม่ที่ upstream เพิ่มเข้ามา (มีใน *_en.arb แต่ไม่มีใน *_th.arb) เท่านั้นที่ต้องแปล
+3. Key ที่มีอยู่แล้วใน *_th.arb **ห้ามแก้** เว้นแต่ upstream เปลี่ยนค่าใน *_en.arb จริง ๆ
+4. หลังแปลเสร็จรัน `python3 app/tool/l10n_merge.py --locale th --no-gen` แล้ว `--check`
+
+เหตุผล: กันการชน (conflict) ระหว่างการแปลของเรากับ upstream ที่อาจ merge PR ภาษาไทยของเราในอนาคต
+
+---
+
+## 13. ห้ามแก้ *_th.arb บน thai/release จนกว่าจะรู้ผล PR ที่ส่งไป
+
+หากเราส่ง PR ภาษาไทยไปยัง upstream (ccch1mneyyy/dsh-Go):
+- **ห้ามแก้** ไฟล์ `app/lib/l10n/parts/*_th.arb` บน branch `thai/release` จนกว่า PR จะถูก merge หรือ close
+- หาก upstream merge PR: การแปลของเราจะกลายเป็นส่วนของ upstream → เราต้องลบ `*_th.arb` ออกจาก fork และรับ版本 upstream แทน (ดูข้อ 9)
+- หาก upstream close/reject PR: เราสามารถต่อยอดแก้ไขต่อได้
+- ขณะรอ review: ทำงานบน branch แยก (feat/*) หรือรอจนกว่าจะมีผล
+
+เหตุผล: กัน merge conflict และ duplicate work ระหว่าง fork กับ upstream
+
+---
+
+## 14. Support & Escalation
 
 - **Upstream Issues**: https://github.com/ccch1mneyyy/dsh-Go/issues
 - **Fork Issues**: https://github.com/zazha093/dsh-Go/issues
@@ -417,4 +443,4 @@ gh workflow run weekly-upstream-check --repo zazha093/dsh-Go
 
 ---
 
-*Last Updated: 2026-11-19 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release*
+*Last Updated: 2026-11-20 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release*
