@@ -1,0 +1,187 @@
+[
+  {
+    "file": "companion_th.arb",
+    "key": "companionRest1",
+    "current_value": "ไอ วิล เรน ヒア フォー ア ワイル オールเรดดี..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRest2",
+    "current_value": "โค ออน ไอム ลิสเซนิง..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionTouchHintHome",
+    "current_value": "แตะเซลล์ ฟองน้ำ และ หมอน หรือ ดราก สแน็ก ไป ฮีอ マウス..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionNotConnectedTryLight",
+    "current_value": "ไอ แคนท รีช ザ โฮสท์ ไลท์ นาว อิฟ ยู จัสท วอนท์ トゥ ชัท สวิทช์ トゥ ไลท อิน ザ เมニュー アット トップ ไลท..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionInviteRest",
+    "current_value": "เรสท์ ออน ザ คัชชอน วิท ミー ฟอร์ ア ビット?..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionInviteYes1",
+    "current_value": "เฮเฮ จัสท ฟอร์ ア リトル ワイル..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionInviteYes2",
+    "current_value": "ไอวล เก็ท คัมฟี ユー リラックス オーヴァー ゼอ..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionHug2",
+    "current_value": "ไอ ฟีล เซฟ ไลค ディス..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionHug3",
+    "current_value": "ลิทเติล โลงเกอร์ ジャスト ア リトル..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionBond1",
+    "current_value": "เก็ตติ้ง トゥ ノウ イーチ アザー..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionCloser1",
+    "current_value": "ไอ ซิง... ไอム ノット ソー นาーバス エニモア..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionCloser2",
+    "current_value": "บีอิง ウィズ ユー ฟีลズ イージア アンド イージア..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionCloser3",
+    "current_value": "คีป คอมมิ่ง バック โอเค? ไอวล มิส ユー..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionPatClose",
+    "current_value": "ไอ ลัฟ イット ウェン ユー パット マイ ヘッド..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionHugClose",
+    "current_value": "ยู แคน โฮลด์ ミー ไททา ユー ノウ..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionTaskDoneUntitled",
+    "current_value": "ยัว タスク オーバー ゼア イズ ダン..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionTaskFailedUntitled",
+    "current_value": "タスク オブ ユア ルックス ライク イット ヒット アン エラー チェック イット..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionSignalNight",
+    "current_value": "เลต-นาคายุกุ ริมายンド ゴー トゥ レスト..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionSignalNightHint",
+    "current_value": "อัฟเตอ ア ワイル イン ハー ルーム レイト アット ミดไนท シー เจนทรี่ ริไมンドซ ユー ワนส..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionSignalLateUse",
+    "current_value": "อิตส โซー レイト アンド ユーアー スティล ヒア ウィズ ミー... ノット ชัวเรสท์ ア リトル?..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallOn",
+    "current_value": "จากนี้ การสนทนาใหม่จะเปิด ไอ วิล คีป อิน マインド ワท ユー アスクด ミー トゥ รีเมมเบอร์..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallBusy",
+    "current_value": "อะนาเซอ コンバセーション イズ オールเรดดี ユージング オートแมติก リコール ティアン イット オフ ゼอ ファースト..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallUnsupported",
+    "current_value": "ดิส โฮสท์ แคนท ティアン オン オートแมติก リコール ไลท์ ナว..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallFailed",
+    "current_value": "ออโตแมติก リコール ディドント ティアン オン トライ アゲイン..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallOff",
+    "current_value": "ออโตแมติก リコール イズ オフ ユア ネกスト メสเซージ สตอตส ア ニュー コンバセーション..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallOffFailed",
+    "current_value": "ออโตแมติก リコール ディドント ティアン オフ トライ アゲイン..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionRecallStopped",
+    "current_value": "ออโตแมติก リコール ストップド (ワット シー リเมมเบอズ チェンจド) ソー ア ニュー コンバセーション ビガン ユー แคน ティアン イット オン..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionVoiceHello",
+    "current_value": "ฮาย ดิส อิส マイ ボイス キープ イット オน イฟ ユー ไลค์ イット..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionWidgetWaiting",
+    "current_value": "กำลังรอ สำหรับ you 在 room..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionVoiceHeadersHelper",
+    "current_value": "วัน เพอร์ ไลน์; เคปท์ อิน เซเคอร์ データストレージ..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionVoiceBodyHelper",
+    "current_value": "{text} {text} บีคอมส์ วอท シー セยส..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionVoiceFieldHelper",
+    "current_value": "อิฟ รีเพลาย อิส เจสัน: เวอ オーディオ อิส (เบส64 ออร์ ลิงค์), ไลค data.audio ลีฟ エンพที ウェン イット..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionCloneReady",
+    "current_value": "{detail} อัปโหลด เดキタ · {ディテール}..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionPersonaName",
+    "current_value": "ナマエ..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionPersonaFooter",
+    "current_value": "ไลท์โหมด ハ ツカウ ツギ ノ ヘンシカラ フルモード ワ ツゲル ツギ ノ メッセージ デ..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionMenuMoves",
+    "current_value": "มูฟส と フェイセス..."
+  },
+  {
+    "file": "companion_th.arb",
+    "key": "companionFailedMocVersion",
+    "current_value": "โคโノ モデル ワ アタラシイ キュービズム デ カキダサレマシタ (mocバージョン {version}) コノ スマホ ノ ランタイム ワ {latest} マデ タイオウ シテイマス キュ..."
+  }
+]
