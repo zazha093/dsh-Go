@@ -40,8 +40,8 @@ class SkillDistiller {
 
   /// Fetch all history for a session by paging through it.
   static Future<List<SessionLogEvent>> _fetchAllHistory(
-    DshClient? client,
-    String sessionId,
+    required DshClient client,
+    required String sessionId,
   ) async {
     final allEvents = <SessionLogEvent>[];
     int? beforeSeq;
@@ -263,7 +263,8 @@ class SkillDistiller {
 
     for (final event in events) {
       if (event is UserQuestionRequestedEvent) {
-        for (final question in event.request.questions) {
+        final userQuestionEvent = event;
+        for (final question in userQuestionEvent.request.questions) {
           final key = question.id;
           if (seenKeys.add(key)) {
             inputs.add(SkillInput(
@@ -303,7 +304,7 @@ class SkillDistiller {
     if (prompt.contains('number') || prompt.contains('count') || prompt.contains('port')) {
       return SkillInputType.number;
     }
-    if (question.options != null && question.options!.isNotEmpty) {
+    if (question.options?.isNotEmpty == true) {
       return SkillInputType.select;
     }
     if (prompt.contains('describe') || prompt.contains('explain') || prompt.contains('details')) {

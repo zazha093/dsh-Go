@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../l10n/l10n.dart';
-import '../../../ui/common/app_icons.dart' as app_icons;
-import '../../../ui/theme/theme.dart';
-import '../skill_model.dart';
+import 'package:dsh_app/l10n/l10n.dart';
+import 'package:dsh_app/ui/common/app_icons.dart' as app_icons;
+import 'package:dsh_app/ui/theme/theme.dart';
+import 'package:dsh_app/skills/skill_model.dart';
 import 'input_row.dart';
 import 'input_dialog_field.dart';
 import 'section_title.dart';
@@ -50,7 +50,7 @@ class _SkillUserInputsEditorState extends ConsumerState<SkillUserInputsEditor> {
           const SizedBox(height: 8),
           OutlinedButton.icon(
             onPressed: widget.onAddInput,
-            icon: const Icon(app_icons.AppIcons.add),
+            icon: Icon(app_icons.AppIcons.add),
             label: Text(l10n.skillsUserInputs),
           ),
         ],
@@ -75,7 +75,7 @@ class _SkillUserInputsEditorState extends ConsumerState<SkillUserInputsEditor> {
         const SizedBox(height: 8),
         OutlinedButton.icon(
           onPressed: widget.onAddInput,
-          icon: const Icon(app_icons.AppIcons.add),
+          icon: Icon(app_icons.AppIcons.add),
           label: Text(l10n.skillsUserInputs),
         ),
       ],
@@ -141,7 +141,7 @@ Future<SkillInput?> showAddSkillInputDialog(BuildContext context) async {
               ),
               const SizedBox(height: 16),
               CheckboxListTile(
-                title: Text(l10n.skillsUserInputs.replaceAll('s', '').replace('(', '').replace(')', '') + ' Required'),
+                title: Text(l10n.skillsUserInputs.replaceAll('s', '').replaceAll('(', '').replaceAll(')', '') + ' Required'),
                 value: required,
                 onChanged: (v) => setState(() => required = v ?? true),
               ),

@@ -1,7 +1,6 @@
 // Tests for Skill Distillation and Secret Redaction
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:dsh_client/dsh_client.dart';
 
 import 'package:dsh_app/share_code/conversation_redact.dart';
 import 'package:dsh_app/skills/skill_model.dart';
@@ -29,7 +28,7 @@ void main() {
       });
 
       test('truncates long names', () {
-        const title = 'a'.repeat(60);
+        final title = 'a'.repeat(60);
         final name = SkillDistiller.generateSkillName(title);
         expect(name.length, lessThanOrEqualTo(50));
       });
@@ -287,12 +286,12 @@ void main() {
         },
       };
       final redacted = redactJson(json);
-      expect(redacted['api_key'], contains('sk-••••••'));
-      expect(redacted['nested']['token'], contains('ghp_••••••'));
+      expect(redacted['api_key']!, contains('sk-••••••'));
+      expect(redacted['nested']!['token']!, contains('ghp_••••••'));
     });
 
     test('cuts long text', () {
-      const text = 'a'.repeat(3000);
+      final text = 'a'.repeat(3000);
       final result = cutText(text, 1000);
       expect(result.text.length, lessThanOrEqualTo(1000));
       expect(result.omitted, greaterThan(0));
