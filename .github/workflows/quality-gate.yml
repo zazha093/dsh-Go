@@ -28,7 +28,6 @@ jobs:
 
       - name: Run CJK Scan (fork-tools/scan_th.py)
         id: cjk-scan
-        working-directory: /root/workspace/dsh-Go
         run: |
           echo "=== Running Thai L10n CJK Scan ==="
           python3 fork-tools/scan_th.py 2>&1 | tee scan_output.txt

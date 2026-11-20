@@ -85,6 +85,7 @@ class SessionsDrawer extends ConsumerWidget {
     super.key,
     required this.onClose,
     required this.onOpen,
+    required this.onSkills,
     this.now,
     this.identityBarHeight,
     this.drawerMotion,
@@ -92,6 +93,7 @@ class SessionsDrawer extends ConsumerWidget {
 
   final VoidCallback onClose;
   final ValueChanged<DrawerDestination> onOpen;
+  final VoidCallback onSkills;
 
   /// Clock override for grouping (tests).
   final DateTime? now;
@@ -252,6 +254,7 @@ class SessionsDrawer extends ConsumerWidget {
                           onHost: () => showHostSheet(context, onManage: () => onOpen(DrawerDestination.remote)),
                           onLocalDetails: () => onOpen(DrawerDestination.engine),
                           onFeatures: () => onOpen(DrawerDestination.features),
+                          onSkills: () => onOpen(DrawerDestination.skills),
                           onSettings: () => onOpen(DrawerDestination.settings),
                           onSettingsHold: () => onOpen(DrawerDestination.settingsSearch),
                         ),
@@ -949,6 +952,7 @@ class IdentityBar extends ConsumerWidget {
     super.key,
     required this.onHost,
     required this.onFeatures,
+    required this.onSkills,
     required this.onSettings,
     this.onSettingsHold,
     this.onLocalDetails,
@@ -962,6 +966,7 @@ class IdentityBar extends ConsumerWidget {
   /// 全部功能: what there is to do now. (网页版 is in 全部功能, in 设置 ›
   /// 界面 and on the brand row's switch.)
   final VoidCallback onFeatures;
+  final VoidCallback onSkills;
   final VoidCallback onSettings;
 
   /// ⚙ held down: straight to settings search.
@@ -1079,6 +1084,8 @@ class IdentityBar extends ConsumerWidget {
           ),
           const SizedBox(width: 8),
           _RoundButton(icon: AppIcons.allFeatures, tooltip: l10n.hubSettingsAllFeatures, onTap: onFeatures),
+          const SizedBox(width: 8),
+          _RoundButton(icon: AppIcons.star, tooltip: l10n.skillsTitle, onTap: onSkills),
           const SizedBox(width: 8),
           _RoundButton(
             icon: AppIcons.settings,

@@ -278,7 +278,7 @@ void main() {
         Scaffold(
           body: SizedBox(
             width: 390,
-            child: SessionsDrawer(onClose: () => opened++, onOpen: (_) {}),
+            child: SessionsDrawer(onClose: () => opened++, onOpen: (_) {}, onSkills: () {}),
           ),
         ),
         overrides: [

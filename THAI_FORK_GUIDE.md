@@ -32,9 +32,19 @@
 
 ### 2.2 Thai Localization System
 
-#### Thai ARB Files (80 part files + 1 merged)
+#### Thai ARB Files (81 part files + 1 merged)
 
-All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
+All Thai translations are in `app/lib/l10n/parts/*_th.arb` (81 files):
+- Core UI: `common_th.arb`, `hub_th.arb`, `chat_th.arb`, `star_th.arb`, etc.
+- Phone Control: `phone_th.arb`, `phone_gate_cleanup_th.arb`, `phone_resource_recovery_th.arb`, etc.
+- Companion: `companion_th.arb`
+- Diagnostics: `diagnostics_th.arb`
+- Voice/Speech: `speech_th.arb`, `voice_th.arb`, `voice_scribe_th.arb`
+- Tavern: `tavern_th.arb`, `tavern_packs_th.arb`
+- Workshop: `workshop_th.arb`, `workshop_installed_th.arb`, `workshop_mine_th.arb`, `workshop_publish_th.arb`
+- Settings: `settings_th.arb`, `setup_th.arb`, `start_page_th.arb`
+- **Personal Skills**: `skills_th.arb`, `skills_en.arb`, `skills_zh.arb` (new offline personal skills module)
+- And many more...
 - Core UI: `common_th.arb`, `hub_th.arb`, `chat_th.arb`, `star_th.arb`, etc.
 - Phone Control: `phone_th.arb`, `phone_gate_cleanup_th.arb`, `phone_resource_recovery_th.arb`, etc.
 - Companion: `companion_th.arb`
@@ -56,6 +66,7 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
 | `.github/workflows/build-apk.yml` | Fork-specific workflow for APK builds with keystore support |
 | `.github/workflows/ci.yml` | **Reverted to upstream/main** - no fork modifications to reduce sync conflicts |
 | `.github/workflows/weekly-upstream-check.yml` | Weekly cron (Mon 08:00 UTC) to check upstream/main ahead of fork/main, opens issue if needed |
+| `.github/workflows/upstream-check.yml` | **New fork-only workflow** for weekly upstream change detection (no code changes) |
 | `tooling/build-apk.sh` | Build script with keystore integration |
 
 **Recent CI Status (2026-11-20):**
@@ -64,6 +75,11 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
 - ✅ **Run 44542401980**: PASSED — 15m46s
 - ❌ **Run 44677061308** (commit `461b2078a`): FAILED — `flutter analyze` error in `thai_locale_test.dart` (fixed in next commit)
 
+**Latest Commits (2026-11-20):**
+- `fe3e46287` — `fork-only: improve Thai line-height and code block copy/collapse` (Thai line-height 1.65→1.75, code block collapse/expand)
+- `cc4cae4ad` — `fork-only: add unit tests for personal skills` (532-line integration test)
+- `b8d4432ae` — `fork-only: add offline personal skills module and Thai l10n` (21 files, 5353 insertions)
+
 ### 2.4 Fork Tools
 
 | File | Description |
@@ -71,6 +87,14 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
 | `fork-tools/scan_th.py` | Thai localization scanner for coverage and quality checks |
 | `fork-tools/scan_report.json` | Latest scan report output |
 | `fork-tools/README.md` | Documentation for fork tools |
+
+### 2.5 New Features (2026-11-20)
+
+| Feature | Files | Description |
+|---------|-------|-------------|
+| **Offline Personal Skills Module** | `app/lib/skills/`, `app/test/skills/skill_system_test.dart` | Local-only skill formula capture from sessions; SharedPreferences storage; auto-hide after 14 days unused or 3+ consecutive failures; restore capability; no cloud sync; no approval bypass |
+| **Thai Line-Height Improvement** | `app/lib/ui/theme/typography.dart` | bodyLarge 1.65→1.75, bodyMedium 1.55→1.65, bodySmall 1.5→1.6 for better Thai readability |
+| **Code Block Collapse/Expand** | `app/lib/ui/chat/render/code_block.dart` | Toggle button in code block header; shows maxHeight when collapsed, full height when expanded; HapticFeedback on copy already present |
 
 ---
 
@@ -119,7 +143,7 @@ The test file `app/test/thai_locale_test.dart` caused `flutter analyze` to fail 
 
 **Expected Output (--check)**:
 ```
-✓ 80 parts, 8329 keys (zh, en, th)
+✓ 81 parts, 8402 keys (zh, en, th)
 ```
 
 **Important**: The `--check` command requires the `--locale th` flag to include Thai in the validation. Generated `app_*.arb` files are now in `.gitignore` and should NOT be committed. After running the check, `git status` must be clean (no deleted/modified `app_*.arb` files). If they appear as deleted, run `git restore --staged app/lib/l10n/app_*.arb` to unstage the deletion (they're already in `.gitignore`).
@@ -468,4 +492,4 @@ gh workflow run weekly-upstream-check --repo zazha093/dsh-Go
 
 ---
 
-*Last Updated: 2026-11-20 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release | CI: ✅ Passed (Run 44677965900)*
+*Last Updated: 2026-11-20 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release | CI: ✅ Passed (Run 44677965900) | Latest: fe3e46287 (Thai line-height + code block collapse/expand), cc4cae4ad (personal skills tests), b8d4432ae (personal skills module)*

@@ -324,7 +324,7 @@ void main() {
         _ => Scaffold(
           body: SizedBox(
             width: 390,
-            child: SessionsDrawer(onClose: () => clicked++, onOpen: (_) {}),
+            child: SessionsDrawer(onClose: () => clicked++, onOpen: (_) {}, onSkills: () {}),
           ),
         ),
       };

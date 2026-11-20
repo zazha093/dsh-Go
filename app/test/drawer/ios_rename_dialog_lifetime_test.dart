@@ -51,7 +51,7 @@ void main() {
         await tester.pumpWidget(
           testApp(
             Scaffold(
-              body: SessionsDrawer(onClose: () {}, onOpen: (_) {}),
+              body: SessionsDrawer(onClose: () {}, onOpen: (_) {}, onSkills: () {}),
             ),
             overrides: [
               for (final o in ui.overrides)
