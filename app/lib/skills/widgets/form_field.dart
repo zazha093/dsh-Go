@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../l10n/l10n.dart';
+import '../../../l10n/l10n.dart';
 
 /// A labeled form field with optional validation
 class SkillFormField extends StatelessWidget {

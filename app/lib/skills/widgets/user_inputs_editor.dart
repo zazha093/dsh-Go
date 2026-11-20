@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../l10n/l10n.dart';
-import '../../ui/common/app_icons.dart' as app_icons;
-import '../../ui/theme/theme.dart';
-import 'skill_model.dart';
+import '../../../l10n/l10n.dart';
+import '../../../ui/common/app_icons.dart' as app_icons;
+import '../../../ui/theme/theme.dart';
+import '../skill_model.dart';
 import 'input_row.dart';
 import 'input_dialog_field.dart';
 import 'section_title.dart';

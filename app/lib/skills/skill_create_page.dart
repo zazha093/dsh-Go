@@ -357,6 +357,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   }
 
   Future<void> _saveSkill() async {
+    final l10n = context.l10n;
     if (!_formKey.currentState!.validate()) return;
 
     // Validate each input form

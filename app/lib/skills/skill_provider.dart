@@ -100,19 +100,19 @@ enum SkillCategoryFilter {
 }
 
 /// Provider for the skills list state
-final skillsProvider =
-    StateNotifierProvider<SkillsController, SkillsState>((ref) {
-  final storage = ref.watch(skillStorageProvider);
-  return SkillsController(storage);
+final skillsProvider = NotifierProvider<SkillsController, SkillsState>(() {
+  return SkillsController();
 });
 
 /// Controller for skills state
-class SkillsController extends StateNotifier<SkillsState> {
-  SkillsController(this._storage) : super(const SkillsState()) {
-    _load();
-  }
+class SkillsController extends Notifier<SkillsState> {
+  SkillStorage get _storage => ref.read(skillStorageProvider);
 
-  final SkillStorage _storage;
+  @override
+  SkillsState build() {
+    _load();
+    return const SkillsState();
+  }
 
   /// Load skills from storage
   Future<void> _load() async {
