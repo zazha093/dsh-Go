@@ -27,7 +27,7 @@ class SkillDistiller {
 
     if (events.isEmpty) {
       // Fallback to template if no history
-      return _createTemplateSkill(sessionId, sessionTitle);
+      return createTemplateSkill(sessionId, sessionTitle);
     }
 
     // Analyze the events to create a skill
@@ -93,7 +93,7 @@ class SkillDistiller {
     required List<SessionLogEvent> events,
   }) {
     final now = DateTime.now();
-    final name = _generateSkillName(sessionTitle);
+    final name = generateSkillName(sessionTitle);
 
     // Extract information from events
     final goal = _extractGoal(events, sessionTitle);
@@ -221,9 +221,9 @@ class SkillDistiller {
         }
       } else if (event is ApprovalDecidedEvent && event.outcome != ApprovalOutcome.allowedOnce) {
         constraints.add('Approval was rejected for ${event.approvalId}');
-      } else if (event is NoticeChatItem && event.kind == 'error') {
-        constraints.add('Error encountered: ${event.text}');
       }
+      // NoticeChatItem is not a SessionLogEvent, so we can't check for it here
+      // Error constraints are already captured from ToolResultEvent
     }
 
     // Add default constraints if none found
@@ -264,16 +264,16 @@ class SkillDistiller {
     for (final event in events) {
       if (event is UserQuestionRequestedEvent) {
         for (final question in event.request.questions) {
-          final key = question.name;
+          final key = question.id;
           if (seenKeys.add(key)) {
             inputs.add(SkillInput(
               key: key,
-              label: question.prompt,
-              hint: question.description ?? 'Enter value for $key',
+              label: question.question,
+              hint: question.detail ?? 'Enter value for $key',
               type: _inferInputType(question),
               required: true,
-              defaultValue: question.defaultValue,
-              options: question.options,
+              defaultValue: null, // UserQuestion doesn't have defaultValue
+              options: question.options.map((o) => o.label).toList(),
             ));
           }
         }
@@ -294,9 +294,9 @@ class SkillDistiller {
   }
 
   /// Infer input type from question.
-  static SkillInputType _inferInputType(Question question) {
+  static SkillInputType _inferInputType(UserQuestion question) {
     // Simple heuristic based on question text
-    final prompt = question.prompt.toLowerCase();
+    final prompt = question.question.toLowerCase();
     if (prompt.contains('yes') || prompt.contains('no') || prompt.contains('confirm')) {
       return SkillInputType.boolean;
     }
@@ -353,7 +353,7 @@ class SkillDistiller {
   /// Create a template skill based on session title (fallback when history not available)
   static Skill createTemplateSkill(String sessionId, String sessionTitle) {
     final now = DateTime.now();
-    final name = _generateSkillName(sessionTitle);
+    final name = generateSkillName(sessionTitle);
 
     return Skill(
       id: _generateId(),

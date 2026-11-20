@@ -40,7 +40,7 @@ import '../safe_mode/safe_mode_notice_listener.dart';
 import '../session/session_detail_page.dart';
 import '../settings/search/settings_search_page.dart';
 import '../settings/settings_screen.dart';
-import '../skills/skills_page.dart';
+import '../../skills/skills_page.dart';
 import '../share_code/share_code_host.dart';
 import '../tavern/tavern_intake.dart';
 import '../star/star_prompt_host.dart';

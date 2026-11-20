@@ -3,9 +3,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dsh_client/dsh_client.dart';
 
-import '../../lib/share_code/conversation_redact.dart';
-import '../../lib/skills/skill_model.dart';
-import '../../lib/skills/skill_distill.dart';
+import 'package:dsh_app/share_code/conversation_redact.dart';
+import 'package:dsh_app/skills/skill_model.dart';
+import 'package:dsh_app/skills/skill_distill.dart';
 
 void main() {
   group('SkillDistiller', () {

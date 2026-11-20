@@ -12,9 +12,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:dsh_client/dsh_client.dart';
-import '../../lib/skills/skill_model.dart';
-import '../../lib/skills/skill_distill.dart';
-import '../../lib/skills/skill_storage.dart';
+import 'package:dsh_app/skills/skill_model.dart';
+import 'package:dsh_app/skills/skill_distill.dart';
+import 'package:dsh_app/skills/skill_storage.dart';
 
 void main() {
   group('Personal Skills System Integration', () {
@@ -361,7 +361,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         // overwrite: false (default behavior should not overwrite)
         final count = await storage.importSkills(json, overwrite: false);
@@ -401,7 +401,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         // overwrite: true - explicit confirmation to overwrite
         final count = await storage.importSkills(json, overwrite: true);

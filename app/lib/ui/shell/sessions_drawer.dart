@@ -1085,7 +1085,7 @@ class IdentityBar extends ConsumerWidget {
           const SizedBox(width: 8),
           _RoundButton(icon: AppIcons.allFeatures, tooltip: l10n.hubSettingsAllFeatures, onTap: onFeatures),
           const SizedBox(width: 8),
-          _RoundButton(icon: AppIcons.star, tooltip: l10n.skillsTitle, onTap: onSkills),
+          _RoundButton(icon: AppIcons.favorite, tooltip: l10n.skillsTitle, onTap: onSkills),
           const SizedBox(width: 8),
           _RoundButton(
             icon: AppIcons.settings,
