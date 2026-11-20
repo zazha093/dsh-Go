@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/l10n.dart';
+import '../state/connection_state.dart';
 import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import '../ui/theme/theme.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
+import 'widgets/form_field.dart';
+import 'widgets/section_title.dart';
+import 'widgets/user_inputs_editor.dart';
 
 /// Create page for a new skill (or distilling from session)
 class SkillCreatePage extends ConsumerStatefulWidget {
@@ -92,7 +96,12 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     try {
       // TODO: Implement actual distillation from session history
       // For now, create a template based on session
+      final client = ref.read(activeConnectionProvider).value?.client;
+      if (client == null) {
+        throw StateError('No active connection available for distillation');
+      }
       final skill = await SkillDistiller.distillFromSession(
+        client: client,
         sessionId: widget.sessionId!,
         sessionTitle: widget.sessionTitle ?? 'Unknown Session',
       );
@@ -209,6 +218,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   ],
                 ),
               ),
+            ),
     );
   }
 
@@ -221,7 +231,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Name
-        _FormField(
+        SkillFormField(
           label: l10n.skillsName,
           hint: l10n.skillsNameHint,
           controller: _nameController,
@@ -230,7 +240,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // Description
-        _FormField(
+        SkillFormField(
           label: l10n.skillsDescription,
           hint: l10n.skillsDescriptionHint,
           controller: _descriptionController,
@@ -240,7 +250,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // Goal
-        _FormField(
+        SkillFormField(
           label: l10n.skillsGoal,
           hint: l10n.skillsGoalHint,
           controller: _goalController,
@@ -250,7 +260,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // Steps
-        _FormField(
+        SkillFormField(
           label: l10n.skillsSteps,
           hint: l10n.skillsStepsHint,
           controller: _stepsController,
@@ -260,7 +270,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // Constraints
-        _FormField(
+        SkillFormField(
           label: l10n.skillsConstraints,
           hint: l10n.skillsConstraintsHint,
           controller: _constraintsController,
@@ -269,7 +279,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // Required Tools
-        _FormField(
+        SkillFormField(
           label: l10n.skillsRequiredTools,
           hint: l10n.skillsRequiredToolsHint,
           controller: _toolsController,
@@ -277,17 +287,24 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         const SizedBox(height: 16),
 
         // User Inputs
-        _SectionTitle(title: l10n.skillsUserInputs),
-        _UserInputsEditor(
+        SkillSectionTitle(title: l10n.skillsUserInputs),
+        SkillUserInputsEditor(
           userInputs: _userInputs,
           formKeys: _inputFormKeys,
           onChanged: () => setState(() {}),
-          onAddInput: () => _showAddInputDialog(context),
+          onAddInput: () async {
+            final newInput = await showAddSkillInputDialog(context);
+            if (newInput != null && mounted) {
+              setState(() {
+                _userInputs.add(newInput);
+                _inputFormKeys.add(GlobalKey<FormState>());
+              });
+            }
+          },
           onDeleteInput: (index) => setState(() {
             _userInputs.removeAt(index);
             _inputFormKeys.removeAt(index);
           }),
-          l10n: l10n,
         ),
         const SizedBox(height: 16),
 
@@ -316,7 +333,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
         // Distilled preview (if available)
         if (_distilledSkill != null) ...[
-          _SectionTitle(title: l10n.skillsDistillFormula),
+          SkillSectionTitle(title: l10n.skillsDistillFormula),
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -415,381 +432,5 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   String _generateId() {
     return DateTime.now().millisecondsSinceEpoch.toRadixString(36) +
         (DateTime.now().microsecond % 1000).toRadixString(36);
-  }
-}
-
-class _FormField extends StatelessWidget {
-  const _FormField({
-    required this.label,
-    required this.hint,
-    required this.controller,
-    this.maxLines = 1,
-    this.validator,
-  });
-
-  final String label;
-  final String hint;
-  final TextEditingController controller;
-  final int maxLines;
-  final String? Function(String?)? validator;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: theme.textTheme.titleSmall?.copyWith(
-            fontWeight: FontWeight.w600,
-            color: theme.colorScheme.primary,
-          ),
-        ),
-        const SizedBox(height: 8),
-        TextFormField(
-          controller: controller,
-          maxLines: maxLines,
-          decoration: InputDecoration(
-            hintText: hint,
-            border: const OutlineInputBorder(),
-            contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          ),
-          validator: validator,
-        ),
-      ],
-    );
-  }
-}
-
-class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title,
-        style: theme.textTheme.titleSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.primary,
-        ),
-      ),
-    );
-  }
-}
-
-/// User inputs editor widget for SkillCreatePage
-class _UserInputsEditor extends StatelessWidget {
-  const _UserInputsEditor({
-    required this.userInputs,
-    required this.formKeys,
-    required this.onChanged,
-    required this.onAddInput,
-    required this.onDeleteInput,
-  });
-
-  final List<SkillInput> userInputs;
-  final List<GlobalKey<FormState>> formKeys;
-  final VoidCallback onChanged;
-  final VoidCallback onAddInput;
-  final ValueChanged<int> onDeleteInput;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final l10n = context.l10n;
-
-    if (userInputs.isEmpty) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            l10n.skillsUserInputsHint,
-            style: theme.textTheme.bodySmall?.copyWith(color: colors.onSurfaceVariant),
-          ),
-          const SizedBox(height: 8),
-          OutlinedButton.icon(
-            onPressed: onAddInput,
-            icon: const Icon(app_icons.AppIcons.add),
-            label: Text(l10n.skillsUserInputs),
-          ),
-        ],
-      );
-    }
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ...userInputs.asMap().entries.map((entry) {
-          final index = entry.key;
-          final input = entry.value;
-          final formKey = formKeys[index];
-          return _InputRow(
-            key: ValueKey(input.key),
-            input: input,
-            formKey: formKey,
-            index: index,
-            onDelete: () => onDeleteInput(index),
-          );
-        }),
-        const SizedBox(height: 8),
-        OutlinedButton.icon(
-          onPressed: () => _showAddInputDialog(context),
-          icon: const Icon(app_icons.AppIcons.add),
-          label: Text(l10n.skillsUserInputs),
-        ),
-      ],
-    );
-  }
-
-  void _showAddInputDialog(BuildContext context) {
-    final l10n = context.l10n;
-    final theme = Theme.of(context);
-    final keyController = TextEditingController();
-    final labelController = TextEditingController();
-    final hintController = TextEditingController();
-    SkillInputType selectedType = SkillInputType.text;
-    bool required = true;
-    String? defaultValue;
-    List<String> options = [];
-
-    showDialog(
-      context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AlertDialog(
-          title: Text(l10n.skillsUserInputs),
-          content: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                _InputDialogField(
-                  label: l10n.skillsUserInputs.replaceAll('s', ''), // "User Input"
-                  hint: 'e.g., target_host',
-                  controller: TextEditingController(),
-                  onChanged: (v) => keyController.text = v,
-                  validator: (v) => v?.trim().isEmpty == true ? 'Key is required' : null,
-                ),
-                const SizedBox(height: 16),
-                _InputDialogField(
-                  label: l10n.skillsUserInputs.replaceAll('s', ''),
-                  hint: 'e.g., Target Host',
-                  controller: TextEditingController(),
-                  onChanged: (v) => labelController.text = v,
-                  validator: (v) => v?.trim().isEmpty == true ? 'Label is required' : null,
-                ),
-                const SizedBox(height: 16),
-                _InputDialogField(
-                  label: l10n.skillsInputOptional.replaceAll('(', '').replaceAll(')', ''),
-                  hint: 'e.g., production, staging, localhost',
-                  controller: hintController,
-                  onChanged: (v) => hintController.text = v,
-                ),
-                const SizedBox(height: 16),
-                DropdownButtonFormField<SkillInputType>(
-                  value: selectedType,
-                  decoration: InputDecoration(
-                    labelText: 'Type',
-                    border: const OutlineInputBorder(),
-                  ),
-                  items: SkillInputType.values.map((type) => DropdownMenuItem(
-                    value: type,
-                    child: Text(type.name),
-                  )).toList(),
-                  onChanged: (v) => setState(() => selectedType = v!),
-                ),
-                const SizedBox(height: 16),
-                CheckboxListTile(
-                  title: Text(l10n.skillsUserInputs.replaceAll('s', '').replace('(', '').replace(')', '') + ' Required'),
-                  value: required,
-                  onChanged: (v) => setState(() => required = v ?? true),
-                ),
-                if (selectedType == SkillInputType.select) ...[
-                  const SizedBox(height: 16),
-                  _InputDialogField(
-                    label: 'Options (comma separated)',
-                    hint: 'option1, option2, option3',
-                    controller: TextEditingController(),
-                    onChanged: (v) => options = v.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
-                  ),
-                ],
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(l10n.skillsCancel),
-            ),
-            FilledButton(
-              onPressed: () {
-                final newInput = SkillInput(
-                  key: keyController.text.trim(),
-                  label: labelController.text.trim(),
-                  hint: hintController.text.trim(),
-                  type: selectedType,
-                  required: required,
-                  defaultValue: defaultValue,
-                  options: selectedType == SkillInputType.select ? options : null,
-                );
-                if (newInput.key.isNotEmpty && newInput.label.isNotEmpty) {
-                  // The parent will handle adding the input
-                  Navigator.pop(context, newInput);
-                }
-              },
-              child: Text(l10n.skillsSave),
-            ),
-          ],
-        ),
-      );
-  }
-}
-
-class _InputRow extends StatelessWidget {
-  const _InputRow({
-    required this.input,
-    required this.formKey,
-    required this.index,
-    required this.onDelete,
-  });
-
-  final SkillInput input;
-  final GlobalKey<FormState> formKey;
-  final int index;
-  final VoidCallback onDelete;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
-    final l10n = context.l10n;
-
-    return Card(
-      margin: const EdgeInsets.only(bottom: 8),
-      child: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  '${index + 1}. ${input.label}',
-                  style: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w600),
-                ),
-                const Spacer(),
-                if (!input.required)
-                  Chip(
-                    label: Text(l10n.skillsInputOptional, style: theme.textTheme.labelSmall),
-                    backgroundColor: colors.surfaceContainerHighest,
-                  ),
-                IconButton(
-                  icon: Icon(app_icons.AppIcons.delete, color: colors.error),
-                  onPressed: () => _confirmDelete(context),
-                  tooltip: l10n.skillsDelete,
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Wrap(
-              spacing: 8,
-              runSpacing: 4,
-              children: [
-                _InputInfoChip(label: 'Key', value: input.key),
-                _InputInfoChip(label: 'Hint', value: input.hint),
-                _InputInfoChip(label: 'Type', value: input.type.name),
-                if (input.type == SkillInputType.select && input.options != null)
-                  _InputInfoChip(label: 'Options', value: input.options!.join(', ')),
-                if (input.defaultValue != null && input.defaultValue!.isNotEmpty)
-                  _InputInfoChip(label: 'Default', value: input.defaultValue!),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  void _confirmDelete(BuildContext context) {
-    final l10n = context.l10n;
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(l10n.skillsDelete),
-        content: Text(l10n.skillsDeleteConfirm),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text(l10n.skillsCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.pop(context, true),
-            style: FilledButton.styleFrom(backgroundColor: Colors.red),
-            child: Text(l10n.skillsDelete),
-          ),
-        ],
-      ).then((confirmed) {
-        if (confirmed == true) {
-          // The parent will handle the deletion via callback
-        }
-      });
-  }
-}
-
-class _InputInfoChip extends StatelessWidget {
-  const _InputInfoChip({required this.label, required this.value});
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Chip(
-      label: Text('$label: $value', style: theme.textTheme.labelSmall),
-      backgroundColor: theme.colorScheme.surfaceContainerHighest,
-      visualDensity: VisualDensity.compact,
-    );
-  }
-}
-
-class _InputDialogField extends StatelessWidget {
-  const _InputDialogField({
-    required this.label,
-    required this.hint,
-    required this.controller,
-    required this.onChanged,
-    this.validator,
-  });
-
-  final String label;
-  final String hint;
-  final TextEditingController controller;
-  final ValueChanged<String> onChanged;
-  final String? Function(String?)? validator;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: label,
-          hintText: hint,
-          border: const OutlineInputBorder(),
-        ),
-        onChanged: onChanged,
-        validator: validator,
-      ),
-    );
-  }
   }
 }

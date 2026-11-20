@@ -1,10 +1,12 @@
 // Tests for Personal Skills Storage
 
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'skill_model.dart';
-import 'skill_storage.dart';
+import 'package:dsh_app/skills/skill_model.dart';
+import 'package:dsh_app/skills/skill_storage.dart';
 
 void main() {
   group('SkillStorage', () {
@@ -30,7 +32,7 @@ void main() {
       });
 
       test('upsertSkill adds a new skill', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -51,7 +53,7 @@ void main() {
       });
 
       test('upsertSkill updates existing skill', () async {
-        const skill1 = Skill(
+        final skill1 = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -65,7 +67,7 @@ void main() {
 
         await storage.upsertSkill(skill1);
 
-        const skill2 = Skill(
+        final skill2 = Skill(
           id: 'test-1',
           name: 'Updated Skill',
           description: 'Updated description',
@@ -89,7 +91,7 @@ void main() {
       });
 
       test('deleteSkill removes a skill', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -109,7 +111,7 @@ void main() {
       });
 
       test('getSkill returns skill by id', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -134,7 +136,7 @@ void main() {
 
     group('Hidden skills', () {
       test('getVisibleSkills returns only non-hidden skills', () async {
-        const visibleSkill = Skill(
+        final visibleSkill = Skill(
           id: 'visible-1',
           name: 'Visible Skill',
           description: 'Visible',
@@ -147,7 +149,7 @@ void main() {
           hidden: false,
         );
 
-        const hiddenSkill = Skill(
+        final hiddenSkill = Skill(
           id: 'hidden-1',
           name: 'Hidden Skill',
           description: 'Hidden',
@@ -173,7 +175,7 @@ void main() {
       });
 
       test('hideSkill marks skill as hidden', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -199,7 +201,7 @@ void main() {
       });
 
       test('restoreSkill marks skill as visible', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -228,7 +230,7 @@ void main() {
 
     group('Skill name uniqueness', () {
       test('skillNameExists returns true for existing name', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -248,7 +250,7 @@ void main() {
       });
 
       test('skillNameExists excludes specified id', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -308,7 +310,7 @@ void main() {
       });
 
       test('autoHideSkills hides skills with 3+ consecutive failures', () async {
-        const failedSkill = Skill(
+        final failedSkill = Skill(
           id: 'failed-1',
           name: 'Failed Skill',
           description: 'Failed',
@@ -323,7 +325,7 @@ void main() {
           hidden: false,
         );
 
-        const successSkill = Skill(
+        final successSkill = Skill(
           id: 'success-1',
           name: 'Success Skill',
           description: 'Success',
@@ -373,7 +375,7 @@ void main() {
 
     group('Invocation recording', () {
       test('recordInvocation stores success', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'Test',
@@ -389,7 +391,7 @@ void main() {
 
         final result = SkillResult.success(
           output: 'Success output',
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
           stepsCompleted: 3,
           totalSteps: 5,
         );
@@ -403,7 +405,7 @@ void main() {
       });
 
       test('recordInvocation stores failure', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'Test',
@@ -419,7 +421,7 @@ void main() {
 
         final result = SkillResult.failure(
           error: 'Something went wrong',
-          duration: Duration(seconds: 2),
+          duration: const Duration(seconds: 2),
         );
 
         await storage.recordInvocation('test-1', result);
@@ -433,7 +435,7 @@ void main() {
 
     group('Import/Export', () {
       test('exportSkills returns valid JSON', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'Test',
@@ -453,7 +455,7 @@ void main() {
       });
 
       test('importSkills imports new skills', () async {
-        const skill1 = Skill(
+        final skill1 = Skill(
           id: 'import-1',
           name: 'Imported Skill 1',
           description: 'Imported 1',
@@ -465,7 +467,7 @@ void main() {
           createdAt: DateTime(2024, 1, 1),
         );
 
-        const skill2 = Skill(
+        final skill2 = Skill(
           id: 'import-2',
           name: 'Imported Skill 2',
           description: 'Imported 2',
@@ -477,7 +479,7 @@ void main() {
           createdAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([
+        final json = const JsonEncoder.withIndent('  ').convert([
           skill1.toJson(),
           skill2.toJson(),
         ]);
@@ -490,7 +492,7 @@ void main() {
       });
 
       test('importSkills with overwrite updates existing skills', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'Old description',
@@ -504,7 +506,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const updatedSkill = Skill(
+        final updatedSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'New description',
@@ -517,7 +519,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: true);
 
@@ -530,7 +532,7 @@ void main() {
       });
 
       test('importSkills without overwrite keeps existing skills', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'Old description',
@@ -544,7 +546,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const updatedSkill = Skill(
+        final updatedSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'New description',
@@ -557,7 +559,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: false);
 
@@ -567,7 +569,7 @@ void main() {
       });
 
       test('importSkills handles name conflicts by renaming', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Duplicate Name',
           description: 'Existing',
@@ -581,7 +583,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const newSkill = Skill(
+        final newSkill = Skill(
           id: 'new-1',
           name: 'Duplicate Name',
           description: 'New',
@@ -593,7 +595,7 @@ void main() {
           createdAt: DateTime(2024, 1, 2),
         );
 
-        final json = JsonEncoder.withIndent('  ').convert([newSkill.toJson()]);
+        final json = const JsonEncoder.withIndent('  ').convert([newSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: false);
 
@@ -608,7 +610,7 @@ void main() {
 
     group('History cleanup', () {
       test('deleteSkill cleans up history', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'Test',

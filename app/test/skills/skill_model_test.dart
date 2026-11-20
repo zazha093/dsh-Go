@@ -2,7 +2,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 
-import 'skill_model.dart';
+import 'package:dsh_app/skills/skill_model.dart';
 
 void main() {
   group('Skill', () {
@@ -128,7 +128,7 @@ void main() {
 
   group('SkillInput', () {
     test('toJson and fromJson roundtrip', () {
-      const input = SkillInput(
+      final input = SkillInput(
         key: 'test_key',
         label: 'Test Label',
         hint: 'Test Hint',

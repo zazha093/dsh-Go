@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod/legacy.dart';
 
 import 'skill_model.dart';
 import 'skill_storage.dart';
@@ -32,6 +31,42 @@ class SkillsState {
   final SkillCategoryFilter selectedCategory;
   final String searchQuery;
   final bool showHidden;
+
+  /// Get filtered skills based on current filters
+  List<Skill> get filteredSkills {
+    var filtered = skills;
+
+    // Apply category filter
+    if (selectedCategory != SkillCategoryFilter.all) {
+      final category = switch (selectedCategory) {
+        SkillCategoryFilter.productivity => SkillCategory.productivity,
+        SkillCategoryFilter.development => SkillCategory.development,
+        SkillCategoryFilter.automation => SkillCategory.automation,
+        SkillCategoryFilter.analysis => SkillCategory.analysis,
+        SkillCategoryFilter.other => SkillCategory.other,
+        SkillCategoryFilter.all => null,
+      };
+      if (category != null) {
+        filtered = filtered.where((s) => s.category == category).toList();
+      }
+    }
+
+    // Apply search filter
+    if (searchQuery.isNotEmpty) {
+      final query = searchQuery.toLowerCase();
+      filtered = filtered.where((s) =>
+          s.name.toLowerCase().contains(query) ||
+          s.description.toLowerCase().contains(query) ||
+          s.goal.toLowerCase().contains(query)).toList();
+    }
+
+    // Apply hidden filter
+    if (!showHidden) {
+      filtered = filtered.where((s) => !s.hidden).toList();
+    }
+
+    return filtered;
+  }
 
   SkillsState copyWith({
     List<Skill>? skills,
@@ -217,37 +252,6 @@ class SkillsController extends StateNotifier<SkillsState> {
   /// Toggle show hidden
   void toggleShowHidden() {
     state = state.copyWith(showHidden: !state.showHidden);
-  }
-
-  /// Get filtered skills based on current filters
-  List<Skill> get filteredSkills {
-    var skills = state.skills;
-
-    // Apply category filter
-    if (state.selectedCategory != SkillCategoryFilter.all) {
-      final category = switch (state.selectedCategory) {
-        SkillCategoryFilter.productivity => SkillCategory.productivity,
-        SkillCategoryFilter.development => SkillCategory.development,
-        SkillCategoryFilter.automation => SkillCategory.automation,
-        SkillCategoryFilter.analysis => SkillCategory.analysis,
-        SkillCategoryFilter.other => SkillCategory.other,
-        SkillCategoryFilter.all => null,
-      };
-      if (category != null) {
-        skills = skills.where((s) => s.category == category).toList();
-      }
-    }
-
-    // Apply search filter
-    if (state.searchQuery.isNotEmpty) {
-      final query = state.searchQuery.toLowerCase();
-      skills = skills.where((s) =>
-          s.name.toLowerCase().contains(query) ||
-          s.description.toLowerCase().contains(query) ||
-          s.goal.toLowerCase().contains(query)).toList();
-    }
-
-    return skills;
   }
 
   /// Export all skills

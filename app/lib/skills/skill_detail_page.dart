@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/l10n.dart';
 import '../state/chat_state.dart';
 import '../state/sessions_state.dart';
-import '../ui/common/app_icons.dart';
 import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import '../ui/theme/theme.dart';
@@ -630,7 +629,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       case 'str_replace_editor':
         return app_icons.AppIcons.edit;
       case 'web_fetch':
-        return app_icons.AppIcons.globe;
+        return app_icons.AppIcons.web;
       case 'web_search':
         return app_icons.AppIcons.search;
       case 'write':
@@ -713,7 +712,7 @@ class _InputRow extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(
-            input.required ? app_icons.AppIcons.circle : app_icons.AppIcons.circleOutline,
+            input.required ? app_icons.AppIcons.completed : app_icons.AppIcons.radioOff,
             size: 18,
             color: colors.primary,
           ),
