@@ -3,8 +3,8 @@
   "stateRemoteUploadNameInvalid": " โฮสต์ ปฏิเสธแล้ว  filename. Shorten it ออร์ นำออก special characters แอนด์ ลอง อีกครั้ง.",
   "stateRemoteUploadWorkspaceUnavailable": "This Chat has ไม่ writable working ไดเรกทอรี",
   "stateRemoteUploadWorkspaceChanged": " working ไดเรกทอรี changed. เช็ค it ก่อน uploading อีกครั้ง.",
-  "stateRemoteUploadLimit": " โฮสต์ refused  อัปโหลド. เช็ค  ไฟล์ ไซส์ ออร์ ลอง อีกครั้ง ภายหลัง.",
+  "stateRemoteUploadLimit": " โฮสต์ refused  อัปโหล. เช็ค  ไฟล์ ไซส์ ออร์ ลอง อีกครั้ง ภายหลัง.",
   "stateRemoteUploadUnsupported": "This โฮสต์ does นอต รองรับ ไฟล์ uploads. อัปเดต its รีโมต ปลั๊กอิน แอนด์ reconnect.",
-  "stateRemoteUploadTooLarge": " ไฟล์ exceeds  รีโมต อัปโหลド โปรโตคอล's ไซส์ ลิมิต",
+  "stateRemoteUploadTooLarge": " ไฟล์ exceeds  รีโมต อัปโหล โปรโตคอล's ไซส์ ลิมิต",
   "@@locale": "th"
 }

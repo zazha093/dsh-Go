@@ -1080,7 +1080,7 @@
   "tavernCharacterTabCard": "Card",
   "tavernCharacterTabSetup": "Setup",
   "tavernCharacterNoDefinition": "This card has no definition or notes.",
-  "tavernNovelIndent": "Indent paragraphs in 小说",
+  "tavernNovelIndent": "Indent paragraphs in นิยาย...",
   "tavernNovelIndentSubtitle": "Each paragraph opens two characters in, as in a book",
   "tavernShelfSelect": "Select",
   "tavernShelfPicked": "{count} selected",
@@ -1388,11 +1388,11 @@
       }
     }
   },
-  "tavernStThemeNote": "With 「ST」 as the colours, quotes and *actions* take its colours; one too faint to read here is adjusted until it reads.",
+  "tavernStThemeNote": "With \"ST\" as the colours, quotes and *actions* take its colours; one too faint to read here is adjusted until it reads.",
   "tavernStThemeImport": "Import an ST theme",
   "tavernStThemeImportNote": "Takes the quote and italics colours, and its custom CSS, from a theme file exported from SillyTavern.",
   "tavernStThemeCss": "Use its custom CSS",
-  "tavernStThemeCssSubtitle": "With 「ST」 as the colours, it goes into the whole-story canvas and overrides the default look, as in ST. Turn it off if the page comes apart; the colours stay.",
+  "tavernStThemeCssSubtitle": "With \"ST\" as the colours, it goes into the whole-story canvas and overrides the default look, as in ST. Turn it off if the page comes apart; the colours stay.",
   "tavernStThemeRemove": "Remove",
   "tavernStThemeImported": "Now using the colours of the ST theme “{name}”",
   "@tavernStThemeImported": {

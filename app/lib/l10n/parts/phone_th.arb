@@ -147,7 +147,7 @@
   "phoneDndSuiFor": "โมดูล Sui บน Magisk หรือ KernelSU",
   "phoneDndRootFor": "โทรศัพท์ที่รูท",
   "phoneDndAdbFor": "ไม่ต้องแอปเพิ่ม ใช้ wireless debugging",
-  "phoneDndStateInUse": "ใช้งาน中",
+  "phoneDndStateInUse": "ใช้งานอยู่...",
   "phoneDndStateNotReady": "ยังไม่พร้อม",
   "phoneDndStateUsable": "พร้อมใช้งาน",
   "phoneDndStateNeedsGrant": "ต้องการสิทธิ์",

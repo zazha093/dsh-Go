@@ -20,7 +20,7 @@
   "marketFlagFilesystem": "เขียนนอกเวิร์กสเปซ",
   "marketFlagFilesystemBody": "เขียนไปพาธนอกเวิร์กสเปซ",
   "marketFlagObfuscated": "ยากต่อการรีวิว",
-  "marketFlagObfuscatedBody": "มีไฟล์ที่มินิฟายหรือオブฟัสเคตขนาดใหญ่ ยากจะบอกว่าทำอะไร",
+  "marketFlagObfuscatedBody": "มีไฟล์ที่มินิฟายหรือออบฟัสเคตขนาดใหญ่ ยากจะบอกว่าทำอะไร...",
   "marketFlagNotAdapted": "ไม่ได้ทำสำหรับ DSH Go",
   "marketFlagNotAdaptedBody": "ไม่ได้ประกาศโปรโตคอลเนทีฟของ DSH Go จึงไม่มีหน้าจอเนทีฟในแอป",
   "marketFlagOtherBody": "ลักษณะอื่นที่การตรวจสอบอัตโนมัติรายงาน",

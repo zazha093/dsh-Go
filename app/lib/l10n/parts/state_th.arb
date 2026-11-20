@@ -114,7 +114,7 @@
   "stateCommandFailed": "คำสั่งไม่ได้รัน",
   "stateChatStopSteered": "หยุดเทิร์นนี้ไม่ได้ ส่งเป็นการควบคุมแทน",
   "stateChatTextOnlyModel": "ส่งเป็นไฟล์: โมเดลนี้ไม่ระบุอินพุตรูปภาพ",
-  "stateAttachmentUploadFailed": "Couldn’t อัปโหลド attachment",
+  "stateAttachmentUploadFailed": "Couldn’t อัปโหล attachment",
   "stateChatImageModelRequired": "โมเดลนี้ไม่รับรูปภาพ สลับโมเดลหรือเปิดอินพุตรูปภาพ",
   "stateSendFailed": "ส่งไม่ได้",
   "stateChatStopFailed": "หยุดไม่ได้ ลองอีกครั้ง",

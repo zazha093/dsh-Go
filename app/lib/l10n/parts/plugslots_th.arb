@@ -6,7 +6,7 @@
   "plugslotsSurfaceMessageActions": "เมนูข้อความ",
   "plugslotsSurfaceComposerStrip": "แถบสถานะ",
   "plugslotsSurfacePanel": "แผ่น",
-  "plugslotsNativeUi": "UI ネイティブ",
+  "plugslotsNativeUi": "UI นีทีฟ...",
   "plugslotsIssueCount": "{count, plural, =1{1 ปัญหา} other{{count} ปัญหา}}",
   "@plugslotsIssueCount": {
     "placeholders": {
