@@ -15,10 +15,13 @@ class SkillDistiller {
   /// This is the main entry point. It fetches the session history,
   /// analyzes the conversation, and returns a skill formula.
   static Future<Skill> distillFromSession({
-    required DshClient client,
+    DshClient? client,
     required String sessionId,
     required String sessionTitle,
   }) async {
+    client ??= throw StateError(
+        'DshClient is required for distillFromSession. '
+        'Pass a client or ensure a default is available via the runtime bridge.');
     // Fetch session history
     final events = await _fetchAllHistory(client, sessionId);
 
@@ -37,7 +40,7 @@ class SkillDistiller {
 
   /// Fetch all history for a session by paging through it.
   static Future<List<SessionLogEvent>> _fetchAllHistory(
-    DshClient client,
+    DshClient? client,
     String sessionId,
   ) async {
     final allEvents = <SessionLogEvent>[];

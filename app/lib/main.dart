@@ -8,7 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app.dart';
 import 'dev/frame_probe.dart';
 import 'diagnostics/app_error_log.dart';
-import 'launch/launch_state.dart'
+import 'launch/launch_state.dart';
 import 'links/page_links.dart' show registerPageLink, tavernPageLink;
 import 'runtime/local_paths.dart';
 import 'skills/skills.dart';

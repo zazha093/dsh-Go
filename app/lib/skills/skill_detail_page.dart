@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/l10n.dart';
 import '../state/chat_state.dart';
 import '../state/sessions_state.dart';
-import '../ui/common/app_icons.dart';
 import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import '../ui/theme/theme.dart';
@@ -47,13 +46,13 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         actions: [
           if (_skill.hidden)
             IconButton(
-              icon: const Icon(app_icons.AppIcons.visibility),
+              icon: const Icon(app_icons.AppIcons.showSecret),
               onPressed: () => _restoreSkill(),
               tooltip: l10n.skillsRestore,
             )
           else
             IconButton(
-              icon: const Icon(app_icons.AppIcons.visibilityOff),
+              icon: const Icon(app_icons.AppIcons.hideSecret),
               onPressed: () => _hideSkill(),
               tooltip: l10n.skillsHide,
             ),
@@ -63,7 +62,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
             tooltip: l10n.skillsEdit,
           ),
           PopupMenuButton<String>(
-            icon: const Icon(app_icons.AppIcons.moreVert),
+            icon: const Icon(app_icons.AppIcons.moreVertical),
             onSelected: _handleMenuAction,
             itemBuilder: (context) => [
               PopupMenuItem(
@@ -169,7 +168,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(app_icons.AppIcons.block, size: 16, color: colors.error),
+                      Icon(app_icons.AppIcons.blocked, size: 16, color: colors.error),
                       const SizedBox(width: 8),
                       Expanded(child: Text(c, style: theme.textTheme.bodyMedium)),
                     ],
@@ -202,24 +201,24 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           _StatRow(
             label: l10n.skillsUseCount.replaceFirst('{count}', _skill.useCount.toString()),
             value: _skill.successRate.toString() + '%',
-            icon: app_icons.AppIcons.repeat,
+            icon: app_icons.AppIcons.recurring,
           ),
           _StatRow(
             label: l10n.skillsSuccessRate.replaceFirst('{rate}', _skill.successRate.toString()),
             value: '${_skill.successCount}/${_skill.useCount}',
-            icon: app_icons.AppIcons.checkCircle,
+            icon: app_icons.AppIcons.completed,
           ),
           _StatRow(
             label: _skill.lastUsedAt != null
                 ? l10n.skillsLastUsed.replaceFirst('{date}', _formatDate(_skill.lastUsedAt!))
                 : l10n.skillsNeverUsed,
             value: _skill.version.toString(),
-            icon: app_icons.AppIcons.clock,
+            icon: app_icons.AppIcons.scheduled,
           ),
           _StatRow(
             label: 'Version',
             value: _skill.version.toString(),
-            icon: app_icons.AppIcons.tag,
+            icon: app_icons.AppIcons.bookmark,
           ),
           const SizedBox(height: 24),
 
