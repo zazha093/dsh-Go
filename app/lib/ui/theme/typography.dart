@@ -195,9 +195,9 @@ abstract final class AppType {
     titleLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, height: 1.4, leadingDistribution: _even),
     titleMedium: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, height: 1.45, leadingDistribution: _even),
     titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, height: 1.45, leadingDistribution: _even),
-    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, height: 1.75, leadingDistribution: _even),
-    bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, height: 1.65, leadingDistribution: _even),
-    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, height: 1.6, leadingDistribution: _even),
+    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, height: 1.65, leadingDistribution: _even),
+    bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, height: 1.55, leadingDistribution: _even),
+    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, height: 1.5, leadingDistribution: _even),
     labelLarge: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w600,

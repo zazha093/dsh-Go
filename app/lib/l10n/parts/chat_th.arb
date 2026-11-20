@@ -113,8 +113,6 @@
   "chatPreview": "พรีวิว",
   "chatUnwrapLines": "ไม่ห่อบรรทัด",
   "chatWrapLines": "ห่อบรรทัด",
-  "chatCollapseCode": "พับโค้ด",
-  "chatExpandCode": "กางโค้ด",
   "chatAlertNote": "บันทึก",
   "chatAlertTip": "เคล็ดลับ",
   "chatAlertImportant": "สำคัญ",

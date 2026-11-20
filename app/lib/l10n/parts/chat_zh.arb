@@ -223,8 +223,6 @@
   "chatPreview": "预览",
   "chatUnwrapLines": "不换行",
   "chatWrapLines": "自动换行",
-  "chatCollapseCode": "折叠代码",
-  "chatExpandCode": "展开代码",
   "chatAlertNote": "注意",
   "chatAlertTip": "提示",
   "chatAlertImportant": "重要",

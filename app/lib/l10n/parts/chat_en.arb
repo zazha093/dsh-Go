@@ -116,8 +116,6 @@
   "chatPreview": "Preview",
   "chatUnwrapLines": "Unwrap lines",
   "chatWrapLines": "Wrap lines",
-  "chatCollapseCode": "Collapse code",
-  "chatExpandCode": "Expand code",
   "chatAlertNote": "Note",
   "chatAlertTip": "Tip",
   "chatAlertImportant": "Important",

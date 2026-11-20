@@ -396,9 +396,6 @@ class _CodeBlockState extends State<CodeBlock> {
   /// 长行折回显示,而不是横向滚动。
   bool _wrap = false;
 
-  /// 代码块是否折叠(仅当 maxHeight 设置且代码较长时有效)。
-  bool _collapsed = true;
-
   /// While code streams in, it is highlighted again at most this often (the
   /// last chunk of up to 8000 characters, every delta, was the cost); what
   /// came since shows plain until then.
@@ -524,16 +521,12 @@ class _CodeBlockState extends State<CodeBlock> {
         ],
       );
     }
-    // 折叠/展开控制:折叠时应用 maxHeight,展开时移除限制
-    if (widget.maxHeight != null && _collapsed) {
+    if (widget.maxHeight != null) {
       body = ConstrainedBox(
         constraints: BoxConstraints(maxHeight: widget.maxHeight!),
         // 纵向滚到头后让路给外层消息列表。
         child: OverscrollForwarder(child: SingleChildScrollView(child: body)),
       );
-    } else if (widget.maxHeight != null && !_collapsed) {
-      // 展开时允许无限高度,但保留 OverscrollForwarder 以便外层列表接管滚动
-      body = OverscrollForwarder(child: SingleChildScrollView(child: body));
     }
 
     if (widget.embedded) return body;
@@ -593,14 +586,6 @@ class _CodeBlockState extends State<CodeBlock> {
                           tooltip: _wrap ? l10n.chatUnwrapLines : l10n.chatWrapLines,
                           selected: _wrap,
                           onTap: () => setState(() => _wrap = !_wrap),
-                        ),
-                      // 折叠/展开按钮(仅当设置了 maxHeight 时显示)
-                      if (widget.maxHeight != null)
-                        _HeaderButton(
-                          icon: _collapsed ? AppIcons.expand : AppIcons.collapse,
-                          tooltip: _collapsed ? l10n.chatExpandCode : l10n.chatCollapseCode,
-                          selected: !_collapsed,
-                          onTap: () => setState(() => _collapsed = !_collapsed),
                         ),
                       _CopyButton(copied: _copied, onTap: _copy),
                       const SizedBox(width: 8),
