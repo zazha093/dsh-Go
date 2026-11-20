@@ -55,7 +55,14 @@ All Thai translations are in `app/lib/l10n/parts/*_th.arb` (80 files):
 |------|-------------|
 | `.github/workflows/build-apk.yml` | Fork-specific workflow for APK builds with keystore support |
 | `.github/workflows/ci.yml` | **Reverted to upstream/main** - no fork modifications to reduce sync conflicts |
+| `.github/workflows/weekly-upstream-check.yml` | Weekly cron (Mon 08:00 UTC) to check upstream/main ahead of fork/main, opens issue if needed |
 | `tooling/build-apk.sh` | Build script with keystore integration |
+
+**Recent CI Status (2026-11-20):**
+- ✅ **Run 44677965900** (commit `95f4d1930`): **PASSED** — 14m56s, artifacts: `dsh-go-thai-arm64` (231 MB), `runtime-out` (160 MB)
+- ✅ **Run 44547862380**: PASSED — 17m4s
+- ✅ **Run 44542401980**: PASSED — 15m46s
+- ❌ **Run 44677061308** (commit `461b2078a`): FAILED — `flutter analyze` error in `thai_locale_test.dart` (fixed in next commit)
 
 ### 2.4 Fork Tools
 
@@ -93,6 +100,22 @@ python3 app/tool/l10n_merge.py --locale th --check
 # Full regeneration (includes flutter gen-l10n)
 python3 app/tool/l10n_merge.py --locale th
 ```
+
+### 3.3 flutter analyze Test Fix (2026-11-20)
+
+The test file `app/test/thai_locale_test.dart` caused `flutter analyze` to fail in CI (Run 44677061308). Fixed in commit `95f4d1930`:
+
+**Issues Fixed:**
+| Issue | Count | Fix |
+|-------|-------|-----|
+| `Locale` not defined | 14 | Added `import 'dart:ui';` |
+| `Locale('th')` not const | 1 | Changed to `const Locale('th')` |
+| `settingsTitle` getter not found | 1 | Replaced with existing key `tavernSettings` |
+| `settingsAppearance` getter not found | 1 | Replaced with existing key `phoneRestrictedAdvanced` |
+
+**Key Principle:** Test assertions must use keys that actually exist in the generated L10n class (from ARB files). The test now validates:
+- `th.tavernSettings` (exists in ARB as "Tavern settings" → "การตั้งค่า")
+- `th.phoneRestrictedAdvanced` (exists in ARB as "Advanced settings")
 
 **Expected Output (--check)**:
 ```
@@ -208,6 +231,8 @@ Currently uses **permanent keystore** stored at `~/dsh-go-keystore/release.keyst
 | **Key Algorithm** | RSA 4096 |
 | **Validity** | 10,000 days |
 | **SHA-256 Fingerprint** | `814e236582857a68db081ef4fa8fa91bcbce098d6b3207f0f0db6653d82f27c0` |
+
+> **✅ Verified**: Current build (Run 44677965900) successfully signed APK with this keystore.
 
 ### 5.3 Required GitHub Secrets
 
@@ -443,4 +468,4 @@ gh workflow run weekly-upstream-check --repo zazha093/dsh-Go
 
 ---
 
-*Last Updated: 2026-11-20 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release*
+*Last Updated: 2026-11-20 | Fork: zazha093/dsh-Go | Upstream: ccch1mneyyy/dsh-Go | Branch: thai/release | CI: ✅ Passed (Run 44677965900)*
