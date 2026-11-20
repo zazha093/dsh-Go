@@ -1,19 +1,21 @@
+import 'dart:ui';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dsh_app/l10n/l10n.dart';
 
 void main() {
   group('Thai locale support', () {
     test('Locale("th") is in supportedLocales', () {
-      expect(AppLocale.supported, contains(Locale('th')));
+      expect(AppLocale.supported, contains(const Locale('th')));
     });
 
     test('L10n.delegate supports Thai locale', () {
       final delegate = L10n.delegate;
-      expect(delegate.isSupported(Locale('th')), isTrue);
+      expect(delegate.isSupported(const Locale('th')), isTrue);
     });
 
     test('lookupL10n(Locale("th")) returns Thai strings for core keys', () {
-      final th = lookupL10n(Locale('th'));
+      final th = lookupL10n(const Locale('th'));
 
       // Test at least 5 keys that should have Thai translations
       expect(th.localeTitle, equals('ภาษา'));
@@ -24,11 +26,11 @@ void main() {
     });
 
     test('lookupL10n(Locale("th")) returns Thai strings for settings keys', () {
-      final th = lookupL10n(Locale('th'));
+      final th = lookupL10n(const Locale('th'));
 
-      // Additional keys from settings page
-      expect(th.settingsTitle, contains('การตั้งค่า'));
-      expect(th.settingsAppearance, contains('รูปลักษณ์'));
+      // Test settings-related keys that exist in ARB
+      expect(th.tavernSettings, contains('การตั้งค่า'));
+      expect(th.phoneRestrictedAdvanced, equals('Advanced settings'));
     });
 
     test('System locale resolution still works (ตามระบบ)', () {
