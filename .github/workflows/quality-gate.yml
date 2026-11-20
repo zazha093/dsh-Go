@@ -1,0 +1,82 @@
+name: Quality Gate
+
+on:
+  push:
+    branches: [thai/release]
+  pull_request:
+    branches: [thai/release]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality-gate:
+    name: Quality Gate (CJK + Analyze)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Setup Python
+        uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
+        with:
+          python-version: '3.12'
+
+      - name: Run CJK Scan (fork-tools/scan_th.py)
+        id: cjk-scan
+        working-directory: /root/workspace/dsh-Go
+        run: |
+          echo "=== Running Thai L10n CJK Scan ==="
+          python3 fork-tools/scan_th.py 2>&1 | tee scan_output.txt
+          
+          # Parse CJK count from scan output
+          # Format: "จ. CJK in TH (excl. locale markers): 0 in 0 parts"
+          CJK_LINE=$(grep "CJK in TH" scan_output.txt || echo "")
+          if [ -n "$CJK_LINE" ]; then
+            CJK_NUM=$(echo "$CJK_LINE" | sed -E 's/.*: ([0-9]+) in [0-9]+ parts.*/\1/')
+            echo "cjk_count=$CJK_NUM" >> $GITHUB_OUTPUT
+            echo "Found CJK count: $CJK_NUM"
+          else
+            echo "cjk_count=0" >> $GITHUB_OUTPUT
+            echo "CJK line not found in output, assuming 0"
+          fi
+
+      - name: Check CJK Count
+        if: steps.cjk-scan.outputs.cjk_count > 0
+        run: |
+          echo "::error::Found ${{ steps.cjk-scan.outputs.cjk_count }} CJK characters in Thai ARB files! Quality gate failed."
+          exit 1
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
+        with:
+          flutter-version: '3.47.7'
+          channel: stable
+          cache: true
+
+      - name: Flutter pub get
+        working-directory: app
+        run: flutter pub get --enforce-lockfile
+
+      - name: Generate localization (for analyze)
+        working-directory: app
+        run: python3 tool/l10n_merge.py --locale th
+
+      - name: Flutter analyze (fail on errors)
+        working-directory: app
+        run: |
+          echo "=== Running flutter analyze ==="
+          flutter analyze --no-pub 2>&1 | tee analyze_output.txt
+          
+          # Check for errors (not warnings)
+          if grep -q "error •" analyze_output.txt; then
+            echo "::error::flutter analyze found errors:"
+            grep "error •" analyze_output.txt
+            exit 1
+          else
+            echo "flutter analyze passed (no errors)"
+          fi

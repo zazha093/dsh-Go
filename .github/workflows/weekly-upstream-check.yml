@@ -35,12 +35,24 @@ jobs:
           echo "ahead=$AHEAD" >> $GITHUB_OUTPUT
           echo "Upstream/main is ahead by $AHEAD commits"
 
+      - name: Install gh CLI
+        if: steps.count.outputs.ahead > 0
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y gh
+
       - name: Check for existing open issue
         if: steps.count.outputs.ahead > 0
         id: existing
         run: |
           ISSUE=$(gh issue list --repo zazha093/dsh-Go --state open --label "sync:upstream" --json number --jq '.[0].number' 2>/dev/null || echo "")
           echo "issue=$ISSUE" >> $GITHUB_OUTPUT
+
+      - name: Install gh CLI
+        if: steps.count.outputs.ahead > 0 && steps.existing.outputs.issue == ''
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y gh
 
       - name: Create sync issue
         if: steps.count.outputs.ahead > 0 && steps.existing.outputs.issue == ''
