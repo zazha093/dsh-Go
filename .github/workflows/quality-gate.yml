@@ -57,13 +57,13 @@ jobs:
           channel: stable
           cache: true
 
-      - name: Flutter pub get
-        working-directory: app
-        run: flutter pub get --enforce-lockfile
-
       - name: Generate localization (for analyze)
         working-directory: app
         run: python3 tool/l10n_merge.py --locale th
+
+      - name: Flutter pub get
+        working-directory: app
+        run: flutter pub get --enforce-lockfile
 
       - name: Flutter analyze (fail on errors)
         working-directory: app
