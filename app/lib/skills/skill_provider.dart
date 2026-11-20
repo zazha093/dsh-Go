@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod/legacy.dart';
 
 import 'skill_model.dart';
 import 'skill_storage.dart';
@@ -19,7 +20,7 @@ class SkillsState {
     this.hiddenSkills = const [],
     this.isLoading = false,
     this.error,
-    this.selectedCategory = SkillCategoryAll,
+    this.selectedCategory = SkillCategoryFilter.all,
     this.searchQuery = '',
     this.showHidden = false,
   });

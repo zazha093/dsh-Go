@@ -3,110 +3,111 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dsh_client/dsh_client.dart';
 
-import 'skill_model.dart';
-import 'skill_distill.dart';
+import '../../lib/share_code/conversation_redact.dart';
+import '../../lib/skills/skill_model.dart';
+import '../../lib/skills/skill_distill.dart';
 
 void main() {
   group('SkillDistiller', () {
-    group('_generateSkillName', () {
+    group('generateSkillName', () {
       test('generates name from session title', () {
         const title = 'My Coding Session';
-        final name = SkillDistiller._generateSkillName(title);
+        final name = SkillDistiller.generateSkillName(title);
         expect(name, 'My coding session');
       });
 
       test('removes common prefixes', () {
         const title = 'chat: My Session';
-        final name = SkillDistiller._generateSkillName(title);
+        final name = SkillDistiller.generateSkillName(title);
         expect(name, 'My session');
       });
 
       test('capitalizes first letter', () {
         const title = 'lowercase title';
-        final name = SkillDistiller._generateSkillName(title);
+        final name = SkillDistiller.generateSkillName(title);
         expect(name, 'Lowercase title');
       });
 
       test('truncates long names', () {
         const title = 'a'.repeat(60);
-        final name = SkillDistiller._generateSkillName(title);
+        final name = SkillDistiller.generateSkillName(title);
         expect(name.length, lessThanOrEqualTo(50));
       });
 
       test('handles empty title', () {
         const title = '';
-        final name = SkillDistiller._generateSkillName(title);
+        final name = SkillDistiller.generateSkillName(title);
         expect(name, 'Unnamed Skill');
       });
     });
 
-    group('_inferToolsFromTitle', () {
+    group('inferToolsFromTitle', () {
       test('infers development tools', () {
         const title = 'Code Review Session';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['bash', 'edit', 'write']));
       });
 
       test('infers web tools', () {
         const title = 'Web Search and Fetch';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['web_fetch', 'web_search']));
       });
 
       test('infers file tools', () {
         const title = 'File Operations';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['read', 'write', 'edit']));
       });
 
       test('infers git tools', () {
         const title = 'Git Commit and Push';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, contains('bash'));
       });
 
       test('infers test tools', () {
         const title = 'CI/CD Build Test Deploy';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, contains('bash'));
       });
 
       test('infers analysis tools', () {
         const title = 'Data Analysis Report';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['bash', 'web_fetch']));
       });
 
       test('defaults to bash and edit', () {
         const title = 'Random Session';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['bash', 'edit']));
       });
 
       test('deduplicates tools', () {
         const title = 'Code Code Code';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         final uniqueTools = tools.toSet();
         expect(tools.length, uniqueTools.length);
       });
     });
 
-    group('_inferInputsFromTitle', () {
+    group('inferInputsFromTitle', () {
       test('infers target_host input', () {
         const title = 'Deploy to Production Server';
-        final inputs = SkillDistiller._inferInputsFromTitle(title);
+        final inputs = SkillDistiller.inferInputsFromTitle(title);
         expect(inputs.any((i) => i.key == 'target_host'), true);
       });
 
       test('infers branch input', () {
         const title = 'Git Branch Management';
-        final inputs = SkillDistiller._inferInputsFromTitle(title);
+        final inputs = SkillDistiller.inferInputsFromTitle(title);
         expect(inputs.any((i) => i.key == 'branch'), true);
       });
 
       test('infers environment input', () {
         const title = 'Environment Configuration';
-        final inputs = SkillDistiller._inferInputsFromTitle(title);
+        final inputs = SkillDistiller.inferInputsFromTitle(title);
         final envInput = inputs.firstWhere((i) => i.key == 'environment');
         expect(envInput.type, SkillInputType.select);
         expect(envInput.options, ['development', 'staging', 'production']);
@@ -114,49 +115,49 @@ void main() {
 
       test('infers version input', () {
         const title = 'Release Version 1.0.0';
-        final inputs = SkillDistiller._inferInputsFromTitle(title);
+        final inputs = SkillDistiller.inferInputsFromTitle(title);
         expect(inputs.any((i) => i.key == 'version'), true);
       });
     });
 
-    group('_inferCategoryFromTitle', () {
+    group('inferCategoryFromTitle', () {
       test('infers development category', () {
         const title = 'Code Review and Debugging';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.development);
       });
 
       test('infers automation category', () {
         const title = 'Automated CI/CD Pipeline';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.automation);
       });
 
       test('infers analysis category', () {
         const title = 'Data Analysis Report';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.analysis);
       });
 
       test('infers productivity category', () {
         const title = 'Daily Todo Planning';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.productivity);
       });
 
       test('defaults to other', () {
         const title = 'Random Session';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.other);
       });
     });
 
-    group('_createTemplateSkill', () {
+    group('createTemplateSkill', () {
       test('creates skill with all required fields', () {
         const sessionId = 'test-session';
         const sessionTitle = 'Test Session';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.id, isNotEmpty);
         expect(skill.name, isNotEmpty);
@@ -180,7 +181,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'API Key: sk-1234567890abcdef';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         // The description should have the API key redacted
         expect(skill.description, contains('sk-••••••'));
@@ -191,7 +192,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'Token: ghp_abcdefghijklmnopqrstuvwxyz123456';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('ghp_••••••'));
         expect(skill.description, isNot(contains('ghp_abcdefghijklmnopqrstuvwxyz123456')));
@@ -201,7 +202,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'Password: mysecretpassword123';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('••••••'));
         expect(skill.description, isNot(contains('mysecretpassword123')));
@@ -211,7 +212,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('••••••'));
         expect(skill.description, isNot(contains('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9')));

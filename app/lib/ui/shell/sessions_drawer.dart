@@ -85,6 +85,7 @@ class SessionsDrawer extends ConsumerWidget {
     super.key,
     required this.onClose,
     required this.onOpen,
+    required this.onSkills,
     this.now,
     this.identityBarHeight,
     this.drawerMotion,
@@ -92,6 +93,7 @@ class SessionsDrawer extends ConsumerWidget {
 
   final VoidCallback onClose;
   final ValueChanged<DrawerDestination> onOpen;
+  final VoidCallback onSkills;
 
   /// Clock override for grouping (tests).
   final DateTime? now;
@@ -252,6 +254,7 @@ class SessionsDrawer extends ConsumerWidget {
                           onHost: () => showHostSheet(context, onManage: () => onOpen(DrawerDestination.remote)),
                           onLocalDetails: () => onOpen(DrawerDestination.engine),
                           onFeatures: () => onOpen(DrawerDestination.features),
+                          onSkills: () => onOpen(DrawerDestination.skills),
                           onSettings: () => onOpen(DrawerDestination.settings),
                           onSettingsHold: () => onOpen(DrawerDestination.settingsSearch),
                         ),

@@ -38,7 +38,7 @@ void main() {
         const sessionId = 'minimal-session';
         const sessionTitle = 'Minimal Session';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.id, isNotEmpty);
         expect(skill.name, 'Minimal session');
@@ -66,7 +66,7 @@ void main() {
         ];
 
         for (final title in titles) {
-          final name = SkillDistiller._generateSkillName(title);
+          final name = SkillDistiller.generateSkillName(title);
           expect(name, isNotEmpty);
           expect(name.length, lessThanOrEqualTo(50));
           // First letter should be capitalized
@@ -76,19 +76,19 @@ void main() {
 
       test('falls back to default category when title is unrecognized', () {
         const title = 'Random Unrelated Session Title XYZ';
-        final category = SkillDistiller._inferCategoryFromTitle(title);
+        final category = SkillDistiller.inferCategoryFromTitle(title);
         expect(category, SkillCategory.other);
       });
 
       test('falls back to default tools when title is unrecognized', () {
         const title = 'Random Unrelated Session Title XYZ';
-        final tools = SkillDistiller._inferToolsFromTitle(title);
+        final tools = SkillDistiller.inferToolsFromTitle(title);
         expect(tools, containsAll(['bash', 'edit']));
       });
 
       test('generates fallback inputs when no specific pattern matched', () {
         const title = 'Random Session';
-        final inputs = SkillDistiller._inferInputsFromTitle(title);
+        final inputs = SkillDistiller.inferInputsFromTitle(title);
         // Should still generate some generic inputs or empty list
         expect(inputs, isA<List<SkillInput>>());
       });
@@ -99,7 +99,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'Deploy with API_KEY=sk-1234567890abcdef1234567890abcdef';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('sk-••••••'));
         expect(skill.description, isNot(contains('sk-1234567890abcdef1234567890abcdef')));
@@ -109,7 +109,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'GitHub token: ghp_abcdefghijklmnopqrstuvwxyz123456';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('ghp_••••••'));
         expect(skill.description, isNot(contains('ghp_abcdefghijklmnopqrstuvwxyz123456')));
@@ -119,7 +119,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'Password: mysecretpassword123';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('••••••'));
         expect(skill.description, isNot(contains('mysecretpassword123')));
@@ -129,7 +129,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         expect(skill.description, contains('••••••'));
         expect(skill.description, isNot(contains('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9')));
@@ -139,7 +139,7 @@ void main() {
         const sessionId = 'test-session';
         const sessionTitle = 'API key sk-live_abcdef1234567890 and password secret123';
 
-        final skill = SkillDistiller._createTemplateSkill(sessionId, sessionTitle);
+        final skill = SkillDistiller.createTemplateSkill(sessionId, sessionTitle);
 
         // Check multiple fields are redacted
         expect(skill.description, contains('sk-••••••'));
@@ -151,7 +151,7 @@ void main() {
 
     group('3. Auto-hide rules and restore', () {
       test('autoHideSkills hides skills unused for 14+ days', () async {
-        const oldSkill = Skill(
+        final oldSkill = Skill(
           id: 'old-1',
           name: 'Old Skill',
           description: 'Old',
@@ -165,7 +165,7 @@ void main() {
           hidden: false,
         );
 
-        const recentSkill = Skill(
+        final recentSkill = Skill(
           id: 'recent-1',
           name: 'Recent Skill',
           description: 'Recent',
@@ -191,7 +191,7 @@ void main() {
       });
 
       test('autoHideSkills hides skills with 3+ consecutive failures', () async {
-        const failedSkill = Skill(
+        final failedSkill = Skill(
           id: 'failed-1',
           name: 'Failed Skill',
           description: 'Failed',
@@ -206,7 +206,7 @@ void main() {
           hidden: false,
         );
 
-        const partialFailSkill = Skill(
+        final partialFailSkill = Skill(
           id: 'partial-1',
           name: 'Partial Fail Skill',
           description: 'Partial Fail',
@@ -232,7 +232,7 @@ void main() {
       });
 
       test('autoHideSkills does not hide already hidden skills', () async {
-        const hiddenSkill = Skill(
+        final hiddenSkill = Skill(
           id: 'hidden-1',
           name: 'Hidden Skill',
           description: 'Hidden',
@@ -254,7 +254,7 @@ void main() {
       });
 
       test('restoreSkill marks skill as visible and clears hiddenAt', () async {
-        const skill = Skill(
+        final skill = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -281,7 +281,7 @@ void main() {
       });
 
       test('restoreSkill works on skills hidden by auto-hide (14 days)', () async {
-        const oldSkill = Skill(
+        final oldSkill = Skill(
           id: 'old-1',
           name: 'Old Skill',
           description: 'Old',
@@ -306,7 +306,7 @@ void main() {
       });
 
       test('restoreSkill works on skills hidden by consecutive failures', () async {
-        const failedSkill = Skill(
+        final failedSkill = Skill(
           id: 'failed-1',
           name: 'Failed Skill',
           description: 'Failed',
@@ -334,7 +334,7 @@ void main() {
 
     group('4. No auto-overwrite without explicit confirmation', () {
       test('importSkills without overwrite keeps existing skills', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'Old description',
@@ -348,7 +348,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const updatedSkill = Skill(
+        final updatedSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'New description',
@@ -361,7 +361,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         // overwrite: false (default behavior should not overwrite)
         final count = await storage.importSkills(json, overwrite: false);
@@ -374,7 +374,7 @@ void main() {
       });
 
       test('importSkills with overwrite updates existing skills', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'Old description',
@@ -388,7 +388,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const updatedSkill = Skill(
+        final updatedSkill = Skill(
           id: 'existing-1',
           name: 'Existing Skill',
           description: 'New description',
@@ -401,7 +401,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         // overwrite: true - explicit confirmation to overwrite
         final count = await storage.importSkills(json, overwrite: true);
@@ -415,7 +415,7 @@ void main() {
       });
 
       test('importSkills handles name conflicts by renaming when overwrite is false', () async {
-        const existingSkill = Skill(
+        final existingSkill = Skill(
           id: 'existing-1',
           name: 'Duplicate Name',
           description: 'Existing',
@@ -429,7 +429,7 @@ void main() {
 
         await storage.upsertSkill(existingSkill);
 
-        const newSkill = Skill(
+        final newSkill = Skill(
           id: 'new-1',
           name: 'Duplicate Name',
           description: 'New',
@@ -454,7 +454,7 @@ void main() {
       });
 
       test('upsertSkill updates existing skill and increments version', () async {
-        const skill1 = Skill(
+        final skill1 = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'A test skill',
@@ -470,7 +470,7 @@ void main() {
         final firstSkill = storage.getSkill('test-1');
         expect(firstSkill!.version, 1);
 
-        const skill2 = Skill(
+        final skill2 = Skill(
           id: 'test-1',
           name: 'Test Skill',
           description: 'Updated description',
@@ -493,7 +493,7 @@ void main() {
       });
 
       test('storage does not automatically overwrite on name conflict', () async {
-        const skill1 = Skill(
+        final skill1 = Skill(
           id: 'skill-1',
           name: 'My Skill',
           description: 'First skill',
@@ -508,7 +508,7 @@ void main() {
         await storage.upsertSkill(skill1);
 
         // Try to add another skill with same name but different ID
-        const skill2 = Skill(
+        final skill2 = Skill(
           id: 'skill-2',
           name: 'My Skill',
           description: 'Second skill',

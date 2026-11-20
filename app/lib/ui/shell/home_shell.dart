@@ -401,6 +401,7 @@ class _HomeShellState extends ConsumerState<HomeShell> with TickerProviderStateM
                               // It stays: picking a conversation just shows it.
                               onClose: () {},
                               onOpen: _openDestination,
+                              onSkills: () => _openDestination(DrawerDestination.skills),
                             ),
                             rail: AdaptiveRail(
                               onMenu: _onMenu,
@@ -429,6 +430,7 @@ class _HomeShellState extends ConsumerState<HomeShell> with TickerProviderStateM
                             drawer: SessionsDrawer(
                               onClose: _closeDrawer,
                               onOpen: _openDestination,
+                              onSkills: () => _openDestination(DrawerDestination.skills),
                               identityBarHeight: _identityBar,
                               drawerMotion: _drawer,
                             ),

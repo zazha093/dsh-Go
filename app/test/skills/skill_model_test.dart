@@ -153,9 +153,9 @@ void main() {
 
   group('SkillResult', () {
     test('success factory creates correct result', () {
-      const result = SkillResult.success(
+      final result = SkillResult.success(
         output: 'Success output',
-        duration: Duration(seconds: 5),
+        duration: const Duration(seconds: 5),
         stepsCompleted: 3,
         totalSteps: 5,
       );
@@ -169,9 +169,9 @@ void main() {
     });
 
     test('failure factory creates correct result', () {
-      const result = SkillResult.failure(
+      final result = SkillResult.failure(
         error: 'Something went wrong',
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
         stepsCompleted: 1,
         totalSteps: 5,
       );

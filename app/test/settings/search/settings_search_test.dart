@@ -326,6 +326,7 @@ void main() {
               child: IdentityBar(
                 onHost: () {},
                 onFeatures: () {},
+                onSkills: () {},
                 onSettings: () => tapped++,
                 onSettingsHold: () => held++,
               ),

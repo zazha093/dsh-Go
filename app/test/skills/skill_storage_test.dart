@@ -269,7 +269,7 @@ void main() {
 
     group('Auto-hide', () {
       test('autoHideSkills hides skills older than 14 days', () async {
-        const oldSkill = Skill(
+        final oldSkill = Skill(
           id: 'old-1',
           name: 'Old Skill',
           description: 'Old',
@@ -283,7 +283,7 @@ void main() {
           hidden: false,
         );
 
-        const recentSkill = Skill(
+        final recentSkill = Skill(
           id: 'recent-1',
           name: 'Recent Skill',
           description: 'Recent',
@@ -349,7 +349,7 @@ void main() {
       });
 
       test('autoHideSkills does not hide already hidden skills', () async {
-        const hiddenSkill = Skill(
+        final hiddenSkill = Skill(
           id: 'hidden-1',
           name: 'Hidden Skill',
           description: 'Hidden',
@@ -387,7 +387,7 @@ void main() {
 
         await storage.upsertSkill(skill);
 
-        const result = SkillResult.success(
+        final result = SkillResult.success(
           output: 'Success output',
           duration: Duration(seconds: 5),
           stepsCompleted: 3,
@@ -417,7 +417,7 @@ void main() {
 
         await storage.upsertSkill(skill);
 
-        const result = SkillResult.failure(
+        final result = SkillResult.failure(
           error: 'Something went wrong',
           duration: Duration(seconds: 2),
         );
@@ -477,7 +477,7 @@ void main() {
           createdAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([
+        final json = JsonEncoder.withIndent('  ').convert([
           skill1.toJson(),
           skill2.toJson(),
         ]);
@@ -517,7 +517,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: true);
 
@@ -557,7 +557,7 @@ void main() {
           updatedAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
+        final json = JsonEncoder.withIndent('  ').convert([updatedSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: false);
 
@@ -593,7 +593,7 @@ void main() {
           createdAt: DateTime(2024, 1, 2),
         );
 
-        final json = const JsonEncoder.withIndent('  ').convert([newSkill.toJson()]);
+        final json = JsonEncoder.withIndent('  ').convert([newSkill.toJson()]);
 
         final count = await storage.importSkills(json, overwrite: false);
 
@@ -622,7 +622,7 @@ void main() {
 
         await storage.upsertSkill(skill);
 
-        await storage.recordInvocation('test-1', const SkillResult.success());
+        await storage.recordInvocation('test-1', SkillResult.success());
         expect(storage.getHistory('test-1').length, 1);
 
         await storage.deleteSkill('test-1');

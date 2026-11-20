@@ -72,6 +72,7 @@ Future<ProviderContainer> _pump(
                   onHost: onHost ?? () {},
                   onLocalDetails: onLocalDetails,
                   onFeatures: () {},
+                  onSkills: () {},
                   onSettings: () {},
                 ),
               ),

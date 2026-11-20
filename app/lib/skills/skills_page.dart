@@ -1,10 +1,11 @@
 // Personal Skills UI — main page
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/l10n.dart';
-import '../ui/common/app_icons.dart';
 import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import '../ui/theme/theme.dart';
@@ -60,13 +61,13 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
           ),
           IconButton(
             icon: Icon(
-              skillsState.showHidden ? app_icons.AppIcons.visibility : app_icons.AppIcons.visibilityOff,
+              skillsState.showHidden ? app_icons.AppIcons.showSecret : app_icons.AppIcons.hideSecret,
             ),
             onPressed: () => ref.read(skillsProvider.notifier).toggleShowHidden(),
             tooltip: skillsState.showHidden ? l10n.skillsHide : l10n.skillsShowHidden,
           ),
           PopupMenuButton<String>(
-            icon: const Icon(app_icons.AppIcons.moreVert),
+            icon: const Icon(app_icons.AppIcons.moreVertical),
             onSelected: _handleMenuAction,
             itemBuilder: (context) => [
               PopupMenuItem(
@@ -119,7 +120,7 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
                       return Padding(
                         padding: const EdgeInsets.only(right: 8),
                         child: FilterChip(
-                          label: Text(_categoryLabel(l10n, category)),
+                          label: Text(_categoryLabel(category)),
                           selected: isSelected,
                           onSelected: (_) => ref.read(skillsProvider.notifier).setCategory(category),
                           showCheckmark: false,
@@ -202,7 +203,7 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
               },
             ),
             ListTile(
-              leading: Icon(skill.hidden ? app_icons.AppIcons.visibility : app_icons.AppIcons.visibilityOff),
+              leading: Icon(skill.hidden ? app_icons.AppIcons.showSecret : app_icons.AppIcons.hideSecret),
               title: Text(skill.hidden ? l10n.skillsRestore : l10n.skillsHide),
               onTap: () {
                 Navigator.pop(context);
@@ -356,7 +357,8 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
     );
   }
 
-  String _categoryLabel(AppLocalizations l10n, SkillCategoryFilter category) {
+  String _categoryLabel(SkillCategoryFilter category) {
+    final l10n = context.l10n;
     switch (category) {
       case SkillCategoryFilter.all:
         return l10n.skillsCategoryAll;
@@ -450,7 +452,7 @@ class _SkillCard extends StatelessWidget {
                 children: [
                   if (skill.lastUsedAt != null) ...[
                     Icon(
-                      app_icons.AppIcons.clock,
+                      app_icons.AppIcons.scheduled,
                       size: 14,
                       color: colors.onSurfaceVariant,
                     ),
@@ -463,7 +465,7 @@ class _SkillCard extends StatelessWidget {
                     ),
                   ] else ...[
                     Icon(
-                      app_icons.AppIcons.clock,
+                      app_icons.AppIcons.scheduled,
                       size: 14,
                       color: colors.onSurfaceVariant,
                     ),
@@ -477,7 +479,7 @@ class _SkillCard extends StatelessWidget {
                   ],
                   const SizedBox(width: 16),
                   Icon(
-                    app_icons.AppIcons.repeat,
+                    app_icons.AppIcons.recurring,
                     size: 14,
                     color: colors.onSurfaceVariant,
                   ),
@@ -490,7 +492,7 @@ class _SkillCard extends StatelessWidget {
                   ),
                   const SizedBox(width: 16),
                   Icon(
-                    app_icons.AppIcons.checkCircle,
+                    app_icons.AppIcons.completed,
                     size: 14,
                     color: colors.onSurfaceVariant,
                   ),
@@ -575,7 +577,7 @@ class _EmptyView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              app_icons.AppIcons.sparkle,
+              app_icons.AppIcons.providers,
               size: 64,
               color: colors.primary.withValues(alpha: 0.5),
             ),

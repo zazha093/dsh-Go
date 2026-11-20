@@ -348,7 +348,7 @@ class SkillDistiller {
   }
 
   /// Create a template skill based on session title (fallback when history not available)
-  static Skill _createTemplateSkill(String sessionId, String sessionTitle) {
+  static Skill createTemplateSkill(String sessionId, String sessionTitle) {
     final now = DateTime.now();
     final name = _generateSkillName(sessionTitle);
 
@@ -368,17 +368,17 @@ class SkillDistiller {
         'Follow the original session\'s approval patterns',
         'Use only tools available on the current device',
       ].map(redactText).toList(),
-      requiredTools: _inferToolsFromTitle(sessionTitle),
-      userInputs: _inferInputsFromTitle(sessionTitle),
+      requiredTools: inferToolsFromTitle(sessionTitle),
+      userInputs: inferInputsFromTitle(sessionTitle),
       createdAt: now,
       sourceSessionId: sessionId,
       sourceSessionTitle: sessionTitle,
-      category: _inferCategoryFromTitle(sessionTitle),
+      category: inferCategoryFromTitle(sessionTitle),
     );
   }
 
   /// Generate a skill name from session title
-  static String _generateSkillName(String sessionTitle) {
+  static String generateSkillName(String sessionTitle) {
     var name = sessionTitle.trim();
     name = name.replaceAll(RegExp(r'^(chat|session|conversation)\s*[:\-]\s*', caseSensitive: false), '');
     if (name.isNotEmpty) {
@@ -391,7 +391,7 @@ class SkillDistiller {
   }
 
   /// Infer required tools from session title
-  static List<String> _inferToolsFromTitle(String title) {
+  static List<String> inferToolsFromTitle(String title) {
     final lower = title.toLowerCase();
     final tools = <String>{};
 
@@ -428,7 +428,7 @@ class SkillDistiller {
   }
 
   /// Infer user inputs from session title
-  static List<SkillInput> _inferInputsFromTitle(String title) {
+  static List<SkillInput> inferInputsFromTitle(String title) {
     final lower = title.toLowerCase();
     final inputs = <SkillInput>[];
 
@@ -474,7 +474,7 @@ class SkillDistiller {
   }
 
   /// Infer category from session title
-  static SkillCategory _inferCategoryFromTitle(String title) {
+  static SkillCategory inferCategoryFromTitle(String title) {
     final lower = title.toLowerCase();
 
     if (lower.contains('code') || lower.contains('develop') || lower.contains('program') ||

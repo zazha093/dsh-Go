@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/l10n.dart';
-import '../ui/common/app_icons.dart';
 import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import '../ui/theme/theme.dart';
@@ -493,7 +492,6 @@ class _UserInputsEditor extends StatelessWidget {
     required this.onChanged,
     required this.onAddInput,
     required this.onDeleteInput,
-    required this.l10n,
   });
 
   final List<SkillInput> userInputs;
@@ -501,12 +499,12 @@ class _UserInputsEditor extends StatelessWidget {
   final VoidCallback onChanged;
   final VoidCallback onAddInput;
   final ValueChanged<int> onDeleteInput;
-  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = context.l10n;
 
     if (userInputs.isEmpty) {
       return Column(
@@ -539,7 +537,6 @@ class _UserInputsEditor extends StatelessWidget {
             formKey: formKey,
             index: index,
             onDelete: () => onDeleteInput(index),
-            l10n: l10n,
           );
         }),
         const SizedBox(height: 8),
@@ -660,19 +657,18 @@ class _InputRow extends StatelessWidget {
     required this.formKey,
     required this.index,
     required this.onDelete,
-    required this.l10n,
   });
 
   final SkillInput input;
   final GlobalKey<FormState> formKey;
   final int index;
   final VoidCallback onDelete;
-  final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    final l10n = context.l10n;
 
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
@@ -795,97 +791,5 @@ class _InputDialogField extends StatelessWidget {
       ),
     );
   }
-}
-
-class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title,
-        style: theme.textTheme.titleSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.primary,
-        ),
-      ),
-    );
-  }
-}
-
-class _InputInfoChip extends StatelessWidget {
-  const _InputInfoChip({required this.label, required this.value});
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Chip(
-      label: Text('$label: $value', style: theme.textTheme.labelSmall),
-      backgroundColor: theme.colorScheme.surfaceContainerHighest,
-      visualDensity: VisualDensity.compact,
-    );
-  }
-}
-
-class _InputDialogField extends StatelessWidget {
-  const _InputDialogField({
-    required this.label,
-    required this.hint,
-    required this.controller,
-    required this.onChanged,
-    this.validator,
-  });
-
-  final String label;
-  final String hint;
-  final TextEditingController controller;
-  final ValueChanged<String> onChanged;
-  final String? Function(String?)? validator;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          labelText: label,
-          hintText: hint,
-          border: const OutlineInputBorder(),
-        ),
-        onChanged: onChanged,
-        validator: validator,
-      ),
-    );
-  }
-}
-
-class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title,
-        style: theme.textTheme.titleSmall?.copyWith(
-          fontWeight: FontWeight.w600,
-          color: theme.colorScheme.primary,
-        ),
-      ),
-    );
   }
 }
