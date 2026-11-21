@@ -263,7 +263,7 @@ class SkillDistiller {
 
     for (final event in events) {
       if (event is UserQuestionRequestedEvent) {
-        final UserQuestionRequestedEvent userQuestionEvent = event;
+        final userQuestionEvent = event;
         for (final question in userQuestionEvent.request.questions) {
           final key = question.id;
           if (seenKeys.add(key)) {
