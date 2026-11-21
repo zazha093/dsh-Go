@@ -61,6 +61,7 @@ PRUNE_DEV_METADATA="${PRUNE_DEV_METADATA:-1}"   # drop *.map / *.d.ts from node_
 SOURCE_DATE_EPOCH="${SOURCE_DATE_EPOCH:-1767225600}"  # 2026-01-01T00:00:00Z, fixed tar mtimes
 
 UBUNTU_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cdimage/ubuntu-base/releases/24.04/release"
+UBUNTU_MIRROR_FALLBACK="https://cdimage.ubuntu.com/ubuntu-base/releases/24.04/release"
 NODE_MIRROR="https://npmmirror.com/mirrors/node"
 NPM_REGISTRY="https://registry.npmmirror.com"
 TERMUX_REPO="https://packages.termux.dev/apt/termux-main"
@@ -155,7 +156,8 @@ ubuntu_base() {  # $1 = ubuntu arch; echoes path
     pin="$(awk -v f="$name" '{n=$2; sub(/^\*/,"",n); if (n==f) print $1}' "$dir/SHA256SUMS")"
     [[ -n "$pin" ]] || { rm -f "$dir/SHA256SUMS"; die "$name not listed in SHA256SUMS (stale cache removed, rerun)"; }
   fi
-  fetch "$UBUNTU_MIRROR/$name" "$dir/$name" "$pin"
+  fetch "$UBUNTU_MIRROR/$name" "$dir/$name" "$pin" \
+    "$UBUNTU_MIRROR_FALLBACK/$name"
   printf '%s' "$dir/$name"
 }
 
