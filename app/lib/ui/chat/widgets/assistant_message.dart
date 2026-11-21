@@ -23,6 +23,7 @@ import '../render/markdown_body.dart';
 import 'message_actions.dart';
 import 'stream_row.dart';
 import 'thinking_pill.dart';
+import 'message_menu.dart';
 
 /// 三个点交给下一块内容:旧的线性淡出,新的淡入并上移一点。
 const _handOffOut = Duration(milliseconds: 90);
@@ -240,11 +241,44 @@ class _AssistantMessageState extends State<AssistantMessage> {
     final onBranch = widget.onBranch;
     final onRegenerate = widget.onRegenerate;
     final onQuote = widget.onQuote;
+    final l10n = context.l10n;
+    
+    // Build extra groups: native plugins + "Save as Skill"
+    final extraGroups = <MenuGroup>[
+      ...nativeMessageMenuGroups(context, widget.item, text: markdown),
+      MenuGroup(
+        title: l10n.skillsTitle,
+        items: [
+          MenuItem(
+            icon: AppIcons.bookOpen,
+            label: l10n.skillsDistillSave,
+            hint: l10n.skillsDistillDescription,
+            onTap: () {
+              Navigator.of(context).pop(); // Close the menu sheet
+              // Navigate to SkillCreatePage to distill from current session
+              final sessionId = widget.item.sessionId;
+              final sessionTitle = widget.item.title ?? l10n.chatUntitled;
+              if (sessionId != null) {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => SkillCreatePage(
+                      sessionId: sessionId,
+                      sessionTitle: sessionTitle,
+                    ),
+                  ),
+                );
+              }
+            },
+          ),
+        ],
+      ),
+    ];
+
     final action = await showMessageMenu(
       context,
       text: text,
-      // Plugins' items for this reply, under each plugin's name.
-      extra: nativeMessageMenuGroups(context, widget.item, text: markdown),
+      // Plugins' items for this reply, under each plugin's name + Save as Skill.
+      extra: extraGroups,
       actions: [
         MessageAction.copy,
         MessageAction.selectText,

@@ -27,6 +27,8 @@ class Skill {
     this.sourceSessionId,
     this.sourceSessionTitle,
     this.version = 1,
+    this.requiredPersona,
+    this.lastRunStatus = SkillRunStatus.never,
   });
 
   /// Unique identifier (UUID v4)
@@ -86,6 +88,12 @@ class Skill {
   /// Version of the formula (increments on user-confirmed updates)
   final int version;
 
+  /// Optional persona required to run this skill (e.g., "code reviewer", "devops engineer")
+  final String? requiredPersona;
+
+  /// Status of the last run
+  final SkillRunStatus lastRunStatus;
+
   /// Success rate as percentage (0-100)
   int get successRate => useCount == 0 ? 0 : ((successCount / useCount) * 100).round();
 
@@ -125,6 +133,8 @@ class Skill {
     String? sourceSessionId,
     String? sourceSessionTitle,
     int? version,
+    String? requiredPersona,
+    SkillRunStatus? lastRunStatus,
   }) {
     return Skill(
       id: id ?? this.id,
@@ -146,6 +156,8 @@ class Skill {
       sourceSessionId: sourceSessionId ?? this.sourceSessionId,
       sourceSessionTitle: sourceSessionTitle ?? this.sourceSessionTitle,
       version: version ?? this.version,
+      requiredPersona: requiredPersona ?? this.requiredPersona,
+      lastRunStatus: lastRunStatus ?? this.lastRunStatus,
     );
   }
 
@@ -171,6 +183,8 @@ class Skill {
       'sourceSessionId': sourceSessionId,
       'sourceSessionTitle': sourceSessionTitle,
       'version': version,
+      'requiredPersona': requiredPersona,
+      'lastRunStatus': lastRunStatus.name,
     };
   }
 
@@ -204,6 +218,10 @@ class Skill {
       sourceSessionId: json['sourceSessionId'] as String?,
       sourceSessionTitle: json['sourceSessionTitle'] as String?,
       version: json['version'] as int,
+      requiredPersona: json['requiredPersona'] as String?,
+      lastRunStatus: json['lastRunStatus'] != null
+          ? SkillRunStatus.values.byName(json['lastRunStatus'] as String)
+          : SkillRunStatus.never,
     );
   }
 
@@ -217,6 +235,14 @@ class Skill {
 
   @override
   String toString() => 'Skill(id: $id, name: $name, version: $version)';
+}
+
+/// Status of the last skill run
+enum SkillRunStatus {
+  never,
+  success,
+  failure,
+  running,
 }
 
 /// An input that the user must provide when running a skill.
