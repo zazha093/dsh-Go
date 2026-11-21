@@ -262,9 +262,9 @@ class SkillDistiller {
     final seenKeys = <String>{};
 
     for (final event in events) {
-      if (event is UserQuestionRequestedEvent) {
-        final userQuestionEvent = event;
-        for (final question in userQuestionEvent.request.questions) {
+      switch (event) {
+        case UserQuestionRequestedEvent(request: final request):
+          for (final question in request.questions) {
           final key = question.id;
           if (seenKeys.add(key)) {
             inputs.add(SkillInput(
@@ -277,19 +277,17 @@ class SkillDistiller {
               options: question.options.map((o) => o.label).toList(),
             ));
           }
-        }
-      } else if (event is ToolCallEvent) {
-        // Infer inputs from tool arguments that look like parameters
-        try {
-          final args = event.arguments.trim();
-          if (args.isNotEmpty && args.startsWith('{')) {
-            final map = <String, dynamic>{};
-            // Simple JSON parsing for common patterns
-            // In practice, you'd use jsonDecode
-          }
-        } catch (_) {}
+        case ToolCallEvent():
+          // Infer inputs from tool arguments that look like parameters
+          try {
+            final args = event.arguments.trim();
+            if (args.isNotEmpty && args.startsWith('{')) {
+              final map = <String, dynamic>{};
+              // Simple JSON parsing for common patterns
+              // In practice, you'd use jsonDecode
+            }
+          } catch (_) {}
       }
-    }
 
     return inputs;
   }
