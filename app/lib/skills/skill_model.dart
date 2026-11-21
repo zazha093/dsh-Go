@@ -1,11 +1,6 @@
 // Personal Skills feature — local-only, distilled from completed sessions
 // No cloud, no accounts, no sync. Stored in SharedPreferences on device.
 
-import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 /// A personal skill distilled from a completed session.
 ///
 /// Skills are formulas for one task: they know the goal, the method, the
