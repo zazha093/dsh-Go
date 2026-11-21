@@ -5,9 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/l10n.dart';
 import '../state/connection_state.dart';
-import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
-import '../ui/theme/theme.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
@@ -130,8 +128,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     final l10n = context.l10n;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
-
-    final isDistilling = _isDistilling || _distilledSkill != null;
 
     return Scaffold(
       appBar: AppBar(

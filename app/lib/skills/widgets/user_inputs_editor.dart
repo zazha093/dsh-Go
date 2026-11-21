@@ -5,11 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/l10n.dart';
 import '../../ui/theme/app_icons.dart' as app_icons;
-import '../../ui/theme/theme.dart';
 import '../skill_model.dart';
 import 'input_row.dart';
 import 'input_dialog_field.dart';
-import 'section_title.dart';
 
 /// Editor for skill user inputs
 class SkillUserInputsEditor extends ConsumerStatefulWidget {
@@ -86,7 +84,6 @@ class _SkillUserInputsEditorState extends ConsumerState<SkillUserInputsEditor> {
 /// Dialog for adding a new skill input
 Future<SkillInput?> showAddSkillInputDialog(BuildContext context) async {
   final l10n = context.l10n;
-  final theme = Theme.of(context);
   final keyController = TextEditingController();
   final labelController = TextEditingController();
   final hintController = TextEditingController();
@@ -128,7 +125,7 @@ Future<SkillInput?> showAddSkillInputDialog(BuildContext context) async {
               ),
               const SizedBox(height: 16),
               DropdownButtonFormField<SkillInputType>(
-                value: selectedType,
+                initialValue: selectedType,
                 decoration: InputDecoration(
                   labelText: 'Type',
                   border: const OutlineInputBorder(),
@@ -141,7 +138,7 @@ Future<SkillInput?> showAddSkillInputDialog(BuildContext context) async {
               ),
               const SizedBox(height: 16),
               CheckboxListTile(
-                title: Text(l10n.skillsUserInputs.replaceAll('s', '').replaceAll('(', '').replaceAll(')', '') + ' Required'),
+                title: Text('${l10n.skillsUserInputs.replaceAll('s', '').replaceAll('(', '').replaceAll(')', '')} Required'),
                 value: required,
                 onChanged: (v) => setState(() => required = v ?? true),
               ),

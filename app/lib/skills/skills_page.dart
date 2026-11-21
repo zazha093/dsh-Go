@@ -44,7 +44,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
     final skillsState = ref.watch(skillsProvider);
     final filteredSkills = skillsState.filteredSkills;
 
@@ -252,7 +251,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
   }
 
   void _handleMenuAction(String action) {
-    final l10n = context.l10n;
     switch (action) {
       case 'export':
         _exportSkills();
@@ -296,6 +294,8 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
 
   Future<void> _importSkills() async {
     final l10n = context.l10n;
+    final messenger = ScaffoldMessenger.of(context);
+    final importErrorMsg = l10n.skillsImportError;
     final controller = TextEditingController();
     final overwrite = ValueNotifier(false);
 
@@ -339,12 +339,12 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
                 overwrite: overwrite.value,
               );
               if (count > 0) {
-                ScaffoldMessenger.of(context).showSnackBar(
+                messenger.showSnackBar(
                   SnackBar(content: Text('Imported $count skills')),
                 );
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.skillsImportError)),
+                messenger.showSnackBar(
+                  SnackBar(content: Text(importErrorMsg)),
                 );
               }
             },

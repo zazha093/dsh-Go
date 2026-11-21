@@ -6,9 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../l10n/l10n.dart';
 import '../state/chat_state.dart';
 import '../state/sessions_state.dart';
-import '../ui/common/risk_notice.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
-import '../ui/theme/theme.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_create_page.dart';
@@ -38,7 +36,6 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -200,7 +197,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           _SectionTitle(title: 'Statistics'),
           _StatRow(
             label: l10n.skillsUseCount.replaceFirst('{count}', _skill.useCount.toString()),
-            value: _skill.successRate.toString() + '%',
+            value: '${_skill.successRate}%',
             icon: app_icons.AppIcons.recurring,
           ),
           _StatRow(
@@ -464,7 +461,6 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
   Future<void> _runSkill() async {
     final l10n = context.l10n;
-    final chatController = ref.read(chatProvider(_skill.sourceSessionId ?? '').notifier);
 
     // Check if we have a current session to run in
     final currentSessionId = ref.read(currentSessionProvider);

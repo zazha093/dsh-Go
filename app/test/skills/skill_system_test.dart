@@ -11,7 +11,6 @@ import 'dart:convert';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:dsh_client/dsh_client.dart';
 import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
 import 'package:dsh_app/skills/skill_storage.dart';
@@ -506,19 +505,6 @@ void main() {
         );
 
         await storage.upsertSkill(skill1);
-
-        // Try to add another skill with same name but different ID
-        final skill2 = Skill(
-          id: 'skill-2',
-          name: 'My Skill',
-          description: 'Second skill',
-          goal: 'Goal 2',
-          steps: [],
-          constraints: [],
-          requiredTools: [],
-          userInputs: [],
-          createdAt: DateTime(2024, 1, 2),
-        );
 
         // upsertSkill should reject or handle name conflict
         // The storage uses ID as primary key, so this would create a separate entry

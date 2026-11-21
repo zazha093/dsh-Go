@@ -41,14 +41,8 @@ class SkillDistiller {
     String sessionId,
   ) async {
     final allEvents = <SessionLogEvent>[];
-    int? beforeSeq;
     const pageSize = 500;
     bool hasMore = true;
-
-    // First, get the latest events to find the cursor
-    // We need to know the latest seq to start paging backwards
-    // For simplicity, we'll use a large throughSeq and page backwards
-    // In practice, we'd get the latest seq from the session list or a snapshot
 
     // Start with a very large throughSeq to get the latest page
     const maxSeq = 1 << 30;
@@ -276,14 +270,7 @@ class SkillDistiller {
         }
       } else if (event is ToolCallEvent) {
         // Infer inputs from tool arguments that look like parameters
-        try {
-          final args = event.arguments.trim();
-          if (args.isNotEmpty && args.startsWith('{')) {
-            final map = <String, dynamic>{};
-            // Simple JSON parsing for common patterns
-            // In practice, you'd use jsonDecode
-          }
-        } catch (_) {}
+        // (implementation omitted - would parse JSON arguments)
       }
     }
 
@@ -385,7 +372,7 @@ class SkillDistiller {
       name = name[0].toUpperCase() + name.substring(1);
     }
     if (name.length > 50) {
-      name = name.substring(0, 47) + '...';
+      name = '${name.substring(0, 47)}...';
     }
     return name.isEmpty ? 'Unnamed Skill' : name;
   }

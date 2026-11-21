@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/l10n.dart';
 import '../../ui/theme/app_icons.dart' as app_icons;
-import '../../ui/theme/theme.dart';
 import '../skill_model.dart';
 import 'input_info_chip.dart';
 
