@@ -19,7 +19,7 @@ import '../../theme/theme.dart';
 import '../dsh_ui/dsh_ui.dart';
 import '../../plugins/native/message_plugin_menu.dart';
 import '../../share/share_entry.dart' show shareReply;
-import '../../skills/skill_create_page.dart';
+import '../../../skills/skill_create_page.dart';
 import '../../../state/sessions_state.dart' show currentSessionProvider;
 import '../render/markdown_body.dart';
 import 'message_actions.dart';
@@ -48,7 +48,7 @@ const _firstTextIn = Duration(milliseconds: 200);
 /// ⇪ 和菜单里的「分享」打开同一个分享面板。长按或 ⋯:同一个消息菜单(复制 /
 /// 选择文字 / 引用 / 分享 / 重新回答 / 从这里分叉)。正文因此不再直接长按选字,选字走菜单里的
 /// "选择文字",选中一段还能「引用」。
-class AssistantMessage extends StatefulWidget {
+class AssistantMessage extends ConsumerStatefulWidget {
   const AssistantMessage({
     super.key,
     required this.item,
@@ -85,10 +85,10 @@ class AssistantMessage extends StatefulWidget {
   final Widget? footnote;
 
   @override
-  State<AssistantMessage> createState() => _AssistantMessageState();
+  ConsumerState<AssistantMessage> createState() => _AssistantMessageState();
 }
 
-class _AssistantMessageState extends State<AssistantMessage> {
+class _AssistantMessageState extends ConsumerState<AssistantMessage> {
   Widget? _body;
   String? _bodyText;
   bool? _bodyStreaming;
@@ -245,7 +245,7 @@ class _AssistantMessageState extends State<AssistantMessage> {
     final l10n = context.l10n;
     
     // Get current session ID from provider
-    final sessionId = context.read(currentSessionProvider);
+    final sessionId = ref.read(currentSessionProvider);
     
     // Build extra groups: native plugins + "Save as Skill"
     final extraGroups = <MenuGroup>[
