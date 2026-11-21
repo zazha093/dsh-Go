@@ -48,10 +48,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
-          sparse-checkout: |
-            /*
-            !/*/
-            /app/lib/l10n/
+          sparse-checkout-cone-mode: false
 
       - name: Download runtime artifacts
         uses: actions/download-artifact@v7
