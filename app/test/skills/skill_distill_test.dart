@@ -286,8 +286,8 @@ void main() {
         },
       };
       final redacted = redactJson(json);
-      expect(redacted['api_key']!, contains('sk-••••••'));
-      expect(redacted['nested']!['token']!, contains('ghp_••••••'));
+      expect((redacted['api_key'] as String?), contains('sk-••••••'));
+      expect((redacted['nested'] as Map?)['token'] as String?, contains('ghp_••••••'));
     });
 
     test('cuts long text', () {
