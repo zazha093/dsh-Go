@@ -15,13 +15,10 @@ class SkillDistiller {
   /// This is the main entry point. It fetches the session history,
   /// analyzes the conversation, and returns a skill formula.
   static Future<Skill> distillFromSession({
-    DshClient? client,
+    required DshClient client,
     required String sessionId,
     required String sessionTitle,
   }) async {
-    client ??= throw StateError(
-        'DshClient is required for distillFromSession. '
-        'Pass a client or ensure a default is available via the runtime bridge.');
     // Fetch session history
     final events = await _fetchAllHistory(client, sessionId);
 
@@ -92,7 +89,6 @@ class SkillDistiller {
     required String sessionTitle,
     required List<SessionLogEvent> events,
   }) {
-    final now = DateTime.now();
     final name = generateSkillName(sessionTitle);
 
     // Extract information from events
@@ -262,9 +258,8 @@ class SkillDistiller {
     final seenKeys = <String>{};
 
     for (final event in events) {
-      switch (event) {
-        case UserQuestionRequestedEvent(request: final request):
-          for (final question in request.questions) {
+      if (event is UserQuestionRequestedEvent) {
+        for (final question in event.request.questions) {
           final key = question.id;
           if (seenKeys.add(key)) {
             inputs.add(SkillInput(
@@ -277,17 +272,19 @@ class SkillDistiller {
               options: question.options.map((o) => o.label).toList(),
             ));
           }
-        case ToolCallEvent():
-          // Infer inputs from tool arguments that look like parameters
-          try {
-            final args = event.arguments.trim();
-            if (args.isNotEmpty && args.startsWith('{')) {
-              final map = <String, dynamic>{};
-              // Simple JSON parsing for common patterns
-              // In practice, you'd use jsonDecode
-            }
-          } catch (_) {}
+        }
+      } else if (event is ToolCallEvent) {
+        // Infer inputs from tool arguments that look like parameters
+        try {
+          final args = event.arguments.trim();
+          if (args.isNotEmpty && args.startsWith('{')) {
+            final map = <String, dynamic>{};
+            // Simple JSON parsing for common patterns
+            // In practice, you'd use jsonDecode
+          }
+        } catch (_) {}
       }
+    }
 
     return inputs;
   }
