@@ -35,7 +35,6 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(

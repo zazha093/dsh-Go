@@ -44,7 +44,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   final List<GlobalKey<FormState>> _inputFormKeys = [];
 
   bool _isLoading = false;
-  bool _isDistilling = false;
   Skill? _distilledSkill;
   String? _distillError;
 
@@ -87,7 +86,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (widget.sessionId == null) return;
 
     setState(() {
-      _isDistilling = true;
       _distillError = null;
     });
 
@@ -107,7 +105,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         setState(() {
           _distilledSkill = skill;
           _fillForm(skill);
-          _isDistilling = false;
         });
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
@@ -116,7 +113,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     } catch (e) {
       if (mounted) {
         setState(() {
-          _isDistilling = false;
           _distillError = e.toString();
         });
       }
@@ -409,7 +405,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   SkillCategory _inferCategory() {
     final tools = _toolsController.text.toLowerCase();
     final name = _nameController.text.toLowerCase();
-    final desc = _descriptionController.text.toLowerCase();
 
     if (tools.contains('bash') || tools.contains('edit') || tools.contains('write') || name.contains('code') || name.contains('develop')) {
       return SkillCategory.development;

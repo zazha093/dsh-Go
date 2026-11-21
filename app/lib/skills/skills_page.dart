@@ -43,7 +43,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final theme = Theme.of(context);
     final skillsState = ref.watch(skillsProvider);
     final filteredSkills = skillsState.filteredSkills;
 
