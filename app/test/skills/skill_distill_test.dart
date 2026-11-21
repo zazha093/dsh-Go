@@ -285,10 +285,10 @@ void main() {
           'token': 'ghp_abcdefghijklmnopqrstuvwxyz123456',
         },
       };
-      final redacted = redactJson(json);
-      final apiKey = redacted['api_key'] as String?;
+      final redacted = redactJson(json)!;
+      final apiKey = redacted!['api_key'] as String?;
       expect(apiKey, contains('sk-••••••'));
-      final nested = redacted['nested'] as Map?;
+      final nested = redacted!['nested'] as Map?;
       final token = nested?['token'] as String?;
       expect(token, contains('ghp_••••••'));
     });
