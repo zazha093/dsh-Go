@@ -19,11 +19,12 @@ import '../../theme/theme.dart';
 import '../dsh_ui/dsh_ui.dart';
 import '../../plugins/native/message_plugin_menu.dart';
 import '../../share/share_entry.dart' show shareReply;
+import '../../skills/skill_create_page.dart';
+import '../../../state/sessions_state.dart' show currentSessionProvider;
 import '../render/markdown_body.dart';
 import 'message_actions.dart';
 import 'stream_row.dart';
 import 'thinking_pill.dart';
-import 'message_menu.dart';
 
 /// 三个点交给下一块内容:旧的线性淡出,新的淡入并上移一点。
 const _handOffOut = Duration(milliseconds: 90);
@@ -243,22 +244,24 @@ class _AssistantMessageState extends State<AssistantMessage> {
     final onQuote = widget.onQuote;
     final l10n = context.l10n;
     
+    // Get current session ID from provider
+    final sessionId = context.read(currentSessionProvider);
+    
     // Build extra groups: native plugins + "Save as Skill"
     final extraGroups = <MenuGroup>[
       ...nativeMessageMenuGroups(context, widget.item, text: markdown),
-      MenuGroup(
-        title: l10n.skillsTitle,
-        items: [
-          MenuItem(
-            icon: AppIcons.bookOpen,
-            label: l10n.skillsDistillSave,
-            hint: l10n.skillsDistillDescription,
-            onTap: () {
-              Navigator.of(context).pop(); // Close the menu sheet
-              // Navigate to SkillCreatePage to distill from current session
-              final sessionId = widget.item.sessionId;
-              final sessionTitle = widget.item.title ?? l10n.chatUntitled;
-              if (sessionId != null) {
+      if (sessionId != null)
+        MenuGroup(
+          title: l10n.skillsTitle,
+          items: [
+            MenuItem(
+              icon: AppIcons.skill,
+              label: l10n.skillsDistillSave,
+              hint: l10n.skillsDistillDescription,
+              onTap: () {
+                Navigator.of(context).pop(); // Close the menu sheet
+                // Navigate to SkillCreatePage to distill from current session
+                final sessionTitle = l10n.commonUntitledChat;
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (_) => SkillCreatePage(
@@ -267,11 +270,10 @@ class _AssistantMessageState extends State<AssistantMessage> {
                     ),
                   ),
                 );
-              }
-            },
-          ),
-        ],
-      ),
+              },
+            ),
+          ],
+        ),
     ];
 
     final action = await showMessageMenu(
