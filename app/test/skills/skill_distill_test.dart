@@ -285,7 +285,7 @@ void main() {
           'token': 'ghp_abcdefghijklmnopqrstuvwxyz123456',
         },
       };
-      final Map<String, dynamic> redacted = redactJson(json)!;
+      final redacted = redactJson(json) as Map<String, dynamic>;
       final apiKey = redacted['api_key'] as String?;
       expect(apiKey, contains('sk-••••••'));
       final nested = redacted['nested'] as Map?;
