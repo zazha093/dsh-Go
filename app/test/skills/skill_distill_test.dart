@@ -28,7 +28,7 @@ void main() {
       });
 
       test('truncates long names', () {
-        final title = 'a'.repeat(60);
+        final title = List.filled(60, 'a').join();
         final name = SkillDistiller.generateSkillName(title);
         expect(name.length, lessThanOrEqualTo(50));
       });
@@ -286,12 +286,15 @@ void main() {
         },
       };
       final redacted = redactJson(json);
-      expect((redacted['api_key'] as String?), contains('sk-••••••'));
-      expect((redacted['nested'] as Map?)['token'] as String?, contains('ghp_••••••'));
+      final apiKey = redacted['api_key'] as String?;
+      expect(apiKey, contains('sk-••••••'));
+      final nested = redacted['nested'] as Map?;
+      final token = nested?['token'] as String?;
+      expect(token, contains('ghp_••••••'));
     });
 
     test('cuts long text', () {
-      final text = 'a'.repeat(3000);
+      final text = List.filled(3000, 'a').join();
       final result = cutText(text, 1000);
       expect(result.text.length, lessThanOrEqualTo(1000));
       expect(result.omitted, greaterThan(0));
