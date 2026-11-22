@@ -370,14 +370,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
                 child: FilledButton(
                   onPressed: () {
                     FocusManager.instance.primaryFocus?.unfocus();
-                    _saveSkill(
-                      _nameController.text,
-                      _descriptionController.text,
-                      _goalController.text,
-                      _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                      _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                      _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
-                    );
+                    _saveSkill();
                   },
                   child: Text(l10n.skillsSave),
                 ),

@@ -8,13 +8,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:dsh_app/app.dart';
 import 'package:dsh_app/skills/skill_model.dart';
-import 'package:dsh_app/skills/skill_provider.dart';
 import 'package:dsh_app/skills/skill_storage.dart';
 import 'package:dsh_app/skills/skill_create_page.dart';
 import 'package:dsh_app/skills/skill_detail_page.dart';
-import 'package:dsh_app/skills/skills_page.dart';
 
 // Test navigator observer to track push/pop
 class TestNavigatorObserver extends NavigatorObserver {
@@ -66,7 +63,7 @@ class TestNavigatorObserver extends NavigatorObserver {
 // Test app wrapper with all necessary providers
 Widget createTestApp({
   required Widget home,
-  List<Override> overrides = const [],
+  List<ProviderOverride> overrides = const [],
   Locale locale = const Locale('th'),
 }) {
   return ProviderScope(

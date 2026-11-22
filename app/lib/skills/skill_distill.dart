@@ -502,8 +502,6 @@ class SkillDistiller {
     String? sessionTitle,
     String? locale, // For localized constraints
   }) {
-    final now = DateTime.now();
-    
     // Extract name: first meaningful line, ≤60 chars, clean markdown
     final lines = userMessage.split('\n').where((l) => l.trim().isNotEmpty).toList();
     String name = '';
