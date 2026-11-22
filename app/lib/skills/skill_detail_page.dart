@@ -485,6 +485,8 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       await ref.read(skillsProvider.notifier).deleteSkill(_skill.id);
       if (!mounted) return;
       FocusManager.instance.primaryFocus?.unfocus();
+      await Future.delayed(const Duration(milliseconds: 100));
+      if (!mounted) return;
       Navigator.pop(context);
     }
   }

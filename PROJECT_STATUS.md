@@ -61,6 +61,13 @@ Previous: 2d94b67ff (fix: resolve flutter analyze errors)
 Changes: Working tree clean
 ```
 
+### Latest CI Run (SUCCESS ✅)
+| Workflow | Run ID | Commit | Status |
+|----------|--------|--------|--------|
+| **Build APK** | **45025547333** | f411e411f | ✅ **PASSED** |
+| **Artifacts** | `dsh-go-thai-arm64` (APK), `runtime-out` | | Downloaded |
+| **APK Install** | ✅ Success on device | | Personal Skills enabled (`FORK_SKILLS=true`) |
+
 ### Branch Structure
 ```
 main (upstream mirror) ← NEVER TOUCH
@@ -83,22 +90,29 @@ main (upstream mirror) ← NEVER TOUCH
 
 | Priority | Task | Status |
 |----------|------|--------|
-| **1** | **Wait for CI Build APK result (Run 45017033723)** | 🔄 **IN PROGRESS** — "Flutter analyze" step failed |
-| **2** | If CI **GREEN**: Merge `feat/fix-skill-crash` → `thai/release` (fast-forward) | ⏳ PENDING |
-| **3** | If CI **RED**: Fix remaining flutter analyze errors, push again | ⏳ PENDING |
-| **4** | After merge: Push `thai/release` to trigger build-apk.yml | ⏳ PENDING |
+| **1** | **CI Build APK — PASSED** (Run 45025547333) | ✅ **DONE** — APK artifact ready |
+| **2** | **Fix remaining black screen on Save/Cancel in edit flow** | 🔄 **IN PROGRESS** — User reports issue |
+| **3** | Merge `feat/fix-skill-crash` → `thai/release` (fast-forward) | ⏳ PENDING (after fix) |
+| **4** | Push `thai/release` to trigger build-apk.yml | ⏳ PENDING |
 | **5** | Test on real device (Personal Skills UI) | ⏳ PENDING |
+
+### 🐛 Remaining Issue: Black Screen on Save/Cancel (Edit Flow)
+- **Symptom**: When editing existing skill (SkillsPage → SkillDetailPage → Edit → SkillCreatePage), pressing **Save** (บันทึก) or **Cancel** (ยกเลิก) causes black screen
+- **Create flow works**: Chat → "Save as Skill" → SkillCreatePage → Save/Cancel works fine
+- **Suspected cause**: Keyboard dismissal timing / PopScope interaction when returning to SkillDetailPage in edit mode (`_isEditing = true`)
+- **Files to check**: `skill_create_page.dart` (PopScope, button handlers), `skill_detail_page.dart` (edit form toggle)
 
 ### Current CI Pipeline Status (Latest Run)
 
 | Workflow | Run ID | Commit | Status |
 |----------|--------|--------|--------|
-| **Build APK** | 45017033723 | f411e411f | ❌ **FAILED** — "Flutter analyze" step |
-| **Build APK** | 45016012881 | 2d94b67ff | ❌ **FAILED** — "Flutter analyze" step |
-| **Build APK** | 45015075371 | 89020b9c5 | ❌ **FAILED** — "Flutter analyze" step |
-| **Build APK** | 45013309274 | 55ebce6ae | ❌ **FAILED** — "Flutter analyze" step |
+| **Build APK** | **45025547333** | f411e411f | ✅ **PASSED** — APK built & artifact uploaded |
+| **Build APK** | 45017033723 | f411e411f | ❌ FAILED — "Flutter analyze" step (old workflow) |
+| **Build APK** | 45016012881 | 2d94b67ff | ❌ FAILED — "Flutter analyze" step |
+| **Build APK** | 45015075371 | 89020b9c5 | ❌ FAILED — "Flutter analyze" step |
+| **Build APK** | 45013309274 | 55ebce6ae | ❌ FAILED — "Flutter analyze" step |
 
-### Last CI Failure Details (Run 45017033723)
+### Last CI Failure Details (Run 45017033723) — **RESOLVED**
 ```
 X Flutter analyze (exit code 1)
   error • Too many positional arguments: 0 expected, but 6 found
@@ -115,11 +129,13 @@ X Flutter analyze (exit code 1)
     • test/skills/skill_navigation_integration_test.dart:69:8 • non_type_as_type_argument
 ```
 
-**FIXES APPLIED AFTER THIS FAILURE** (commit `f411e411f`):
+**FIXES APPLIED** (commit `f411e411f`):
 - Changed `ProviderOverride` → `Override` in test file line 66
 - Removed unused imports from test file
 - Fixed `_saveSkill` call in `skill_detail_page.dart` (removed 6 args)
 - Removed unused `now` variable in `skill_distill.dart`
+
+**RESULT**: Run 45025547333 **PASSED** ✅ — Flutter analyze + APK build successful
 
 ---
 
@@ -193,10 +209,10 @@ alias zi='cd "$(zoxide query -l | fzf)"'
 ### When User Says "ทำต่อ" / "continue":
 1. Agent reads `AGENTS.md` → gets tools reference + project rules
 2. `git status` + `git log -5` → sees current branch/commit
-3. Checks CI result for Run 45017033723 (or latest)
-4. Continues based on CI result:
-   - **GREEN** → Merge to `thai/release`, push, test on device
-   - **RED** → Fix remaining analyze errors, push again
+3. Checks CI result for Run 45025547333 (latest - **PASSED**)
+4. Continues:
+   - **Fix remaining black screen issue** (edit flow Save/Cancel)
+   - Then merge to `thai/release`, push, test on device
 
 ### Key Decisions Made
 - **Branch**: Work on `feat/*`, merge to `thai/release` only after CI GREEN
@@ -209,22 +225,26 @@ alias zi='cd "$(zoxide query -l | fzf)"'
 - Flutter analyze cannot run locally (no Flutter SDK on arm64) → CI only
 - Build APK requires GitHub Actions (heavy build)
 - Device testing mandatory for UI/runtime changes
+- **Black screen on edit flow Save/Cancel** — needs fix before merge
 
 ---
 
 ## 🕐 Latest Update Log
 
-**อัปเดตล่าสุด: 2026-11-22 19:00 ICT**
+**อัปเดตล่าสุด: 2026-11-22 20:40 ICT**
 
-- **Fixed**: All flutter analyze errors from Run 45017033723:
+- **CI Build APK — PASSED** ✅ (Run 45025547333, commit `f411e411f`)
+  - Flutter analyze: **PASSED**
+  - APK build: **PASSED** (13m40s)
+  - Artifacts: `dsh-go-thai-arm64` (APK), `runtime-out` uploaded
+  - APK installs successfully on device with `FORK_SKILLS=true`
+
+- **Fixed** all flutter analyze errors from Run 45017033723:
   - `skill_detail_page.dart`: Fixed `_saveSkill` call (removed 6 positional args)
   - `skill_distill.dart`: Removed unused `now` variable
   - `test/skills/skill_navigation_integration_test.dart`:
     - Removed 3 unused imports (`app.dart`, `skill_provider.dart`, `skills_page.dart`)
     - Changed `ProviderOverride` → `Override` (correct Riverpod type)
-- **Pushed**: commit `f411e411f` to `feat/fix-skill-crash`
-- **CI Status**: Run 45017033723 FAILED at "Flutter analyze" (logs show errors)
-- **WAITING**: Next CI run triggered by push `f411e411f` (Run 45019318346 - in progress)
 
 - **NEW**: Dart SDK 3.14.1 installed locally at `/opt/dart/dart-sdk/` (ARM64)
   - `dart --version` → 3.14.1 (stable)
@@ -232,10 +252,15 @@ alias zi='cd "$(zoxide query -l | fzf)"'
   - `shared_preferences_platform_interface` requires Flutter SDK → `dart pub get` fails
   - Full `flutter analyze` with dependency resolution → CI only (GitHub Actions)
 
+- **🐛 REMAINING ISSUE**: Black screen on Save/Cancel in **edit flow**
+  - Create flow (Chat → Save as Skill): Works ✅
+  - Edit flow (SkillsPage → SkillDetailPage → Edit → SkillCreatePage): Save/Cancel cause black screen ❌
+  - Need to investigate keyboard dismissal timing / PopScope interaction
+
 ### Next Actions (Conditional)
 | CI Result | Action |
 |-----------|--------|
-| **GREEN** | 1. `git checkout thai/release` → `git merge feat/fix-skill-crash` (fast-forward)<br>2. `git push origin thai/release` (triggers build-apk.yml)<br>3. Wait for build-apk.yml → test on real device |
+| **GREEN** (achieved) | 1. **Fix remaining black screen issue** (edit flow Save/Cancel)<br>2. `git checkout thai/release` → `git merge feat/fix-skill-crash` (fast-forward)<br>3. `git push origin thai/release` (triggers build-apk.yml)<br>4. Wait for build-apk.yml → test on real device |
 | **RED** | 1. Check new CI logs<br>2. Fix remaining errors<br>3. Commit & push again |
 
 ---
