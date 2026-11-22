@@ -36,7 +36,14 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Scaffold(
+    return PopScope(
+      canPop: !_isLoading, // Prevent popping while loading
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop && !_isLoading) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
       appBar: AppBar(
         title: Text(_skill.name),
         actions: [
@@ -74,8 +81,9 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ],
       ),
       body: _isEditing ? _buildEditForm() : _buildDetailView(),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildDetailView() {
     final l10n = context.l10n;

@@ -8,6 +8,7 @@ import 'package:dsh_client/dsh_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../fork/feature_flags.dart';
 import '../../../l10n/l10n.dart';
 import '../../../speech/read_aloud.dart';
 import '../../speech/speech_ui.dart';
@@ -243,31 +244,32 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
     final onQuote = widget.onQuote;
     final l10n = context.l10n;
     
-    // Build extra groups: native plugins + "Save as Skill"
+    // Build extra groups: native plugins + "Save as Skill" (if enabled)
     final extraGroups = <MenuGroup>[
       ...nativeMessageMenuGroups(context, widget.item, text: markdown),
-      MenuGroup(
-        title: l10n.skillsTitle,
-        items: [
-          MenuItem(
-            icon: AppIcons.skill,
-            label: l10n.skillsDistillSave,
-            hint: l10n.skillsSaveFromMessage, // Reuse the new translation for hint
-            onTap: () {
-              Navigator.of(context).pop(); // Close the menu sheet
-              // Navigate to SkillCreatePage with selected message text as draft
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => SkillCreatePage(
-                    draftText: text,
-                    draftTools: const [], // TODO: extract tool calls from turn
+      if (kEnablePersonalSkills)
+        MenuGroup(
+          title: l10n.skillsTitle,
+          items: [
+            MenuItem(
+              icon: AppIcons.skill,
+              label: l10n.skillsDistillSave,
+              hint: l10n.skillsSaveFromMessage, // Reuse the new translation for hint
+              onTap: () {
+                Navigator.of(context).pop(); // Close the menu sheet
+                // Navigate to SkillCreatePage with selected message text as draft
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => SkillCreatePage(
+                      draftText: text,
+                      draftTools: const [], // TODO: extract tool calls from turn
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+                );
+              },
+            ),
+          ],
+        ),
     ];
 
     final action = await showMessageMenu(

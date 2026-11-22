@@ -102,6 +102,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   void _createDraftFromText() {
     final text = widget.draftText ?? '';
     final tools = widget.draftTools ?? [];
+    final locale = Localizations.localeOf(context).toLanguageTag(); // e.g., 'th', 'en', 'zh'
     
     // Use the new regex-based extraction (no AI)
     final draftSkill = SkillDistiller.createFromMessageText(
@@ -109,6 +110,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       aiResponse: null, // No AI response available for selected message
       toolCalls: tools,
       sessionTitle: 'From message',
+      locale: locale,
     );
     
     _fillForm(draftSkill);
@@ -166,7 +168,14 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
-    return Scaffold(
+    return PopScope(
+      canPop: !_isLoading, // Prevent popping while loading
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop && !_isLoading) {
+          Navigator.of(context).pop();
+        }
+      },
+      child: Scaffold(
       appBar: AppBar(
         title: Text(widget.initialSkill != null
             ? l10n.skillsCreate // Duplicate
@@ -256,8 +265,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 ),
               ),
             ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildForm() {
     final l10n = context.l10n;

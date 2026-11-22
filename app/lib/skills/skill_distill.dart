@@ -500,47 +500,57 @@ class SkillDistiller {
     String? aiResponse,
     required List<String> toolCalls,
     String? sessionTitle,
+    String? locale, // For localized constraints
   }) {
     final now = DateTime.now();
     
-    // Extract name: first 60 chars of user message, clean markdown
-    String name = _cleanMarkdown(userMessage).trim();
+    // Extract name: first meaningful line, ≤60 chars, clean markdown
+    final lines = userMessage.split('\n').where((l) => l.trim().isNotEmpty).toList();
+    String name = '';
+    for (final line in lines) {
+      final cleaned = _cleanMarkdown(line).trim();
+      if (cleaned.isNotEmpty && !cleaned.startsWith(RegExp(r'^[\s*#>-]'))) {
+        name = cleaned;
+        break;
+      }
+    }
+    if (name.isEmpty && lines.isNotEmpty) {
+      name = _cleanMarkdown(lines.first).trim();
+    }
     if (name.length > 60) name = '${name.substring(0, 57)}...';
     if (name.isEmpty) name = 'Unnamed Skill';
     
-    // Extract goal: first 300 chars of user message
-    String goal = _cleanMarkdown(userMessage).trim();
-    if (goal.length > 300) goal = '${goal.substring(0, 297)}...';
-    if (goal.isEmpty) goal = 'Achieve the task described in the message';
+    // Goal: leave empty for "Save as Skill from This Message" (no previous user message available)
+    // In session distillation, _extractGoal handles this differently
+    String goal = '';
     
-    // Extract description: first 200 chars of AI response, or fallback
+    // Description: empty if no AI response (no template)
     String description = '';
     if (aiResponse != null && aiResponse.isNotEmpty) {
       description = _cleanMarkdown(aiResponse).trim();
       if (description.length > 200) description = '${description.substring(0, 197)}...';
     }
-    if (description.isEmpty) {
-      description = 'Created from message: ${_cleanMarkdown(sessionTitle ?? userMessage).trim()}';
-      if (description.length > 200) description = '${description.substring(0, 197)}...';
-    }
+    // No template fallback - leave empty
     
-    // Extract steps: lines starting with numbers or bullets
+    // Extract steps: bullet/numbered lines + markdown tables
     List<String> steps = _extractStepsFromText(userMessage);
-    // Also try AI response for steps
     if (aiResponse != null) {
       steps.addAll(_extractStepsFromText(aiResponse));
     }
-    // Deduplicate and limit
-    steps = steps.toSet().take(8).map((s) => s.length > 150 ? '${s.substring(0, 147)}...' : s).toList();
+    // Deduplicate and limit to 8, clamp each to 150 chars
+    steps = steps.toSet()
+        .map((s) => s.length > 150 ? '${s.substring(0, 147)}...' : s)
+        .take(8)
+        .toList();
     
     // If no steps found, leave empty (don't fill with generic)
     if (steps.isEmpty) {
       steps = [];
     }
     
-    // Constraints: always include no-secrets, plus any from context
+    // Constraints: localized default from l10n (passed via locale param)
     List<String> constraints = [
-      'Do not store secrets (API keys, tokens, passwords)',
+      _getLocalizedNoSecretsConstraint(locale),
     ];
     
     // Required tools from tool calls
@@ -551,17 +561,35 @@ class SkillDistiller {
     
     return Skill(
       id: _generateId(),
-      name: name,
-      description: redactText(description),
-      goal: redactText(goal),
-      steps: steps.map(redactText).toList(),
-      constraints: constraints.map(redactText).toList(),
-      requiredTools: requiredTools,
+      name: _clamp(name, 100),
+      description: redactText(_clamp(description, 500)),
+      goal: redactText(_clamp(goal, 500)),
+      steps: steps.map((s) => redactText(_clamp(s, 200))).toList(),
+      constraints: constraints.map((s) => redactText(_clamp(s, 200))).toList(),
+      requiredTools: requiredTools.map((s) => _clamp(s, 50)).toList(),
       userInputs: [],
-      createdAt: now,
+      createdAt: DateTime.now(),
       sourceSessionTitle: sessionTitle,
       category: category,
     );
+  }
+  
+  /// Get localized "no secrets" constraint
+  static String _getLocalizedNoSecretsConstraint(String? locale) {
+    // Default to English, Thai locale gets Thai version
+    if (locale != null && locale.startsWith('th')) {
+      return 'ห้ามเก็บความลับ (API keys, tokens, passwords)';
+    }
+    if (locale != null && locale.startsWith('zh')) {
+      return '不存储密钥 (API keys, tokens, passwords)';
+    }
+    return 'Do not store secrets (API keys, tokens, passwords)';
+  }
+  
+  /// Clamp string to max length
+  static String _clamp(String s, int maxLen) {
+    if (s.length <= maxLen) return s;
+    return '${s.substring(0, maxLen - 3)}...';
   }
   
   /// Clean markdown formatting from text
@@ -585,6 +613,7 @@ class SkillDistiller {
     final cleaned = _cleanMarkdown(text);
     final lines = cleaned.split('\n');
     
+    // 1. Extract from bullet/numbered lines
     for (final line in lines) {
       final trimmed = line.trim();
       // Match lines starting with numbers (1., 2., etc.) or bullets (-, *, •)
@@ -596,7 +625,23 @@ class SkillDistiller {
       }
     }
     
-    return steps;
+    // 2. Extract from markdown tables (| col1 | col2 | -> "col1 — col2")
+    final tableRows = RegExp(r'^\s*\|(.+)\|\s*$', multiLine: true).allMatches(text);
+    for (final match in tableRows) {
+      final row = match.group(1) ?? '';
+      final cells = row.split('|').map((c) => c.trim()).where((c) => c.isNotEmpty).toList();
+      if (cells.length >= 2) {
+        // Skip header separator row (---|---)
+        if (cells.every((c) => RegExp(r'^[-:]+$').hasMatch(c))) continue;
+        final step = '${cells.first} — ${cells[1]}';
+        if (step.length > 10 && step.length <= 200) {
+          steps.add(step);
+        }
+      }
+    }
+    
+    // Deduplicate and limit
+    return steps.toSet().take(8).toList();
   }
   
   /// Infer category from text content

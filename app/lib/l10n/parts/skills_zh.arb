@@ -71,5 +71,7 @@
   "skillsCategoryDevelopment": "开发",
   "skillsCategoryAutomation": "自动化",
   "skillsCategoryAnalysis": "分析",
-  "skillsCategoryOther": "其他"
+  "skillsCategoryOther": "其他",
+  "skillsFeatureDisabled": "个人技能已禁用",
+  "skillsFeatureDisabledDesc": "此功能当前已禁用。构建时使用 --dart-define=FORK_SKILLS=true 启用。"
 }

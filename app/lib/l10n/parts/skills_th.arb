@@ -71,5 +71,7 @@
   "skillsCategoryDevelopment": "พัฒนา",
   "skillsCategoryAutomation": "อัตโนมัติ",
   "skillsCategoryAnalysis": "วิเคราะห์",
-  "skillsCategoryOther": "อื่นๆ"
+  "skillsCategoryOther": "อื่นๆ",
+  "skillsFeatureDisabled": "ปิดใช้งาน Personal Skills",
+  "skillsFeatureDisabledDesc": "ฟีเจอร์นี้ถูกปิดใช้งานอยู่ เปิดใช้งานได้ด้วย --dart-define=FORK_SKILLS=true ตอนビルド"
 }

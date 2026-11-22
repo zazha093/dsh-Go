@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../fork/feature_flags.dart';
 import '../l10n/l10n.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import 'skill_model.dart';
@@ -43,6 +44,37 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final skillsState = ref.watch(skillsProvider);
+    final filteredSkills = skillsState.filteredSkills;
+
+    // Kill switch: hide Personal Skills feature if disabled
+    if (!kEnablePersonalSkills) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(l10n.skillsTitle),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(app_icons.AppIcons.blocked, size: 64, color: Colors.grey),
+              const SizedBox(height: 16),
+              Text(
+                l10n.skillsFeatureDisabled,
+                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.grey),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                l10n.skillsFeatureDisabledDesc,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+
     final skillsState = ref.watch(skillsProvider);
     final filteredSkills = skillsState.filteredSkills;
 

@@ -71,5 +71,7 @@
   "skillsCategoryDevelopment": "Development",
   "skillsCategoryAutomation": "Automation",
   "skillsCategoryAnalysis": "Analysis",
-  "skillsCategoryOther": "Other"
+  "skillsCategoryOther": "Other",
+  "skillsFeatureDisabled": "Personal Skills Disabled",
+  "skillsFeatureDisabledDesc": "This feature is currently disabled. Enable it with --dart-define=FORK_SKILLS=true at build time."
 }
