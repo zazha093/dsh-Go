@@ -20,7 +20,6 @@ import '../dsh_ui/dsh_ui.dart';
 import '../../plugins/native/message_plugin_menu.dart';
 import '../../share/share_entry.dart' show shareReply;
 import '../../../skills/skill_create_page.dart';
-import '../../../state/sessions_state.dart' show currentSessionProvider;
 import '../render/markdown_body.dart';
 import 'message_actions.dart';
 import 'stream_row.dart';
