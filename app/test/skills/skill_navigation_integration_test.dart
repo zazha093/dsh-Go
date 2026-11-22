@@ -15,9 +15,6 @@ import 'package:dsh_app/skills/skill_storage.dart';
 import 'package:dsh_app/skills/skill_create_page.dart';
 import 'package:dsh_app/skills/skill_detail_page.dart';
 import 'package:dsh_app/skills/skills_page.dart';
-import 'package:dsh_app/state/sessions_state.dart';
-import 'package:dsh_app/state/chat_state.dart';
-import 'package:dsh_app/l10n/l10n.dart';
 
 // Test navigator observer to track push/pop
 class TestNavigatorObserver extends NavigatorObserver {
@@ -69,7 +66,7 @@ class TestNavigatorObserver extends NavigatorObserver {
 // Test app wrapper with all necessary providers
 Widget createTestApp({
   required Widget home,
-  List<dynamic> overrides = const [],
+  List<Override> overrides = const [],
   Locale locale = const Locale('th'),
 }) {
   return ProviderScope(
@@ -337,8 +334,6 @@ void main() {
 
     group('4. NavigatorObserver Stack Verification', () {
       testWidgets('Navigator stack never becomes empty during skill flow', (WidgetTester tester) async {
-        final observer = TestNavigatorObserver();
-
         // This test verifies that the navigation flow maintains a valid stack
         // We can't fully test NavigatorObserver in isolated widget tests
         // but we document the expected behavior
