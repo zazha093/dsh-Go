@@ -169,10 +169,11 @@ jobs:
           else
             FORK_FLAGS=""
           fi
+          # Always use -- to separate script options from flutter extra flags
           if [ -n "$DART_DEFINE" ]; then
             bash ../tooling/build-apk.sh -f arm64 --release -- --dart-define="$DART_DEFINE" $FORK_FLAGS
           else
-            bash ../tooling/build-apk.sh -f arm64 --release $FORK_FLAGS
+            bash ../tooling/build-apk.sh -f arm64 --release -- $FORK_FLAGS
           fi
 
       - name: Upload APK (arm64)
