@@ -171,10 +171,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     return PopScope(
       canPop: !_isLoading, // Prevent popping while loading
       onPopInvokedWithResult: (didPop, result) {
+        // Always dismiss keyboard before/when popping to prevent black screen
+        FocusManager.instance.primaryFocus?.unfocus();
         // No manual pop here - let the framework handle it via canPop
-        if (!didPop && !_isLoading) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        }
       },
       child: Scaffold(
       appBar: AppBar(
