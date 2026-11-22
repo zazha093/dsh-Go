@@ -502,6 +502,9 @@ class SkillDistiller {
     String? sessionTitle,
     String? locale, // For localized constraints
   }) {
+    final isThai = locale != null && locale.startsWith('th');
+    final isZh = locale != null && locale.startsWith('zh');
+    
     // Extract name: first meaningful line, ≤60 chars, clean markdown
     final lines = userMessage.split('\n').where((l) => l.trim().isNotEmpty).toList();
     String name = '';
@@ -516,24 +519,22 @@ class SkillDistiller {
       name = _cleanMarkdown(lines.first).trim();
     }
     if (name.length > 60) name = '${name.substring(0, 57)}...';
-    if (name.isEmpty) name = 'Unnamed Skill';
+    if (name.isEmpty) name = isThai ? 'สกิลใหม่' : (isZh ? '新技能' : 'Unnamed Skill');
     
-    // Goal: leave empty for "Save as Skill from This Message" (no previous user message available)
-    // In session distillation, _extractGoal handles this differently
-    String goal = '';
+    // Goal: extract from user message - what they want to achieve
+    String goal = _extractGoalFromMessage(userMessage, aiResponse, isThai, isZh);
     
-    // Description: empty if no AI response (no template)
-    String description = '';
-    if (aiResponse != null && aiResponse.isNotEmpty) {
-      description = _cleanMarkdown(aiResponse).trim();
-      if (description.length > 200) description = '${description.substring(0, 197)}...';
-    }
-    // No template fallback - leave empty
+    // Description: extract from user message and AI response
+    String description = _extractDescriptionFromMessage(userMessage, aiResponse, isThai, isZh);
     
-    // Extract steps: bullet/numbered lines + markdown tables
+    // Extract steps: bullet/numbered lines + markdown tables + action sentences
     List<String> steps = _extractStepsFromText(userMessage);
     if (aiResponse != null) {
       steps.addAll(_extractStepsFromText(aiResponse));
+    }
+    // If still no steps, try to extract action-oriented sentences
+    if (steps.isEmpty) {
+      steps = _extractActionSteps(userMessage, aiResponse, isThai, isZh);
     }
     // Deduplicate and limit to 8, clamp each to 150 chars
     steps = steps.toSet()
@@ -541,18 +542,19 @@ class SkillDistiller {
         .take(8)
         .toList();
     
-    // If no steps found, leave empty (don't fill with generic)
-    if (steps.isEmpty) {
-      steps = [];
-    }
-    
-    // Constraints: localized default from l10n (passed via locale param)
+    // Constraints: localized no-secrets + content-based constraints
     List<String> constraints = [
       _getLocalizedNoSecretsConstraint(locale),
     ];
+    // Add content-based constraints
+    final contentConstraints = _extractContentConstraints(userMessage, aiResponse, toolCalls, isThai, isZh);
+    constraints.addAll(contentConstraints);
     
     // Required tools from tool calls
     List<String> requiredTools = toolCalls.isNotEmpty ? toolCalls : ['bash', 'edit'];
+    
+    // Infer user inputs from message content
+    List<SkillInput> userInputs = _inferUserInputsFromMessage(userMessage, aiResponse, toolCalls, isThai, isZh);
     
     // Category inference from content
     SkillCategory category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
@@ -565,11 +567,207 @@ class SkillDistiller {
       steps: steps.map((s) => redactText(_clamp(s, 200))).toList(),
       constraints: constraints.map((s) => redactText(_clamp(s, 200))).toList(),
       requiredTools: requiredTools.map((s) => _clamp(s, 50)).toList(),
-      userInputs: [],
+      userInputs: userInputs,
       createdAt: DateTime.now(),
       sourceSessionTitle: sessionTitle,
       category: category,
     );
+  }
+  
+  /// Extract goal from user message - what they want to achieve
+  static String _extractGoalFromMessage(String userMessage, String? aiResponse, bool isThai, bool isZh) {
+    // Look for goal-oriented phrases in user message
+    final sentences = _splitIntoSentences(userMessage);
+    for (final sentence in sentences) {
+      final lower = sentence.toLowerCase();
+      // Goal indicators in various languages
+      if (lower.contains('want to') || lower.contains('need to') || lower.contains('would like to') ||
+          lower.contains('trying to') || lower.contains('goal') || lower.contains('objective') ||
+          lower.contains('อยาก') || lower.contains('ต้องการ') || lower.contains('เป้าหมาย') ||
+          lower.contains('想') || lower.contains('需要') || lower.contains('目标')) {
+        return _cleanMarkdown(sentence).trim();
+      }
+    }
+    // Fallback: use first substantial sentence
+    for (final sentence in sentences) {
+      final cleaned = _cleanMarkdown(sentence).trim();
+      if (cleaned.length > 15 && cleaned.length <= 200) {
+        return cleaned;
+      }
+    }
+    return isThai ? 'ทำตามขั้นตอนจากข้อความที่เลือก' : (isZh ? '按选中消息的步骤执行' : 'Follow steps from selected message');
+  }
+  
+  /// Extract description from user message and AI response
+  static String _extractDescriptionFromMessage(String userMessage, String? aiResponse, bool isThai, bool isZh) {
+    if (aiResponse != null && aiResponse.isNotEmpty) {
+      // Use first paragraph of AI response as description
+      final paragraphs = aiResponse.split('\n\n').where((p) => p.trim().isNotEmpty).toList();
+      if (paragraphs.isNotEmpty) {
+        final desc = _cleanMarkdown(paragraphs.first).trim();
+        if (desc.length > 200) return '${desc.substring(0, 197)}...';
+        return desc;
+      }
+    }
+    // Fallback: use first paragraph of user message
+    final paragraphs = userMessage.split('\n\n').where((p) => p.trim().isNotEmpty).toList();
+    if (paragraphs.isNotEmpty) {
+      final desc = _cleanMarkdown(paragraphs.first).trim();
+      if (desc.length > 200) return '${desc.substring(0, 197)}...';
+      return desc;
+    }
+    return isThai ? 'สกิลที่สร้างจากข้อความแชท' : (isZh ? '从聊天消息创建的技能' : 'Skill created from chat message');
+  }
+  
+  /// Extract action-oriented steps when no bullet points found
+  static List<String> _extractActionSteps(String userMessage, String? aiResponse, bool isThai, bool isZh) {
+    final steps = <String>[];
+    final text = '$userMessage ${aiResponse ?? ''}';
+    final sentences = _splitIntoSentences(text);
+    
+    // Action verb patterns (EN/TH/ZH)
+    final actionPatterns = [
+      // English
+      RegExp(r'\b(run|execute|create|write|edit|read|fetch|search|build|deploy|test|install|configure|setup|install)\b', caseSensitive: false),
+      // Thai
+      RegExp(r'(รัน|สร้าง|เขียน|แก้ไข|อ่าน|ดึง|ค้นหา|สร้าง|ติดตั้ง|ตั้งค่า|ทดสอบ|ส่ง|deploy)'),
+      // Chinese
+      RegExp(r'(运行|创建|编写|编辑|读取|获取|搜索|构建|部署|测试|安装|配置|设置)'),
+    ];
+    
+    for (final sentence in sentences) {
+      final cleaned = _cleanMarkdown(sentence).trim();
+      if (cleaned.length > 10 && cleaned.length <= 150) {
+        for (final pattern in actionPatterns) {
+          if (pattern.hasMatch(cleaned)) {
+            steps.add(cleaned);
+            break;
+          }
+        }
+      }
+    }
+    
+    return steps.take(8).toList();
+  }
+  
+  /// Extract content-based constraints
+  static List<String> _extractContentConstraints(String userMessage, String? aiResponse, List<String> toolCalls, bool isThai, bool isZh) {
+    final constraints = <String>[];
+    final text = '$userMessage ${aiResponse ?? ''}'.toLowerCase();
+    
+    // Security-related constraints
+    if (text.contains('secret') || text.contains('password') || text.contains('token') || text.contains('api key') ||
+        text.contains('รหัสผ่าน') || text.contains('ความลับ') || text.contains('token') || text.contains('api key') ||
+        text.contains('密码') || text.contains('密钥') || text.contains('token') || text.contains('api key')) {
+      constraints.add(isThai ? 'ไม่ hardcode secrets ในสคริปต์' : (isZh ? '不要在脚本中硬编码密钥' : 'Do not hardcode secrets in scripts'));
+    }
+    
+    // Production safety
+    if (text.contains('production') || text.contains('prod') || text.contains('live') ||
+        text.contains('โปรดักชัน') || text.contains('ระบบจริง') ||
+        text.contains('生产') || text.contains('线上')) {
+      constraints.add(isThai ? 'ระวังการรันบน production' : (isZh ? '小心在生产环境运行' : 'Caution when running on production'));
+    }
+    
+    // Destructive operations
+    if (text.contains('delete') || text.contains('remove') || text.contains('drop') || text.contains('destroy') ||
+        text.contains('ลบ') || text.contains('ทำลาย') ||
+        text.contains('删除') || text.contains('销毁')) {
+      constraints.add(isThai ? 'ตรวจสอบก่อนลบข้อมูลสำคัญ' : (isZh ? '删除重要数据前请确认' : 'Verify before deleting important data'));
+    }
+    
+    // Network/external calls
+    if (toolCalls.any((t) => t.contains('web_') || t.contains('http') || t.contains('ssh')) ||
+        text.contains('web') || text.contains('api') || text.contains('http') ||
+        text.contains('เว็บ') || text.contains('อินเทอร์เน็ต') ||
+        text.contains('网页') || text.contains('网络')) {
+      constraints.add(isThai ? 'ต้องมีการเชื่อมต่ออินเทอร์เน็ต' : (isZh ? '需要网络连接' : 'Requires internet connection'));
+    }
+    
+    // Limit to 5 additional constraints
+    return constraints.take(5).toList();
+  }
+  
+  /// Infer user inputs from message content
+  static List<SkillInput> _inferUserInputsFromMessage(String userMessage, String? aiResponse, List<String> toolCalls, bool isThai, bool isZh) {
+    final inputs = <SkillInput>[];
+    final text = '$userMessage ${aiResponse ?? ''}'.toLowerCase();
+    
+    // Common input patterns
+    if (text.contains('host') || text.contains('server') || text.contains('target') ||
+        text.contains('โฮสต์') || text.contains('เซิร์ฟเวอร์') || text.contains('เป้าหมาย') ||
+        text.contains('主机') || text.contains('服务器') || text.contains('目标')) {
+      inputs.add(SkillInput(
+        key: 'target_host',
+        label: isThai ? 'Target Host' : (isZh ? '目标主机' : 'Target Host'),
+        hint: isThai ? 'เช่น production, staging, localhost' : (isZh ? '如 production, staging, localhost' : 'e.g., production, staging, localhost'),
+        type: SkillInputType.text,
+        required: true,
+      ));
+    }
+    
+    if (text.contains('branch') || text.contains('git') || text.contains('repo') ||
+        text.contains('สาขา') || text.contains('กิท') ||
+        text.contains('分支') || text.contains('git') || text.contains('仓库')) {
+      inputs.add(SkillInput(
+        key: 'branch',
+        label: isThai ? 'Git Branch' : (isZh ? 'Git 分支' : 'Git Branch'),
+        hint: isThai ? 'เช่น main, feature/xyz' : (isZh ? '如 main, feature/xyz' : 'e.g., main, feature/xyz'),
+        type: SkillInputType.text,
+        required: true,
+      ));
+    }
+    
+    if (text.contains('environment') || text.contains('env') || text.contains('config') ||
+        text.contains('สิ่งแวดล้อม') || text.contains('คอนฟิก') ||
+        text.contains('环境') || text.contains('配置')) {
+      inputs.add(SkillInput(
+        key: 'environment',
+        label: isThai ? 'Environment' : (isZh ? '环境' : 'Environment'),
+        hint: isThai ? 'เช่น development, staging, production' : (isZh ? '如 development, staging, production' : 'e.g., development, staging, production'),
+        type: SkillInputType.select,
+        required: true,
+        options: ['development', 'staging', 'production'],
+      ));
+    }
+    
+    if (text.contains('version') || text.contains('release') || text.contains('tag') ||
+        text.contains('เวอร์ชัน') || text.contains('รุ่น') ||
+        text.contains('版本') || text.contains('发布') || text.contains('标签')) {
+      inputs.add(SkillInput(
+        key: 'version',
+        label: isThai ? 'Version' : (isZh ? '版本' : 'Version'),
+        hint: isThai ? 'เช่น v1.0.0, 2.5.0' : (isZh ? '如 v1.0.0, 2.5.0' : 'e.g., v1.0.0, 2.5.0'),
+        type: SkillInputType.text,
+        required: true,
+      ));
+    }
+    
+    // File/path inputs
+    if (text.contains('file') || text.contains('path') || text.contains('directory') ||
+        text.contains('ไฟล์') || text.contains('โฟลเดอร์') || text.contains('พาธ') ||
+        text.contains('文件') || text.contains('路径') || text.contains('目录')) {
+      inputs.add(SkillInput(
+        key: 'file_path',
+        label: isThai ? 'File/Path' : (isZh ? '文件/路径' : 'File/Path'),
+        hint: isThai ? 'เช่น /home/user/file.txt, ./src/' : (isZh ? '如 /home/user/file.txt, ./src/' : 'e.g., /home/user/file.txt, ./src/'),
+        type: SkillInputType.text,
+        required: false,
+      ));
+    }
+    
+    return inputs;
+  }
+  
+  /// Split text into sentences (simple heuristic)
+  static List<String> _splitIntoSentences(String text) {
+    // Split by common sentence terminators, but be careful with abbreviations
+    return text
+        .replaceAll('\n', ' ')
+        .split(RegExp(r'[.!?。！？]+'))
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
   }
   
   /// Get localized "no secrets" constraint
