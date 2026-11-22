@@ -26,10 +26,39 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   bool _isEditing = false;
   bool _isLoading = false;
 
+  // Controllers for edit form - created once to avoid leaks
+  final _nameController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _goalController = TextEditingController();
+  final _stepsController = TextEditingController();
+  final _constraintsController = TextEditingController();
+  final _toolsController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     _skill = widget.skill;
+    _syncControllersWithSkill();
+  }
+
+  void _syncControllersWithSkill() {
+    _nameController.text = _skill.name;
+    _descriptionController.text = _skill.description;
+    _goalController.text = _skill.goal;
+    _stepsController.text = _skill.steps.join('\n');
+    _constraintsController.text = _skill.constraints.join('\n');
+    _toolsController.text = _skill.requiredTools.join(', ');
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    _goalController.dispose();
+    _stepsController.dispose();
+    _constraintsController.dispose();
+    _toolsController.dispose();
+    super.dispose();
   }
 
   @override
@@ -39,8 +68,9 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     return PopScope(
       canPop: !_isLoading, // Prevent popping while loading
       onPopInvokedWithResult: (didPop, result) {
+        // No manual pop here - let the framework handle it via canPop
         if (!didPop && !_isLoading) {
-          Navigator.of(context).pop();
+          FocusManager.instance.primaryFocus?.unfocus();
         }
       },
       child: Scaffold(
@@ -61,7 +91,10 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
             ),
           IconButton(
             icon: const Icon(app_icons.AppIcons.edit),
-            onPressed: () => setState(() => _isEditing = true),
+            onPressed: () {
+              _syncControllersWithSkill();
+              setState(() => _isEditing = true);
+            },
             tooltip: l10n.skillsEdit,
           ),
           PopupMenuButton<String>(
@@ -252,13 +285,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     final l10n = context.l10n;
     final theme = Theme.of(context);
 
-    final nameController = TextEditingController(text: _skill.name);
-    final descriptionController = TextEditingController(text: _skill.description);
-    final goalController = TextEditingController(text: _skill.goal);
-    final stepsController = TextEditingController(text: _skill.steps.join('\n'));
-    final constraintsController = TextEditingController(text: _skill.constraints.join('\n'));
-    final toolsController = TextEditingController(text: _skill.requiredTools.join(', '));
-
+    // Use state-level controllers (synced via _syncControllersWithSkill when entering edit mode)
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -266,41 +293,41 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         children: [
           _SectionTitle(title: l10n.skillsName),
           TextField(
-            controller: nameController,
+            controller: _nameController,
             decoration: InputDecoration(hintText: l10n.skillsNameHint),
           ),
           const SizedBox(height: 16),
           _SectionTitle(title: l10n.skillsDescription),
           TextField(
-            controller: descriptionController,
+            controller: _descriptionController,
             decoration: InputDecoration(hintText: l10n.skillsDescriptionHint),
             maxLines: 2,
           ),
           const SizedBox(height: 16),
           _SectionTitle(title: l10n.skillsGoal),
           TextField(
-            controller: goalController,
+            controller: _goalController,
             decoration: InputDecoration(hintText: l10n.skillsGoalHint),
             maxLines: 2,
           ),
           const SizedBox(height: 16),
           _SectionTitle(title: l10n.skillsSteps),
           TextField(
-            controller: stepsController,
+            controller: _stepsController,
             decoration: InputDecoration(hintText: l10n.skillsStepsHint),
             maxLines: 5,
           ),
           const SizedBox(height: 16),
           _SectionTitle(title: l10n.skillsConstraints),
           TextField(
-            controller: constraintsController,
+            controller: _constraintsController,
             decoration: InputDecoration(hintText: l10n.skillsConstraintsHint),
             maxLines: 3,
           ),
           const SizedBox(height: 16),
           _SectionTitle(title: l10n.skillsRequiredTools),
           TextField(
-            controller: toolsController,
+            controller: _toolsController,
             decoration: InputDecoration(hintText: l10n.skillsRequiredToolsHint),
           ),
           const SizedBox(height: 16),
@@ -330,21 +357,28 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
             children: [
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () => setState(() => _isEditing = false),
+                  onPressed: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    if (!mounted) return;
+                    setState(() => _isEditing = false);
+                  },
                   child: Text(l10n.skillsCancel),
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: FilledButton(
-                  onPressed: () => _saveSkill(
-                    nameController.text,
-                    descriptionController.text,
-                    goalController.text,
-                    stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                    constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                    toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
-                  ),
+                  onPressed: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    _saveSkill(
+                      _nameController.text,
+                      _descriptionController.text,
+                      _goalController.text,
+                      _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+                      _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+                      _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
+                    );
+                  },
                   child: Text(l10n.skillsSave),
                 ),
               ),
@@ -355,15 +389,9 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     );
   }
 
-  Future<void> _saveSkill(
-    String name,
-    String description,
-    String goal,
-    List<String> steps,
-    List<String> constraints,
-    List<String> tools,
-  ) async {
-    if (name.trim().isEmpty) {
+  Future<void> _saveSkill() async {
+    // Validate name
+    if (_nameController.text.trim().isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(context.l10n.skillsNameHint)),
@@ -374,17 +402,18 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     setState(() => _isLoading = true);
     try {
       final updated = _skill.copyWith(
-        name: name.trim(),
-        description: description.trim(),
-        goal: goal.trim(),
-        steps: steps,
-        constraints: constraints,
-        requiredTools: tools,
+        name: _nameController.text.trim(),
+        description: _descriptionController.text.trim(),
+        goal: _goalController.text.trim(),
+        steps: _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+        constraints: _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+        requiredTools: _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
         updatedAt: DateTime.now(),
         version: _skill.version + 1,
       );
       await ref.read(skillsProvider.notifier).updateSkill(updated);
       if (!mounted) return;
+      FocusManager.instance.primaryFocus?.unfocus();
       setState(() {
         _skill = updated;
         _isEditing = false;
@@ -463,6 +492,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     if (confirmed == true) {
       await ref.read(skillsProvider.notifier).deleteSkill(_skill.id);
       if (!mounted) return;
+      FocusManager.instance.primaryFocus?.unfocus();
       Navigator.pop(context);
     }
   }

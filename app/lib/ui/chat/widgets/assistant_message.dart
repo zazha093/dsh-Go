@@ -256,9 +256,10 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
               label: l10n.skillsDistillSave,
               hint: l10n.skillsSaveFromMessage, // Reuse the new translation for hint
               onTap: () {
-                Navigator.of(context).pop(); // Close the menu sheet
+                final navigator = Navigator.of(context); // Capture navigator before closing sheet
+                navigator.pop(); // Close the menu sheet
                 // Navigate to SkillCreatePage with selected message text as draft
-                Navigator.of(context).push(
+                navigator.push(
                   MaterialPageRoute(
                     builder: (_) => SkillCreatePage(
                       draftText: text,

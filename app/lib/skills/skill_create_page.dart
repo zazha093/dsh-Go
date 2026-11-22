@@ -171,8 +171,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     return PopScope(
       canPop: !_isLoading, // Prevent popping while loading
       onPopInvokedWithResult: (didPop, result) {
+        // No manual pop here - let the framework handle it via canPop
         if (!didPop && !_isLoading) {
-          Navigator.of(context).pop();
+          FocusManager.instance.primaryFocus?.unfocus();
         }
       },
       child: Scaffold(
@@ -185,7 +186,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         leading: IconButton(
           icon: const Icon(app_icons.AppIcons.close),
           onPressed: () {
-            if (mounted) Navigator.pop(context);
+            FocusManager.instance.primaryFocus?.unfocus();
+            if (!mounted) return;
+            Navigator.pop(context);
           },
         ),
       ),
@@ -245,7 +248,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                     Expanded(
                       child: OutlinedButton(
                         onPressed: () {
-                          if (mounted) Navigator.pop(context);
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          if (!mounted) return;
+                          Navigator.pop(context);
                         },
                         child: Text(l10n.skillsCancel),
                       ),
@@ -442,6 +447,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       }
 
       if (!mounted) return;
+      FocusManager.instance.primaryFocus?.unfocus();
       Navigator.pop(context);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
