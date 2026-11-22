@@ -69,7 +69,7 @@ class TestNavigatorObserver extends NavigatorObserver {
 // Test app wrapper with all necessary providers
 Widget createTestApp({
   required Widget home,
-  List<ProviderOverride> overrides = const [],
+  List<Override> overrides = const [],
   Locale locale = const Locale('th'),
 }) {
   return ProviderScope(
