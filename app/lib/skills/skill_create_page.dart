@@ -98,33 +98,17 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     _inputFormKeys.addAll(List.generate(skill.userInputs.length, (_) => GlobalKey<FormState>()));
   }
 
-  /// Create a draft skill from selected message text
+  /// Create a draft skill from selected message text using regex-based extraction
   void _createDraftFromText() {
     final text = widget.draftText ?? '';
     final tools = widget.draftTools ?? [];
     
-    // Generate a name from the first line or first 30 chars
-    final lines = text.split('\n').where((l) => l.trim().isNotEmpty).toList();
-    String name = lines.isNotEmpty ? lines.first : text;
-    if (name.length > 30) name = '${name.substring(0, 27)}...';
-    name = name.trim();
-    if (name.isEmpty) name = 'Unnamed Skill';
-    
-    // Create a basic draft skill
-    final draftSkill = Skill(
-      id: '',
-      name: name,
-      description: text.length > 200 ? '${text.substring(0, 200)}...' : text,
-      goal: text,
-      steps: _extractStepsFromText(text),
-      constraints: [
-        'Do not store secrets (API keys, tokens, passwords)',
-        'Follow the original message\'s approach',
-      ],
-      requiredTools: tools.isNotEmpty ? tools : ['bash', 'edit'],
-      userInputs: [],
-      createdAt: DateTime.now(),
-      sourceSessionTitle: 'From message',
+    // Use the new regex-based extraction (no AI)
+    final draftSkill = SkillDistiller.createFromMessageText(
+      userMessage: text,
+      aiResponse: null, // No AI response available for selected message
+      toolCalls: tools,
+      sessionTitle: 'From message',
     );
     
     _fillForm(draftSkill);
@@ -139,37 +123,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     });
   }
 
-  /// Extract steps from text by splitting on sentences or line breaks
-  List<String> _extractStepsFromText(String text) {
-    // Simple extraction: split by periods, line breaks, or numbered items
-    final steps = <String>[];
-    
-    // Try to find numbered steps first
-    final numberedMatches = RegExp(r'\d+\.\s*([^\n]+)').allMatches(text);
-    for (final match in numberedMatches) {
-      final step = match.group(1)?.trim();
-      if (step != null && step.isNotEmpty) {
-        steps.add(step);
-      }
-    }
-    
-    // If no numbered steps, split by sentences
-    if (steps.isEmpty) {
-      final sentences = text.split(RegExp(r'[.!?]\s+'));
-      for (final sentence in sentences) {
-        final trimmed = sentence.trim();
-        if (trimmed.length > 10 && trimmed.length < 200) {
-          steps.add(trimmed);
-        }
-      }
-    }
-    
-    // Limit to reasonable number
-    return steps.take(10).toList();
-  }
-
   Future<void> _distillFromSession() async {
     if (widget.sessionId == null) return;
+    if (!mounted) return;
 
     setState(() {
       _distillError = null;
@@ -187,21 +143,20 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         sessionId: widget.sessionId!,
         sessionTitle: widget.sessionTitle ?? 'Unknown Session',
       );
-      if (mounted) {
-        setState(() {
-          _distilledSkill = skill;
-          _fillForm(skill);
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
-        );
-      }
+      if (!mounted) return;
+      setState(() {
+        _distilledSkill = skill;
+        _fillForm(skill);
+      });
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
+      );
     } catch (e) {
-      if (mounted) {
-        setState(() {
-          _distillError = e.toString();
-        });
-      }
+      if (!mounted) return;
+      setState(() {
+        _distillError = e.toString();
+      });
     }
   }
 
@@ -220,7 +175,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 : l10n.skillsCreate),
         leading: IconButton(
           icon: const Icon(app_icons.AppIcons.close),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            if (mounted) Navigator.pop(context);
+          },
         ),
       ),
       body: Form(
@@ -278,7 +235,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   children: [
                     Expanded(
                       child: OutlinedButton(
-                        onPressed: () => Navigator.pop(context),
+                        onPressed: () {
+                          if (mounted) Navigator.pop(context);
+                        },
                         child: Text(l10n.skillsCancel),
                       ),
                     ),
@@ -445,6 +404,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       }
     }
 
+    if (!mounted) return;
     setState(() => _isLoading = true);
 
     try {
@@ -471,18 +431,17 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         await ref.read(skillsProvider.notifier).createSkill(skill);
       }
 
-      if (mounted) {
-        Navigator.pop(context);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
-        );
-      }
+      if (!mounted) return;
+      Navigator.pop(context);
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
+      );
     } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
-      }
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }

@@ -190,37 +190,41 @@ class Skill {
 
   /// Deserialize from JSON
   factory Skill.fromJson(Map<String, Object?> json) {
+    // Handle legacy data gracefully - use safe casting with defaults
+    final rawRequiredPersona = json['requiredPersona'];
+    final rawLastRunStatus = json['lastRunStatus'];
+    
     return Skill(
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String,
       goal: json['goal'] as String,
-      steps: (json['steps'] as List).cast<String>(),
-      constraints: (json['constraints'] as List).cast<String>(),
-      requiredTools: (json['requiredTools'] as List).cast<String>(),
-      userInputs: (json['userInputs'] as List)
-          .map((e) => SkillInput.fromJson(e as Map<String, Object?>))
-          .toList(),
-      createdAt: DateTime.parse(json['createdAt'] as String),
+      steps: (json['steps'] as List?)?.cast<String>() ?? [],
+      constraints: (json['constraints'] as List?)?.cast<String>() ?? [],
+      requiredTools: (json['requiredTools'] as List?)?.cast<String>() ?? [],
+      userInputs: (json['userInputs'] as List?)
+          ?.map((e) => SkillInput.fromJson(e as Map<String, Object?>))
+          .toList() ?? [],
+      createdAt: DateTime.tryParse(json['createdAt'] as String? ?? '') ?? DateTime.now(),
       updatedAt: json['updatedAt'] != null
-          ? DateTime.parse(json['updatedAt'] as String)
+          ? DateTime.tryParse(json['updatedAt'] as String)
           : null,
       lastUsedAt: json['lastUsedAt'] != null
-          ? DateTime.parse(json['lastUsedAt'] as String)
+          ? DateTime.tryParse(json['lastUsedAt'] as String)
           : null,
-      useCount: json['useCount'] as int,
-      successCount: json['successCount'] as int,
-      category: SkillCategory.values.byName(json['category'] as String),
-      hidden: json['hidden'] as bool,
+      useCount: json['useCount'] as int? ?? 0,
+      successCount: json['successCount'] as int? ?? 0,
+      category: SkillCategory.values.byName(json['category'] as String? ?? 'other'),
+      hidden: json['hidden'] as bool? ?? false,
       hiddenAt: json['hiddenAt'] != null
-          ? DateTime.parse(json['hiddenAt'] as String)
+          ? DateTime.tryParse(json['hiddenAt'] as String)
           : null,
       sourceSessionId: json['sourceSessionId'] as String?,
       sourceSessionTitle: json['sourceSessionTitle'] as String?,
-      version: json['version'] as int,
-      requiredPersona: json['requiredPersona'] as String?,
-      lastRunStatus: json['lastRunStatus'] != null
-          ? SkillRunStatus.values.byName(json['lastRunStatus'] as String)
+      version: json['version'] as int? ?? 1,
+      requiredPersona: rawRequiredPersona as String?,
+      lastRunStatus: rawLastRunStatus != null
+          ? SkillRunStatus.values.byName(rawLastRunStatus as String)
           : SkillRunStatus.never,
     );
   }

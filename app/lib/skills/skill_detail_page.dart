@@ -356,11 +356,13 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     List<String> tools,
   ) async {
     if (name.trim().isEmpty) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(context.l10n.skillsNameHint)),
       );
       return;
     }
+    if (!mounted) return;
     setState(() => _isLoading = true);
     try {
       final updated = _skill.copyWith(
@@ -374,35 +376,31 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         version: _skill.version + 1,
       );
       await ref.read(skillsProvider.notifier).updateSkill(updated);
-      if (mounted) {
-        setState(() {
-          _skill = updated;
-          _isEditing = false;
-          _isLoading = false;
-        });
-      }
+      if (!mounted) return;
+      setState(() {
+        _skill = updated;
+        _isEditing = false;
+        _isLoading = false;
+      });
     } catch (e) {
-      if (mounted) {
-        setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
-      }
+      if (!mounted) return;
+      setState(() => _isLoading = false);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.toString())),
+      );
     }
   }
 
   Future<void> _hideSkill() async {
     await ref.read(skillsProvider.notifier).hideSkill(_skill.id);
-    if (mounted) {
-      setState(() => _skill = _skill.copyWith(hidden: true, hiddenAt: DateTime.now()));
-    }
+    if (!mounted) return;
+    setState(() => _skill = _skill.copyWith(hidden: true, hiddenAt: DateTime.now()));
   }
 
   Future<void> _restoreSkill() async {
     await ref.read(skillsProvider.notifier).restoreSkill(_skill.id);
-    if (mounted) {
-      setState(() => _skill = _skill.copyWith(hidden: false, hiddenAt: null));
-    }
+    if (!mounted) return;
+    setState(() => _skill = _skill.copyWith(hidden: false, hiddenAt: null));
   }
 
   void _handleMenuAction(String action) {
@@ -417,6 +415,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   }
 
   void _duplicateSkill() {
+    if (!mounted) return;
     final duplicated = _skill.copyWith(
       id: '', // Will be generated
       name: '${_skill.name} (copy)',
@@ -452,9 +451,11 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ],
       ),
     );
+    if (!mounted) return;
     if (confirmed == true) {
       await ref.read(skillsProvider.notifier).deleteSkill(_skill.id);
-      if (mounted) Navigator.pop(context);
+      if (!mounted) return;
+      Navigator.pop(context);
     }
   }
 
@@ -464,6 +465,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     // Check if we have a current session to run in
     final currentSessionId = ref.read(currentSessionProvider);
     if (currentSessionId == null) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', 'No active session'))),
       );
@@ -476,6 +478,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       userInputs = await _promptForInputs();
       if (userInputs == null) return; // User cancelled
     }
+    if (!mounted) return;
 
     // Build the skill execution prompt with user inputs
     final prompt = _buildSkillPrompt(_skill, userInputs: userInputs);
@@ -487,32 +490,31 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       final chatController = ref.read(chatProvider(currentSessionId).notifier);
       final success = await chatController.send(prompt);
 
+      if (!mounted) return;
+      
       if (success) {
         // Record successful invocation
         await ref.read(skillsProvider.notifier).recordSuccess(_skill.id);
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(l10n.skillsRunSuccess)),
-          );
-          // Prompt to update formula if user wants to refine it
-          await _promptUpdateFormula();
-        }
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.skillsRunSuccess)),
+        );
+        // Prompt to update formula if user wants to refine it
+        await _promptUpdateFormula();
       } else {
         // Record failed invocation
         await ref.read(skillsProvider.notifier).recordFailure(_skill.id);
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', 'Failed to send'))),
-          );
-        }
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', 'Failed to send'))),
+        );
       }
     } catch (e) {
       await ref.read(skillsProvider.notifier).recordFailure(_skill.id);
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', e.toString()))),
-        );
-      }
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', e.toString()))),
+      );
     } finally {
       if (mounted) setState(() => _isLoading = false);
     }
@@ -582,7 +584,8 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       ),
     );
 
-    if (confirmed == true && mounted) {
+    if (!mounted) return;
+    if (confirmed == true) {
       // Navigate to SkillCreatePage with current skill for editing
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -646,6 +649,11 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ],
       ),
     );
+
+    // Clean up controllers
+    for (final controller in controllers.values) {
+      controller.dispose();
+    }
 
     return result;
   }

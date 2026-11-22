@@ -492,4 +492,139 @@ class SkillDistiller {
     return DateTime.now().millisecondsSinceEpoch.toRadixString(36) +
         (DateTime.now().microsecond % 1000).toRadixString(36);
   }
+
+  /// Create a skill from selected message text using regex-based extraction (no AI)
+  /// This is the fallback when distillation from session is not available
+  static Skill createFromMessageText({
+    required String userMessage,
+    String? aiResponse,
+    required List<String> toolCalls,
+    String? sessionTitle,
+  }) {
+    final now = DateTime.now();
+    
+    // Extract name: first 60 chars of user message, clean markdown
+    String name = _cleanMarkdown(userMessage).trim();
+    if (name.length > 60) name = '${name.substring(0, 57)}...';
+    if (name.isEmpty) name = 'Unnamed Skill';
+    
+    // Extract goal: first 300 chars of user message
+    String goal = _cleanMarkdown(userMessage).trim();
+    if (goal.length > 300) goal = '${goal.substring(0, 297)}...';
+    if (goal.isEmpty) goal = 'Achieve the task described in the message';
+    
+    // Extract description: first 200 chars of AI response, or fallback
+    String description = '';
+    if (aiResponse != null && aiResponse.isNotEmpty) {
+      description = _cleanMarkdown(aiResponse).trim();
+      if (description.length > 200) description = '${description.substring(0, 197)}...';
+    }
+    if (description.isEmpty) {
+      description = 'Created from message: ${_cleanMarkdown(sessionTitle ?? userMessage).trim()}';
+      if (description.length > 200) description = '${description.substring(0, 197)}...';
+    }
+    
+    // Extract steps: lines starting with numbers or bullets
+    List<String> steps = _extractStepsFromText(userMessage);
+    // Also try AI response for steps
+    if (aiResponse != null) {
+      steps.addAll(_extractStepsFromText(aiResponse));
+    }
+    // Deduplicate and limit
+    steps = steps.toSet().take(8).map((s) => s.length > 150 ? '${s.substring(0, 147)}...' : s).toList();
+    
+    // If no steps found, leave empty (don't fill with generic)
+    if (steps.isEmpty) {
+      steps = [];
+    }
+    
+    // Constraints: always include no-secrets, plus any from context
+    List<String> constraints = [
+      'Do not store secrets (API keys, tokens, passwords)',
+    ];
+    
+    // Required tools from tool calls
+    List<String> requiredTools = toolCalls.isNotEmpty ? toolCalls : ['bash', 'edit'];
+    
+    // Category inference from content
+    SkillCategory category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
+    
+    return Skill(
+      id: _generateId(),
+      name: name,
+      description: redactText(description),
+      goal: redactText(goal),
+      steps: steps.map(redactText).toList(),
+      constraints: constraints.map(redactText).toList(),
+      requiredTools: requiredTools,
+      userInputs: [],
+      createdAt: now,
+      sourceSessionTitle: sessionTitle,
+      category: category,
+    );
+  }
+  
+  /// Clean markdown formatting from text
+  static String _cleanMarkdown(String text) {
+    return text
+        .replaceAll(RegExp(r'\*\*(.*?)\*\*'), r'$1')  // Bold
+        .replaceAll(RegExp(r'\*(.*?)\*'), r'$1')      // Italic
+        .replaceAll(RegExp(r'`(.*?)`'), r'$1')        // Inline code
+        .replaceAll(RegExp(r'```[\s\S]*?```'), '')    // Code blocks
+        .replaceAll(RegExp(r'#{1,6}\s*'), '')         // Headers
+        .replaceAll(RegExp(r'\[(.*?)\]\(.*?\)'), r'$1') // Links
+        .replaceAll(RegExp(r'^\s*[-*+]\s+', multiLine: true), '') // List markers
+        .replaceAll(RegExp(r'^\s*\d+\.\s+', multiLine: true), '') // Numbered list
+        .replaceAll(RegExp(r'\n{3,}'), '\n\n')        // Multiple newlines
+        .trim();
+  }
+  
+  /// Extract steps from text using regex for numbered/bulleted lines
+  static List<String> _extractStepsFromText(String text) {
+    final steps = <String>[];
+    final cleaned = _cleanMarkdown(text);
+    final lines = cleaned.split('\n');
+    
+    for (final line in lines) {
+      final trimmed = line.trim();
+      // Match lines starting with numbers (1., 2., etc.) or bullets (-, *, •)
+      if (RegExp(r'^(\d+\.|[-*•])\s+').hasMatch(trimmed)) {
+        final step = trimmed.replaceFirst(RegExp(r'^(\d+\.|[-*•])\s+'), '').trim();
+        if (step.length > 10 && step.length <= 200) {
+          steps.add(step);
+        }
+      }
+    }
+    
+    return steps;
+  }
+  
+  /// Infer category from text content
+  static SkillCategory _inferCategoryFromText(String userMessage, String? aiResponse, List<String> toolCalls) {
+    final allText = '${userMessage} ${aiResponse ?? ''} ${toolCalls.join(' ')}'.toLowerCase();
+    
+    if (allText.contains('code') || allText.contains('develop') || allText.contains('program') ||
+        allText.contains('debug') || allText.contains('refactor') || allText.contains('review') ||
+        allText.contains('git') || allText.contains('build') || allText.contains('test') ||
+        toolCalls.contains('edit') || toolCalls.contains('write') || toolCalls.contains('bash')) {
+      return SkillCategory.development;
+    }
+    if (allText.contains('auto') || allText.contains('script') || allText.contains('deploy') ||
+        allText.contains('ci') || allText.contains('cd') || allText.contains('pipeline') ||
+        toolCalls.contains('bash')) {
+      return SkillCategory.automation;
+    }
+    if (allText.contains('analy') || allText.contains('report') || allText.contains('summar') ||
+        allText.contains('data') || allText.contains('query') || allText.contains('metric') ||
+        allText.contains('log') || allText.contains('monitor') || toolCalls.contains('web_fetch')) {
+      return SkillCategory.analysis;
+    }
+    if (allText.contains('product') || allText.contains('todo') || allText.contains('note') ||
+        allText.contains('brief') || allText.contains('plan') || allText.contains('schedule') ||
+        allText.contains('meeting') || allText.contains('email')) {
+      return SkillCategory.productivity;
+    }
+    
+    return SkillCategory.other;
+  }
 }
