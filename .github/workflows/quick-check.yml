@@ -43,6 +43,10 @@ jobs:
         run: flutter pub get
         working-directory: app
 
+      - name: Generate l10n
+        run: python3 tool/l10n_merge.py --locale th
+        working-directory: app
+
       - name: Analyze
         run: flutter analyze --no-fatal-infos
         working-directory: app
