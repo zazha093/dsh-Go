@@ -34,6 +34,7 @@
   "skillsUpdateAvailable": "有可用更新 — 本次运行效果优于已保存的公式",
   "skillsUpdateConfirm": "用本次成功的方式更新已保存的公式？",
   "skillsUpdated": "技能已更新",
+  "skillsUpdate": "更新公式",
   "skillsHidden": "已隐藏的技能",
   "skillsShowHidden": "显示隐藏",
   "skillsHide": "隐藏",

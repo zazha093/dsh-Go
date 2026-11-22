@@ -34,6 +34,7 @@
   "skillsUpdateAvailable": "Update available — this run worked better than the saved formula",
   "skillsUpdateConfirm": "Update the saved formula with what worked this time?",
   "skillsUpdated": "Skill updated",
+  "skillsUpdate": "Update Formula",
   "skillsHidden": "Hidden skills",
   "skillsShowHidden": "Show hidden",
   "skillsHide": "Hide",

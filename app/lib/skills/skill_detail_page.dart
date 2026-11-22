@@ -471,14 +471,14 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     }
 
     // If skill has required user inputs, prompt for them first
+    Map<String, String>? userInputs;
     if (_skill.userInputs.isNotEmpty) {
-      final inputs = await _promptForInputs();
-      if (inputs == null) return; // User cancelled
-      // TODO: Store inputs for use in skill execution
+      userInputs = await _promptForInputs();
+      if (userInputs == null) return; // User cancelled
     }
 
-    // Build the skill execution prompt
-    final prompt = _buildSkillPrompt(_skill);
+    // Build the skill execution prompt with user inputs
+    final prompt = _buildSkillPrompt(_skill, userInputs: userInputs);
 
     setState(() => _isLoading = true);
 
@@ -494,6 +494,8 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(l10n.skillsRunSuccess)),
           );
+          // Prompt to update formula if user wants to refine it
+          await _promptUpdateFormula();
         }
       } else {
         // Record failed invocation
@@ -517,7 +519,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   }
 
   /// Build the prompt to send to the chat to execute this skill
-  String _buildSkillPrompt(Skill skill) {
+  String _buildSkillPrompt(Skill skill, {Map<String, String>? userInputs}) {
     final buffer = StringBuffer();
     buffer.writeln('🤖 **Running Personal Skill: ${skill.name}**');
     buffer.writeln('');
@@ -527,7 +529,12 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     if (skill.userInputs.isNotEmpty) {
       buffer.writeln('**Required Inputs:**');
       for (final input in skill.userInputs) {
-        buffer.writeln('- ${input.label} (${input.key}): ${input.hint}');
+        final value = userInputs?[input.key];
+        if (value != null && value.isNotEmpty) {
+          buffer.writeln('- ${input.label} (${input.key}): $value');
+        } else {
+          buffer.writeln('- ${input.label} (${input.key}): ${input.hint} *(not provided)*');
+        }
       }
       buffer.writeln('');
     }
@@ -552,6 +559,37 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     buffer.writeln('Please execute this skill step by step. Ask for clarification if any step is unclear.');
 
     return buffer.toString();
+  }
+
+  /// Prompt user to update the skill formula after a successful run
+  Future<void> _promptUpdateFormula() async {
+    final l10n = context.l10n;
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.skillsUpdateAvailable),
+        content: Text(l10n.skillsUpdateConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.skillsCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.skillsUpdate),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && mounted) {
+      // Navigate to SkillCreatePage with current skill for editing
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => SkillCreatePage(initialSkill: _skill),
+        ),
+      );
+    }
   }
 
   /// Prompt user for required inputs

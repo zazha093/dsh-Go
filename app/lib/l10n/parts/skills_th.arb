@@ -34,6 +34,7 @@
   "skillsUpdateAvailable": "มีอัปเดต — ครั้งนี้รันได้ดีกว่าสูตรที่บันทึกไว้",
   "skillsUpdateConfirm": "อัปเดตสูตรที่บันทึกไว้ ด้วยวิธีที่รันสำเร็จครั้งนี้?",
   "skillsUpdated": "อัปเดตสกิลแล้ว",
+  "skillsUpdate": "อัปเดตสูตร",
   "skillsHidden": "สกิลที่ซ่อน",
   "skillsShowHidden": "แสดงที่ซ่อน",
   "skillsHide": "ซ่อน",
