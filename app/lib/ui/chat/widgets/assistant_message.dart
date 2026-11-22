@@ -244,53 +244,31 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
     final onQuote = widget.onQuote;
     final l10n = context.l10n;
     
-    // Get current session ID from provider
-    final sessionId = ref.read(currentSessionProvider);
-    
     // Build extra groups: native plugins + "Save as Skill"
     final extraGroups = <MenuGroup>[
       ...nativeMessageMenuGroups(context, widget.item, text: markdown),
-      if (sessionId != null)
-        MenuGroup(
-          title: l10n.skillsTitle,
-          items: [
-            MenuItem(
-              icon: AppIcons.skill,
-              label: l10n.skillsDistillSave,
-              hint: l10n.skillsDistillDescription,
-              onTap: () {
-                Navigator.of(context).pop(); // Close the menu sheet
-                // Navigate to SkillCreatePage to distill from current session
-                final sessionTitle = l10n.commonUntitledChat;
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => SkillCreatePage(
-                      sessionId: sessionId,
-                      sessionTitle: sessionTitle,
-                    ),
+      MenuGroup(
+        title: l10n.skillsTitle,
+        items: [
+          MenuItem(
+            icon: AppIcons.skill,
+            label: l10n.skillsDistillSave,
+            hint: l10n.skillsSaveFromMessage, // Reuse the new translation for hint
+            onTap: () {
+              Navigator.of(context).pop(); // Close the menu sheet
+              // Navigate to SkillCreatePage with selected message text as draft
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => SkillCreatePage(
+                    draftText: text,
+                    draftTools: const [], // TODO: extract tool calls from turn
                   ),
-                );
-              },
-            ),
-            MenuItem(
-              icon: AppIcons.skill,
-              label: l10n.skillsSaveFromMessage,
-              hint: 'Create a skill from this message text',
-              onTap: () {
-                Navigator.of(context).pop(); // Close the menu sheet
-                // Navigate to SkillCreatePage with selected message text as draft
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => SkillCreatePage(
-                      draftText: text,
-                      draftTools: const [], // TODO: extract tool calls from turn
-                    ),
-                  ),
-                );
-              },
-            ),
-          ],
-        ),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
     ];
 
     final action = await showMessageMenu(
