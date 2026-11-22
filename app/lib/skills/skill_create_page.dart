@@ -188,7 +188,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
             FocusManager.instance.primaryFocus?.unfocus();
             await Future.delayed(const Duration(milliseconds: 100));
             if (!mounted) return;
-            Navigator.pop(context);
+            Navigator.of(context).pop();
           },
         ),
       ),
@@ -251,7 +251,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                           FocusManager.instance.primaryFocus?.unfocus();
                           await Future.delayed(const Duration(milliseconds: 100));
                           if (!mounted) return;
-                          Navigator.pop(context);
+                          Navigator.of(context).pop();
                         },
                         child: Text(l10n.skillsCancel),
                       ),
@@ -451,7 +451,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       FocusManager.instance.primaryFocus?.unfocus();
       await Future.delayed(const Duration(milliseconds: 100));
       if (!mounted) return;
-      Navigator.pop(context);
+      Navigator.of(context).pop();
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
