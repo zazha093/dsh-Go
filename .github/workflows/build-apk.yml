@@ -9,7 +9,7 @@ on:
         default: ''
         type: string
   push:
-    branches: [test/thai-build, golden/thai-9e27, feat/thai-polish, ci/thai-test, thai/release]
+    branches: [test/thai-build, golden/thai-9e27, feat/thai-polish, ci/thai-test, thai/release, feat/fix-skill-crash]
 
 permissions:
   contents: read
