@@ -75,9 +75,6 @@ class _SkillsPageState extends ConsumerState<SkillsPage> {
       );
     }
 
-    final skillsState = ref.watch(skillsProvider);
-    final filteredSkills = skillsState.filteredSkills;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.skillsTitle),
