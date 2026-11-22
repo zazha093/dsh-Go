@@ -190,7 +190,7 @@ Future<void> _writeErrorLog(String logEntry) async {
     if (stat.size > 1024 * 1024) {
       final lines = logFile.readAsLinesSync();
       if (lines.length > 1000) {
-        await logFile.writeAsString(lines.skip(lines.length - 500).join('\n') + '\n');
+        await logFile.writeAsString('${lines.skip(lines.length - 500).join('\n')}\n');
       }
     }
   } catch (e) {

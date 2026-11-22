@@ -601,7 +601,7 @@ class SkillDistiller {
   
   /// Infer category from text content
   static SkillCategory _inferCategoryFromText(String userMessage, String? aiResponse, List<String> toolCalls) {
-    final allText = '${userMessage} ${aiResponse ?? ''} ${toolCalls.join(' ')}'.toLowerCase();
+    final allText = '${userMessage} $aiResponse ${toolCalls.join(' ')}'.toLowerCase();
     
     if (allText.contains('code') || allText.contains('develop') || allText.contains('program') ||
         allText.contains('debug') || allText.contains('refactor') || allText.contains('review') ||
