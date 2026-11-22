@@ -163,10 +163,16 @@ jobs:
           DART_DEFINE: ${{ github.event.inputs.dart_define }}
         run: |
           printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$FLUTTER_ROOT" > android/local.properties
-          if [ -n "$DART_DEFINE" ]; then
-            bash ../tooling/build-apk.sh -f arm64 --release -- --dart-define="$DART_DEFINE"
+          # Enable fork-only features (Personal Skills) for thai/release and feature branches
+          if [[ "${{ github.ref }}" == "refs/heads/thai/release" ]] || [[ "${{ github.ref }}" == refs/heads/feat/* ]]; then
+            FORK_FLAGS="--dart-define=FORK_SKILLS=true"
           else
-            bash ../tooling/build-apk.sh -f arm64 --release
+            FORK_FLAGS=""
+          fi
+          if [ -n "$DART_DEFINE" ]; then
+            bash ../tooling/build-apk.sh -f arm64 --release -- --dart-define="$DART_DEFINE" $FORK_FLAGS
+          else
+            bash ../tooling/build-apk.sh -f arm64 --release $FORK_FLAGS
           fi
 
       - name: Upload APK (arm64)
