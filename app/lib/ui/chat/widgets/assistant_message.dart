@@ -272,6 +272,23 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
                 );
               },
             ),
+            MenuItem(
+              icon: AppIcons.skill,
+              label: l10n.skillsSaveFromMessage,
+              hint: 'Create a skill from this message text',
+              onTap: () {
+                Navigator.of(context).pop(); // Close the menu sheet
+                // Navigate to SkillCreatePage with selected message text as draft
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => SkillCreatePage(
+                      draftText: text,
+                      draftTools: const [], // TODO: extract tool calls from turn
+                    ),
+                  ),
+                );
+              },
+            ),
           ],
         ),
     ];

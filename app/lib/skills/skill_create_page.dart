@@ -13,9 +13,16 @@ import 'widgets/form_field.dart';
 import 'widgets/section_title.dart';
 import 'widgets/user_inputs_editor.dart';
 
-/// Create page for a new skill (or distilling from session)
+/// Create page for a new skill (or distilling from session, or from selected message)
 class SkillCreatePage extends ConsumerStatefulWidget {
-  const SkillCreatePage({super.key, this.initialSkill, this.sessionId, this.sessionTitle});
+  const SkillCreatePage({
+    super.key,
+    this.initialSkill,
+    this.sessionId,
+    this.sessionTitle,
+    this.draftText,
+    this.draftTools,
+  });
 
   /// Pre-filled skill (for duplication)
   final Skill? initialSkill;
@@ -25,6 +32,12 @@ class SkillCreatePage extends ConsumerStatefulWidget {
 
   /// Session title (if distilling)
   final String? sessionTitle;
+
+  /// Draft text from selected message (for "Save as Skill from This Message")
+  final String? draftText;
+
+  /// Tool names from the selected message's tool calls
+  final List<String>? draftTools;
 
   @override
   ConsumerState<SkillCreatePage> createState() => _SkillCreatePageState();
@@ -52,6 +65,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     super.initState();
     if (widget.initialSkill != null) {
       _fillForm(widget.initialSkill!);
+    } else if (widget.draftText != null) {
+      // Create draft from selected message text
+      _createDraftFromText();
     } else if (widget.sessionId != null) {
       // Auto-start distillation
       _distillFromSession();
@@ -80,6 +96,76 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     _userInputs.addAll(skill.userInputs);
     _inputFormKeys.clear();
     _inputFormKeys.addAll(List.generate(skill.userInputs.length, (_) => GlobalKey<FormState>()));
+  }
+
+  /// Create a draft skill from selected message text
+  void _createDraftFromText() {
+    final text = widget.draftText ?? '';
+    final tools = widget.draftTools ?? [];
+    
+    // Generate a name from the first line or first 30 chars
+    final lines = text.split('\n').where((l) => l.trim().isNotEmpty).toList();
+    String name = lines.isNotEmpty ? lines.first : text;
+    if (name.length > 30) name = '${name.substring(0, 27)}...';
+    name = name.trim();
+    if (name.isEmpty) name = 'Unnamed Skill';
+    
+    // Create a basic draft skill
+    final draftSkill = Skill(
+      id: '',
+      name: name,
+      description: text.length > 200 ? '${text.substring(0, 200)}...' : text,
+      goal: text,
+      steps: _extractStepsFromText(text),
+      constraints: [
+        'Do not store secrets (API keys, tokens, passwords)',
+        'Follow the original message\'s approach',
+      ],
+      requiredTools: tools.isNotEmpty ? tools : ['bash', 'edit'],
+      userInputs: [],
+      createdAt: DateTime.now(),
+      sourceSessionTitle: 'From message',
+    );
+    
+    _fillForm(draftSkill);
+    
+    // Show a snackbar to indicate draft was created
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
+        );
+      }
+    });
+  }
+
+  /// Extract steps from text by splitting on sentences or line breaks
+  List<String> _extractStepsFromText(String text) {
+    // Simple extraction: split by periods, line breaks, or numbered items
+    final steps = <String>[];
+    
+    // Try to find numbered steps first
+    final numberedMatches = RegExp(r'\d+\.\s*([^\n]+)').allMatches(text);
+    for (final match in numberedMatches) {
+      final step = match.group(1)?.trim();
+      if (step != null && step.isNotEmpty) {
+        steps.add(step);
+      }
+    }
+    
+    // If no numbered steps, split by sentences
+    if (steps.isEmpty) {
+      final sentences = text.split(RegExp(r'[.!?]\s+'));
+      for (final sentence in sentences) {
+        final trimmed = sentence.trim();
+        if (trimmed.length > 10 && trimmed.length < 200) {
+          steps.add(trimmed);
+        }
+      }
+    }
+    
+    // Limit to reasonable number
+    return steps.take(10).toList();
   }
 
   Future<void> _distillFromSession() async {
