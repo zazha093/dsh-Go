@@ -7,8 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'skill_model.dart';
 
-/// Storage key for skills list
-const _skillsStorageKey = 'personal_skills_v1';
+/// Storage key for skills list (v1 - legacy)
+const _skillsStorageKeyV1 = 'personal_skills_v1';
+
+/// Storage key for skills list (v2 - current)
+const _skillsStorageKeyV2 = 'personal_skills_v2';
+
+/// Backup key for v1 data during migration
+const _skillsBackupKey = 'personal_skills_backup_v1';
 
 /// Storage key for skill invocation history
 const _skillHistoryKey = 'personal_skills_history_v1';
@@ -29,17 +35,65 @@ class SkillStorage {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  /// Get all skills (visible + hidden)
+  /// Get all skills (visible + hidden) - loads from v2, migrates from v1 if needed
   List<Skill> getAllSkills() {
     if (_prefs == null) return [];
-    final jsonString = _prefs!.getString(_skillsStorageKey);
-    if (jsonString == null || jsonString.isEmpty) return [];
-    try {
-      final List<dynamic> decoded = jsonDecode(jsonString);
-      return decoded.map((e) => Skill.fromJson(e as Map<String, Object?>)).toList();
-    } catch (_) {
-      return [];
+
+    // 1. Try v2 first (successful migration or fresh v2 install)
+    final v2Json = _prefs!.getString(_skillsStorageKeyV2);
+    if (v2Json != null && v2Json.isNotEmpty) {
+      try {
+        final List<dynamic> decoded = jsonDecode(v2Json);
+        return decoded.map((e) => Skill.fromJson(e as Map<String, Object?>)).toList();
+      } catch (_) {
+        // v2 corrupt - fall through to try v1/backup
+      }
     }
+
+    // 2. Try backup (migration interrupted, restore from backup)
+    final backupJson = _prefs!.getString(_skillsBackupKey);
+    if (backupJson != null && backupJson.isNotEmpty) {
+      try {
+        final List<dynamic> decoded = jsonDecode(backupJson);
+        final skills = decoded.map((e) => Skill.fromJson(e as Map<String, Object?>)).toList();
+        // Restore v1 from backup
+        _prefs!.setString(_skillsStorageKeyV1, backupJson);
+        _prefs!.remove(_skillsBackupKey);
+        return skills;
+      } catch (_) {
+        // Backup corrupt - fall through to try v1
+      }
+    }
+
+    // 3. Try v1 (fresh install or no migration yet) - BEGIN MIGRATION
+    final v1Json = _prefs!.getString(_skillsStorageKeyV1);
+    if (v1Json != null && v1Json.isNotEmpty) {
+      try {
+        final List<dynamic> decoded = jsonDecode(v1Json);
+        final v1Skills = decoded.map((e) => Skill.fromJson(e as Map<String, Object?>)).toList();
+
+        // BACKUP FIRST (critical - before any migration)
+        _prefs!.setString(_skillsBackupKey, v1Json);
+
+        // Migrate in memory
+        final v2Skills = v1Skills.map((s) => s.migrateToV2()).toList();
+
+        // Write v2
+        final v2JsonString = jsonEncode(v2Skills.map((s) => s.toJson()).toList());
+        _prefs!.setString(_skillsStorageKeyV2, v2JsonString);
+
+        // SUCCESS: Remove backup
+        _prefs!.remove(_skillsBackupKey);
+
+        return v2Skills;
+      } catch (_) {
+        // Migration failed - backup remains for next attempt
+        return [];
+      }
+    }
+
+    // 4. No data
+    return [];
   }
 
   /// Get visible (non-hidden) skills
@@ -57,11 +111,11 @@ class SkillStorage {
     return getAllSkills().firstWhereOrNull((s) => s.id == id);
   }
 
-  /// Save all skills (replaces entire list)
+  /// Save all skills (replaces entire list) - writes to v2
   Future<void> saveAllSkills(List<Skill> skills) async {
     if (_prefs == null) return;
     final jsonString = jsonEncode(skills.map((s) => s.toJson()).toList());
-    await _prefs!.setString(_skillsStorageKey, jsonString);
+    await _prefs!.setString(_skillsStorageKeyV2, jsonString);
   }
 
   /// Add or update a single skill
