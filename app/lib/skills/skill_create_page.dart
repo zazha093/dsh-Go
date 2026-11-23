@@ -10,8 +10,12 @@ import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
 import 'widgets/form_field.dart';
-import 'widgets/section_title.dart';
+import 'widgets/section_title.dart'
 import 'widgets/user_inputs_editor.dart';
+import 'widgets/kind_selector.dart';
+import 'widgets/step_editor.dart';
+import 'widgets/parameter_binding_ui.dart';
+import 'widgets/dry_run_preview.dart';
 
 /// Create page for a new skill (or distilling from session, or from selected message)
 class SkillCreatePage extends ConsumerStatefulWidget {
@@ -51,6 +55,11 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   final _stepsController = TextEditingController();
   final _constraintsController = TextEditingController();
   final _toolsController = TextEditingController();
+
+  // New v2 fields
+  String _kind = 'workflow';
+  List<SkillStep> _executableSteps = [];
+  List<SkillParameter> _parameters = [];
 
   // User inputs editor state
   final List<SkillInput> _userInputs = [];
@@ -96,13 +105,18 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     _userInputs.addAll(skill.userInputs);
     _inputFormKeys.clear();
     _inputFormKeys.addAll(List.generate(skill.userInputs.length, (_) => GlobalKey<FormState>()));
+
+    // v2 fields
+    _kind = skill.kind;
+    _executableSteps = skill.executableSteps ?? [];
+    _parameters = skill.parameters ?? [];
   }
 
   /// Create a draft skill from selected message text using regex-based extraction
   void _createDraftFromText() {
     final text = widget.draftText ?? '';
     final tools = widget.draftTools ?? [];
-    
+
     // Use the new regex-based extraction (no AI)
     final draftSkill = SkillDistiller.createFromMessageText(
       userMessage: text,
@@ -110,9 +124,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       toolCalls: tools,
       sessionTitle: 'From message',
     );
-    
+
     _fillForm(draftSkill);
-    
+
     // Show a snackbar to indicate draft was created
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
@@ -158,6 +172,29 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         _distillError = e.toString();
       });
     }
+  }
+
+  void _onKindChanged(String kind) {
+    setState(() {
+      _kind = kind;
+      // Clear executable steps if switching away from executable
+      if (kind != 'executable') {
+        _executableSteps = [];
+      }
+    });
+  }
+
+  void _onStepsChanged(List<SkillStep> steps) {
+    setState(() {
+      _executableSteps = steps;
+    });
+  }
+
+  void _onParametersChanged(List<SkillParameter> params) {
+    setState(() {
+      _parameters = params;
+    }
+    );
   }
 
   @override
@@ -256,7 +293,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 ),
               ),
             ),
-    );
+      );
   }
 
   Widget _buildForm() {
@@ -267,6 +304,13 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Kind Selector
+        KindSelector(
+          selectedKind: _kind,
+          onKindChanged: _onKindChanged,
+        ),
+        const SizedBox(height: 16),
+
         // Name
         SkillFormField(
           label: l10n.skillsName,
@@ -296,15 +340,17 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         ),
         const SizedBox(height: 16),
 
-        // Steps
-        SkillFormField(
-          label: l10n.skillsSteps,
-          hint: l10n.skillsStepsHint,
-          controller: _stepsController,
-          maxLines: 5,
-          validator: (v) => v?.trim().isEmpty == true ? l10n.skillsStepsHint : null,
-        ),
-        const SizedBox(height: 16),
+        // Steps (text) - shown for knowledge/workflow
+        if (_kind != 'executable') ...[
+          SkillFormField(
+            label: l10n.skillsSteps,
+            hint: l10n.skillsStepsHint,
+            controller: _stepsController,
+            maxLines: 5,
+            validator: (v) => v?.trim().isEmpty == true ? l10n.skillsStepsHint : null,
+          ),
+          const SizedBox(height: 16),
+        ],
 
         // Constraints
         SkillFormField(
@@ -322,6 +368,44 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
           controller: _toolsController,
         ),
         const SizedBox(height: 16),
+
+        // Executable Steps (for executable kind)
+        if (_kind == 'executable') ...[
+          StepEditor(
+            steps: _executableSteps,
+            onStepsChanged: _onStepsChanged,
+            parameters: _parameters,
+            onParametersChanged: _onParametersChanged,
+            kind: _kind,
+          ),
+          const SizedBox(height: 16),
+        ],
+
+        // Constraints (text)
+        SkillFormField(
+          label: l10n.skillsConstraints,
+          hint: l10n.skillsConstraintsHint,
+          controller: _constraintsController,
+          maxLines: 3,
+        ),
+        const SizedBox(height: 16),
+
+        // Required Tools
+        SkillFormField(
+          label: l10n.skillsRequiredTools,
+          hint: l10n.skillsRequiredToolsHint,
+          controller: _toolsController,
+        ),
+        const SizedBox(height: 16),
+
+        // Parameter Binding (for executable kind)
+        if (_kind == 'executable') ...[
+          ParameterBindingUI(
+            parameters: _parameters,
+            onParametersChanged: _onParametersChanged,
+          ),
+          const SizedBox(height: 16),
+        ],
 
         // User Inputs
         SkillSectionTitle(title: l10n.skillsUserInputs),
@@ -344,6 +428,52 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
           }),
         ),
         const SizedBox(height: 16),
+
+        // Warning about secrets
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(
+            color: Colors.orange.withValues(alpha: 0.1),
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+          ),
+          child: Row(
+            children: [
+              const Icon(app_icons.AppIcons.warning, color: Colors.orange),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  l10n.skillsSecretsWarning,
+                  style: theme.textTheme.bodySmall?.copyWith(color: Colors.orange),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 16),
+
+        // Dry Run Preview (for executable kind)
+        if (_kind == 'executable') ...[
+          DryRunPreview(
+            skill: Skill(
+              id: 'draft',
+              name: _nameController.text.trim().isEmpty ? 'Draft' : _nameController.text.trim(),
+              description: _descriptionController.text.trim(),
+              goal: _goalController.text.trim(),
+              steps: _kind == 'executable' ? [] : _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+              constraints: _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+              requiredTools: _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
+              userInputs: _userInputs,
+              createdAt: DateTime.now(),
+              category: _inferCategory(),
+              kind: _kind,
+              schemaVersion: 2,
+              executableSteps: _executableSteps,
+              parameters: _parameters,
+            ),
+          ),
+          const SizedBox(height: 16),
+        ],
 
         // Warning about secrets
         Container(
@@ -413,7 +543,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         name: _nameController.text.trim(),
         description: _descriptionController.text.trim(),
         goal: _goalController.text.trim(),
-        steps: _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+        steps: _kind == 'executable' ? [] : _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
         constraints: _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
         requiredTools: _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
         userInputs: List.from(_userInputs),
@@ -423,6 +553,12 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         sourceSessionId: widget.sessionId,
         sourceSessionTitle: widget.sessionTitle,
         version: widget.initialSkill?.version ?? 1,
+        // v2 fields
+        kind: _kind,
+        schemaVersion: 2,
+        executableSteps: _kind == 'executable' ? _executableSteps : null,
+        parameters: _kind == 'executable' ? _parameters : null,
+        errorHandling: _kind == 'executable' ? SkillErrorHandling() : null,
       );
 
       if (widget.initialSkill != null) {
