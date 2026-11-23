@@ -11,17 +11,20 @@
 
 import 'dart:async';
 
-import 'package:dsh_client/dsh_client.dart' show DshGoScope;
+import 'package:dsh_client/dsh_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../fork/feature_flags.dart';
 import '../../../l10n/l10n.dart';
 import '../../../plugins/native/native_model.dart';
 import '../../../plugins/native/native_state.dart';
+import '../../../state/chat_state.dart';
 import '../../../ui_config/ui_config_model.dart';
 import '../../../ui_config/ui_config_state.dart';
 import '../../common/edge_fade.dart';
 import '../../pets/pet_perch.dart';
+import '../../../skills/skill_create_page.dart';
 import '../../theme/app_icons.dart';
 import '../../theme/theme.dart';
 import 'chat_plugins_sheet.dart';
@@ -265,6 +268,14 @@ class _ComposerCapsuleBarState extends ConsumerState<ComposerCapsuleBar> {
   List<CapsuleItem> _last = const [];
   Widget? _lastLeading;
 
+  void _openMultiSelectSkillCreate(BuildContext context, String sessionId) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => _MultiSelectSkillPage(sessionId: sessionId),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final quick = ref.watch(uiOverridesProvider.select((o) => o.config.quickActions)) ?? const <UiQuickAction>[];
@@ -279,6 +290,13 @@ class _ComposerCapsuleBarState extends ConsumerState<ComposerCapsuleBar> {
           label: context.l10n.plugslotsChatEntry,
           icon: AppIcons.plugin,
           onTap: () => unawaited(showChatPluginsSheet(context, sessionId: session)),
+        ),
+      if (kEnablePersonalSkills && session != null)
+        CapsuleItem(
+          id: 'skills_multi_select_save',
+          label: context.l10n.skillsMultiSelectSave,
+          icon: AppIcons.skill,
+          onTap: () => _openMultiSelectSkillCreate(context, session),
         ),
     ];
     final leading = widget.leading;
@@ -298,6 +316,110 @@ class _ComposerCapsuleBarState extends ConsumerState<ComposerCapsuleBar> {
               active: open,
               child: ComposerCapsuleRow(items: _last, leading: _lastLeading),
             ),
+    );
+  }
+}
+
+/// Page for selecting multiple messages to save as a skill.
+class _MultiSelectSkillPage extends ConsumerStatefulWidget {
+  const _MultiSelectSkillPage({required this.sessionId});
+  final String sessionId;
+
+  @override
+  ConsumerState<_MultiSelectSkillPage> createState() => _MultiSelectSkillPageState();
+}
+
+class _MultiSelectSkillPageState extends ConsumerState<_MultiSelectSkillPage> {
+  final Set<String> _selectedKeys = {};
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = context.l10n;
+    final chatState = ref.watch(chatProvider(widget.sessionId));
+    final items = chatState.items;
+
+    // Filter to user and assistant messages that have text content
+    final selectableItems = items.where((item) {
+      if (item is UserChatItem) return item.text.isNotEmpty;
+      if (item is AssistantChatItem) return item.text.isNotEmpty;
+      return false;
+    }).toList();
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.skillsMultiSelectSave),
+        actions: [
+          if (_selectedKeys.isNotEmpty)
+            TextButton(
+              onPressed: _saveAsSkill,
+              child: Text(l10n.skillsDistillSave),
+            ),
+        ],
+      ),
+      body: selectableItems.isEmpty
+          ? Center(child: Text(l10n.skillsDistillNoSessions))
+          : ListView.builder(
+              itemCount: selectableItems.length,
+              itemBuilder: (context, index) {
+                final item = selectableItems[index];
+                final isSelected = _selectedKeys.contains(item.key);
+                final text = item is UserChatItem ? item.text : (item as AssistantChatItem).text;
+                final isUser = item is UserChatItem;
+
+                return CheckboxListTile(
+                  key: ValueKey(item.key),
+                  title: Text(
+                    text,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontWeight: isUser ? FontWeight.w500 : FontWeight.normal,
+                    ),
+                  ),
+                  subtitle: Text(isUser ? 'User' : 'Assistant'),
+                  value: isSelected,
+                  onChanged: (selected) {
+                    setState(() {
+                      if (selected == true) {
+                        _selectedKeys.add(item.key);
+                      } else {
+                        _selectedKeys.remove(item.key);
+                      }
+                    });
+                  },
+                );
+              },
+            ),
+    );
+  }
+
+  void _saveAsSkill() {
+    final chatState = ref.read(chatProvider(widget.sessionId));
+    final items = chatState.items;
+
+    // Collect selected messages in chronological order
+    final selectedMessages = <String>[];
+    for (final item in items) {
+      if (!_selectedKeys.contains(item.key)) continue;
+      if (item is UserChatItem) {
+        selectedMessages.add('User: ${item.text}');
+      } else if (item is AssistantChatItem) {
+        selectedMessages.add('Assistant: ${item.text}');
+      }
+    }
+
+    if (selectedMessages.isEmpty) return;
+
+    final combinedText = selectedMessages.join('\n\n---\n\n');
+
+    Navigator.of(context).pop(); // Close selection page
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => SkillCreatePage(
+          draftText: combinedText,
+          draftTools: const [],
+        ),
+      ),
     );
   }
 }

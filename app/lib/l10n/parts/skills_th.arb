@@ -51,6 +51,7 @@
   "skillsDistillFormula": "สูตรที่จะบันทึก",
   "skillsDistillSave": "บันทึกเป็นสกิล",
   "skillsSaveFromMessage": "บันทึกเป็นสกิลจากข้อความนี้",
+  "skillsMultiSelectSave": "บันทึกเป็นสกิลจากข้อความที่เลือก",
   "skillsDistillNameConflict": "มีสกิลชื่อ \"{name}\" อยู่แล้ว ใส่ชื่อใหม่ หรืออัปเดตตัวเดิม",
   "skillsDistillError": "กลั่นสกิลไม่ได้: {error}",
   "skillsDistillSuccess": "สร้างสกิล \"{name}\" แล้ว",

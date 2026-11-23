@@ -51,6 +51,7 @@
   "skillsDistillFormula": "公式预览",
   "skillsDistillSave": "保存为技能",
   "skillsSaveFromMessage": "从这条消息保存为技能",
+  "skillsMultiSelectSave": "从选中消息保存为技能",
   "skillsDistillNameConflict": "已存在名为 \"{name}\" 的技能。请换个名字，或更新现有技能。",
   "skillsDistillError": "提炼失败：{error}",
   "skillsDistillSuccess": "已创建技能 \"{name}\"",
