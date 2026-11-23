@@ -502,7 +502,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     if (ok != true || !mounted) return;
     final notifier = ref.read(skillsProvider.notifier); // Capture before pop
     _safePop();
-    await notifier.delete(_skill.id); // Delete after pop to avoid rebuild during animation
+    await notifier.deleteSkill(_skill.id); // Delete after pop to avoid rebuild during animation
   }
 
   Future<void> _runSkill() async {
