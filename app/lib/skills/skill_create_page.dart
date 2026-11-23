@@ -184,9 +184,8 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 : l10n.skillsCreate),
         leading: IconButton(
           icon: const Icon(app_icons.AppIcons.close),
-          onPressed: () async {
+          onPressed: () {
             FocusManager.instance.primaryFocus?.unfocus();
-            await Future.delayed(const Duration(milliseconds: 100));
             if (!mounted) return;
             Navigator.of(context).pop();
           },
@@ -247,9 +246,8 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   children: [
                     Expanded(
                       child: OutlinedButton(
-                        onPressed: () async {
+                        onPressed: () {
                           FocusManager.instance.primaryFocus?.unfocus();
-                          await Future.delayed(const Duration(milliseconds: 100));
                           if (!mounted) return;
                           Navigator.of(context).pop();
                         },
@@ -449,11 +447,10 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
       if (!mounted) return;
       FocusManager.instance.primaryFocus?.unfocus();
-      await Future.delayed(const Duration(milliseconds: 100));
-      if (!mounted) return;
+      final scaffoldMessenger = ScaffoldMessenger.of(context);
       Navigator.of(context).pop();
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
+      scaffoldMessenger.showSnackBar(
         SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
       );
     } catch (e) {
