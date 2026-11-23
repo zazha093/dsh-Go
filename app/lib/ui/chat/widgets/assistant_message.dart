@@ -260,7 +260,7 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
                 MaterialPageRoute(
                   builder: (_) => SkillCreatePage(
                     draftText: text,
-                    draftTools: const [], // TODO: extract tool calls from turn
+                    draftTools: widget.item.toolCalls,
                   ),
                 ),
               );

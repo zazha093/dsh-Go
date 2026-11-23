@@ -60,6 +60,7 @@ final class AssistantChatItem extends ChatItem {
     this.usage,
     this.model,
     this.rowKey,
+    this.toolCalls = const [],
   });
 
   /// `a<seq>` for durable messages, `d<attemptId>` for live drafts.
@@ -82,6 +83,9 @@ final class AssistantChatItem extends ChatItem {
   final bool isFinalAnswer;
   final TokenUsage? usage;
   final String? model;
+
+  /// Tool names called by this assistant message (populated from transcript).
+  final List<String> toolCalls;
 
   @override
   String get key => rowKey ?? id;
@@ -529,6 +533,7 @@ class _DurableFold {
               isFinalAnswer: message.isFinalAnswer,
               usage: event.usage,
               model: message.source.model,
+              toolCalls: message.toolCalls.map((c) => c.name).toList(),
             ),
           );
         }
