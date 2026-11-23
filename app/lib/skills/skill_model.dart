@@ -29,6 +29,13 @@ class Skill {
     this.version = 1,
     this.requiredPersona,
     this.lastRunStatus = SkillRunStatus.never,
+    // v2 fields
+    this.kind = 'workflow',
+    this.schemaVersion = 2,
+    this.provenance,
+    this.executableSteps,
+    this.parameters,
+    this.errorHandling,
   });
 
   /// Unique identifier (UUID v4)
@@ -94,6 +101,25 @@ class Skill {
   /// Status of the last run
   final SkillRunStatus lastRunStatus;
 
+  // ===== V2 FIELDS =====
+  /// Skill kind: 'knowledge' | 'workflow' | 'executable'
+  final String kind;
+
+  /// Schema version (2 for v2)
+  final int schemaVersion;
+
+  /// Provenance information (how this skill was created)
+  final SkillProvenance? provenance;
+
+  /// Executable steps with tool bindings (only for executable kind)
+  final List<SkillStep>? executableSteps;
+
+  /// Parameters for parameterized execution (only for executable kind)
+  final List<SkillParameter>? parameters;
+
+  /// Error handling configuration (only for executable kind)
+  final SkillErrorHandling? errorHandling;
+
   /// Success rate as percentage (0-100)
   int get successRate => useCount == 0 ? 0 : ((successCount / useCount) * 100).round();
 
@@ -135,6 +161,13 @@ class Skill {
     int? version,
     String? requiredPersona,
     SkillRunStatus? lastRunStatus,
+    // v2 fields
+    String? kind,
+    int? schemaVersion,
+    SkillProvenance? provenance,
+    List<SkillStep>? executableSteps,
+    List<SkillParameter>? parameters,
+    SkillErrorHandling? errorHandling,
   }) {
     return Skill(
       id: id ?? this.id,
@@ -158,6 +191,13 @@ class Skill {
       version: version ?? this.version,
       requiredPersona: requiredPersona ?? this.requiredPersona,
       lastRunStatus: lastRunStatus ?? this.lastRunStatus,
+      // v2 fields
+      kind: kind ?? this.kind,
+      schemaVersion: schemaVersion ?? this.schemaVersion,
+      provenance: provenance ?? this.provenance,
+      executableSteps: executableSteps ?? this.executableSteps,
+      parameters: parameters ?? this.parameters,
+      errorHandling: errorHandling ?? this.errorHandling,
     );
   }
 
@@ -185,6 +225,13 @@ class Skill {
       'version': version,
       'requiredPersona': requiredPersona,
       'lastRunStatus': lastRunStatus.name,
+      // v2 fields
+      'kind': kind,
+      'schemaVersion': schemaVersion,
+      'provenance': provenance?.toJson(),
+      'executableSteps': executableSteps?.map((e) => e.toJson()).toList(),
+      'parameters': parameters?.map((e) => e.toJson()).toList(),
+      'errorHandling': errorHandling?.toJson(),
     };
   }
 
@@ -193,6 +240,13 @@ class Skill {
     // Handle legacy data gracefully - use safe casting with defaults
     final rawRequiredPersona = json['requiredPersona'];
     final rawLastRunStatus = json['lastRunStatus'];
+    // v2 fields with defaults for backward compatibility
+    final rawKind = json['kind'];
+    final rawSchemaVersion = json['schemaVersion'];
+    final rawProvenance = json['provenance'];
+    final rawExecutableSteps = json['executableSteps'];
+    final rawParameters = json['parameters'];
+    final rawErrorHandling = json['errorHandling'];
     
     return Skill(
       id: json['id'] as String,
@@ -226,6 +280,25 @@ class Skill {
       lastRunStatus: rawLastRunStatus != null
           ? SkillRunStatus.values.byName(rawLastRunStatus as String)
           : SkillRunStatus.never,
+      // v2 fields with defaults for v1 compatibility
+      kind: rawKind as String? ?? 'workflow',
+      schemaVersion: rawSchemaVersion as int? ?? 2,
+      provenance: rawProvenance != null
+          ? SkillProvenance.fromJson(rawProvenance as Map<String, Object?>)
+          : null,
+      executableSteps: rawExecutableSteps != null
+          ? (rawExecutableSteps as List)
+              .map((e) => SkillStep.fromJson(e as Map<String, Object?>))
+              .toList()
+          : null,
+      parameters: rawParameters != null
+          ? (rawParameters as List)
+              .map((e) => SkillParameter.fromJson(e as Map<String, Object?>))
+              .toList()
+          : null,
+      errorHandling: rawErrorHandling != null
+          ? SkillErrorHandling.fromJson(rawErrorHandling as Map<String, Object?>)
+          : null,
     );
   }
 
@@ -374,4 +447,254 @@ class SkillResult {
       totalSteps: totalSteps,
     );
   }
+}
+
+/// ===== V2 CLASSES =====
+
+/// Provenance information — how this skill was created
+class SkillProvenance {
+  const SkillProvenance({
+    required this.type,
+    this.sourceSessionId,
+    this.sourceMessageId,
+    required this.createdAt,
+    this.evidence = const {},
+  });
+
+  /// 'manual' | 'distilled' | 'migrated' | 'imported'
+  final String type;
+
+  /// Session this skill was distilled from
+  final String? sourceSessionId;
+
+  /// Specific message in the session
+  final String? sourceMessageId;
+
+  /// When this skill was created
+  final DateTime createdAt;
+
+  /// Evidence markers: observed vs inferred
+  final Map<String, dynamic> evidence;
+
+  Map<String, Object?> toJson() {
+    return {
+      'type': type,
+      'sourceSessionId': sourceSessionId,
+      'sourceMessageId': sourceMessageId,
+      'createdAt': createdAt.toIso8601String(),
+      'evidence': evidence,
+    };
+  }
+
+  factory SkillProvenance.fromJson(Map<String, Object?> json) {
+    return SkillProvenance(
+      type: json['type'] as String,
+      sourceSessionId: json['sourceSessionId'] as String?,
+      sourceMessageId: json['sourceMessageId'] as String?,
+      createdAt: DateTime.tryParse(json['createdAt'] as String? ?? '') ?? DateTime.now(),
+      evidence: json['evidence'] as Map<String, dynamic>? ?? {},
+    );
+  }
+
+  static SkillProvenance migrated(String originalId) => SkillProvenance(
+    type: 'migrated',
+    sourceSessionId: originalId,
+    createdAt: DateTime.now(),
+    evidence: {'migratedFrom': originalId},
+  );
+
+  static SkillProvenance distilled(String sessionId, String messageId) => SkillProvenance(
+    type: 'distilled',
+    sourceSessionId: sessionId,
+    sourceMessageId: messageId,
+    createdAt: DateTime.now(),
+    evidence: {'distilledFrom': {'session': sessionId, 'message': messageId}},
+  );
+
+  static SkillProvenance manual() => SkillProvenance(
+    type: 'manual',
+    createdAt: DateTime.now(),
+    evidence: {},
+  );
+
+  static SkillProvenance imported(String sourceId) => SkillProvenance(
+    type: 'imported',
+    sourceSessionId: sourceId,
+    createdAt: DateTime.now(),
+    evidence: {'importedFrom': sourceId},
+  );
+}
+
+/// Error handling configuration for executable skills
+class SkillErrorHandling {
+  const SkillErrorHandling({
+    this.onError = 'stop',
+    this.maxRetries = 0,
+    this.retryDelay = const Duration(seconds: 5),
+    this.retryableErrors = const [],
+  });
+
+  /// 'stop' | 'continue' | 'retry'
+  final String onError;
+
+  final int maxRetries;
+
+  final Duration retryDelay;
+
+  /// List of error patterns that are retryable
+  final List<String> retryableErrors;
+
+  Map<String, Object?> toJson() {
+    return {
+      'onError': onError,
+      'maxRetries': maxRetries,
+      'retryDelay': retryDelay.inMilliseconds,
+      'retryableErrors': retryableErrors,
+    };
+  }
+
+  factory SkillErrorHandling.fromJson(Map<String, Object?> json) {
+    return SkillErrorHandling(
+      onError: json['onError'] as String? ?? 'stop',
+      maxRetries: json['maxRetries'] as int? ?? 0,
+      retryDelay: Duration(milliseconds: json['retryDelay'] as int? ?? 5000),
+      retryableErrors: (json['retryableErrors'] as List?)?.cast<String>() ?? [],
+    );
+  }
+}
+
+/// A single executable step with tool binding
+class SkillStep {
+  const SkillStep({
+    required this.id,
+    required this.description,
+    required this.mode,
+    this.tool,
+    this.args = const {},
+    this.order = 0,
+  });
+
+  /// Unique step ID
+  final String id;
+
+  /// Human-readable description
+  final String description;
+
+  /// 'tool' | 'agent'
+  final String mode;
+
+  /// Tool name for tool mode (e.g., 'bash', 'edit', 'web_fetch')
+  final String? tool;
+
+  /// Arguments with ${param} placeholders
+  final Map<String, dynamic> args;
+
+  /// Execution order
+  final int order;
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'description': description,
+      'mode': mode,
+      'tool': tool,
+      'args': args,
+      'order': order,
+    };
+  }
+
+  factory SkillStep.fromJson(Map<String, Object?> json) {
+    return SkillStep(
+      id: json['id'] as String,
+      description: json['description'] as String,
+      mode: json['mode'] as String? ?? 'tool',
+      tool: json['tool'] as String?,
+      args: json['args'] as Map<String, dynamic>? ?? {},
+      order: json['order'] as int? ?? 0,
+    );
+  }
+}
+
+/// Parameter definition for executable skills
+class SkillParameter {
+  const SkillParameter({
+    required this.key,
+    required this.label,
+    required this.type,
+    this.required = true,
+    this.defaultValue,
+    this.options,
+    this.bindToStep,
+    this.bindToTool,
+    this.template,
+  });
+
+  /// Parameter key (used in ${param} placeholders)
+  final String key;
+
+  /// User-facing label
+  final String label;
+
+  /// 'text' | 'number' | 'select' | 'boolean' | 'multiline'
+  final String type;
+
+  /// Whether this parameter is required
+  final bool required;
+
+  /// Default value
+  final String? defaultValue;
+
+  /// Options for select type
+  final List<String>? options;
+
+  /// Step ID this parameter binds to
+  final String? bindToStep;
+
+  /// Tool name this parameter binds to
+  final String? bindToTool;
+
+  /// Template string with ${param} placeholders
+  final String? template;
+
+  Map<String, Object?> toJson() {
+    return {
+      'key': key,
+      'label': label,
+      'type': type,
+      'required': required,
+      'defaultValue': defaultValue,
+      'options': options,
+      'bindToStep': bindToStep,
+      'bindToTool': bindToTool,
+      'template': template,
+    };
+  }
+
+  factory SkillParameter.fromJson(Map<String, Object?> json) {
+    return SkillParameter(
+      key: json['key'] as String,
+      label: json['label'] as String,
+      type: json['type'] as String? ?? 'text',
+      required: json['required'] as bool? ?? true,
+      defaultValue: json['defaultValue'] as String?,
+      options: json['options'] != null
+          ? (json['options'] as List).cast<String>()
+          : null,
+      bindToStep: json['bindToStep'] as String?,
+      bindToTool: json['bindToTool'] as String?,
+      template: json['template'] as String?,
+    );
+  }
+}
+
+/// Migration helper: v1 skill → v2 skill (in-memory, used by storage)
+extension SkillMigration on Skill {
+  Skill migrateToV2() => copyWith(
+    kind: 'workflow',
+    schemaVersion: 2,
+    provenance: SkillProvenance.migrated(id),
+    executableSteps: null,
+    parameters: null,
+    errorHandling: null,
+  );
 }
