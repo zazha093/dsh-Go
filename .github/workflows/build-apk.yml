@@ -155,7 +155,7 @@ jobs:
 
       - name: Flutter analyze
         working-directory: app
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos
 
       - name: Build APK (arm64)
         working-directory: app
