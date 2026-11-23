@@ -43,12 +43,12 @@ jobs:
         run: flutter pub get
         working-directory: app
 
-      - name: Generate l10n (all locales)
-        run: python3 tool/l10n_merge.py --locale th
+      - name: Verify l10n (check parts only)
+        run: python3 tool/l10n_merge.py --check
         working-directory: app
 
-      - name: Verify l10n
-        run: python3 tool/l10n_merge.py --check
+      - name: Generate l10n (all locales)
+        run: python3 tool/l10n_merge.py --locale th
         working-directory: app
 
       - name: Analyze
