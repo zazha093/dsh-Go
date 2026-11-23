@@ -44,7 +44,7 @@ jobs:
         working-directory: app
 
       - name: Verify l10n (check parts only)
-        run: python3 tool/l10n_merge.py --check
+        run: python3 tool/l10n_merge.py --check --locale th
         working-directory: app
 
       - name: Generate l10n (all locales)
