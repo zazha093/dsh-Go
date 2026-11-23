@@ -25,6 +25,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   late Skill _skill;
   bool _isEditing = false;
   bool _isLoading = false;
+  bool _isPopping = false;
 
   // Controllers for edit form - created once to avoid leaks
   final _nameController = TextEditingController();
@@ -61,61 +62,77 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     super.dispose();
   }
 
+  /// Single exit point for all pop paths — prevents double pop during animation.
+  void _safePop<T extends Object?>([T? result]) {
+    if (_isPopping || !mounted) return;
+    final route = ModalRoute.of(context);
+    if (route == null || !route.isCurrent) return; // Already popping or not top route
+    _isPopping = true;
+    FocusManager.instance.primaryFocus?.unfocus();
+    Navigator.of(context).pop(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
     return PopScope(
-      canPop: !_isLoading, // Prevent popping while loading
+      canPop: !_isLoading && !_isEditing, // Prevent popping while loading or editing
       onPopInvokedWithResult: (didPop, result) {
-        // Always dismiss keyboard before/when popping to prevent black screen
+        // Always dismiss keyboard before/when popping
         FocusManager.instance.primaryFocus?.unfocus();
+        // If blocked by canPop, notify user
+        if (!didPop) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(_isEditing ? l10n.skillsEditing : l10n.skillsSaving)),
+          );
+        }
         // No manual pop here - let the framework handle it via canPop
       },
       child: Scaffold(
-      appBar: AppBar(
-        title: Text(_skill.name),
-        actions: [
-          if (_skill.hidden)
+        appBar: AppBar(
+          title: Text(_skill.name),
+          actions: [
+            if (_skill.hidden)
+              IconButton(
+                icon: const Icon(app_icons.AppIcons.showSecret),
+                onPressed: _isLoading ? null : _restoreSkill,
+                tooltip: l10n.skillsRestore,
+              )
+            else
+              IconButton(
+                icon: const Icon(app_icons.AppIcons.hideSecret),
+                onPressed: _isLoading ? null : _hideSkill,
+                tooltip: l10n.skillsHide,
+              ),
             IconButton(
-              icon: const Icon(app_icons.AppIcons.showSecret),
-              onPressed: () => _restoreSkill(),
-              tooltip: l10n.skillsRestore,
-            )
-          else
-            IconButton(
-              icon: const Icon(app_icons.AppIcons.hideSecret),
-              onPressed: () => _hideSkill(),
-              tooltip: l10n.skillsHide,
+              icon: const Icon(app_icons.AppIcons.edit),
+              onPressed: _isLoading ? null : () {
+                _syncControllersWithSkill();
+                setState(() => _isEditing = true);
+              },
+              tooltip: l10n.skillsEdit,
             ),
-          IconButton(
-            icon: const Icon(app_icons.AppIcons.edit),
-            onPressed: () {
-              _syncControllersWithSkill();
-              setState(() => _isEditing = true);
-            },
-            tooltip: l10n.skillsEdit,
-          ),
-          PopupMenuButton<String>(
-            icon: const Icon(app_icons.AppIcons.moreVertical),
-            onSelected: _handleMenuAction,
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: 'duplicate',
-                child: Text(l10n.skillsCreate), // Reusing as "Duplicate"
-              ),
-              PopupMenuItem(
-                value: 'delete',
-                child: Text(l10n.skillsDelete, style: const TextStyle(color: Colors.red)),
-              ),
-            ],
-          ),
-        ],
+            PopupMenuButton<String>(
+              icon: const Icon(app_icons.AppIcons.moreVertical),
+              onSelected: _handleMenuAction,
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 'duplicate',
+                  child: Text(l10n.skillsCreate), // Reusing as "Duplicate"
+                ),
+                PopupMenuItem(
+                  value: 'delete',
+                  child: Text(l10n.skillsDelete, style: const TextStyle(color: Colors.red)),
+                ),
+              ],
+            ),
+          ],
+        ),
+        body: _isEditing ? _buildEditForm() : _buildDetailView(),
       ),
-      body: _isEditing ? _buildEditForm() : _buildDetailView(),
-    ),
-  );
-}
+    );
+  }
 
   Widget _buildDetailView() {
     final l10n = context.l10n;
@@ -356,7 +373,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
             children: [
               Expanded(
                 child: OutlinedButton(
-                  onPressed: () {
+                  onPressed: _isLoading ? null : () {
                     FocusManager.instance.primaryFocus?.unfocus();
                     if (!mounted) return;
                     setState(() => _isEditing = false);
@@ -367,7 +384,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
               const SizedBox(width: 12),
               Expanded(
                 child: FilledButton(
-                  onPressed: () {
+                  onPressed: _isLoading ? null : () {
                     FocusManager.instance.primaryFocus?.unfocus();
                     _saveSkill();
                   },
@@ -391,6 +408,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       return;
     }
     if (!mounted) return;
+    if (_isLoading || _isPopping) return;
     setState(() => _isLoading = true);
     try {
       final updated = _skill.copyWith(
@@ -405,18 +423,19 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       );
       await ref.read(skillsProvider.notifier).updateSkill(updated);
       if (!mounted) return;
-      FocusManager.instance.primaryFocus?.unfocus();
-      setState(() {
-        _skill = updated;
-        _isEditing = false;
-        _isLoading = false;
-      });
+      final messenger = ScaffoldMessenger.of(context);
+      final l10n = context.l10n;
+      _safePop(updated);
+      if (!mounted) return;
+      messenger.showSnackBar(SnackBar(content: Text(l10n.skillsSaveSuccess)));
     } catch (e) {
       if (!mounted) return;
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.toString())),
       );
+    } finally {
+      if (mounted && !_isPopping) setState(() => _isLoading = false);
     }
   }
 
@@ -462,31 +481,28 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
   Future<void> _confirmDelete() async {
     final l10n = context.l10n;
-    final confirmed = await showDialog<bool>(
+    final ok = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (dialogCtx) => AlertDialog(
         title: Text(l10n.skillsDelete),
         content: Text(l10n.skillsDeleteConfirm),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.of(dialogCtx).pop(false),
             child: Text(l10n.skillsCancel),
           ),
           FilledButton(
-            onPressed: () => Navigator.pop(context, true),
+            onPressed: () => Navigator.of(dialogCtx).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: Text(l10n.skillsDelete),
           ),
         ],
       ),
     );
-    if (!mounted) return;
-    if (confirmed == true) {
-      await ref.read(skillsProvider.notifier).deleteSkill(_skill.id);
-      if (!mounted) return;
-      FocusManager.instance.primaryFocus?.unfocus();
-      Navigator.pop(context);
-    }
+    if (ok != true || !mounted) return;
+    final notifier = ref.read(skillsProvider.notifier); // Capture before pop
+    _safePop();
+    await notifier.delete(_skill.id); // Delete after pop to avoid rebuild during animation
   }
 
   Future<void> _runSkill() async {
@@ -636,7 +652,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
     final result = await showDialog<Map<String, String>>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (dialogCtx) => AlertDialog(
         title: Text(l10n.skillsInputPrompt.replaceFirst('{inputs}', _skill.userInputs.map((i) => i.label).join(', '))),
         content: SingleChildScrollView(
           child: Column(
@@ -663,7 +679,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.of(dialogCtx).pop(),
             child: Text(l10n.skillsCancel),
           ),
           FilledButton(
@@ -672,7 +688,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
               for (final input in _skill.userInputs) {
                 result[input.key] = controllers[input.key]!.text;
               }
-              Navigator.pop(context, result);
+              Navigator.of(dialogCtx).pop(result);
             },
             child: Text(l10n.skillsSave),
           ),

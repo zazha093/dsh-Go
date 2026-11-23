@@ -27,6 +27,20 @@ Future<void> main() => runWithFrameProbe(_startApp);
 Future<void> _startApp() async {
   if (!frameProbeEnabled) SteadyFrameBinding();
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Temporary error catcher for release build debugging (black screen issues)
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    debugPrint('FE: ${details.exceptionAsString()}\n${details.stack}');
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint('PE: $error\n$stack');
+    return true;
+  };
+  ErrorWidget.builder = (details) => Material(
+    child: Center(child: Text(details.exceptionAsString())),
+  );
+
   appErrorCapture.install();
   // Initialize fork error handling (red error screen + breadcrumbs) - gated by kill switch
   if (kEnableForkErrorHandling) {

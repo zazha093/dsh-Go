@@ -6,8 +6,10 @@ analyzer:
     - android/**
     - ios/
   errors:
-    deprecated_member_use: ignore
-    deprecated_member_use_from_same_package: ignore
+    use_build_context_synchronously: error
+    deprecated_member_use: info
+    deprecated_member_use_from_same_package: info
+    unawaited_futures: warning
 
 formatter:
   page_width: 120
