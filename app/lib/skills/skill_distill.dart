@@ -8,6 +8,19 @@ import 'package:dsh_client/dsh_client.dart';
 import '../share_code/conversation_redact.dart';
 import 'skill_model.dart';
 
+/// Create a skill provenance for distilled skills
+SkillProvenance _makeDistilledProvenance(String sessionId, {String? messageId}) {
+  return SkillProvenance(
+    type: 'distilled',
+    sourceSessionId: sessionId,
+    sourceMessageId: messageId,
+    createdAt: DateTime.now(),
+    evidence: messageId != null 
+        ? {'distilledFrom': {'session': sessionId, 'message': messageId}}
+        : {'distilledFrom': {'session': sessionId}},
+  );
+}
+
 /// Distills a skill from a completed session.
 class SkillDistiller {
   /// Distill a skill from a session by analyzing its history.
@@ -115,6 +128,10 @@ class SkillDistiller {
       sourceSessionId: sessionId,
       sourceSessionTitle: sessionTitle,
       category: category,
+      // v2 fields
+      kind: 'workflow',
+      schemaVersion: 2,
+      provenance: _makeDistilledProvenance(sessionId),
     );
   }
 
@@ -361,6 +378,10 @@ class SkillDistiller {
       sourceSessionId: sessionId,
       sourceSessionTitle: sessionTitle,
       category: inferCategoryFromTitle(sessionTitle),
+      // v2 fields
+      kind: 'workflow',
+      schemaVersion: 2,
+      provenance: _makeDistilledProvenance(sessionId),
     );
   }
 
@@ -561,6 +582,10 @@ class SkillDistiller {
       createdAt: now,
       sourceSessionTitle: sessionTitle,
       category: category,
+      // v2 fields
+      kind: 'workflow',
+      schemaVersion: 2,
+      provenance: SkillProvenance.manual(),
     );
   }
   
