@@ -79,6 +79,7 @@
   "skillsKindWorkflowDesc": "ขั้นตอนนำทางให้มนุษย์ทำตาม",
   "skillsKindExecutable": "เอ็กซ์คิวทีเบิล",
   "skillsKindExecutableDesc": "ขั้นตอนรันได้ พร้อมผูกเครื่องมือ",
+  "skillsStepsExecutable": "ขั้นตอนที่รันได้",
   "skillsStepModeTool": "เครื่องมือ",
   "skillsStepModeAgent": "เอเจนต์",
   "skillsStepAdd": "เพิ่มขั้นตอน",

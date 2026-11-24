@@ -291,7 +291,7 @@ void main() {
         options: ['dev', 'staging', 'prod'],
         bindToStep: 'step-1',
         bindToTool: 'bash',
-        template: 'deploy --env ${environment}',
+        template: r'deploy --env ${environment}',
       );
 
       final json = param.toJson();
@@ -305,7 +305,7 @@ void main() {
       expect(restored.options, equals(['dev', 'staging', 'prod']));
       expect(restored.bindToStep, equals('step-1'));
       expect(restored.bindToTool, equals('bash'));
-      expect(restored.template, equals('deploy --env ${environment}'));
+      expect(restored.template, equals(r'deploy --env ${environment}'));
     });
 
     test('copyWith updates v2 fields', () {

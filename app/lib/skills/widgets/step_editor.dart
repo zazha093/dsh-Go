@@ -218,3 +218,129 @@ class _ReadOnlyStepTile extends StatelessWidget {
     );
   }
 }
+
+class _StepTile extends StatelessWidget {
+  const _StepTile({
+    required this.index,
+    required this.step,
+    required this.onChanged,
+    required this.onDelete,
+    required this.parameters,
+    required this.onParametersChanged,
+  });
+
+  final int index;
+  final SkillStep step;
+  final ValueChanged<SkillStep> onChanged;
+  final VoidCallback onDelete;
+  final List<SkillParameter> parameters;
+  final ValueChanged<List<SkillParameter>> onParametersChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
+    return Card(
+      key: ValueKey(step.id),
+      margin: const EdgeInsets.only(bottom: 8),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Text(
+                  '${index + 1}.',
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: colors.primary,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: SkillFormField(
+                    label: 'Description',
+                    hint: 'Enter step description',
+                    initialValue: step.description,
+                    onChanged: (v) => onChanged(step.copyWith(description: v)),
+                    enabled: true,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Row(
+              children: [
+                Expanded(
+                  child: StepModePicker(
+                    mode: step.mode == 'agent' ? StepMode.agent : StepMode.tool,
+                    onModeChanged: (m) => onChanged(step.copyWith(mode: m == StepMode.agent ? 'agent' : 'tool')),
+                    enabled: true,
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: ToolBindingDropdown(
+                    tool: step.tool,
+                    onToolChanged: (t) => onChanged(step.copyWith(tool: t)),
+                    enabled: true,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 12),
+            ParameterBindingUI(
+              parameters: parameters,
+              onParametersChanged: onParametersChanged,
+              enabled: true,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _EmptyState extends StatelessWidget {
+  const _EmptyState({
+    required this.label,
+    required this.onAdd,
+  });
+
+  final String label;
+  final VoidCallback onAdd;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
+    return Container(
+      padding: const EdgeInsets.all(24),
+      decoration: BoxDecoration(
+        color: colors.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: colors.outlineVariant),
+      ),
+      child: Column(
+        children: [
+          Icon(Icons.add_task, size: 48, color: colors.onSurfaceVariant),
+          const SizedBox(height: 16),
+          Text(
+            label,
+            style: theme.textTheme.bodyMedium?.copyWith(color: colors.onSurfaceVariant),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 16),
+          FilledButton.icon(
+            onPressed: onAdd,
+            icon: const Icon(Icons.add, size: 18),
+            label: const Text('Add Step'),
+          ),
+        ],
+      ),
+    );
+  }
+}

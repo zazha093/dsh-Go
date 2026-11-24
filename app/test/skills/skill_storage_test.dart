@@ -1,53 +1,15 @@
 import 'dart:convert';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:test/test.dart';
 
 import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_storage.dart';
 
-// Simple mock for SharedPreferences (no mocktail dependency)
-class MockSharedPreferences {
-  final Map<String, Object> _data = {};
-
-  Future<bool> setString(String key, String value) async {
-    _data[key] = value;
-    return true;
-  }
-
-  String? getString(String key) => _data[key] as String?;
-
-  Future<bool> remove(String key) async {
-    _data.remove(key);
-    return true;
-  }
-
-  bool containsKey(String key) => _data.containsKey(key);
-
-  Future<bool> clear() async {
-    _data.clear();
-    return true;
-  }
-
-  // Other methods not needed for tests
-  Future<bool> setBool(String key, bool value) async => true;
-  bool? getBool(String key) => null;
-  Future<bool> setInt(String key, int value) async => true;
-  int? getInt(String key) => null;
-  Future<bool> setDouble(String key, double value) async => true;
-  double? getDouble(String key) => null;
-  Future<bool> setStringList(String key, List<String> value) async => true;
-  List<String>? getStringList(String key) => null;
-  Set<String> getKeys() => _data.keys.toSet();
-}
-
-class MockSharedPreferences extends Mock implements SharedPreferences {}
-
 void main() {
-  late MockSharedPreferences mockPrefs;
   late SkillStorage storage;
 
   setUp(() {
-    mockPrefs = MockSharedPreferences();
     storage = SkillStorage.instance;
     // Reset singleton state by using a fresh instance
     // Note: SkillStorage is a singleton, so we test via the instance

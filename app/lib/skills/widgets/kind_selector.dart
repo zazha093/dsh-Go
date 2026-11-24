@@ -6,6 +6,7 @@ import '../../l10n/l10n.dart';
 import '../skill_model.dart';
 import 'section_title.dart';
 import '../../ui/theme/app_icons.dart' as app_icons;
+import '../../ui/theme/motion.dart';
 
 /// Kind selector with three options: Knowledge, Workflow, Executable
 class KindSelector extends ConsumerWidget {
@@ -31,21 +32,21 @@ class KindSelector extends ConsumerWidget {
         kind: 'knowledge',
         label: l10n.skillsKindKnowledge,
         description: l10n.skillsKindKnowledgeDesc,
-        icon: app_icons.AppIcons.bookOpen,
+        icon: app_icons.AppIcons.skill,
         color: colors.primary,
       ),
       _KindOption(
         kind: 'workflow',
         label: l10n.skillsKindWorkflow,
         description: l10n.skillsKindWorkflowDesc,
-        icon: app_icons.AppIcons.flowArrow,
+        icon: app_icons.AppIcons.workflow,
         color: colors.secondary,
       ),
       _KindOption(
         kind: 'executable',
         label: l10n.skillsKindExecutable,
         description: l10n.skillsKindExecutableDesc,
-        icon: app_icons.AppIcons.playCircle,
+        icon: app_icons.AppIcons.playVideo,
         color: colors.tertiary,
       ),
     ];

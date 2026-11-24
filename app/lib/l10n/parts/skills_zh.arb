@@ -79,6 +79,7 @@
   "skillsKindWorkflowDesc": "供人类遵循的指导步骤",
   "skillsKindExecutable": "可执行",
   "skillsKindExecutableDesc": "可运行的步骤，带工具绑定",
+  "skillsStepsExecutable": "可执行步骤",
   "skillsStepModeTool": "工具",
   "skillsStepModeAgent": "智能体",
   "skillsStepAdd": "添加步骤",

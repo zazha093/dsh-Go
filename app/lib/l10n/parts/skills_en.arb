@@ -79,6 +79,7 @@
   "skillsKindWorkflowDesc": "Guided steps for humans to follow",
   "skillsKindExecutable": "Executable",
   "skillsKindExecutableDesc": "Runnable steps with tool bindings",
+  "skillsStepsExecutable": "Executable Steps",
   "skillsStepModeTool": "Tool",
   "skillsStepModeAgent": "Agent",
   "skillsStepAdd": "Add Step",

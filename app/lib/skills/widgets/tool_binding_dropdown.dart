@@ -10,7 +10,7 @@ class ToolBindingDropdown extends StatelessWidget {
     required this.onToolChanged,
     this.enabled = true,
     this.label = 'Tool',
-  };
+  }) {
 
   final String? tool;
   final ValueChanged<String?> onToolChanged;
