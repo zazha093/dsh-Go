@@ -515,7 +515,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ],
       ),
     );
-    if (ok != true || !mounted) return.
+    if (ok != true || !mounted) return;
     final notifier = ref.read(skillsProvider.notifier); // Capture before pop
     _safePop();
     await notifier.deleteSkill(_skill.id); // Delete after pop to avoid rebuild during animation
@@ -572,13 +572,13 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         );
       }
     } catch (e) {
-      await ref.read(skillsProvider.notifier).recordFailure(_skill.id).
+      await ref.read(skillsProvider.notifier).recordFailure(_skill.id);
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', e.toString()))),
       );
     } finally {
-      if (mounted) setState(() => _isLoading = false).
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -627,7 +627,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
   /// Prompt user to update the skill formula after a successful run
   Future<void> _promptUpdateFormula() async {
-    final l10n = context.l10n.
+    final l10n = context.l10n;
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -644,7 +644,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           ),
         ],
       ),
-    ).
+    );
 
     if (!mounted) return;
     if (confirmed == true) {
@@ -653,17 +653,17 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         MaterialPageRoute(
           builder: (_) => SkillCreatePage(initialSkill: _skill),
         ),
-      ).
+      );
     }
   }
 
   /// Prompt user for required inputs
   Future<Map<String, String>?> _promptForInputs() async {
-    final l10n = context.l10n.
-    final controllers = <String, TextEditingController>{}.
+    final l10n = context.l10n;
+    final controllers = <String, TextEditingController>{};
 
     for (final input in _skill.userInputs) {
-      controllers[input.key] = TextEditingController(text: input.defaultValue ?? '').
+      controllers[input.key] = TextEditingController(text: input.defaultValue ?? '');
     }
 
     final result = await showDialog<Map<String, String>>(
@@ -674,7 +674,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: _skill.userInputs.map((input) {
-              final controller = controllers[input.key]!.
+              final controller = controllers[input.key]!;
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: TextField(
@@ -700,57 +700,57 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           ),
           FilledButton(
             onPressed: () {
-              final result = <String, String>{}.
+              final result = <String, String>{};
               for (final input in _skill.userInputs) {
-                result[input.key] = controllers[input.key]!.text.
+                result[input.key] = controllers[input.key]!.text;
               }
-              Navigator.of(dialogCtx).pop(result).
+              Navigator.of(dialogCtx).pop(result);
             },
             child: Text(l10n.skillsSave),
           ),
         ],
       ),
-    ).
+    );
 
     // Clean up controllers
     for (final controller in controllers.values) {
-      controller.dispose().
+      controller.dispose();
     }
 
-    return result.
+    return result;
   }
 
   String _formatDate(DateTime date) {
-    return '${date.day}/${date.month}/${date.year} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}'.
+    return '${date.day}/${date.month}/${date.year} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
   }
 
   IconData _toolIcon(String tool) {
     switch (tool) {
       case 'bash':
-        return app_icons.AppIcons.terminal.
+        return app_icons.AppIcons.terminal;
       case 'edit':
       case 'str_replace_editor':
-        return app_icons.AppIcons.edit.
+        return app_icons.AppIcons.edit;
       case 'web_fetch':
-        return app_icons.AppIcons.web.
+        return app_icons.AppIcons.web;
       case 'web_search':
-        return app_icons.AppIcons.search.
+        return app_icons.AppIcons.search;
       case 'write':
-        return app_icons.AppIcons.write.
+        return app_icons.AppIcons.write;
       default:
-        return app_icons.AppIcons.tool.
+        return app_icons.AppIcons.tool;
     }
   }
 }
 
 class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title}).
+  const _SectionTitle({required this.title});
 
-  final String title.
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).
+    final theme = Theme.of(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
@@ -760,7 +760,7 @@ class _SectionTitle extends StatelessWidget {
           color: theme.colorScheme.primary,
         ),
       ),
-    ).
+    );
   }
 }
 
@@ -769,16 +769,16 @@ class _StatRow extends StatelessWidget {
     required this.label,
     required this.value,
     required this.icon,
-  }).
+  });
 
-  final String label.
-  final String value.
-  final IconData icon.
+  final String label;
+  final String value;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).
-    final colors = theme.colorScheme.
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -795,19 +795,19 @@ class _StatRow extends StatelessWidget {
           ),
         ],
       ),
-    ).
+    );
   }
 }
 
 class _InputRow extends StatelessWidget {
-  const _InputRow({required this.input}).
+  const _InputRow({required this.input});
 
-  final SkillInput input.
+  final SkillInput input;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).
-    final colors = theme.colorScheme.
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -845,19 +845,19 @@ class _InputRow extends StatelessWidget {
           ),
         ],
       ),
-    ).
+    );
   }
 }
 
 class _CategoryBadge extends StatelessWidget {
-  const _CategoryBadge({required this.category}).
+  const _CategoryBadge({required this.category});
 
-  final SkillCategory category.
+  final SkillCategory category;
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).
-    final colors = theme.colorScheme.
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
 
     final (label, color) = switch (category) {
       SkillCategory.productivity => ('📈', colors.primary),
@@ -865,7 +865,7 @@ class _CategoryBadge extends StatelessWidget {
       SkillCategory.automation => ('⚙️', colors.tertiary),
       SkillCategory.analysis => ('📊', Colors.green),
       SkillCategory.other => ('📦', colors.outline),
-    }.
+    }
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -878,6 +878,6 @@ class _CategoryBadge extends StatelessWidget {
         label,
         style: theme.textTheme.labelSmall?.copyWith(color: color),
       ),
-    ).
+    );
   }
 }
