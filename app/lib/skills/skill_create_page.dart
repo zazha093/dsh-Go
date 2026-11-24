@@ -117,7 +117,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   void _createDraftFromText() {
     final text = widget.draftText ?? '';
     final tools = widget.draftTools ?? [];
-    final locale = Localizations.localeOf(context).languageCode; // e.g., 'th', 'en', 'zh'
 
     // Use the new regex-based extraction (no AI)
     final draftSkill = SkillDistiller.createFromMessageText(
@@ -125,7 +124,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       aiResponse: null, // No AI response available for selected message
       toolCalls: tools,
       sessionTitle: 'From message',
-      locale: locale,
     );
 
     _fillForm(draftSkill);
