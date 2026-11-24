@@ -147,8 +147,8 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
         .map((p) => SkillInput(
               key: p.key,
               label: p.label,
-              hint: p.hint,
-              type: p.type,
+              hint: p.label, // Use label as hint since SkillParameter doesn't have hint
+              type: _stringToSkillInputType(p.type),
               required: p.required,
               defaultValue: p.defaultValue,
               options: p.options,
@@ -307,6 +307,23 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
         return SkillExecutionStatus.cancelled;
       default:
         return SkillExecutionStatus.running;
+    }
+  }
+
+  /// Converts a string type to SkillInputType enum.
+  SkillInputType _stringToSkillInputType(String type) {
+    switch (type) {
+      case 'number':
+        return SkillInputType.number;
+      case 'select':
+        return SkillInputType.select;
+      case 'boolean':
+        return SkillInputType.boolean;
+      case 'multiline':
+        return SkillInputType.multiline;
+      case 'text':
+      default:
+        return SkillInputType.text;
     }
   }
 }

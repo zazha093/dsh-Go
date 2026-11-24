@@ -145,7 +145,7 @@ class _ValidationResults extends StatelessWidget {
     ));
 
     // Check 2: Tool availability
-    final tools = skill.requiredTools ?? [];
+    final tools = skill.requiredTools;
     final unknownTools = tools.where((t) => !ToolBindingDropdown.availableTools.any((opt) => opt.name == t)).toList();
     checks.add(_Check(
       label: 'Tool availability',
@@ -181,7 +181,7 @@ class _ValidationResults extends StatelessWidget {
     ));
 
     // Check 5: Permissions
-    final toolList = skill.requiredTools ?? [];
+    final toolList = skill.requiredTools;
     final needsElevated = toolList.any((t) => ['bash', 'edit', 'write'].contains(t));
     checks.add(_Check(
       label: 'Permission requirements',

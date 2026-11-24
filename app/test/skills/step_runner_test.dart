@@ -3,7 +3,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:dsh_app/skills/step_runner.dart';
-import 'package:dsh_app/skills/skill_model.dart';
 
 void main() {
   group('StepRunner', () {
