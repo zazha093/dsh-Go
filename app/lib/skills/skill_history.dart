@@ -1,0 +1,436 @@
+// Skill History — audit log and run record storage
+//
+// Records skill execution history for audit trail, analytics, and improvement proposals.
+
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'skill_model.dart';
+
+/// Storage key for skill execution history.
+const _skillHistoryKey = 'personal_skills_history_v1';
+
+/// Maximum history entries to keep per skill.
+const _maxHistoryEntriesPerSkill = 100;
+
+/// Maximum total history entries across all skills.
+const _maxTotalHistoryEntries = 1000;
+
+/// Record of a single skill execution.
+class SkillRunRecord {
+  const SkillRunRecord({
+    required this.id,
+    required this.skillId,
+    required this.startedAt,
+    this.endedAt,
+    required this.status,
+    this.output,
+    this.error,
+    this.duration,
+    this.stepsCompleted = 0,
+    this.totalSteps = 0,
+    this.stepResults = const [],
+    this.parametersUsed = const {},
+    this.userId,
+  });
+
+  /// Unique record ID.
+  final String id;
+
+  /// Skill that was executed.
+  final String skillId;
+
+  /// When execution started.
+  final DateTime startedAt;
+
+  /// When execution ended (null if running).
+  final DateTime? endedAt;
+
+  /// Execution status.
+  final SkillRunStatus status;
+
+  /// Final output (if successful).
+  final String? output;
+
+  /// Error message (if failed).
+  final String? error;
+
+  /// Total execution duration.
+  final Duration? duration;
+
+  /// Number of steps completed.
+  final int stepsCompleted;
+
+  /// Total steps in skill.
+  final int totalSteps;
+
+  /// Per-step results.
+  final List<StepResult> stepResults;
+
+  /// Parameters used for this execution.
+  final Map<String, String> parametersUsed;
+
+  /// User identifier (optional).
+  final String? userId;
+
+  Map<String, Object?> toJson() {
+    return {
+      'id': id,
+      'skillId': skillId,
+      'startedAt': startedAt.toIso8601String(),
+      'endedAt': endedAt?.toIso8601String(),
+      'status': status.name,
+      'output': output,
+      'error': error,
+      'duration': duration?.inMilliseconds,
+      'stepsCompleted': stepsCompleted,
+      'totalSteps': totalSteps,
+      'stepResults': stepResults.map((r) => r.toJson()).toList(),
+      'parametersUsed': parametersUsed,
+      'userId': userId,
+    };
+  }
+
+  factory SkillRunRecord.fromJson(Map<String, Object?> json) {
+    return SkillRunRecord(
+      id: json['id'] as String,
+      skillId: json['skillId'] as String,
+      startedAt: DateTime.tryParse(json['startedAt'] as String? ?? '') ?? DateTime.now(),
+      endedAt: json['endedAt'] != null
+          ? DateTime.tryParse(json['endedAt'] as String)
+          : null,
+      status: SkillRunStatus.values.byName(json['status'] as String? ?? 'pending'),
+      output: json['output'] as String?,
+      error: json['error'] as String?,
+      duration: json['duration'] != null
+          ? Duration(milliseconds: json['duration'] as int)
+          : null,
+      stepsCompleted: json['stepsCompleted'] as int? ?? 0,
+      totalSteps: json['totalSteps'] as int? ?? 0,
+      stepResults: (json['stepResults'] as List?)
+              ?.map((e) => StepResult.fromJson(e as Map<String, Object?>))
+              .toList() ??
+          [],
+      parametersUsed: (json['parametersUsed'] as Map?)
+              ?.map((k, v) => MapEntry(k as String, v as String)) ??
+          {},
+      userId: json['userId'] as String?,
+    );
+  }
+
+  SkillRunRecord copyWith({
+    String? id,
+    String? skillId,
+    DateTime? startedAt,
+    DateTime? endedAt,
+    SkillRunStatus? status,
+    String? output,
+    String? error,
+    Duration? duration,
+    int? stepsCompleted,
+    int? totalSteps,
+    List<StepResult>? stepResults,
+    Map<String, String>? parametersUsed,
+    String? userId,
+  }) {
+    return SkillRunRecord(
+      id: id ?? this.id,
+      skillId: skillId ?? this.skillId,
+      startedAt: startedAt ?? this.startedAt,
+      endedAt: endedAt ?? this.endedAt,
+      status: status ?? this.status,
+      output: output ?? this.output,
+      error: error ?? this.error,
+      duration: duration ?? this.duration,
+      stepsCompleted: stepsCompleted ?? this.stepsCompleted,
+      totalSteps: totalSteps ?? this.totalSteps,
+      stepResults: stepResults ?? this.stepResults,
+      parametersUsed: parametersUsed ?? this.parametersUsed,
+      userId: userId ?? this.userId,
+    );
+  }
+}
+
+/// Status of a skill run.
+enum SkillRunStatus {
+  pending,
+  running,
+  waitingApproval,
+  waitingInput,
+  completed,
+  failed,
+  cancelled,
+}
+
+/// Local storage for skill execution history using SharedPreferences.
+class SkillHistory {
+  SkillHistory._();
+
+  static final SkillHistory instance = SkillHistory._();
+
+  SharedPreferences? _prefs;
+
+  /// Initialize the history storage (call once at app startup).
+  Future<void> init() async {
+    _prefs = await SharedPreferences.getInstance();
+  }
+
+  /// Record a skill execution start.
+  Future<SkillRunRecord> recordStart({
+    required String skillId,
+    Map<String, String> parameters = const {},
+    String? userId,
+  }) async {
+    if (_prefs == null) await init();
+
+    final record = SkillRunRecord(
+      id: _generateId(),
+      skillId: skillId,
+      startedAt: DateTime.now(),
+      status: SkillRunStatus.running,
+      parametersUsed: parameters,
+      userId: userId,
+    );
+
+    await _appendRecord(record);
+    return record;
+  }
+
+  /// Update a skill execution record with progress/completion.
+  Future<void> updateRecord(SkillRunRecord record) async {
+    if (_prefs == null) await init();
+
+    final records = await _getAllRecords();
+    final index = records.indexWhere((r) => r.id == record.id);
+    if (index >= 0) {
+      records[index] = record;
+    } else {
+      records.add(record);
+    }
+    await _saveAllRecords(records);
+  }
+
+  /// Complete a skill execution (success/failure/cancelled).
+  Future<void> completeRecord({
+    required String recordId,
+    required SkillRunStatus status,
+    String? output,
+    String? error,
+    Duration? duration,
+    int? stepsCompleted,
+    int? totalSteps,
+    List<StepResult>? stepResults,
+  }) async {
+    if (_prefs == null) await init();
+
+    final records = await _getAllRecords();
+    final index = records.indexWhere((r) => r.id == recordId);
+    if (index >= 0) {
+      final record = records[index];
+      final updated = record.copyWith(
+        status: status,
+        endedAt: DateTime.now(),
+        output: output,
+        error: error,
+        duration: duration,
+        stepsCompleted: stepsCompleted ?? record.stepsCompleted,
+        totalSteps: totalSteps ?? record.totalSteps,
+        stepResults: stepResults ?? record.stepResults,
+      );
+      records[index] = updated;
+      await _saveAllRecords(records);
+    }
+  }
+
+  /// Get execution history for a specific skill.
+  Future<List<SkillRunRecord>> getHistory(String skillId) async {
+    if (_prefs == null) await init();
+
+    final records = await _getAllRecords();
+    return records
+        .where((r) => r.skillId == skillId)
+        .toList()
+      ..sort((a, b) => b.startedAt.compareTo(a.startedAt));
+  }
+
+  /// Get all execution history across all skills.
+  Future<List<SkillRunRecord>> getAllHistory() async {
+    if (_prefs == null) await init();
+    final records = await _getAllRecords();
+    records.sort((a, b) => b.startedAt.compareTo(a.startedAt));
+    return records;
+  }
+
+  /// Get recent executions across all skills.
+  Future<List<SkillRunRecord>> getRecentHistory({int limit = 50}) async {
+    final history = await getAllHistory();
+    return history.take(limit).toList();
+  }
+
+  /// Get execution statistics for a skill.
+  Future<SkillExecutionStats> getStats(String skillId) async {
+    final history = await getHistory(skillId);
+    if (history.isEmpty) {
+      return SkillExecutionStats(
+        skillId: skillId,
+        totalRuns: 0,
+        successfulRuns: 0,
+        failedRuns: 0,
+        cancelledRuns: 0,
+        avgDuration: Duration.zero,
+        successRate: 0.0,
+      );
+    }
+
+    final completed = history.where((r) => r.status == SkillRunStatus.completed).length;
+    final failed = history.where((r) => r.status == SkillRunStatus.failed).length;
+    final cancelled = history.where((r) => r.status == SkillRunStatus.cancelled).length;
+    final total = history.length;
+
+    final durations = history
+        .where((r) => r.duration != null)
+        .map((r) => r.duration!.inMilliseconds)
+        .toList();
+    final avgDuration = durations.isEmpty
+        ? Duration.zero
+        : Duration(milliseconds: (durations.reduce((a, b) => a + b) / durations.length).round());
+
+    return SkillExecutionStats(
+      skillId: skillId,
+      totalRuns: total,
+      successfulRuns: completed,
+      failedRuns: failed,
+      cancelledRuns: cancelled,
+      avgDuration: avgDuration,
+      successRate: total > 0 ? completed / total : 0.0,
+    );
+  }
+
+  /// Clean up old history entries beyond the limit.
+  Future<void> pruneOldEntries() async {
+    if (_prefs == null) await init();
+
+    final records = await _getAllRecords();
+    if (records.length <= _maxTotalHistoryEntries) return;
+
+    records.sort((a, b) => b.startedAt.compareTo(a.startedAt));
+    final pruned = records.take(_maxTotalHistoryEntries).toList();
+    await _saveAllRecords(pruned);
+  }
+
+  /// Export history to JSON string.
+  String exportHistory() {
+    // This would need async, so use a separate method
+    throw UnimplementedError('Use exportHistoryAsync instead');
+  }
+
+  Future<String> exportHistoryAsync() async {
+    final records = await _getAllRecords();
+    return const JsonEncoder.withIndent('  ')
+        .convert(records.map((r) => r.toJson()).toList());
+  }
+
+  /// Import history from JSON string.
+  Future<int> importHistory(String jsonString, {bool overwrite = false}) async {
+    if (_prefs == null) await init();
+
+    try {
+      final List<dynamic> decoded = jsonDecode(jsonString);
+      final imported = decoded.map((e) => SkillRunRecord.fromJson(e as Map<String, Object?>)).toList();
+
+      final existing = await _getAllRecords();
+      final existingIds = existing.map((r) => r.id).toSet();
+
+      int importedCount = 0;
+      for (final record in imported) {
+        if (existingIds.contains(record.id)) {
+          if (overwrite) {
+            final index = _getAllRecords().indexWhere((r) => r.id == record.id);
+            if (index >= 0) {
+              final records = await _getAllRecords();
+              records[index] = record;
+              importedCount++;
+            }
+          }
+        } else {
+          final records = await _getAllRecords();
+          records.add(record);
+          importedCount++;
+        }
+      }
+
+      final allRecords = await _getAllRecords();
+      await _saveAllRecords(allRecords);
+      await pruneOldEntries();
+
+      return importedCount;
+    } catch (_) {
+      return 0;
+    }
+  }
+
+  List<SkillRunRecord> _getAllRecords() {
+    if (_prefs == null) return [];
+    final jsonString = _prefs!.getString(_skillHistoryKey);
+    if (jsonString == null || jsonString.isEmpty) return [];
+    try {
+      final List<dynamic> decoded = jsonDecode(jsonString);
+      return decoded.map((e) => SkillRunRecord.fromJson(e as Map<String, Object?>)).toList();
+    } catch (_) {
+      return [];
+    }
+  }
+
+  Future<void> _saveAllRecords(List<SkillRunRecord> records) async {
+    if (_prefs == null) return;
+    final jsonString = jsonEncode(records.map((r) => r.toJson()).toList());
+    await _prefs!.setString(_skillHistoryKey, jsonString);
+  }
+
+  Future<void> _appendRecord(SkillRunRecord record) async {
+    final records = _getAllRecords();
+    records.add(record);
+    await _saveAllRecords(records);
+    await pruneOldEntries();
+  }
+
+  String _generateId() {
+    return DateTime.now().millisecondsSinceEpoch.toRadixString(36) +
+        (DateTime.now().microsecond % 1000).toRadixString(36);
+  }
+}
+
+/// Statistics for skill execution.
+class SkillExecutionStats {
+  const SkillExecutionStats({
+    required this.skillId,
+    required this.totalRuns,
+    required this.successfulRuns,
+    required this.failedRuns,
+    required this.cancelledRuns,
+    required this.avgDuration,
+    required this.successRate,
+  });
+
+  final String skillId;
+  final int totalRuns;
+  final int successfulRuns;
+  final int failedRuns;
+  final int cancelledRuns;
+  final Duration avgDuration;
+  final double successRate;
+
+  Map<String, Object?> toJson() {
+    return {
+      'skillId': skillId,
+      'totalRuns': totalRuns,
+      'successfulRuns': successfulRuns,
+      'failedRuns': failedRuns,
+      'cancelledRuns': cancelledRuns,
+      'avgDurationMs': avgDuration.inMilliseconds,
+      'successRate': successRate,
+    };
+  }
+}
