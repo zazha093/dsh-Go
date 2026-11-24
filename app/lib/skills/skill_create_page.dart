@@ -10,7 +10,7 @@ import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
 import 'widgets/form_field.dart';
-import 'widgets/section_title.dart'
+import 'widgets/section_title.dart';
 import 'widgets/user_inputs_editor.dart';
 import 'widgets/kind_selector.dart';
 import 'widgets/step_editor.dart';
