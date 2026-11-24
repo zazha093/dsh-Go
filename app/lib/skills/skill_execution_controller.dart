@@ -11,7 +11,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_executor.dart';
-import 'step_runner.dart';
 
 /// State for skill execution.
 class SkillExecutionState {
@@ -140,11 +139,21 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
       return;
     }
 
-    // Check for required user inputs
+    // Check for required user inputs - convert SkillParameter to SkillInput
     final missingInputs = skill.parameters?.where((p) =>
         p.required &&
         (userParameters[p.key] == null || userParameters[p.key]!.isEmpty) &&
-        (p.defaultValue == null || p.defaultValue!.isEmpty)).toList() ?? [];
+        (p.defaultValue == null || p.defaultValue!.isEmpty))
+        .map((p) => SkillInput(
+              key: p.key,
+              label: p.label,
+              hint: p.hint,
+              type: p.type,
+              required: p.required,
+              defaultValue: p.defaultValue,
+              options: p.options,
+            ))
+        .toList() ?? [];
 
     if (missingInputs.isNotEmpty) {
       state = state.copyWith(
@@ -189,8 +198,6 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
         },
       );
 
-      _progressSubscription?.cancel();
-
       if (result.success) {
         state = state.copyWith(
           status: SkillExecutionStatus.completed,
@@ -200,9 +207,7 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
         );
 
         // Record success in skill provider
-        if (result.currentSkillId != null) {
-          ref.read(skillsProvider.notifier).recordSuccess(skill.id);
-        }
+        ref.read(skillsProvider.notifier).recordSuccess(skill.id);
       } else {
         state = state.copyWith(
           status: SkillExecutionStatus.failed,
@@ -218,6 +223,8 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
         status: SkillExecutionStatus.failed,
         error: 'Execution error: $e',
       );
+    } finally {
+      _progressSubscription?.cancel();
     }
   }
 
@@ -301,14 +308,6 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
       default:
         return SkillExecutionStatus.running;
     }
-  }
-
-  @override
-  void dispose() {
-    _progressSubscription?.cancel();
-    _approvalCompleter?.completeError(StateError('Controller disposed'));
-    _inputCompleter?.completeError(StateError('Controller disposed'));
-    super.dispose();
   }
 }
 

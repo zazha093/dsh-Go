@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../l10n/l10n.dart';
 import '../skill_model.dart';
-import '../../state/connection_state.dart';
+import '../../state/connection_state.dart'
+    show activeConnectionProvider;
 import 'tool_binding_dropdown.dart';
 
 /// Dry-run preview button and validation results
@@ -156,7 +157,7 @@ class _ValidationResults extends StatelessWidget {
 
     // Check 3: Parameter binding validity
     final params = skill.parameters ?? [];
-    final boundParams = params.where((p) => p.bindToStep != null && p.bindToStep.isNotEmpty).toList();
+    final boundParams = params.where((p) => p.bindToStep?.isNotEmpty == true).toList();
     final hasBindings = boundParams.isNotEmpty;
     final noParams = params.isEmpty;
     checks.add(_Check(
@@ -180,7 +181,8 @@ class _ValidationResults extends StatelessWidget {
     ));
 
     // Check 5: Permissions
-    final needsElevated = tools.any((t) => ['bash', 'edit', 'write'].contains(t));
+    final toolList = skill.requiredTools ?? [];
+    final needsElevated = toolList.any((t) => ['bash', 'edit', 'write'].contains(t));
     checks.add(_Check(
       label: 'Permission requirements',
       passed: true,
