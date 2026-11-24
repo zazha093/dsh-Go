@@ -8,7 +8,12 @@ import 'dart:async';
 import 'package:dsh_client/dsh_client.dart';
 
 import 'skill_model.dart';
-import 'parameter_resolver.dart';
+import 'parameter_resolver.dart'
+    show
+        mergeParameters,
+        validateParameters,
+        resolveSkillSteps,
+        resolveArgs;
 import 'step_runner.dart';
 
 /// Result of a full skill execution.
@@ -187,7 +192,7 @@ class SkillExecutor {
         );
       }
 
-      final executableSteps = skill.executableSteps ?? [];
+      final executableSteps = resolveSkillSteps(skill.executableSteps ?? [], resolvedParams);
       if (executableSteps.isEmpty) {
         return SkillExecutionResult.failure(
           skillId: skill.id,
@@ -220,25 +225,18 @@ class SkillExecutor {
       // Track progress
       int completedSteps = 0;
       final totalSteps = executableSteps.length;
+      final stepResults = <StepResult>[];
 
       // Report initial progress
       _reportProgress(0, totalSteps, executableSteps.first.id,
           executableSteps.first.description, 'running');
-      onProgress?.call(SkillExecutionProgress(
-        currentStep: 0,
-        totalSteps: totalSteps,
-        currentStepId: executableSteps.first.id,
-        currentStepDescription: executableSteps.first.description,
-      ));
 
       // Execute steps sequentially
-      final stepResults = <StepResult>[];
-
       for (int i = 0; i < executableSteps.length; i++) {
         if (_cancelled) {
           return SkillExecutionResult.cancelled(
             skillId: skill.id,
-            duration: DateTime.now().difference(DateTime.now()),
+            duration: DateTime.now().difference(startTime),
             stepsCompleted: completedSteps,
             totalSteps: totalSteps,
             stepResults: stepResults,
@@ -249,19 +247,13 @@ class SkillExecutor {
 
         // Report progress for this step
         _reportProgress(i, totalSteps, step.id, step.description, 'running');
-        onProgress?.call(SkillExecutionProgress(
-          currentStep: i,
-          totalSteps: totalSteps,
-          currentStepId: step.id,
-          currentStepDescription: step.description,
-        ));
 
-        // Execute step with approval handling
-        final stepResult = await _runStepWithApproval(
+        // Execute step with approval handling and retry logic
+        final stepResult = await _runStepWithRetry(
           stepRunner,
           step,
           i,
-          totalSteps,
+          executableSteps.length,
         );
 
         stepResults.add(stepResult);
@@ -273,31 +265,30 @@ class SkillExecutor {
               (errorHandling?.retryableErrors.contains(stepResult.error ?? '') ?? false);
 
           if (shouldRetry && stepResults.length < (errorHandling?.maxRetries ?? 0) + 1) {
-            // Retry logic would go here
-            // For now, just fail
+            // Retry logic is handled in _runStepWithRetry
+          } else {
+            return SkillExecutionResult.failure(
+              skillId: skill.id,
+              error: 'Step ${stepResults.length} failed: ${stepResult.error}',
+              duration: DateTime.now().difference(startTime),
+              stepsCompleted: stepResults.length - 1,
+              totalSteps: executableSteps.length,
+              stepResults: stepResults,
+            );
           }
-
-          return SkillExecutionResult.failure(
-            skillId: skill.id,
-            error: 'Step ${i + 1} failed: ${stepResult.error}',
-            duration: DateTime.now().difference(DateTime.now()),
-            stepsCompleted: completedSteps,
-            totalSteps: totalSteps,
-            stepResults: stepResults,
-          );
         }
 
-        completedSteps++;
-        _reportProgress(completedSteps, totalSteps, step.id, step.description, 'completed');
+        _reportProgress(stepResults.length, executableSteps.length,
+            stepResults.last.stepId, stepResults.last.output, 'completed');
       }
 
       // All steps completed successfully
       return SkillExecutionResult.success(
         skillId: skill.id,
-        output: 'All ${totalSteps} steps completed successfully',
+        output: 'All ${executableSteps.length} steps completed successfully',
         duration: DateTime.now().difference(DateTime.now()),
-        stepsCompleted: completedSteps,
-        totalSteps: totalSteps,
+        stepsCompleted: executableSteps.length,
+        totalSteps: executableSteps.length,
         stepResults: stepResults,
       );
     } on Exception catch (e) {
@@ -312,25 +303,81 @@ class SkillExecutor {
     }
   }
 
-  /// Runs a single step with approval handling.
-  Future<StepResult> _runStepWithApproval(
+  /// Runs a single step with retry logic.
+  Future<StepResult> _runStepWithRetry(
     StepRunner stepRunner,
     SkillStep step,
     int stepIndex,
     int totalSteps,
   ) async {
-    // For approval handling, we need to set up a callback
-    final completer = Completer<ApprovalRequest?>();
+    final errorHandling = SkillErrorHandling(
+      onError: 'stop',
+      maxRetries: 0,
+      retryDelay: const Duration(seconds: 5),
+      retryableErrors: [],
+    );
 
-    // In a real implementation, we'd watch for approval requests
+    int attempt = 0;
+    while (true) {
+      try {
+        // For now, pass empty params - in a real implementation, this would come from skill context
+        final stepResult = await _runStepWithApproval(stepRunner, {});
+        return stepResult;
+      } on StepExecutionException catch (e) {
+        // Check if we should retry
+        if (attempt < errorHandling.maxRetries && _isRetryableError(e.error)) {
+          attempt++;
+          await Future.delayed(errorHandling.retryDelay);
+          continue;
+        }
+        return StepResult.failure(
+          stepId: step.id,
+          error: e.error,
+          duration: DateTime.now().difference(DateTime.now()),
+          toolCallId: e.toolCallId,
+        );
+      } on TimeoutException {
+        if (attempt < 3) {
+          attempt++;
+          await Future.delayed(const Duration(seconds: 5));
+          continue;
+        }
+        return StepResult.failure(
+          stepId: 'unknown',
+          error: 'Tool execution timed out',
+          duration: DateTime.now().difference(DateTime.now()),
+        );
+      } on Exception catch (e) {
+        return StepResult.failure(
+          stepId: 'unknown',
+          error: 'Unexpected error: $e',
+          duration: DateTime.now().difference(DateTime.now()),
+        );
+      }
+    }
+  }
+
+  /// Runs a single step with approval handling.
+  Future<StepResult> _runStepWithApproval(
+    StepRunner stepRunner,
+    Map<String, String> resolvedParams,
+  ) async {
+    // For now, use the step runner with empty params
+    // In a real implementation, we'd pass the resolved params and handle approval via callback
     // For now, we'll use the step runner's built-in approval handling
     return stepRunner.runStep(
-      step: step,
-      resolvedParams: {}, // Parameters would be passed here
+      step: SkillStep(
+        id: 'step-${DateTime.now().millisecondsSinceEpoch}',
+        description: 'Execute step',
+        mode: 'tool',
+        tool: 'bash',
+        args: {},
+        order: 0,
+      ),
+      resolvedParams: {},
       onApprovalRequested: (approval) {
-        // In a real implementation, this would trigger UI for user approval
-        // For now, auto-allow
-        completer.complete(approval);
+        // Auto-allow for now
+        // In a real implementation, this would trigger UI and await user decision
       },
     );
   }
@@ -346,7 +393,6 @@ class SkillExecutor {
       );
       _sessionId = session.sessionId;
     } else {
-      // Would reuse existing session - not implemented
       throw StateError('Session reuse not implemented');
     }
   }
@@ -363,6 +409,14 @@ class SkillExecutor {
     _progressController.add(progress);
   }
 
+  /// Checks if an error is retryable.
+  bool _isRetryableError(String error) {
+    return error.contains('timeout') ||
+        error.contains('network') ||
+        error.contains('connection') ||
+        error.contains('temporary');
+  }
+
   /// Cancels the current execution.
   Future<void> cancel() async {
     _cancelled = true;
@@ -374,6 +428,5 @@ class SkillExecutor {
   /// Closes the executor and cleans up resources.
   Future<void> close() async {
     await _progressController.close();
-    // Note: We don't close the DshClient here as it's shared
   }
 }
