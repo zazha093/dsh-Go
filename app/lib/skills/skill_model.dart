@@ -447,6 +447,30 @@ class SkillResult {
       totalSteps: totalSteps,
     );
   }
+
+  Map<String, Object?> toJson() {
+    return {
+      'success': success,
+      'output': output,
+      'error': error,
+      'duration': duration?.inMilliseconds,
+      'stepsCompleted': stepsCompleted,
+      'totalSteps': totalSteps,
+    };
+  }
+
+  factory SkillResult.fromJson(Map<String, Object?> json) {
+    return SkillResult(
+      success: json['success'] as bool,
+      output: json['output'] as String?,
+      error: json['error'] as String?,
+      duration: json['duration'] != null
+          ? Duration(milliseconds: json['duration'] as int)
+          : null,
+      stepsCompleted: json['stepsCompleted'] as int? ?? 0,
+      totalSteps: json['totalSteps'] as int? ?? 0,
+    );
+  }
 }
 
 /// ===== V2 CLASSES =====
