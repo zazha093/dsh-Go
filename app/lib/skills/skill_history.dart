@@ -63,7 +63,7 @@ class SkillRunRecord {
   final int totalSteps;
 
   /// Per-step results.
-  final List<StepResult> stepResults;
+  final List<SkillResult> stepResults;
 
   /// Parameters used for this execution.
   final Map<String, String> parametersUsed;
@@ -106,7 +106,7 @@ class SkillRunRecord {
       stepsCompleted: json['stepsCompleted'] as int? ?? 0,
       totalSteps: json['totalSteps'] as int? ?? 0,
       stepResults: (json['stepResults'] as List?)
-              ?.map((e) => StepResult.fromJson(e as Map<String, Object?>))
+              ?.map((e) => SkillResult.fromJson(e as Map<String, Object?>))
               .toList() ??
           [],
       parametersUsed: (json['parametersUsed'] as Map?)
@@ -127,7 +127,7 @@ class SkillRunRecord {
     Duration? duration,
     int? stepsCompleted,
     int? totalSteps,
-    List<StepResult>? stepResults,
+    List<SkillResult>? stepResults,
     Map<String, String>? parametersUsed,
     String? userId,
   }) {
@@ -217,7 +217,7 @@ class SkillHistory {
     Duration? duration,
     int? stepsCompleted,
     int? totalSteps,
-    List<StepResult>? stepResults,
+    List<SkillResult>? stepResults,
   }) async {
     if (_prefs == null) await init();
 
@@ -295,12 +295,12 @@ class SkillHistory {
 
     return SkillExecutionStats(
       skillId: skillId,
-      totalRuns: history.length,
-      successfulRuns: history.where((r) => r.status == SkillRunStatus.completed).length,
-      failedRuns: history.where((r) => r.status == SkillRunStatus.failed).length,
-      cancelledRuns: history.where((r) => r.status == SkillRunStatus.cancelled).length,
+      totalRuns: total,
+      successfulRuns: completed,
+      failedRuns: failed,
+      cancelledRuns: cancelled,
       avgDuration: avgDuration,
-      successRate: history.isEmpty ? 0.0 : history.where((r) => r.status == SkillRunStatus.completed).length / history.length,
+      successRate: total > 0 ? completed / total : 0.0,
     );
   }
 
