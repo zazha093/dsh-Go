@@ -173,6 +173,19 @@ class SkillHistory {
     _prefs = await SharedPreferences.getInstance();
   }
 
+  /// Get a skill by ID.
+  Skill? getSkill(String skillId) {
+    // This would need to be implemented based on how skills are stored
+    // For now, return null as skills are stored separately
+    return null;
+  }
+
+  /// Upsert a skill (insert or update).
+  Future<void> upsertSkill(Skill skill) async {
+    // This would need to be implemented based on how skills are stored
+    // For now, this is a placeholder
+  }
+
   /// Record a skill execution start.
   Future<SkillRunRecord> recordStart({
     required String skillId,
@@ -295,12 +308,12 @@ class SkillHistory {
 
     return SkillExecutionStats(
       skillId: skillId,
-      totalRuns: total,
-      successfulRuns: completed,
-      failedRuns: failed,
-      cancelledRuns: cancelled,
+      totalRuns: history.length,
+      successfulRuns: history.where((r) => r.status == SkillRunStatus.completed).length,
+      failedRuns: history.where((r) => r.status == SkillRunStatus.failed).length,
+      cancelledRuns: history.where((r) => r.status == SkillRunStatus.cancelled).length,
       avgDuration: avgDuration,
-      successRate: total > 0 ? completed / total : 0.0,
+      successRate: history.isEmpty ? 0.0 : history.where((r) => r.status == SkillRunStatus.completed).length / history.length,
     );
   }
 
@@ -351,13 +364,14 @@ class SkillHistory {
             }
           }
         } else {
-          final records = _getAllRecords();
-          records.add(record);
-          importedCount++;
+          if (!existingIds.contains(record.id)) {
+            existing.add(record);
+            importedCount++;
+          }
         }
       }
 
-      _saveAllRecords(_getAllRecords());
+      await _saveAllRecords(_getAllRecords());
       await pruneOldEntries();
 
       return importedCount;
@@ -395,6 +409,12 @@ class SkillHistory {
     return DateTime.now().millisecondsSinceEpoch.toRadixString(36) +
         (DateTime.now().microsecond % 1000).toRadixString(36);
   }
+
+  /// Public wrapper for getting all records.
+  List<SkillRunRecord> getAllRecords() => _getAllRecords();
+
+  /// Public wrapper for saving all records.
+  void saveAllRecords(List<SkillRunRecord> records) => _saveAllRecords(records);
 }
 
 /// Statistics for skill execution.

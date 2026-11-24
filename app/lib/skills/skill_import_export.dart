@@ -7,14 +7,12 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'skill_model.dart';
+import 'skill_model.dart' as skill_model;
 import 'skill_history.dart' as skill_history;
 
 /// Service for exporting and importing skills to/from JSON.
 class SkillImportExport {
-  final skill_history.SkillHistory _history;
-
-  SkillImportExport(this._history);
+  SkillImportExport();
 
   /// Export a single skill to a JSON file.
   Future<void> exportSkillToFile(String skillId, File file) async {
@@ -99,11 +97,12 @@ class SkillImportExport {
 
     for (final skillData in skillsData) {
       try {
-        final skill = Skill.fromJson(skillData as Map<String, dynamic>);
+        final skill = skill_model.Skill.fromJson(skillData as Map<String, dynamic>);
         await _importSkill(skill, overwrite: overwrite);
         importedCount++;
       } catch (e) {
         // Log error but continue with other skills
+        // ignore: avoid_print
         print('Failed to import skill: $e');
       }
     }
@@ -111,7 +110,7 @@ class SkillImportExport {
     return importedCount;
   }
 
-  Future<void> _importSkill(Skill skill, {bool overwrite = false}) async {
+  Future<void> _importSkill(skill_model.Skill skill, {bool overwrite = false}) async {
     final history = skill_history.SkillHistory.instance;
     final existing = history.getSkill(skill.id);
 
@@ -174,6 +173,7 @@ class SkillImportExport {
         await _importHistoryRecord(record, overwrite: overwrite);
         importedCount++;
       } catch (e) {
+        // ignore: avoid_print
         print('Failed to import history record: $e');
       }
     }
@@ -192,20 +192,20 @@ class SkillImportExport {
     }
 
     if (overwrite) {
-      final existingRecords = history._getAllRecords();
-      final index = history._getAllRecords().indexWhere((r) => r.id == record.id);
+      final existingRecords = history.getAllRecords();
+      final index = history.getAllRecords().indexWhere((r) => r.id == record.id);
       if (index >= 0) {
-        final records = history._getAllRecords();
+        final records = history.getAllRecords();
         records[index] = record;
       } else {
-        history._getAllRecords().add(record);
+        history.getAllRecords().add(record);
       }
-      history._saveAllRecords(history._getAllRecords());
+      history.saveAllRecords(history.getAllRecords());
     } else {
-      final existingRecords = history._getAllRecords();
+      final existingRecords = history.getAllRecords();
       if (!existingRecords.any((r) => r.id == record.id)) {
-        history._getAllRecords().add(record);
-        history._saveAllRecords(history._getAllRecords());
+        history.getAllRecords().add(record);
+        history.saveAllRecords(history.getAllRecords());
       }
     }
   }

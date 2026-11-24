@@ -3,8 +3,8 @@
 // Analyzes skill execution history and proposes improvements to parameters,
 // steps, or error handling based on failure patterns.
 
-import 'skill_model.dart';
-import 'skill_history.dart';
+import 'skill_model.dart' as skill_model;
+import 'skill_history.dart' as skill_history;
 
 /// Type of improvement proposal.
 enum ImprovementType {
@@ -67,13 +67,13 @@ class ImprovementProposal {
   final List<String> evidence;
 
   /// Current status.
-  final ProposalStatus status;
+  ProposalStatus status;
 
   /// When the proposal was accepted/rejected.
-  final DateTime? appliedAt;
+  DateTime? appliedAt;
 
   /// Skill version after applying this proposal.
-  final int? resultingSkillVersion;
+  int? resultingSkillVersion;
 
   Map<String, Object?> toJson() {
     return {
@@ -138,7 +138,7 @@ class ImprovementProposal {
 class ImprovementProposalEngine {
   ImprovementProposalEngine(this._history);
 
-  final SkillHistory _history;
+  final skill_history.SkillHistory _history;
 
   /// Analyze skill history and generate improvement proposals.
   Future<List<ImprovementProposal>> generateProposals(String skillId) async {
@@ -148,7 +148,7 @@ class ImprovementProposalEngine {
     final proposals = <ImprovementProposal>[];
 
     // Analyze failure patterns
-    final failures = history.where((r) => r.status == SkillRunStatus.failed).toList();
+    final failures = history.where((r) => r.status == skill_history.SkillRunStatus.failed).toList();
     if (failures.isNotEmpty) {
       proposals.addAll(_analyzeFailures(skillId, failures));
     }
@@ -162,11 +162,11 @@ class ImprovementProposalEngine {
     return proposals;
   }
 
-  List<ImprovementProposal> _analyzeFailures(String skillId, List<SkillRunRecord> failures) {
+  List<ImprovementProposal> _analyzeFailures(String skillId, List<skill_history.SkillRunRecord> failures) {
     final proposals = <ImprovementProposal>[];
 
     // Group failures by error type
-    final errorGroups = <String, List<SkillRunRecord>>{};
+    final errorGroups = <String, List<skill_history.SkillRunRecord>>{};
     for (final failure in failures) {
       final errorKey = failure.error ?? 'unknown';
       errorGroups.putIfAbsent(errorKey, () => []).add(failure);
@@ -197,12 +197,12 @@ class ImprovementProposalEngine {
     return proposals;
   }
 
-  List<ImprovementProposal> _analyzeParameterUsage(String skillId, List<SkillRunRecord> history) {
+  List<ImprovementProposal> _analyzeParameterUsage(String skillId, List<skill_history.SkillRunRecord> history) {
     // TODO: Analyze which parameters are commonly overridden vs using defaults
     return [];
   }
 
-  List<ImprovementProposal> _analyzeStepPerformance(String skillId, List<SkillRunRecord> history) {
+  List<ImprovementProposal> _analyzeStepPerformance(String skillId, List<skill_history.SkillRunRecord> history) {
     // TODO: Analyze step duration, failure rates per step
     return [];
   }
