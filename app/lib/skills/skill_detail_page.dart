@@ -380,6 +380,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
                       l10n.skillsSecretsWarning,
                       style: theme.textTheme.bodySmall?.copyWith(color: Colors.orange),
                     ),
+                  ),
                   ],
                 ),
             ),
@@ -865,7 +866,7 @@ class _CategoryBadge extends StatelessWidget {
       SkillCategory.automation => ('⚙️', colors.tertiary),
       SkillCategory.analysis => ('📊', Colors.green),
       SkillCategory.other => ('📦', colors.outline),
-    }
+    };
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

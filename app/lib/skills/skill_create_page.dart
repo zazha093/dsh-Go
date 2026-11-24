@@ -313,6 +313,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   ),
                 ),
               ),
+      ),
     );
   }
 
