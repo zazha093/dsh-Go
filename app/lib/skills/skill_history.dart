@@ -371,7 +371,7 @@ class SkillHistory {
         }
       }
 
-      await _saveAllRecords(_getAllRecords());
+      _saveAllRecords(_getAllRecords());
       await pruneOldEntries();
 
       return importedCount;

@@ -32,7 +32,7 @@ enum ProposalStatus {
 
 /// An improvement proposal generated from run history analysis.
 class ImprovementProposal {
-  const ImprovementProposal({
+  ImprovementProposal({
     required this.id,
     required this.skillId,
     required this.type,

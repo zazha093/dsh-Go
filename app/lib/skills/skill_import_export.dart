@@ -63,7 +63,7 @@ class SkillImportExport {
     final history = skill_history.SkillHistory.instance;
     await history.init();
 
-    final allSkills = history.getAllHistory();
+    final allSkills = await history.getAllHistory();
     final skills = allSkills.map((r) => r.toJson()).toList();
 
     final exportData = {
