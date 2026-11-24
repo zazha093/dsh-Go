@@ -25,55 +25,112 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   late Skill _skill;
   bool _isEditing = false;
   bool _isLoading = false;
+  bool _isPopping = false;
+
+  // Controllers for edit form - created once to avoid leaks
+  final _nameController = TextEditingController();
+  final _descriptionController = TextEditingController();
+  final _goalController = TextEditingController();
+  final _stepsController = TextEditingController();
+  final _constraintsController = TextEditingController();
+  final _toolsController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _skill = widget.skill;
+    _syncControllersWithSkill();
+  }
+
+  void _syncControllersWithSkill() {
+    _nameController.text = _skill.name;
+    _descriptionController.text = _skill.description;
+    _goalController.text = _skill.goal;
+    _stepsController.text = _skill.steps.join('\n');
+    _constraintsController.text = _skill.constraints.join('\n');
+    _toolsController.text = _skill.requiredTools.join(', ');
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    _goalController.dispose();
+    _stepsController.dispose();
+    _constraintsController.dispose();
+    _toolsController.dispose();
+    super.dispose();
+  }
+
+  /// Single exit point for all pop paths — prevents double pop during animation.
+  void _safePop<T extends Object?>([T? result]) {
+    if (_isPopping || !mounted) return;
+    final route = ModalRoute.of(context);
+    if (route == null || !route.isCurrent) return; // Already popping or not top route
+    _isPopping = true;
+    FocusManager.instance.primaryFocus?.unfocus();
+    Navigator.of(context).pop(result);
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(_skill.name),
-        actions: [
-          if (_skill.hidden)
+    return PopScope(
+      canPop: !_isLoading && !_isEditing, // Prevent popping while loading or editing
+      onPopInvokedWithResult: (didPop, result) {
+        // Always dismiss keyboard before/when popping
+        FocusManager.instance.primaryFocus?.unfocus();
+        // If blocked by canPop, notify user
+        if (!didPop) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(_isEditing ? l10n.skillsEditing : l10n.skillsSaving)),
+          );
+        }
+        // No manual pop here - let the framework handle it via canPop
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(_skill.name),
+          actions: [
+            if (_skill.hidden)
+              IconButton(
+                icon: const Icon(app_icons.AppIcons.showSecret),
+                onPressed: _isLoading ? null : _restoreSkill,
+                tooltip: l10n.skillsRestore,
+              )
+            else
+              IconButton(
+                icon: const Icon(app_icons.AppIcons.hideSecret),
+                onPressed: _isLoading ? null : _hideSkill,
+                tooltip: l10n.skillsHide,
+              ),
             IconButton(
-              icon: const Icon(app_icons.AppIcons.showSecret),
-              onPressed: () => _restoreSkill(),
-              tooltip: l10n.skillsRestore,
-            )
-          else
-            IconButton(
-              icon: const Icon(app_icons.AppIcons.hideSecret),
-              onPressed: () => _hideSkill(),
-              tooltip: l10n.skillsHide,
+              icon: const Icon(app_icons.AppIcons.edit),
+              onPressed: _isLoading ? null : () {
+                _syncControllersWithSkill();
+                setState(() => _isEditing = true);
+              },
+              tooltip: l10n.skillsEdit,
             ),
-          IconButton(
-            icon: const Icon(app_icons.AppIcons.edit),
-            onPressed: () => setState(() => _isEditing = true),
-            tooltip: l10n.skillsEdit,
-          ),
-          PopupMenuButton<String>(
-            icon: const Icon(app_icons.AppIcons.moreVertical),
-            onSelected: _handleMenuAction,
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: 'duplicate',
-                child: Text(l10n.skillsCreate), // Reusing as "Duplicate"
-              ),
-              PopupMenuItem(
-                value: 'delete',
-                child: Text(l10n.skillsDelete, style: const TextStyle(color: Colors.red)),
-              ),
-            ],
-          ),
-        ],
+            PopupMenuButton<String>(
+              icon: const Icon(app_icons.AppIcons.moreVertical),
+              onSelected: _handleMenuAction,
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  value: 'duplicate',
+                  child: Text(l10n.skillsCreate), // Reusing as "Duplicate"
+                ),
+                PopupMenuItem(
+                  value: 'delete',
+                  child: Text(l10n.skillsDelete, style: const TextStyle(color: Colors.red)),
+                ),
+              ],
+            ),
+          ],
+        ),
+        body: _isEditing ? _buildEditForm() : _buildDetailView(),
       ),
-      body: _isEditing ? _buildEditForm() : _buildDetailView(),
     );
   }
 
@@ -251,111 +308,115 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     final constraintsController = TextEditingController(text: _skill.constraints.join('\n'));
     final toolsController = TextEditingController(text: _skill.requiredTools.join(', '));
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _SectionTitle(title: l10n.skillsName),
-          TextField(
-            controller: nameController,
-            decoration: InputDecoration(hintText: l10n.skillsNameHint),
-          ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.skillsDescription),
-          TextField(
-            controller: descriptionController,
-            decoration: InputDecoration(hintText: l10n.skillsDescriptionHint),
-            maxLines: 2,
-          ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.skillsGoal),
-          TextField(
-            controller: goalController,
-            decoration: InputDecoration(hintText: l10n.skillsGoalHint),
-            maxLines: 2,
-          ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.skillsSteps),
-          TextField(
-            controller: stepsController,
-            decoration: InputDecoration(hintText: l10n.skillsStepsHint),
-            maxLines: 5,
-          ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.skillsConstraints),
-          TextField(
-            controller: constraintsController,
-            decoration: InputDecoration(hintText: l10n.skillsConstraintsHint),
-            maxLines: 3,
-          ),
-          const SizedBox(height: 16),
-          _SectionTitle(title: l10n.skillsRequiredTools),
-          TextField(
-            controller: toolsController,
-            decoration: InputDecoration(hintText: l10n.skillsRequiredToolsHint),
-          ),
-          const SizedBox(height: 16),
-          // Warning about secrets
-          Container(
-            padding: const EdgeInsets.all(12),
-            decoration: BoxDecoration(
-              color: Colors.orange.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+    return PopScope(
+      canPop: !_isLoading, // Prevent popping while saving
+      onPopInvokedWithResult: (didPop, result) {
+        FocusManager.instance.primaryFocus?.unfocus();
+        if (!didPop) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(l10n.skillsSaving)),
+          );
+        }
+      },
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _SectionTitle(title: l10n.skillsName),
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(hintText: l10n.skillsNameHint),
             ),
-            child: Row(
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.skillsDescription),
+            TextField(
+              controller: descriptionController,
+              decoration: InputDecoration(hintText: l10n.skillsDescriptionHint),
+              maxLines: 2,
+            ),
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.skillsGoal),
+            TextField(
+              controller: goalController,
+              decoration: InputDecoration(hintText: l10n.skillsGoalHint),
+              maxLines: 2,
+            ),
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.skillsSteps),
+            TextField(
+              controller: stepsController,
+              decoration: InputDecoration(hintText: l10n.skillsStepsHint),
+              maxLines: 5,
+            ),
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.skillsConstraints),
+            TextField(
+              controller: constraintsController,
+              decoration: InputDecoration(hintText: l10n.skillsConstraintsHint),
+              maxLines: 3,
+            ),
+            const SizedBox(height: 16),
+            _SectionTitle(title: l10n.skillsRequiredTools),
+            TextField(
+              controller: toolsController,
+              decoration: InputDecoration(hintText: l10n.skillsRequiredToolsHint),
+            ),
+            const SizedBox(height: 16),
+            // Warning about secrets
+            Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.orange.withValues(alpha: 0.1),
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: Colors.orange.withValues(alpha: 0.3)),
+              ),
+              child: Row(
+                children: [
+                  const Icon(app_icons.AppIcons.warning, color: Colors.orange),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      l10n.skillsSecretsWarning,
+                      style: theme.textTheme.bodySmall?.copyWith(color: Colors.orange),
+                    ),
+                  ],
+                ),
+            ),
+            const SizedBox(height: 24),
+            Row(
               children: [
-                const Icon(app_icons.AppIcons.warning, color: Colors.orange),
-                const SizedBox(width: 8),
                 Expanded(
-                  child: Text(
-                    l10n.skillsSecretsWarning,
-                    style: theme.textTheme.bodySmall?.copyWith(color: Colors.orange),
+                  child: OutlinedButton(
+                    onPressed: _isLoading ? null : () {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                      if (!mounted) return;
+                      setState(() => _isEditing = false);
+                    },
+                    child: Text(l10n.skillsCancel),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: FilledButton(
+                    onPressed: _isLoading ? null : () {
+                      FocusManager.instance.primaryFocus?.unfocus();
+                      _saveSkill();
+                    },
+                    child: Text(l10n.skillsSave),
                   ),
                 ),
               ],
             ),
-          ),
-          const SizedBox(height: 24),
-          Row(
-            children: [
-              Expanded(
-                child: OutlinedButton(
-                  onPressed: () => setState(() => _isEditing = false),
-                  child: Text(l10n.skillsCancel),
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: FilledButton(
-                  onPressed: () => _saveSkill(
-                    nameController.text,
-                    descriptionController.text,
-                    goalController.text,
-                    stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                    constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
-                    toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
-                  ),
-                  child: Text(l10n.skillsSave),
-                ),
-              ),
-            ],
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 
-  Future<void> _saveSkill(
-    String name,
-    String description,
-    String goal,
-    List<String> steps,
-    List<String> constraints,
-    List<String> tools,
-  ) async {
-    if (name.trim().isEmpty) {
+  Future<void> _saveSkill() async {
+    final l10n = context.l10n;
+    if (_nameController.text.trim().isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(context.l10n.skillsNameHint)),
@@ -363,43 +424,46 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       return;
     }
     if (!mounted) return;
+    if (_isLoading || _isPopping) return;
     setState(() => _isLoading = true);
     try {
       final updated = _skill.copyWith(
-        name: name.trim(),
-        description: description.trim(),
-        goal: goal.trim(),
-        steps: steps,
-        constraints: constraints,
-        requiredTools: tools,
+        name: _nameController.text.trim(),
+        description: _descriptionController.text.trim(),
+        goal: _goalController.text.trim(),
+        steps: _stepsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+        constraints: _constraintsController.text.split('\n').where((s) => s.trim().isNotEmpty).toList(),
+        requiredTools: _toolsController.text.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList(),
         updatedAt: DateTime.now(),
         version: _skill.version + 1,
       );
       await ref.read(skillsProvider.notifier).updateSkill(updated);
       if (!mounted) return;
-      setState(() {
-        _skill = updated;
-        _isEditing = false;
-        _isLoading = false;
-      });
+      final messenger = ScaffoldMessenger.of(context);
+      final l10n = context.l10n;
+      _safePop(updated);
+      if (!mounted) return;
+      messenger.showSnackBar(SnackBar(content: Text(l10n.skillsSaveSuccess)));
     } catch (e) {
       if (!mounted) return;
       setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.toString())),
       );
+    } finally {
+      if (mounted && !_isPopping) setState(() => _isLoading = false);
     }
   }
 
   Future<void> _hideSkill() async {
     await ref.read(skillsProvider.notifier).hideSkill(_skill.id);
-    if (!mounted) return;
+    if (!mounted) return.
     setState(() => _skill = _skill.copyWith(hidden: true, hiddenAt: DateTime.now()));
   }
 
   Future<void> _restoreSkill() async {
     await ref.read(skillsProvider.notifier).restoreSkill(_skill.id);
-    if (!mounted) return;
+    if (!mounted) return.
     setState(() => _skill = _skill.copyWith(hidden: false, hiddenAt: null));
   }
 
@@ -415,7 +479,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   }
 
   void _duplicateSkill() {
-    if (!mounted) return;
+    if (!mounted) return.
     final duplicated = _skill.copyWith(
       id: '', // Will be generated
       name: '${_skill.name} (copy)',
@@ -433,30 +497,28 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
   Future<void> _confirmDelete() async {
     final l10n = context.l10n;
-    final confirmed = await showDialog<bool>(
+    final ok = await showDialog<bool>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (dialogCtx) => AlertDialog(
         title: Text(l10n.skillsDelete),
         content: Text(l10n.skillsDeleteConfirm),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context, false),
+            onPressed: () => Navigator.of(dialogCtx).pop(false),
             child: Text(l10n.skillsCancel),
           ),
           FilledButton(
-            onPressed: () => Navigator.pop(context, true),
+            onPressed: () => Navigator.of(dialogCtx).pop(true),
             style: FilledButton.styleFrom(backgroundColor: Colors.red),
             child: Text(l10n.skillsDelete),
           ),
         ],
       ),
     );
-    if (!mounted) return;
-    if (confirmed == true) {
-      await ref.read(skillsProvider.notifier).deleteSkill(_skill.id);
-      if (!mounted) return;
-      Navigator.pop(context);
-    }
+    if (ok != true || !mounted) return.
+    final notifier = ref.read(skillsProvider.notifier); // Capture before pop
+    _safePop();
+    await notifier.delete(_skill.id); // Delete after pop to avoid rebuild during animation
   }
 
   Future<void> _runSkill() async {
@@ -465,7 +527,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
     // Check if we have a current session to run in
     final currentSessionId = ref.read(currentSessionProvider);
     if (currentSessionId == null) {
-      if (!mounted) return;
+      if (!mounted) return.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', 'No active session'))),
       );
@@ -478,7 +540,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       userInputs = await _promptForInputs();
       if (userInputs == null) return; // User cancelled
     }
-    if (!mounted) return;
+    if (!mounted) return.
 
     // Build the skill execution prompt with user inputs
     final prompt = _buildSkillPrompt(_skill, userInputs: userInputs);
@@ -490,12 +552,12 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       final chatController = ref.read(chatProvider(currentSessionId).notifier);
       final success = await chatController.send(prompt);
 
-      if (!mounted) return;
+      if (!mounted) return.
       
       if (success) {
         // Record successful invocation
         await ref.read(skillsProvider.notifier).recordSuccess(_skill.id);
-        if (!mounted) return;
+        if (!mounted) return.
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.skillsRunSuccess)),
         );
@@ -504,19 +566,19 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
       } else {
         // Record failed invocation
         await ref.read(skillsProvider.notifier).recordFailure(_skill.id);
-        if (!mounted) return;
+        if (!mounted) return.
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', 'Failed to send'))),
         );
       }
     } catch (e) {
-      await ref.read(skillsProvider.notifier).recordFailure(_skill.id);
-      if (!mounted) return;
+      await ref.read(skillsProvider.notifier).recordFailure(_skill.id).
+      if (!mounted) return.
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.skillsRunError.replaceFirst('{error}', e.toString()))),
       );
     } finally {
-      if (mounted) setState(() => _isLoading = false);
+      if (mounted) setState(() => _isLoading = false).
     }
   }
 
@@ -565,7 +627,7 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
 
   /// Prompt user to update the skill formula after a successful run
   Future<void> _promptUpdateFormula() async {
-    final l10n = context.l10n;
+    final l10n = context.l10n.
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (context) => AlertDialog(
@@ -582,37 +644,37 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
           ),
         ],
       ),
-    );
+    ).
 
-    if (!mounted) return;
+    if (!mounted) return.
     if (confirmed == true) {
       // Navigate to SkillCreatePage with current skill for editing
       Navigator.of(context).push(
         MaterialPageRoute(
           builder: (_) => SkillCreatePage(initialSkill: _skill),
         ),
-      );
+      ).
     }
   }
 
   /// Prompt user for required inputs
   Future<Map<String, String>?> _promptForInputs() async {
-    final l10n = context.l10n;
-    final controllers = <String, TextEditingController>{};
+    final l10n = context.l10n.
+    final controllers = <String, TextEditingController>{}.
 
     for (final input in _skill.userInputs) {
-      controllers[input.key] = TextEditingController(text: input.defaultValue ?? '');
+      controllers[input.key] = TextEditingController(text: input.defaultValue ?? '').
     }
 
     final result = await showDialog<Map<String, String>>(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (dialogCtx) => AlertDialog(
         title: Text(l10n.skillsInputPrompt.replaceFirst('{inputs}', _skill.userInputs.map((i) => i.label).join(', '))),
         content: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: _skill.userInputs.map((input) {
-              final controller = controllers[input.key]!;
+              final controller = controllers[input.key]!.
               return Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: TextField(
@@ -633,62 +695,62 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => Navigator.of(dialogCtx).pop(),
             child: Text(l10n.skillsCancel),
           ),
           FilledButton(
             onPressed: () {
-              final result = <String, String>{};
+              final result = <String, String>{}.
               for (final input in _skill.userInputs) {
-                result[input.key] = controllers[input.key]!.text;
+                result[input.key] = controllers[input.key]!.text.
               }
-              Navigator.pop(context, result);
+              Navigator.of(dialogCtx).pop(result).
             },
             child: Text(l10n.skillsSave),
           ),
         ],
       ),
-    );
+    ).
 
     // Clean up controllers
     for (final controller in controllers.values) {
-      controller.dispose();
+      controller.dispose().
     }
 
-    return result;
+    return result.
   }
 
   String _formatDate(DateTime date) {
-    return '${date.day}/${date.month}/${date.year} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}';
+    return '${date.day}/${date.month}/${date.year} ${date.hour.toString().padLeft(2, '0')}:${date.minute.toString().padLeft(2, '0')}'.
   }
 
   IconData _toolIcon(String tool) {
     switch (tool) {
       case 'bash':
-        return app_icons.AppIcons.terminal;
+        return app_icons.AppIcons.terminal.
       case 'edit':
       case 'str_replace_editor':
-        return app_icons.AppIcons.edit;
+        return app_icons.AppIcons.edit.
       case 'web_fetch':
-        return app_icons.AppIcons.web;
+        return app_icons.AppIcons.web.
       case 'web_search':
-        return app_icons.AppIcons.search;
+        return app_icons.AppIcons.search.
       case 'write':
-        return app_icons.AppIcons.write;
+        return app_icons.AppIcons.write.
       default:
-        return app_icons.AppIcons.tool;
+        return app_icons.AppIcons.tool.
     }
   }
 }
 
 class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title});
+  const _SectionTitle({required this.title}).
 
-  final String title;
+  final String title.
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final theme = Theme.of(context).
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Text(
@@ -698,7 +760,7 @@ class _SectionTitle extends StatelessWidget {
           color: theme.colorScheme.primary,
         ),
       ),
-    );
+    ).
   }
 }
 
@@ -707,16 +769,16 @@ class _StatRow extends StatelessWidget {
     required this.label,
     required this.value,
     required this.icon,
-  });
+  }).
 
-  final String label;
-  final String value;
-  final IconData icon;
+  final String label.
+  final String value.
+  final IconData icon.
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
+    final theme = Theme.of(context).
+    final colors = theme.colorScheme.
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -733,19 +795,19 @@ class _StatRow extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ).
   }
 }
 
 class _InputRow extends StatelessWidget {
-  const _InputRow({required this.input});
+  const _InputRow({required this.input}).
 
-  final SkillInput input;
+  final SkillInput input.
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
+    final theme = Theme.of(context).
+    final colors = theme.colorScheme.
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -783,19 +845,19 @@ class _InputRow extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ).
   }
 }
 
 class _CategoryBadge extends StatelessWidget {
-  const _CategoryBadge({required this.category});
+  const _CategoryBadge({required this.category}).
 
-  final SkillCategory category;
+  final SkillCategory category.
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final colors = theme.colorScheme;
+    final theme = Theme.of(context).
+    final colors = theme.colorScheme.
 
     final (label, color) = switch (category) {
       SkillCategory.productivity => ('📈', colors.primary),
@@ -803,7 +865,7 @@ class _CategoryBadge extends StatelessWidget {
       SkillCategory.automation => ('⚙️', colors.tertiary),
       SkillCategory.analysis => ('📊', Colors.green),
       SkillCategory.other => ('📦', colors.outline),
-    };
+    }.
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -816,6 +878,6 @@ class _CategoryBadge extends StatelessWidget {
         label,
         style: theme.textTheme.labelSmall?.copyWith(color: color),
       ),
-    );
+    ).
   }
 }

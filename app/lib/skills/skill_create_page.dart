@@ -66,6 +66,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   final List<GlobalKey<FormState>> _inputFormKeys = [];
 
   bool _isLoading = false;
+  bool _isPopping = false;
   Skill? _distilledSkill;
   String? _distillError;
 
@@ -116,6 +117,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   void _createDraftFromText() {
     final text = widget.draftText ?? '';
     final tools = widget.draftTools ?? [];
+    final locale = Localizations.localeOf(context).languageCode; // e.g., 'th', 'en', 'zh'
 
     // Use the new regex-based extraction (no AI)
     final draftSkill = SkillDistiller.createFromMessageText(
@@ -123,6 +125,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       aiResponse: null, // No AI response available for selected message
       toolCalls: tools,
       sessionTitle: 'From message',
+      locale: locale,
     );
 
     _fillForm(draftSkill);
@@ -174,6 +177,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     }
   }
 
+  // Phase 3 widget change handlers
   void _onKindChanged(String kind) {
     setState(() {
       _kind = kind;
@@ -193,8 +197,17 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   void _onParametersChanged(List<SkillParameter> params) {
     setState(() {
       _parameters = params;
-    }
-    );
+    });
+  }
+
+  /// Single exit point for all pop paths — prevents double pop during animation.
+  void _safePop<T extends Object?>([T? result]) {
+    if (_isPopping || !mounted) return;
+    final route = ModalRoute.of(context);
+    if (route == null || !route.isCurrent) return; // Already popping or not top route
+    _isPopping = true;
+    FocusManager.instance.primaryFocus?.unfocus();
+    Navigator.of(context).pop(result);
   }
 
   @override
@@ -203,97 +216,106 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.initialSkill != null
-            ? l10n.skillsCreate // Duplicate
-            : widget.sessionId != null
-                ? l10n.skillsDistillTitle
-                : l10n.skillsCreate),
-        leading: IconButton(
-          icon: const Icon(app_icons.AppIcons.close),
-          onPressed: () {
-            if (mounted) Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Form(
-        key: _formKey,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (widget.sessionId != null && _distilledSkill == null) ...[
-                // Distillation in progress
-                Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(32),
-                    child: Column(
-                      children: [
-                        const CircularProgressIndicator(),
-                        const SizedBox(height: 16),
-                        Text(
-                          l10n.skillsDistillDescription,
-                          style: theme.textTheme.bodyMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                        if (_distillError != null) ...[
-                          const SizedBox(height: 16),
-                          Text(
-                            _distillError!,
-                            style: theme.textTheme.bodyMedium?.copyWith(color: colors.error),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          FilledButton(
-                            onPressed: _distillFromSession,
-                            child: Text(l10n.skillsDistill), // Retry
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                ),
-              ] else ...[
-                // Normal form
-                _buildForm(),
-              ],
-            ],
+    return PopScope(
+      canPop: !_isLoading, // Prevent popping while loading
+      onPopInvokedWithResult: (didPop, result) {
+        // Always dismiss keyboard before/when popping
+        FocusManager.instance.primaryFocus?.unfocus();
+        // If blocked by canPop, notify user
+        if (!didPop) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(l10n.skillsSaving)),
+          );
+        }
+        // No manual pop here - let the framework handle it via canPop
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.initialSkill != null
+              ? l10n.skillsCreate // Duplicate
+              : widget.sessionId != null
+                  ? l10n.skillsDistillTitle
+                  : l10n.skillsCreate),
+          leading: IconButton(
+            icon: const Icon(app_icons.AppIcons.close),
+            onPressed: _isLoading ? null : () => _safePop(),
           ),
         ),
-      ),
-      bottomNavigationBar: _isLoading
-          ? null
-          : SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () {
-                          if (mounted) Navigator.pop(context);
-                        },
-                        child: Text(l10n.skillsCancel),
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (widget.sessionId != null && _distilledSkill == null) ...[
+                  // Distillation in progress
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(32),
+                      child: Column(
+                        children: [
+                          const CircularProgressIndicator(),
+                          const SizedBox(height: 16),
+                          Text(
+                            l10n.skillsDistillDescription,
+                            style: theme.textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                          ),
+                          if (_distillError != null) ...[
+                            const SizedBox(height: 16),
+                            Text(
+                              _distillError!,
+                              style: theme.textTheme.bodyMedium?.copyWith(color: colors.error),
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(height: 16),
+                            FilledButton(
+                              onPressed: _distillFromSession,
+                              child: Text(l10n.skillsDistill), // Retry
+                            ),
+                          ],
+                        ],
                       ),
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: FilledButton(
-                        onPressed: _saveSkill,
-                        child: Text(widget.initialSkill != null
-                            ? l10n.skillsSave
-                            : widget.sessionId != null
-                                ? l10n.skillsDistillSave
-                                : l10n.skillsSave),
+                  ),
+                ] else ...[
+                  // Normal form
+                  _buildForm(),
+                ],
+              ],
+            ),
+          ),
+        ),
+        bottomNavigationBar: _isLoading
+            ? null
+            : SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: _isLoading ? null : () => _safePop(),
+                          child: Text(l10n.skillsCancel),
+                        ),
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: FilledButton(
+                          onPressed: _isLoading ? null : _saveSkill,
+                          child: Text(widget.initialSkill != null
+                              ? l10n.skillsSave
+                              : widget.sessionId != null
+                                  ? l10n.skillsDistillSave
+                                  : l10n.skillsSave),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-      );
+    );
   }
 
   Widget _buildForm() {
@@ -535,6 +557,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     }
 
     if (!mounted) return;
+    if (_isLoading || _isPopping) return;
     setState(() => _isLoading = true);
 
     try {
@@ -568,18 +591,21 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       }
 
       if (!mounted) return;
-      Navigator.pop(context);
+      final messenger = ScaffoldMessenger.of(context);
+      _safePop(skill); // Pop with result; caller shows snackbar
+      // Show snackbar after pop (messenger is still valid)
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
       );
     } catch (e) {
       if (!mounted) return;
+      setState(() => _isLoading = false);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(e.toString())),
       );
     } finally {
-      if (mounted) setState(() => _isLoading = false);
+      if (mounted && !_isPopping) setState(() => _isLoading = false);
     }
   }
 
