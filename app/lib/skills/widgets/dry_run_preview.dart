@@ -102,7 +102,7 @@ class _ValidationResults extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
-    final theme = Theme.of(context);
+    final colors = Theme.of(context).colorScheme;
 
     final checks = _runChecks();
 

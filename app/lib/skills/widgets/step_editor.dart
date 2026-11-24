@@ -67,7 +67,7 @@ class StepEditor extends ConsumerWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: steps.length,
-            onReorder: (oldIndex, newIndex) => _reorderSteps(oldIndex, newIndex),
+            onReorderItem: (oldIndex, newIndex) => _reorderSteps(oldIndex, newIndex),
             itemBuilder: (context, index) => _StepTile(
               key: ValueKey(steps[index].id),
               index: index,
@@ -100,7 +100,6 @@ class StepEditor extends ConsumerWidget {
   }
 
   void _reorderSteps(int oldIndex, int newIndex) {
-    if (oldIndex < newIndex) newIndex--;
     final newSteps = List<SkillStep>.from(steps);
     final step = newSteps.removeAt(oldIndex);
     newSteps.insert(newIndex, step);
