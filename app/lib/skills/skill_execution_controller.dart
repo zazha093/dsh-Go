@@ -103,7 +103,7 @@ final skillExecutionControllerProvider =
 class SkillExecutionController extends Notifier<SkillExecutionState> {
   SkillExecutor? _executor;
   StreamSubscription? _progressSubscription;
-  Completer<void>? _approvalCompleter;
+  Completer<ApprovalDecision>? _approvalCompleter;
   Completer<Map<String, String>>? _inputCompleter;
 
   @override
