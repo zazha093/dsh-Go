@@ -45,7 +45,7 @@ class ParameterBindingUI extends ConsumerWidget {
             if (enabled)
               IconButton(
                 icon: const Icon(Icons.add, size: 20),
-                onPressed: _showAddParameterDialog,
+                onPressed: () => _showAddParameterDialog(context),
                 tooltip: l10n.skillsParameterAdd,
               ),
           ],
