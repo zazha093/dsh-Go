@@ -2,7 +2,6 @@
 //
 // Records skill execution history for audit trail, analytics, and improvement proposals.
 
-import 'dart:async';
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,9 +10,6 @@ import 'skill_model.dart';
 
 /// Storage key for skill execution history.
 const _skillHistoryKey = 'personal_skills_history_v1';
-
-/// Maximum history entries to keep per skill.
-const _maxHistoryEntriesPerSkill = 100;
 
 /// Maximum total history entries across all skills.
 const _maxTotalHistoryEntries = 1000;
@@ -194,7 +190,7 @@ class SkillHistory {
       userId: userId,
     );
 
-    await _appendRecord(record);
+    _appendRecord(record);
     return record;
   }
 
@@ -202,14 +198,14 @@ class SkillHistory {
   Future<void> updateRecord(SkillRunRecord record) async {
     if (_prefs == null) await init();
 
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     final index = records.indexWhere((r) => r.id == record.id);
     if (index >= 0) {
       records[index] = record;
     } else {
       records.add(record);
     }
-    await _saveAllRecords(records);
+    _saveAllRecords(records);
   }
 
   /// Complete a skill execution (success/failure/cancelled).
@@ -225,7 +221,7 @@ class SkillHistory {
   }) async {
     if (_prefs == null) await init();
 
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     final index = records.indexWhere((r) => r.id == recordId);
     if (index >= 0) {
       final record = records[index];
@@ -240,7 +236,7 @@ class SkillHistory {
         stepResults: stepResults ?? record.stepResults,
       );
       records[index] = updated;
-      await _saveAllRecords(records);
+      _saveAllRecords(records);
     }
   }
 
@@ -248,7 +244,7 @@ class SkillHistory {
   Future<List<SkillRunRecord>> getHistory(String skillId) async {
     if (_prefs == null) await init();
 
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     return records
         .where((r) => r.skillId == skillId)
         .toList()
@@ -258,7 +254,7 @@ class SkillHistory {
   /// Get all execution history across all skills.
   Future<List<SkillRunRecord>> getAllHistory() async {
     if (_prefs == null) await init();
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     records.sort((a, b) => b.startedAt.compareTo(a.startedAt));
     return records;
   }
@@ -299,12 +295,12 @@ class SkillHistory {
 
     return SkillExecutionStats(
       skillId: skillId,
-      totalRuns: total,
-      successfulRuns: completed,
-      failedRuns: failed,
-      cancelledRuns: cancelled,
+      totalRuns: history.length,
+      successfulRuns: history.where((r) => r.status == SkillRunStatus.completed).length,
+      failedRuns: history.where((r) => r.status == SkillRunStatus.failed).length,
+      cancelledRuns: history.where((r) => r.status == SkillRunStatus.cancelled).length,
       avgDuration: avgDuration,
-      successRate: total > 0 ? completed / total : 0.0,
+      successRate: history.isEmpty ? 0.0 : history.where((r) => r.status == SkillRunStatus.completed).length / history.length,
     );
   }
 
@@ -312,12 +308,12 @@ class SkillHistory {
   Future<void> pruneOldEntries() async {
     if (_prefs == null) await init();
 
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     if (records.length <= _maxTotalHistoryEntries) return;
 
     records.sort((a, b) => b.startedAt.compareTo(a.startedAt));
     final pruned = records.take(_maxTotalHistoryEntries).toList();
-    await _saveAllRecords(pruned);
+    _saveAllRecords(pruned);
   }
 
   /// Export history to JSON string.
@@ -327,7 +323,7 @@ class SkillHistory {
   }
 
   Future<String> exportHistoryAsync() async {
-    final records = await _getAllRecords();
+    final records = _getAllRecords();
     return const JsonEncoder.withIndent('  ')
         .convert(records.map((r) => r.toJson()).toList());
   }
@@ -340,7 +336,7 @@ class SkillHistory {
       final List<dynamic> decoded = jsonDecode(jsonString);
       final imported = decoded.map((e) => SkillRunRecord.fromJson(e as Map<String, Object?>)).toList();
 
-      final existing = await _getAllRecords();
+      final existing = _getAllRecords();
       final existingIds = existing.map((r) => r.id).toSet();
 
       int importedCount = 0;
@@ -349,20 +345,19 @@ class SkillHistory {
           if (overwrite) {
             final index = _getAllRecords().indexWhere((r) => r.id == record.id);
             if (index >= 0) {
-              final records = await _getAllRecords();
+              final records = _getAllRecords();
               records[index] = record;
               importedCount++;
             }
           }
         } else {
-          final records = await _getAllRecords();
+          final records = _getAllRecords();
           records.add(record);
           importedCount++;
         }
       }
 
-      final allRecords = await _getAllRecords();
-      await _saveAllRecords(allRecords);
+      _saveAllRecords(_getAllRecords());
       await pruneOldEntries();
 
       return importedCount;
@@ -383,17 +378,17 @@ class SkillHistory {
     }
   }
 
-  Future<void> _saveAllRecords(List<SkillRunRecord> records) async {
+  void _saveAllRecords(List<SkillRunRecord> records) {
     if (_prefs == null) return;
     final jsonString = jsonEncode(records.map((r) => r.toJson()).toList());
-    await _prefs!.setString(_skillHistoryKey, jsonString);
+    _prefs!.setString(_skillHistoryKey, jsonString);
   }
 
-  Future<void> _appendRecord(SkillRunRecord record) async {
+  void _appendRecord(SkillRunRecord record) {
     final records = _getAllRecords();
     records.add(record);
-    await _saveAllRecords(records);
-    await pruneOldEntries();
+    _saveAllRecords(records);
+    pruneOldEntries();
   }
 
   String _generateId() {
