@@ -1,5 +1,6 @@
 // Tool Binding Dropdown — select tool for tool-mode steps
 import 'package:flutter/material.dart';
+import '../../l10n/l10n.dart';
 
 /// Dropdown to pick tool for tool-mode steps
 class ToolBindingDropdown extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'package:dsh_go/skills/skill_model.dart';
+import 'package:dsh_app/skills/skill_model.dart';
 
 void main() {
   group('Skill v2 Serialization', () {

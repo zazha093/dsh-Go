@@ -1,5 +1,6 @@
 // Step Mode Picker — Tool / Agent mode selector per step
 import 'package:flutter/material.dart';
+import '../../l10n/l10n.dart';
 
 /// Step execution mode
 enum StepMode { tool, agent }

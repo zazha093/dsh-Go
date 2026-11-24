@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../l10n/l10n.dart';
 import '../skill_model.dart';
 import 'section_title.dart';
 import '../../ui/theme/app_icons.dart' as app_icons;

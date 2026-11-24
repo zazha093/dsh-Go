@@ -523,6 +523,22 @@ class SkillProvenance {
     createdAt: DateTime.now(),
     evidence: {'importedFrom': sourceId},
   );
+
+  SkillProvenance copyWith({
+    String? type,
+    String? sourceSessionId,
+    String? sourceMessageId,
+    DateTime? createdAt,
+    Map<String, dynamic>? evidence,
+  }) {
+    return SkillProvenance(
+      type: type ?? this.type,
+      sourceSessionId: sourceSessionId ?? this.sourceSessionId,
+      sourceMessageId: sourceMessageId ?? this.sourceMessageId,
+      createdAt: createdAt ?? this.createdAt,
+      evidence: evidence ?? this.evidence,
+    );
+  }
 }
 
 /// Error handling configuration for executable skills
@@ -559,6 +575,20 @@ class SkillErrorHandling {
       maxRetries: json['maxRetries'] as int? ?? 0,
       retryDelay: Duration(milliseconds: json['retryDelay'] as int? ?? 5000),
       retryableErrors: (json['retryableErrors'] as List?)?.cast<String>() ?? [],
+    );
+  }
+
+  SkillErrorHandling copyWith({
+    String? onError,
+    int? maxRetries,
+    Duration? retryDelay,
+    List<String>? retryableErrors,
+  }) {
+    return SkillErrorHandling(
+      onError: onError ?? this.onError,
+      maxRetries: maxRetries ?? this.maxRetries,
+      retryDelay: retryDelay ?? this.retryDelay,
+      retryableErrors: retryableErrors ?? this.retryableErrors,
     );
   }
 }
@@ -611,6 +641,24 @@ class SkillStep {
       tool: json['tool'] as String?,
       args: json['args'] as Map<String, dynamic>? ?? {},
       order: json['order'] as int? ?? 0,
+    );
+  }
+
+  SkillStep copyWith({
+    String? id,
+    String? description,
+    String? mode,
+    String? tool,
+    Map<String, dynamic>? args,
+    int? order,
+  }) {
+    return SkillStep(
+      id: id ?? this.id,
+      description: description ?? this.description,
+      mode: mode ?? this.mode,
+      tool: tool ?? this.tool,
+      args: args ?? this.args,
+      order: order ?? this.order,
     );
   }
 }
@@ -683,6 +731,30 @@ class SkillParameter {
       bindToStep: json['bindToStep'] as String?,
       bindToTool: json['bindToTool'] as String?,
       template: json['template'] as String?,
+    );
+  }
+
+  SkillParameter copyWith({
+    String? key,
+    String? label,
+    String? type,
+    bool? required,
+    String? defaultValue,
+    List<String>? options,
+    String? bindToStep,
+    String? bindToTool,
+    String? template,
+  }) {
+    return SkillParameter(
+      key: key ?? this.key,
+      label: label ?? this.label,
+      type: type ?? this.type,
+      required: required ?? this.required,
+      defaultValue: defaultValue ?? this.defaultValue,
+      options: options ?? this.options,
+      bindToStep: bindToStep ?? this.bindToStep,
+      bindToTool: bindToTool ?? this.bindToTool,
+      template: template ?? this.template,
     );
   }
 }

@@ -27,7 +27,9 @@ void main() {
       } catch (e) {
         // Server not available - mark as unavailable, tests will be skipped
         serverAvailable = false;
+        // ignore: avoid_print
         print('DSH server not available at $launchUrl: $e');
+        // ignore: avoid_print
         print('Skipping ToolExecutionPoC tests.');
       }
     });
