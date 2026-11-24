@@ -82,12 +82,10 @@ class StepRunner {
   final StepRunnerConfig _config;
 
   StepRunner({
-    required DshClient client,
-    required String sessionId,
-    StepRunnerConfig config = const StepRunnerConfig(),
-  }) : _client = client,
-       _sessionId = sessionId,
-       _config = config;
+    required this._client,
+    required this._sessionId,
+    this._config = const StepRunnerConfig(),
+  });
 
   /// Runs a single step and returns the result.
   Future<StepResult> runStep({
@@ -188,7 +186,7 @@ class StepRunner {
     final prompt = 'Execute this step: $description';
 
     try {
-      final _requestId = await _client.prompt(
+      await _client.prompt(
         _sessionId,
         prompt,
         mode: PromptMode.queue,

@@ -142,10 +142,9 @@ class SkillExecutor {
   final _progressController = StreamController<SkillExecutionProgress>.broadcast();
 
   SkillExecutor({
-    required DshClient client,
-    SkillExecutorConfig config = const SkillExecutorConfig(),
-  }) : _client = client,
-       _config = config;
+    required this._client,
+    this._config = const SkillExecutorConfig(),
+  });
 
   /// Stream of execution progress updates.
   Stream<SkillExecutionProgress> get progressStream => _progressController.stream;
