@@ -28,7 +28,7 @@ class ParameterBindingUI extends ConsumerWidget {
     if (parameters.isEmpty) {
       return _EmptyState(
         label: l10n.skillsParameterBindingEmpty,
-        onAdd: enabled ? () => _showAddParameterDialog(context) : null,
+        onAdd: enabled ? (ctx) => _showAddParameterDialog(ctx) : null,
       );
     }
 
@@ -68,6 +68,7 @@ class ParameterBindingUI extends ConsumerWidget {
               onParametersChanged(newParams);
             } : null,
             enabled: enabled,
+            onAdd: enabled ? (ctx) => _showAddParameterDialog(ctx) : null,
           );
         }),
       ],
@@ -90,6 +91,7 @@ class _ParameterRow extends StatelessWidget {
     required this.onChanged,
     this.onDelete,
     this.enabled = true,
+    this.onAdd,
   });
 
   final int index;
@@ -97,6 +99,7 @@ class _ParameterRow extends StatelessWidget {
   final ValueChanged<SkillParameter> onChanged;
   final VoidCallback? onDelete;
   final bool enabled;
+  final Function(BuildContext)? onAdd;
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +136,7 @@ class _ParameterRow extends StatelessWidget {
                 Expanded(
                   child: SkillFormField(
                     label: 'Label',
+                    hint: 'Enter label for this parameter',
                     initialValue: param.label,
                     onChanged: (v) => onChanged(param.copyWith(label: v)),
                     enabled: enabled,
@@ -142,6 +146,7 @@ class _ParameterRow extends StatelessWidget {
                 Expanded(
                   child: SkillFormField(
                     label: 'Key',
+                    hint: 'Enter key (used in \${key} placeholders)',
                     initialValue: param.key,
                     onChanged: (v) => onChanged(param.copyWith(key: v)),
                     enabled: enabled,
@@ -182,6 +187,7 @@ class _ParameterRow extends StatelessWidget {
             const SizedBox(height: 12),
             SkillFormField(
               label: 'Default Value',
+              hint: 'Optional default value',
               initialValue: param.defaultValue,
               onChanged: (v) => onChanged(param.copyWith(defaultValue: v.isEmpty ? null : v)),
               enabled: enabled,
@@ -233,7 +239,7 @@ class _EmptyState extends StatelessWidget {
   });
 
   final String label;
-  final VoidCallback? onAdd;
+  final Function(BuildContext)? onAdd;
 
   @override
   Widget build(BuildContext context) {
@@ -264,7 +270,7 @@ class _EmptyState extends StatelessWidget {
             FilledButton.icon(
               icon: const Icon(Icons.add),
               label: Text(l10n.skillsParameterAdd),
-              onPressed: onAdd,
+              onPressed: () => onAdd!(context),
             ),
           ],
         ],

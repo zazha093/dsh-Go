@@ -7,6 +7,7 @@ import '../skill_model.dart';
 import 'step_mode_picker.dart';
 import 'tool_binding_dropdown.dart';
 import 'parameter_binding_ui.dart';
+import 'form_field.dart';
 
 /// Step editor with reorderable list, mode picker, tool binding, parameter binding
 class StepEditor extends ConsumerWidget {
@@ -221,6 +222,7 @@ class _ReadOnlyStepTile extends StatelessWidget {
 
 class _StepTile extends StatelessWidget {
   const _StepTile({
+    super.key,
     required this.index,
     required this.step,
     required this.onChanged,

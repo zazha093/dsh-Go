@@ -10,21 +10,21 @@ class ToolBindingDropdown extends StatelessWidget {
     required this.onToolChanged,
     this.enabled = true,
     this.label = 'Tool',
-  }) {
+  });
 
   final String? tool;
   final ValueChanged<String?> onToolChanged;
   final bool enabled;
   final String label;
 
-  static const List<_ToolOption> availableTools = [
-    _ToolOption(name: 'bash', label: 'Bash', description: 'Run shell commands', icon: Icons.terminal),
-    _ToolOption(name: 'edit', label: 'Edit', description: 'Edit files', icon: Icons.edit),
-    _ToolOption(name: 'write', label: 'Write', description: 'Write files', icon: Icons.note_add),
-    _ToolOption(name: 'read', label: 'Read', description: 'Read files', icon: Icons.note),
-    _ToolOption(name: 'web_fetch', label: 'Web Fetch', description: 'Fetch web pages', icon: Icons.web),
-    _ToolOption(name: 'web_search', label: 'Web Search', description: 'Search the web', icon: Icons.search),
-    _ToolOption(name: 'present', label: 'Present', description: 'Present files', icon: Icons.present_to_all),
+  static const List<ToolOption> availableTools = [
+    ToolOption(name: 'bash', label: 'Bash', description: 'Run shell commands', iconCodePoint: 0xe047), // Icons.terminal
+    ToolOption(name: 'edit', label: 'Edit', description: 'Edit files', iconCodePoint: 0xe3c9), // Icons.edit
+    ToolOption(name: 'write', label: 'Write', description: 'Write files', iconCodePoint: 0xe15d), // Icons.note_add
+    ToolOption(name: 'read', label: 'Read', description: 'Read files', iconCodePoint: 0xe15c), // Icons.note
+    ToolOption(name: 'web_fetch', label: 'Web Fetch', description: 'Fetch web pages', iconCodePoint: 0xe8c0), // Icons.web
+    ToolOption(name: 'web_search', label: 'Web Search', description: 'Search the web', iconCodePoint: 0xe8b6), // Icons.search
+    ToolOption(name: 'present', label: 'Present', description: 'Present files', iconCodePoint: 0xe0e1), // Icons.present_to_all
   ];
 
   @override
@@ -54,7 +54,7 @@ class ToolBindingDropdown extends StatelessWidget {
               value: t.name,
               child: Row(
                 children: [
-                  Icon(t.icon, size: 20, color: Theme.of(context).colorScheme.primary),
+                  Icon(IconData(t.iconCodePoint, fontFamily: 'MaterialIcons'), size: 20, color: Theme.of(context).colorScheme.primary),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Column(
@@ -82,16 +82,16 @@ class ToolBindingDropdown extends StatelessWidget {
   }
 }
 
-class _ToolOption {
-  const _ToolOption({
+class ToolOption {
+  const ToolOption({
     required this.name,
     required this.label,
     required this.description,
-    required this.icon,
+    required this.iconCodePoint,
   });
 
   final String name;
   final String label;
   final String description;
-  final IconData icon;
+  final int iconCodePoint;
 }
