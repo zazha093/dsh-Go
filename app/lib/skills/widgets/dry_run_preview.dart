@@ -103,7 +103,6 @@ class _ValidationResults extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
 
     final checks = _runChecks();
 
@@ -157,12 +156,13 @@ class _ValidationResults extends StatelessWidget {
     ));
 
     // Check 3: Parameter binding validity
-    final unboundBindings = skill.parameters?.where((p) => p.bindToStep != null && p.bindToStep!.isNotEmpty).toList() ?? [];
+    final params = skill.parameters ?? [];
+    final boundParams = params.where((p) => p.bindToStep != null && p.bindToStep!.isNotEmpty).toList();
     checks.add(_Check(
       label: 'Parameter bindings valid',
-      passed: unboundBindings.isNotEmpty || (skill.parameters?.isEmpty ?? true),
-      message: unboundBindings.isNotEmpty
-          ? '${unboundBindings.length} parameter(s) bound to steps'
+      passed: boundParams.isNotEmpty || params.isEmpty,
+      message: boundParams.isNotEmpty
+          ? '${boundParams.length} parameter(s) bound to steps'
           : 'No step bindings (OK for knowledge/workflow)',
     ));
 

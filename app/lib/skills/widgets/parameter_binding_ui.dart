@@ -23,7 +23,6 @@ class ParameterBindingUI extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
 
     if (parameters.isEmpty) {
       return _EmptyState(
@@ -159,7 +158,7 @@ class _ParameterRow extends StatelessWidget {
               children: [
                 Expanded(
                   child: DropdownButtonFormField<String>(
-                    value: param.type,
+                    initialValue: param.type,
                     decoration: InputDecoration(
                       labelText: 'Type',
                       border: const OutlineInputBorder(),

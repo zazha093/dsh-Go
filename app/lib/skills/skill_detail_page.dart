@@ -416,7 +416,6 @@ class _SkillDetailPageState extends ConsumerState<SkillDetailPage> {
   }
 
   Future<void> _saveSkill() async {
-    final l10n = context.l10n;
     if (_nameController.text.trim().isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(

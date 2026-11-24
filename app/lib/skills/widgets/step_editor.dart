@@ -32,7 +32,6 @@ class StepEditor extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
 
     final isExecutable = kind == 'executable';
 
@@ -68,7 +67,7 @@ class StepEditor extends ConsumerWidget {
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: steps.length,
-            onReorder: _reorderSteps,
+            onReorder: (oldIndex, newIndex) => _reorderSteps(oldIndex, newIndex),
             itemBuilder: (context, index) => _StepTile(
               key: ValueKey(steps[index].id),
               index: index,

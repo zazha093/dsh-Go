@@ -7,14 +7,6 @@ import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_storage.dart';
 
 void main() {
-  late SkillStorage storage;
-
-  setUp(() {
-    storage = SkillStorage.instance;
-    // Reset singleton state by using a fresh instance
-    // Note: SkillStorage is a singleton, so we test via the instance
-  });
-
   group('SkillStorage v2', () {
     setUpAll(() {
       // Set up mock for SharedPreferences
