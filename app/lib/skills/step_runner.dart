@@ -131,7 +131,7 @@ class StepRunner {
     final resolvedArgs = resolveArgs(step.args, resolvedParams);
 
     // Build the prompt for tool execution
-    final prompt = _buildToolPrompt(tool!, resolvedArgs);
+    final prompt = _buildToolPrompt(tool, resolvedArgs);
 
     int attempt = 0;
     while (true) {

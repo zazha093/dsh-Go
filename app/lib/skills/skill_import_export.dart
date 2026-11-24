@@ -193,19 +193,18 @@ class SkillImportExport {
 
     if (overwrite) {
       final existingRecords = history.getAllRecords();
-      final index = history.getAllRecords().indexWhere((r) => r.id == record.id);
+      final index = existingRecords.indexWhere((r) => r.id == record.id);
       if (index >= 0) {
-        final records = history.getAllRecords();
-        records[index] = record;
+        existingRecords[index] = record;
       } else {
-        history.getAllRecords().add(record);
+        existingRecords.add(record);
       }
-      history.saveAllRecords(history.getAllRecords());
+      history.saveAllRecords(existingRecords);
     } else {
       final existingRecords = history.getAllRecords();
       if (!existingRecords.any((r) => r.id == record.id)) {
-        history.getAllRecords().add(record);
-        history.saveAllRecords(history.getAllRecords());
+        existingRecords.add(record);
+        history.saveAllRecords(existingRecords);
       }
     }
   }

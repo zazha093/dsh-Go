@@ -12,8 +12,7 @@ import 'parameter_resolver.dart'
     show
         mergeParameters,
         validateParameters,
-        resolveSkillSteps,
-        resolveArgs;
+        resolveSkillSteps;
 import 'step_runner.dart';
 
 /// Result of a full skill execution.

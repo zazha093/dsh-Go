@@ -3,7 +3,6 @@
 // Analyzes skill execution history and proposes improvements to parameters,
 // steps, or error handling based on failure patterns.
 
-import 'skill_model.dart' as skill_model;
 import 'skill_history.dart' as skill_history;
 
 /// Type of improvement proposal.

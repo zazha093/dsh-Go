@@ -293,11 +293,6 @@ class SkillHistory {
       );
     }
 
-    final completed = history.where((r) => r.status == SkillRunStatus.completed).length;
-    final failed = history.where((r) => r.status == SkillRunStatus.failed).length;
-    final cancelled = history.where((r) => r.status == SkillRunStatus.cancelled).length;
-    final total = history.length;
-
     final durations = history
         .where((r) => r.duration != null)
         .map((r) => r.duration!.inMilliseconds)
