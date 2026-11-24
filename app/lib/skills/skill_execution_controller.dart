@@ -235,10 +235,11 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
       _approvalCompleter = null;
     }
 
+    // ignore: void_checks
     state = state.copyWith(
       awaitingApproval: false,
       currentApproval: null,
-    ); // ignore: void_checks
+    );
 
     // Resume execution (would need to be implemented in executor)
   }
