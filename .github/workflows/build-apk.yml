@@ -2,6 +2,11 @@ name: Build APK
 
 on:
   workflow_dispatch:
+    inputs:
+      enable_skills:
+        description: 'Enable Personal Skills feature (adds --dart-define=FORK_SKILLS=true)'
+        type: boolean
+        default: false
   push:
     branches: [test/thai-build, golden/thai-9e27, feat/thai-polish, ci/thai-test, thai/release]
 
@@ -155,7 +160,11 @@ jobs:
         working-directory: app
         run: |
           printf 'sdk.dir=%s\nflutter.sdk=%s\n' "$ANDROID_HOME" "$FLUTTER_ROOT" > android/local.properties
-          bash ../tooling/build-apk.sh -f arm64 --release
+          EXTRA_FLAGS=""
+          if [[ "${{ github.event.inputs.enable_skills }}" == "true" ]]; then
+            EXTRA_FLAGS="-- --dart-define=FORK_SKILLS=true"
+          fi
+          bash ../tooling/build-apk.sh -f arm64 --release $EXTRA_FLAGS
 
       - name: Upload APK (arm64)
         uses: actions/upload-artifact@v7
