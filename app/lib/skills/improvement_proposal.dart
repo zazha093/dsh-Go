@@ -3,8 +3,6 @@
 // Analyzes skill execution history and proposes improvements to parameters,
 // steps, or error handling based on failure patterns.
 
-import 'dart:convert';
-
 import 'skill_model.dart';
 import 'skill_history.dart';
 
@@ -69,13 +67,13 @@ class ImprovementProposal {
   final List<String> evidence;
 
   /// Current status.
-  ProposalStatus status;
+  final ProposalStatus status;
 
   /// When the proposal was accepted/rejected.
-  DateTime? appliedAt;
+  final DateTime? appliedAt;
 
   /// Skill version after applying this proposal.
-  int? resultingSkillVersion;
+  final int? resultingSkillVersion;
 
   Map<String, Object?> toJson() {
     return {
@@ -138,30 +136,28 @@ class ImprovementProposal {
 
 /// Service for analyzing skill history and generating improvement proposals.
 class ImprovementProposalEngine {
-  final SkillHistory _history;
-
   ImprovementProposalEngine(this._history);
+
+  final SkillHistory _history;
 
   /// Analyze skill history and generate improvement proposals.
   Future<List<ImprovementProposal>> generateProposals(String skillId) async {
-    final history = await _history.getHistory(_history.instance.getHistory);
-    final skillHistory = history.where((r) => r.skillId == _skillId).toList();
-    if (skillHistory.isEmpty) return [];
+    final history = await _history.getHistory(skillId);
+    if (history.isEmpty) return [];
 
     final proposals = <ImprovementProposal>[];
-    final skillId = _skillId; // This would need to be passed in
 
     // Analyze failure patterns
-    final failures = skillHistory.where((r) => r.status == SkillRunStatus.failed).toList();
+    final failures = history.where((r) => r.status == SkillRunStatus.failed).toList();
     if (failures.isNotEmpty) {
       proposals.addAll(_analyzeFailures(skillId, failures));
     }
 
     // Analyze parameter usage patterns
-    proposals.addAll(_analyzeParameterUsage(skillId, skillHistory));
+    proposals.addAll(_analyzeParameterUsage(skillId, history));
 
     // Analyze step performance
-    proposals.addAll(_analyzeStepPerformance(skillId, skillHistory));
+    proposals.addAll(_analyzeStepPerformance(skillId, history));
 
     return proposals;
   }
@@ -184,7 +180,7 @@ class ImprovementProposalEngine {
         // Frequent error - propose error handling
         proposals.add(ImprovementProposal(
           id: _generateId(),
-          skillId: _skillId,
+          skillId: skillId,
           type: ImprovementType.addErrorHandling,
           description: 'Add error handling for recurring error: $error',
           proposedChanges: {

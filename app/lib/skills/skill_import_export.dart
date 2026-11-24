@@ -8,17 +8,17 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'skill_model.dart';
-import 'skill_history.dart';
+import 'skill_history.dart' as skill_history;
 
 /// Service for exporting and importing skills to/from JSON.
 class SkillImportExport {
-  final SkillHistory _history;
+  final skill_history.SkillHistory _history;
 
   SkillImportExport(this._history);
 
   /// Export a single skill to a JSON file.
   Future<void> exportSkillToFile(String skillId, File file) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final record = history.getSkill(skillId);
@@ -39,7 +39,7 @@ class SkillImportExport {
 
   /// Export multiple skills to a JSON file.
   Future<void> exportSkillsToFile(List<String> skillIds, File file) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final skills = <Map<String, Object?>>[];
@@ -56,17 +56,13 @@ class SkillImportExport {
       'skills': skills,
     };
 
-    final jsonString = const JsonEncoder.withIndent('  ').convert({
-      'version': 2,
-      'exportedAt': DateTime.now().toIso8601String(),
-      'skills': skills,
-    });
+    final jsonString = const JsonEncoder.withIndent('  ').convert(exportData);
     await file.writeAsString(jsonString);
   }
 
   /// Export all skills to a JSON file.
   Future<void> exportAllSkillsToFile(File file) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final allSkills = history.getAllHistory();
@@ -86,7 +82,7 @@ class SkillImportExport {
   ///
   /// Returns the number of skills successfully imported.
   Future<int> importSkillsFromFile(File file, {bool overwrite = false}) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final jsonString = await file.readAsString();
@@ -116,7 +112,7 @@ class SkillImportExport {
   }
 
   Future<void> _importSkill(Skill skill, {bool overwrite = false}) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     final existing = history.getSkill(skill.id);
 
     if (existing != null && !overwrite) {
@@ -125,22 +121,22 @@ class SkillImportExport {
 
     if (overwrite && existing != null) {
       // Preserve history but update skill
-      await SkillHistory.instance.updateRecord(SkillRunRecord(
+      await skill_history.SkillHistory.instance.updateRecord(skill_history.SkillRunRecord(
         id: 'import-${DateTime.now().millisecondsSinceEpoch}',
         skillId: skill.id,
         startedAt: DateTime.now(),
-        status: SkillRunStatus.completed,
+        status: skill_history.SkillRunStatus.completed,
         output: 'Imported skill v${skill.version}',
         duration: Duration.zero,
       ));
     }
 
-    await SkillHistory.instance.upsertSkill(skill);
+    await skill_history.SkillHistory.instance.upsertSkill(skill);
   }
 
   /// Export skill execution history for a specific skill.
   Future<void> exportSkillHistoryToFile(String skillId, File file) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final records = await history.getHistory(skillId);
@@ -157,7 +153,7 @@ class SkillImportExport {
 
   /// Import skill execution history from a JSON file.
   Future<int> importSkillHistoryFromFile(File file, {bool overwrite = false}) async {
-    final history = SkillHistory.instance;
+    final history = skill_history.SkillHistory.instance;
     await history.init();
 
     final jsonString = await file.readAsString();
@@ -174,7 +170,7 @@ class SkillImportExport {
 
     for (final recordData in recordsData) {
       try {
-        final record = SkillRunRecord.fromJson(recordData as Map<String, dynamic>);
+        final record = skill_history.SkillRunRecord.fromJson(recordData as Map<String, dynamic>);
         await _importHistoryRecord(record, overwrite: overwrite);
         importedCount++;
       } catch (e) {
@@ -185,8 +181,8 @@ class SkillImportExport {
     return importedCount;
   }
 
-  Future<void> _importHistoryRecord(SkillRunRecord record, {bool overwrite = false}) async {
-    final history = SkillHistory.instance;
+  Future<void> _importHistoryRecord(skill_history.SkillRunRecord record, {bool overwrite = false}) async {
+    final history = skill_history.SkillHistory.instance;
     final existing = history.getSkill(record.skillId);
 
     if (existing == null) {
@@ -196,31 +192,21 @@ class SkillImportExport {
     }
 
     if (overwrite) {
-      final existingRecords = _getAllRecords();
-      final index = _getAllRecords().indexWhere((r) => r.id == record.id);
+      final existingRecords = history._getAllRecords();
+      final index = history._getAllRecords().indexWhere((r) => r.id == record.id);
       if (index >= 0) {
-        final records = _getAllRecords();
+        final records = history._getAllRecords();
         records[index] = record;
       } else {
-        _getAllRecords().add(record);
+        history._getAllRecords().add(record);
       }
-      _saveAllRecords(_getAllRecords());
+      history._saveAllRecords(history._getAllRecords());
     } else {
-      final existingRecords = _getAllRecords();
+      final existingRecords = history._getAllRecords();
       if (!existingRecords.any((r) => r.id == record.id)) {
-        _getAllRecords().add(record);
-        _saveAllRecords(_getAllRecords());
+        history._getAllRecords().add(record);
+        history._saveAllRecords(history._getAllRecords());
       }
     }
-  }
-
-  List<SkillRunRecord> _getAllRecords() {
-    // Access SkillHistory private method via reflection or add public method
-    // For now, return empty list - would need SkillHistory to expose this
-    return [];
-  }
-
-  void _saveAllRecords(List<SkillRunRecord> records) {
-    // Would need SkillHistory to expose this
   }
 }
