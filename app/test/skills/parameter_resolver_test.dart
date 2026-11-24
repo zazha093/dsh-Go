@@ -64,7 +64,7 @@ void main() {
 
     group('resolveStep', () {
       test('resolves step arguments', () {
-        const step = SkillStep(
+        final step = SkillStep(
           id: 'step-1',
           description: 'Deploy',
           mode: 'tool',
@@ -82,7 +82,7 @@ void main() {
 
     group('resolveSkillSteps', () {
       test('resolves all steps', () {
-        const steps = [
+        final steps = [
           SkillStep(id: '1', description: 'Step 1', mode: 'tool', tool: 'bash', args: {'cmd': '\${cmd1}'}, order: 1),
           SkillStep(id: '2', description: 'Step 2', mode: 'tool', tool: 'bash', args: {'cmd': '\${cmd2}'}, order: 2),
         ];

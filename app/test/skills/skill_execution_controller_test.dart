@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:dsh_app/skills/skill_execution_controller.dart';
 import 'package:dsh_app/skills/skill_model.dart';
+import 'package:dsh_app/skills/skill_executor.dart';
 
 void main() {
   group('SkillExecutionController', () {
@@ -73,10 +74,10 @@ void main() {
 
     group('SkillExecutionResult', () {
       test('success factory creates correct result', () {
-        const result = SkillExecutionResult.success(
+        final result = SkillExecutionResult.success(
           skillId: 'test-skill',
           output: 'done',
-          duration: Duration(seconds: 10),
+          duration: const Duration(seconds: 10),
           stepsCompleted: 3,
           totalSteps: 3,
         );
@@ -90,10 +91,10 @@ void main() {
       });
 
       test('failure factory creates correct result', () {
-        const result = SkillExecutionResult.failure(
+        final result = SkillExecutionResult.failure(
           skillId: 'test-skill',
           error: 'timeout',
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
           stepsCompleted: 1,
           totalSteps: 3,
         );
@@ -106,9 +107,9 @@ void main() {
       });
 
       test('cancelled factory creates correct result', () {
-        const result = SkillExecutionResult.cancelled(
+        final result = SkillExecutionResult.cancelled(
           skillId: 'test-skill',
-          duration: Duration(seconds: 2),
+          duration: const Duration(seconds: 2),
           stepsCompleted: 1,
           totalSteps: 3,
         );
@@ -122,7 +123,7 @@ void main() {
 
     group('SkillExecutionProgress', () {
       test('calculates progress correctly', () {
-        const progress = SkillExecutionProgress(
+        final progress = SkillExecutionProgress(
           currentStep: 2,
           totalSteps: 4,
           currentStepId: 'step-2',
@@ -135,7 +136,7 @@ void main() {
       });
 
       test('progress is 0 when totalSteps is 0', () {
-        const progress = SkillExecutionProgress(
+        final progress = SkillExecutionProgress(
           currentStep: 0,
           totalSteps: 0,
           currentStepId: '',

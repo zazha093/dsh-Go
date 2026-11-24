@@ -9,10 +9,10 @@ void main() {
   group('StepRunner', () {
     group('StepResult', () {
       test('success factory creates correct result', () {
-        const result = StepResult.success(
+        final result = StepResult.success(
           stepId: 'step-1',
           output: 'done',
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
         );
 
         expect(result.success, true);
@@ -23,10 +23,10 @@ void main() {
       });
 
       test('failure factory creates correct result', () {
-        const result = StepResult.failure(
+        final result = StepResult.failure(
           stepId: 'step-1',
           error: 'timeout',
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
         );
 
         expect(result.success, false);

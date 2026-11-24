@@ -3,6 +3,8 @@
 // Replaces ${paramName} placeholders in step arguments with actual values.
 // No template engine, no eval, OWASP SSTI safe.
 
+import 'skill_model.dart';
+
 /// Resolves ${param} placeholders in a value using the provided parameters.
 String resolveValue(String value, Map<String, String> params) {
   if (!value.contains('\${')) return value;

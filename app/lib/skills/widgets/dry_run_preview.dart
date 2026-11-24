@@ -22,7 +22,6 @@ class DryRunPreview extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
-    final colors = theme.colorScheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -157,11 +156,13 @@ class _ValidationResults extends StatelessWidget {
 
     // Check 3: Parameter binding validity
     final params = skill.parameters ?? [];
-    final boundParams = params.where((p) => p.bindToStep != null && p.bindToStep!.isNotEmpty).toList();
+    final boundParams = params.where((p) => p.bindToStep != null && p.bindToStep.isNotEmpty).toList();
+    final hasBindings = boundParams.isNotEmpty;
+    final noParams = params.isEmpty;
     checks.add(_Check(
       label: 'Parameter bindings valid',
-      passed: boundParams.isNotEmpty || params.isEmpty,
-      message: boundParams.isNotEmpty
+      passed: hasBindings || noParams,
+      message: hasBindings
           ? '${boundParams.length} parameter(s) bound to steps'
           : 'No step bindings (OK for knowledge/workflow)',
     ));
