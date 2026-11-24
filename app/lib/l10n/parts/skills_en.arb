@@ -48,6 +48,7 @@
   "skillsDistillFormula": "Formula Preview",
   "skillsDistillSave": "Save as Skill",
   "skillsSaveFromMessage": "Save as Skill from This Message",
+  "skillsMultiSelectSave": "Save as Skill from Selected Messages",
   "skillsDistillNameConflict": "A skill named \"{name}\" already exists. Choose a different name or update the existing one.",
   "skillsDistillError": "Could not distill skill: {error}",
   "skillsDistillSuccess": "Skill \"{name}\" created",

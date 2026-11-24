@@ -2260,4 +2260,34 @@ String _requestId() {
       '${hex.substring(16, 20)}-${hex.substring(20)}';
 }
 
+/// Controller for multi-selecting chat messages (for "Save as Skill from Selected Messages").
+class ChatMessageSelectionController extends Notifier<Set<String>?> {
+  @override
+  Set<String>? build() {
+    return null;
+  }
+
+  bool get active => state != null;
+
+  /// Turns multi-select on, with [first] chosen.
+  void start([String? first]) => state = {?first};
+
+  void toggle(String id) {
+    final current = state;
+    if (current == null) return;
+    state = current.contains(id) ? ({...current}..remove(id)) : {...current, id};
+  }
+
+  /// Chooses exactly [ids] (select all / deselect all).
+  void setAll(Iterable<String> ids) {
+    if (state != null) state = ids.toSet();
+  }
+
+  void end() => state = null;
+}
+
+final chatMessageSelectionProvider = NotifierProvider.autoDispose.family<ChatMessageSelectionController, Set<String>?, String>(
+  ChatMessageSelectionController.new,
+);
+
 final chatProvider = NotifierProvider.autoDispose.family<ChatController, ChatState, String>(ChatController.new);

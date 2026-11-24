@@ -20,6 +20,8 @@ import '../../../plugins/native/native_model.dart';
 import '../../../plugins/native/native_state.dart';
 import '../../../ui_config/ui_config_model.dart';
 import '../../../ui_config/ui_config_state.dart';
+import '../../state/chat_state.dart';
+import '../../../skills/skill_create_page.dart';
 import '../../common/edge_fade.dart';
 import '../../pets/pet_perch.dart';
 import '../../theme/app_icons.dart';
@@ -242,7 +244,77 @@ List<CapsuleItem> composerCapsules(
       ),
     );
   }
+
+  // Add multi-select capsules when messages are selected
+  if (sessionId != null) {
+    final selection = ref.watch(chatMessageSelectionProvider(sessionId));
+    if (selection != null && selection.isNotEmpty) {
+      final l10n = context.l10n;
+      items.add(
+        CapsuleItem(
+          id: 'skill:multi-select-save',
+          label: l10n.skillsMultiSelectSave,
+          icon: AppIcons.skill,
+          onTap: () => _handleMultiSelectSaveSkill(context, ref, sessionId, selection),
+        ),
+      );
+      items.add(
+        CapsuleItem(
+          id: 'skill:multi-select-cancel',
+          label: l10n.commonCancel,
+          icon: AppIcons.close,
+          onTap: () => ref.read(chatMessageSelectionProvider(sessionId).notifier).end(),
+        ),
+      );
+    }
+  }
+
   return items.length > NativeLimits.capsulesTotal ? items.sublist(0, NativeLimits.capsulesTotal) : items;
+}
+
+Future<void> _handleMultiSelectSaveSkill(
+  BuildContext context,
+  WidgetRef ref,
+  String sessionId,
+  Set<String> selectedKeys,
+) async {
+  // Close the capsule bar menu if open
+  Navigator.of(context).pop();
+
+  // Get the chat state to find the selected messages
+  final chatState = ref.read(chatProvider(sessionId));
+  final items = chatState.items;
+
+  // Filter items by selected keys
+  final selectedItems = items.where((item) => selectedKeys.contains(item.key)).toList();
+
+  if (selectedItems.isEmpty) return;
+
+  // Merge texts and tool calls from selected items
+  final texts = <String>[];
+  final toolCalls = <String>{};
+
+  for (final item in selectedItems) {
+    if (item is UserChatItem) {
+      texts.add(item.text);
+    } else if (item is AssistantChatItem) {
+      texts.add(item.text);
+      toolCalls.addAll(item.toolCalls);
+    }
+  }
+
+  if (texts.isEmpty) return;
+
+  // Navigate to SkillCreatePage with merged content
+  if (!context.mounted) return;
+  Navigator.of(context).push(
+    MaterialPageRoute(
+      builder: (_) => SkillCreatePage(
+        draftTexts: texts,
+        draftTools: toolCalls.toList(),
+      ),
+    ),
+  );
 }
 
 /// The row on the chat screen. [visible] false (a reply generating, read

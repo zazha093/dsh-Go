@@ -17,7 +17,7 @@ import 'widgets/step_editor.dart';
 import 'widgets/parameter_binding_ui.dart';
 import 'widgets/dry_run_preview.dart';
 
-/// Create page for a new skill (or distilling from session, or from selected message)
+/// Create page for a new skill (or distilling from session, or from selected message(s))
 class SkillCreatePage extends ConsumerStatefulWidget {
   const SkillCreatePage({
     super.key,
@@ -25,6 +25,7 @@ class SkillCreatePage extends ConsumerStatefulWidget {
     this.sessionId,
     this.sessionTitle,
     this.draftText,
+    this.draftTexts,
     this.draftTools,
   });
 
@@ -37,10 +38,14 @@ class SkillCreatePage extends ConsumerStatefulWidget {
   /// Session title (if distilling)
   final String? sessionTitle;
 
-  /// Draft text from selected message (for "Save as Skill from This Message")
+  /// Draft text from selected message (for "Save as Skill from This Message") - legacy
+  @Deprecated('Use draftTexts instead')
   final String? draftText;
 
-  /// Tool names from the selected message's tool calls
+  /// Draft texts from selected messages (for "Save as Skill from Selected Messages")
+  final List<String>? draftTexts;
+
+  /// Tool names from the selected messages' tool calls
   final List<String>? draftTools;
 
   @override
@@ -75,8 +80,11 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     super.initState();
     if (widget.initialSkill != null) {
       _fillForm(widget.initialSkill!);
+    } else if (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) {
+      // Create draft from selected messages (multi-select)
+      _createDraftFromText();
     } else if (widget.draftText != null) {
-      // Create draft from selected message text
+      // Create draft from selected message text (legacy single message)
       _createDraftFromText();
     } else if (widget.sessionId != null) {
       // Auto-start distillation
@@ -113,9 +121,11 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     _parameters = skill.parameters ?? [];
   }
 
-  /// Create a draft skill from selected message text using regex-based extraction
+  /// Create a draft skill from selected message text(s) using regex-based extraction
   void _createDraftFromText() {
-    final text = widget.draftText ?? '';
+    // Combine multiple texts if provided, fallback to single draftText
+    final texts = widget.draftTexts ?? (widget.draftText != null ? [widget.draftText!] : <String>[]);
+    final text = texts.join('\n\n---\n\n');
     final tools = widget.draftTools ?? [];
 
     // Use the new regex-based extraction (no AI)
@@ -123,7 +133,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       userMessage: text,
       aiResponse: null, // No AI response available for selected message
       toolCalls: tools,
-      sessionTitle: 'From message',
+      sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
     );
 
     _fillForm(draftSkill);

@@ -1444,8 +1444,24 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
     return (label: appL10n.commonContinue, onPressed: () => chat.send(appL10n.commonContinue));
   }
 
-  Widget _rowWidget(ChatRow row) {
+  /// Extract the stable item key from a chat row for selection purposes.
+  String? _getItemKey(ChatRow row) {
     return switch (row) {
+      UserRow(:final item) => item.key,
+      AssistantRow(:final item) => item.key,
+      PendingRow(:final prompt) => prompt.requestId,
+      _ => null,
+    };
+  }
+
+  Widget _rowWidget(ChatRow row) {
+    final selection = ref.watch(chatMessageSelectionProvider(widget.sessionId));
+    final isSelectionMode = selection != null;
+    final itemKey = _getItemKey(row);
+    final isSelected = isSelectionMode && itemKey != null && selection.contains(itemKey);
+    final canSelect = itemKey != null;
+    
+    Widget child = switch (row) {
       UserRow(:final item) when dshUiReplyChip(item.text) != null => DshUiReplyChip(label: dshUiReplyChip(item.text)!),
       UserRow(:final item) => UserBubble(
         text: withoutAppNotes(item.text),
@@ -1492,6 +1508,56 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
         child: QuestionCard(request: request, onAnswer: _answer, onReject: _rejectQuestion),
       ),
     };
+
+    if (isSelectionMode && canSelect) {
+      child = _SelectableRow(
+        key: ValueKey('selectable_$itemKey'),
+        rowKey: itemKey!,
+        isSelected: isSelected,
+        onTap: () {
+          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).toggle(itemKey!);
+        },
+        child: child,
+      );
+    } else if (!isSelectionMode && canSelect) {
+      // Long press to start selection mode
+      child = GestureDetector(
+        onLongPress: () {
+          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).start(itemKey!);
+        },
+        child: child,
+      );
+    }
+
+    return child;
+  }
+
+  /// A row wrapper that adds a selection checkbox when in multi-select mode.
+  Widget _SelectableRow({
+    required Key key,
+    required String rowKey,
+    required bool isSelected,
+    required VoidCallback onTap,
+    required Widget child,
+  }) {
+    return InkWell(
+      key: key,
+      onTap: onTap,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12, top: 4),
+            child: Checkbox(
+              value: isSelected,
+              onChanged: (_) => onTap(),
+              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            ),
+          ),
+          Expanded(child: child),
+        ],
+      ),
+    );
   }
 }
 
