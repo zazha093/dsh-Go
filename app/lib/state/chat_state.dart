@@ -2262,10 +2262,12 @@ String _requestId() {
 
 /// Controller for multi-selecting chat messages (for "Save as Skill from Selected Messages").
 class ChatMessageSelectionController extends Notifier<Set<String>?> {
+  ChatMessageSelectionController(this.sessionId);
+
+  final String sessionId;
+
   @override
-  Set<String>? build(String sessionId) {
-    // The sessionId parameter is provided by the family provider
-    // We don't use it directly but it ensures the controller is scoped per session
+  Set<String>? build() {
     return null;
   }
 

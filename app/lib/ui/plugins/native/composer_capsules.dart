@@ -17,7 +17,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../l10n/l10n.dart';
 import '../../../plugins/native/native_model.dart';
-import 'package:dsh_client/dsh_client.dart';
 
 import '../../../plugins/native/native_state.dart';
 import '../../../ui_config/ui_config_model.dart';
