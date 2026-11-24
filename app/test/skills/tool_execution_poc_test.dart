@@ -4,7 +4,7 @@
 // Requires: DSH server running at DSH_TEST_URL or default http://127.0.0.1:3080
 // If no server is available, tests are skipped (not failed) so CI doesn't block.
 
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:dsh_client/dsh_client.dart';

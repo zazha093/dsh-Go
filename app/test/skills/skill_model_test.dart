@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:dsh_app/skills/skill_model.dart';
 
 void main() {

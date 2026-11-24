@@ -63,7 +63,7 @@ jobs:
 
       - name: Flutter pub get
         working-directory: app
-        run: flutter pub get
+        run: flutter pub get --enforce-lockfile
 
       - name: Flutter analyze (fail on errors)
         working-directory: app
