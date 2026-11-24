@@ -2,9 +2,9 @@ name: Quality Gate
 
 on:
   push:
-    branches: [thai/release]
+    branches: [thai/release, feat/skills-evolution]
   pull_request:
-    branches: [thai/release]
+    branches: [thai/release, feat/skills-evolution]
   workflow_dispatch:
 
 permissions:
@@ -78,4 +78,22 @@ jobs:
             exit 1
           else
             echo "flutter analyze passed (no errors)"
+          fi
+
+      - name: Run Tool Execution PoC test
+        if: github.ref == 'refs/heads/feat/skills-evolution'
+        working-directory: app
+        run: |
+          echo "=== Running Tool Execution PoC test ==="
+          # Set test URL to local server (started in CI if needed)
+          export DSH_TEST_URL="http://127.0.0.1:3080"
+          flutter test test/skills/tool_execution_poc_test.dart 2>&1 | tee poc_output.txt
+          
+          # Check for test failures
+          if grep -q "Test failed" poc_output.txt; then
+            echo "::error::Tool Execution PoC test failed:"
+            cat poc_output.txt
+            exit 1
+          else
+            echo "Tool Execution PoC test passed"
           fi
