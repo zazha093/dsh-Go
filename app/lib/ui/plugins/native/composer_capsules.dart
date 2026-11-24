@@ -17,10 +17,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../l10n/l10n.dart';
 import '../../../plugins/native/native_model.dart';
+import 'package:dsh_client/dsh_client.dart';
+
 import '../../../plugins/native/native_state.dart';
 import '../../../ui_config/ui_config_model.dart';
 import '../../../ui_config/ui_config_state.dart';
-import '../../state/chat_state.dart';
+import '../../../state/chat_state.dart';
 import '../../../skills/skill_create_page.dart';
 import '../../common/edge_fade.dart';
 import '../../pets/pet_perch.dart';

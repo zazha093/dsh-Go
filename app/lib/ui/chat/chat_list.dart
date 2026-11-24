@@ -1510,12 +1510,12 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
     };
 
     if (isSelectionMode && canSelect) {
-      child = _SelectableRow(
+      child = _selectableRow(
         key: ValueKey('selectable_$itemKey'),
-        rowKey: itemKey!,
+        rowKey: itemKey,
         isSelected: isSelected,
         onTap: () {
-          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).toggle(itemKey!);
+          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).toggle(itemKey);
         },
         child: child,
       );
@@ -1523,7 +1523,7 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
       // Long press to start selection mode
       child = GestureDetector(
         onLongPress: () {
-          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).start(itemKey!);
+          ref.read(chatMessageSelectionProvider(widget.sessionId).notifier).start(itemKey);
         },
         child: child,
       );
@@ -1533,7 +1533,7 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
   }
 
   /// A row wrapper that adds a selection checkbox when in multi-select mode.
-  Widget _SelectableRow({
+  Widget _selectableRow({
     required Key key,
     required String rowKey,
     required bool isSelected,
