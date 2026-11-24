@@ -152,6 +152,17 @@ jobs:
         working-directory: app
         run: python3 tool/l10n_merge.py --locale th
 
+      - name: DEBUG verify CI code
+        working-directory: app
+        run: |
+          echo "=== CI Debug Info ==="
+          echo "Commit SHA: $(git rev-parse HEAD)"
+          echo "Branch: $(git branch --show-current || git log -1 --format='%d')"
+          echo "=== File content at lines 230-245 ==="
+          sed -n '230,245p' lib/skills/skill_execution_controller.dart
+          echo "=== Line numbers of state assignments ==="
+          grep -n "state = state.copyWith" lib/skills/skill_execution_controller.dart
+
       - name: Flutter analyze
         working-directory: app
         run: flutter analyze
