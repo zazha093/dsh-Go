@@ -135,18 +135,17 @@ class SkillExecutorConfig {
 
 /// Thin adapter over DshClient for executing skills.
 class SkillExecutor {
+  final DshClient _client;
+  final SkillExecutorConfig _config;
+  String? _sessionId;
+  bool _cancelled = false;
+  final _progressController = StreamController<SkillExecutionProgress>.broadcast();
+
   SkillExecutor({
     required DshClient client,
     SkillExecutorConfig config = const SkillExecutorConfig(),
   }) : _client = client,
        _config = config;
-
-  final DshClient _client;
-  final SkillExecutorConfig _config;
-
-  String? _sessionId;
-  bool _cancelled = false;
-  final _progressController = StreamController<SkillExecutionProgress>.broadcast();
 
   /// Stream of execution progress updates.
   Stream<SkillExecutionProgress> get progressStream => _progressController.stream;

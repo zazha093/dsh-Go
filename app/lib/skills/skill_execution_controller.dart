@@ -235,6 +235,7 @@ class SkillExecutionController extends Notifier<SkillExecutionState> {
       _approvalCompleter = null;
     }
 
+    // ignore: void_checks
     state = state.copyWith(
       awaitingApproval: false,
       currentApproval: null,

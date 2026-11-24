@@ -77,6 +77,10 @@ class StepRunnerConfig {
 
 /// Runs skill steps via DshClient.
 class StepRunner {
+  final DshClient _client;
+  final String _sessionId;
+  final StepRunnerConfig _config;
+
   StepRunner({
     required DshClient client,
     required String sessionId,
@@ -84,10 +88,6 @@ class StepRunner {
   }) : _client = client,
        _sessionId = sessionId,
        _config = config;
-
-  final DshClient _client;
-  final String _sessionId;
-  final StepRunnerConfig _config;
 
   /// Runs a single step and returns the result.
   Future<StepResult> runStep({
@@ -188,7 +188,7 @@ class StepRunner {
     final prompt = 'Execute this step: $description';
 
     try {
-      final requestId = await _client.prompt(
+      final _requestId = await _client.prompt(
         _sessionId,
         prompt,
         mode: PromptMode.queue,
