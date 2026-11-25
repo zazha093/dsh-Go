@@ -146,7 +146,7 @@ class ThaiLex implements Lex {
       : 'สร้างโฟลเดอร์ ${clipSmart(dir, 50)} (ถ้ายังไม่มี)';
   @override
   String generic(String cmd, String arg) =>
-      arg.isEmpty ? 'รันคำสั่ง $cmd' : 'รันคำสั่ง $cmd ${clipSmart(arg, 50)}';
+      arg.isEmpty ? cmd : '$cmd ${clipSmart(arg, 50)}';
   @override
   String tar({
     required bool create,
@@ -278,9 +278,30 @@ String _describeTar(List<String> w, Lex lex) {
   for (var i = 1; i < w.length; i++) {
     final t = w[i];
     if (t.startsWith('--exclude=')) {
-      excludes.add(t.substring('--exclude='.length));
+      // Handle --exclude=foo, --exclude="foo", --exclude='foo', --exclude={a,b,c}
+      var excl = t.substring('--exclude='.length);
+      excl = excl.trim();
+      if (excl.startsWith('{') && excl.endsWith('}')) {
+        // --exclude={a,b,c} format
+        excl = excl.substring(1, excl.length - 1);
+        for (final part in excl.split(',')) {
+          excludes.add(part.trim());
+        }
+      } else {
+        // Remove quotes if present
+        if ((excl.startsWith('"') && excl.endsWith('"')) ||
+            (excl.startsWith("'") && excl.endsWith("'"))) {
+          excl = excl.substring(1, excl.length - 1);
+        }
+        excludes.add(excl);
+      }
     } else if (t == '--exclude' && i + 1 < w.length) {
-      excludes.add(w[++i]);
+      var excl = w[++i].trim();
+      if ((excl.startsWith('"') && excl.endsWith('"')) ||
+          (excl.startsWith("'") && excl.endsWith("'"))) {
+        excl = excl.substring(1, excl.length - 1);
+      }
+      excludes.add(excl);
     } else if (t == '-C' && i + 1 < w.length) {
       i++;
     } else if (t.startsWith('--')) {
@@ -311,8 +332,13 @@ final Map<String, Describer> describers = {
 // ───────── 7) แยกขั้นตอนจากสคริปต์ ─────────
 final _assign = RegExp(r'^[A-Za-z_][A-Za-z0-9_]*=');
 const _setupWords = {'export', 'set', 'local', 'readonly', 'declare', 'shopt', 'umask'};
-const _skipWords = {'then', 'else', 'elif', 'fi', 'do', 'done', 'esac', '{', '}', 'exit', 'return', 'trap'};
+const _skipWords = {
+  'then', 'else', 'elif', 'fi', 'do', 'done', 'esac', '{', '}', 'exit', 'return', 'trap',
+  'if', 'chmod', 'source', '.',
+};
 final _sizeCheck = RegExp(r'(?:\s-s\s|\bstat\s|\bwc\s+-c\b|-gt\s+0\b)');
+final _ifFileCheck = RegExp(r'^if\s+\[\[?\s+-f\s');
+final _executableScript = RegExp(r'^\./[\w\-/.]+\.sh\b');
 
 List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false}) {
   final steps = <StepDraft>[];
@@ -341,10 +367,22 @@ List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false})
       }
       continue;
     }
+    // Skip shell control flow keywords
     final w = shellWords(t);
     if (w.isEmpty) continue;
     final head = w.first;
     if (_skipWords.contains(head)) continue;
+    // Skip executable script invocations (./script.sh)
+    if (_executableScript.hasMatch(t)) continue;
+    // Handle if-file-check blocks as a single verify step
+    if (_ifFileCheck.hasMatch(t)) {
+      if (!verified) {
+        steps.add(StepDraft(StepKind.verify, lex.verifyNonEmpty, command: t));
+        verified = true;
+        label = null;
+      }
+      continue;
+    }
     if (_assign.hasMatch(head) || _setupWords.contains(head)) {
       setup.add(t);
       continue;
@@ -462,13 +500,58 @@ String? inferGoal({
   required String userPrompt,
   required String name,
   required List<StepDraft> steps,
+  required String code,
   bool allowCjk = false,
 }) {
+  // Infer goal from script intent (not from user prompt or step titles)
+  final intent = detectKey(userPrompt, _intentWords) ?? detectKey(code, _intentWords);
+  if (intent != null) {
+    final object = detectKey(userPrompt, _objectWords) ?? detectKey(code, _objectWords);
+    final fmt = RegExp(r'\.(tar\.gz|tgz|zip|tar\.xz|7z)\b').firstMatch(code)?.group(1);
+    final goal = ThaiLex().nameOf(intent, object, fmt);
+    if (!isGenericName(goal)) return clipSmart(goal, 300);
+  }
+  // Fallback: use cleaned user prompt (without intent prefix)
   final g = clipSmart(stripIntentPrefix(userPrompt), 300);
   if (g.isNotEmpty && normKey(g) != normKey(name) && (allowCjk || !hasCjk(g))) return g;
+  // Last resort: join action step titles
   final titles =
       steps.where((s) => s.kind == StepKind.action).map((s) => s.title).take(3).toList();
   return titles.isEmpty ? null : titles.join(' → ');
+}
+
+// ───────── 9) ทำความสะอาดข้อความก่อนคืนค่า (กรอง CJK, ตัด step ว่าง) ─────────
+String _sanitizeText(String text, bool allowCjk) {
+  if (allowCjk) return text;
+  // Remove CJK characters
+  return text.replaceAll(RegExp(r'[\u3400-\u4DBF\u4E00-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]+'), '');
+}
+
+List<StepDraft> _sanitizeSteps(List<StepDraft> steps, bool allowCjk) {
+  if (allowCjk) return steps;
+  final sanitized = <StepDraft>[];
+  for (final step in steps) {
+    final cleanTitle = _sanitizeText(step.title, false);
+    final cleanDetail = _sanitizeText(step.detail, false);
+    final cleanCommand = _sanitizeText(step.command, false);
+    // Skip step if title becomes empty or only prefix remains
+    if (cleanTitle.trim().isEmpty) continue;
+    // Skip if title is just generic prefix
+    if (cleanTitle.trim() == 'รันคำสั่ง' || cleanTitle.trim() == 'Run command') continue;
+    sanitized.add(StepDraft(step.kind, cleanTitle,
+        command: cleanCommand, detail: cleanDetail));
+  }
+  return sanitized;
+}
+
+String? _sanitizeGoal(String? goal, bool allowCjk) {
+  if (goal == null) return null;
+  return _sanitizeText(goal, allowCjk);
+}
+
+String? _sanitizeName(String? name, bool allowCjk) {
+  if (name == null) return null;
+  return _sanitizeText(name, allowCjk);
 }
 
 class DistilledDraft {
@@ -494,6 +577,10 @@ DistilledDraft distillScript({
   final name = inferName(
       userPrompt: userPrompt, code: code, steps: steps, lex: lex, allowCjk: allowCjk);
   final goal = inferGoal(
-      userPrompt: userPrompt, name: name ?? '', steps: steps, allowCjk: allowCjk);
-  return DistilledDraft(name, goal, steps, code.isEmpty ? null : code);
+      userPrompt: userPrompt, name: name ?? '', steps: steps, code: code, allowCjk: allowCjk);
+  // Sanitize output
+  final cleanSteps = _sanitizeSteps(steps, allowCjk);
+  final cleanName = _sanitizeName(name, allowCjk);
+  final cleanGoal = _sanitizeGoal(goal, allowCjk);
+  return DistilledDraft(cleanName, cleanGoal, cleanSteps, code.isEmpty ? null : code);
 }
