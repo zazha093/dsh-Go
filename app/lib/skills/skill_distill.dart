@@ -35,8 +35,8 @@ ExtractedScript? extractScriptFromText(String text) {
     
     // Only process shell-like scripts
     if (isShellScript(language, content)) {
-      final steps = extractStepsFromScriptContent(content);
-      final tools = inferToolsFromScriptContent(content);
+      final steps = _extractStepsFromScriptContentImpl(content);
+      final tools = _inferToolsFromScriptContentImpl(content);
       
       if (steps.isNotEmpty || tools.isNotEmpty) {
         return ExtractedScript(
@@ -88,7 +88,7 @@ bool isShellScript(String language, String content) {
 }
 
 /// Extract meaningful steps from shell script content
-List<String> extractStepsFromScriptContent(String content) {
+List<String> _extractStepsFromScriptContentImpl(String content) {
   final steps = <String>[];
   final lines = content.split('\n');
   
@@ -248,7 +248,7 @@ String describeCommand(String line) {
 }
 
 /// Infer tools used in script content
-Set<String> inferToolsFromScriptContent(String content) {
+Set<String> _inferToolsFromScriptContentImpl(String content) {
   final tools = <String>{};
   
   // Command patterns to detect (no duplicate keys)
@@ -1122,8 +1122,8 @@ class SkillDistiller {
       
       // Only process shell-like scripts
       if (isShellScript(language, content)) {
-        final steps = extractStepsFromScriptContent(content);
-        final tools = inferToolsFromScriptContent(content);
+        final steps = _extractStepsFromScriptContentImpl(content);
+        final tools = _inferToolsFromScriptContentImpl(content);
         
         if (steps.isNotEmpty || tools.isNotEmpty) {
           return ExtractedScript(
@@ -1176,11 +1176,11 @@ class SkillDistiller {
 
   /// Static wrapper for top-level extractStepsFromScriptContent function
   static List<String> extractStepsFromScriptContent(String content) {
-    return extractStepsFromScriptContent(content);
+    return _extractStepsFromScriptContentImpl(content);
   }
 
   /// Static wrapper for top-level inferToolsFromScriptContent function
   static Set<String> inferToolsFromScriptContent(String content) {
-    return inferToolsFromScriptContent(content);
+    return _inferToolsFromScriptContentImpl(content);
   }
 }
