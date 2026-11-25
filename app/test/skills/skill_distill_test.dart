@@ -684,7 +684,7 @@ sha256sum backup.tar.gz
       });
 
       test('falls back to session title', () {
-        const desc = SkillDistiller.createDescription('msg', null, null, 'My Session');
+        final desc = SkillDistiller.createDescription('msg', null, null, 'My Session');
         expect(desc, 'Distilled from: My Session');
       });
     });
@@ -817,4 +817,5 @@ sha256sum backup.tar.gz
       expect(result.omitted, greaterThan(0));
     });
   });
+}
 }
