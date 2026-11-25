@@ -1266,4 +1266,13 @@ class SkillDistiller {
     return false;
   }
 
+  /// Static wrapper for top-level extractStepsFromScriptContent function
+  static List<String> extractStepsFromScriptContent(String content) {
+    return _extractStepsFromScriptContentImpl(content);
   }
+
+  /// Static wrapper for top-level inferToolsFromScriptContent function
+  static Set<String> inferToolsFromScriptContent(String content) {
+    return _inferToolsFromScriptContentImpl(content);
+  }
+}
