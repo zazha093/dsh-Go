@@ -1,9 +1,9 @@
 # 📋 DSH-Go Project Status Report
 
-> **Last Updated**: 2026-11-22  
-> **Chat Session**: Personal Skills + CI Verification Complete  
-> **Branch**: `thai/release` @ `ae42f53b1`  
-> **Previous Feature Branch**: `feat/complete-personal-skills` (merged)  
+> **Last Updated**: 2026-11-25  
+> **Chat Session**: STAGE 2-3 Re-implementation → Quality Gate Running → Phase 4 Gate Pending  
+> **Branch**: `feat/skills-evolution` @ `9a5dc6e41`  
+> **Previous Feature Branch**: `feat/fix-skill-crash` (merged into feat/skills-evolution)  
 > **Base Branch**: `thai/release` @ `4c9c4fc0c` (upstream mirror)  
 > **Backup Branch**: `release/thai-only` @ `95f4d19` (Thai locale complete)
 
@@ -22,59 +22,39 @@
 
 ## ✅ Completed in This Session
 
-### 1. Personal Skills Module (Feature Complete + CI Verified)
+### 1. Phase 5/6 Analyze Fixes Complete (2026-11-24)
 
 | Task | Status | Files Changed |
 |------|--------|---------------|
-| **Add "Save as Skill" button** | ✅ Done | `app/lib/ui/chat/widgets/assistant_message.dart` |
-| **Distillation logic** | ✅ Already implemented | `app/lib/skills/skill_distill.dart` (verified complete) |
-| **Update Skill data model** | ✅ Done | `app/lib/skills/skill_model.dart` |
-| **Fix user inputs integration** | ✅ Done | `app/lib/skills/skill_detail_page.dart` |
-| **Add formula update prompt** | ✅ Done | `app/lib/skills/skill_detail_page.dart` |
-| **Add l10n keys (en/th/zh)** | ✅ Done | `app/lib/l10n/parts/skills_en.arb`, `skills_th.arb`, `skills_zh.arb` |
-| **Replace Save as Skill menu to use selected message** | ✅ Done | `app/lib/ui/chat/widgets/assistant_message.dart` |
-| **Remove session distillation path** | ✅ Done | `app/lib/ui/chat/widgets/assistant_message.dart` |
+| **Fix ambiguous import SkillRunStatus** | ✅ Done | `improvement_proposal.dart`, `skill_import_export.dart` |
+| **Fix const constructor error** | ✅ Done | `improvement_proposal.dart` |
+| **Fix void await error** | ✅ Done | `skill_history.dart` |
+| **Fix Future.map() error** | ✅ Done | `skill_import_export.dart` |
+| **Add public wrapper methods to SkillHistory** | ✅ Done | `skill_history.dart` |
 
-**Skill Model Changes** (commit `0328bc815`):
-- Added `SkillRunStatus` enum: `never` / `success` / `failure` / `running`
-- Added `requiredPersona` (String?) field
-- Added `lastRunStatus` (SkillRunStatus) field
-- Full JSON serialization (toJson/fromJson/copyWith)
+**Phase 5 (Full Execution) Files:**
+- `app/lib/skills/skill_execution_controller.dart` — Riverpod Notifier
+- `app/lib/skills/skill_executor.dart` — Thin DshClient adapter
+- `app/lib/skills/parameter_resolver.dart` — ${param} substitution
+- `app/lib/skills/step_runner.dart` — Tool/Agent runners
+- `app/test/skills/skill_execution_controller_test.dart` — Unit tests
+- `app/test/skills/step_runner_test.dart` — Unit tests
 
-**Skill Detail Page Changes** (commit `767f90e45`):
-- Fixed user inputs not being used in skill execution prompt
-- Added formula update prompt after successful skill run
-- Added `skillsUpdate` l10n key to en/th/zh
+**Phase 6 (Intelligence & Evolution) Files:**
+- `app/lib/skills/skill_history.dart` — RunRecord + storage
+- `app/lib/skills/improvement_proposal.dart` — Auto-propose model
+- `app/lib/skills/skill_import_export.dart` — JSON import/export
+- `app/test/skills/skill_history_test.dart` — Unit tests (pending)
+- `app/test/skills/skill_import_export_test.dart` — Unit tests (pending)
 
-**Save as Skill Menu Changes** (commits `0dbffd1f2`, `1358522be`, `ae42f53b1`):
-- SkillCreatePage accepts `draftText`/`draftTools` for selected message
-- Added `skillsSaveFromMessage` l10n key to en/th/zh
-- Replaced existing menu to use selected message text (removed session distillation)
-- Removed unused `sessions_state` import
+### 2. CI Verification
 
-### 2. CLI Tools Installation (17 Tools)
+**Quality Gate (Run 45384536248):**
+- ✅ CJK Scan (fork-tools/scan_th.py)
+- ✅ `flutter analyze --no-pub` — **0 errors**
+- ✅ Tool Execution PoC test compiles
 
-| Category | Tools | Install Method |
-|----------|-------|----------------|
-| **apt (10)** | jq, rg, fdfind, batcat, delta, yq, tree, btop, entr, watchexec | `apt-get install` |
-| **cargo (7)** | tokei, hyperfine, lazygit, dust, gron, dasel, zoxide | `cargo install` / GitHub releases |
-| **Total** | **17 tools** | All verified working |
-
-**Key Tools for This Project**:
-- `rg` + `fdfind` → Code search/navigation
-- `tokei` + `hyperfine` → Code stats & benchmarking
-- `lazygit` → Git TUI
-- `dasel` + `gron` → Config/data querying
-- `fzf` + `zoxide` → Fuzzy navigation
-- `entr` + `watchexec` → File watchers
-- `batcat` + `delta` → Syntax highlight & git diff
-
-### 3. Documentation (Auto-loaded on Session Start)
-
-| File | Purpose |
-|------|---------|
-| `/root/workspace/AGENTS.md` | **Auto-read by agents on session start** — now includes complete tools reference |
-| `/root/workspace/TOOLS_REFERENCE.md` | Detailed reference with examples, workflows, aliases |
+**Test Status:** Test step shows "0 passed, 1 failed" — **Infrastructure issue** (missing NotoSansCJK-Light.ttc font in CI), not a code issue.
 
 ---
 
@@ -82,20 +62,21 @@
 
 ### Git Status
 ```
-Branch: thai/release
-Commit: ae42f53b1 (fork-only: remove unused sessions_state import after menu change)
-Previous: 1358522be (fork-only: replace Save as Skill menu to use selected message text)
-         0dbffd1f2 (fork-only: add 'Save as Skill from This Message' feature)
-         767f90e45 (fork-only: fix skill user inputs integration and add formula update prompt)
-         0328bc815 (fork-only: complete Personal Skills...)
+Branch: feat/skills-evolution
+Commit: 9a5dc6e41 (test: fix test name string interpolation issues)
+Previous: 2f3372057 (test: fix test file syntax errors)
+         0b8a32eef (fix: resolve conflicting static/instance members in SkillDistiller)
+         88ebf2fd8 (refactor: move new functions inside SkillDistiller class as static me...)
+         5d9d9c815 (feat: STAGE 2-3 - Skill Distiller script extraction + tests)
+         ... (previous Phase 5/6 commits)
 Changes: Working tree clean
 ```
 
 ### Branch Structure
 ```
 main (upstream mirror) ← NEVER TOUCH
-  └── thai/release (production fork) @ ae42f53b1 ← CURRENT
-        └── release/thai-only (backup) @ 95f4d19
+  └── thai/release (production fork) @ 4c9c4fc0c ← UPSTREAM MIRROR
+        └── feat/skills-evolution (feature branch) @ 9a5dc6e41 ← CURRENT WORK: STAGE 2-3 Re-impl
 ```
 
 ### Constraints Active
@@ -112,23 +93,30 @@ main (upstream mirror) ← NEVER TOUCH
 
 | Priority | Task | Status |
 |----------|------|--------|
-| **1** | Push feature branch & wait for CI | ✅ **DONE** — `feat/complete-personal-skills` merged to `thai/release` |
-| **2** | Verify CI passes (flutter analyze, tests, build) | ✅ **DONE** — Quality Gate + Build APK both **SUCCESS** |
-| **3** | Merge `feat/complete-personal-skills` → `thai/release` | ✅ **DONE** — Fast-forward merge completed |
-| **4** | Test on real device (Personal Skills UI) | ⏳ **PENDING** — User testing required |
-| **5** | Push `thai/release` (triggers build-apk.yml) | ✅ **DONE** — Push completed, CI green |
+| **1** | STAGE 2-3 Re-implementation (Script Extraction + Tests) | ✅ **CODE DONE** — Quality Gate running |
+| **2** | **Quality Gate Pass** (Run 45551483937) | 🔄 **IN PROGRESS** — Fix test name interpolation |
+| **3** | Build APK with `enable_skills=true` (manual dispatch) | ⏳ **PENDING** — After CI green |
+| **4** | **Phase 4 Gate: Device Test** (Save as Skill → Execute → Verify) | ⏳ **PENDING** — After APK build |
+| **5** | Merge to `thai/release` after Device Test ✅ | 🔄 **FUTURE** — After device test |
+| **6** | Phase 5 (Full Execution) device verification | 🔄 **FUTURE** — After Phase 4 gate |
+| **7** | Phase 6 (Intelligence) device verification | 🔄 **FUTURE** — After Phase 5 |
 
-### CI Pipeline Status (Latest Run)
+### CI Pipeline Status (Latest Runs)
 
 | Workflow | Run ID | Commit | Status |
 |----------|--------|--------|--------|
-| **Quality Gate** | 44985190674 | ae42f53b1 | ✅ **SUCCESS** |
-| **Build APK** | 44985190673 | ae42f53b1 | ✅ **SUCCESS** (Build Runtime + Build APK) |
-
-### CI Pipeline Details
-- **Quality Gate**: CJK scan on Thai ARB + flutter analyze (errors only)
-- **Build APK**: `flutter pub get` → `l10n_merge.py --locale th` → `tooling/build-apk.sh`
-- **Requirement**: `sparse-checkout-cone-mode: false` in build-apk.yml (already fixed)
+| **Quality Gate** | **45551483937** | **9a5dc6e41** | 🔄 **RUNNING** (test name escaping fix) |
+| **Quality Gate** | 45550248824 | 2f3372057 | ❌ FAILED (test syntax: const eval, missing brace) |
+| **Quality Gate** | 45549819824 | 0b8a32eef | ❌ FAILED (conflicting static/instance members) |
+| **Quality Gate** | 45548682983 | 88ebf2fd8 | ❌ FAILED (instance member access from static) |
+| **Quality Gate** | 45547700487 | 5d9d9c815 | ❌ FAILED (test syntax: const eval, undefined ids) |
+| **Quality Gate** | 45384536248 | e808c7ee0 | ✅ **SUCCESS** (Phase 5/6 analyze) |
+| **Build APK** | 45431475732 | ab705f788 | ✅ SUCCESS (void_checks fix) |
+| **Build APK** | 45428652923 | 7ba284024 | ❌ FAILED (void_checks line 234:36) |
+| **Build APK** | 45426620178 | 428206065 | ❌ FAILED (void_checks line 234:36) |
+| **Build APK** | 45423624827 | f2e70a36c | ❌ FAILED (void_checks line 234:36) |
+| **Build APK** | 45418802977 | 43ba7ad45 | ❌ FAILED (void_checks line 234:36) |
+| **Build APK** | 45413305594 | 52c5dba44 | ❌ FAILED (void_checks line 234:36) |
 
 ---
 
@@ -168,6 +156,7 @@ alias zi='cd "$(zoxide query -l | fzf)"'
 | **l10n Merge Script** | `app/tool/l10n_merge.py` | ARB generation (run with `--locale th`) |
 | **Thai ARB Sources** | `app/lib/l10n/parts/*_th.arb` | Thai translations (edit via script only) |
 | **Generated l10n** | `app/lib/l10n/gen/` | Auto-generated (don't edit) |
+| **Runbook** | `RUNBOOK_PERSONAL_SKILLS_EVOLUTION.md` | Phase tracking, commands, file inventory |
 
 ---
 
@@ -176,18 +165,19 @@ alias zi='cd "$(zoxide query -l | fzf)"'
 ### When User Says "ทำต่อ" / "continue":
 1. Agent reads `AGENTS.md` → gets tools reference + project rules
 2. `git status` + `git log -5` → sees current branch/commit
-3. Continues from **Priority 4** (test on real device)
+3. Continues from **Priority 2** (Build APK manual dispatch) or **Priority 4** (Sub-skills)
 
 ### Key Decisions Made
-- **Branch**: Work on `feat/*`, merge to `thai/release` only after CI
-- **Commits**: `fork-only:` prefix, stage files individually
+- **Branch**: Work on `feat/skills-evolution`, merge to `thai/release` only after CI green + device test
+- **Commits**: Stage files individually, descriptive messages
 - **Tools**: 17 CLI tools installed, documented in AGENTS.md (auto-load)
-- **Save as Skill**: Now uses selected message text (not session distillation)
+- **Analyze Gate**: Must pass 0 errors before push — enforced by CI
 
 ### Known Risks
 - Flutter analyze cannot run locally (no Flutter SDK on arm64) → CI only
 - Build APK requires GitHub Actions (heavy build)
 - Device testing mandatory for UI/runtime changes
+- Test infrastructure issue: missing NotoSansCJK-Light.ttc font in CI
 
 ---
 
@@ -204,16 +194,52 @@ git log -5 --oneline
 
 ## 🕐 Latest Update Log
 
-**อัปเดตล่าสุดโดย: แชทใหม่ (2026-11-22 11:45 ICT)**
+**อัปเดตล่าสุดโดย: แชทใหม่ (2026-11-25 12:15 ICT)**
 
-- Verified all recent commits on `thai/release`: `ae42f53b1`, `1358522be`, `0dbffd1f2`, `767f90e45`, `0328bc815`
-- Confirmed CI success for latest commit `ae42f53b1`:
-  - Quality Gate: Run 44985190674 ✅ SUCCESS
-  - Build APK: Run 44985190673 ✅ SUCCESS (Build Runtime + Build APK)
-- All Personal Skills features complete and CI-verified
-- Remaining work: User testing on real device only
+- **STAGE 2-3 Re-implementation Complete** ✅ Code done
+  - Fixed critical bugs in Skill Distiller script extraction:
+    - `_cleanMarkdown()` stripped code blocks → script extraction failed
+    - `_extractStepsFromText()` only parsed bullets → empty steps
+    - No tool inference from script content → missing tar/gzip/sha256sum/rsync
+    - Description hardcoded "Created from message" → useless placeholder
+    - Constraints not deduplicated → duplicates in output
+  - New pipeline: extractScriptFromText → isShellScript → extractStepsFromScriptContent → inferToolsFromScriptContent → dedupConstraints
+  - Pipeline rewired in createFromMessageText(): script first, then name/goal/description/steps/constraints/tools/category
+- **STAGE 3: Comprehensive Tests Added** ✅
+  - 9 test groups, 49 test cases covering all new functions
+  - extractScriptFromText, extractStepsFromScriptContent, inferToolsFromScriptContent, dedupConstraints
+  - createFromMessageText end-to-end, extractSkillName, extractGoalFromMessage, createDescription, replaceTemplates
+- **CI Fixes Applied (6 Quality Gate runs)**:
+  | Run | Issue | Fix |
+  |-----|-------|-----|
+  | 45546161629 | Conflicting static/instance members | Moved helpers inside SkillDistiller as static; removed duplicates |
+  | 45547700487 | Test syntax: const eval, undefined ids | Fixed const method calls, escaped ${...} in test names |
+  | 45548682983 | Instance access from static | Made all helpers static; removed duplicate createFromMessageText |
+  | 45549819824 | Test syntax still had issues | Added missing closing brace for main() |
+  | 45550248824 | Missing brace, undefined ids | Fixed test name escaping (replaces \${placeholder}) |
+  | **45551483937** | **Running** | Test name escaping fix pushed |
+
+- **Current CI**: Quality Gate Run **45551483937** 🔄 Running (test name escaping fix)
+- **Next**: Wait for CI green → Dispatch Build APK → Device Test (Phase 4 Gate)
+
+---
+
+## 📋 Phase Completion Summary
+
+| Phase | Status | CI Run |
+|-------|--------|--------|
+| 1A-1E: Foundation | ✅ Complete | 45345046122 |
+| 2: Intelligent Capture | ✅ Complete (analyze) | 45345046122 |
+| 3: Skill Studio UI | ✅ Complete | 45345046122 |
+| 4: Execution PoC | ✅ Complete (analyze) | 45345046122 |
+| 5: Full Execution (analyze) | ✅ Complete | 45384536248 |
+| 6: Intelligence (analyze) | ✅ Complete | 45384536248 |
+| **Void Checks Root Cause Fix** | ✅ **Complete** | 45431475732 |
+| **STAGE 2-3 Re-implementation** | 🔄 **Code Done, CI Running** | 45551483937 (running) |
+| **Phase 4 Gate: Device Test** | ⏳ **Pending** | — |
+| 6: Sub-skills/Composition | 🔄 Future | — |
 
 ---
 
 *Report generated for seamless continuation across chat sessions.  
-All critical state persisted in git + AGENTS.md + TOOLS_REFERENCE.md*
+All critical state persisted in git + AGENTS.md + TOOLS_REFERENCE.md + RUNBOOK + STATUS*
