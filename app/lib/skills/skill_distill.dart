@@ -7,6 +7,7 @@ import 'package:dsh_client/dsh_client.dart';
 
 import '../share_code/conversation_redact.dart';
 import 'skill_model.dart';
+import 'distill/heuristics.dart';
 
 /// Result of script extraction from message text
 class ExtractedScript {
@@ -1068,54 +1069,46 @@ class SkillDistiller {
     required List<String> toolCalls,
     String? sessionTitle,
   }) {
-    // --- STAGE 1: Extract script from AI response (or user message) ---
-    final script = extractScriptFromText(aiResponse ?? '') ?? extractScriptFromText(userMessage);
+    // Use new pipeline-based distillation
+    final draft = distillScript(
+      userPrompt: userMessage,
+      assistantMarkdown: aiResponse ?? userMessage,
+      lex: const ThaiLex(),
+      allowCjk: false, // Don't include CJK in output fields
+    );
     
-    // --- STAGE 2: Extract name ---
-    String name = extractSkillName(userMessage, aiResponse, script);
-    if (name.isEmpty) name = 'Unnamed Skill';
+    // Extract tools from the distilled script
+    final scriptTools = draft.script != null 
+        ? _inferToolsFromScriptContentImpl(draft.script!) 
+        : <String>{};
     
-    // --- STAGE 3: Extract goal ---
-    String goal = extractGoalFromMessage(userMessage, aiResponse, script);
-    if (goal.isEmpty) goal = 'Achieve the task described in the message';
+    // Build steps from StepDraft
+    final steps = draft.steps
+        .map((s) => s.title)
+        .where((s) => s.isNotEmpty)
+        .take(15)
+        .map((s) => s.length > 200 ? '${s.substring(0, 197)}...' : s)
+        .toList();
     
-    // --- STAGE 4: Generate description ---
-    String description = createDescription(userMessage, aiResponse, script, sessionTitle);
-    
-    // --- STAGE 5: Extract steps (from script first, then text) ---
-    List<String> steps = <String>[];
-    if (script != null) {
-      steps.addAll(script.steps);
-    }
-    // Fallback: extract from text
-    steps.addAll(_extractStepsFromText(userMessage));
-    if (aiResponse != null) {
-      steps.addAll(_extractStepsFromText(aiResponse));
-    }
-    // Deduplicate and limit
-    steps = steps.toSet().take(15).map((s) => s.length > 200 ? '${s.substring(0, 197)}...' : s).toList();
-    
-    // If no steps found, leave empty (don't fill with generic)
-    if (steps.isEmpty) {
-      steps = [];
-    }
-    
-    // --- STAGE 6: Constraints with deduplication ---
-    List<String> constraints = [
+    // Constraints with deduplication
+    final constraints = dedupConstraints([
       'Do not store secrets (API keys, tokens, passwords)',
-    ];
-    constraints = dedupConstraints(constraints);
+    ]);
     
-    // --- STAGE 7: Required tools (from toolCalls + script inference) ---
-    final toolsFromScript = script?.tools ?? <String>{};
-    List<String> requiredTools = <String>{...toolCalls, ...toolsFromScript}.toList();
+    // Required tools (from toolCalls + script inference)
+    final requiredTools = <String>{...toolCalls, ...scriptTools}.toList()
+      ..sort();
     if (requiredTools.isEmpty) {
-      requiredTools = ['bash', 'edit'];
+      requiredTools.addAll(['bash', 'edit']);
     }
-    requiredTools.sort();
     
-    // --- STAGE 8: Category inference ---
-    SkillCategory category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
+    // Category inference
+    final category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
+    
+    // Use drafted name/goal or fallbacks
+    final name = draft.name?.isNotEmpty == true ? draft.name! : 'Unnamed Skill';
+    final goal = draft.goal?.isNotEmpty == true ? draft.goal! : 'Achieve the task described in the message';
+    final description = draft.goal?.isNotEmpty == true ? draft.goal! : (sessionTitle != null ? 'Distilled from: $sessionTitle' : userMessage);
     
     return Skill(
       id: _generateId(),
@@ -1149,26 +1142,6 @@ class SkillDistiller {
         .replaceAll(RegExp(r'^\s*\d+\.\s+', multiLine: true), '') // Numbered list
         .replaceAll(RegExp(r'\n{3,}'), '\n\n')        // Multiple newlines
         .trim();
-  }
-  
-  /// Extract steps from text using regex for numbered/bulleted lines
-  static List<String> _extractStepsFromText(String text) {
-    final steps = <String>[];
-    final cleaned = _cleanMarkdown(text);
-    final lines = cleaned.split('\n');
-    
-    for (final line in lines) {
-      final trimmed = line.trim();
-      // Match lines starting with numbers (1., 2., etc.) or bullets (-, *, •)
-      if (RegExp(r'^(\d+\.|[-*•])\s+').hasMatch(trimmed)) {
-        final step = trimmed.replaceFirst(RegExp(r'^(\d+\.|[-*•])\s+'), '').trim();
-        if (step.length > 10 && step.length <= 200 && !_isGenericStep(step)) {
-          steps.add(step);
-        }
-      }
-    }
-    
-    return steps;
   }
   
   /// Infer category from text content
