@@ -695,17 +695,17 @@ sha256sum backup.tar.gz
         expect(result, 'Hello World');
       });
 
-      test('replaces ${placeholder}', () {
+      test('replaces \${placeholder}', () {
         final result = SkillDistiller.replaceTemplates('Hello ${name}', {'name': 'World'});
         expect(result, 'Hello World');
       });
 
-      test('replaces $placeholder', () {
+      test('replaces \$placeholder', () {
         final result = SkillDistiller.replaceTemplates('Hello $name', {'name': 'World'});
         expect(result, 'Hello World');
       });
 
-      test('skips shell positional parameters $1-$9', () {
+      test('skips shell positional parameters \$1-\$9', () {
         final script = 'tar -czf \$1.tar.gz \$2';
         final result = SkillDistiller.replaceTemplates(script, {'1': 'backup', '2': 'src'});
         expect(result, contains('\$1'));
