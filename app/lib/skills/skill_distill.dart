@@ -816,7 +816,7 @@ class SkillDistiller {
   }
 
   /// Extract skill name from user message and AI response
-  String extractSkillName(String userMessage, String? aiResponse, ExtractedScript? script) {
+  static String extractSkillName(String userMessage, String? aiResponse, ExtractedScript? script) {
     // Try to extract a meaningful name from the user message intent
     final cleaned = _cleanMarkdown(userMessage).trim();
     
@@ -850,7 +850,7 @@ class SkillDistiller {
   }
 
   /// Extract goal from user message and script
-  String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
+  static String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
     final cleaned = _cleanMarkdown(userMessage).trim();
     
     // Try to extract goal from user message intent
@@ -888,7 +888,7 @@ class SkillDistiller {
   }
 
   /// Create description from script and context
-  String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
+  static String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
     // Try AI response first
     if (aiResponse != null && aiResponse.isNotEmpty) {
       final cleaned = _cleanMarkdown(aiResponse).trim();
@@ -928,7 +928,7 @@ class SkillDistiller {
   }
 
   /// Deduplicate constraints (case-insensitive, trim)
-  List<String> dedupConstraints(List<String> constraints) {
+  static List<String> dedupConstraints(List<String> constraints) {
     final seen = <String>{};
     final result = <String>[];
     
@@ -948,7 +948,7 @@ class SkillDistiller {
 
   /// Replace template placeholders while preserving shell positional parameters
   /// Does NOT replace $1-$9, $@, $*, $#, $?, $$, $! which are shell positional/special parameters
-  String replaceTemplates(String text, Map<String, String> replacements) {
+  static String replaceTemplates(String text, Map<String, String> replacements) {
     if (replacements.isEmpty) return text;
     
     String result = text;
@@ -1407,248 +1407,5 @@ class SkillDistiller {
     }
     
     return tools;
-  }
-
-  /// Extract skill name from user message and AI response
-  static String extractSkillName(String userMessage, String? aiResponse, ExtractedScript? script) {
-    // Try to extract a meaningful name from the user message intent
-    final cleaned = _cleanMarkdown(userMessage).trim();
-    
-    // Look for common intent patterns
-    final intentPatterns = [
-      RegExp(r'(?:create|make|build|write|generate|script|backup|backup|sync|deploy)\s+(\w[\w\s]{2,40})', caseSensitive: false),
-      RegExp(r'(?:for|to)\s+(\w[\w\s]{2,40})', caseSensitive: false),
-    ];
-    
-    for (final pattern in intentPatterns) {
-      final match = pattern.firstMatch(userMessage);
-      if (match != null && match.groupCount >= 1) {
-        final extracted = match.group(1)!.trim();
-        if (extracted.length > 3 && extracted.length < 50) {
-          return extracted[0].toUpperCase() + extracted.substring(1);
-        }
-      }
-    }
-    
-    // Fallback: use first meaningful words from user message
-    final words = cleaned.split(RegExp(r'\s+')).where((w) => w.length > 2).take(6).join(' ');
-    if (words.length > 5 && words.length < 60) {
-      return words[0].toUpperCase() + words.substring(1);
-    }
-    
-    // Fallback to first 50 chars of cleaned message
-    String name = _cleanMarkdown(userMessage).trim();
-    if (name.length > 50) name = '${name.substring(0, 47)}...';
-    if (name.isEmpty) name = 'Unnamed Skill';
-    return name;
-  }
-
-  /// Extract goal from user message and script
-  static String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
-    final cleaned = _cleanMarkdown(userMessage).trim();
-    
-    // Try to extract goal from user message intent
-    final goalPatterns = [
-      RegExp(r'(?:create|make|build|write|generate|script|backup|sync|deploy|setup|configure)\s+(?:a|an|the)?\s*([^.]{10,200})', caseSensitive: false),
-      RegExp(r'(?:I want to|I need to|Please|Help me)\s+([^.]{10,200})', caseSensitive: false),
-    ];
-    
-    for (final pattern in goalPatterns) {
-      final match = pattern.firstMatch(userMessage);
-      if (match != null && match.groupCount >= 1) {
-        final goal = match.group(1)!.trim();
-        if (goal.length > 10 && goal.length < 300) {
-          return goal[0].toUpperCase() + goal.substring(1);
-        }
-      }
-    }
-    
-    // If script found, infer goal from script
-    if (script != null && script.content.isNotEmpty) {
-      final firstCommand = script.content.trim().split('\n').firstWhere(
-        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
-        orElse: () => '',
-      );
-      if (firstCommand.isNotEmpty) {
-        return 'Automate: ${firstCommand.length > 100 ? firstCommand.substring(0, 100) : firstCommand}';
-      }
-    }
-    
-    // Fallback: use first 200 chars of user message
-    String goal = _cleanMarkdown(userMessage).trim();
-    if (goal.length > 200) goal = '${goal.substring(0, 197)}...';
-    if (goal.isEmpty) goal = 'Achieve the task described in the message';
-    return goal;
-  }
-
-  /// Create description from script and context
-  static String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
-    // Try AI response first
-    if (aiResponse != null && aiResponse.isNotEmpty) {
-      final cleaned = _cleanMarkdown(aiResponse).trim();
-      if (cleaned.length > 50) {
-        String desc = cleaned.length > 300 ? '${cleaned.substring(0, 297)}...' : cleaned;
-        return desc;
-      }
-    }
-    
-    // Generate from script
-    if (script != null && script.content.isNotEmpty) {
-      final tools = script.tools.join(', ');
-      final stepsCount = script.steps.length;
-      String desc = 'Shell script with $stepsCount step(s)';
-      if (tools.isNotEmpty) {
-        desc += ' using $tools';
-      }
-      // Add first command as preview
-      final firstCmd = script.content.trim().split('\n').firstWhere(
-        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
-        orElse: () => '',
-      );
-      if (firstCmd.isNotEmpty) {
-        desc += '. Starts with: ${firstCmd.length > 80 ? firstCmd.substring(0, 80) : firstCmd}';
-      }
-      return desc;
-    }
-    
-    // Fallback to session title or user message
-    if (sessionTitle != null && sessionTitle.isNotEmpty) {
-      return 'Distilled from: $sessionTitle';
-    }
-    
-    final userMsg = _cleanMarkdown(userMessage).trim();
-    if (userMsg.length > 200) return '${userMsg.substring(0, 197)}...';
-    return userMsg.isEmpty ? 'Distilled from message' : userMsg;
-  }
-
-  /// Deduplicate constraints (case-insensitive, trim)
-  static List<String> dedupConstraints(List<String> constraints) {
-    final seen = <String>{};
-    final result = <String>[];
-    
-    for (final constraint in constraints) {
-      final trimmed = constraint.trim();
-      if (trimmed.isEmpty) continue;
-      
-      final normalized = trimmed.toLowerCase();
-      if (!seen.contains(normalized)) {
-        seen.add(normalized);
-        result.add(trimmed);
-      }
-    }
-    
-    return result;
-  }
-
-  /// Replace template placeholders while preserving shell positional parameters
-  /// Does NOT replace $1-$9, $@, $*, $#, $?, $$, $! which are shell positional/special parameters
-  static String replaceTemplates(String text, Map<String, String> replacements) {
-    if (replacements.isEmpty) return text;
-    
-    String result = text;
-    
-    for (final entry in replacements.entries) {
-      final placeholder = entry.key;
-      final value = entry.value;
-      
-      // Skip shell positional parameters: $1-$9, $@, $*, $#, $?, $$, $!
-      if (RegExp(r'^\$\d+$').hasMatch(placeholder) ||
-          placeholder == r'$@' || placeholder == r'$*' ||
-          placeholder == r'$#' || placeholder == r'$?' ||
-          placeholder == r'$$' || placeholder == r'$!') {
-        continue;
-      }
-      
-      // Replace {{placeholder}} or ${placeholder} or $placeholder
-      final patterns = [
-        RegExp(r'\{\{\s*' + RegExp.escape(placeholder) + r'\s*\}\}'),
-        RegExp(r'\$\{\s*' + RegExp.escape(placeholder) + r'\s*\}'),
-        RegExp(r'(?<!\$)\$' + RegExp.escape(placeholder) + r'(?![\w\d])'),
-      ];
-      
-      for (final pattern in patterns) {
-        result = result.replaceAll(pattern, value);
-      }
-    }
-    
-    return result;
-  }
-
-  /// Create a skill from selected message text using regex-based extraction (no AI)
-  /// This is the fallback when distillation from session is not available
-  static Skill createFromMessageText({
-    required String userMessage,
-    String? aiResponse,
-    required List<String> toolCalls,
-    String? sessionTitle,
-  }) {
-    final now = DateTime.now();
-    
-    // --- STAGE 1: Extract script from AI response (or user message) ---
-    final script = extractScriptFromText(aiResponse ?? '') ?? extractScriptFromText(userMessage);
-    
-    // --- STAGE 2: Extract name ---
-    String name = extractSkillName(userMessage, aiResponse, script);
-    if (name.isEmpty) name = 'Unnamed Skill';
-    
-    // --- STAGE 3: Extract goal ---
-    String goal = extractGoalFromMessage(userMessage, aiResponse, script);
-    if (goal.isEmpty) goal = 'Achieve the task described in the message';
-    
-    // --- STAGE 4: Generate description ---
-    String description = createDescription(userMessage, aiResponse, script, sessionTitle);
-    
-    // --- STAGE 5: Extract steps (from script first, then text) ---
-    List<String> steps = <String>[];
-    if (script != null) {
-      steps.addAll(script.steps);
-    }
-    // Fallback: extract from text
-    steps.addAll(_extractStepsFromText(userMessage));
-    if (aiResponse != null) {
-      steps.addAll(_extractStepsFromText(aiResponse));
-    }
-    // Deduplicate and limit
-    steps = steps.toSet().take(15).map((s) => s.length > 200 ? '${s.substring(0, 197)}...' : s).toList();
-    
-    // If no steps found, leave empty (don't fill with generic)
-    if (steps.isEmpty) {
-      steps = [];
-    }
-    
-    // --- STAGE 6: Constraints with deduplication ---
-    List<String> constraints = [
-      'Do not store secrets (API keys, tokens, passwords)',
-    ];
-    constraints = dedupConstraints(constraints);
-    
-    // --- STAGE 7: Required tools (from toolCalls + script inference) ---
-    final toolsFromScript = script?.tools ?? <String>{};
-    List<String> requiredTools = <String>{...toolCalls, ...toolsFromScript}.toList();
-    if (requiredTools.isEmpty) {
-      requiredTools = ['bash', 'edit'];
-    }
-    requiredTools.sort();
-    
-    // --- STAGE 8: Category inference ---
-    SkillCategory category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
-    
-    return Skill(
-      id: _generateId(),
-      name: name,
-      description: redactText(description),
-      goal: redactText(goal),
-      steps: steps.map(redactText).toList(),
-      constraints: constraints.map(redactText).toList(),
-      requiredTools: requiredTools,
-      userInputs: [],
-      createdAt: DateTime.now(),
-      sourceSessionTitle: sessionTitle,
-      category: category,
-      // v2 fields
-      kind: 'workflow',
-      schemaVersion: 2,
-      provenance: SkillProvenance.manual(),
-    );
   }
 }
