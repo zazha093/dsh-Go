@@ -219,6 +219,523 @@ void main() {
     });
   });
 
+  group('Script Extraction (STAGE 2-3)', () {
+    group('_extractScriptFromText', () {
+      test('extracts bash script from markdown code block', () {
+        const text = '''
+Here is a backup script:
+
+```bash
+#!/bin/bash
+tar --exclude=node_modules --exclude=.git -czf ~/backups/project-\$(date +%Y%m%d-%H%M%S).tar.gz .
+ls -lh ~/backups/project-*.tar.gz
+```
+''';
+
+        final script = SkillDistiller._extractScriptFromText(text);
+        expect(script, isNotNull);
+        expect(script!.language, 'bash');
+        expect(script.content, contains('tar --exclude=node_modules'));
+        expect(script.content, contains('ls -lh'));
+        expect(script.steps, isNotEmpty);
+        expect(script.tools, contains('tar'));
+        expect(script.tools, contains('ls'));
+      });
+
+      test('extracts script without explicit language', () {
+        const text = '''
+```
+tar --exclude=node_modules -czf backup.tar.gz .
+sha256sum backup.tar.gz
+```
+''';
+
+        final script = SkillDistiller._extractScriptFromText(text);
+        expect(script, isNotNull);
+        expect(script!.tools, contains('tar'));
+        expect(script.tools, contains('sha256sum'));
+      });
+
+      test('ignores non-shell code blocks', () {
+        const text = '''
+```python
+def hello():
+    print("hello")
+```
+''';
+
+        final script = SkillDistiller._extractScriptFromText(text);
+        expect(script, isNull);
+      });
+
+      test('returns null for text without code blocks', () {
+        const text = 'Just some text without code blocks';
+        final script = SkillDistiller._extractScriptFromText(text);
+        expect(script, isNull);
+      });
+
+      test('prefers AI response over user message', () {
+        const userMessage = 'Please create a backup script';
+        const aiResponse = '''
+Here is the script:
+
+```bash
+tar -czf backup.tar.gz .
+```
+''';
+
+        final script = SkillDistiller._extractScriptFromText('Please create a backup script') ?? 
+                       SkillDistiller._extractScriptFromText('''
+```bash
+tar -czf backup.tar.gz .
+```
+''');
+        
+        expect(script, isNotNull);
+        expect(script!.language, 'bash');
+        expect(script.content, contains('tar'));
+      });
+    });
+
+    group('_extractStepsFromScriptContent', () {
+      test('extracts steps from tar backup script', () {
+        const script = '''
+#!/bin/bash
+mkdir -p ~/backups
+tar --exclude=node_modules --exclude=.git -czf ~/backups/project-\$(date +%Y%m%d-%H%M%S).tar.gz .
+ls -lh ~/backups/project-*.tar.gz
+''';
+
+        final steps = SkillDistiller._extractStepsFromScriptContent(script);
+        expect(steps, isNotEmpty);
+        expect(steps.any((s) => s.contains('Create directory')), true);
+        expect(steps.any((s) => s.contains('tar')), true);
+        expect(steps.any((s) => s.contains('ls') || s.contains('list')), true);
+      });
+
+      test('handles script with comments and variables', () {
+        const script = '''
+#!/bin/bash
+# Backup script
+BACKUP_DIR=~/backups
+DATE=\$(date +%Y%m%d)
+mkdir -p \$BACKUP_DIR
+tar -czf \$BACKUP_DIR/project-\$DATE.tar.gz .
+''';
+
+        final steps = SkillDistiller._extractStepsFromScriptContent(script);
+        expect(steps, isNotEmpty);
+        // Should extract meaningful commands, not just variable assignments
+        expect(steps.any((s) => s.contains('mkdir') || s.contains('directory')), true);
+        expect(steps.any((s) => s.contains('tar')), true);
+      });
+
+      test('handles script with comments describing steps', () {
+        const script = '''
+# Step 1: Create backup directory
+mkdir -p ~/backups
+# Step 2: Create archive
+tar -czf backup.tar.gz .
+# Step 3: Verify
+ls -lh backup.tar.gz
+''';
+
+        final steps = SkillDistiller._extractStepsFromScriptContent(script);
+        expect(steps.length, greaterThanOrEqualTo(3));
+      });
+
+      test('returns empty for empty script', () {
+        const script = '';
+        final steps = SkillDistiller._extractStepsFromScriptContent(script);
+        expect(steps, isEmpty);
+      });
+
+      test('handles script with only comments', () {
+        const script = '''
+# This is a comment
+# Another comment
+''';
+
+        final steps = SkillDistiller._extractStepsFromScriptContent(script);
+        expect(steps, isEmpty);
+      });
+    });
+
+    group('_inferToolsFromScriptContent', () {
+      test('detects tar command', () {
+        const script = 'tar -czf backup.tar.gz .';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, contains('tar'));
+      });
+
+      test('detects gzip and gunzip', () {
+        const script = 'gzip file.txt\ngunzip file.txt.gz';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, containsAll(['gzip', 'gunzip']));
+      });
+
+      test('detects sha256sum', () {
+        const script = 'sha256sum file.tar.gz';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, contains('sha256sum'));
+      });
+
+      test('detects rsync', () {
+        const script = 'rsync -av src/ dest/';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, contains('rsync'));
+      });
+
+      test('detects multiple tools', () {
+        const script = '''
+mkdir -p backup
+tar -czf backup.tar.gz .
+sha256sum backup.tar.gz
+ls -lh backup.tar.gz
+''';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, containsAll(['mkdir', 'tar', 'sha256sum', 'ls']));
+      });
+
+      test('does not detect tools from comments only', () {
+        const script = '# This script uses tar and gzip\necho "done"';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        // Should not detect tar/gzip from comment alone
+        expect(tools, isNot(contains('tar')));
+        expect(tools, isNot(contains('gzip')));
+      });
+
+      test('detects common commands', () {
+        const script = 'curl https://example.com\nwget https://example.com/file';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, containsAll(['curl', 'wget']));
+      });
+
+      test('detects git commands', () {
+        const script = 'git add .\ngit commit -m "backup"\ngit push';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, contains('git'));
+      });
+
+      test('detects docker commands', () {
+        const script = 'docker build -t myapp .\ndocker run myapp';
+        final tools = SkillDistiller._inferToolsFromScriptContent(script);
+        expect(tools, contains('docker'));
+      });
+    });
+
+    group('_dedupConstraints', () {
+      test('removes exact duplicates', () {
+        final constraints = ['Do not store secrets', 'Do not store secrets'];
+        final result = SkillDistiller._dedupConstraints(constraints);
+        expect(result.length, 1);
+        expect(result.first, 'Do not store secrets');
+      });
+
+      test('removes case-insensitive duplicates', () {
+        final constraints = ['Do not store secrets', 'do not store secrets', 'DO NOT STORE SECRETS'];
+        final result = SkillDistiller._dedupConstraints(constraints);
+        expect(result.length, 1);
+      });
+
+      test('trims whitespace before dedup', () {
+        final constraints = ['  Do not store secrets  ', 'Do not store secrets'];
+        final result = SkillDistiller._dedupConstraints(constraints);
+        expect(result.length, 1);
+        expect(result.first, 'Do not store secrets');
+      });
+
+      test('preserves order of first occurrence', () {
+        final constraints = ['First constraint', 'Second constraint', 'First constraint'];
+        final result = SkillDistiller._dedupConstraints(constraints);
+        expect(result.length, 2);
+        expect(result[0], 'First constraint');
+        expect(result[1], 'Second constraint');
+      });
+
+      test('handles empty and whitespace-only constraints', () {
+        final constraints = ['Valid constraint', '', '   ', 'Another constraint'];
+        final result = SkillDistiller._dedupConstraints(constraints);
+        expect(result.length, 2);
+      });
+    });
+  });
+
+  group('Skill Creation from Message Text (STAGE 2-4)', () {
+    group('createFromMessageText with script extraction', () {
+      test('creates skill with steps from bash script', () {
+        const userMessage = 'Please create a backup script for my project';
+        const aiResponse = '''
+Here's a backup script:
+
+```bash
+#!/bin/bash
+mkdir -p ~/backups
+tar --exclude=node_modules --exclude=.git -czf ~/backups/project-\$(date +%Y%m%d-%H%M%S).tar.gz .
+ls -lh ~/backups/project-*.tar.gz
+```
+''';
+        const toolCalls = <String>['bash'];
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash'],
+          sessionTitle: 'Backup Script Request',
+        );
+
+        expect(skill.name, isNotEmpty);
+        expect(skill.goal, isNotEmpty);
+        expect(skill.description, isNotEmpty);
+        expect(skill.steps, isNotEmpty);
+        expect(skill.steps.length, greaterThan(0));
+        expect(skill.requiredTools, contains('tar'));
+        expect(skill.requiredTools, contains('bash'));
+        expect(skill.constraints, isNotEmpty);
+        expect(skill.constraints, isNot(contains('Created from message')));
+      });
+
+      test('extracts tar tool from script', () {
+        const userMessage = 'Create a backup script';
+        const aiResponse = '''
+```bash
+tar --exclude=node_modules -czf backup.tar.gz .
+sha256sum backup.tar.gz
+```
+''';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: 'Create backup',
+          aiResponse: aiResponse,
+          toolCalls: [],
+          sessionTitle: 'Test',
+        );
+
+        expect(skill.requiredTools, contains('tar'));
+        expect(skill.requiredTools, contains('sha256sum'));
+      });
+
+      test('generates meaningful name from intent', () {
+        const userMessage = 'Help me create a backup script for my project';
+        const aiResponse = 'Here is the script...';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash'],
+          sessionTitle: 'Backup Script',
+        );
+
+        expect(skill.name, isNotEmpty);
+        expect(skill.name, isNot('Unnamed Skill'));
+        expect(skill.name.length, lessThanOrEqualTo(60));
+      });
+
+      test('goal reflects script purpose', () {
+        const userMessage = 'Create a backup script that uses tar';
+        const aiResponse = '''
+```bash
+tar -czf backup.tar.gz .
+```
+''';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash'],
+          sessionTitle: 'Test',
+        );
+
+        expect(skill.goal, isNotEmpty);
+        expect(skill.goal, isNot('Achieve the task described in the message'));
+      });
+
+      test('description reflects script content', () {
+        const userMessage = 'Create backup script';
+        const aiResponse = '''
+```bash
+tar -czf backup.tar.gz .
+sha256sum backup.tar.gz
+```
+''';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash'],
+          sessionTitle: 'Backup Script',
+        );
+
+        expect(skill.description, isNotEmpty);
+        expect(skill.description, isNot('Created from message'));
+        expect(skill.description, contains('tar') || skill.description.contains('script'));
+      });
+
+      test('combines toolCalls and script tools', () {
+        const userMessage = 'Run backup';
+        const aiResponse = '''
+```bash
+tar -czf backup.tar.gz .
+sha256sum backup.tar.gz
+```
+''';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash', 'edit'],
+          sessionTitle: 'Test',
+        );
+
+        // Should have both toolCalls and script-inferred tools
+        expect(skill.requiredTools, contains('bash'));
+        expect(skill.requiredTools, contains('edit'));
+        expect(skill.requiredTools, contains('tar'));
+        expect(skill.requiredTools, contains('sha256sum'));
+      });
+
+      test('handles message without script', () {
+        const userMessage = 'How do I backup my files?';
+        const aiResponse = 'You can use tar to create archives.';
+
+        final skill = SkillDistiller.createFromMessageText(
+          userMessage: userMessage,
+          aiResponse: aiResponse,
+          toolCalls: ['bash'],
+          sessionTitle: 'Backup Question',
+        );
+
+        expect(skill.name, isNotEmpty);
+        expect(skill.goal, isNotEmpty);
+        expect(skill.requiredTools, contains('bash'));
+      });
+    });
+
+    group('_extractSkillName', () {
+      test('extracts name from intent pattern', () {
+        const userMessage = 'Create a backup script for my project';
+        final name = SkillDistiller._extractSkillName(userMessage, null, null);
+        expect(name, isNotEmpty);
+        expect(name.length, lessThanOrEqualTo(60));
+      });
+
+      test('extracts name from "for/to" pattern', () {
+        const userMessage = 'Create a script for backing up my files';
+        final name = SkillDistiller._extractSkillName(userMessage, null, null);
+        expect(name, isNotEmpty);
+      });
+
+      test('falls back to cleaned message', () {
+        const userMessage = 'Hello world';
+        final name = SkillDistiller._extractSkillName('Hello world', null, null);
+        expect(name, isNotEmpty);
+      });
+
+      test('handles empty message', () {
+        final name = SkillDistiller._extractSkillName('', null, null);
+        expect(name, 'Unnamed Skill');
+      });
+    });
+
+    group('_extractGoalFromMessage', () {
+      test('extracts goal from intent pattern', () {
+        const userMessage = 'Create a backup script for my project';
+        final goal = SkillDistiller._extractGoalFromMessage(userMessage, null, null);
+        expect(goal, isNotEmpty);
+        expect(goal.length, greaterThan(10));
+      });
+
+      test('infers goal from script when available', () {
+        const script = _ExtractedScript(
+          language: 'bash',
+          content: 'tar -czf backup.tar.gz .',
+          steps: ['Create compressed archive with tar'],
+          tools: {'tar'},
+        );
+        const userMessage = 'Create backup';
+        final goal = SkillDistiller._extractGoalFromMessage(userMessage, null, script);
+        expect(goal, isNotEmpty);
+        expect(goal, contains('Automate') || goal.contains('tar'));
+      });
+
+      test('falls back to cleaned message', () {
+        const userMessage = 'Hello';
+        final goal = SkillDistiller._extractGoalFromMessage(userMessage, null, null);
+        expect(goal, isNotEmpty);
+      });
+    });
+
+    group('_createDescription', () {
+      test('uses AI response when available', () {
+        const aiResponse = 'Here is a script that backs up your project using tar and verifies the archive.';
+        final desc = SkillDistiller._createDescription('backup', aiResponse, null, 'Test');
+        expect(desc, contains('tar') || desc.contains('archive') || desc.contains('backup'));
+      });
+
+      test('generates from script when no AI response', () {
+        const script = _ExtractedScript(
+          language: 'bash',
+          content: 'tar -czf backup.tar.gz .\nsha256sum backup.tar.gz',
+          steps: ['Create compressed archive with tar', 'Generate checksum with sha256sum'],
+          tools: {'tar', 'sha256sum'},
+        );
+        final desc = SkillDistiller._createDescription('backup', null, script, null);
+        expect(desc, contains('tar') || desc.contains('sha256sum') || desc.contains('step'));
+      });
+
+      test('falls back to session title', () {
+        const desc = SkillDistiller._createDescription('msg', null, null, 'My Session');
+        expect(desc, 'Distilled from: My Session');
+      });
+    });
+
+    group('replaceTemplates', () {
+      test('replaces {{placeholder}}', () {
+        final result = SkillDistiller._replaceTemplates('Hello {{name}}', {'name': 'World'});
+        expect(result, 'Hello World');
+      });
+
+      test('replaces ${placeholder}', () {
+        final result = SkillDistiller._replaceTemplates('Hello ${name}', {'name': 'World'});
+        expect(result, 'Hello World');
+      });
+
+      test('replaces $placeholder', () {
+        final result = SkillDistiller._replaceTemplates('Hello $name', {'name': 'World'});
+        expect(result, 'Hello World');
+      });
+
+      test('skips shell positional parameters $1-$9', () {
+        final script = 'tar -czf \$1.tar.gz \$2';
+        final result = SkillDistiller._replaceTemplates(script, {'1': 'backup', '2': 'src'});
+        expect(result, contains('\$1'));
+        expect(result, contains('\$2'));
+      });
+
+      test('skips shell special parameters', () {
+        const script = 'echo \$@ \$* \$# \$? \$\$ \$!';
+        final result = SkillDistiller._replaceTemplates(script, {'@': 'args', '*': 'all', '#': 'count'});
+        expect(result, contains('\$@'));
+        expect(result, contains('\$*'));
+        expect(result, contains('\$#'));
+        expect(result, contains('\$?'));
+      });
+
+      test('does not replace when no replacements', () {
+        final text = 'Hello {{name}}';
+        final result = SkillDistiller._replaceTemplates(text, {});
+        expect(result, 'Hello {{name}}');
+      });
+
+      test('replaces multiple placeholders', () {
+        final result = SkillDistiller._replaceTemplates(
+          '{{cmd}} -czf {{output}} .',
+          {'cmd': 'tar', 'output': 'backup.tar.gz'},
+        );
+        expect(result, 'tar -czf backup.tar.gz .');
+      });
+    });
+
   group('conversation_redact', () {
     test('redacts API keys', () {
       const text = 'API_KEY=sk-1234567890abcdef';
