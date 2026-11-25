@@ -146,6 +146,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (!mounted) return;
     setState(() => _isLoading = true);
 
+    // Capture messenger before try/await to avoid context staleness and ensure scope for catch/finally
+    final messenger = ScaffoldMessenger.of(context);
+
     try {
       // Combine multiple texts if provided, fallback to single draftText
       final texts = widget.draftTexts ?? (widget.draftText != null ? [widget.draftText!] : <String>[]);
@@ -167,12 +170,12 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       _fillForm(draftSkill);
 
       // Show a snackbar to indicate draft was created
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
       );
     } catch (e) {
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         SnackBar(content: Text('Failed to create draft: $e')),
       );
     } finally {
@@ -196,6 +199,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (widget.sessionId == null) return;
     if (!mounted) return;
 
+    // Capture messenger before await to avoid context staleness
+    final messenger = ScaffoldMessenger.of(context);
+
     setState(() {
       _distillError = null;
     });
@@ -218,7 +224,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         _fillForm(skill);
       });
       if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
+      messenger.showSnackBar(
         SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
       );
     } catch (e) {
@@ -459,23 +465,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
           ),
           const SizedBox(height: 16),
         ],
-
-        // Constraints (text)
-        SkillFormField(
-          label: l10n.skillsConstraints,
-          hint: l10n.skillsConstraintsHint,
-          controller: _constraintsController,
-          maxLines: 3,
-        ),
-        const SizedBox(height: 16),
-
-        // Required Tools
-        SkillFormField(
-          label: l10n.skillsRequiredTools,
-          hint: l10n.skillsRequiredToolsHint,
-          controller: _toolsController,
-        ),
-        const SizedBox(height: 16),
 
         // Parameter Binding (for executable kind)
         if (_kind == 'executable') ...[
