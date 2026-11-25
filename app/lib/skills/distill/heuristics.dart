@@ -367,14 +367,10 @@ List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false})
       }
       continue;
     }
-    // Skip shell control flow keywords
     final w = shellWords(t);
     if (w.isEmpty) continue;
     final head = w.first;
-    if (_skipWords.contains(head)) continue;
-    // Skip executable script invocations (./script.sh)
-    if (_executableScript.hasMatch(t)) continue;
-    // Handle if-file-check blocks as a single verify step
+    // Handle if-file-check blocks as a single verify step BEFORE skipWords check
     if (_ifFileCheck.hasMatch(t)) {
       if (!verified) {
         steps.add(StepDraft(StepKind.verify, lex.verifyNonEmpty, command: t));
@@ -383,6 +379,10 @@ List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false})
       }
       continue;
     }
+    // Skip shell control flow keywords and usage commands
+    if (_skipWords.contains(head)) continue;
+    // Skip executable script invocations (./script.sh)
+    if (_executableScript.hasMatch(t)) continue;
     if (_assign.hasMatch(head) || _setupWords.contains(head)) {
       setup.add(t);
       continue;
@@ -501,6 +501,7 @@ String? inferGoal({
   required String name,
   required List<StepDraft> steps,
   required String code,
+  required Lex lex,
   bool allowCjk = false,
 }) {
   // Infer goal from script intent (not from user prompt or step titles)
@@ -508,16 +509,20 @@ String? inferGoal({
   if (intent != null) {
     final object = detectKey(userPrompt, _objectWords) ?? detectKey(code, _objectWords);
     final fmt = RegExp(r'\.(tar\.gz|tgz|zip|tar\.xz|7z)\b').firstMatch(code)?.group(1);
-    final goal = ThaiLex().nameOf(intent, object, fmt);
-    if (!isGenericName(goal)) return clipSmart(goal, 300);
+    final goal = lex.nameOf(intent, object, fmt);
+    if (!isGenericName(goal) && normKey(goal) != normKey(name)) {
+      return clipSmart(goal, 300);
+    }
   }
   // Fallback: use cleaned user prompt (without intent prefix)
   final g = clipSmart(stripIntentPrefix(userPrompt), 300);
   if (g.isNotEmpty && normKey(g) != normKey(name) && (allowCjk || !hasCjk(g))) return g;
-  // Last resort: join action step titles
+  // Last resort: join action step titles (ensure different from name)
   final titles =
       steps.where((s) => s.kind == StepKind.action).map((s) => s.title).take(3).toList();
-  return titles.isEmpty ? null : titles.join(' → ');
+  final joined = titles.isEmpty ? null : titles.join(' → ');
+  if (joined != null && normKey(joined) != normKey(name)) return joined;
+  return null;
 }
 
 // ───────── 9) ทำความสะอาดข้อความก่อนคืนค่า (กรอง CJK, ตัด step ว่าง) ─────────
@@ -577,7 +582,7 @@ DistilledDraft distillScript({
   final name = inferName(
       userPrompt: userPrompt, code: code, steps: steps, lex: lex, allowCjk: allowCjk);
   final goal = inferGoal(
-      userPrompt: userPrompt, name: name ?? '', steps: steps, code: code, allowCjk: allowCjk);
+      userPrompt: userPrompt, name: name ?? '', steps: steps, code: code, lex: lex, allowCjk: allowCjk);
   // Sanitize output
   final cleanSteps = _sanitizeSteps(steps, allowCjk);
   final cleanName = _sanitizeName(name, allowCjk);
