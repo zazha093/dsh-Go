@@ -146,8 +146,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (!mounted) return;
     setState(() => _isLoading = true);
 
-    // Capture messenger before try/await to avoid context staleness and ensure scope for catch/finally
+    // Capture context-dependent values before await to avoid use_build_context_synchronously lint
     final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
 
     try {
       // Combine multiple texts if provided, fallback to single draftText
@@ -171,7 +172,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
       // Show a snackbar to indicate draft was created
       messenger.showSnackBar(
-        SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
+        SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
       );
     } catch (e) {
       if (!mounted) return;
@@ -199,8 +200,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (widget.sessionId == null) return;
     if (!mounted) return;
 
-    // Capture messenger before await to avoid context staleness
+    // Capture context-dependent values before await to avoid use_build_context_synchronously lint
     final messenger = ScaffoldMessenger.of(context);
+    final l10n = context.l10n;
 
     setState(() {
       _distillError = null;
@@ -225,7 +227,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       });
       if (!mounted) return;
       messenger.showSnackBar(
-        SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
+        SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
       );
     } catch (e) {
       if (!mounted) return;
