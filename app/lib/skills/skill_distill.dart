@@ -9,13 +9,13 @@ import '../share_code/conversation_redact.dart';
 import 'skill_model.dart';
 
 /// Result of script extraction from message text
-class _ExtractedScript {
+class ExtractedScript {
   final String language;
   final String content;
   final List<String> steps;
   final Set<String> tools;
   
-  const _ExtractedScript({
+  const ExtractedScript({
     required this.language,
     required this.content,
     required this.steps,
@@ -24,7 +24,7 @@ class _ExtractedScript {
 }
 
 /// Extract scripts from message text (markdown code blocks)
-static _ExtractedScript? _extractScriptFromText(String text) {
+ExtractedScript? extractScriptFromText(String text) {
   // Match markdown fenced code blocks: ```language ... ```
   final codeBlockRegex = RegExp(r'```(\w+)?\n([\s\S]*?)\n```');
   final matches = codeBlockRegex.allMatches(text);
@@ -34,12 +34,12 @@ static _ExtractedScript? _extractScriptFromText(String text) {
     final content = match.group(2) ?? '';
     
     // Only process shell-like scripts
-    if (_isShellScript(language, content)) {
-      final steps = _extractStepsFromScriptContent(content);
-      final tools = _inferToolsFromScriptContent(content);
+    if (isShellScript(language, content)) {
+      final steps = extractStepsFromScriptContent(content);
+      final tools = inferToolsFromScriptContent(content);
       
       if (steps.isNotEmpty || tools.isNotEmpty) {
-        return _ExtractedScript(
+        return ExtractedScript(
           language: language,
           content: content,
           steps: steps,
@@ -53,7 +53,7 @@ static _ExtractedScript? _extractScriptFromText(String text) {
 }
 
 /// Check if the code block is a shell script
-static bool _isShellScript(String language, String content) {
+bool isShellScript(String language, String content) {
   // Explicit shell languages
   if (language == 'bash' || language == 'sh' || language == 'shell' || 
       language == 'zsh' || language == 'fish') {
@@ -88,7 +88,7 @@ static bool _isShellScript(String language, String content) {
 }
 
 /// Extract meaningful steps from shell script content
-static List<String> _extractStepsFromScriptContent(String content) {
+List<String> extractStepsFromScriptContent(String content) {
   final steps = <String>[];
   final lines = content.split('\n');
   
@@ -130,8 +130,8 @@ static List<String> _extractStepsFromScriptContent(String content) {
     }
     
     // Detect actual commands
-    if (_isExecutableCommand(line)) {
-      final commandDesc = _describeCommand(line);
+    if (isExecutableCommand(line)) {
+      final commandDesc = describeCommand(line);
       if (currentStep != null) {
         steps.add(currentStep!);
       }
@@ -150,8 +150,8 @@ static List<String> _extractStepsFromScriptContent(String content) {
     for (final rawLine in lines) {
       final line = rawLine.trim();
       if (line.isEmpty || line.startsWith('#')) continue;
-      if (_isExecutableCommand(line)) {
-        steps.add(_describeCommand(line));
+      if (isExecutableCommand(line)) {
+        steps.add(describeCommand(line));
         break;
       }
     }
@@ -162,7 +162,7 @@ static List<String> _extractStepsFromScriptContent(String content) {
 }
 
 /// Check if a line is an executable command (not variable assignment, function, etc.)
-static bool _isExecutableCommand(String line) {
+bool isExecutableCommand(String line) {
   // Skip variable assignments
   if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) return false;
   // Skip function definitions
@@ -180,7 +180,7 @@ static bool _isExecutableCommand(String line) {
 }
 
 /// Describe a command in human-readable form
-static String _describeCommand(String line) {
+String describeCommand(String line) {
   // Extract the command name
   final parts = line.split(RegExp(r'\s+'));
   final cmd = parts.first;
@@ -255,7 +255,7 @@ static String _describeCommand(String line) {
 }
 
 /// Infer tools used in script content
-static Set<String> _inferToolsFromScriptContent(String content) {
+Set<String> inferToolsFromScriptContent(String content) {
   final tools = <String>{};
   
   // Command patterns to detect (no duplicate keys)
@@ -816,7 +816,7 @@ class SkillDistiller {
   }
 
   /// Extract skill name from user message and AI response
-  static String _extractSkillName(String userMessage, String? aiResponse, _ExtractedScript? script) {
+  String extractSkillName(String userMessage, String? aiResponse, ExtractedScript? script) {
     // Try to extract a meaningful name from the user message intent
     final cleaned = _cleanMarkdown(userMessage).trim();
     
@@ -850,7 +850,7 @@ class SkillDistiller {
   }
 
   /// Extract goal from user message and script
-  static String _extractGoalFromMessage(String userMessage, String? aiResponse, _ExtractedScript? script) {
+  String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
     final cleaned = _cleanMarkdown(userMessage).trim();
     
     // Try to extract goal from user message intent
@@ -888,7 +888,7 @@ class SkillDistiller {
   }
 
   /// Create description from script and context
-  static String _createDescription(String userMessage, String? aiResponse, _ExtractedScript? script, String? sessionTitle) {
+  String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
     // Try AI response first
     if (aiResponse != null && aiResponse.isNotEmpty) {
       final cleaned = _cleanMarkdown(aiResponse).trim();
@@ -928,7 +928,7 @@ class SkillDistiller {
   }
 
   /// Deduplicate constraints (case-insensitive, trim)
-  static List<String> _dedupConstraints(List<String> constraints) {
+  List<String> dedupConstraints(List<String> constraints) {
     final seen = <String>{};
     final result = <String>[];
     
@@ -948,7 +948,7 @@ class SkillDistiller {
 
   /// Replace template placeholders while preserving shell positional parameters
   /// Does NOT replace $1-$9, $@, $*, $#, $?, $$, $! which are shell positional/special parameters
-  static String _replaceTemplates(String text, Map<String, String> replacements) {
+  String replaceTemplates(String text, Map<String, String> replacements) {
     if (replacements.isEmpty) return text;
     
     String result = text;
@@ -988,18 +988,18 @@ class SkillDistiller {
     final now = DateTime.now();
     
     // --- STAGE 1: Extract script from AI response (or user message) ---
-    final script = _extractScriptFromText(aiResponse ?? '') ?? _extractScriptFromText(userMessage);
+    final script = extractScriptFromText(aiResponse ?? '') ?? extractScriptFromText(userMessage);
     
     // --- STAGE 2: Extract name ---
-    String name = _extractSkillName(userMessage, aiResponse, script);
+    String name = extractSkillName(userMessage, aiResponse, script);
     if (name.isEmpty) name = 'Unnamed Skill';
     
     // --- STAGE 3: Extract goal ---
-    String goal = _extractGoalFromMessage(userMessage, aiResponse, script);
+    String goal = extractGoalFromMessage(userMessage, aiResponse, script);
     if (goal.isEmpty) goal = 'Achieve the task described in the message';
     
     // --- STAGE 4: Generate description ---
-    String description = _createDescription(userMessage, aiResponse, script, sessionTitle);
+    String description = createDescription(userMessage, aiResponse, script, sessionTitle);
     
     // --- STAGE 5: Extract steps (from script first, then text) ---
     List<String> steps = <String>[];
@@ -1023,7 +1023,7 @@ class SkillDistiller {
     List<String> constraints = [
       'Do not store secrets (API keys, tokens, passwords)',
     ];
-    constraints = _dedupConstraints(constraints);
+    constraints = dedupConstraints(constraints);
     
     // --- STAGE 7: Required tools (from toolCalls + script inference) ---
     final toolsFromScript = script?.tools ?? <String>{};
