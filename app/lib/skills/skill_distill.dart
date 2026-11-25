@@ -93,7 +93,6 @@ List<String> extractStepsFromScriptContent(String content) {
   final lines = content.split('\n');
   
   String? currentStep;
-  int stepNumber = 0;
   
   for (final rawLine in lines) {
     final line = rawLine.trim();
@@ -103,10 +102,9 @@ List<String> extractStepsFromScriptContent(String content) {
       // Check if it's a section comment (e.g., "# Step 1: ..." or "## Backup")
       if (RegExp(r'^#+\s*(step|phase|stage)\s*\d*', caseSensitive: false).hasMatch(line)) {
         if (currentStep != null) {
-          steps.add(currentStep!);
+          steps.add(currentStep);
         }
         currentStep = line.replaceFirst(RegExp(r'^#+\s*'), '').trim();
-        stepNumber++;
         continue;
       }
       continue;
@@ -114,16 +112,14 @@ List<String> extractStepsFromScriptContent(String content) {
     
     // Skip variable assignments that are just setup
     if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) {
-      if (currentStep == null) {
-        currentStep = 'Set up environment variables';
-      }
+      currentStep ??= 'Set up environment variables';
       continue;
     }
     
     // Skip function definitions for now (they're implementation details)
     if (RegExp(r'^\w+\s*\(\)\s*\{?').hasMatch(line) && line.endsWith('{')) {
       if (currentStep != null) {
-        steps.add(currentStep!);
+        steps.add(currentStep);
       }
       currentStep = 'Define function: ${line.replaceFirst(RegExp(r'\s*\{?\s*$'), '').trim()}';
       continue;
@@ -133,7 +129,7 @@ List<String> extractStepsFromScriptContent(String content) {
     if (isExecutableCommand(line)) {
       final commandDesc = describeCommand(line);
       if (currentStep != null) {
-        steps.add(currentStep!);
+        steps.add(currentStep);
       }
       currentStep = commandDesc;
     }
@@ -141,7 +137,7 @@ List<String> extractStepsFromScriptContent(String content) {
   
   // Add the last step
   if (currentStep != null) {
-    steps.add(currentStep!);
+    steps.add(currentStep);
   }
   
   // If no steps extracted but we have content, provide a generic step
@@ -219,19 +215,16 @@ String describeCommand(String line) {
       return 'Process text with awk';
     case 'curl':
     case 'wget':
-      return 'Download with ${cmd}';
+      return 'Download with $cmd';
     case 'git':
       return 'Git: ${parts.length > 1 ? parts[1] : ''}'.trim();
     case 'ssh':
     case 'scp':
-    case 'rsync':
-      return 'Remote operation: ${cmd}';
+      return 'Remote operation: $cmd';
     case 'sha256sum':
     case 'sha512sum':
     case 'md5sum':
-      return 'Generate checksum with ${cmd}';
-    case 'mkdir':
-      return 'Create directory';
+      return 'Generate checksum with $cmd';
     case 'chmod':
     case 'chown':
       return 'Change permissions/ownership';
@@ -851,8 +844,6 @@ class SkillDistiller {
 
   /// Extract goal from user message and script
   static String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
-    final cleaned = _cleanMarkdown(userMessage).trim();
-    
     // Try to extract goal from user message intent
     final goalPatterns = [
       RegExp(r'(?:create|make|build|write|generate|script|backup|sync|deploy|setup|configure)\s+(?:a|an|the)?\s*([^.]{10,200})', caseSensitive: false),
@@ -985,8 +976,6 @@ class SkillDistiller {
     required List<String> toolCalls,
     String? sessionTitle,
   }) {
-    final now = DateTime.now();
-    
     // --- STAGE 1: Extract script from AI response (or user message) ---
     final script = extractScriptFromText(aiResponse ?? '') ?? extractScriptFromText(userMessage);
     
@@ -1185,227 +1174,13 @@ class SkillDistiller {
     return false;
   }
 
-  /// Extract meaningful steps from shell script content
+  /// Static wrapper for top-level extractStepsFromScriptContent function
   static List<String> extractStepsFromScriptContent(String content) {
-    final steps = <String>[];
-    final lines = content.split('\n');
-    
-    String? currentStep;
-    int stepNumber = 0;
-    
-    for (final rawLine in lines) {
-      final line = rawLine.trim();
-      
-      // Skip empty lines and pure comments
-      if (line.isEmpty || line.startsWith('#')) {
-        // Check if it's a section comment (e.g., "# Step 1: ..." or "## Backup")
-        if (RegExp(r'^#+\s*(step|phase|stage)\s*\d*', caseSensitive: false).hasMatch(line)) {
-          if (currentStep != null) {
-            steps.add(currentStep!);
-          }
-          currentStep = line.replaceFirst(RegExp(r'^#+\s*'), '').trim();
-          stepNumber++;
-          continue;
-        }
-        continue;
-      }
-      
-      // Skip variable assignments that are just setup
-      if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) {
-        if (currentStep == null) {
-          currentStep = 'Set up environment variables';
-        }
-        continue;
-      }
-      
-      // Skip function definitions for now (they're implementation details)
-      if (RegExp(r'^\w+\s*\(\)\s*\{?').hasMatch(line) && line.endsWith('{')) {
-        if (currentStep != null) {
-          steps.add(currentStep!);
-        }
-        currentStep = 'Define function: ${line.replaceFirst(RegExp(r'\s*\{?\s*$'), '').trim()}';
-        continue;
-      }
-      
-      // Detect actual commands
-      if (isExecutableCommand(line)) {
-        final commandDesc = describeCommand(line);
-        if (currentStep != null) {
-          steps.add(currentStep!);
-        }
-        currentStep = commandDesc;
-      }
-    }
-    
-    // Add the last step
-    if (currentStep != null) {
-      steps.add(currentStep!);
-    }
-    
-    // If no steps extracted but we have content, provide a generic step
-    if (steps.isEmpty) {
-      // Try to extract at least one meaningful command
-      for (final rawLine in lines) {
-        final line = rawLine.trim();
-        if (line.isEmpty || line.startsWith('#')) continue;
-        if (isExecutableCommand(line)) {
-          steps.add(describeCommand(line));
-          break;
-        }
-      }
-    }
-    
-    // Limit steps
-    return steps.take(15).toList();
+    return extractStepsFromScriptContent(content);
   }
 
-  /// Check if a line is an executable command (not variable assignment, function, etc.)
-  static bool isExecutableCommand(String line) {
-    // Skip variable assignments
-    if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) return false;
-    // Skip function definitions
-    if (RegExp(r'^\w+\s*\(\)\s*\{?').hasMatch(line)) return false;
-    // Skip control structures (if, for, while, case)
-    if (RegExp(r'^(if|for|while|case|select)\s').hasMatch(line)) return false;
-    // Skip closing braces
-    if (line == '}' || line == 'fi' || line == 'done' || line == 'esac') return false;
-    // Skip empty or comments
-    if (line.isEmpty || line.startsWith('#')) return false;
-    // Skip export, declare, local, readonly
-    if (RegExp(r'^(export|declare|local|readonly)\s').hasMatch(line)) return false;
-    
-    return true;
-  }
-
-  /// Describe a command in human-readable form
-  static String describeCommand(String line) {
-    // Extract the command name
-    final parts = line.split(RegExp(r'\s+'));
-    final cmd = parts.first;
-    
-    // Common commands with specific descriptions
-    switch (cmd) {
-      case 'tar':
-        return 'Create compressed archive with tar';
-      case 'gzip':
-      case 'gunzip':
-      case 'zcat':
-        return 'Compress/decompress with gzip';
-      case 'zip':
-      case 'unzip':
-        return 'Create/extract ZIP archive';
-      case 'rsync':
-        return 'Sync files with rsync';
-      case 'cp':
-        return 'Copy files';
-      case 'mv':
-        return 'Move/rename files';
-      case 'mkdir':
-        return 'Create directory';
-      case 'rm':
-      case 'rmdir':
-        return 'Remove files/directories';
-      case 'find':
-        return 'Find files';
-      case 'grep':
-      case 'egrep':
-      case 'fgrep':
-        return 'Search text with grep';
-      case 'sed':
-        return 'Stream edit with sed';
-      case 'awk':
-        return 'Process text with awk';
-      case 'curl':
-      case 'wget':
-        return 'Download with ${cmd}';
-      case 'git':
-        return 'Git: ${parts.length > 1 ? parts[1] : ''}'.trim();
-      case 'ssh':
-      case 'scp':
-      case 'rsync':
-        return 'Remote operation: ${cmd}';
-      case 'sha256sum':
-      case 'sha512sum':
-      case 'md5sum':
-        return 'Generate checksum with ${cmd}';
-      case 'mkdir':
-        return 'Create directory';
-      case 'chmod':
-      case 'chown':
-        return 'Change permissions/ownership';
-      case 'ssh-keygen':
-        return 'Generate SSH key';
-      case 'openssl':
-        return 'OpenSSL operation';
-      case 'docker':
-      case 'podman':
-        return 'Container: ${parts.length > 1 ? parts[1] : ''}'.trim();
-      case 'kubectl':
-        return 'Kubernetes: ${parts.length > 1 ? parts[1] : ''}'.trim();
-      case 'systemctl':
-      case 'service':
-        return 'System service: ${parts.length > 1 ? parts[1] : ''}'.trim();
-      default:
-        // Generic command description
-        final args = parts.length > 1 ? parts.sublist(1).join(' ') : '';
-        return 'Run: $cmd ${args.isNotEmpty ? args : ''}'.trim();
-    }
-  }
-
-  /// Infer tools used in script content
+  /// Static wrapper for top-level inferToolsFromScriptContent function
   static Set<String> inferToolsFromScriptContent(String content) {
-    final tools = <String>{};
-    
-    // Command patterns to detect (no duplicate keys)
-    final commandPatterns = {
-      'bash': [r'\bbash\b', r'#!/bin/bash', r'#!/usr/bin/env bash'],
-      'sh': [r'\bsh\b', r'#!/bin/sh', r'#!/usr/bin/env sh'],
-      'tar': [r'\btar\b'],
-      'gzip': [r'\bgzip\b', r'\bgunzip\b', r'\bzcat\b'],
-      'zip': [r'\bzip\b', r'\bunzip\b'],
-      'unzip': [r'\bunzip\b'],
-      'rsync': [r'\brsync\b'],
-      'cp': [r'\bcp\b'],
-      'mv': [r'\bmv\b'],
-      'mkdir': [r'\bmkdir\b'],
-      'rm': [r'\brm\b', r'\brmdir\b'],
-      'find': [r'\bfind\b'],
-      'grep': [r'\bgrep\b', r'\begrep\b', r'\bfgrep\b'],
-      'sed': [r'\bsed\b'],
-      'awk': [r'\bawk\b'],
-      'curl': [r'\bcurl\b'],
-      'wget': [r'\bwget\b'],
-      'git': [r'\bgit\b'],
-      'ssh': [r'\bssh\b', r'\bscp\b'],
-      'sha256sum': [r'\bsha256sum\b'],
-      'sha512sum': [r'\bsha512sum\b'],
-      'md5sum': [r'\bmd5sum\b'],
-      'chmod': [r'\bchmod\b'],
-      'chown': [r'\bchown\b'],
-      'ssh-keygen': [r'\bssh-keygen\b'],
-      'openssl': [r'\bopenssl\b'],
-      'docker': [r'\bdocker\b'],
-      'podman': [r'\bpodman\b'],
-      'kubectl': [r'\bkubectl\b'],
-      'systemctl': [r'\bsystemctl\b'],
-      'service': [r'\bservice\b'],
-      'jq': [r'\bjq\b'],
-      'cat': [r'\bcat\b'],
-      'ls': [r'\bls\b'],
-    };
-    
-    for (final entry in commandPatterns.entries) {
-      final tool = entry.key;
-      final patterns = entry.value;
-      
-      for (final pattern in patterns) {
-        if (RegExp(pattern).hasMatch(content)) {
-          tools.add(tool);
-          break;
-        }
-      }
-    }
-    
-    return tools;
+    return inferToolsFromScriptContent(content);
   }
 }

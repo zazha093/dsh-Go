@@ -284,12 +284,8 @@ tar -czf backup.tar.gz .
 ```
 ''';
 
-        final script = SkillDistiller.extractScriptFromText('Please create a backup script') ?? 
-                       SkillDistiller.extractScriptFromText('''
-```bash
-tar -czf backup.tar.gz .
-```
-''');
+        final script = SkillDistiller.extractScriptFromText(userMessage) ?? 
+                       SkillDistiller.extractScriptFromText(aiResponse);
         
         expect(script, isNotNull);
         expect(script!.language, 'bash');
@@ -480,7 +476,7 @@ ls -lh ~/backups/project-*.tar.gz
         final skill = SkillDistiller.createFromMessageText(
           userMessage: userMessage,
           aiResponse: aiResponse,
-          toolCalls: ['bash'],
+          toolCalls: toolCalls,
           sessionTitle: 'Backup Script Request',
         );
 
@@ -505,7 +501,7 @@ sha256sum backup.tar.gz
 ''';
 
         final skill = SkillDistiller.createFromMessageText(
-          userMessage: 'Create backup',
+          userMessage: userMessage,
           aiResponse: aiResponse,
           toolCalls: [],
           sessionTitle: 'Test',
@@ -627,7 +623,7 @@ sha256sum backup.tar.gz
 
       test('falls back to cleaned message', () {
         const userMessage = 'Hello world';
-        final name = SkillDistiller.extractSkillName('Hello world', null, null);
+        final name = SkillDistiller.extractSkillName(userMessage, null, null);
         expect(name, isNotEmpty);
       });
 
@@ -817,5 +813,5 @@ sha256sum backup.tar.gz
       expect(result.omitted, greaterThan(0));
     });
   });
-}
+});
 }
