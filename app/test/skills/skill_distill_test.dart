@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:dsh_app/share_code/conversation_redact.dart';
 import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
+import 'package:dsh_app/skills/distill/heuristics.dart';
 
 void main() {
   group('SkillDistiller', () {
@@ -731,6 +732,228 @@ sha256sum backup.tar.gz
         expect(result, 'tar -czf backup.tar.gz .');
       });
     });
+
+  group('Heuristics Pipeline (New Pipeline)', () {
+    group('Shell Control Flow & Usage Block', () {
+      test('skips chmod +x and ./script.sh', () {
+        const script = '''chmod +x backup.sh
+./backup.sh
+tar -czf backup.tar.gz .''';
+        final steps = parseScript(script, const ThaiLex());
+        expect(steps.where((s) => s.title.contains('chmod')), isEmpty);
+        expect(steps.where((s) => s.title.contains('./backup.sh')), isEmpty);
+        expect(steps.any((s) => s.title.contains('tar')), true);
+      });
+
+      test('converts if [[ -f ... ]] to single verify step', () {
+        const script = '''tar -czf backup.tar.gz .
+if [[ -f backup.tar.gz ]]; then
+  echo "OK"
+fi''';
+        final steps = parseScript(script, const ThaiLex());
+        final verifySteps = steps.where((s) => s.kind == StepKind.verify).toList();
+        expect(verifySteps.length, 1);
+        expect(verifySteps.first.title, contains('ตรวจสอบไฟล์'));
+      });
+
+      test('skips if/then/else/fi control flow', () {
+        const script = '''if [[ -f file ]]; then
+  echo "exists"
+else
+  echo "missing"
+fi
+tar -czf backup.tar.gz .''';
+        final steps = parseScript(script, const ThaiLex());
+        expect(steps.where((s) => s.title.contains('if')), isEmpty);
+        expect(steps.where((s) => s.title.contains('then')), isEmpty);
+        expect(steps.any((s) => s.title.contains('tar')), true);
+      });
+
+      test('skips do/done/for/while/else/elif/fi keywords', () {
+        const script = '''for f in *; do
+  echo \$f
+done
+tar -czf backup.tar.gz .''';
+        final steps = parseScript(script, const ThaiLex());
+        expect(steps.where((s) => s.title.contains('for')), isEmpty);
+        expect(steps.where((s) => s.title.contains('do')), isEmpty);
+        expect(steps.where((s) => s.title.contains('done')), isEmpty);
+        expect(steps.any((s) => s.title.contains('tar')), true);
+      });
+    });
+
+    group('--exclude Format Variations', () {
+      test('parses --exclude=foo', () {
+        const script = 'tar --exclude=foo -czf a.tar.gz .';
+        final tools = SkillDistiller.inferToolsFromScriptContent(script);
+        expect(tools, contains('tar'));
+        // Check excludes are parsed in step description
+        final steps = parseScript('tar --exclude=foo -czf a.tar.gz .', const ThaiLex());
+        final tarStep = steps.where((s) => s.title.contains('tar')).first;
+        expect(tarStep.detail, contains('foo'));
+      });
+
+      test('parses --exclude="foo"', () {
+        const script = 'tar --exclude="foo" -czf a.tar.gz .';
+        final steps = parseScript(script, const ThaiLex());
+        final tarStep = steps.where((s) => s.title.contains('tar')).first;
+        expect(tarStep.detail, contains('foo'));
+      });
+
+      test('parses --exclude=\'foo\'', () {
+        const script = "tar --exclude='foo' -czf a.tar.gz .";
+        final steps = parseScript(script, const ThaiLex());
+        final tarStep = steps.where((s) => s.title.contains('tar')).first;
+        expect(tarStep.detail, contains('foo'));
+      });
+
+      test('parses --exclude={a,b,c} brace expansion', () {
+        const script = 'tar --exclude={node_modules,.git,build} -czf a.tar.gz .';
+        final steps = parseScript(script, const ThaiLex());
+        final tarStep = steps.where((s) => s.title.contains('tar')).first;
+        expect(tarStep.detail, contains('node_modules'));
+        expect(tarStep.detail, contains('.git'));
+        expect(tarStep.detail, contains('build'));
+      });
+    });
+
+    group('CJK Filtering (allowCjk=false)', () {
+      test('removes Chinese from step titles and details', () {
+        const script = '''tar -czf backup.tar.gz .
+echo "正在備份..."
+echo "✅ 備份成功!"''';
+        final steps = parseScript(script, const ThaiLex(), allowCjkLabels: false);
+        for (final step in steps) {
+          expect(hasCjk(step.title), false, reason: 'Step title should not have CJK: ${step.title}');
+          expect(hasCjk(step.detail), false, reason: 'Step detail should not have CJK: ${step.detail}');
+        }
+      });
+
+      test('removes step if title becomes empty after CJK removal', () {
+        const script = '''echo "正在備份..."
+echo "✅ 備份成功!"''';
+        final steps = parseScript(script, const ThaiLex(), allowCjkLabels: false);
+        expect(steps.where((s) => s.kind == StepKind.action), isEmpty);
+      });
+
+      test('distillScript removes CJK from name/goal/steps', () {
+        const script = 'tar -czf backup.tar.gz .\necho "備份成功"';
+        final draft = distillScript(
+          userPrompt: 'backup',
+          assistantMarkdown: '```bash\n$script\n```',
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(hasCjk(draft.name!), false);
+        expect(hasCjk(draft.goal!), false);
+        for (final step in draft.steps) {
+          expect(hasCjk(step.title), false);
+        }
+      });
+
+      test('removes empty steps after CJK filtering', () {
+        const script = 'echo "備份中..."';
+        final draft = distillScript(
+          userPrompt: 'test',
+          assistantMarkdown: '```bash\n$script\n```',
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(draft.steps.where((s) => s.kind == StepKind.action), isEmpty);
+      });
+    });
+
+    group('inferGoal Intent-Based', () {
+      test('returns intent-based goal, not step titles', () {
+        const code = 'tar --exclude=node_modules -czf backup.tar.gz .';
+        const prompt = 'Create a backup script for my project';
+        final steps = parseScript(code, const ThaiLex());
+        final goal = inferGoal(
+          userPrompt: prompt,
+          name: 'Backup Script',
+          steps: steps,
+          code: code,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(goal, contains('สำรอง'));
+        expect(normKey(goal!), isNot(normKey('Backup Script')));
+      });
+
+      test('goal differs from name (normKey differs)', () {
+        const code = 'tar -czf backup.tar.gz .';
+        const name = 'สำรองโปรเจกต์เป็น tar.gz';
+        final steps = parseScript(code, const ThaiLex());
+        final goal = inferGoal(
+          userPrompt: 'backup',
+          name: name,
+          steps: steps,
+          code: code,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(normKey(goal!), isNot(normKey(name)));
+      });
+
+      test('falls back to cleaned user prompt when intent not detected', () {
+        const code = 'echo hello';
+        const prompt = 'Create a script that says hello';
+        final steps = parseScript(code, const ThaiLex());
+        final goal = inferGoal(
+          userPrompt: prompt,
+          name: 'Hello Script',
+          steps: steps,
+          code: code,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(goal, isNotNull);
+        expect(normKey(goal!), isNot(normKey('Hello Script')));
+      });
+    });
+
+    group('_sanitizeOutputText', () {
+      test('removes CJK from goal/description/steps', () {
+        const script = 'tar -czf backup.tar.gz .\necho "備份成功"';
+        final draft = distillScript(
+          userPrompt: 'backup',
+          assistantMarkdown: '```bash\n$script\n```',
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(hasCjk(draft.name!), false);
+        expect(hasCjk(draft.goal!), false);
+        for (final step in draft.steps) {
+          expect(hasCjk(step.title), false);
+        }
+      });
+
+      test('removes step if title becomes empty after CJK filtering', () {
+        const script = 'echo "備份中..."';
+        final draft = distillScript(
+          userPrompt: 'test',
+          assistantMarkdown: '```bash\n$script\n```',
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        expect(draft.steps.where((s) => s.kind == StepKind.action), isEmpty);
+      });
+
+      test('removes generic "Run command" prefix from step titles', () {
+        const script = 'tar -czf backup.tar.gz .';
+        final draft = distillScript(
+          userPrompt: 'backup',
+          assistantMarkdown: '```bash\n$script\n```',
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        for (final step in draft.steps) {
+          expect(step.title, isNot('รันคำสั่ง tar'));
+          expect(step.title, isNot('Run command tar'));
+        }
+      });
+    });
+  });
 
   group('conversation_redact', () {
     test('redacts API keys', () {
