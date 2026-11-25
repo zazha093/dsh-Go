@@ -696,12 +696,12 @@ sha256sum backup.tar.gz
       });
 
       test('replaces \${placeholder}', () {
-        final result = SkillDistiller.replaceTemplates('Hello ${name}', {'name': 'World'});
+        final result = SkillDistiller.replaceTemplates('Hello \${name}', {'name': 'World'});
         expect(result, 'Hello World');
       });
 
       test('replaces \$placeholder', () {
-        final result = SkillDistiller.replaceTemplates('Hello $name', {'name': 'World'});
+        final result = SkillDistiller.replaceTemplates('Hello \$name', {'name': 'World'});
         expect(result, 'Hello World');
       });
 
