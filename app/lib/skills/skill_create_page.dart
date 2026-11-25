@@ -1,5 +1,6 @@
 // Personal Skills UI — create page (also used for distilling from sessions)
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,6 +17,21 @@ import 'widgets/kind_selector.dart';
 import 'widgets/step_editor.dart';
 import 'widgets/parameter_binding_ui.dart';
 import 'widgets/dry_run_preview.dart';
+
+/// Input for background draft creation via compute
+class _DraftInput {
+  const _DraftInput({
+    required this.userMessage,
+    required this.aiResponse,
+    required this.toolCalls,
+    required this.sessionTitle,
+  });
+
+  final String userMessage;
+  final String? aiResponse;
+  final List<String> toolCalls;
+  final String sessionTitle;
+}
 
 /// Create page for a new skill (or distilling from session, or from selected message(s))
 class SkillCreatePage extends ConsumerStatefulWidget {
@@ -81,11 +97,15 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (widget.initialSkill != null) {
       _fillForm(widget.initialSkill!);
     } else if (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) {
-      // Create draft from selected messages (multi-select)
-      _createDraftFromText();
+      // Create draft from selected messages (multi-select) - run after first frame to show loading UI
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _createDraftFromText();
+      });
     } else if (widget.draftText != null) {
-      // Create draft from selected message text (legacy single message)
-      _createDraftFromText();
+      // Create draft from selected message text (legacy single message) - run after first frame to show loading UI
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) _createDraftFromText();
+      });
     } else if (widget.sessionId != null) {
       // Auto-start distillation
       _distillFromSession();
@@ -122,30 +142,54 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   }
 
   /// Create a draft skill from selected message text(s) using regex-based extraction
-  void _createDraftFromText() {
-    // Combine multiple texts if provided, fallback to single draftText
-    final texts = widget.draftTexts ?? (widget.draftText != null ? [widget.draftText!] : <String>[]);
-    final text = texts.join('\n\n---\n\n');
-    final tools = widget.draftTools ?? [];
+  Future<void> _createDraftFromText() async {
+    if (!mounted) return;
+    setState(() => _isLoading = true);
 
-    // Use the new regex-based extraction (no AI)
-    final draftSkill = SkillDistiller.createFromMessageText(
-      userMessage: text,
-      aiResponse: null, // No AI response available for selected message
-      toolCalls: tools,
-      sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
-    );
+    try {
+      // Combine multiple texts if provided, fallback to single draftText
+      final texts = widget.draftTexts ?? (widget.draftText != null ? [widget.draftText!] : <String>[]);
+      final text = texts.join('\n\n---\n\n');
+      final tools = widget.draftTools ?? [];
 
-    _fillForm(draftSkill);
+      // Use compute to run heavy regex extraction in background isolate
+      final draftSkill = await compute(
+        _createDraftFromTextStatic,
+        _DraftInput(
+          userMessage: text,
+          aiResponse: null,
+          toolCalls: tools,
+          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+        ),
+      );
 
-    // Show a snackbar to indicate draft was created
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _fillForm(draftSkill);
+
+      // Show a snackbar to indicate draft was created
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Failed to create draft: $e')),
+      );
+    } finally {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(context.l10n.skillsDistillSuccess.replaceFirst('{name}', draftSkill.name))),
-        );
+        setState(() => _isLoading = false);
       }
-    });
+    }
+  }
+
+  /// Static function for compute (must be top-level or static)
+  static Skill _createDraftFromTextStatic(_DraftInput input) {
+    return SkillDistiller.createFromMessageText(
+      userMessage: input.userMessage,
+      aiResponse: input.aiResponse,
+      toolCalls: input.toolCalls,
+      sessionTitle: input.sessionTitle,
+    );
   }
 
   Future<void> _distillFromSession() async {
@@ -256,8 +300,10 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                if (widget.sessionId != null && _distilledSkill == null) ...[
-                  // Distillation in progress
+                // Show loading for both session distillation and draft text creation
+                if ((widget.sessionId != null && _distilledSkill == null) ||
+                    (_isLoading && (widget.draftText != null || (widget.draftTexts != null && widget.draftTexts!.isNotEmpty)))) ...[
+                  // Distillation / draft creation in progress
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(32),
@@ -266,7 +312,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                           const CircularProgressIndicator(),
                           const SizedBox(height: 16),
                           Text(
-                            l10n.skillsDistillDescription,
+                            widget.sessionId != null
+                                ? l10n.skillsDistillDescription
+                                : l10n.skillsDistillDescription,
                             style: theme.textTheme.bodyMedium,
                             textAlign: TextAlign.center,
                           ),
