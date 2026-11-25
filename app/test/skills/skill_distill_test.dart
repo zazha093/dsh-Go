@@ -814,4 +814,5 @@ sha256sum backup.tar.gz
     });
   });
 });
+});
 }
