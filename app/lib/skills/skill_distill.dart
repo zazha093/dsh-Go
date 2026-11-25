@@ -1120,4 +1120,535 @@ class SkillDistiller {
     
     return SkillCategory.other;
   }
+
+  /// Result of script extraction from message text
+  static ExtractedScript? extractScriptFromText(String text) {
+    // Match markdown fenced code blocks: ```language ... ```
+    final codeBlockRegex = RegExp(r'```(\w+)?\n([\s\S]*?)\n```');
+    final matches = codeBlockRegex.allMatches(text);
+    
+    for (final match in matches) {
+      final language = (match.group(1) ?? '').toLowerCase();
+      final content = match.group(2) ?? '';
+      
+      // Only process shell-like scripts
+      if (isShellScript(language, content)) {
+        final steps = extractStepsFromScriptContent(content);
+        final tools = inferToolsFromScriptContent(content);
+        
+        if (steps.isNotEmpty || tools.isNotEmpty) {
+          return ExtractedScript(
+            language: language,
+            content: content,
+            steps: steps,
+            tools: tools,
+          );
+        }
+      }
+    }
+    
+    return null;
+  }
+
+  /// Check if the code block is a shell script
+  static bool isShellScript(String language, String content) {
+    // Explicit shell languages
+    if (language == 'bash' || language == 'sh' || language == 'shell' || 
+        language == 'zsh' || language == 'fish') {
+      return true;
+    }
+    
+    // No language specified but content looks like shell
+    if (language.isEmpty) {
+      final firstLine = content.trim().split('\n').first.toLowerCase();
+      // Shebang check
+      if (firstLine.startsWith('#!/bin/bash') || 
+          firstLine.startsWith('#!/bin/sh') ||
+          firstLine.startsWith('#!/usr/bin/env bash') ||
+          firstLine.startsWith('#!/usr/bin/env sh')) {
+        return true;
+      }
+      // Common shell commands at start
+      if (firstLine.startsWith('set -') || 
+          firstLine.startsWith('export ') ||
+          firstLine.startsWith('mkdir ') ||
+          firstLine.startsWith('tar ') ||
+          firstLine.startsWith('rsync ') ||
+          firstLine.startsWith('gzip ') ||
+          firstLine.startsWith('sha256sum ') ||
+          firstLine.startsWith('find ') ||
+          firstLine.startsWith('grep ')) {
+        return true;
+      }
+    }
+    
+    return false;
+  }
+
+  /// Extract meaningful steps from shell script content
+  static List<String> extractStepsFromScriptContent(String content) {
+    final steps = <String>[];
+    final lines = content.split('\n');
+    
+    String? currentStep;
+    int stepNumber = 0;
+    
+    for (final rawLine in lines) {
+      final line = rawLine.trim();
+      
+      // Skip empty lines and pure comments
+      if (line.isEmpty || line.startsWith('#')) {
+        // Check if it's a section comment (e.g., "# Step 1: ..." or "## Backup")
+        if (RegExp(r'^#+\s*(step|phase|stage)\s*\d*', caseSensitive: false).hasMatch(line)) {
+          if (currentStep != null) {
+            steps.add(currentStep!);
+          }
+          currentStep = line.replaceFirst(RegExp(r'^#+\s*'), '').trim();
+          stepNumber++;
+          continue;
+        }
+        continue;
+      }
+      
+      // Skip variable assignments that are just setup
+      if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) {
+        if (currentStep == null) {
+          currentStep = 'Set up environment variables';
+        }
+        continue;
+      }
+      
+      // Skip function definitions for now (they're implementation details)
+      if (RegExp(r'^\w+\s*\(\)\s*\{?').hasMatch(line) && line.endsWith('{')) {
+        if (currentStep != null) {
+          steps.add(currentStep!);
+        }
+        currentStep = 'Define function: ${line.replaceFirst(RegExp(r'\s*\{?\s*$'), '').trim()}';
+        continue;
+      }
+      
+      // Detect actual commands
+      if (isExecutableCommand(line)) {
+        final commandDesc = describeCommand(line);
+        if (currentStep != null) {
+          steps.add(currentStep!);
+        }
+        currentStep = commandDesc;
+      }
+    }
+    
+    // Add the last step
+    if (currentStep != null) {
+      steps.add(currentStep!);
+    }
+    
+    // If no steps extracted but we have content, provide a generic step
+    if (steps.isEmpty) {
+      // Try to extract at least one meaningful command
+      for (final rawLine in lines) {
+        final line = rawLine.trim();
+        if (line.isEmpty || line.startsWith('#')) continue;
+        if (isExecutableCommand(line)) {
+          steps.add(describeCommand(line));
+          break;
+        }
+      }
+    }
+    
+    // Limit steps
+    return steps.take(15).toList();
+  }
+
+  /// Check if a line is an executable command (not variable assignment, function, etc.)
+  static bool isExecutableCommand(String line) {
+    // Skip variable assignments
+    if (RegExp(r'^[A-Z_][A-Z0-9_]*\s*=').hasMatch(line)) return false;
+    // Skip function definitions
+    if (RegExp(r'^\w+\s*\(\)\s*\{?').hasMatch(line)) return false;
+    // Skip control structures (if, for, while, case)
+    if (RegExp(r'^(if|for|while|case|select)\s').hasMatch(line)) return false;
+    // Skip closing braces
+    if (line == '}' || line == 'fi' || line == 'done' || line == 'esac') return false;
+    // Skip empty or comments
+    if (line.isEmpty || line.startsWith('#')) return false;
+    // Skip export, declare, local, readonly
+    if (RegExp(r'^(export|declare|local|readonly)\s').hasMatch(line)) return false;
+    
+    return true;
+  }
+
+  /// Describe a command in human-readable form
+  static String describeCommand(String line) {
+    // Extract the command name
+    final parts = line.split(RegExp(r'\s+'));
+    final cmd = parts.first;
+    
+    // Common commands with specific descriptions
+    switch (cmd) {
+      case 'tar':
+        return 'Create compressed archive with tar';
+      case 'gzip':
+      case 'gunzip':
+      case 'zcat':
+        return 'Compress/decompress with gzip';
+      case 'zip':
+      case 'unzip':
+        return 'Create/extract ZIP archive';
+      case 'rsync':
+        return 'Sync files with rsync';
+      case 'cp':
+        return 'Copy files';
+      case 'mv':
+        return 'Move/rename files';
+      case 'mkdir':
+        return 'Create directory';
+      case 'rm':
+      case 'rmdir':
+        return 'Remove files/directories';
+      case 'find':
+        return 'Find files';
+      case 'grep':
+      case 'egrep':
+      case 'fgrep':
+        return 'Search text with grep';
+      case 'sed':
+        return 'Stream edit with sed';
+      case 'awk':
+        return 'Process text with awk';
+      case 'curl':
+      case 'wget':
+        return 'Download with ${cmd}';
+      case 'git':
+        return 'Git: ${parts.length > 1 ? parts[1] : ''}'.trim();
+      case 'ssh':
+      case 'scp':
+      case 'rsync':
+        return 'Remote operation: ${cmd}';
+      case 'sha256sum':
+      case 'sha512sum':
+      case 'md5sum':
+        return 'Generate checksum with ${cmd}';
+      case 'mkdir':
+        return 'Create directory';
+      case 'chmod':
+      case 'chown':
+        return 'Change permissions/ownership';
+      case 'ssh-keygen':
+        return 'Generate SSH key';
+      case 'openssl':
+        return 'OpenSSL operation';
+      case 'docker':
+      case 'podman':
+        return 'Container: ${parts.length > 1 ? parts[1] : ''}'.trim();
+      case 'kubectl':
+        return 'Kubernetes: ${parts.length > 1 ? parts[1] : ''}'.trim();
+      case 'systemctl':
+      case 'service':
+        return 'System service: ${parts.length > 1 ? parts[1] : ''}'.trim();
+      default:
+        // Generic command description
+        final args = parts.length > 1 ? parts.sublist(1).join(' ') : '';
+        return 'Run: $cmd ${args.isNotEmpty ? args : ''}'.trim();
+    }
+  }
+
+  /// Infer tools used in script content
+  static Set<String> inferToolsFromScriptContent(String content) {
+    final tools = <String>{};
+    
+    // Command patterns to detect (no duplicate keys)
+    final commandPatterns = {
+      'bash': [r'\bbash\b', r'#!/bin/bash', r'#!/usr/bin/env bash'],
+      'sh': [r'\bsh\b', r'#!/bin/sh', r'#!/usr/bin/env sh'],
+      'tar': [r'\btar\b'],
+      'gzip': [r'\bgzip\b', r'\bgunzip\b', r'\bzcat\b'],
+      'zip': [r'\bzip\b', r'\bunzip\b'],
+      'unzip': [r'\bunzip\b'],
+      'rsync': [r'\brsync\b'],
+      'cp': [r'\bcp\b'],
+      'mv': [r'\bmv\b'],
+      'mkdir': [r'\bmkdir\b'],
+      'rm': [r'\brm\b', r'\brmdir\b'],
+      'find': [r'\bfind\b'],
+      'grep': [r'\bgrep\b', r'\begrep\b', r'\bfgrep\b'],
+      'sed': [r'\bsed\b'],
+      'awk': [r'\bawk\b'],
+      'curl': [r'\bcurl\b'],
+      'wget': [r'\bwget\b'],
+      'git': [r'\bgit\b'],
+      'ssh': [r'\bssh\b', r'\bscp\b'],
+      'sha256sum': [r'\bsha256sum\b'],
+      'sha512sum': [r'\bsha512sum\b'],
+      'md5sum': [r'\bmd5sum\b'],
+      'chmod': [r'\bchmod\b'],
+      'chown': [r'\bchown\b'],
+      'ssh-keygen': [r'\bssh-keygen\b'],
+      'openssl': [r'\bopenssl\b'],
+      'docker': [r'\bdocker\b'],
+      'podman': [r'\bpodman\b'],
+      'kubectl': [r'\bkubectl\b'],
+      'systemctl': [r'\bsystemctl\b'],
+      'service': [r'\bservice\b'],
+      'jq': [r'\bjq\b'],
+      'cat': [r'\bcat\b'],
+      'ls': [r'\bls\b'],
+    };
+    
+    for (final entry in commandPatterns.entries) {
+      final tool = entry.key;
+      final patterns = entry.value;
+      
+      for (final pattern in patterns) {
+        if (RegExp(pattern).hasMatch(content)) {
+          tools.add(tool);
+          break;
+        }
+      }
+    }
+    
+    return tools;
+  }
+
+  /// Extract skill name from user message and AI response
+  static String extractSkillName(String userMessage, String? aiResponse, ExtractedScript? script) {
+    // Try to extract a meaningful name from the user message intent
+    final cleaned = _cleanMarkdown(userMessage).trim();
+    
+    // Look for common intent patterns
+    final intentPatterns = [
+      RegExp(r'(?:create|make|build|write|generate|script|backup|backup|sync|deploy)\s+(\w[\w\s]{2,40})', caseSensitive: false),
+      RegExp(r'(?:for|to)\s+(\w[\w\s]{2,40})', caseSensitive: false),
+    ];
+    
+    for (final pattern in intentPatterns) {
+      final match = pattern.firstMatch(userMessage);
+      if (match != null && match.groupCount >= 1) {
+        final extracted = match.group(1)!.trim();
+        if (extracted.length > 3 && extracted.length < 50) {
+          return extracted[0].toUpperCase() + extracted.substring(1);
+        }
+      }
+    }
+    
+    // Fallback: use first meaningful words from user message
+    final words = cleaned.split(RegExp(r'\s+')).where((w) => w.length > 2).take(6).join(' ');
+    if (words.length > 5 && words.length < 60) {
+      return words[0].toUpperCase() + words.substring(1);
+    }
+    
+    // Fallback to first 50 chars of cleaned message
+    String name = _cleanMarkdown(userMessage).trim();
+    if (name.length > 50) name = '${name.substring(0, 47)}...';
+    if (name.isEmpty) name = 'Unnamed Skill';
+    return name;
+  }
+
+  /// Extract goal from user message and script
+  static String extractGoalFromMessage(String userMessage, String? aiResponse, ExtractedScript? script) {
+    final cleaned = _cleanMarkdown(userMessage).trim();
+    
+    // Try to extract goal from user message intent
+    final goalPatterns = [
+      RegExp(r'(?:create|make|build|write|generate|script|backup|sync|deploy|setup|configure)\s+(?:a|an|the)?\s*([^.]{10,200})', caseSensitive: false),
+      RegExp(r'(?:I want to|I need to|Please|Help me)\s+([^.]{10,200})', caseSensitive: false),
+    ];
+    
+    for (final pattern in goalPatterns) {
+      final match = pattern.firstMatch(userMessage);
+      if (match != null && match.groupCount >= 1) {
+        final goal = match.group(1)!.trim();
+        if (goal.length > 10 && goal.length < 300) {
+          return goal[0].toUpperCase() + goal.substring(1);
+        }
+      }
+    }
+    
+    // If script found, infer goal from script
+    if (script != null && script.content.isNotEmpty) {
+      final firstCommand = script.content.trim().split('\n').firstWhere(
+        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
+        orElse: () => '',
+      );
+      if (firstCommand.isNotEmpty) {
+        return 'Automate: ${firstCommand.length > 100 ? firstCommand.substring(0, 100) : firstCommand}';
+      }
+    }
+    
+    // Fallback: use first 200 chars of user message
+    String goal = _cleanMarkdown(userMessage).trim();
+    if (goal.length > 200) goal = '${goal.substring(0, 197)}...';
+    if (goal.isEmpty) goal = 'Achieve the task described in the message';
+    return goal;
+  }
+
+  /// Create description from script and context
+  static String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
+    // Try AI response first
+    if (aiResponse != null && aiResponse.isNotEmpty) {
+      final cleaned = _cleanMarkdown(aiResponse).trim();
+      if (cleaned.length > 50) {
+        String desc = cleaned.length > 300 ? '${cleaned.substring(0, 297)}...' : cleaned;
+        return desc;
+      }
+    }
+    
+    // Generate from script
+    if (script != null && script.content.isNotEmpty) {
+      final tools = script.tools.join(', ');
+      final stepsCount = script.steps.length;
+      String desc = 'Shell script with $stepsCount step(s)';
+      if (tools.isNotEmpty) {
+        desc += ' using $tools';
+      }
+      // Add first command as preview
+      final firstCmd = script.content.trim().split('\n').firstWhere(
+        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
+        orElse: () => '',
+      );
+      if (firstCmd.isNotEmpty) {
+        desc += '. Starts with: ${firstCmd.length > 80 ? firstCmd.substring(0, 80) : firstCmd}';
+      }
+      return desc;
+    }
+    
+    // Fallback to session title or user message
+    if (sessionTitle != null && sessionTitle.isNotEmpty) {
+      return 'Distilled from: $sessionTitle';
+    }
+    
+    final userMsg = _cleanMarkdown(userMessage).trim();
+    if (userMsg.length > 200) return '${userMsg.substring(0, 197)}...';
+    return userMsg.isEmpty ? 'Distilled from message' : userMsg;
+  }
+
+  /// Deduplicate constraints (case-insensitive, trim)
+  static List<String> dedupConstraints(List<String> constraints) {
+    final seen = <String>{};
+    final result = <String>[];
+    
+    for (final constraint in constraints) {
+      final trimmed = constraint.trim();
+      if (trimmed.isEmpty) continue;
+      
+      final normalized = trimmed.toLowerCase();
+      if (!seen.contains(normalized)) {
+        seen.add(normalized);
+        result.add(trimmed);
+      }
+    }
+    
+    return result;
+  }
+
+  /// Replace template placeholders while preserving shell positional parameters
+  /// Does NOT replace $1-$9, $@, $*, $#, $?, $$, $! which are shell positional/special parameters
+  static String replaceTemplates(String text, Map<String, String> replacements) {
+    if (replacements.isEmpty) return text;
+    
+    String result = text;
+    
+    for (final entry in replacements.entries) {
+      final placeholder = entry.key;
+      final value = entry.value;
+      
+      // Skip shell positional parameters: $1-$9, $@, $*, $#, $?, $$, $!
+      if (RegExp(r'^\$\d+$').hasMatch(placeholder) ||
+          placeholder == r'$@' || placeholder == r'$*' ||
+          placeholder == r'$#' || placeholder == r'$?' ||
+          placeholder == r'$$' || placeholder == r'$!') {
+        continue;
+      }
+      
+      // Replace {{placeholder}} or ${placeholder} or $placeholder
+      final patterns = [
+        RegExp(r'\{\{\s*' + RegExp.escape(placeholder) + r'\s*\}\}'),
+        RegExp(r'\$\{\s*' + RegExp.escape(placeholder) + r'\s*\}'),
+        RegExp(r'(?<!\$)\$' + RegExp.escape(placeholder) + r'(?![\w\d])'),
+      ];
+      
+      for (final pattern in patterns) {
+        result = result.replaceAll(pattern, value);
+      }
+    }
+    
+    return result;
+  }
+
+  /// Create a skill from selected message text using regex-based extraction (no AI)
+  /// This is the fallback when distillation from session is not available
+  static Skill createFromMessageText({
+    required String userMessage,
+    String? aiResponse,
+    required List<String> toolCalls,
+    String? sessionTitle,
+  }) {
+    final now = DateTime.now();
+    
+    // --- STAGE 1: Extract script from AI response (or user message) ---
+    final script = extractScriptFromText(aiResponse ?? '') ?? extractScriptFromText(userMessage);
+    
+    // --- STAGE 2: Extract name ---
+    String name = extractSkillName(userMessage, aiResponse, script);
+    if (name.isEmpty) name = 'Unnamed Skill';
+    
+    // --- STAGE 3: Extract goal ---
+    String goal = extractGoalFromMessage(userMessage, aiResponse, script);
+    if (goal.isEmpty) goal = 'Achieve the task described in the message';
+    
+    // --- STAGE 4: Generate description ---
+    String description = createDescription(userMessage, aiResponse, script, sessionTitle);
+    
+    // --- STAGE 5: Extract steps (from script first, then text) ---
+    List<String> steps = <String>[];
+    if (script != null) {
+      steps.addAll(script.steps);
+    }
+    // Fallback: extract from text
+    steps.addAll(_extractStepsFromText(userMessage));
+    if (aiResponse != null) {
+      steps.addAll(_extractStepsFromText(aiResponse));
+    }
+    // Deduplicate and limit
+    steps = steps.toSet().take(15).map((s) => s.length > 200 ? '${s.substring(0, 197)}...' : s).toList();
+    
+    // If no steps found, leave empty (don't fill with generic)
+    if (steps.isEmpty) {
+      steps = [];
+    }
+    
+    // --- STAGE 6: Constraints with deduplication ---
+    List<String> constraints = [
+      'Do not store secrets (API keys, tokens, passwords)',
+    ];
+    constraints = dedupConstraints(constraints);
+    
+    // --- STAGE 7: Required tools (from toolCalls + script inference) ---
+    final toolsFromScript = script?.tools ?? <String>{};
+    List<String> requiredTools = <String>{...toolCalls, ...toolsFromScript}.toList();
+    if (requiredTools.isEmpty) {
+      requiredTools = ['bash', 'edit'];
+    }
+    requiredTools.sort();
+    
+    // --- STAGE 8: Category inference ---
+    SkillCategory category = _inferCategoryFromText(userMessage, aiResponse, toolCalls);
+    
+    return Skill(
+      id: _generateId(),
+      name: name,
+      description: redactText(description),
+      goal: redactText(goal),
+      steps: steps.map(redactText).toList(),
+      constraints: constraints.map(redactText).toList(),
+      requiredTools: requiredTools,
+      userInputs: [],
+      createdAt: DateTime.now(),
+      sourceSessionTitle: sessionTitle,
+      category: category,
+      // v2 fields
+      kind: 'workflow',
+      schemaVersion: 2,
+      provenance: SkillProvenance.manual(),
+    );
+  }
 }
