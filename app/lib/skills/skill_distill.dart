@@ -97,16 +97,22 @@ List<String> _extractStepsFromScriptContentImpl(String content) {
   for (final rawLine in lines) {
     final line = rawLine.trim();
     
-    // Skip empty lines and pure comments
-    if (line.isEmpty || line.startsWith('#')) {
-      // Check if it's a section comment (e.g., "# Step 1: ..." or "## Backup")
-      if (RegExp(r'^#+\s*(step|phase|stage)\s*\d*', caseSensitive: false).hasMatch(line)) {
+    // Skip empty lines
+    if (line.isEmpty) continue;
+    
+    // Handle comments - check for section markers in multiple languages
+    if (line.startsWith('#')) {
+      // Check if it's a section comment (e.g., "# Step 1: ..." or "## Backup" or Chinese/Thai equivalents)
+      final commentText = line.replaceFirst(RegExp(r'^#+\s*'), '').trim();
+      if (RegExp(r'^#+\s*(step|phase|stage|步骤|步驟|ขั้นตอน)\s*\d*', caseSensitive: false).hasMatch(line) ||
+          RegExp(r'^#+\s*(backup|備份|备份|部署|deploy|同步|sync)', caseSensitive: false).hasMatch(line)) {
         if (currentStep != null) {
           steps.add(currentStep);
         }
-        currentStep = line.replaceFirst(RegExp(r'^#+\s*'), '').trim();
+        currentStep = commentText;
         continue;
       }
+      // Skip other pure comments
       continue;
     }
     
@@ -128,10 +134,13 @@ List<String> _extractStepsFromScriptContentImpl(String content) {
     // Detect actual commands
     if (isExecutableCommand(line)) {
       final commandDesc = describeCommand(line);
-      if (currentStep != null) {
-        steps.add(currentStep);
+      // Filter out generic/unhelpful descriptions
+      if (!_isGenericCommandDesc(commandDesc)) {
+        if (currentStep != null) {
+          steps.add(currentStep);
+        }
+        currentStep = commandDesc;
       }
-      currentStep = commandDesc;
     }
   }
   
@@ -147,14 +156,40 @@ List<String> _extractStepsFromScriptContentImpl(String content) {
       final line = rawLine.trim();
       if (line.isEmpty || line.startsWith('#')) continue;
       if (isExecutableCommand(line)) {
-        steps.add(describeCommand(line));
+        final desc = describeCommand(line);
+        if (!_isGenericCommandDesc(desc)) {
+          steps.add(desc);
+        }
         break;
       }
     }
   }
   
-  // Limit steps
-  return steps.take(15).toList();
+  // Filter out generic steps and limit
+  return steps.where((s) => !_isGenericStep(s)).take(15).toList();
+}
+
+/// Check if a command description is too generic
+bool _isGenericCommandDesc(String desc) {
+  final lower = desc.toLowerCase();
+  return lower == 'run: set -euo pipefail' ||
+         lower == 'run: set -e' ||
+         lower == 'run: export' ||
+         lower.startsWith('run: ') && lower.length < 15;
+}
+
+/// Check if a step is too generic
+bool _isGenericStep(String step) {
+  final lower = step.toLowerCase().trim();
+  // Filter out language identifiers and generic words
+  return lower == 'script' || 
+         lower == 'bash' || 
+         lower == 'shell' || 
+         lower == 'sh' ||
+         lower == 'a script' ||
+         lower == 'the script' ||
+         lower == 'the bash script' ||
+         lower == 'the shell script';
 }
 
 /// Check if a line is an executable command (not variable assignment, function, etc.)
@@ -854,25 +889,64 @@ class SkillDistiller {
       final match = pattern.firstMatch(userMessage);
       if (match != null && match.groupCount >= 1) {
         final goal = match.group(1)!.trim();
+        // Filter out language identifiers and generic words
+        final lowerGoal = goal.toLowerCase();
+        if (lowerGoal == 'script' || lowerGoal == 'bash' || lowerGoal == 'shell' || 
+            lowerGoal == 'a script' || lowerGoal == 'the script') {
+          continue; // Skip generic identifiers
+        }
         if (goal.length > 10 && goal.length < 300) {
           return goal[0].toUpperCase() + goal.substring(1);
         }
       }
     }
     
-    // If script found, infer goal from script
+    // If script found, infer goal from script purpose (not just first command)
     if (script != null && script.content.isNotEmpty) {
-      final firstCommand = script.content.trim().split('\n').firstWhere(
-        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
-        orElse: () => '',
-      );
-      if (firstCommand.isNotEmpty) {
-        return 'Automate: ${firstCommand.length > 100 ? firstCommand.substring(0, 100) : firstCommand}';
+      final lines = script.content.trim().split('\n');
+      
+      // Look for descriptive comments first
+      for (final line in lines) {
+        final trimmed = line.trim();
+        if (trimmed.startsWith('#') && trimmed.length > 10) {
+          // Extract meaningful comment as goal
+          final comment = trimmed.replaceFirst(RegExp(r'^#+\s*'), '').trim();
+          // Skip if it's just a command name or too short
+          if (comment.length > 10 && !RegExp(r'^(bash|sh|shell|script|set|export|mkdir|tar)\b').hasMatch(comment)) {
+            return comment[0].toUpperCase() + comment.substring(1);
+          }
+        }
+      }
+      
+      // Infer from script tools and content
+      final toolNames = script.tools.join(' ');
+      if (toolNames.contains('tar') || toolNames.contains('backup')) {
+        return 'Create compressed backup archive';
+      }
+      if (toolNames.contains('git') || toolNames.contains('commit') || toolNames.contains('push')) {
+        return 'Automate git workflow';
+      }
+      if (toolNames.contains('docker') || toolNames.contains('deploy')) {
+        return 'Deploy application';
+      }
+      if (toolNames.contains('rsync') || toolNames.contains('sync')) {
+        return 'Synchronize files';
+      }
+      
+      // Fallback: use first meaningful command
+      for (final line in lines) {
+        final trimmed = line.trim();
+        if (trimmed.isNotEmpty && !trimmed.startsWith('#') && 
+            !trimmed.startsWith('set -') && !trimmed.startsWith('export ')) {
+          return 'Run: ${trimmed.length > 80 ? trimmed.substring(0, 80) : trimmed}';
+        }
       }
     }
     
-    // Fallback: use first 200 chars of user message
+    // Fallback: use first meaningful sentence from user message
     String goal = _cleanMarkdown(userMessage).trim();
+    // Remove language identifiers
+    goal = goal.replaceAll(RegExp(r'\b(script|bash|shell|sh)\b', caseSensitive: false), '');
     if (goal.length > 200) goal = '${goal.substring(0, 197)}...';
     if (goal.isEmpty) goal = 'Achieve the task described in the message';
     return goal;
@@ -880,7 +954,7 @@ class SkillDistiller {
 
   /// Create description from script and context
   static String createDescription(String userMessage, String? aiResponse, ExtractedScript? script, String? sessionTitle) {
-    // Try AI response first
+    // Try AI response first (substantive content only)
     if (aiResponse != null && aiResponse.isNotEmpty) {
       final cleaned = _cleanMarkdown(aiResponse).trim();
       if (cleaned.length > 50) {
@@ -889,22 +963,40 @@ class SkillDistiller {
       }
     }
     
-    // Generate from script
+    // Generate meaningful description from script
     if (script != null && script.content.isNotEmpty) {
-      final tools = script.tools.join(', ');
-      final stepsCount = script.steps.length;
-      String desc = 'Shell script with $stepsCount step(s)';
-      if (tools.isNotEmpty) {
-        desc += ' using $tools';
+      final toolNames = script.tools.toList()..sort();
+      final toolsStr = toolNames.join(', ');
+      
+      // Infer purpose from tools and content
+      String purpose = 'Automated workflow';
+      if (toolNames.contains('tar') || script.content.contains('backup')) {
+        purpose = 'Create compressed backup archive';
+      } else if (toolNames.contains('git') || script.content.contains('commit') || script.content.contains('push')) {
+        purpose = 'Automate git operations';
+      } else if (toolNames.contains('docker') || script.content.contains('deploy')) {
+        purpose = 'Deploy application';
+      } else if (toolNames.contains('rsync') || script.content.contains('sync')) {
+        purpose = 'Synchronize files';
+      } else if (toolNames.contains('ssh') || script.content.contains('scp')) {
+        purpose = 'Remote file operations';
+      } else if (toolNames.contains('curl') || toolNames.contains('wget') || script.content.contains('download')) {
+        purpose = 'Download files from web';
+      } else if (toolNames.contains('find') || toolNames.contains('grep')) {
+        purpose = 'Search and filter files';
       }
-      // Add first command as preview
-      final firstCmd = script.content.trim().split('\n').firstWhere(
-        (l) => l.trim().isNotEmpty && !l.trim().startsWith('#'),
-        orElse: () => '',
-      );
-      if (firstCmd.isNotEmpty) {
-        desc += '. Starts with: ${firstCmd.length > 80 ? firstCmd.substring(0, 80) : firstCmd}';
+      
+      String desc = purpose;
+      if (toolsStr.isNotEmpty) {
+        desc += ' using $toolsStr';
       }
+      
+      // Add key steps summary (not just first command)
+      if (script.steps.isNotEmpty) {
+        final keySteps = script.steps.take(3).join('; ');
+        desc += '. Key steps: $keySteps';
+      }
+      
       return desc;
     }
     
@@ -1070,7 +1162,7 @@ class SkillDistiller {
       // Match lines starting with numbers (1., 2., etc.) or bullets (-, *, •)
       if (RegExp(r'^(\d+\.|[-*•])\s+').hasMatch(trimmed)) {
         final step = trimmed.replaceFirst(RegExp(r'^(\d+\.|[-*•])\s+'), '').trim();
-        if (step.length > 10 && step.length <= 200) {
+        if (step.length > 10 && step.length <= 200 && !_isGenericStep(step)) {
           steps.add(step);
         }
       }
