@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dsh_client/dsh_client.dart';
 
 import '../l10n/l10n.dart';
-import '../state/chat_state.dart' show ChatController;
+import '../state/chat_state.dart' show ChatController, chatProvider;
 import '../state/connection_state.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import 'skill_model.dart';
