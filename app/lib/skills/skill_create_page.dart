@@ -186,7 +186,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       // Use turn-based distillation if turn/step/sessionId are provided
       if (widget.draftTurn != null && widget.draftStep != null && widget.sessionId != null) {
         // Get full tool call data from transcript (via notifier)
-        final chatController = ref.read(chatProvider(widget.sessionId!).notifier) as ChatController;
+        final chatController = ref.read(chatProvider(widget.sessionId!).notifier);
         final toolCallsWithArgs = chatController.transcript.getToolCallsWithArgs(
           widget.draftTurn!,
           widget.draftStep!,
