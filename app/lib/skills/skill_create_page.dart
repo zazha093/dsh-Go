@@ -724,7 +724,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 Row(
                   children: [
                     Icon(
-                      app_icons.AppIcons.sparkle,
+                      app_icons.AppIcons.featured,
                       size: 18,
                       color: colors.secondary,
                     ),
