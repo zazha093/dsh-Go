@@ -346,6 +346,7 @@ List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false})
   String? label;
   var verified = false;
   var reported = false;
+  var inIfBlock = false;
 
   for (final line in joinContinuations(code)) {
     final t = line.trim();
@@ -377,12 +378,24 @@ List<StepDraft> parseScript(String code, Lex lex, {bool allowCjkLabels = false})
         verified = true;
         label = null;
       }
+      inIfBlock = true;
       continue;
     }
     // Skip shell control flow keywords and usage commands
     if (_skipWords.contains(head)) continue;
     // Skip executable script invocations (./script.sh)
     if (_executableScript.hasMatch(t)) continue;
+    // Track if-block boundaries
+    if (head == 'if') {
+      inIfBlock = true;
+      continue;
+    }
+    if (head == 'fi') {
+      inIfBlock = false;
+      continue;
+    }
+    // Skip everything inside if-blocks
+    if (inIfBlock) continue;
     if (_assign.hasMatch(head) || _setupWords.contains(head)) {
       setup.add(t);
       continue;
@@ -529,7 +542,11 @@ String? inferGoal({
 String _sanitizeText(String text, bool allowCjk) {
   if (allowCjk) return text;
   // Remove CJK characters
-  return text.replaceAll(RegExp(r'[\u3400-\u4DBF\u4E00-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]+'), '');
+  var result = text.replaceAll(RegExp(r'[\u3400-\u4DBF\u4E00-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]+'), '');
+  // Remove emojis (match any character outside ASCII printable + Thai + common punctuation)
+  // Emojis are typically in higher Unicode planes, match non-ASCII printable that aren't Thai/CJK
+  result = result.replaceAll(RegExp(r'[^\x20-\x7E\u0E00-\u0E7F\u00A0-\u00FF\u2000-\u206F\u3000-\u303F]+'), '');
+  return result;
 }
 
 List<StepDraft> _sanitizeSteps(List<StepDraft> steps, bool allowCjk) {

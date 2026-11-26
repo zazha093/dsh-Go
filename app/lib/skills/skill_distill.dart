@@ -288,9 +288,12 @@ Set<String> _inferToolsFromScriptContentImpl(String content) {
   final tools = <String>{};
   
   // Command patterns to detect (no duplicate keys)
+  // Note: Excluded chmod, git, sh as they are often false positives
+  // chmod: usage command, not a tool
+  // git: often false positive from variable names
+  // sh: often from shebang or variable names
   final commandPatterns = {
     'bash': [r'\bbash\b', r'#!/bin/bash', r'#!/usr/bin/env bash'],
-    'sh': [r'\bsh\b', r'#!/bin/sh', r'#!/usr/bin/env sh'],
     'tar': [r'\btar\b'],
     'gzip': [r'\bgzip\b', r'\bgunzip\b', r'\bzcat\b'],
     'zip': [r'\bzip\b', r'\bunzip\b'],
@@ -306,12 +309,10 @@ Set<String> _inferToolsFromScriptContentImpl(String content) {
     'awk': [r'\bawk\b'],
     'curl': [r'\bcurl\b'],
     'wget': [r'\bwget\b'],
-    'git': [r'\bgit\b'],
     'ssh': [r'\bssh\b', r'\bscp\b'],
     'sha256sum': [r'\bsha256sum\b'],
     'sha512sum': [r'\bsha512sum\b'],
     'md5sum': [r'\bmd5sum\b'],
-    'chmod': [r'\bchmod\b'],
     'chown': [r'\bchown\b'],
     'ssh-keygen': [r'\bssh-keygen\b'],
     'openssl': [r'\bopenssl\b'],
