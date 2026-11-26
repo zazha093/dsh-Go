@@ -1,8 +1,6 @@
 // app/lib/skills/distill/heuristics.dart
 // Dart ล้วน: ไม่พึ่ง Flutter / I/O / เครือข่าย → ทดสอบได้ง่าย
 
-import 'dart:io';
-
 // ───────── 1) ชนิดตัวอักษร + ตัดข้อความไม่ให้ขาดกลางสระ/วรรณยุกต์ไทย ─────────
 bool _isThai(int c) => c >= 0x0E00 && c <= 0x0E7F;
 bool _isCjk(int c) =>
@@ -106,6 +104,11 @@ abstract class Lex {
   String get setupVars;
   String get verifyNonEmpty;
   String get report;
+  String get noSecrets;
+  String excludesNote(List<String> ex);
+  String get mustVerify;
+  String get confirmDestructive;
+  String get noOverwrite;
   String mkdir(String dir);
   String generic(String cmd, String arg);
   String tar({
@@ -116,6 +119,8 @@ abstract class Lex {
     List<String> excludes = const [],
   });
   String nameOf(String intent, String? object, String? format);
+  String goalOf(String intent, String? object, String? format, String? dest, List<String> excludes);
+  String describe(int steps, List<String> tools, String? output);
 }
 
 class ThaiLex implements Lex {
@@ -176,6 +181,37 @@ class ThaiLex implements Lex {
         : (_defaultObject[intent] ?? '');
     final f = format != null ? 'เป็น $format' : '';
     return '$i$o$f';
+  }
+
+  @override
+  String get noSecrets => 'ห้ามเก็บความลับ (API key, token, รหัสผ่าน)';
+
+  @override
+  String excludesNote(List<String> ex) => 'ไม่รวม ${ex.join(', ')}';
+
+  @override
+  String get mustVerify => 'ต้องตรวจว่าไฟล์ผลลัพธ์ไม่ว่างก่อนถือว่าสำเร็จ';
+
+  @override
+  String get confirmDestructive => 'ต้องได้รับอนุมัติก่อนรันคำสั่งที่ลบหรือแก้ไขไฟล์';
+
+  @override
+  String get noOverwrite => 'ชื่อไฟล์มีวันเวลา จึงไม่เขียนทับไฟล์เดิม';
+
+  @override
+  String goalOf(String intent, String? object, String? format, String? dest, List<String> excludes) {
+    final b = StringBuffer(nameOf(intent, object, format));
+    if (dest != null && dest.isNotEmpty) b.write(' ไปที่ $dest');
+    if (excludes.isNotEmpty) b.write(' โดยไม่รวม ${excludes.join(', ')}');
+    return b.toString();
+  }
+
+  @override
+  String describe(int steps, List<String> tools, String? output) {
+    final b = StringBuffer('สคริปต์ $steps ขั้นตอน');
+    if (tools.isNotEmpty) b.write(' ใช้ ${tools.join(', ')}');
+    if (output != null) b.write(' ไฟล์ผลลัพธ์ชื่อ $output');
+    return b.toString();
   }
 }
 
@@ -248,6 +284,180 @@ List<String> shellWords(String line) {
   if (inWord) words.add(cur.toString());
   return words;
 }
+
+// ───────── 4b) ตัวแปรในสคริปต์ → Map ─────────
+Map<String, String> parseAssignments(String lines) {
+  final out = <String, String>{};
+  for (final line in joinContinuations(lines)) {
+    final t = line
+        .trim()
+        .replaceFirst(RegExp(r'^(?:export|readonly|local|declare)\s+'), '');
+    final m = RegExp(r'^([A-Za-z_][A-Za-z0-9_]*)=(.*)$').firstMatch(t);
+    if (m == null) continue;
+    final words = shellWords(m.group(2)!);
+    out[m.group(1)!] = words.isEmpty ? '' : words.first;
+  }
+  return out;
+}
+
+Map<String, String> varsOf(String code) {
+  final lines = joinContinuations(code).where((l) {
+    final w = shellWords(l.trim());
+    return w.isNotEmpty && (_assign.hasMatch(w.first) || _setupWords.contains(w.first));
+  });
+  return parseAssignments(lines.join('\n'));
+}
+
+final _dateSub = RegExp(r'\$\(\s*date[^)]*\)');
+final _varRef = RegExp(
+    r'\$\{([A-Za-z_][A-Za-z0-9_]*)(?::?[-=][^}]*)?\}|\$([A-Za-z_][A-Za-z0-9_]*)');
+
+String expandVars(String s, Map<String, String> vars,
+    {String dateLabel = '‹วันเวลา›'}) {
+  var out = s.replaceAll(_dateSub, dateLabel);
+  for (var i = 0; i < 4; i++) {
+    final next = out.replaceAllMapped(_varRef, (m) {
+      final name = m.group(1) ?? m.group(2)!;
+      if (name == 'HOME') return '~';
+      return vars[name] ?? '‹$name›';
+    });
+    if (next == out) break;
+    out = next;
+  }
+  return out;
+}
+
+// ───────── 4c) ฟังก์ชันช่วยเหลือเพิ่มเติม ─────────
+
+// เลือกบล็อกสคริปต์หลักจากหลาย code blocks
+const _shellLangs = {'bash', 'sh', 'shell', 'zsh'};
+const _knownCmds = {
+  'tar', 'mkdir', 'cp', 'mv', 'rm', 'cd', 'ls', 'cat', 'echo', 'printf', 'git',
+  'curl', 'wget', 'find', 'grep', 'sed', 'awk', 'chmod', 'chown', 'zip', 'unzip',
+  'stat', 'du', 'wc', 'date', 'basename', 'dirname', 'pwd', 'npm', 'pnpm', 'yarn',
+  'pip', 'python', 'python3', 'node', 'docker', 'ssh', 'scp', 'rsync', 'export', 'set',
+};
+
+bool looksLikeShell(String code) {
+  final lines = code
+      .split(RegExp(r'\r?\n'))
+      .map((l) => l.trim())
+      .where((l) => l.isNotEmpty)
+      .toList();
+  if (lines.isEmpty) return false;
+  if (lines.first.startsWith('#!')) return true;
+  var cmd = 0;
+  var other = 0;
+  for (final l in lines) {
+    if (l.startsWith('#')) continue;
+    final head = l.split(RegExp(r'\s+')).first;
+    final ok = _knownCmds.contains(head) ||
+        _assign.hasMatch(head) ||
+        head.startsWith('./') ||
+        head.startsWith('~/');
+    if (ok) {
+      cmd++;
+    } else {
+      other++;
+    }
+  }
+  return cmd > 0 && cmd >= other * 2;
+}
+
+CodeBlock? pickMainScript(List<CodeBlock> blocks) {
+  final cands = blocks.where((b) {
+    final l = b.lang.toLowerCase();
+    return _shellLangs.contains(l) || (l.isEmpty && looksLikeShell(b.code));
+  }).toList();
+  if (cands.isEmpty) return null;
+  final withShebang =
+      cands.where((b) => b.code.trimLeft().startsWith('#!')).toList();
+  final pool = withShebang.isNotEmpty ? withShebang : cands;
+  pool.sort((a, b) => b.code.length.compareTo(a.code.length));
+  return pool.first;
+}
+
+// หาโฟลเดอร์ปลายทางจาก mkdir
+String? destDir(String code, Map<String, String> vars) {
+  for (final line in joinContinuations(code)) {
+    final w = shellWords(line.trim());
+    if (w.isNotEmpty && w.first == 'mkdir') {
+      final a = _firstArg(w);
+      if (a.isNotEmpty) return expandVars(a, vars);
+    }
+  }
+  return null;
+}
+
+// รวบรวมรายการ --exclude
+List<String> collectExcludes(String code) {
+  final out = <String>[];
+  for (final line in joinContinuations(code)) {
+    final w = shellWords(line.trim());
+    if (w.isEmpty || w.first != 'tar') continue;
+    for (var i = 1; i < w.length; i++) {
+      if (w[i].startsWith('--exclude=')) {
+        out.add(w[i].substring(10));
+      } else if (w[i] == '--exclude' && i + 1 < w.length) {
+        out.add(w[++i]);
+      }
+    }
+  }
+  return dedupe(out);
+}
+
+// แปลง archive pattern
+String? archivePattern(Map<String, String> vars) {
+  for (final v in vars.values) {
+    final e = expandVars(v, vars);
+    if (RegExp(r'\.(tar\.gz|tgz|zip|tar\.xz|7z)$').hasMatch(e)) {
+      return e.split('/').last;
+    }
+  }
+  return null;
+}
+
+// ดึงชื่อเครื่องมือจากสคริปต์
+final _notTools = {
+  'cd', 'echo', 'printf', 'export', 'set', 'local', 'readonly', 'declare', 'shopt',
+  'umask', 'test', 'true', 'false', 'exit', 'return', 'trap', 'source', 'read',
+  'if', 'then', 'else', 'elif', 'fi', 'for', 'while', 'do', 'done', 'case', 'esac',
+  'function',
+};
+const _skipHeads = {'!', 'if', 'then', 'elif', 'else', 'while', 'do'};
+final _toolName = RegExp(r'^[a-z][a-z0-9._+-]*$');
+final _cmdSub = RegExp(r'\$\(\s*([A-Za-z][A-Za-z0-9._+-]*)');
+
+List<String> toolsOf(String code) {
+  final out = <String>{};
+  final first = code.trimLeft();
+  if (first.startsWith('#!') && first.split(RegExp(r'\r?\n')).first.contains('bash')) {
+    out.add('bash');
+  }
+  for (final line in joinContinuations(code)) {
+    final t = line.trim();
+    if (t.isEmpty || t.startsWith('#')) continue;
+    for (final m in _cmdSub.allMatches(t)) {
+      out.add(m.group(1)!);
+    }
+    for (final part in t.split(RegExp(r'\|\||&&|\||;'))) {
+      final w = shellWords(part.trim());
+      var i = 0;
+      while (i < w.length && (_assign.hasMatch(w[i]) || _skipHeads.contains(w[i]))) {
+        i++;
+      }
+      if (i < w.length) out.add(w[i]);
+    }
+  }
+  return out
+      .where((n) => _toolName.hasMatch(n) && n.length >= 2 && !_notTools.contains(n))
+      .toList()
+    ..sort();
+}
+
+// ตรวจจับคำสั่งทำลายข้อมูล
+final _destructive = RegExp(
+    r'(?:^|[\s;&|])(?:rm|mv|dd|shred|truncate)\s|chmod\s+-R|git\s+reset\s+--hard|git\s+clean');
 
 // ───────── 5) คอมเมนต์ → ป้ายขั้นตอน (หลายภาษา) ─────────
 final _commentBody = RegExp(
@@ -579,10 +789,21 @@ String? _sanitizeName(String? name, bool allowCjk) {
 }
 
 class DistilledDraft {
-  const DistilledDraft(this.name, this.goal, this.steps, this.script);
+  const DistilledDraft({
+    this.name,
+    this.goal,
+    this.description,
+    this.steps = const [],
+    this.constraints = const [],
+    this.tools = const [],
+    this.script,
+  });
   final String? name;
   final String? goal;
+  final String? description;
   final List<StepDraft> steps;
+  final List<String> constraints;
+  final List<String> tools;
   final String? script; // เก็บเป็นไฟล์แนบ ไม่ใส่ในช่องข้อความ
 }
 
@@ -594,47 +815,84 @@ DistilledDraft distillScript({
 }) {
   final seg = splitFences(assistantMarkdown);
   
-  // ─── DEBUG DUMP ──────────────────────────────────────────────────────
-  final dumpPath = '/root/dsh-go-handoff/DISTILL-ROOTCAUSE2.md';
-  final dir = Directory('/root/dsh-go-handoff');
-  if (!dir.existsSync()) dir.createSync(recursive: true);
-  final dumpBuffer = StringBuffer();
-  dumpBuffer.writeln('# DISTILL ROOT CAUSE ANALYSIS');
-  dumpBuffer.writeln('Generated: ${DateTime.now().toIso8601String()}');
-  dumpBuffer.writeln('');
-  dumpBuffer.writeln('## splitFences Output');
-  dumpBuffer.writeln('Total blocks: ${seg.blocks.length}');
-  dumpBuffer.writeln('Prose length: ${seg.prose.length} chars');
-  dumpBuffer.writeln('');
-  for (var i = 0; i < seg.blocks.length; i++) {
-    final b = seg.blocks[i];
-    final preview = b.code.trim().split('\n').take(3).join('\n');
-    dumpBuffer.writeln('### Block $i');
-    dumpBuffer.writeln('- Language: `${b.lang}`');
-    dumpBuffer.writeln('- Code length: ${b.code.length} chars');
-    dumpBuffer.writeln('- First 3 lines:');
-    dumpBuffer.writeln('```');
-    dumpBuffer.writeln(preview);
-    dumpBuffer.writeln('```');
-    dumpBuffer.writeln('');
-  }
-  dumpBuffer.writeln('## Prose (first 500 chars)');
-  dumpBuffer.writeln(seg.prose.length > 500 ? '${seg.prose.substring(0, 500)}...' : seg.prose);
-  File(dumpPath).writeAsStringSync(dumpBuffer.toString());
-  // ─────────────────────────────────────────────────────────────────────
+  // ─── 1) เลือกบล็อกสคริปต์หลัก ───────────────────────────────────────
+  final scriptBlock = pickMainScript(seg.blocks);
+  final code = scriptBlock?.code ?? '';
   
-  final code = seg.blocks
-      .where((b) => const {'bash', 'sh', 'shell', 'zsh', ''}.contains(b.lang.toLowerCase()))
-      .map((b) => b.code)
-      .join('\n');
-  final steps = parseScript(code, lex, allowCjkLabels: allowCjk);
+  // ─── 2) แยกตัวแปร ───────────────────────────────────────────────────
+  final vars = varsOf(code);
+  
+  // ─── 3) แยกขั้นตอนจากสคริปต์ ───────────────────────────────────────
+  final rawSteps = parseScript(code, lex, allowCjkLabels: allowCjk);
+  
+  // ─── 4) ขยายตัวแปรในชื่อขั้นตอนและรายละเอียด ────────────────────────
+  final expandedSteps = <StepDraft>[];
+  for (final s in rawSteps) {
+    final title = expandVars(s.title, vars);
+    // Skip if title becomes empty or only prefix remains
+    if (title.trim().isEmpty) continue;
+    // Skip if title is just generic prefix
+    if (title.trim() == 'รันคำสั่ง' || title.trim() == 'Run command') continue;
+    expandedSteps.add(StepDraft(
+      s.kind,
+      title,
+      command: s.command,
+      detail: expandVars(s.detail, vars),
+    ));
+  }
+  
+  // ─── 5) กรองขั้นตอนที่ไม่มีความหมาย / ซ้ำ ───────────────────────────
+  final steps = _sanitizeSteps(expandedSteps, allowCjk);
+  
+  // ─── 6) ชื่อสกิล ───────────────────────────────────────────────────
   final name = inferName(
       userPrompt: userPrompt, code: code, steps: steps, lex: lex, allowCjk: allowCjk);
-  final goal = inferGoal(
-      userPrompt: userPrompt, name: name ?? '', steps: steps, code: code, lex: lex, allowCjk: allowCjk);
-  // Sanitize output
+  
+  // ─── 7) เป้าหมาย ───────────────────────────────────────────────────
+  final intent = detectKey(userPrompt, _intentWords) ?? detectKey(code, _intentWords);
+  final object = detectKey(userPrompt, _objectWords) ?? detectKey(code, _objectWords);
+  final fmt = RegExp(r'\.(tar\.gz|tgz|zip|tar\.xz|7z)\b').firstMatch(code)?.group(1);
+  final dest = destDir(code, vars);
+  final excludes = collectExcludes(code);
+  final goal = lex.goalOf(
+      intent ?? '', object, fmt, dest, excludes);
+  
+  // ─── 8) คำอธิบาย ────────────────────────────────────────────────────
+  final tools = toolsOf(code);
+  final outputFile = archivePattern(vars);
+  final description = steps.isEmpty
+      ? null
+      : lex.describe(steps.length, tools, outputFile);
+  
+  // ─── 9) ข้อจำกัด ────────────────────────────────────────────────────
+  final constraints = <String>[];
+  constraints.add(lex.noSecrets);
+  final ex = excludes;
+  if (ex.isNotEmpty) constraints.add(lex.excludesNote(ex));
+  if (steps.any((s) => s.kind == StepKind.verify)) constraints.add(lex.mustVerify);
+  if (_destructive.hasMatch(code)) constraints.add(lex.confirmDestructive);
+  if (code.contains(r'$(date') && RegExp(r'\btar\b').hasMatch(code)) {
+    constraints.add(lex.noOverwrite);
+  }
+  
+  // ─── 10) เครื่องมือ ──────────────────────────────────────────────────
+  final rawTools = toolsOf(code);
+  
+  // ─── 11) ทำความสะอาด ───────────────────────────────────────────────
   final cleanSteps = _sanitizeSteps(steps, allowCjk);
   final cleanName = _sanitizeName(name, allowCjk);
   final cleanGoal = _sanitizeGoal(goal, allowCjk);
-  return DistilledDraft(cleanName, cleanGoal, cleanSteps, code.isEmpty ? null : code);
+  final cleanDescription = description != null ? _sanitizeText(description, allowCjk) : null;
+  final cleanConstraints = constraints.map((c) => _sanitizeText(c, allowCjk)).toList();
+  final cleanTools = rawTools.map((t) => _sanitizeText(t, allowCjk)).toList();
+  
+  return DistilledDraft(
+    name: cleanName,
+    goal: cleanGoal,
+    description: cleanDescription,
+    steps: cleanSteps,
+    constraints: cleanConstraints,
+    tools: cleanTools,
+    script: code.isEmpty ? null : code,
+  );
 }
