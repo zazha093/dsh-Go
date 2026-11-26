@@ -3,8 +3,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:dsh_client/dsh_client.dart';
 
 import '../l10n/l10n.dart';
+import '../state/chat_state.dart';
 import '../state/connection_state.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import 'skill_model.dart';
@@ -33,6 +35,21 @@ class _DraftInput {
   final String sessionTitle;
 }
 
+/// Input for turn-based draft creation via compute
+class _TurnDraftInput {
+  const _TurnDraftInput({
+    required this.userMessage,
+    required this.aiResponse,
+    required this.toolCallsWithArgs,
+    required this.sessionTitle,
+  });
+
+  final String userMessage;
+  final String? aiResponse;
+  final List<ToolCallInfo> toolCallsWithArgs;
+  final String sessionTitle;
+}
+
 /// Create page for a new skill (or distilling from session, or from selected message(s))
 class SkillCreatePage extends ConsumerStatefulWidget {
   const SkillCreatePage({
@@ -43,6 +60,8 @@ class SkillCreatePage extends ConsumerStatefulWidget {
     this.draftText,
     this.draftTexts,
     this.draftTools,
+    this.draftTurn,
+    this.draftStep,
   });
 
   /// Pre-filled skill (for duplication)
@@ -63,6 +82,12 @@ class SkillCreatePage extends ConsumerStatefulWidget {
 
   /// Tool names from the selected messages' tool calls
   final List<String>? draftTools;
+
+  /// Turn number (for turn-based distillation with full tool call args)
+  final int? draftTurn;
+
+  /// Step number (for turn-based distillation with full tool call args)
+  final int? draftStep;
 
   @override
   ConsumerState<SkillCreatePage> createState() => _SkillCreatePageState();
@@ -156,16 +181,39 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       final text = texts.join('\n\n---\n\n');
       final tools = widget.draftTools ?? [];
 
-      // Use compute to run heavy regex extraction in background isolate
-      final draftSkill = await compute(
-        _createDraftFromTextStatic,
-        _DraftInput(
-          userMessage: text,
-          aiResponse: null,
-          toolCalls: tools,
-          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
-        ),
-      );
+      Skill draftSkill;
+
+      // Use turn-based distillation if turn/step/sessionId are provided
+      if (widget.draftTurn != null && widget.draftStep != null && widget.sessionId != null) {
+        // Get full tool call data from transcript
+        final chatState = ref.read(chatProvider(widget.sessionId!));
+        final toolCallsWithArgs = chatState.transcript.getToolCallsWithArgs(
+          widget.draftTurn!,
+          widget.draftStep!,
+        );
+        
+        // Use new distillTurn function with tool call arguments
+        draftSkill = await compute(
+          _createDraftFromTurnStatic,
+          _TurnDraftInput(
+            userMessage: text,
+            aiResponse: null,
+            toolCallsWithArgs: toolCallsWithArgs,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          ),
+        );
+      } else {
+        // Fallback to original message-based distillation
+        draftSkill = await compute(
+          _createDraftFromTextStatic,
+          _DraftInput(
+            userMessage: text,
+            aiResponse: null,
+            toolCalls: tools,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          ),
+        );
+      }
 
       if (!mounted) return;
       _fillForm(draftSkill);
@@ -192,6 +240,16 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       userMessage: input.userMessage,
       aiResponse: input.aiResponse,
       toolCalls: input.toolCalls,
+      sessionTitle: input.sessionTitle,
+    );
+  }
+
+  /// Static function for turn-based distillation via compute
+  static Skill _createDraftFromTurnStatic(_TurnDraftInput input) {
+    return SkillDistiller.createFromTurn(
+      userMessage: input.userMessage,
+      aiResponse: input.aiResponse,
+      toolCallsWithArgs: input.toolCallsWithArgs,
       sessionTitle: input.sessionTitle,
     );
   }

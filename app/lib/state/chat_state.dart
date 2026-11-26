@@ -558,6 +558,9 @@ class ChatController extends Notifier<ChatState> {
   Iterable<SessionLogEvent> get events => _transcript.events;
   SessionHeader? get header => _transcript.header;
 
+  /// The underlying transcript for advanced access (e.g., tool call arguments).
+  ChatTranscript get transcript => _transcript;
+
   /// The last snapshot's projections (permission preset, plan mode: see
   /// `session_modes.dart`); later log events override them.
   SessionProjections get projections => _transcript.projections;

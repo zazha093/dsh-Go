@@ -1247,6 +1247,7 @@ class _ChatListState extends ConsumerState<ChatList> with SingleTickerProviderSt
         : null;
     final message = AssistantMessage(
       item: item,
+      sessionId: widget.sessionId,
       showActions: showActions,
       onBranch: branchable ? () => _branch(item) : null,
       branching: _forkingId == item.id,

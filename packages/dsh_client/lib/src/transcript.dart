@@ -91,6 +91,13 @@ final class AssistantChatItem extends ChatItem {
   String get key => rowKey ?? id;
 }
 
+/// Tool call with parsed arguments for skill distillation.
+class ToolCallInfo {
+  const ToolCallInfo(this.name, this.args);
+  final String name;
+  final Map<String, dynamic> args;
+}
+
 enum ToolStatus {
   /// Arguments are still streaming from the model.
   streaming,
@@ -467,6 +474,25 @@ class ChatTranscript {
     'interrupted' => NoticeChatItem(seq: seq, kind: 'interrupted', text: 'Interrupted (Host restarted)'),
     _ => null,
   };
+
+  /// Returns tool calls with parsed arguments for a specific turn and step.
+  /// Used by skill distillation to access full tool call data (e.g., write tool content).
+  List<ToolCallInfo> getToolCallsWithArgs(int turn, int step) {
+    final result = <ToolCallInfo>[];
+    for (final event in _log.values) {
+      if (event is ToolCallEvent && event.turn == turn && event.step == step) {
+        try {
+          final decoded = event.decodedArguments;
+          if (decoded != null) {
+            result.add(ToolCallInfo(event.name, Map<String, dynamic>.from(decoded)));
+          }
+        } catch (_) {
+          // Ignore JSON parsing errors - tool call will be skipped
+        }
+      }
+    }
+    return result;
+  }
 }
 
 // Folded prefix of the log, extended by strictly appended events. Tools stay global:

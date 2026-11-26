@@ -1129,6 +1129,71 @@ class SkillDistiller {
       provenance: SkillProvenance.manual(),
     );
   }
+
+  /// Create a skill from a turn with full tool call arguments
+  static Skill createFromTurn({
+    required String userMessage,
+    String? aiResponse,
+    required List<ToolCallInfo> toolCallsWithArgs,
+    String? sessionTitle,
+  }) {
+    // Use turn-based distillation pipeline
+    final draft = distillTurn(
+      userPrompt: userMessage,
+      assistantMarkdown: aiResponse ?? userMessage,
+      toolCallsWithArgs: toolCallsWithArgs,
+      lex: const ThaiLex(),
+      allowCjk: false,
+    );
+    
+    // Build steps from StepDraft
+    final steps = draft.steps
+        .map((s) => s.title)
+        .where((s) => s.isNotEmpty)
+        .take(15)
+        .map((s) => s.length > 200 ? '${s.substring(0, 197)}...' : s)
+        .toList();
+    
+    // Constraints from distillation
+    final constraints = draft.constraints;
+    
+    // Required tools (from toolCallsWithArgs + script inference)
+    final toolNames = toolCallsWithArgs.map((c) => c.name).toSet();
+    final scriptTools = draft.script != null 
+        ? _inferToolsFromScriptContentImpl(draft.script!) 
+        : <String>{};
+    final requiredTools = <String>{...toolNames, ...scriptTools}.toList()
+      ..sort();
+    if (requiredTools.isEmpty) {
+      requiredTools.addAll(['bash', 'edit']);
+    }
+    
+    // Category inference
+    final category = _inferCategoryFromText(userMessage, aiResponse, toolNames.toList());
+    
+    // Use drafted name/goal/description or fallbacks
+    final name = draft.name?.isNotEmpty == true ? draft.name! : 'Unnamed Skill';
+    final goal = draft.goal?.isNotEmpty == true ? draft.goal! : 'Achieve the task described in the message';
+    final description = draft.description?.isNotEmpty == true ? draft.description! : (sessionTitle != null ? 'Distilled from: $sessionTitle' : userMessage);
+    
+    return Skill(
+      id: _generateId(),
+      name: name,
+      description: redactText(description),
+      goal: redactText(goal),
+      steps: steps.map(redactText).toList(),
+      constraints: constraints.map(redactText).toList(),
+      requiredTools: requiredTools,
+      userInputs: [],
+      createdAt: DateTime.now(),
+      sourceSessionTitle: sessionTitle,
+      category: category,
+      // v2 fields
+      kind: 'workflow',
+      schemaVersion: 2,
+      provenance: SkillProvenance.manual(),
+    );
+  }
   
   /// Clean markdown formatting from text
   static String _cleanMarkdown(String text) {

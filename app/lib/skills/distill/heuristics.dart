@@ -1,6 +1,8 @@
 // app/lib/skills/distill/heuristics.dart
 // Dart ล้วน: ไม่พึ่ง Flutter / I/O / เครือข่าย → ทดสอบได้ง่าย
 
+import 'package:dsh_client/dsh_client.dart';
+
 // ───────── 1) ชนิดตัวอักษร + ตัดข้อความไม่ให้ขาดกลางสระ/วรรณยุกต์ไทย ─────────
 bool _isThai(int c) => c >= 0x0E00 && c <= 0x0E7F;
 bool _isCjk(int c) =>
@@ -121,6 +123,11 @@ abstract class Lex {
   String nameOf(String intent, String? object, String? format);
   String goalOf(String intent, String? object, String? format, String? dest, List<String> excludes);
   String describe(int steps, List<String> tools, String? output);
+  // New methods for turn-based distillation
+  String runScript(String file);
+  String describeFromChat(int n);
+  String describeFile(String file);
+  String needsFile(String file);
 }
 
 class ThaiLex implements Lex {
@@ -213,6 +220,18 @@ class ThaiLex implements Lex {
     if (output != null) b.write(' ไฟล์ผลลัพธ์ชื่อ $output');
     return b.toString();
   }
+
+  @override
+  String runScript(String file) => 'รันสคริปต์ ${clipSmart(file, 60)}';
+
+  @override
+  String describeFromChat(int n) => 'สรุปจากคำอธิบายในแชท $n ขั้นตอน';
+
+  @override
+  String describeFile(String file) => 'สคริปต์ ${clipSmart(file, 60)} ที่อยู่ในเครื่อง';
+
+  @override
+  String needsFile(String file) => 'ต้องมีไฟล์ ${clipSmart(file, 60)} อยู่ในโฟลเดอร์ที่รัน';
 }
 
 // ───────── 4) แยกคำแบบ shell + ต่อบรรทัด ─────────
@@ -896,3 +915,286 @@ DistilledDraft distillScript({
     script: code.isEmpty ? null : code,
   );
 }
+
+/// Turn-based distillation using full tool call arguments
+DistilledDraft distillTurn({
+  required String userPrompt,
+  required String assistantMarkdown,
+  required List<ToolCallInfo> toolCallsWithArgs,
+  Lex lex = const ThaiLex(),
+  bool allowCjk = false,
+}) {
+  final seg = splitFences(assistantMarkdown);
+  
+  // ─── 1) Collect scripts from tool calls (write tool) ──────────────────
+  final writtenScripts = <ScriptFile>[];
+  String? invokedScriptName;
+  
+  for (final call in toolCallsWithArgs) {
+    if (call.name == 'write') {
+      final path = _argStr(call.args, _pathKeys);
+      final content = _argStr(call.args, _contentKeys);
+      if (path != null && content != null) {
+        if (_scriptPath.hasMatch(path) || content.trimLeft().startsWith('#!')) {
+          writtenScripts.add(ScriptFile(path, content));
+        }
+      }
+    } else if (call.name == 'bash') {
+      final cmd = _argStr(call.args, _cmdKeys);
+      if (cmd != null) {
+        // Check if it's a script invocation like ./backup.sh
+        final ref = scriptRef([cmd]);
+        if (ref != null) invokedScriptName = ref;
+      }
+    }
+  }
+  
+  // Sort by content length (largest first - likely the main script)
+  writtenScripts.sort((a, b) => b.content.length.compareTo(a.content.length));
+  
+  String code = '';
+  StepSource source = StepSource.none;
+  
+  // ─── 2) Choose source in priority order ──────────────────────────────
+  if (writtenScripts.isNotEmpty) {
+    // Priority 1: Written file from write tool
+    final f = writtenScripts.first;
+    code = f.content;
+    source = StepSource.writtenFile;
+  } else {
+    // Priority 2: Inline script in message
+    final inline = pickMainScript(seg.blocks);
+    if (inline != null && invokedScript(inline.code) == null) {
+      final steps = parseScript(inline.code, lex, allowCjkLabels: allowCjk);
+      if (steps.isNotEmpty) {
+        code = inline.code;
+        source = StepSource.inlineScript;
+      }
+    }
+    
+    // Priority 3: Bullet list from prose
+    if (code.isEmpty) {
+      final bullets = bulletsFromProse(seg.prose, allowCjk: allowCjk);
+      if (bullets.length >= 2) {
+        source = StepSource.prose;
+        // We'll create steps from bullets below
+      }
+    }
+    
+    // Priority 4: Invoked script name
+    if (code.isEmpty && invokedScriptName != null) {
+      source = StepSource.invocation;
+    }
+  }
+  
+  // ─── 3) Build steps based on source ──────────────────────────────────
+  final steps = <StepDraft>[];
+  final vars = varsOf(code);
+  
+  switch (source) {
+    case StepSource.writtenFile:
+    case StepSource.inlineScript:
+      if (code.isNotEmpty) {
+        final rawSteps = parseScript(code, lex, allowCjkLabels: allowCjk);
+        for (final s in rawSteps) {
+          final title = expandVars(s.title, vars);
+          if (title.trim().isEmpty) continue;
+          if (title.trim() == 'รันคำสั่ง' || title.trim() == 'Run command') continue;
+          steps.add(StepDraft(
+            s.kind,
+            title,
+            command: s.command,
+            detail: expandVars(s.detail, vars),
+          ));
+        }
+      }
+      break;
+    case StepSource.prose:
+      final bullets = bulletsFromProse(seg.prose, allowCjk: allowCjk);
+      for (final b in bullets) {
+        steps.add(StepDraft(StepKind.action, b));
+      }
+      break;
+    case StepSource.invocation:
+      if (invokedScriptName != null) {
+        steps.add(StepDraft(StepKind.action, lex.runScript(invokedScriptName), command: './$invokedScriptName'));
+      }
+      break;
+    case StepSource.none:
+      break;
+  }
+  
+  // ─── 4) Sanitize steps ───────────────────────────────────────────────
+  final cleanSteps = _sanitizeSteps(steps, allowCjk);
+  
+  // ─── 5) Name ─────────────────────────────────────────────────────────
+  final name = inferName(
+    userPrompt: userPrompt, code: code, steps: cleanSteps, lex: lex, allowCjk: allowCjk);
+  
+  // ─── 6) Goal ─────────────────────────────────────────────────────────
+  final intent = detectKey(userPrompt, _intentWords) ?? detectKey(code, _intentWords);
+  final object = detectKey(userPrompt, _objectWords) ?? detectKey(code, _objectWords);
+  final fmt = RegExp(r'\.(tar\.gz|tgz|zip|tar\.xz|7z)\b').firstMatch(code)?.group(1);
+  final dest = destDir(code, vars);
+  final excludes = collectExcludes(code);
+  String? goal;
+  if (intent != null) {
+    goal = lex.goalOf(intent, object, fmt, dest, excludes);
+  } else {
+    goal = _sanitizeGoal(clipSmart(stripIntentPrefix(userPrompt), 300), allowCjk);
+  }
+  
+  // ─── 7) Description ──────────────────────────────────────────────────
+  final toolNames = toolCallsWithArgs.map((c) => c.name).toSet().toList();
+  final outputFile = archivePattern(vars);
+  String? description;
+  switch (source) {
+    case StepSource.writtenFile:
+    case StepSource.inlineScript:
+      if (cleanSteps.isNotEmpty) {
+        description = lex.describe(cleanSteps.length, toolNames, outputFile);
+      }
+      break;
+    case StepSource.prose:
+      description = lex.describeFromChat(cleanSteps.length);
+      break;
+    case StepSource.invocation:
+      description = lex.describeFile(invokedScriptName ?? '');
+      break;
+    case StepSource.none:
+      break;
+  }
+  
+  // ─── 8) Constraints ──────────────────────────────────────────────────
+  final constraints = <String>[];
+  constraints.add(lex.noSecrets);
+  final ex = excludes;
+  if (ex.isNotEmpty) constraints.add(lex.excludesNote(ex));
+  if (cleanSteps.any((s) => s.kind == StepKind.verify)) constraints.add(lex.mustVerify);
+  if (_destructive.hasMatch(code)) constraints.add(lex.confirmDestructive);
+  if (code.contains(r'$(date') && RegExp(r'\btar\b').hasMatch(code)) {
+    constraints.add(lex.noOverwrite);
+  }
+  if (source == StepSource.invocation && invokedScriptName != null) {
+    constraints.add(lex.needsFile(invokedScriptName));
+  }
+  
+  // ─── 9) Tools ────────────────────────────────────────────────────────
+  final rawTools = code.isEmpty ? toolNames : toolsOf(code);
+  final allTools = rawTools.toSet().union(toolNames.toSet()).toList();
+  
+  // ─── 10) Sanitize output ─────────────────────────────────────────────
+  final cleanName = _sanitizeName(name, allowCjk);
+  final cleanGoal = _sanitizeGoal(goal, allowCjk);
+  final cleanDescription = description != null ? _sanitizeText(description, allowCjk) : null;
+  final cleanConstraints = constraints.map((c) => _sanitizeText(c, allowCjk)).toList();
+  final cleanTools = allTools.map((t) => _sanitizeText(t, allowCjk)).toList();
+  
+  return DistilledDraft(
+    name: cleanName,
+    goal: cleanGoal,
+    description: cleanDescription,
+    steps: cleanSteps,
+    constraints: cleanConstraints,
+    tools: cleanTools,
+    script: code.isEmpty ? null : code,
+  );
+}
+
+// ─── G) Helper classes for turn-based distillation ──────────────────────
+
+enum StepSource { inlineScript, writtenFile, prose, invocation, none }
+
+class ScriptFile {
+  const ScriptFile(this.path, this.content);
+  final String path;
+  final String content;
+}
+
+const _pathKeys = ['path', 'file_path', 'filePath', 'filename'];
+const _contentKeys = ['content', 'file_text', 'text', 'contents'];
+const _cmdKeys = ['command', 'cmd', 'script'];
+final _scriptPath = RegExp(r'\.(?:sh|bash|zsh)$');
+
+String? _argStr(Map<String, dynamic> a, List<String> keys) {
+  for (final k in keys) {
+    final v = a[k];
+    if (v is String && v.trim().isNotEmpty) return v;
+  }
+  return null;
+}
+
+List<ScriptFile> scriptsFromCalls(List<ToolCallInfo> calls) {
+  final out = <ScriptFile>[];
+  for (final c in calls) {
+    if (c.name != 'write') continue;
+    final p = _argStr(c.args, _pathKeys);
+    final body = _argStr(c.args, _contentKeys);
+    if (p == null || body == null) continue;
+    if (_scriptPath.hasMatch(p) || body.trimLeft().startsWith('#!')) {
+      out.add(ScriptFile(p, body));
+    }
+  }
+  return out;
+}
+
+List<String> commandsFromCalls(List<ToolCallInfo> calls) {
+  final out = <String>[];
+  for (final c in calls) {
+    if (c.name != 'bash') continue;
+    final s = _argStr(c.args, _cmdKeys);
+    if (s != null) out.add(s);
+  }
+  return out;
+}
+
+final _bullet = RegExp(r'^\s*(?:[-*•·]|\d+[.)])\s+(.+)$');
+final _leadingSymbols = RegExp(r'^[^\p{L}\p{N}]+', unicode: true);
+
+List<String> bulletsFromProse(String prose, {bool allowCjk = false}) {
+  final out = <String>[];
+  for (final line in prose.split(RegExp(r'\r?\n'))) {
+    final m = _bullet.firstMatch(line);
+    if (m == null) continue;
+    var t = m.group(1)!.replaceAll(RegExp(r'[*_`]+'), '').trim();
+    t = t.replaceFirst(_leadingSymbols, '');
+    t = t.replaceFirst(RegExp(r'[:：\s]+$'), '');
+    if (!isMeaningfulText(t, allowCjk: allowCjk)) continue;
+    out.add(clipSmart(t, 120));
+    if (out.length >= 8) break;
+  }
+  return dedupe(out);
+}
+
+final _scriptRef = RegExp(r'((?:\./|~/|/)?[\w.\-/]+\.(?:sh|bash|zsh))\b');
+
+String? scriptRef(Iterable<String> texts) {
+  for (final t in texts) {
+    final m = _scriptRef.firstMatch(t);
+    if (m != null) return m.group(1);
+  }
+  return null;
+}
+
+String? invokedScript(String code) {
+  final lines = code
+      .split(RegExp(r'\r?\n'))
+      .map((l) => l.trim())
+      .where((l) => l.isNotEmpty && !l.startsWith('#'))
+      .toList();
+  if (lines.length != 1) return null;
+  return scriptRef([lines.first]);
+}
+
+bool isMeaningfulText(String t, {bool allowCjk = false}) {
+  if (t.trim().isEmpty) return false;
+  if (t.trim() == 'รันคำสั่ง' || t.trim() == 'Run command') return false;
+  if (!allowCjk && hasCjk(t)) return false;
+  return true;
+}
+
+/// Add to abstract class Lex:
+///   String runScript(String file);        // Thai: 'รันสคริปต์ $file'
+///   String describeFromChat(int n);       // Thai: 'สรุปจากคำอธิบายในแชท $n ขั้นตอน'
+///   String describeFile(String file);     // Thai: 'สคริปต์ $file ที่อยู่ในเครื่อง'
+///   String needsFile(String file);        // Thai: 'ต้องมีไฟล์ $file อยู่ในโฟลเดอร์ที่รัน'

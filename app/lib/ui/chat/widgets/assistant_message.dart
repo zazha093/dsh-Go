@@ -51,6 +51,7 @@ class AssistantMessage extends ConsumerStatefulWidget {
   const AssistantMessage({
     super.key,
     required this.item,
+    this.sessionId,
     this.showActions = false,
     this.onBranch,
     this.branching = false,
@@ -61,6 +62,7 @@ class AssistantMessage extends ConsumerStatefulWidget {
   });
 
   final AssistantChatItem item;
+  final String? sessionId;
 
   /// 是否在正文下方显示复制等操作(只给一轮里最后一条助手正文)。
   final bool showActions;
@@ -255,12 +257,26 @@ class _AssistantMessageState extends ConsumerState<AssistantMessage> {
             hint: l10n.skillsSaveFromMessage, // Reuse the new translation for hint
             onTap: () {
               Navigator.of(context).pop(); // Close the menu sheet
+              // Extract turn/step from rowKey (format: m<turn>.<step>)
+              int? turn;
+              int? step;
+              final rowKey = widget.item.rowKey;
+              if (rowKey != null && rowKey.startsWith('m')) {
+                final parts = rowKey.substring(1).split('.');
+                if (parts.length == 2) {
+                  turn = int.tryParse(parts[0]);
+                  step = int.tryParse(parts[1]);
+                }
+              }
               // Navigate to SkillCreatePage with selected message text as draft
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) => SkillCreatePage(
                     draftText: text,
                     draftTools: widget.item.toolCalls,
+                    draftTurn: turn,
+                    draftStep: step,
+                    sessionId: widget.sessionId,
                   ),
                 ),
               );
