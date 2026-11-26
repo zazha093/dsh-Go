@@ -225,7 +225,7 @@ final skillDistillControllerProvider =
 /// Provider family for distillation controller with session parameter (if needed)
 final skillDistillControllerFamilyProvider =
     NotifierProvider.autoDispose.family<SkillDistillController, DistillState, String>(
-  (ref, sessionId) {
+  (Ref ref, String sessionId) {
     return SkillDistillController();
   },
 );
