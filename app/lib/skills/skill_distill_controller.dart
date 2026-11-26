@@ -10,6 +10,7 @@ import 'package:dsh_client/dsh_client.dart';
 
 import 'skill_distill.dart';
 import 'skill_model.dart';
+import 'distill/heuristics.dart';
 import '../fork/ai_summarizer.dart';
 import '../fork/draft_validator.dart';
 
@@ -73,6 +74,7 @@ class DistillInput {
 class SkillDistillController extends Notifier<DistillState> {
   Timer? _timeoutTimer;
   bool _cancelled = false;
+  bool _disposed = false;
   AiSummarizer? _aiSummarizer;
   DraftValidator? _draftValidator;
 
@@ -80,6 +82,7 @@ class SkillDistillController extends Notifier<DistillState> {
   DistillState build() {
     // Register dispose callback to clean up resources
     ref.onDispose(() {
+      _disposed = true;
       _cancelled = true;
       _timeoutTimer?.cancel();
       _timeoutTimer = null;
@@ -120,7 +123,7 @@ class SkillDistillController extends Notifier<DistillState> {
     }
 
     // Emit rule-based draft immediately
-    if (!mounted) return;
+    if (_disposed) return;
     state = state.copyWith(status: DistillStatus.ready, skill: ruleBasedSkill, progress: 0.5);
 
     // Initialize AI components with rule-based draft for validation fallback
@@ -137,7 +140,7 @@ class SkillDistillController extends Notifier<DistillState> {
   /// Run AI summarization + validation in background
   Future<void> _runAiSummarization(DistillInput input, Skill ruleBasedSkill) async {
     try {
-      if (!mounted) return;
+      if (_disposed) return;
       state = state.copyWith(progress: 0.6);
 
       // Phase 4: AI summarization via ephemeral session
@@ -148,12 +151,12 @@ class SkillDistillController extends Notifier<DistillState> {
         sessionTitle: input.sessionTitle,
       );
 
-      if (_cancelled || !mounted) return;
+      if (_cancelled || _disposed) return;
 
       // Phase 4/5: Draft validation with rule-based fallback
       final validationResult = _draftValidator!.validate(aiResult.skill);
 
-      if (!mounted) return;
+      if (_disposed) return;
 
       // Emit AI proposed skill (validated)
       state = state.copyWith(
@@ -161,14 +164,14 @@ class SkillDistillController extends Notifier<DistillState> {
         progress: 1.0,
       );
     } on TimeoutException {
-      if (!mounted) return;
+      if (_disposed) return;
       state = state.copyWith(
         status: DistillStatus.failed,
         error: 'AI summarization timed out',
         aiProposedSkill: null,
       );
     } catch (e) {
-      if (!mounted) return;
+      if (_disposed) return;
       state = state.copyWith(
         status: DistillStatus.failed,
         error: 'AI summarization failed: $e',
@@ -196,7 +199,7 @@ class SkillDistillController extends Notifier<DistillState> {
     _timeoutTimer?.cancel();
     _timeoutTimer = null;
     _aiSummarizer?.cancel();
-    if (mounted) {
+    if (!_disposed) {
       state = state.copyWith(status: DistillStatus.cancelled, aiProposedSkill: null);
     }
   }
@@ -207,7 +210,7 @@ class SkillDistillController extends Notifier<DistillState> {
     _timeoutTimer?.cancel();
     _timeoutTimer = null;
     _aiSummarizer?.cancel();
-    if (mounted) {
+    if (!_disposed) {
       state = const DistillState();
     }
   }

@@ -724,7 +724,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 Row(
                   children: [
                     Icon(
-                      app_icons.AppIcons.sparkles,
+                      app_icons.AppIcons.sparkle,
                       size: 18,
                       color: colors.secondary,
                     ),
@@ -877,6 +877,8 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       SnackBar(content: Text(l10n.skillsAISummarizeSuccess)),
     );
   }
+
+  Future<void> _saveSkill() async {
     final l10n = context.l10n;
     if (!_formKey.currentState!.validate()) return;
 

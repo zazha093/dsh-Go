@@ -234,9 +234,9 @@ class DraftValidator {
       results['steps'] = FieldValidationResult(
         isValid: false,
         errorMessage: 'Too many steps (max 8)',
-        fallbackValue: _ruleBasedDraft.steps,
+        fallbackValue: _ruleBasedDraft.steps?.map((s) => s.title).toList(),
       );
-      return _ruleBasedDraft.steps?.take(8).toList() ?? [];
+      return _ruleBasedDraft.steps?.map((s) => s.title).take(8).toList() ?? [];
     }
     
     final validatedSteps = <String>[];
@@ -276,9 +276,9 @@ class DraftValidator {
       results['steps'] = FieldValidationResult(
         isValid: false,
         errorMessage: 'Steps validation failed',
-        fallbackValue: _ruleBasedDraft.steps,
+        fallbackValue: _ruleBasedDraft.steps?.map((s) => s.title).toList(),
       );
-      return _ruleBasedDraft.steps ?? [];
+      return _ruleBasedDraft.steps?.map((s) => s.title).toList() ?? [];
     }
     
     results['steps'] = const FieldValidationResult(isValid: true);
