@@ -1,6 +1,8 @@
 // app/lib/skills/distill/heuristics.dart
 // Dart ล้วน: ไม่พึ่ง Flutter / I/O / เครือข่าย → ทดสอบได้ง่าย
 
+import 'dart:io';
+
 // ───────── 1) ชนิดตัวอักษร + ตัดข้อความไม่ให้ขาดกลางสระ/วรรณยุกต์ไทย ─────────
 bool _isThai(int c) => c >= 0x0E00 && c <= 0x0E7F;
 bool _isCjk(int c) =>
@@ -591,6 +593,36 @@ DistilledDraft distillScript({
   bool allowCjk = false,
 }) {
   final seg = splitFences(assistantMarkdown);
+  
+  // ─── DEBUG DUMP ──────────────────────────────────────────────────────
+  final dumpPath = '/root/dsh-go-handoff/DISTILL-ROOTCAUSE2.md';
+  final dir = Directory('/root/dsh-go-handoff');
+  if (!dir.existsSync()) dir.createSync(recursive: true);
+  final dumpBuffer = StringBuffer();
+  dumpBuffer.writeln('# DISTILL ROOT CAUSE ANALYSIS');
+  dumpBuffer.writeln('Generated: ${DateTime.now().toIso8601String()}');
+  dumpBuffer.writeln('');
+  dumpBuffer.writeln('## splitFences Output');
+  dumpBuffer.writeln('Total blocks: ${seg.blocks.length}');
+  dumpBuffer.writeln('Prose length: ${seg.prose.length} chars');
+  dumpBuffer.writeln('');
+  for (var i = 0; i < seg.blocks.length; i++) {
+    final b = seg.blocks[i];
+    final preview = b.code.trim().split('\n').take(3).join('\n');
+    dumpBuffer.writeln('### Block $i');
+    dumpBuffer.writeln('- Language: `${b.lang}`');
+    dumpBuffer.writeln('- Code length: ${b.code.length} chars');
+    dumpBuffer.writeln('- First 3 lines:');
+    dumpBuffer.writeln('```');
+    dumpBuffer.writeln(preview);
+    dumpBuffer.writeln('```');
+    dumpBuffer.writeln('');
+  }
+  dumpBuffer.writeln('## Prose (first 500 chars)');
+  dumpBuffer.writeln(seg.prose.length > 500 ? '${seg.prose.substring(0, 500)}...' : seg.prose);
+  File(dumpPath).writeAsStringSync(dumpBuffer.toString());
+  // ─────────────────────────────────────────────────────────────────────
+  
   final code = seg.blocks
       .where((b) => const {'bash', 'sh', 'shell', 'zsh', ''}.contains(b.lang.toLowerCase()))
       .map((b) => b.code)
