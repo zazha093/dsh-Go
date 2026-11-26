@@ -6,7 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dsh_client/dsh_client.dart';
 
 import '../l10n/l10n.dart';
-import '../state/chat_state.dart';
+import '../state/chat_state.dart' show ChatController;
 import '../state/connection_state.dart';
 import '../ui/theme/app_icons.dart' as app_icons;
 import 'skill_model.dart';
@@ -185,9 +185,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
       // Use turn-based distillation if turn/step/sessionId are provided
       if (widget.draftTurn != null && widget.draftStep != null && widget.sessionId != null) {
-        // Get full tool call data from transcript
-        final chatState = ref.read(chatProvider(widget.sessionId!));
-        final toolCallsWithArgs = chatState.transcript.getToolCallsWithArgs(
+        // Get full tool call data from transcript (via notifier)
+        final chatController = ref.read(chatProvider(widget.sessionId!).notifier) as ChatController;
+        final toolCallsWithArgs = chatController.transcript.getToolCallsWithArgs(
           widget.draftTurn!,
           widget.draftStep!,
         );
