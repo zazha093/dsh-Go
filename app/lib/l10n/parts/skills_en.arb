@@ -100,5 +100,12 @@
   "skillsDryRunRunning": "Running dry run validation…",
   "skillsDryRunSuccess": "Dry run passed — skill is ready to execute",
   "skillsDryRunFailed": "Dry run failed",
-  "skillsDryRunNoConnection": "No active connection for validation"
+  "skillsDryRunNoConnection": "No active connection for validation",
+  "skillsAIProposingDraft": "AI proposes a new draft",
+  "skillsAIUseDraft": "Use this draft",
+  "skillsAIDismissDraft": "Dismiss",
+  "skillsAISummarizing": "AI is summarizing...",
+  "skillsAISummarizeError": "AI summarization failed",
+  "skillsAISummarizeTimeout": "AI summarization timed out",
+  "skillsAISummarizeSuccess": "AI summarization complete"
 }

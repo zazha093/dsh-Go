@@ -1,5 +1,7 @@
 // Personal Skills UI — create page (also used for distilling from sessions)
 
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,6 +14,7 @@ import '../ui/theme/app_icons.dart' as app_icons;
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
+import 'skill_distill_controller.dart';
 import 'widgets/form_field.dart';
 import 'widgets/section_title.dart';
 import 'widgets/user_inputs_editor.dart';
@@ -20,35 +23,9 @@ import 'widgets/step_editor.dart';
 import 'widgets/parameter_binding_ui.dart';
 import 'widgets/dry_run_preview.dart';
 
-/// Input for background draft creation via compute
-class _DraftInput {
-  const _DraftInput({
-    required this.userMessage,
-    required this.aiResponse,
-    required this.toolCalls,
-    required this.sessionTitle,
-  });
-
-  final String userMessage;
-  final String? aiResponse;
-  final List<String> toolCalls;
-  final String sessionTitle;
-}
-
-/// Input for turn-based draft creation via compute
-class _TurnDraftInput {
-  const _TurnDraftInput({
-    required this.userMessage,
-    required this.aiResponse,
-    required this.toolCallsWithArgs,
-    required this.sessionTitle,
-  });
-
-  final String userMessage;
-  final String? aiResponse;
-  final List<ToolCallInfo> toolCallsWithArgs;
-  final String sessionTitle;
-}
+/// Input for distillation controller (Phase 3/4/5)
+/// Re-exported from skill_distill_controller.dart for backward compatibility
+typedef _DistillInputForController = DistillInput;
 
 /// Create page for a new skill (or distilling from session, or from selected message(s))
 class SkillCreatePage extends ConsumerStatefulWidget {
@@ -113,8 +90,21 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
   bool _isLoading = false;
   bool _isPopping = false;
+  bool _cancelled = false;
   Skill? _distilledSkill;
   String? _distillError;
+
+  // Phase 5: AI proposal and breadcrumbs
+  Skill? _aiProposedSkill;
+  bool _showAIProposal = false;
+  final List<String> _breadcrumbs = [];
+
+  void _logBreadcrumb(String event, {String? source, int fieldsFromAi = 0, int fieldsFromRules = 0}) {
+    final timestamp = DateTime.now().toIso8601String();
+    _breadcrumbs.add('[$timestamp] $event${source != null ? ' source=$source' : ''} ai=$fieldsFromAi rules=$fieldsFromRules');
+    // Keep only last 50 breadcrumbs
+    if (_breadcrumbs.length > 50) _breadcrumbs.removeAt(0);
+  }
 
   @override
   void initState() {
@@ -167,9 +157,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   }
 
   /// Create a draft skill from selected message text(s) using regex-based extraction
+  /// Phase 3: Instant rule-based draft + AI badge for background AI summarization
   Future<void> _createDraftFromText() async {
     if (!mounted) return;
-    setState(() => _isLoading = true);
 
     // Capture context-dependent values before await to avoid use_build_context_synchronously lint
     final messenger = ScaffoldMessenger.of(context);
@@ -183,36 +173,64 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
       Skill draftSkill;
 
-      // Use turn-based distillation if turn/step/sessionId are provided
+      // Phase 3: Get rule-based draft INSTANTLY (synchronous, no compute/spinner)
       if (widget.draftTurn != null && widget.draftStep != null && widget.sessionId != null) {
-        // Get full tool call data from transcript (via notifier)
-        final chatController = ref.read(chatProvider(widget.sessionId!).notifier);
-        final toolCallsWithArgs = chatController.transcript.getToolCallsWithArgs(
-          widget.draftTurn!,
-          widget.draftStep!,
+        // Get full tool call data from transcript (via notifier) - wrap in try-catch
+        List<ToolCallInfo> toolCallsWithArgs = [];
+        try {
+          final chatController = ref.read(chatProvider(widget.sessionId!).notifier);
+          toolCallsWithArgs = chatController.transcript.getToolCallsWithArgs(
+            widget.draftTurn!,
+            widget.draftStep!,
+          );
+        } catch (e) {
+          // Provider not available or session not found - fall back to basic distillation
+          toolCallsWithArgs = [];
+        }
+
+        // Phase 3: Instant rule-based draft (synchronous)
+        draftSkill = SkillDistiller.createFromTurn(
+          userMessage: text,
+          aiResponse: null,
+          toolCallsWithArgs: toolCallsWithArgs,
+          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
         );
-        
-        // Use new distillTurn function with tool call arguments
-        draftSkill = await compute(
-          _createDraftFromTurnStatic,
-          _TurnDraftInput(
+
+        // Phase 4/5: Start AI summarization + validation in background
+        if (mounted) {
+          // Get DshClient from active connection
+          final client = ref.read(activeConnectionProvider).value?.client;
+          final controller = ref.read(skillDistillControllerProvider.notifier);
+          controller.distillFromText(DistillInput(
             userMessage: text,
             aiResponse: null,
             toolCallsWithArgs: toolCallsWithArgs,
             sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
-          ),
-        );
+            dshClient: client,
+          ));
+        }
       } else {
-        // Fallback to original message-based distillation
-        draftSkill = await compute(
-          _createDraftFromTextStatic,
-          _DraftInput(
+        // Fallback to original message-based distillation (instant rule-based)
+        draftSkill = SkillDistiller.createFromMessageText(
+          userMessage: text,
+          aiResponse: null,
+          toolCalls: tools,
+          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+        );
+
+        // Phase 4/5: Start AI summarization + validation in background
+        if (mounted) {
+          // Get DshClient from active connection
+          final client = ref.read(activeConnectionProvider).value?.client;
+          final controller = ref.read(skillDistillControllerProvider.notifier);
+          controller.distillFromText(DistillInput(
             userMessage: text,
             aiResponse: null,
             toolCalls: tools,
             sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
-          ),
-        );
+            dshClient: client,
+          ));
+        }
       }
 
       if (!mounted) return;
@@ -227,31 +245,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       messenger.showSnackBar(
         SnackBar(content: Text('Failed to create draft: $e')),
       );
-    } finally {
-      if (mounted) {
-        setState(() => _isLoading = false);
-      }
     }
-  }
-
-  /// Static function for compute (must be top-level or static)
-  static Skill _createDraftFromTextStatic(_DraftInput input) {
-    return SkillDistiller.createFromMessageText(
-      userMessage: input.userMessage,
-      aiResponse: input.aiResponse,
-      toolCalls: input.toolCalls,
-      sessionTitle: input.sessionTitle,
-    );
-  }
-
-  /// Static function for turn-based distillation via compute
-  static Skill _createDraftFromTurnStatic(_TurnDraftInput input) {
-    return SkillDistiller.createFromTurn(
-      userMessage: input.userMessage,
-      aiResponse: input.aiResponse,
-      toolCallsWithArgs: input.toolCallsWithArgs,
-      sessionTitle: input.sessionTitle,
-    );
   }
 
   Future<void> _distillFromSession() async {
@@ -323,6 +317,14 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     if (_isPopping || !mounted) return;
     final route = ModalRoute.of(context);
     if (route == null || !route.isCurrent) return; // Already popping or not top route
+    
+    // Warn if popping during loading (emergency exit)
+    if (_isLoading) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Distillation in progress. Exiting may lose progress.')),
+      );
+    }
+    
     _isPopping = true;
     FocusManager.instance.primaryFocus?.unfocus();
     Navigator.of(context).pop(result);
@@ -335,17 +337,16 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     final colors = theme.colorScheme;
 
     return PopScope(
-      canPop: !_isLoading, // Prevent popping while loading
+      canPop: true, // Always allow popping; _safePop handles loading state
       onPopInvokedWithResult: (didPop, result) {
         // Always dismiss keyboard before/when popping
         FocusManager.instance.primaryFocus?.unfocus();
-        // If blocked by canPop, notify user
+        // If blocked (shouldn't happen with canPop: true), notify user
         if (!didPop) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(l10n.skillsSaving)),
           );
         }
-        // No manual pop here - let the framework handle it via canPop
       },
       child: Scaffold(
         appBar: AppBar(
@@ -356,7 +357,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   : l10n.skillsCreate),
           leading: IconButton(
             icon: const Icon(app_icons.AppIcons.close),
-            onPressed: _isLoading ? null : () => _safePop(),
+            onPressed: () => _safePop(), // Allow close even during loading (emergency exit)
           ),
         ),
         body: Form(
@@ -366,10 +367,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Show loading for both session distillation and draft text creation
-                if ((widget.sessionId != null && _distilledSkill == null) ||
-                    (_isLoading && (widget.draftText != null || (widget.draftTexts != null && widget.draftTexts!.isNotEmpty)))) ...[
-                  // Distillation / draft creation in progress
+                // Show loading only for session distillation (not message distillation - Phase 3: instant rule-based draft)
+                if (widget.sessionId != null && _distilledSkill == null) ...[
+                  // Session distillation in progress
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(32),
@@ -378,11 +378,16 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                           const CircularProgressIndicator(),
                           const SizedBox(height: 16),
                           Text(
-                            widget.sessionId != null
-                                ? l10n.skillsDistillDescription
-                                : l10n.skillsDistillDescription,
+                            l10n.skillsDistillDescription,
                             style: theme.textTheme.bodyMedium,
                             textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 16),
+                          OutlinedButton(
+                            onPressed: () {
+                              setState(() => _cancelled = true);
+                            },
+                            child: Text(l10n.skillsCancel),
                           ),
                           if (_distillError != null) ...[
                             const SizedBox(height: 16),
@@ -402,23 +407,21 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                     ),
                   ),
                 ] else ...[
-                  // Normal form
-                  _buildForm(),
+                  // Normal form with AI badge (Phase 3/4)
+                  _buildFormWithAIBadge(),
                 ],
               ],
             ),
           ),
         ),
-        bottomNavigationBar: _isLoading
-            ? null
-            : SafeArea(
+        bottomNavigationBar: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.all(16),
                   child: Row(
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: _isLoading ? null : () => _safePop(),
+                          onPressed: () => _safePop(), // Allow cancel even during loading (emergency exit)
                           child: Text(l10n.skillsCancel),
                         ),
                       ),
@@ -651,7 +654,229 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     );
   }
 
-  Future<void> _saveSkill() async {
+  /// Build form with AI summarization badge + AI proposal banner (Phase 3/4/5)
+  Widget _buildFormWithAIBadge() {
+    final l10n = context.l10n;
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+    final distillState = ref.watch(skillDistillControllerProvider);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // AI Summarization Badge (Phase 3/4) - showing while AI is running
+        if (distillState.status == DistillStatus.running) ...[
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            margin: const EdgeInsets.only(bottom: 12),
+            decoration: BoxDecoration(
+              color: colors.primaryContainer,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: colors.primary.withValues(alpha: 0.3)),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    valueColor: AlwaysStoppedAnimation<Color>(colors.primary),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    l10n.skillsAISummarizing,
+                    style: theme.textTheme.bodyMedium?.copyWith(color: colors.onPrimaryContainer),
+                  ),
+                ),
+                OutlinedButton(
+                  onPressed: () {
+                    ref.read(skillDistillControllerProvider.notifier).cancel();
+                  },
+                  style: OutlinedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    minimumSize: Size.zero,
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Text(l10n.skillsCancel),
+                ),
+              ],
+            ),
+          ),
+        ],
+        // AI Proposal Banner (Phase 5) - shows when AI proposes a better draft
+        if (distillState.aiProposedSkill != null) ...[
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            margin: const EdgeInsets.only(bottom: 12),
+            decoration: BoxDecoration(
+              color: colors.secondaryContainer,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: colors.secondary.withValues(alpha: 0.4)),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Icon(
+                      app_icons.AppIcons.sparkles,
+                      size: 18,
+                      color: colors.secondary,
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        l10n.skillsAIProposingDraft,
+                        style: theme.textTheme.titleSmall?.copyWith(
+                          color: colors.onSecondaryContainer,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    if (distillState.status == DistillStatus.failed) ...[
+                      Text(
+                        l10n.skillsAISummarizeError,
+                        style: theme.textTheme.bodySmall?.copyWith(color: colors.error),
+                      ),
+                    ] else if (distillState.error != null) ...[
+                      Text(
+                        '${l10n.skillsAISummarizeError}: ${distillState.error}',
+                        style: theme.textTheme.bodySmall?.copyWith(color: colors.error),
+                      ),
+                    ] else ...[
+                      Text(
+                        l10n.skillsAISummarizeSuccess,
+                        style: theme.textTheme.bodySmall?.copyWith(color: colors.onSecondaryContainer.withValues(alpha: 0.7)),
+                      ),
+                    ],
+                  ],
+                ),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          // Dismiss AI proposal
+                          ref.read(skillDistillControllerProvider.notifier).cancel();
+                        },
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        ),
+                        child: Text(l10n.skillsAIDismissDraft),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: FilledButton(
+                        onPressed: () {
+                          // Use AI proposal - fill form with AI proposal but preserve user edits
+                          _applyAIProposal(distillState.aiProposedSkill!);
+                        },
+                        style: FilledButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        ),
+                        child: Text(l10n.skillsAIUseDraft),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+        // Normal form
+        _buildForm(),
+      ],
+    );
+  }
+
+  /// Apply AI proposal to form fields, preserving user edits
+  /// Only updates fields that the user hasn't modified (empty or still at initial rule-based value)
+  void _applyAIProposal(Skill aiSkill) {
+    final l10n = context.l10n;
+
+    // Track which fields user has edited (non-empty and different from initial rule-based draft)
+    // We'll use a simple heuristic: if field is empty or matches the current rule-based draft exactly,
+    // it's safe to overwrite with AI proposal. Otherwise, user has edited it.
+
+    // For simplicity, we'll check if the current field value is "close" to the rule-based draft
+    // by comparing with the current state.skill (rule-based draft)
+    final distillState = ref.read(skillDistillControllerProvider);
+    final ruleBasedSkill = distillState.skill;
+
+    // Name: only overwrite if empty or matches rule-based
+    final currentName = _nameController.text.trim();
+    if (currentName.isEmpty || (ruleBasedSkill != null && currentName == ruleBasedSkill.name)) {
+      _nameController.text = aiSkill.name;
+    }
+
+    // Description: only overwrite if empty or matches rule-based
+    final currentDesc = _descriptionController.text.trim();
+    if (currentDesc.isEmpty || (ruleBasedSkill != null && currentDesc == ruleBasedSkill.description)) {
+      _descriptionController.text = aiSkill.description;
+    }
+
+    // Goal: only overwrite if empty or matches rule-based
+    final currentGoal = _goalController.text.trim();
+    if (currentGoal.isEmpty || (ruleBasedSkill != null && currentGoal == ruleBasedSkill.goal)) {
+      _goalController.text = aiSkill.goal;
+    }
+
+    // Steps: only overwrite if empty or matches rule-based (for non-executable kinds)
+    if (_kind != 'executable') {
+      final currentSteps = _stepsController.text.trim();
+      final ruleSteps = ruleBasedSkill?.steps.join('\n') ?? '';
+      if (currentSteps.isEmpty || currentSteps == ruleSteps) {
+        _stepsController.text = aiSkill.steps.join('\n');
+      }
+    }
+
+    // Constraints: only overwrite if empty or matches rule-based
+    final currentConstraints = _constraintsController.text.trim();
+    final ruleConstraints = ruleBasedSkill?.constraints.join('\n') ?? '';
+    if (currentConstraints.isEmpty || currentConstraints == ruleConstraints) {
+      _constraintsController.text = aiSkill.constraints.join('\n');
+    }
+
+    // Tools: only overwrite if empty or matches rule-based
+    final currentTools = _toolsController.text.trim();
+    final ruleTools = ruleBasedSkill?.requiredTools.join(', ') ?? '';
+    if (currentTools.isEmpty || currentTools == ruleTools) {
+      _toolsController.text = aiSkill.requiredTools.join(', ');
+    }
+
+    // User inputs: only add if not already present (by key)
+    for (final aiInput in aiSkill.userInputs) {
+      final exists = _userInputs.any((u) => u.key == aiInput.key);
+      if (!exists) {
+        setState(() {
+          _userInputs.add(aiInput);
+          _inputFormKeys.add(GlobalKey<FormState>());
+        });
+      }
+    }
+
+    // v2 fields
+    setState(() {
+      _kind = aiSkill.kind;
+      _executableSteps = aiSkill.executableSteps ?? [];
+      _parameters = aiSkill.parameters ?? [];
+    });
+
+    // Dismiss the AI proposal banner
+    ref.read(skillDistillControllerProvider.notifier).cancel();
+
+    // Show snackbar
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(l10n.skillsAISummarizeSuccess)),
+    );
+  }
     final l10n = context.l10n;
     if (!_formKey.currentState!.validate()) return;
 

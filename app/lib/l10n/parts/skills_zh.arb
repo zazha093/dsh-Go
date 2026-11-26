@@ -100,5 +100,12 @@
   "skillsDryRunSuccess": "试运行通过 — 技能可执行",
   "skillsDryRunFailed": "试运行失败",
   "skillsDryRunNoConnection": "无可用连接进行验证",
-  "skillsDryRunChecks": "验证检查项"
+  "skillsDryRunChecks": "验证检查项",
+  "skillsAIProposingDraft": "AI 提供新草稿",
+  "skillsAIUseDraft": "使用此草稿",
+  "skillsAIDismissDraft": "忽略",
+  "skillsAISummarizing": "AI 正在总结...",
+  "skillsAISummarizeError": "AI 总结失败",
+  "skillsAISummarizeTimeout": "AI 总结超时",
+  "skillsAISummarizeSuccess": "AI 总结完成"
 }

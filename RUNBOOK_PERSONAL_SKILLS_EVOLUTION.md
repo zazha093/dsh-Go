@@ -3,8 +3,8 @@
 **Project:** dsh-Go (Flutter Android App)
 **Branch:** `feat/skills-evolution` (was `feat/fix-skill-crash`)
 **Created:** 2026-11-23
-**Updated:** 2026-11-25
-**Status:** STAGE 2-3 Re-implementation → Quality Gate Running → Phase 4 Gate Pending
+**Updated:** 2026-11-26
+**Status:** AI Summarizer Implementation (Phases 0-6) — Phase 1 Next: Fix Black Screen/Spinning
 
 ---
 
@@ -158,6 +158,78 @@ class SkillStep {
 
 ---
 
+## 🤖 NEW: AI SUMMARIZER IMPLEMENTATION PLAN (Phases 0-6)
+
+**Problem:** Current `distillTurn` in `heuristics.dart` is rule-based only. User wants AI (`fcc`/ephemeral session) as primary summarizer with rule-based as fallback.
+
+**Architecture:**
+- **Primary:** AI summarization via ephemeral DshClient session (create → prompt → archive)
+- **Fallback:** Instant rule-based `distillTurn` (opens form in milliseconds)
+- **Validator:** Field-level — AI result per field validated; failed fields use rule-based value
+- **Safety:** Redact + truncate before sending; 25s timeout; cancellable; breadcrumbs
+
+### Phase 0: Document Findings (5 min)
+- **File:** `~/dsh-go-handoff/DISTILL-AI-DESIGN.md`
+- Record: AI channel decision (ephemeral session + archiveSession), redact utilities exist, field-level validation spec, skill name auto-fill removal, breadcrumbs spec
+
+### Phase 1: Fix Black Screen/Spinning (5 min) — CRITICAL FIRST
+- **File:** `app/lib/skills/skill_create_page.dart`
+- Fixes:
+  - PopScope: Allow close always (remove `canPop: !_isLoading` or add emergency close)
+  - Loading text: Separate session distillation vs message distillation text
+  - Add 25s timeout to `compute()` calls using `Future.any([compute(...), Future.delayed(25s)])`
+  - Add cancellation flag checked before/after await
+  - Show "AI summarizing..." badge instead of full-screen spinner
+
+### Phase 2: Stabilize Controller (7 min)
+- **New File:** `app/lib/skills/skill_distill_controller.dart`
+- `NotifierProvider.autoDispose` with:
+  - `CancelToken` / `cancelled` flag
+  - `ref.onDispose` → cancel work
+  - State: `idle` | `running` | `ready` | `failed` | `cancelled`
+  - Every state write after `await` checks `ref.mounted` + `context.mounted`
+  - Result after dispose → silently discard
+
+### Phase 3: Instant Rule-Based Draft (5 min)
+- **Files:** `skill_create_page.dart`, `heuristics.dart`
+- Form opens instantly with `distillTurn` result (no network)
+- Show "AI summarizing..." status badge with cancel button
+- User can edit/save immediately without waiting for AI
+
+### Phase 4: AI Summarizer + Validator (7 min)
+- **New Files:** `app/lib/fork/ai_summarizer.dart`, `app/lib/fork/draft_validator.dart`
+- **AI Summarizer:**
+  - `createEphemeralSession()` → `prompt()` → `archiveSession(stopActivity: true)`
+  - Input truncation: userPrompt≤1500, assistant≤4000, writeScript≤6000, total≤20000
+  - Redact pipeline: `redactText()` → `cutText()` on all inputs
+  - Prompt: JSON schema (name≤60, goal≤300, description≤200, steps[8]≤150, constraints[], tools[], params[])
+  - Locale-aware: "ตอบเป็นภาษาไทย ศัพท์เทคนิค คำสั่ง โค้ด คงอังกฤษ"
+  - 25s timeout, 1 retry, robust JSON extraction (strip fences, parse object)
+- **Draft Validator (field-level):**
+  - Checks per field: CJK (if locale≠zh), generic names, duplicates, length, secrets pattern
+  - Fallback: `distillTurn` value for **each failed field individually**
+  - Never discards entire AI result
+
+### Phase 5: UI Integration (5 min)
+- **Files:** `skill_create_page.dart`, l10n (zh/en/th)
+- "AI proposes draft" banner: [ใช้ร่างนี้] [ไม่ใช้] — doesn't overwrite user edits
+- Skill name field: empty with hint (`skillsNameHint`), no 'Draft' default
+- Breadcrumbs: `ai:start/ok/timeout/cancel/invalid` with source + field counts
+- Settings toggle: "Use AI summarization" (default on, stored in fork settings)
+
+### Phase 6: Test & CI (7 min)
+- **Widget Tests:** (1) AI hangs + cancel → close works, (2) AI responds after dispose → no error, (3) AI error/timeout → form saves from rule-based, (4) open/close 5x no leak
+- **Unit Tests:** AI summarizer (mock client), validator (field-level fallback), redact+truncate
+- **CI:** `xcheck`, `l10n_merge --check`, Quality Gate, Build APK (manual dispatch)
+- **Device Test Cases:**
+  - (ก) Agent pastes full script → Save as Skill
+  - (ข) Agent writes file via tool → Save as Skill
+  - (ค) Chat without script → Save as Skill
+  - (ง) FCC slow/down → Cancel/back during wait → no black screen
+  - (จ) Disable AI summarization → Uses rule-based only
+
+---
+
 ## 📋 COMMON COMMANDS
 
 ### Start Every Session
@@ -290,6 +362,17 @@ Phase X BLOCKED
 | `app/test/skills/skill_history_test.dart` | Unit tests (pending) |
 | `app/test/skills/skill_import_export_test.dart` | Unit tests (pending) |
 
+### New Files (AI Summarizer — Phases 0-6)
+| File | Purpose |
+|------|---------|
+| `~/dsh-go-handoff/DISTILL-AI-DESIGN.md` | Design doc (Phase 0) |
+| `app/lib/fork/ai_summarizer.dart` | AI summarization via ephemeral session (Phase 4) |
+| `app/lib/fork/draft_validator.dart` | Field-level validation + rule fallback (Phase 4) |
+| `app/lib/skills/skill_distill_controller.dart` | NotifierProvider with CancelToken (Phase 2) |
+| `app/test/skills/ai_summarizer_test.dart` | Unit tests for AI summarizer (Phase 6) |
+| `app/test/skills/draft_validator_test.dart` | Unit tests for validator (Phase 6) |
+| `app/test/skills/skill_distill_controller_test.dart` | Widget tests for controller (Phase 6) |
+
 ---
 
 ## ⚠️ KNOWN CONSTRAINTS
@@ -305,100 +388,78 @@ Phase X BLOCKED
 
 ## 🎯 CURRENT STATE
 
-- **Phase:** STAGE 2-3 Re-implementation → Quality Gate Running → Phase 4 Gate Pending
-- **Branch:** feat/skills-evolution @ `9a5dc6e41`
-- **Last CI:** Quality Gate 🔄 Running (run **45551483937**) — fixing test file string interpolation
-- **Test Status:** Tests updated for STAGE 2-3 (script extraction + testing); awaiting CI result
-- **Blockers:** Quality Gate must pass → then Build APK dispatch → Device Test (Phase 4 Gate)
+- **Phase:** STAGE 2-3 Re-implementation → Quality Gate Running → **NEW: AI Summarizer Implementation (Phase 0-6)**
+- **Branch:** feat/skills-evolution @ `6823e49f4` (latest CI green: Quality Gate 45778926682, Build APK 45778926723)
+- **Last CI:** Quality Gate ✅ **PASSED** (run 45778926682, 2m28s) — flutter analyze 0 errors
+- **Last CI:** Build APK ✅ **PASSED** (run 45778926723, 17m45s) — APK built and signed
+- **Test Status:** All CI gates green, turn-based distillation with full tool call args implemented
+- **Current Issue:** **Black screen + infinite spinning** in SkillCreatePage when saving skill from chat
+  - PopScope `canPop: !_isLoading` blocks navigation when loading
+  - Wrong loading text: shows "Pick a completed session..." even for message-based distillation
+  - No timeout on `compute()` calls — can hang indefinitely
+  - No cancellation mechanism for user to abort distillation
+- **Blockers:** Fix black screen/spinning → Implement AI Summarizer (Phases 0-6) → Device test
 
 ---
 
-## 🔄 CURRENT WORK: STAGE 2-3 RE-IMPLEMENTATION (2026-11-25)
+## 🔄 CURRENT WORK: AI SUMMARIZER IMPLEMENTATION (2026-11-26)
 
-### Why Re-implement?
-Previous implementation (Phases 2-3) had critical bugs discovered via CI and user testing:
+### Why This Work?
+The turn-based distillation (`distillTurn` in `heuristics.dart`) is rule-based only. User wants AI as primary summarizer with rule-based as instant fallback. Current SkillCreatePage has **black screen + infinite spinning** bug when saving from chat.
 
-| Bug | Impact |
-|-----|--------|
-| `_cleanMarkdown()` stripped code blocks | Script extraction failed — got empty/no script |
-| `_extractStepsFromText()` parsed only bullets | Steps empty/wrong — not from actual script |
-| No `_inferToolsFromScriptContent()` | Missing `tar`, `gzip`, `sha256sum`, `rsync` detection |
-| Description hardcoded "Created from message" | Description useless placeholder |
-| Constraints not deduplicated | Duplicate constraints in output |
+### Problems to Fix
 
-### What Was Re-implemented (STAGE 2: Script Extraction)
+| Issue | Location | Root Cause |
+|-------|----------|------------|
+| Black screen | `skill_create_page.dart:337-349` | `PopScope(canPop: !_isLoading)` blocks all navigation when loading |
+| Wrong loading text | `skill_create_page.dart:370-383` | Condition `sessionId != null && _distilledSkill == null` true for message distillation; both branches show "Pick a completed session..." |
+| Infinite hang risk | `skill_create_page.dart:196-204` | `compute()` no timeout; if isolate hangs, `finally` never runs → `_isLoading` stuck true |
+| No cancellation | `skill_create_page.dart:170-235` | No `CancelToken`; user cannot abort distillation |
 
-**New Functions in `skill_distill.dart`:**
-| Function | Purpose |
-|----------|---------|
-| `ExtractedScript` class | Container: language, content, steps[], tools Set |
-| `extractScriptFromText()` | Parse ```bash``` markdown code blocks |
-| `isShellScript()` | Detect shell by language/shebang/commands |
-| `extractStepsFromScriptContent()` | Parse script → meaningful steps (skip vars, comments) |
-| `isExecutableCommand()` | Filter real commands (skip assignments, control flow) |
-| `describeCommand()` | Human-readable: "Create compressed archive with tar" |
-| `inferToolsFromScriptContent()` | Detect tar, gzip, sha256sum, rsync, docker, etc. |
+### AI Summarizer Architecture (New)
 
-**Pipeline Rewired in `createFromMessageText()`:**
-```
-1. script = extractScriptFromText(aiResponse ?? userMessage)
-2. name = extractSkillName(userMessage, aiResponse, script)
-3. goal = extractGoalFromMessage(userMessage, aiResponse, script)
-4. description = createDescription(userMessage, aiResponse, script, sessionTitle)
-5. steps = script.steps + _extractStepsFromText(text)  // script first!
-6. constraints = dedupConstraints(['no-secrets'])
-7. requiredTools = toolCalls ∪ script.tools  // union!
-8. category = _inferCategoryFromText(...)
-```
+| Component | Role | Location |
+|-----------|------|----------|
+| **Rule-based (primary fallback)** | Instant distillation, opens form in ms | `heuristics.dart:distillTurn()` |
+| **AI Summarizer** | Primary: ephemeral session → prompt → archive | New: `app/lib/fork/ai_summarizer.dart` |
+| **Draft Validator** | Field-level validation + rule-based fallback | New: `app/lib/fork/draft_validator.dart` |
+| **Controller** | State management, cancellation, dispose safety | New: `app/lib/skills/skill_distill_controller.dart` |
+| **UI** | Form opens instantly, AI badge, proposal banner | `skill_create_page.dart` + l10n |
 
-### STAGE 3: Comprehensive Tests Added
+### Implementation Phases (0-6)
 
-| Test Group | Cases |
-|------------|-------|
-| `extractScriptFromText` | 5 (markdown blocks, language detection, AI vs user preference) |
-| `extractStepsFromScriptContent` | 5 (tar, gzip, comments, variables, empty) |
-| `inferToolsFromScriptContent` | 9 (tar, gzip, sha256sum, rsync, docker, git, etc.) |
-| `dedupConstraints` | 5 (exact, case-insensitive, trim, order, empty) |
-| `createFromMessageText` | 6 (end-to-end, tar tool, name, goal, description, tools union) |
-| `extractSkillName` | 4 (intent, for/to, fallback, empty) |
-| `extractGoalFromMessage` | 3 (intent, script inference, fallback) |
-| `createDescription` | 3 (AI response, script, session title) |
-| `replaceTemplates` | 7 ({{}}, ${}, $var, skip $1-$9/$@/$*, multiple, empty) |
+| Phase | Goal | Time | Key Files |
+|-------|------|------|-----------|
+| **0** | Document findings | 5 min | `~/dsh-go-handoff/DISTILL-AI-DESIGN.md` |
+| **1** | Fix black screen/spinning | 5 min | `skill_create_page.dart` |
+| **2** | Stabilize Controller | 7 min | New: `skill_distill_controller.dart` |
+| **3** | Instant rule-based draft | 5 min | `skill_create_page.dart`, `heuristics.dart` |
+| **4** | AI Summarizer + Validator | 7 min | New: `ai_summarizer.dart`, `draft_validator.dart` |
+| **5** | UI Integration | 5 min | `skill_create_page.dart`, l10n (zh/en/th) |
+| **6** | Test & CI | 7 min | Widget/unit tests, xcheck, l10n_merge, CI |
 
-### Fixes Applied (2026-11-25)
-
-| Issue | Fix |
-|-------|-----|
-| `static` on top-level functions (invalid Dart) | Moved all helpers inside `SkillDistiller` as `static` methods |
-| Conflicting instance/static members | Made all helpers `static`; removed duplicate instance methods |
-| Duplicate `createFromMessageText` | Removed duplicate; kept original static method |
-| Test file `const` method call | Changed `const desc = ...` → `final desc = ...` |
-| Test names `${...}` string interpolation | Escaped: `replaces \${placeholder}` |
-| Missing closing brace in test file | Added `}` for `main()` closure |
-
-### CI Status
+### CI Status (Latest)
 
 | Run | Status | Notes |
 |-----|--------|-------|
-| 45546161629 | ❌ Failed | Conflicting static/instance, duplicate defs |
-| 45547700487 | ❌ Failed | Test syntax: const eval, undefined identifiers |
-| 45548682983 | ❌ Failed | Conflicting members, instance access from static |
-| 45549819824 | ❌ Failed | Test syntax still had issues |
-| 45550248824 | ❌ Failed | Missing brace, undefined identifiers |
-| **45551483937** | 🔄 **Running** | Test name escaping fix pushed |
+| **45778926682** | ✅ **PASSED** | Quality Gate — flutter analyze 0 errors (2m28s) |
+| **45778926723** | ✅ **PASSED** | Build APK — APK built & signed (17m45s) |
 
 ---
 
-## 🎯 IMMEDIATE NEXT STEPS (After CI Green)
+## 🎯 IMMEDIATE NEXT STEPS (Current Priority: Fix Black Screen + AI Summarizer)
 
 | Step | Action | Command / Note |
 |------|--------|----------------|
-| **1** | Wait for Quality Gate Run **45551483937** to complete | `gh run watch 45551483937` |
-| **2** | If green → Dispatch Build APK | `gh workflow run build-apk.yml --ref feat/skills-evolution -f enable_skills=true` |
-| **3** | Download APK from Artifacts | `app-arm64-v8a-release.apk` |
-| **4** | **Phase 4 Gate: Device Test** | Install APK → Save as Skill → Execute → Verify output |
-| **5** | If Device Test ✅ → Merge to `thai/release` | `git checkout thai/release && git merge feat/skills-evolution` |
-| **6** | Then continue Phase 5 (Full Execution) + Phase 6 | Already analyze-complete, need device verification |
+| **1** | **Phase 0:** Document findings in `~/dsh-go-handoff/DISTILL-AI-DESIGN.md` | Write AI channel decision, redact utilities, field-level validation, skill name, breadcrumbs |
+| **2** | **Phase 1:** Fix black screen/spinning in `skill_create_page.dart` | PopScope fix, loading text fix, 25s timeout on compute, cancellation flag |
+| **3** | **Phase 2:** Create `skill_distill_controller.dart` with CancelToken | NotifierProvider.autoDispose, ref.onDispose, mounted checks |
+| **4** | **Phase 3:** Wire instant rule-based draft + AI badge | Form opens instantly, "AI summarizing..." badge with cancel |
+| **5** | **Phase 4:** Implement `ai_summarizer.dart` + `draft_validator.dart` | Ephemeral session, redact+truncate, field-level fallback |
+| **6** | **Phase 5:** UI integration — banner, skill name hint, breadcrumbs | "AI proposes draft" [Use]/[Dismiss], no 'Draft' default |
+| **7** | **Phase 6:** Tests + CI + Device test | Widget tests (hang+cancel, post-dispose), xcheck, l10n_merge, Quality Gate, Build APK |
+| **8** | Device test 5 cases (script, tool write, no-script, slow AI cancel, AI disabled) | Verify no black screen, correct distillation, proper fallback |
+| **9** | If all passes → Merge to `thai/release` | `git checkout thai/release && git merge feat/skills-evolution` |
 
 ---
 
@@ -598,7 +659,14 @@ Previous implementation (Phases 2-3) had critical bugs discovered via CI and use
 
 | Current Stage | Next Action | Command / Note |
 |---------------|-------------|----------------|
-| **4 (current)** | Wait CI → Build APK → Device Test | `gh run watch 45551483937` → dispatch Build APK |
+| **AI Summarizer (current)** | Phase 0: Document findings | Write `~/dsh-go-handoff/DISTILL-AI-DESIGN.md` |
+| **AI Summarizer** | Phase 1: Fix black screen/spinning | `skill_create_page.dart` — PopScope, loading text, timeout |
+| **AI Summarizer** | Phase 2: Stabilize Controller | New: `skill_distill_controller.dart` |
+| **AI Summarizer** | Phase 3: Instant rule-based draft | Form opens instantly, AI badge |
+| **AI Summarizer** | Phase 4: AI Summarizer + Validator | New: `ai_summarizer.dart`, `draft_validator.dart` |
+| **AI Summarizer** | Phase 5: UI Integration | Banner, skill name hint, breadcrumbs, l10n |
+| **AI Summarizer** | Phase 6: Test & CI | Widget/unit tests, xcheck, l10n_merge, Quality Gate, Build APK |
+| **4** | Wait CI → Build APK → Device Test | `gh run watch <run_id>` → dispatch Build APK |
 | **5** | Device verify execution engine | Install APK → test all execution paths |
 | **6** | Device verify intelligence | Test history, proposals, import/export |
 | **7** | Implement MVP missing features | Audit log, auto-propose, export/import, sub-skills |

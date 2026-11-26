@@ -100,5 +100,12 @@
   "skillsDryRunSuccess": "เช็คผ่าน — สกิลพร้อมรันจริง",
   "skillsDryRunFailed": "เช็คไม่ผ่าน",
   "skillsDryRunNoConnection": "ไม่มีการเชื่อมต่อสำหรับเช็ค",
-  "skillsDryRunChecks": "รายการเช็ค"
+  "skillsDryRunChecks": "รายการเช็ค",
+  "skillsAIProposingDraft": "AI เสนอร่างใหม่",
+  "skillsAIUseDraft": "ใช้ร่างนี้",
+  "skillsAIDismissDraft": "ไม่ใช้",
+  "skillsAISummarizing": "AI กำลังสรุป...",
+  "skillsAISummarizeError": "การสรุปของ AI ล้มเหลว",
+  "skillsAISummarizeTimeout": "การสรุปของ AI หมดเวลา",
+  "skillsAISummarizeSuccess": "การสรุปของ AI เสร็จสิ้น"
 }
