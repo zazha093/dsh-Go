@@ -382,6 +382,209 @@ echo "📁 路徑: \$BACKUP_FILE"
       });
     });
 
+    group('distillScript - example output block (no language)', () {
+      const userPrompt = 'Show backup result';
+      const aiResponse = '''Here is the backup result:
+
+```
+/home/user/backups/project-20261125-143016.tar.gz
+Size: 2.5 MB
+Created: 2026-11-25 14:30:16
+```''';
+
+      test('ignores unlanguaged block, no garbage steps', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // Unlanguaged block should be treated as example output, not parsed as script
+        // Should not produce garbage steps like ": ~/backups/..." or "✅ !"
+        for (final step in draft.steps) {
+          expect(step.title.startsWith(': '), false, reason: 'Should not have path-only step');
+          expect(step.title, isNot(contains('✅')));
+          expect(step.title, isNot(contains('📁')));
+          expect(step.title, isNot(contains('📦')));
+        }
+      });
+    });
+
+    group('distillScript - usage block (chmod +x / ./script.sh)', () {
+      const userPrompt = 'How to use backup script';
+      const aiResponse = '''Usage:
+
+```bash
+chmod +x backup.sh
+./backup.sh
+```''';
+
+      test('ignores chmod and ./script.sh, no false positive tools', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // chmod and ./script.sh should not appear in tools
+        final toolNames = draft.tools.map((t) => t.toLowerCase()).toSet();
+        expect(toolNames.contains('chmod'), false, reason: 'chmod should not be a tool');
+        expect(toolNames.contains('sh'), false, reason: 'sh should not be a tool');
+        expect(toolNames.contains('bash'), false, reason: 'bash should not be a tool from usage');
+      });
+    });
+
+    group('distillScript - no code block', () {
+      const userPrompt = 'Explain how tar works';
+      const aiResponse = '''Tar creates archives by concatenating files and compressing them.
+
+The basic syntax is: tar [options] [archive] [files]''';
+
+      test('returns empty steps when no code block', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        expect(draft.steps, isEmpty);
+        expect(draft.script, isNull);
+        // Name should still be inferred from user prompt
+        expect(draft.name, isNotNull);
+      });
+    });
+
+    group('distillScript - rm destructive command', () {
+      const userPrompt = 'Clean up old backups';
+      const aiResponse = '''```bash
+#!/bin/bash
+# Clean backups older than 30 days
+find ~/backups -name "project-*.tar.gz" -mtime +30 -delete
+```''';
+
+      test('adds confirmDestructive constraint', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // Should have confirmDestructive constraint from rm/delete
+        expect(draft.constraints, contains('ต้องได้รับอนุมัติก่อนรันคำสั่งที่ลบหรือแก้ไขไฟล์'));
+      });
+    });
+
+    group('distillScript - git clean / git reset --hard', () {
+      const userPrompt = 'Reset repo';
+      const aiResponse = '''```bash
+git clean -fd
+git reset --hard HEAD
+```''';
+
+      test('adds confirmDestructive for git destructive commands', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        expect(draft.constraints, contains('ต้องได้รับอนุมัติก่อนรันคำสั่งที่ลบหรือแก้ไขไฟล์'));
+      });
+    });
+
+    group('distillScript - variable expansion in step titles', () {
+      const userPrompt = 'Backup with custom dir';
+      const aiResponse = '''```bash
+#!/bin/bash
+BACKUP_DIR="\$HOME/my_backups"
+mkdir -p "\$BACKUP_DIR"
+tar -czf "\$BACKUP_DIR/project.tar.gz" .
+```''';
+
+      test('expands \$HOME to ~ and \$BACKUP_DIR to value', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // Step titles should have expanded variables
+        for (final step in draft.steps) {
+          expect(step.title.contains('\$'), false, reason: 'Step title should not have raw \$: ${step.title}');
+        }
+        
+        // mkdir step should show expanded path
+        final mkdirStep = draft.steps.firstWhere((s) => s.title.contains('สร้างโฟลเดอร์'));
+        expect(mkdirStep.title, contains('~'));
+        expect(mkdirStep.title, contains('my_backups'));
+      });
+    });
+
+    group('distillScript - goal from userPrompt not step titles', () {
+      const userPrompt = '備份專案到 tar.gz，排除 node_modules';
+      const aiResponse = '''```bash
+tar --exclude=node_modules -czf backup.tar.gz .
+```''';
+
+      test('goal uses userPrompt intent, not step titles joined with arrows', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // Goal should not contain "→" (arrow from joined step titles)
+        expect(draft.goal, isNot(contains('→')));
+        // Goal should mention backup intent
+        expect(draft.goal, contains('สำรอง'));
+        expect(draft.goal, contains('node_modules'));
+        // Goal should not equal name
+        expect(draft.goal, isNot(draft.name));
+      });
+    });
+
+    group('distillScript - main script selection (multiple blocks)', () {
+      const userPrompt = 'Backup script';
+      const aiResponse = '''Here is an example output:
+
+```
+project-20261125.tar.gz
+Size: 1.2 MB
+```
+
+And the actual script:
+
+```bash
+#!/bin/bash
+tar --exclude=node_modules -czf backup.tar.gz .
+```''';
+
+      test('picks the script block with shebang, not example output', () {
+        final draft = distillScript(
+          userPrompt: userPrompt,
+          assistantMarkdown: aiResponse,
+          lex: const ThaiLex(),
+          allowCjk: false,
+        );
+        
+        // Should parse the script block, not the example output
+        expect(draft.steps.length, greaterThanOrEqualTo(3));
+        
+        // Should not have garbage from example output
+        for (final step in draft.steps) {
+          expect(step.title.startsWith(': '), false);
+          expect(step.title, isNot(contains('Size:')));
+        }
+      });
+    });
+
     group('distillScript - unclosed code fence', () {
       const userPrompt = 'Test';
       const aiResponse = '''```bash

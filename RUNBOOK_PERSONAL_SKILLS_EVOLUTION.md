@@ -461,4 +461,151 @@ Previous implementation (Phases 2-3) had critical bugs discovered via CI and use
 
 ---
 
+## 🗺️ FUTURE ROADMAP (Stage 4 → Stage 10+)
+
+> **Complete plan from current Stage 4 Gate through final Stage 10+**
+> **Purpose:** Prevent scope loss, enable seamless continuation across sessions
+
+---
+
+### 📅 STAGE 4: Execution PoC — Device Verification (CRITICAL GATE)
+**Status:** ⏳ Pending — Requires Quality Gate pass → Build APK → Device test
+**Goal:** Prove Save as Skill → Execute → Verify output works on real device
+**Tasks:**
+- [ ] Wait for Quality Gate Run 45551483937 to pass
+- [ ] Manual dispatch Build APK: `gh workflow run build-apk.yml --ref feat/skills-evolution -f enable_skills=true`
+- [ ] Download `app-arm64-v8a-release.apk` from Artifacts
+- [ ] Install on device → Open dsh-Go → Chat → Save as Skill from message
+- [ ] Verify: Script extracted correctly, steps meaningful, tools detected (tar/gzip/sha256sum)
+- [ ] Execute skill → Verify approval flow → Verify output
+- [ ] **Gate Criteria:** All above work → Merge to `thai/release`
+
+---
+
+### 📅 STAGE 5: Full Execution — Device Verification
+**Status:** ⏳ After Stage 4 Gate passes
+**Analyze Status:** ✅ Complete (Quality Gate 45384536248)
+**Goal:** Verify full execution engine works on device
+**Components to verify:**
+- [ ] `SkillExecutionController` (Riverpod Notifier) — state machine works
+- [ ] `SkillExecutor` (DshClient adapter) — tool calls execute correctly
+- [ ] `ParameterResolver` — `${param}` substitution works with user inputs
+- [ ] `StepRunner` — Tool mode & Agent mode both execute
+- [ ] State machine: Pending → Running → WaitingApproval → WaitingInput → Running → Completed/Failed/Cancelled
+- [ ] Retry/ErrorHandling configurable
+- [ ] Concurrent skill execution (if supported)
+- [ ] **Gate Criteria:** All execution paths work on device → Ready for Stage 6
+
+---
+
+### 📅 STAGE 6: Intelligence & Evolution — Device Verification
+**Status:** ⏳ After Stage 5 passes
+**Analyze Status:** ✅ Complete (Quality Gate 45384536248)
+**Goal:** Verify intelligence features work on device
+**Components to verify:**
+- [ ] `SkillHistory` — RunRecord storage, retrieval, query
+- [ ] `ImprovementProposal` — Auto-propose after failures, apply improvements
+- [ ] `SkillImportExport` — JSON export/import with full v2 schema
+- [ ] Sub-skills / Composition (if implemented) — skill calls skill
+- [ ] **Gate Criteria:** All intelligence features work → Ready for Stage 7
+
+---
+
+### 📅 STAGE 7: MVP LITE — Missing Features Implementation
+**Status:** 🔄 Planned (from MVP Lite Proposal "NOT in MVP")
+**Features NOT in MVP Lite but planned:**
+| Feature | Priority | Notes |
+|---------|----------|-------|
+| Audit Log (RunRecord) | 🔴 High | Phase 6 foundation exists |
+| Auto-propose improvements | 🔴 High | Phase 6 foundation exists |
+| Export/Import JSON | 🔴 High | Phase 6 foundation exists |
+| Sub-skills / Composition | 🟡 Medium | Skill calls skill, parameter passing |
+| Knowledge skill execution | 🟡 Medium | Currently not runnable by design |
+| Skill versioning & diff | 🟡 Medium | Git-like history for skills |
+| Skill sharing / marketplace | 🟢 Low | Export/import + community features |
+| Skill scheduling / cron | 🟢 Low | Run skills on schedule |
+
+---
+
+### 📅 STAGE 8: Advanced Execution Features
+**Status:** 🔄 Future
+| Feature | Description |
+|---------|-------------|
+| Parallel step execution | Run independent steps concurrently |
+| Conditional branching | if/else steps based on previous output |
+| Loop steps | Repeat step N times or until condition |
+| Dynamic parameter injection | Runtime values from previous steps |
+| Skill timeout & resource limits | Per-skill CPU/memory/time budgets |
+| Streaming output | Real-time output during long-running skills |
+
+---
+
+### 📅 STAGE 9: Skill Ecosystem & Community
+**Status:** 🔄 Future
+| Feature | Description |
+|---------|-------------|
+| Skill marketplace | Browse, install, rate community skills |
+| Skill versioning & semver | Git-like history, branches, tags |
+| Skill dependencies | Skill A requires Skill B |
+| Private skill registry | Team/org internal skill sharing |
+| Skill signing & verification | Provenance, tamper detection |
+| Analytics dashboard | Usage stats, success rates, performance |
+
+---
+
+### 📅 STAGE 10: AI-Native Skill Evolution
+**Status:** 🔮 Vision / Long-term
+| Feature | Description |
+|---------|-------------|
+| Auto-generate skills from intent | LLM writes skill from natural language |
+| Self-improving skills | Skills learn from execution traces |
+| Skill composition by AI | AI combines skills for complex tasks |
+| Cross-session learning | Skills improve across all user sessions |
+| Predictive skill suggestion | "You might need this skill next" |
+| Skill health monitoring | Auto-detect broken/deprecated skills |
+
+---
+
+### 📋 MILESTONE TIMELINE (Estimated)
+
+| Stage | Target | Dependencies |
+|-------|--------|--------------|
+| **4 Gate: Device Test** | Immediately after CI green | CI pass → Build APK → Device |
+| **5 Device Verify** | +1-2 weeks after Stage 4 | Stage 4 gate pass |
+| **6 Device Verify** | +1-2 weeks after Stage 5 | Stage 5 pass |
+| **7 MVP Lite Missing** | +2-4 weeks after Stage 6 | Stage 6 pass |
+| **8 Advanced Execution** | +1-2 months | Stage 7 complete |
+| **9 Ecosystem** | +2-3 months | Stage 8 complete |
+| **10 AI-Native** | +6+ months | Stage 9 + AI infra |
+
+---
+
+### 🔑 KEY DECISIONS LOGGED (Do Not Revisit)
+
+| Decision | Rationale | Logged |
+|----------|-----------|--------|
+| No local Flutter SDK — CI only | arm64 no Flutter SDK | 2026-11-23 |
+| Build APK manual dispatch | Token lacks workflow scope | 2026-11-23 |
+| Device test mandatory | PRoot/runtime only verifiable on device | 2026-11-23 |
+| No Sub-skills in MVP | Complexity, defer to Stage 7 | 2026-11-24 |
+| Knowledge skills not runnable | By design — reference only | 2026-11-24 |
+| Execution via Agent prompt | No direct tool RPC | 2026-11-23 |
+| `FORK_SKILLS` kill switch | Safety, easy rollback | 2026-11-23 |
+
+---
+
+### 📌 QUICK REFERENCE: NEXT ACTIONS BY STAGE
+
+| Current Stage | Next Action | Command / Note |
+|---------------|-------------|----------------|
+| **4 (current)** | Wait CI → Build APK → Device Test | `gh run watch 45551483937` → dispatch Build APK |
+| **5** | Device verify execution engine | Install APK → test all execution paths |
+| **6** | Device verify intelligence | Test history, proposals, import/export |
+| **7** | Implement MVP missing features | Audit log, auto-propose, export/import, sub-skills |
+| **8** | Advanced execution features | Parallel, conditional, loops, streaming |
+| **9** | Ecosystem features | Marketplace, versioning, sharing |
+| **10** | AI-native evolution | Auto-generation, self-improvement |
+
+---
+
 *End of Runbook — Save this file and reference for all future work on Personal Skills Evolution*

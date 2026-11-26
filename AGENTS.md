@@ -2,6 +2,43 @@
 
 dsh-Go 是 DeepSeek Harness 的手机应用：Flutter 原生界面 + 纯 Dart 客户端 + 打过补丁的 DSH 引擎运行时。Android 版在 PRoot 里运行 `dsh web`；鸿蒙版共用同一套 Dart，宿主是 ArkTS（`app/ohos/`），引擎跑在 App 进程内的 Node 里（`runtime/ohos/`，见 [docs/architecture.md §3B](docs/architecture.md)）。改动前先读 [CONTRIBUTING.md](CONTRIBUTING.md)（贡献与验证契约）与 [docs/architecture.md](docs/architecture.md)。
 
+---
+
+## 🚀 NEW SESSION QUICK START (Personal Skills Evolution)
+
+**If you're starting a new chat and working on Personal Skills Evolution, READ THESE FIRST:**
+
+| File | Purpose | Why Read It |
+|------|---------|-------------|
+| **RUNBOOK_PERSONAL_SKILLS_EVOLUTION.md** | Complete phase tracking, commands, file inventory, safety rules | Single source of truth for all 6 phases, current status, and next steps |
+| **PROJECT_STATUS.md** | Latest git state, CI run IDs, branch structure, pending tasks | Exact current commit, branch, CI status, and what's done vs pending |
+
+**Current State (as of 2026-11-24):**
+- **Branch:** `feat/skills-evolution` @ `e808c7ee0`
+- **Phase:** 5 COMPLETE (analyze), Phase 6 Analyze Fixes COMPLETE
+- **Last CI:** Quality Gate Run **45384536248** ✅ — `flutter analyze` 0 errors
+- **Next:** Manual Build APK dispatch with `enable_skills=true`, then device test
+
+**Quick Resume Commands:**
+```bash
+cd /root/workspace/dsh-Go
+git status
+git log -5 --oneline
+# Then read RUNBOOK_PERSONAL_SKILLS_EVOLUTION.md and PROJECT_STATUS.md
+```
+
+---
+
+## 🔐 GitHub Token Setup
+
+Token is stored in **gh CLI config** (`~/.config/gh/hosts.yml`) — survives session restarts.
+
+**Verify:** `gh auth status` → should show logged in as `zazha093`
+
+**If missing:** Token has `repo` + `workflow` scopes (classic PAT) or Actions/Contents/Workflows Read&Write (fine-grained). Re-add from secure storage.
+
+**Do NOT** commit token to this file or any repo file.
+
 ## 仓库布局
 
 ```
