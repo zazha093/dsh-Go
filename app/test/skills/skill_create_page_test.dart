@@ -22,7 +22,6 @@ import 'package:dsh_app/skills/skill_distill.dart';
 import 'package:dsh_app/state/connection_state.dart';
 import 'package:dsh_app/state/hosts_state.dart';
 import 'package:dsh_client/dsh_client.dart';
-import 'package:dsh_client/rpc.dart';
 
 /// Fake distillation controller for testing
 /// Extends SkillDistillController but overrides distillFromText completely
@@ -393,5 +392,5 @@ void main() {
         expect(find.text('กำลังสรุปด้วย AI...'), findsNothing);
       });
     });
-  }
+  });
 }
