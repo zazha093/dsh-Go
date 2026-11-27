@@ -12,9 +12,10 @@ import 'dart:convert';
 
 import 'package:dsh_client/dsh_client.dart';
 
-import '../skills/skill_distill.dart';
-import '../skills/skill_model.dart';
-import '../skills/distill/heuristics.dart';
+import '../../skills/skill_distill.dart';
+import '../../skills/skill_model.dart';
+import '../../skills/distill/heuristics.dart';
+import '../../skills/distill/types.dart';
 import '../fork/ai_summarizer.dart';
 import '../fork/draft_validator.dart';
 import '../fork/completion_transport.dart';
@@ -276,10 +277,4 @@ class DshSummaryService implements SummaryService {
       tools: skill.requiredTools,
     );
   }
-}
-
-/// Exception for cancellation
-class _CancellationException implements Exception {
-  @override
-  String toString() => 'Operation cancelled';
 }
