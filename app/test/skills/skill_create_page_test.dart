@@ -11,8 +11,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart'
-    show ProviderScope, ProviderContainer, overrideWith;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:dsh_app/l10n/l10n.dart';
@@ -29,6 +28,18 @@ import 'package:dsh_client/dsh_client.dart';
 class _FakeSkillDistillController extends SkillDistillController {
   final Completer<DistillState> _completer = Completer<DistillState>();
   bool _shouldHang = false;
+  bool _mounted = true;
+
+  @override
+  DistillState build() {
+    _mounted = true;
+    ref.onDispose(() {
+      _mounted = false;
+    });
+    return const DistillState();
+  }
+
+  bool get mounted => _mounted;
 
   @override
   Future<void> distillFromText(DistillInput input) async {
@@ -85,7 +96,7 @@ class _FakeSkillDistillController extends SkillDistillController {
 
 /// Minimal fake DshClient for testing
 class _FakeDshClient extends DshClient {
-  _FakeDshClient() : super.ephemeral();
+  _FakeDshClient() : super.withCarrier(_FakeCarrier());
 
   @override
   Future<void> connect() async {}
@@ -103,10 +114,24 @@ class _FakeDshClient extends DshClient {
   }
 
   @override
-  Future<void> archiveSession({
-    required String sessionId,
-    bool stopActivity = false,
-  }) async {}
+  Future<List<String>> archiveSession(String sessionId, {bool? stopActivity}) async {
+    return <String>[];
+  }
+}
+
+/// Fake carrier for testing
+class _FakeCarrier extends DshCarrier {
+  @override
+  Future<void> connect() async {}
+
+  @override
+  Future<void> close() async {}
+
+  @override
+  Stream<DshFrame> get incomingFrames => const Stream.empty();
+
+  @override
+  Future<void> send(DshFrame frame) async {}
 }
 
 void main() {
