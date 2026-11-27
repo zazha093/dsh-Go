@@ -23,10 +23,6 @@ import 'widgets/step_editor.dart';
 import 'widgets/parameter_binding_ui.dart';
 import 'widgets/dry_run_preview.dart';
 
-/// Input for distillation controller (Phase 3/4/5)
-/// Re-exported from skill_distill_controller.dart for backward compatibility
-typedef _DistillInputForController = DistillInput;
-
 /// Create page for a new skill (or distilling from session, or from selected message(s))
 class SkillCreatePage extends ConsumerStatefulWidget {
   const SkillCreatePage({
@@ -95,10 +91,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   String? _distillError;
 
   // Phase 5: AI proposal and breadcrumbs
-  Skill? _aiProposedSkill;
-  bool _showAIProposal = false;
   final List<String> _breadcrumbs = [];
 
+  /// Log a breadcrumb event for debugging/tracing
   void _logBreadcrumb(String event, {String? source, int fieldsFromAi = 0, int fieldsFromRules = 0}) {
     final timestamp = DateTime.now().toIso8601String();
     _breadcrumbs.add('[$timestamp] $event${source != null ? ' source=$source' : ''} ai=$fieldsFromAi rules=$fieldsFromRules');
@@ -109,6 +104,29 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   @override
   void initState() {
     super.initState();
+
+    // Phase 5: Listen to controller state changes for breadcrumb logging
+    ref.listen<DistillState>(skillDistillControllerProvider, (previous, next) {
+      if (previous == null) return;
+      
+      // AI events
+      if (previous.status != DistillStatus.running && next.status == DistillStatus.running) {
+        _logBreadcrumb('ai:start', source: 'controller');
+      } else if (previous.status == DistillStatus.running && next.status == DistillStatus.ready) {
+        if (next.aiProposedSkill != null) {
+          _logBreadcrumb('ai:ok', source: 'controller', fieldsFromAi: _countNonNullFields(next.aiProposedSkill!));
+        } else {
+          _logBreadcrumb('ai:timeout', source: 'controller');
+        }
+      } else if (previous.status == DistillStatus.running && (next.status == DistillStatus.failed || next.status == DistillStatus.cancelled)) {
+        if (next.status == DistillStatus.cancelled) {
+          _logBreadcrumb('ai:cancel', source: 'controller');
+        } else {
+          _logBreadcrumb('ai:invalid', source: 'controller');
+        }
+      }
+    });
+
     if (widget.initialSkill != null) {
       _fillForm(widget.initialSkill!);
     } else if (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) {
@@ -198,6 +216,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
         // Phase 4/5: Start AI summarization + validation in background
         if (mounted) {
+          _logBreadcrumb('distill:source', source: 'turn');
           // Get DshClient from active connection
           final client = ref.read(activeConnectionProvider).value?.client;
           final controller = ref.read(skillDistillControllerProvider.notifier);
@@ -220,6 +239,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
         // Phase 4/5: Start AI summarization + validation in background
         if (mounted) {
+          _logBreadcrumb('distill:source', source: 'message');
           // Get DshClient from active connection
           final client = ref.read(activeConnectionProvider).value?.client;
           final controller = ref.read(skillDistillControllerProvider.notifier);
@@ -255,6 +275,8 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     // Capture context-dependent values before await to avoid use_build_context_synchronously lint
     final messenger = ScaffoldMessenger.of(context);
     final l10n = context.l10n;
+
+    _logBreadcrumb('distill:source', source: 'session');
 
     setState(() {
       _distillError = null;
@@ -357,7 +379,10 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                   : l10n.skillsCreate),
           leading: IconButton(
             icon: const Icon(app_icons.AppIcons.close),
-            onPressed: () => _safePop(), // Allow close even during loading (emergency exit)
+            onPressed: () {
+              _logBreadcrumb('page:close', source: 'appbar');
+              _safePop();
+            }, // Allow close even during loading (emergency exit)
           ),
         ),
         body: Form(
@@ -421,7 +446,10 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () => _safePop(), // Allow cancel even during loading (emergency exit)
+                          onPressed: () {
+                            _logBreadcrumb('page:close', source: 'bottom_bar');
+                            _safePop();
+                          }, // Allow cancel even during loading (emergency exit)
                           child: Text(l10n.skillsCancel),
                         ),
                       ),
@@ -694,6 +722,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 ),
                 OutlinedButton(
                   onPressed: () {
+                    _logBreadcrumb('ai:cancel', source: 'user');
                     ref.read(skillDistillControllerProvider.notifier).cancel();
                   },
                   style: OutlinedButton.styleFrom(
@@ -762,6 +791,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                     Expanded(
                       child: OutlinedButton(
                         onPressed: () {
+                          _logBreadcrumb('ai:cancel', source: 'user');
                           // Dismiss AI proposal
                           ref.read(skillDistillControllerProvider.notifier).cancel();
                         },
@@ -775,6 +805,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                     Expanded(
                       child: FilledButton(
                         onPressed: () {
+                          _logBreadcrumb('ai:ok', source: 'user', fieldsFromAi: _countNonNullFields(distillState.aiProposedSkill!));
                           // Use AI proposal - fill form with AI proposal but preserve user edits
                           _applyAIProposal(distillState.aiProposedSkill!);
                         },
@@ -964,5 +995,20 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   String _generateId() {
     return DateTime.now().millisecondsSinceEpoch.toRadixString(36) +
         (DateTime.now().microsecond % 1000).toRadixString(36);
+  }
+
+  /// Count non-null fields in a skill for breadcrumb logging
+  int _countNonNullFields(Skill skill) {
+    int count = 0;
+    if (skill.name.isNotEmpty) count++;
+    if (skill.description.isNotEmpty) count++;
+    if (skill.goal.isNotEmpty) count++;
+    if (skill.steps.isNotEmpty) count++;
+    if (skill.constraints.isNotEmpty) count++;
+    if (skill.requiredTools.isNotEmpty) count++;
+    if (skill.userInputs.isNotEmpty) count++;
+    if (skill.executableSteps?.isNotEmpty == true) count++;
+    if (skill.parameters?.isNotEmpty == true) count++;
+    return count;
   }
 }
