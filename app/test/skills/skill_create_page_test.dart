@@ -11,7 +11,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart'
+    show ProviderScope, ProviderContainer, overrideWith;
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:dsh_app/l10n/l10n.dart';
@@ -20,21 +21,17 @@ import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill_controller.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
 import 'package:dsh_app/state/connection_state.dart';
+import 'package:dsh_client/dsh_client.dart';
 
 /// Fake distillation controller for testing
-/// Does NOT extend SkillDistillController to avoid private member access issues
-class _FakeSkillDistillController extends AutoDisposeNotifier<DistillState> {
+/// Extends SkillDistillController but overrides distillFromText completely
+/// to avoid accessing private members (_disposed, _aiSummarizer, etc.)
+class _FakeSkillDistillController extends SkillDistillController {
   final Completer<DistillState> _completer = Completer<DistillState>();
-  DistillInput? _lastInput;
+  bool _shouldHang = false;
 
   @override
-  DistillState build() {
-    return const DistillState();
-  }
-
   Future<void> distillFromText(DistillInput input) async {
-    _lastInput = input;
-    
     // Phase 3: Instant rule-based draft (synchronous)
     final ruleBasedSkill = SkillDistiller.createFromMessageText(
       userMessage: input.userMessage,
@@ -48,14 +45,19 @@ class _FakeSkillDistillController extends AutoDisposeNotifier<DistillState> {
 
     // Phase 4/5: AI summarization in background (if client available)
     if (input.dshClient != null) {
+      if (_shouldHang) {
+        // Hang forever - wait for completer that never completes
+        await _completer.future;
+        return;
+      }
+
       try {
-        // Wait for test to complete or hang
+        // Wait for test to complete
         final result = await _completer.future.timeout(const Duration(seconds: 30));
         if (mounted) {
           state = result;
         }
       } on TimeoutException {
-        // Hang - test controls this via hang()
         if (mounted) {
           state = state.copyWith(
             status: DistillStatus.failed,
@@ -76,18 +78,36 @@ class _FakeSkillDistillController extends AutoDisposeNotifier<DistillState> {
 
   /// Make the AI hang (never complete the completer)
   void hang() {
-    // Don't complete the completer - it will timeout after 30s
-    // In tests, we'll use a shorter timeout or just not complete
+    _shouldHang = true;
+    // Don't complete the completer
   }
-
-  DistillInput? get lastInput => _lastInput;
 }
 
-/// Provider override for the fake controller
-final _fakeSkillDistillControllerProvider =
-    NotifierProvider.autoDispose<_FakeSkillDistillController, DistillState>(
-  _FakeSkillDistillController.new,
-);
+/// Minimal fake DshClient for testing
+class _FakeDshClient extends DshClient {
+  _FakeDshClient() : super.ephemeral();
+
+  @override
+  Future<void> connect() async {}
+
+  @override
+  Future<void> disconnect() async {}
+
+  @override
+  Future<String> complete({
+    required String prompt,
+    Map<String, dynamic>? options,
+    bool? isCancelled,
+  }) async {
+    return '{}'; // Return empty JSON
+  }
+
+  @override
+  Future<void> archiveSession({
+    required String sessionId,
+    bool stopActivity = false,
+  }) async {}
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -105,7 +125,6 @@ void main() {
       String? sessionTitle,
       Skill? initialSkill,
     }) async {
-      // Create a fake DshClient for tests that need it
       final fakeClient = _FakeDshClient();
 
       await tester.pumpWidget(
@@ -316,30 +335,4 @@ void main() {
       });
     });
   }
-}
-
-/// Minimal fake DshClient for testing
-class _FakeDshClient extends DshClient {
-  _FakeDshClient() : super(baseUrl: 'http://fake', token: 'fake');
-
-  @override
-  Future<void> connect() async {}
-
-  @override
-  Future<void> disconnect() async {}
-
-  @override
-  Future<String> complete({
-    required String prompt,
-    Map<String, dynamic>? options,
-    bool? isCancelled,
-  }) async {
-    return '{}'; // Return empty JSON
-  }
-
-  @override
-  Future<void> archiveSession({
-    required String sessionId,
-    bool stopActivity = false,
-  }) async {}
 }
