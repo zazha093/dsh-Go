@@ -20,7 +20,9 @@ import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill_controller.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
 import 'package:dsh_app/state/connection_state.dart';
+import 'package:dsh_app/state/hosts_state.dart';
 import 'package:dsh_client/dsh_client.dart';
+import 'package:dsh_client/rpc.dart';
 
 /// Fake distillation controller for testing
 /// Extends SkillDistillController but overrides distillFromText completely
@@ -129,7 +131,7 @@ class _FakeCarrier extends DshCarrier {
 
   @override
   Future<RpcResult> call(String endpoint, Map<String, Object?> args, {Duration? timeout}) async {
-    return RpcResult.ok({'result': {}});
+    return const RpcOk({'result': {}});
   }
 
   @override
