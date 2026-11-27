@@ -119,19 +119,47 @@ class _FakeDshClient extends DshClient {
   }
 }
 
-/// Fake carrier for testing
+/// Fake carrier for testing - implements all required DshCarrier methods
 class _FakeCarrier extends DshCarrier {
   @override
-  Future<void> connect() async {}
+  String get kind => 'fake';
+
+  @override
+  DshTracer? get tracer => null;
+
+  @override
+  Future<RpcResult> call(String endpoint, Map<String, Object?> args, {Duration? timeout}) async {
+    return RpcResult.ok({'result': {}});
+  }
+
+  @override
+  Future<DshMuxLink> openLink(MuxOptions options) async {
+    return _FakeMuxLink();
+  }
 
   @override
   Future<void> close() async {}
+}
+
+/// Fake MuxLink for testing
+class _FakeMuxLink extends DshMuxLink {
+  @override
+  void start({required DshMuxFrameHandler onFrame, required DshMuxLossHandler onLost}) {}
 
   @override
-  Stream<DshFrame> get incomingFrames => const Stream.empty();
+  void open(String streamId, String endpoint, Map<String, Object?> payload) {}
 
   @override
-  Future<void> send(DshFrame frame) async {}
+  void sendItem(String streamId, Object? value) {}
+
+  @override
+  void endUplink(String streamId) {}
+
+  @override
+  void cancel(String streamId) {}
+
+  @override
+  Future<void> close(int code, String reason) async {}
 }
 
 void main() {
@@ -157,7 +185,11 @@ void main() {
           overrides: [
             skillDistillControllerProvider.overrideWith(() => testController),
             activeConnectionProvider.overrideWith(
-              (ref) => AsyncValue.data(ConnectionStateData(client: fakeClient)),
+              (ref) => AsyncValue.data(HostConnection(
+                client: fakeClient,
+                isLocal: true,
+                kind: HostKind.local,
+              )),
             ),
           ],
           child: MaterialApp(
