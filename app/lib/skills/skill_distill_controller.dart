@@ -1,6 +1,6 @@
 // Distillation controller for skill creation with cancellation and timeout support
 //
-// Phase 4/5: Integrates AI summarizer + draft validator for AI-assisted distillation
+// Phase 4/5: Integrates SummaryService for AI-assisted distillation
 
 import 'dart:async';
 
@@ -11,8 +11,8 @@ import 'package:dsh_client/dsh_client.dart';
 import 'skill_distill.dart';
 import 'skill_model.dart';
 import 'distill/heuristics.dart';
-import '../fork/ai_summarizer.dart';
-import '../fork/draft_validator.dart';
+import '../fork/summary_service.dart';
+import '../fork/completion_transport.dart';
 
 /// State for the distillation process
 @immutable
@@ -75,8 +75,6 @@ class SkillDistillController extends Notifier<DistillState> {
   Timer? _timeoutTimer;
   bool _cancelled = false;
   bool _disposed = false;
-  AiSummarizer? _aiSummarizer;
-  DraftValidator? _draftValidator;
 
   @override
   DistillState build() {
@@ -86,15 +84,8 @@ class SkillDistillController extends Notifier<DistillState> {
       _cancelled = true;
       _timeoutTimer?.cancel();
       _timeoutTimer = null;
-      _aiSummarizer?.cancel();
     });
     return const DistillState();
-  }
-
-  /// Initialize AI summarizer and draft validator (call after build when ref is available)
-  void initializeAi(DshClient client, DistilledDraft ruleBasedDraft) {
-    _aiSummarizer = AiSummarizer(client: client);
-    _draftValidator = DraftValidator(ruleBasedDraft: ruleBasedDraft);
   }
 
   /// Start distillation from message text
@@ -126,50 +117,45 @@ class SkillDistillController extends Notifier<DistillState> {
     if (_disposed) return;
     state = state.copyWith(status: DistillStatus.ready, skill: ruleBasedSkill, progress: 0.5);
 
-    // Initialize AI components with rule-based draft for validation fallback
+    // Phase 4/5: AI summarization + validation via SummaryService (if client available)
     if (input.dshClient != null) {
-      initializeAi(input.dshClient!, _createRuleBasedDraft(ruleBasedSkill));
-    }
-
-    // Phase 4/5: AI summarization in background (if client available)
-    if (input.dshClient != null && _aiSummarizer != null && _draftValidator != null) {
-      _runAiSummarization(input, ruleBasedSkill);
+      _runSummarization(input, ruleBasedSkill);
     }
   }
 
-  /// Run AI summarization + validation in background
-  Future<void> _runAiSummarization(DistillInput input, Skill ruleBasedSkill) async {
+  /// Run AI summarization + validation via SummaryService
+  Future<void> _runSummarization(DistillInput input, Skill ruleBasedSkill) async {
     try {
       if (_disposed) return;
       state = state.copyWith(progress: 0.6);
 
-      // Phase 4: AI summarization via ephemeral session
-      final aiResult = await _aiSummarizer!.summarize(
-        userMessage: input.userMessage,
-        aiResponse: input.aiResponse,
-        toolCallsWithArgs: input.toolCallsWithArgs ?? [],
-        sessionTitle: input.sessionTitle,
-      );
+      // Get SummaryService from provider
+      final summaryService = ref.read(summaryServiceProvider);
+
+      // Run summarization via SummaryService (combines AI + validation + JSON extraction)
+      final outcome = await summaryService.summarize(input);
 
       if (_cancelled || _disposed) return;
 
-      // Phase 4/5: Draft validation with rule-based fallback
-      final validationResult = _draftValidator!.validate(aiResult.skill);
-
-      if (_disposed) return;
-
       // Emit AI proposed skill (validated)
       state = state.copyWith(
-        aiProposedSkill: validationResult.validatedSkill,
+        aiProposedSkill: outcome.skill,
         progress: 1.0,
       );
-    } on TimeoutException {
+    } on _CancellationException {
+      if (_disposed) return;
+      state = state.copyWith(
+        status: DistillStatus.cancelled,
+        aiProposedSkill: null,
+      );
+    } catch (e) {
       if (_disposed) return;
       state = state.copyWith(
         status: DistillStatus.failed,
-        error: 'AI summarization timed out',
+        error: 'AI summarization failed: $e',
         aiProposedSkill: null,
       );
+    }
     } catch (e) {
       if (_disposed) return;
       state = state.copyWith(
@@ -198,7 +184,6 @@ class SkillDistillController extends Notifier<DistillState> {
     _cancelled = true;
     _timeoutTimer?.cancel();
     _timeoutTimer = null;
-    _aiSummarizer?.cancel();
     if (!_disposed) {
       state = state.copyWith(status: DistillStatus.cancelled, aiProposedSkill: null);
     }
@@ -209,7 +194,6 @@ class SkillDistillController extends Notifier<DistillState> {
     _cancelled = true;
     _timeoutTimer?.cancel();
     _timeoutTimer = null;
-    _aiSummarizer?.cancel();
     if (!_disposed) {
       state = const DistillState();
     }
@@ -220,4 +204,20 @@ class SkillDistillController extends Notifier<DistillState> {
 final skillDistillControllerProvider =
     NotifierProvider.autoDispose<SkillDistillController, DistillState>(() {
   return SkillDistillController();
+});
+
+/// Provider for the completion transport (lower layer - fakeable for tests)
+final completionTransportProvider = Provider<CompletionTransport>((ref) {
+  final client = ref.watch(activeConnectionProvider).value?.client;
+  if (client == null) {
+    // Return a fake transport that will fail gracefully
+    return FakeCompletionTransport(shouldThrow: true);
+  }
+  return DshCompletionTransport(client);
+});
+
+/// Provider for the summary service (upper layer - combines AI + validation + JSON extraction)
+final summaryServiceProvider = Provider<SummaryService>((ref) {
+  final transport = ref.watch(completionTransportProvider);
+  return DshSummaryService(transport: transport);
 });
