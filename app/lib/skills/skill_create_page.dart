@@ -86,6 +86,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
   bool _isLoading = false;
   bool _isPopping = false;
+  bool _cancelled = false;
   Skill? _distilledSkill;
   String? _distillError;
 
