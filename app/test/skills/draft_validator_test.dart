@@ -4,7 +4,6 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:dsh_app/fork/draft_validator.dart';
 import 'package:dsh_app/skills/skill_model.dart';
-import 'package:dsh_app/skills/skill_distill.dart';
 
 void main() {
   group('DraftValidator', () {
@@ -702,7 +701,7 @@ void main() {
             description: '',
             goal: 'Goal',
             steps: [],
-            constraints: ['  valid constraint  ', '', 'too long ' + 'a' * 200],
+            constraints: ['  valid constraint  ', '', 'too long ${'a' * 200}'],
             requiredTools: [],
             userInputs: [],
             createdAt: DateTime.now(),

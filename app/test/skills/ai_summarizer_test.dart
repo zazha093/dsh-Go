@@ -215,15 +215,16 @@ void main() {
         createdAt: DateTime(2024, 1, 1),
         category: SkillCategory.development,
       );
-      const result = AiSummarizerResult(
-        skill: null, // Will be set below
+      final result = AiSummarizerResult(
+        skill: skill,
         fromCache: true,
         breadcrumb: 'test breadcrumb',
       );
-      // Can't use const with Skill, so test fields directly
-      expect(skill.id, 'test-id');
-      expect(skill.name, 'Test Skill');
-      expect(skill.category, SkillCategory.development);
+      expect(result.skill.id, 'test-id');
+      expect(result.skill.name, 'Test Skill');
+      expect(result.skill.category, SkillCategory.development);
+      expect(result.fromCache, true);
+      expect(result.breadcrumb, 'test breadcrumb');
     });
   });
 
