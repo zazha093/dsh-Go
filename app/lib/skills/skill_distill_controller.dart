@@ -3,7 +3,6 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dsh_client/dsh_client.dart';
 
 import 'distill/types.dart';
 import 'skill_model.dart';
@@ -184,7 +183,7 @@ class SkillDistillController extends Notifier<DistillState> {
       return SkillDistiller.createFromMessageText(
         userMessage: input.userMessage,
         aiResponse: input.aiResponse,
-        toolCalls: input.toolCalls,
+        toolCalls: input.toolCalls ?? [],
         sessionTitle: input.sessionTitle,
       );
     }

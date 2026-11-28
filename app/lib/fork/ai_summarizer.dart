@@ -1,7 +1,6 @@
 // AI Summarizer — ephemeral DshClient session for skill distillation
 
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dsh_client/dsh_client.dart';
 
@@ -43,10 +42,9 @@ class AiSummarizerConfig {
 /// AI Summarizer using ephemeral DshClient sessions
 class AiSummarizer {
   AiSummarizer({
-    required DshClient client,
+    required this._client,
     AiSummarizerConfig? config,
-  }) : _client = client,
-       _config = config ?? const AiSummarizerConfig();
+  }) : _config = config ?? const AiSummarizerConfig();
 
   final DshClient _client;
   final AiSummarizerConfig _config;
@@ -180,10 +178,13 @@ Rules:
     required String sessionTitle,
   }) {
     // Use rule-based extraction from the distiller
-    final distiller = SkillDistiller();
-    return distiller.createFromMessageText(
-      messageText: userMessage,
-      draftText: aiResponse ?? '',
+    // Extract tool names from ToolCallInfo list
+    final toolCalls = toolCallsWithArgs.map((tc) => tc.name).toList();
+    return SkillDistiller.createFromMessageText(
+      userMessage: userMessage,
+      aiResponse: aiResponse,
+      toolCalls: toolCalls,
+      sessionTitle: sessionTitle,
     );
   }
 
@@ -208,74 +209,5 @@ Rules:
       .replaceAll(RegExp(r'\b[\w\.-]+@[\w\.-]+\.\w+\b'), '<email>')
       // UUIDs
       .replaceAll(RegExp(r'\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b'), '<uuid>');
-  }
-
-  String _clampString(String s, int maxLen) => s.length > maxLen ? s.substring(0, maxLen) : s;
-
-  String _validateKind(String? kind) {
-    switch (kind?.toLowerCase()) {
-      case 'knowledge':
-      case 'workflow':
-      case 'executable':
-        return kind!.toLowerCase();
-      default:
-        return 'workflow';
-    }
-  }
-
-  List<String> _parseSteps(dynamic steps) {
-    if (steps is! List) return [];
-    return steps
-        .whereType<Map>()
-        .map((s) => _clampString(s['description']?.toString() ?? '', 150))
-        .where((s) => s.isNotEmpty)
-        .take(8)
-        .toList();
-  }
-
-  List<String> _parseStringList(dynamic list) {
-    if (list is! List) return [];
-    return list.whereType<String>().where((s) => s.isNotEmpty).toList();
-  }
-
-  List<String> _parseTools(dynamic tools) {
-    const validTools = {'bash', 'edit', 'web_fetch', 'read', 'write', 'search', 'present'};
-    if (tools is! List) return [];
-    return tools
-        .whereType<String>()
-        .map((t) => t.toLowerCase())
-        .where(validTools.contains)
-        .toList();
-  }
-
-  List<SkillInput> _parseParameters(dynamic params) {
-    if (params is! List) return [];
-    return params
-        .whereType<Map>()
-        .map((p) => SkillInput(
-              key: p['key']?.toString() ?? p['name']?.toString() ?? '',
-              label: p['label']?.toString() ?? p['description']?.toString() ?? p['name']?.toString() ?? '',
-              hint: p['hint']?.toString() ?? p['default']?.toString() ?? '',
-              type: _parseInputType(p['type']?.toString()),
-              required: p['required'] == true,
-              defaultValue: p['default']?.toString(),
-            ))
-        .where((p) => p.key.isNotEmpty)
-        .toList();
-  }
-
-  SkillInputType _parseInputType(String? type) {
-    switch (type?.toLowerCase()) {
-      case 'number':
-        return SkillInputType.number;
-      case 'boolean':
-        return SkillInputType.boolean;
-      case 'select':
-        return SkillInputType.select;
-      case 'multiline':
-        return SkillInputType.multiline;
-      default:
-        return SkillInputType.text;
-    }
   }
 }
