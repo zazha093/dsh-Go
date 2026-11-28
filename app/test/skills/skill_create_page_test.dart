@@ -100,13 +100,10 @@ class _FakeSkillDistillController extends SkillDistillController {
 class _FakeDshClient extends DshClient {
   _FakeDshClient() : super.withCarrier(_FakeCarrier());
 
-  @override
   Future<void> connect() async {}
 
-  @override
   Future<void> disconnect() async {}
 
-  @override
   Future<String> complete({
     required String prompt,
     Map<String, dynamic>? options,
@@ -115,7 +112,6 @@ class _FakeDshClient extends DshClient {
     return '{}'; // Return empty JSON
   }
 
-  @override
   Future<List<String>> archiveSession(String sessionId, {bool? stopActivity}) async {
     return <String>[];
   }

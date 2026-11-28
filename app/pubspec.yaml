@@ -40,6 +40,8 @@ dependencies:
   intl: any
   # The time the refresh-rate idle check reads; widget tests fake it.
   clock: ^1.1.3
+  # Required for @immutable annotation in types.dart
+  meta: ^1.15.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

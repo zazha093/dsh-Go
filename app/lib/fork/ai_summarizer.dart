@@ -5,13 +5,11 @@
 // This is a compile-time stub; actual implementation will be refined in follow-up.
 
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:dsh_client/dsh_client.dart';
 
 import '../skills/skill_distill.dart';
 import '../skills/skill_model.dart';
-import '../share_code/conversation_redact.dart';
 
 /// Configuration for AI summarization
 class AiSummarizerConfig {
@@ -50,10 +48,9 @@ class AiSummarizerResult {
 /// AI Summarizer using ephemeral DshClient session (stub implementation)
 class AiSummarizer {
   AiSummarizer({
-    required DshClient client,
+    required this._client,
     AiSummarizerConfig? config,
-  }) : _client = client,
-       _config = config ?? const AiSummarizerConfig();
+  }) : _config = config ?? const AiSummarizerConfig();
 
   final DshClient _client;
   final AiSummarizerConfig _config;

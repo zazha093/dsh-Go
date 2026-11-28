@@ -2,7 +2,6 @@
 
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dsh_client/dsh_client.dart';
@@ -87,7 +86,6 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
   bool _isLoading = false;
   bool _isPopping = false;
-  bool _cancelled = false;
   Skill? _distilledSkill;
   String? _distillError;
 

@@ -3,7 +3,6 @@
 // Field-level validation of AI-generated skill drafts with rule-based fallback.
 // Each field is validated independently; failed fields fall back to rule-based values.
 
-import '../skills/skill_distill.dart';
 import '../skills/skill_model.dart';
 import '../skills/distill/heuristics.dart';
 import '../ui/chat/secret_mask.dart';
@@ -48,10 +47,9 @@ class DraftValidationResult {
 /// Draft Validator - field-level validation with rule-based fallback
 class DraftValidator {
   DraftValidator({
-    required DistilledDraft ruleBasedDraft,
+    required this._ruleBasedDraft,
     DraftValidatorConfig? config,
-  }) : _ruleBasedDraft = ruleBasedDraft,
-       _config = config ?? const DraftValidatorConfig();
+  }) : _config = config ?? const DraftValidatorConfig();
 
   final DistilledDraft _ruleBasedDraft;
   final DraftValidatorConfig _config;
@@ -234,9 +232,9 @@ class DraftValidator {
       results['steps'] = FieldValidationResult(
         isValid: false,
         errorMessage: 'Too many steps (max 8)',
-        fallbackValue: _ruleBasedDraft.steps?.map((s) => s.title).toList(),
+        fallbackValue: _ruleBasedDraft.steps.map((s) => s.title).toList(),
       );
-      return _ruleBasedDraft.steps?.map((s) => s.title).take(8).toList() ?? [];
+      return _ruleBasedDraft.steps.map((s) => s.title).take(8).toList();
     }
     
     final validatedSteps = <String>[];
@@ -276,9 +274,9 @@ class DraftValidator {
       results['steps'] = FieldValidationResult(
         isValid: false,
         errorMessage: 'Steps validation failed',
-        fallbackValue: _ruleBasedDraft.steps?.map((s) => s.title).toList(),
+        fallbackValue: _ruleBasedDraft.steps.map((s) => s.title).toList(),
       );
-      return _ruleBasedDraft.steps?.map((s) => s.title).toList() ?? [];
+      return _ruleBasedDraft.steps.map((s) => s.title).toList();
     }
     
     results['steps'] = const FieldValidationResult(isValid: true);
@@ -314,7 +312,7 @@ class DraftValidator {
         errorMessage: 'Constraints validation failed',
         fallbackValue: _ruleBasedDraft.constraints,
       );
-      return _ruleBasedDraft.constraints ?? [];
+      return _ruleBasedDraft.constraints;
     }
     
     results['constraints'] = const FieldValidationResult(isValid: true);
@@ -350,7 +348,7 @@ class DraftValidator {
         errorMessage: 'Tools validation failed',
         fallbackValue: _ruleBasedDraft.tools,
       );
-      return _ruleBasedDraft.tools ?? [];
+      return _ruleBasedDraft.tools;
     }
     
     results['tools'] = const FieldValidationResult(isValid: true);

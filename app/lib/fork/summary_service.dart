@@ -10,8 +10,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:dsh_client/dsh_client.dart';
-
 import '../../skills/skill_distill.dart';
 import '../../skills/skill_model.dart';
 import '../../skills/distill/heuristics.dart';
@@ -72,17 +70,12 @@ abstract class SummaryService {
 /// Real implementation combining AiSummarizer + DraftValidator + JSON extraction.
 class DshSummaryService implements SummaryService {
   DshSummaryService({
-    required CompletionTransport transport,
+    required this._transport,
     SummaryServiceConfig? config,
-  }) : _transport = transport,
-       _config = config ?? const SummaryServiceConfig();
+  }) : _config = config ?? const SummaryServiceConfig();
 
   final CompletionTransport _transport;
   final SummaryServiceConfig _config;
-
-  AiSummarizer? _aiSummarizer;
-  DraftValidator? _draftValidator;
-  bool _cancelled = false;
 
   @override
   Future<SummaryOutcome> summarize(DistillInput input) async {
@@ -96,31 +89,8 @@ class DshSummaryService implements SummaryService {
       );
     }
 
-    // Create rule-based draft for validation fallback
+    // Create rule-based skill for validation fallback
     final ruleBasedSkill = _createRuleBasedSkill(input);
-    final ruleBasedDraft = _createRuleBasedDraft(ruleBasedSkill);
-
-    // Initialize AI components
-    final aiSummarizer = AiSummarizer(
-      client: input.dshClient!,
-      config: AiSummarizerConfig(
-        maxUserPromptChars: _config.maxUserPromptChars,
-        maxAssistantChars: _config.maxAssistantChars,
-        maxWriteScriptChars: _config.maxWriteScriptChars,
-        maxTotalPromptChars: _config.maxTotalPromptChars,
-        timeoutSeconds: _config.timeoutSeconds,
-        maxRetries: _config.maxRetries,
-        locale: _config.locale,
-      ),
-    );
-
-    final draftValidator = DraftValidator(
-      ruleBasedDraft: _createRuleBasedDraft(ruleBasedSkill),
-      config: DraftValidatorConfig(
-        locale: _config.locale,
-        allowCjk: _config.allowCjk,
-      ),
-    );
 
     // Build prompt for AI summarization
     final prompt = _buildPrompt(input);

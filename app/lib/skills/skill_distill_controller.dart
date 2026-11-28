@@ -4,9 +4,7 @@
 
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:dsh_client/dsh_client.dart';
 
 import 'skill_distill.dart';
 import 'skill_model.dart';
@@ -102,18 +100,6 @@ class SkillDistillController extends Notifier<DistillState> {
         aiProposedSkill: null,
       );
     }
-  }
-
-  /// Create DistilledDraft from rule-based skill for validation fallback
-  DistilledDraft _createRuleBasedDraft(Skill skill) {
-    return DistilledDraft(
-      name: skill.name,
-      goal: skill.goal,
-      description: skill.description,
-      steps: skill.steps.map((s) => StepDraft(StepKind.action, s)).toList(),
-      constraints: skill.constraints,
-      tools: skill.requiredTools,
-    );
   }
 
   /// Cancel ongoing distillation
