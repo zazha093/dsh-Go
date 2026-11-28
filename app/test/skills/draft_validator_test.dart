@@ -21,7 +21,7 @@ void main() {
           requiredTools: [],
           userInputs: [],
           createdAt: DateTime(2024, 1, 1),
-          category: 'test',
+          category: SkillCategory.development,
         );
         final ruleSkill = Skill(
           id: 'rule-1',
@@ -33,7 +33,7 @@ void main() {
           requiredTools: ['bash', 'edit'],
           userInputs: [],
           createdAt: DateTime(2024, 1, 1),
-          category: 'test',
+          category: SkillCategory.development,
         );
 
         final result = validator.validate(aiSkill, ruleSkill);
@@ -56,7 +56,7 @@ void main() {
           requiredTools: ['bash'],
           userInputs: [],
           createdAt: DateTime(2024, 1, 1),
-          category: 'test',
+          category: SkillCategory.development,
         );
         final ruleSkill = Skill(
           id: 'rule-1',
@@ -68,7 +68,7 @@ void main() {
           requiredTools: ['bash', 'edit'],
           userInputs: [],
           createdAt: DateTime(2024, 1, 1),
-          category: 'test',
+          category: SkillCategory.development,
         );
 
         final result = validator.validate(aiSkill, ruleSkill);
@@ -83,8 +83,30 @@ void main() {
       test('falls back for empty name', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: '', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: '',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'Rule Name');
       });
@@ -92,8 +114,30 @@ void main() {
       test('falls back for generic name', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'draft', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'draft',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'Rule Name');
       });
@@ -102,8 +146,30 @@ void main() {
         final validator = DraftValidator(locale: 'en');
         final longName = 'a' * 61;
         final result = validator.validate(
-          Skill(id: '1', name: longName, description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: longName,
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'Rule Name');
       });
@@ -111,8 +177,30 @@ void main() {
       test('allows CJK for Thai locale', () {
         final validator = DraftValidator(locale: 'th');
         final result = validator.validate(
-          Skill(id: '1', name: 'สร้างสคริปต์', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'สร้างสคริปต์',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'สร้างสคริปต์');
       });
@@ -120,8 +208,30 @@ void main() {
       test('falls back for CJK in English locale', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: '创建脚本', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: '创建脚本',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'Rule Name');
       });
@@ -129,8 +239,30 @@ void main() {
       test('trims whitespace', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: '  Valid Name  ', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: '  Valid Name  ',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.name, 'Valid Name');
       });
@@ -141,8 +273,32 @@ void main() {
         final validator = DraftValidator(locale: 'en');
         for (final kind in ['knowledge', 'workflow', 'executable']) {
           final result = validator.validate(
-            Skill(id: '1', name: 'Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: kind),
-            Skill(id: '2', name: 'Rule', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'workflow'),
+            Skill(
+              id: '1',
+              name: 'Name',
+              description: '',
+              goal: '',
+              steps: [],
+              constraints: [],
+              requiredTools: [],
+              userInputs: [],
+              createdAt: DateTime.now(),
+              category: SkillCategory.development,
+              kind: kind,
+            ),
+            Skill(
+              id: '2',
+              name: 'Rule',
+              description: '',
+              goal: '',
+              steps: [],
+              constraints: [],
+              requiredTools: [],
+              userInputs: [],
+              createdAt: DateTime.now(),
+              category: SkillCategory.development,
+              kind: 'workflow',
+            ),
           );
           expect(result.kind, kind);
         }
@@ -151,8 +307,32 @@ void main() {
       test('falls back for invalid kind', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'invalid'),
-          Skill(id: '2', name: 'Rule', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'workflow'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'invalid',
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'workflow',
+          ),
         );
         expect(result.kind, 'workflow');
       });
@@ -160,8 +340,32 @@ void main() {
       test('case insensitive', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'KNOWLEDGE'),
-          Skill(id: '2', name: 'Rule', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'workflow'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'KNOWLEDGE',
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'workflow',
+          ),
         );
         expect(result.kind, 'knowledge');
       });
@@ -171,8 +375,30 @@ void main() {
       test('falls back for empty goal', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: '', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Rule Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: '',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Rule Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.goal, 'Rule Goal');
       });
@@ -181,8 +407,30 @@ void main() {
         final validator = DraftValidator(locale: 'en');
         final longGoal = 'a' * 301;
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: longGoal, steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Rule Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: longGoal,
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Rule Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.goal, 'Rule Goal');
       });
@@ -190,8 +438,30 @@ void main() {
       test('allows CJK for Thai locale', () {
         final validator = DraftValidator(locale: 'th');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'สร้างสคริปต์สำหรับแบกอัป', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Rule Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'สร้างสคริปต์สำหรับแบกอัป',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Rule Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.goal, 'สร้างสคริปต์สำหรับแบกอัป');
       });
@@ -201,8 +471,30 @@ void main() {
       test('falls back for empty description', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: 'Rule Desc', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: 'Rule Desc',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.description, 'Rule Desc');
       });
@@ -211,8 +503,30 @@ void main() {
         final validator = DraftValidator(locale: 'en');
         final longDesc = 'a' * 201;
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: longDesc, goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: 'Rule Desc', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: longDesc,
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: 'Rule Desc',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.description, 'Rule Desc');
       });
@@ -222,8 +536,30 @@ void main() {
       test('falls back for empty steps', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: ['rule step'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: ['rule step'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.steps, ['rule step']);
       });
@@ -231,8 +567,30 @@ void main() {
       test('filters steps without action verbs', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: ['this has no verb', 'create a script'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: ['rule step'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: ['this has no verb', 'create a script'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: ['rule step'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.steps, ['create a script']);
       });
@@ -241,8 +599,30 @@ void main() {
         final validator = DraftValidator(locale: 'en');
         final manySteps = List.generate(10, (i) => 'create step $i');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: manySteps, constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: ['rule step'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: manySteps,
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: ['rule step'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.steps.length, 8);
       });
@@ -250,8 +630,32 @@ void main() {
       test('returns rule steps for executable kind', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: ['create step'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'executable'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: ['rule step'], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', kind: 'executable'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: ['create step'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'executable',
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: ['rule step'],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            kind: 'executable',
+          ),
         );
         expect(result.steps, ['rule step']);
       });
@@ -261,8 +665,30 @@ void main() {
       test('falls back for empty constraints', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: ['rule constraint'], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: ['rule constraint'],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.constraints, ['rule constraint']);
       });
@@ -270,8 +696,30 @@ void main() {
       test('filters and trims constraints', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: ['  valid constraint  ', '', 'too long ' + 'a' * 200], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: ['rule constraint'], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: ['  valid constraint  ', '', 'too long ' + 'a' * 200],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: ['rule constraint'],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.constraints, ['valid constraint']);
       });
@@ -281,8 +729,30 @@ void main() {
       test('falls back for empty tools', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: ['bash', 'edit'], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: ['bash', 'edit'],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.requiredTools, ['bash', 'edit']);
       });
@@ -290,8 +760,30 @@ void main() {
       test('filters invalid tools', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: ['bash', 'invalid_tool', 'EDIT'], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: ['bash', 'edit'], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: ['bash', 'invalid_tool', 'EDIT'],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: ['bash', 'edit'],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.requiredTools, ['bash', 'edit']);
       });
@@ -301,8 +793,32 @@ void main() {
       test('falls back for empty inputs', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [SkillInput(key: 'k1', label: 'Label', hint: 'Hint', type: SkillInputType.text)], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [
+              SkillInput(key: 'k1', label: 'Label', hint: 'Hint', type: SkillInputType.text),
+            ],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.userInputs.length, 1);
         expect(result.userInputs.first.key, 'k1');
@@ -311,13 +827,35 @@ void main() {
       test('filters invalid inputs', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [
-            SkillInput(key: 'valid', label: 'Valid', hint: 'Hint', type: SkillInputType.text),
-            SkillInput(key: '', label: 'No Key', hint: 'Hint', type: SkillInputType.text),
-            SkillInput(key: 'duplicate', label: 'First', hint: 'Hint', type: SkillInputType.text),
-            SkillInput(key: 'duplicate', label: 'Second', hint: 'Hint', type: SkillInputType.text),
-          ], createdAt: DateTime.now(), category: 't'),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't'),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [
+              SkillInput(key: 'valid', label: 'Valid', hint: 'Hint', type: SkillInputType.text),
+              SkillInput(key: '', label: 'No Key', hint: 'Hint', type: SkillInputType.text),
+              SkillInput(key: 'duplicate', label: 'First', hint: 'Hint', type: SkillInputType.text),
+              SkillInput(key: 'duplicate', label: 'Second', hint: 'Hint', type: SkillInputType.text),
+            ],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+          ),
         );
         expect(result.userInputs.length, 2);
         expect(result.userInputs.map((i) => i.key).toList(), ['valid', 'duplicate']);
@@ -327,10 +865,36 @@ void main() {
     group('_validateExecutableSteps', () {
       test('falls back for null steps', () {
         final validator = DraftValidator(locale: 'en');
-        final ruleSteps = [SkillStep(id: '1', description: 'rule step', mode: StepMode.tool, tool: 'bash', order: 0)];
+        final ruleSteps = [
+          SkillStep(id: '1', description: 'rule step', mode: 'tool', tool: 'bash', order: 0),
+        ];
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', executableSteps: null),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', executableSteps: ruleSteps),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            executableSteps: null,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            executableSteps: ruleSteps,
+          ),
         );
         expect(result.executableSteps, ruleSteps);
       });
@@ -338,12 +902,57 @@ void main() {
       test('validates and filters executable steps', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', executableSteps: [
-            SkillStep(id: '1', description: 'create backup', mode: StepMode.tool, tool: 'bash', args: {}, order: 0),
-            SkillStep(id: '2', description: '', mode: StepMode.tool, tool: 'bash', args: {}, order: 1),
-            SkillStep(id: '3', description: 'run with invalid tool', mode: StepMode.tool, tool: 'invalid', args: {}, order: 2),
-          ]),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', executableSteps: []),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            executableSteps: [
+              SkillStep(
+                id: '1',
+                description: 'create backup',
+                mode: 'tool',
+                tool: 'bash',
+                args: {},
+                order: 0,
+              ),
+              SkillStep(
+                id: '2',
+                description: '',
+                mode: 'tool',
+                tool: 'bash',
+                args: {},
+                order: 1,
+              ),
+              SkillStep(
+                id: '3',
+                description: 'run with invalid tool',
+                mode: 'tool',
+                tool: 'invalid',
+                args: {},
+                order: 2,
+              ),
+            ],
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            executableSteps: [],
+          ),
         );
         expect(result.executableSteps!.length, 1);
         expect(result.executableSteps!.first.tool, 'bash');
@@ -353,10 +962,36 @@ void main() {
     group('_validateParameters', () {
       test('falls back for null parameters', () {
         final validator = DraftValidator(locale: 'en');
-        final ruleParams = [SkillParameter(key: 'p1', label: 'Param', type: SkillParameterType.text, required: true)];
+        final ruleParams = [
+          SkillParameter(key: 'p1', label: 'Param', type: 'text', required: true),
+        ];
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', parameters: null),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', parameters: ruleParams),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            parameters: null,
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            parameters: ruleParams,
+          ),
         );
         expect(result.parameters, ruleParams);
       });
@@ -364,13 +999,37 @@ void main() {
       test('validates and filters parameters', () {
         final validator = DraftValidator(locale: 'en');
         final result = validator.validate(
-          Skill(id: '1', name: 'Name', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', parameters: [
-            SkillParameter(key: 'valid', label: 'Valid', type: SkillParameterType.text, required: true),
-            SkillParameter(key: '', label: 'No Key', type: SkillParameterType.text, required: true),
-            SkillParameter(key: 'duplicate', label: 'First', type: SkillParameterType.text, required: true),
-            SkillParameter(key: 'duplicate', label: 'Second', type: SkillParameterType.text, required: true),
-          ]),
-          Skill(id: '2', name: 'Rule', description: '', goal: 'Goal', steps: [], constraints: [], requiredTools: [], userInputs: [], createdAt: DateTime.now(), category: 't', parameters: []),
+          Skill(
+            id: '1',
+            name: 'Name',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            parameters: [
+              SkillParameter(key: 'valid', label: 'Valid', type: 'text', required: true),
+              SkillParameter(key: '', label: 'No Key', type: 'text', required: true),
+              SkillParameter(key: 'duplicate', label: 'First', type: 'text', required: true),
+              SkillParameter(key: 'duplicate', label: 'Second', type: 'text', required: true),
+            ],
+          ),
+          Skill(
+            id: '2',
+            name: 'Rule',
+            description: '',
+            goal: 'Goal',
+            steps: [],
+            constraints: [],
+            requiredTools: [],
+            userInputs: [],
+            createdAt: DateTime.now(),
+            category: SkillCategory.development,
+            parameters: [],
+          ),
         );
         expect(result.parameters!.length, 2);
         expect(result.parameters!.map((p) => p.key).toList(), ['valid', 'duplicate']);

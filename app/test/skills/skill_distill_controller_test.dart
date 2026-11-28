@@ -3,10 +3,8 @@
 import 'dart:async';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:dsh_app/skills/skill_distill_controller.dart';
-import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
 import 'package:dsh_app/skills/distill/types.dart';
 import 'package:dsh_client/dsh_client.dart';
@@ -32,7 +30,7 @@ class _FakeSkillDistillController extends SkillDistillController {
   @override
   Future<void> distillFromText(DistillInput input) async {
     distillCallCount++;
-    
+
     // Phase 3: Instant rule-based draft (synchronous)
     final ruleBasedSkill = SkillDistiller.createFromMessageText(
       userMessage: input.userMessage,
@@ -181,7 +179,7 @@ void main() {
 
     test('distillFromText with client transitions to running then ready', () async {
       testController.hang(); // Don't complete the AI part
-      
+
       await testController.distillFromText(
         DistillInput(
           userMessage: 'Create a backup script',
