@@ -112,6 +112,7 @@ class _FakeDshClient extends DshClient {
     return '{}'; // Return empty JSON
   }
 
+  @override
   Future<List<String>> archiveSession(String sessionId, {bool? stopActivity}) async {
     return <String>[];
   }

@@ -8,7 +8,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'skill_distill.dart';
 import 'skill_model.dart';
-import 'distill/heuristics.dart';
 import 'distill/types.dart';
 import '../fork/summary_service.dart';
 import '../fork/completion_transport.dart';
