@@ -107,5 +107,7 @@
   "skillsAISummarizing": "AI กำลังสรุป...",
   "skillsAISummarizeError": "การสรุปของ AI ล้มเหลว",
   "skillsAISummarizeTimeout": "การสรุปของ AI หมดเวลา",
-  "skillsAISummarizeSuccess": "การสรุปของ AI เสร็จสิ้น"
+  "skillsAISummarizeSuccess": "การสรุปของ AI เสร็จสิ้น",
+  "skillsUseAISummarization": "ใช้การสรุปด้วย AI",
+  "skillsUseAISummarizationDesc": "สร้าง草稿ทักษะอัตโนมัติด้วย AI เมื่อบันทึกจากข้อความ"
 }

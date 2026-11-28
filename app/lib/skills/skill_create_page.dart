@@ -428,6 +428,52 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
               _safePop();
             }, // Allow close even during loading (emergency exit)
           ),
+          actions: [
+            // AI Summarization toggle (Phase 5)
+            Consumer(
+              builder: (context, ref, _) {
+                final aiEnabled = ref.watch(forkSkillsAISummarizationControllerProvider);
+                return PopupMenuButton<bool>(
+                  icon: Icon(
+                    app_icons.AppIcons.sparkle,
+                    color: aiEnabled ? colors.primary : colors.onSurfaceVariant,
+                  ),
+                  tooltip: l10n.skillsUseAISummarization,
+                  onSelected: (value) {
+                    ref.read(forkSkillsAISummarizationControllerProvider.notifier).setEnabled(value);
+                    _logBreadcrumb('settings:ai_summarization', source: 'appbar', fieldsFromAi: value ? 1 : 0);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(value ? l10n.skillsAISummarizeSuccess : l10n.skillsAISummarizeError)),
+                    );
+                  },
+                  itemBuilder: (context) => [
+                    PopupMenuItem<bool>(
+                      value: true,
+                      enabled: !aiEnabled,
+                      child: Row(
+                        children: [
+                          Icon(app_icons.AppIcons.check, size: 18, color: colors.primary),
+                          const SizedBox(width: 12),
+                          Text(l10n.skillsUseAISummarization),
+                        ],
+                      ),
+                    ),
+                    PopupMenuItem<bool>(
+                      value: false,
+                      enabled: aiEnabled,
+                      child: Row(
+                        children: [
+                          Icon(app_icons.AppIcons.close, size: 18, color: colors.error),
+                          const SizedBox(width: 12),
+                          Text(l10n.skillsAIDismissDraft),
+                        ],
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
         ),
         body: Form(
           key: _formKey,

@@ -107,5 +107,7 @@
   "skillsAISummarizing": "AI 正在总结...",
   "skillsAISummarizeError": "AI 总结失败",
   "skillsAISummarizeTimeout": "AI 总结超时",
-  "skillsAISummarizeSuccess": "AI 总结完成"
+  "skillsAISummarizeSuccess": "AI 总结完成",
+  "skillsUseAISummarization": "使用 AI 总结",
+  "skillsUseAISummarizationDesc": "保存消息为技能时自动使用 AI 生成草稿"
 }

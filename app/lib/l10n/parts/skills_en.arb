@@ -107,5 +107,7 @@
   "skillsAISummarizing": "AI is summarizing...",
   "skillsAISummarizeError": "AI summarization failed",
   "skillsAISummarizeTimeout": "AI summarization timed out",
-  "skillsAISummarizeSuccess": "AI summarization complete"
+  "skillsAISummarizeSuccess": "AI summarization complete",
+  "skillsUseAISummarization": "Use AI Summarization",
+  "skillsUseAISummarizationDesc": "Automatically create skill drafts using AI when saving from messages"
 }

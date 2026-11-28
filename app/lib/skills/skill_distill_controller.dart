@@ -8,6 +8,7 @@ import 'package:dsh_client/dsh_client.dart';
 import 'distill/types.dart';
 import 'skill_distill.dart';
 import 'skill_model.dart';
+import 'skill_provider.dart';
 import '../fork/ai_summarizer.dart';
 import '../fork/draft_validator.dart';
 
@@ -96,7 +97,18 @@ class SkillDistillController extends AutoDisposeNotifier<DistillState> {
       return;
     }
 
-    // 3. Run AI summarization with timeout and cancellation
+    // 3. Check AI summarization setting
+    final aiEnabled = ref.read(forkSkillsAISummarizationControllerProvider);
+    if (!aiEnabled) {
+      if (_isDisposed) return;
+      state = state.copyWith(
+        status: DistillStatus.ready,
+        progress: 1.0,
+      );
+      return;
+    }
+
+    // 4. Run AI summarization with timeout and cancellation
     try {
       if (_isDisposed) return;
       state = state.copyWith(progress: 0.3);

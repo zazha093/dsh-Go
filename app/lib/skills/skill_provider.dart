@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'skill_model.dart';
 import 'skill_storage.dart';
@@ -11,6 +12,40 @@ import 'skill_storage.dart';
 final skillStorageProvider = Provider<SkillStorage>((ref) {
   return SkillStorage.instance;
 });
+
+/// Key for AI summarization setting in SharedPreferences
+const _kForkSkillsAISummarization = 'fork_skills_ai_summarization';
+
+/// Provider for AI summarization toggle setting (default: true)
+final forkSkillsAISummarizationProvider = FutureProvider<bool>((ref) async {
+  final prefs = await SharedPreferences.getInstance();
+  return prefs.getBool(_kForkSkillsAISummarization) ?? true;
+});
+
+/// Notifier for AI summarization toggle setting
+class ForkSkillsAISummarizationController extends Notifier<bool> {
+  @override
+  bool build() {
+    // Default to true, will be overridden by FutureProvider on first load
+    return true;
+  }
+
+  Future<void> setEnabled(bool enabled) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_kForkSkillsAISummarization, enabled);
+    state = enabled;
+  }
+
+  Future<void> initialize() async {
+    final prefs = await SharedPreferences.getInstance();
+    state = prefs.getBool(_kForkSkillsAISummarization) ?? true;
+  }
+}
+
+final forkSkillsAISummarizationControllerProvider =
+    NotifierProvider<ForkSkillsAISummarizationController, bool>(
+  ForkSkillsAISummarizationController.new,
+);
 
 /// State for the skills list
 class SkillsState {
