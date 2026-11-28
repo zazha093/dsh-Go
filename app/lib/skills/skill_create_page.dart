@@ -290,7 +290,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
   Future<T> _withTimeout<T>(
     Future<T> future,
     Duration timeout, {
-    required Future<T> Function() onTimeout,
+    required T Function() onTimeout,
   }) async {
     return Future.any([
       future,
@@ -394,11 +394,58 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     Navigator.of(context).pop(result);
   }
 
+  /// Build loading UI for session distillation with optional error
+  Widget _buildLoadingUI(String? error) {
+    final l10n = context.l10n;
+    final theme = Theme.of(context);
+    final colors = theme.colorScheme;
+
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          children: [
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            Text(
+              l10n.skillsDistillDescription,
+              style: theme.textTheme.bodyMedium,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 16),
+            OutlinedButton(
+              onPressed: () {
+                setState(() => _cancelled = true);
+              },
+              child: Text(l10n.skillsCancel),
+            ),
+            if (error != null) ...[
+              const SizedBox(height: 16),
+              Text(
+                error,
+                style: theme.textTheme.bodyMedium?.copyWith(color: colors.error),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: _distillFromSession,
+                child: Text(l10n.skillsDistill), // Retry
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final theme = Theme.of(context);
     final colors = theme.colorScheme;
+    
+    // Compute this before the Column to avoid variable declaration in list literal
+    final isMessageDistillation = (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) || widget.draftText != null;
 
     return PopScope(
       canPop: true, // Always allow popping; _safePop handles loading state
@@ -435,7 +482,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 final aiEnabled = ref.watch(forkSkillsAISummarizationControllerProvider);
                 return PopupMenuButton<bool>(
                   icon: Icon(
-                    app_icons.AppIcons.sparkle,
+                    app_icons.AppIcons.askAi,
                     color: aiEnabled ? colors.primary : colors.onSurfaceVariant,
                   ),
                   tooltip: l10n.skillsUseAISummarization,
@@ -452,7 +499,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                       enabled: !aiEnabled,
                       child: Row(
                         children: [
-                          Icon(app_icons.AppIcons.check, size: 18, color: colors.primary),
+                          Icon(app_icons.AppIcons.done, size: 18, color: colors.primary),
                           const SizedBox(width: 12),
                           Text(l10n.skillsUseAISummarization),
                         ],
@@ -485,49 +532,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
                 // Show loading only for PURE session distillation (not message distillation - Phase 3: instant rule-based draft)
                 // Message distillation: draftTexts/draftText provided → show form with AI badge immediately
                 // Session distillation: only sessionId provided → show full-screen loading
-                final isMessageDistillation = (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) || widget.draftText != null;
-                if (widget.sessionId != null && !isMessageDistillation && _distilledSkill == null) ...[
-                  // Session distillation in progress
-                  Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(32),
-                      child: Column(
-                        children: [
-                          const CircularProgressIndicator(),
-                          const SizedBox(height: 16),
-                          Text(
-                            l10n.skillsDistillDescription,
-                            style: theme.textTheme.bodyMedium,
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          OutlinedButton(
-                            onPressed: () {
-                              setState(() => _cancelled = true);
-                            },
-                            child: Text(l10n.skillsCancel),
-                          ),
-                          if (_distillError != null) ...[
-                            const SizedBox(height: 16),
-                            Text(
-                              _distillError!,
-                              style: theme.textTheme.bodyMedium?.copyWith(color: colors.error),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 16),
-                            FilledButton(
-                              onPressed: _distillFromSession,
-                              child: Text(l10n.skillsDistill), // Retry
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
-                  ),
-                ] else ...[
-                  // Normal form with AI badge (Phase 3/4)
-                  _buildFormWithAIBadge(),
-                ],
+                (widget.sessionId != null && !isMessageDistillation && _distilledSkill == null)
+                    ? _buildLoadingUI(_distillError)
+                    : _buildFormWithAIBadge(),
               ],
             ),
           ),

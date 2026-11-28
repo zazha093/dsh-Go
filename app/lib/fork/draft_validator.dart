@@ -1,7 +1,6 @@
 // Draft Validator — field-level validation with rule-based fallback
 
 import '../skills/skill_model.dart';
-import '../skills/distill/types.dart';
 
 /// Result of field validation
 class FieldValidationResult {
@@ -58,7 +57,6 @@ class DraftValidator {
       sourceSessionTitle: aiSkill.sourceSessionTitle,
       version: aiSkill.version,
       schemaVersion: aiSkill.schemaVersion,
-      kind: aiSkill.kind,
       executableSteps: executableSteps,
       parameters: parameters,
       errorHandling: aiSkill.errorHandling,
@@ -223,12 +221,18 @@ class DraftValidator {
       if (label.isEmpty) continue;
       if (label.length > 100) continue;
       
+      final hint = input.hint.trim();
+      if (hint.isEmpty) continue;
+      if (hint.length > 200) continue;
+      
       validated.add(SkillInput(
         key: key,
         label: label,
+        hint: hint,
         type: input.type,
         required: input.required,
         defaultValue: input.defaultValue,
+        options: input.options,
       ));
       seenKeys.add(key);
     }
@@ -279,26 +283,30 @@ class DraftValidator {
     }
     
     final validated = <SkillParameter>[];
-    final seenNames = <String>{};
+    final seenKeys = <String>{};
     
     for (final param in aiParams) {
-      final name = param.name.trim();
-      if (name.isEmpty) continue;
-      if (seenNames.contains(name)) continue;
-      if (name.length > 64) continue;
+      final key = param.key.trim();
+      if (key.isEmpty) continue;
+      if (seenKeys.contains(key)) continue;
+      if (key.length > 64) continue;
       
-      final description = param.description.trim();
-      if (description.isEmpty) continue;
-      if (description.length > 200) continue;
+      final label = param.label.trim();
+      if (label.isEmpty) continue;
+      if (label.length > 200) continue;
       
       validated.add(SkillParameter(
-        name: name,
+        key: key,
+        label: label,
         type: param.type,
-        description: description,
         required: param.required,
         defaultValue: param.defaultValue,
+        options: param.options,
+        bindToStep: param.bindToStep,
+        bindToTool: param.bindToTool,
+        template: param.template,
       ));
-      seenNames.add(name);
+      seenKeys.add(key);
     }
     
     return validated.isEmpty ? ruleParams : validated;

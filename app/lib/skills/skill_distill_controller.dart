@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dsh_client/dsh_client.dart';
 
 import 'distill/types.dart';
-import 'skill_distill.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
 import '../fork/ai_summarizer.dart';
@@ -45,7 +44,7 @@ class CancelledException implements Exception {
 }
 
 /// Controller for skill distillation with AI summarization support
-class SkillDistillController extends AutoDisposeNotifier<DistillState> {
+class SkillDistillController extends Notifier<DistillState> {
   // Cancellation token for in-flight AI requests
   CancelToken? _cancelToken;
   

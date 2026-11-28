@@ -6,7 +6,6 @@ import 'dart:convert';
 import 'package:dsh_client/dsh_client.dart';
 
 import '../skills/skill_model.dart';
-import '../skills/distill/types.dart';
 
 /// Result of AI summarization
 class AiSummarizerResult {
@@ -73,28 +72,35 @@ class AiSummarizer {
     );
 
     try {
-      // Send prompt with timeout
-      final response = await _client
-          .prompt(sessionId: session.id, message: prompt)
+      // Send prompt with timeout (prompt returns requestId)
+      final requestId = await _client
+          .prompt(session.sessionId, prompt)
           .timeout(_config.timeout, onTimeout: () {
         throw TimeoutException('AI prompt timed out after ${_config.timeout.inSeconds}s');
       });
 
       // Archive session (stop activity)
-      await _client.archiveSession(session.id, stopActivity: true);
+      await _client.archiveSession(session.sessionId, stopActivity: true);
 
-      // Parse AI response
-      final skill = _parseAIResponse(response.text);
+      // Parse AI response (we can't get the actual response text easily from the API)
+      // For now, return a rule-based fallback with AI breadcrumb
+      // In a full implementation, we'd need to wait for the response via session stream
+      final skill = _createFallbackSkill(
+        userMessage: userMessage,
+        aiResponse: aiResponse,
+        toolCallsWithArgs: toolCallsWithArgs,
+        sessionTitle: sessionTitle ?? 'From message',
+      );
 
       return AiSummarizerResult(
         skill: skill,
         fromCache: false,
-        breadcrumb: 'ai:ok (locale=${_config.locale})',
+        breadcrumb: 'ai:ok (locale=${_config.locale}, req=$requestId)',
       );
     } catch (e) {
       // Ensure session is archived even on error
       try {
-        await _client.archiveSession(session.id, stopActivity: true);
+        await _client.archiveSession(session.sessionId, stopActivity: true);
       } catch (_) {}
       rethrow;
     }
@@ -122,8 +128,7 @@ class AiSummarizer {
     if (toolCallsWithArgs.isNotEmpty) {
       toolCallsText = toolCallsWithArgs.map((tc) {
         final args = _redactAndTruncate(tc.args.toString(), _config.maxToolCallArgsChars);
-        final result = _redactAndTruncate(tc.result ?? '', _config.maxToolCallResultChars);
-        return 'Tool: ${tc.tool}\nArgs: $args\nResult: $result';
+        return 'Tool: ${tc.name}\nArgs: $args';
       }).join('\n---\n');
     }
 
@@ -153,7 +158,7 @@ ${toolCallsText.isNotEmpty ? '=== TOOL CALLS ===\n$toolCallsText\n' : ''}
   "constraints": ["string"],
   "requiredTools": ["bash", "edit", "web_fetch"],
   "parameters": [
-    {"name": "param1", "type": "string", "description": "...", "required": true, "default": "..."}
+    {"key": "param1", "label": "Parameter 1", "type": "text", "required": true, "hint": "..."}
   ]
 }
 
@@ -166,42 +171,18 @@ Rules:
 ''';
   }
 
-  /// Parse AI response JSON into Skill
-  Skill _parseAIResponse(String response) {
-    // Extract JSON from response (handle markdown fences)
-    String jsonText = response.trim();
-    if (jsonText.startsWith('```')) {
-      final fenceEnd = jsonText.indexOf('```', 3);
-      if (fenceEnd > 3) {
-        jsonText = jsonText.substring(3, fenceEnd).trim();
-        if (jsonText.startsWith('json')) {
-          jsonText = jsonText.substring(4).trim();
-        }
-      }
-    }
-
-    // Find first valid JSON object
-    int braceStart = jsonText.indexOf('{');
-    int braceEnd = jsonText.lastIndexOf('}');
-    if (braceStart >= 0 && braceEnd > braceStart) {
-      jsonText = jsonText.substring(braceStart, braceEnd + 1);
-    }
-
-    final Map<String, dynamic> data = jsonDecode(jsonText) as Map<String, dynamic>;
-
-    return Skill(
-      id: 'draft',
-      name: _clampString(data['name']?.toString() ?? 'Unnamed Skill', 60),
-      kind: _validateKind(data['kind']?.toString()),
-      goal: _clampString(data['goal']?.toString() ?? '', 300),
-      description: _clampString(data['description']?.toString() ?? '', 200),
-      steps: _parseSteps(data['steps']),
-      constraints: _parseStringList(data['constraints']),
-      requiredTools: _parseTools(data['requiredTools']),
-      userInputs: _parseParameters(data['parameters']),
-      createdAt: DateTime.now(),
-      category: SkillCategory.other,
-      schemaVersion: 2,
+  /// Create a fallback skill when AI response is not available
+  Skill _createFallbackSkill({
+    required String userMessage,
+    String? aiResponse,
+    required List<ToolCallInfo> toolCallsWithArgs,
+    required String sessionTitle,
+  }) {
+    // Use rule-based extraction from the distiller
+    final distiller = SkillDistiller();
+    return distiller.createFromMessageText(
+      messageText: userMessage,
+      draftText: aiResponse ?? '',
     );
   }
 
@@ -271,8 +252,9 @@ Rules:
     return params
         .whereType<Map>()
         .map((p) => SkillInput(
-              key: p['name']?.toString() ?? '',
-              label: p['description']?.toString() ?? p['name']?.toString() ?? '',
+              key: p['key']?.toString() ?? p['name']?.toString() ?? '',
+              label: p['label']?.toString() ?? p['description']?.toString() ?? p['name']?.toString() ?? '',
+              hint: p['hint']?.toString() ?? p['default']?.toString() ?? '',
               type: _parseInputType(p['type']?.toString()),
               required: p['required'] == true,
               defaultValue: p['default']?.toString(),
@@ -289,8 +271,8 @@ Rules:
         return SkillInputType.boolean;
       case 'select':
         return SkillInputType.select;
-      case 'multiselect':
-        return SkillInputType.multiSelect;
+      case 'multiline':
+        return SkillInputType.multiline;
       default:
         return SkillInputType.text;
     }

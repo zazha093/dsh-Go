@@ -12,9 +12,7 @@ import 'dart:convert';
 
 import '../../skills/skill_distill.dart';
 import '../../skills/skill_model.dart';
-import '../../skills/distill/heuristics.dart';
 import '../../skills/distill/types.dart';
-import '../fork/ai_summarizer.dart';
 import '../fork/draft_validator.dart';
 import '../fork/completion_transport.dart';
 
@@ -71,11 +69,9 @@ abstract class SummaryService {
 class DshSummaryService implements SummaryService {
   DshSummaryService({
     required this._transport,
-    SummaryServiceConfig? config,
-  }) : _config = config ?? const SummaryServiceConfig();
+  });
 
   final CompletionTransport _transport;
-  final SummaryServiceConfig _config;
 
   @override
   Future<SummaryOutcome> summarize(DistillInput input) async {
@@ -106,20 +102,13 @@ class DshSummaryService implements SummaryService {
       final aiSkill = _extractSkillFromResponse(rawResponse, ruleBasedSkill);
 
       // Validate AI skill with rule-based fallback
-      final draftValidator = DraftValidator(
-        ruleBasedDraft: _createRuleBasedDraft(ruleBasedSkill),
-        config: DraftValidatorConfig(
-          locale: 'th',
-          allowCjk: false,
-        ),
-      );
-
-      final validationResult = draftValidator.validate(aiSkill);
+      final draftValidator = DraftValidator(locale: input.userMessage.contains(RegExp(r'[\u0E00-\u0E7F]')) ? 'th' : 'en');
+      final validatedSkill = draftValidator.validate(aiSkill, ruleBasedSkill);
 
       return SummaryOutcome(
-        skill: validationResult.validatedSkill,
-        breadcrumb: validationResult.breadcrumb,
-        fieldResults: validationResult.fieldResults,
+        skill: validatedSkill,
+        breadcrumb: 'ai:ok',
+        fieldResults: null,
       );
     } on CancellationException {
       return SummaryOutcome(
@@ -234,17 +223,5 @@ class DshSummaryService implements SummaryService {
       // On JSON parse error, return rule-based skill
       return fallbackSkill;
     }
-  }
-
-  /// Create DistilledDraft from skill for validation fallback
-  DistilledDraft _createRuleBasedDraft(Skill skill) {
-    return DistilledDraft(
-      name: skill.name,
-      goal: skill.goal,
-      description: skill.description,
-      steps: skill.steps.map((s) => StepDraft(StepKind.action, s)).toList(),
-      constraints: skill.constraints,
-      tools: skill.requiredTools,
-    );
   }
 }
