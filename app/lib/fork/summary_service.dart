@@ -209,7 +209,7 @@ class DshSummaryService implements SummaryService {
     if (input.toolCallsWithArgs != null && input.toolCallsWithArgs!.isNotEmpty) {
       buffer.writeln('Tool calls with arguments:');
       for (final toolCall in input.toolCallsWithArgs!) {
-        buffer.writeln('- ${toolCall.name}: ${toolCall.arguments}');
+        buffer.writeln('- ${toolCall.name}: ${toolCall.args}');
       }
       buffer.writeln('');
     } else if (input.toolCalls != null && input.toolCalls!.isNotEmpty) {

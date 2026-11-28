@@ -1,6 +1,9 @@
 // Shared types for skill distillation
 
+import 'package:meta/meta.dart';
 import 'package:dsh_client/dsh_client.dart';
+
+import '../skill_model.dart';
 
 /// State for the distillation process
 @immutable

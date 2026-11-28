@@ -19,6 +19,7 @@ import 'package:dsh_app/skills/skill_create_page.dart';
 import 'package:dsh_app/skills/skill_model.dart';
 import 'package:dsh_app/skills/skill_distill_controller.dart';
 import 'package:dsh_app/skills/skill_distill.dart';
+import 'package:dsh_app/skills/distill/types.dart';
 import 'package:dsh_app/state/connection_state.dart';
 import 'package:dsh_app/state/hosts_state.dart';
 import 'package:dsh_client/dsh_client.dart';

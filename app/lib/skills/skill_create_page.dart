@@ -15,6 +15,7 @@ import 'skill_model.dart';
 import 'skill_provider.dart';
 import 'skill_distill.dart';
 import 'skill_distill_controller.dart';
+import 'distill/types.dart';
 import 'widgets/form_field.dart';
 import 'widgets/section_title.dart';
 import 'widgets/user_inputs_editor.dart';

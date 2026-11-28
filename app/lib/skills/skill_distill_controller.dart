@@ -14,6 +14,7 @@ import 'distill/heuristics.dart';
 import 'distill/types.dart';
 import '../fork/summary_service.dart';
 import '../fork/completion_transport.dart';
+import '../state/connection_state.dart';
 
 /// Controller for skill distillation with cancellation and timeout support
 class SkillDistillController extends Notifier<DistillState> {
