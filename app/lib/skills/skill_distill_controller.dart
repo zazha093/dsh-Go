@@ -8,6 +8,7 @@ import 'package:dsh_client/dsh_client.dart';
 import 'distill/types.dart';
 import 'skill_model.dart';
 import 'skill_provider.dart';
+import 'skill_distill.dart';
 import '../fork/ai_summarizer.dart';
 import '../fork/draft_validator.dart';
 

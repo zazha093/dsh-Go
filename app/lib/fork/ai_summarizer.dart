@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:dsh_client/dsh_client.dart';
 
 import '../skills/skill_model.dart';
+import '../skills/skill_distill.dart';
 
 /// Result of AI summarization
 class AiSummarizerResult {
