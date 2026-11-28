@@ -206,16 +206,25 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
           toolCallsWithArgs = [];
         }
 
-        // Phase 3: Instant rule-based draft (synchronous)
-        draftSkill = SkillDistiller.createFromTurn(
-          userMessage: text,
-          aiResponse: null,
-          toolCallsWithArgs: toolCallsWithArgs,
-          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+        // Phase 3: Instant rule-based draft (synchronous) with 25s timeout guard
+        draftSkill = await _withTimeout(
+          Future.sync(() => SkillDistiller.createFromTurn(
+            userMessage: text,
+            aiResponse: null,
+            toolCallsWithArgs: toolCallsWithArgs,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          )),
+          const Duration(seconds: 25),
+          onTimeout: () => SkillDistiller.createFromMessageText(
+            userMessage: text,
+            aiResponse: null,
+            toolCalls: tools,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          ),
         );
 
         // Phase 4/5: Start AI summarization + validation in background
-        if (mounted) {
+        if (mounted && !_cancelled) {
           _logBreadcrumb('distill:source', source: 'turn');
           // Get DshClient from active connection
           final client = ref.read(activeConnectionProvider).value?.client;
@@ -229,16 +238,25 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
           ));
         }
       } else {
-        // Fallback to original message-based distillation (instant rule-based)
-        draftSkill = SkillDistiller.createFromMessageText(
-          userMessage: text,
-          aiResponse: null,
-          toolCalls: tools,
-          sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+        // Fallback to original message-based distillation (instant rule-based) with 25s timeout guard
+        draftSkill = await _withTimeout(
+          Future.sync(() => SkillDistiller.createFromMessageText(
+            userMessage: text,
+            aiResponse: null,
+            toolCalls: tools,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          )),
+          const Duration(seconds: 25),
+          onTimeout: () => SkillDistiller.createFromMessageText(
+            userMessage: text,
+            aiResponse: null,
+            toolCalls: tools,
+            sessionTitle: texts.length > 1 ? 'From ${texts.length} messages' : 'From message',
+          ),
         );
 
         // Phase 4/5: Start AI summarization + validation in background
-        if (mounted) {
+        if (mounted && !_cancelled) {
           _logBreadcrumb('distill:source', source: 'message');
           // Get DshClient from active connection
           final client = ref.read(activeConnectionProvider).value?.client;
@@ -268,6 +286,18 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
     }
   }
 
+  /// Helper: Run a future with a timeout, returning a fallback on timeout
+  Future<T> _withTimeout<T>(
+    Future<T> future,
+    Duration timeout, {
+    required Future<T> Function() onTimeout,
+  }) async {
+    return Future.any([
+      future,
+      Future.delayed(timeout).then((_) => onTimeout()),
+    ]);
+  }
+
   Future<void> _distillFromSession() async {
     if (widget.sessionId == null) return;
     if (!mounted) return;
@@ -280,6 +310,7 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
 
     setState(() {
       _distillError = null;
+      _cancelled = false;
     });
 
     try {
@@ -289,22 +320,33 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
       if (client == null) {
         throw StateError('No active connection available for distillation');
       }
-      final skill = await SkillDistiller.distillFromSession(
-        client: client,
-        sessionId: widget.sessionId!,
-        sessionTitle: widget.sessionTitle ?? 'Unknown Session',
+      
+      // 25s timeout for session distillation
+      final skill = await _withTimeout(
+        SkillDistiller.distillFromSession(
+          client: client,
+          sessionId: widget.sessionId!,
+          sessionTitle: widget.sessionTitle ?? 'Unknown Session',
+        ),
+        const Duration(seconds: 25),
+        onTimeout: () => throw TimeoutException('Session distillation timed out after 25 seconds'),
       );
-      if (!mounted) return;
+      
+      // Check cancellation after await
+      if (!mounted || _cancelled) return;
+      
       setState(() {
         _distilledSkill = skill;
         _fillForm(skill);
       });
-      if (!mounted) return;
+      if (!mounted || _cancelled) return;
       messenger.showSnackBar(
         SnackBar(content: Text(l10n.skillsDistillSuccess.replaceFirst('{name}', skill.name))),
       );
     } catch (e) {
       if (!mounted) return;
+      // Don't show error if cancelled
+      if (_cancelled) return;
       setState(() {
         _distillError = e.toString();
       });
@@ -374,7 +416,9 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
         appBar: AppBar(
           title: Text(widget.initialSkill != null
               ? l10n.skillsCreate // Duplicate
-              : widget.sessionId != null
+              : (widget.sessionId != null &&
+                     (widget.draftTexts == null || widget.draftTexts!.isEmpty) &&
+                     widget.draftText == null)
                   ? l10n.skillsDistillTitle
                   : l10n.skillsCreate),
           leading: IconButton(
@@ -392,8 +436,11 @@ class _SkillCreatePageState extends ConsumerState<SkillCreatePage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Show loading only for session distillation (not message distillation - Phase 3: instant rule-based draft)
-                if (widget.sessionId != null && _distilledSkill == null) ...[
+                // Show loading only for PURE session distillation (not message distillation - Phase 3: instant rule-based draft)
+                // Message distillation: draftTexts/draftText provided → show form with AI badge immediately
+                // Session distillation: only sessionId provided → show full-screen loading
+                final isMessageDistillation = (widget.draftTexts != null && widget.draftTexts!.isNotEmpty) || widget.draftText != null;
+                if (widget.sessionId != null && !isMessageDistillation && _distilledSkill == null) ...[
                   // Session distillation in progress
                   Center(
                     child: Padding(
