@@ -1,93 +1,298 @@
-// AI Summarizer for Skill Distillation
-//
-// Uses ephemeral DshClient session to summarize chat messages into skill drafts.
-// Implements input size limits, secret redaction, timeout, and robust JSON parsing.
-// This is a compile-time stub; actual implementation will be refined in follow-up.
+// AI Summarizer — ephemeral DshClient session for skill distillation
 
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:dsh_client/dsh_client.dart';
 
-import '../skills/skill_distill.dart';
 import '../skills/skill_model.dart';
-
-/// Configuration for AI summarization
-class AiSummarizerConfig {
-  const AiSummarizerConfig({
-    this.maxUserPromptChars = 1500,
-    this.maxAssistantChars = 4000,
-    this.maxWriteScriptChars = 6000,
-    this.maxTotalPromptChars = 20000,
-    this.timeoutSeconds = 25,
-    this.maxRetries = 1,
-    this.locale = 'th',
-  });
-
-  final int maxUserPromptChars;
-  final int maxAssistantChars;
-  final int maxWriteScriptChars;
-  final int maxTotalPromptChars;
-  final int timeoutSeconds;
-  final int maxRetries;
-  final String locale;
-}
+import '../skills/distill/types.dart';
 
 /// Result of AI summarization
 class AiSummarizerResult {
   const AiSummarizerResult({
     required this.skill,
     required this.fromCache,
-    this.breadcrumb,
+    required this.breadcrumb,
   });
 
   final Skill skill;
   final bool fromCache;
-  final String? breadcrumb;
+  final String breadcrumb;
 }
 
-/// AI Summarizer using ephemeral DshClient session (stub implementation)
+/// Configuration for AI summarizer
+class AiSummarizerConfig {
+  const AiSummarizerConfig({
+    this.locale = 'en',
+    this.timeout = const Duration(seconds: 25),
+    this.maxUserMessageChars = 1500,
+    this.maxAiResponseChars = 4000,
+    this.maxToolCallArgsChars = 6000,
+    this.maxToolCallResultChars = 4000,
+  });
+
+  final String locale;
+  final Duration timeout;
+  final int maxUserMessageChars;
+  final int maxAiResponseChars;
+  final int maxToolCallArgsChars;
+  final int maxToolCallResultChars;
+}
+
+/// AI Summarizer using ephemeral DshClient sessions
 class AiSummarizer {
   AiSummarizer({
-    required this._client,
+    required DshClient client,
     AiSummarizerConfig? config,
-  }) : _config = config ?? const AiSummarizerConfig();
+  }) : _client = client,
+       _config = config ?? const AiSummarizerConfig();
 
   final DshClient _client;
   final AiSummarizerConfig _config;
 
-  /// Summarize chat messages into a skill draft (stub - returns rule-based draft)
+  /// Summarize chat messages into a skill draft via ephemeral session
   Future<AiSummarizerResult> summarize({
     required String userMessage,
     String? aiResponse,
     required List<ToolCallInfo> toolCallsWithArgs,
     String? sessionTitle,
   }) async {
-    // Reference fields to satisfy analyzer; actual AI implementation will use them
-    final client = _client;
-    final config = _config;
-
-    // TODO: Implement actual AI summarization via ephemeral DshClient session
-    // For now, return a basic rule-based draft to satisfy the interface
-    // Using client.hashCode to reference client meaningfully in stub
-    final _ = client.hashCode;
-
-    final ruleBasedSkill = SkillDistiller.createFromTurn(
+    // Build prompt with redaction and truncation
+    final prompt = _buildPrompt(
       userMessage: userMessage,
       aiResponse: aiResponse,
       toolCallsWithArgs: toolCallsWithArgs,
       sessionTitle: sessionTitle ?? 'From message',
     );
 
-    // Use config.locale in breadcrumb to reference config meaningfully
-    return AiSummarizerResult(
-      skill: ruleBasedSkill,
-      fromCache: true,
-      breadcrumb: 'ai:stub (locale=${config.locale})',
+    // Create ephemeral session
+    final session = await _client.createSession(
+      cwd: '.',
+      workspaceId: 'skill-distill-${DateTime.now().millisecondsSinceEpoch}',
+    );
+
+    try {
+      // Send prompt with timeout
+      final response = await _client
+          .prompt(sessionId: session.id, message: prompt)
+          .timeout(_config.timeout, onTimeout: () {
+        throw TimeoutException('AI prompt timed out after ${_config.timeout.inSeconds}s');
+      });
+
+      // Archive session (stop activity)
+      await _client.archiveSession(session.id, stopActivity: true);
+
+      // Parse AI response
+      final skill = _parseAIResponse(response.text);
+
+      return AiSummarizerResult(
+        skill: skill,
+        fromCache: false,
+        breadcrumb: 'ai:ok (locale=${_config.locale})',
+      );
+    } catch (e) {
+      // Ensure session is archived even on error
+      try {
+        await _client.archiveSession(session.id, stopActivity: true);
+      } catch (_) {}
+      rethrow;
+    }
+  }
+
+  /// Build prompt for AI summarization with redaction and truncation
+  String _buildPrompt({
+    required String userMessage,
+    String? aiResponse,
+    required List<ToolCallInfo> toolCallsWithArgs,
+    required String sessionTitle,
+  }) {
+    final localeInstruction = switch (_config.locale) {
+      'th' => 'ตอบเป็นภาษาไทย ศัพท์เทคนิค คำสั่ง โค้ด คงอังกฤษ',
+      'zh' => '用中文回答，技术术语、命令、代码保持英文',
+      _ => 'Reply in English, keep technical terms, commands, code in English',
+    };
+
+    final redactedUserMessage = _redactAndTruncate(userMessage, _config.maxUserMessageChars);
+    final redactedAiResponse = aiResponse != null
+        ? _redactAndTruncate(aiResponse, _config.maxAiResponseChars)
+        : null;
+
+    String toolCallsText = '';
+    if (toolCallsWithArgs.isNotEmpty) {
+      toolCallsText = toolCallsWithArgs.map((tc) {
+        final args = _redactAndTruncate(tc.args.toString(), _config.maxToolCallArgsChars);
+        final result = _redactAndTruncate(tc.result ?? '', _config.maxToolCallResultChars);
+        return 'Tool: ${tc.tool}\nArgs: $args\nResult: $result';
+      }).join('\n---\n');
+    }
+
+    return '''
+$localeInstruction
+
+Extract a skill draft from the following interaction. Return ONLY valid JSON matching the schema below.
+
+=== SESSION ===
+$sessionTitle
+
+=== USER MESSAGE ===
+$redactedUserMessage
+
+${redactedAiResponse != null ? '=== AI RESPONSE ===\n$redactedAiResponse\n' : ''}
+${toolCallsText.isNotEmpty ? '=== TOOL CALLS ===\n$toolCallsText\n' : ''}
+
+=== JSON SCHEMA ===
+{
+  "name": "string (≤60, specific, not generic)",
+  "kind": "knowledge|workflow|executable",
+  "goal": "string (≤300, specific intent)",
+  "description": "string (≤200, not duplicate of goal)",
+  "steps": [
+    {"description": "string (≤150, action verb)", "mode": "tool|agent", "tool": "bash|edit|web_fetch|read|write|search|present", "args": {}}
+  ],
+  "constraints": ["string"],
+  "requiredTools": ["bash", "edit", "web_fetch"],
+  "parameters": [
+    {"name": "param1", "type": "string", "description": "...", "required": true, "default": "..."}
+  ]
+}
+
+Rules:
+- name: specific, not "Draft", "Skill", "New Skill"
+- goal: what the skill achieves, not how
+- steps: max 8, each with action verb, reference parameters with \${param}
+- kind: "knowledge" for reference, "workflow" for human-guided, "executable" for structured tool-bound
+- requiredTools: only from [bash, edit, web_fetch, read, write, search, present]
+''';
+  }
+
+  /// Parse AI response JSON into Skill
+  Skill _parseAIResponse(String response) {
+    // Extract JSON from response (handle markdown fences)
+    String jsonText = response.trim();
+    if (jsonText.startsWith('```')) {
+      final fenceEnd = jsonText.indexOf('```', 3);
+      if (fenceEnd > 3) {
+        jsonText = jsonText.substring(3, fenceEnd).trim();
+        if (jsonText.startsWith('json')) {
+          jsonText = jsonText.substring(4).trim();
+        }
+      }
+    }
+
+    // Find first valid JSON object
+    int braceStart = jsonText.indexOf('{');
+    int braceEnd = jsonText.lastIndexOf('}');
+    if (braceStart >= 0 && braceEnd > braceStart) {
+      jsonText = jsonText.substring(braceStart, braceEnd + 1);
+    }
+
+    final Map<String, dynamic> data = jsonDecode(jsonText) as Map<String, dynamic>;
+
+    return Skill(
+      id: 'draft',
+      name: _clampString(data['name']?.toString() ?? 'Unnamed Skill', 60),
+      kind: _validateKind(data['kind']?.toString()),
+      goal: _clampString(data['goal']?.toString() ?? '', 300),
+      description: _clampString(data['description']?.toString() ?? '', 200),
+      steps: _parseSteps(data['steps']),
+      constraints: _parseStringList(data['constraints']),
+      requiredTools: _parseTools(data['requiredTools']),
+      userInputs: _parseParameters(data['parameters']),
+      createdAt: DateTime.now(),
+      category: SkillCategory.other,
+      schemaVersion: 2,
     );
   }
 
-  /// Cancel ongoing summarization
-  void cancel() {
-    // TODO: Implement cancellation
+  /// Redact secrets and truncate text
+  String _redactAndTruncate(String text, int maxLength) {
+    if (text.length <= maxLength) return _redact(text);
+    return _redact(text.substring(text.length - maxLength));
+  }
+
+  /// Redact sensitive information
+  String _redact(String text) {
+    return text
+      // API keys / tokens
+      .replaceAll(RegExp(r'(api[_-]?key|token|secret|password|auth)[\s:=]+[\w\-]+', caseSensitive: false), r'$1=<redacted>')
+      // Bearer tokens
+      .replaceAll(RegExp(r'Bearer\s+[\w\-]+'), 'Bearer <redacted>')
+      // Absolute paths
+      .replaceAll(RegExp(r'(/home|/root|/Users|/sdcard)/[\w\/\-\.]+'), '<path>')
+      // IPs
+      .replaceAll(RegExp(r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'), '<host>')
+      // Emails
+      .replaceAll(RegExp(r'\b[\w\.-]+@[\w\.-]+\.\w+\b'), '<email>')
+      // UUIDs
+      .replaceAll(RegExp(r'\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b'), '<uuid>');
+  }
+
+  String _clampString(String s, int maxLen) => s.length > maxLen ? s.substring(0, maxLen) : s;
+
+  String _validateKind(String? kind) {
+    switch (kind?.toLowerCase()) {
+      case 'knowledge':
+      case 'workflow':
+      case 'executable':
+        return kind!.toLowerCase();
+      default:
+        return 'workflow';
+    }
+  }
+
+  List<String> _parseSteps(dynamic steps) {
+    if (steps is! List) return [];
+    return steps
+        .whereType<Map>()
+        .map((s) => _clampString(s['description']?.toString() ?? '', 150))
+        .where((s) => s.isNotEmpty)
+        .take(8)
+        .toList();
+  }
+
+  List<String> _parseStringList(dynamic list) {
+    if (list is! List) return [];
+    return list.whereType<String>().where((s) => s.isNotEmpty).toList();
+  }
+
+  List<String> _parseTools(dynamic tools) {
+    const validTools = {'bash', 'edit', 'web_fetch', 'read', 'write', 'search', 'present'};
+    if (tools is! List) return [];
+    return tools
+        .whereType<String>()
+        .map((t) => t.toLowerCase())
+        .where(validTools.contains)
+        .toList();
+  }
+
+  List<SkillInput> _parseParameters(dynamic params) {
+    if (params is! List) return [];
+    return params
+        .whereType<Map>()
+        .map((p) => SkillInput(
+              key: p['name']?.toString() ?? '',
+              label: p['description']?.toString() ?? p['name']?.toString() ?? '',
+              type: _parseInputType(p['type']?.toString()),
+              required: p['required'] == true,
+              defaultValue: p['default']?.toString(),
+            ))
+        .where((p) => p.key.isNotEmpty)
+        .toList();
+  }
+
+  SkillInputType _parseInputType(String? type) {
+    switch (type?.toLowerCase()) {
+      case 'number':
+        return SkillInputType.number;
+      case 'boolean':
+        return SkillInputType.boolean;
+      case 'select':
+        return SkillInputType.select;
+      case 'multiselect':
+        return SkillInputType.multiSelect;
+      default:
+        return SkillInputType.text;
+    }
   }
 }

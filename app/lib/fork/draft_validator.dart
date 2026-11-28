@@ -1,380 +1,333 @@
-// Draft Validator for Skill Distillation
-//
-// Field-level validation of AI-generated skill drafts with rule-based fallback.
-// Each field is validated independently; failed fields fall back to rule-based values.
+// Draft Validator — field-level validation with rule-based fallback
 
 import '../skills/skill_model.dart';
-import '../skills/distill/heuristics.dart';
-import '../ui/chat/secret_mask.dart';
-
-/// Configuration for draft validation
-class DraftValidatorConfig {
-  const DraftValidatorConfig({
-    this.locale = 'th',
-    this.allowCjk = false,
-  });
-
-  final String locale;
-  final bool allowCjk;
-}
+import '../skills/distill/types.dart';
 
 /// Result of field validation
 class FieldValidationResult {
   const FieldValidationResult({
     required this.isValid,
-    this.errorMessage,
+    this.error,
     this.fallbackValue,
   });
 
   final bool isValid;
-  final String? errorMessage;
+  final String? error;
   final dynamic fallbackValue;
+
+  factory FieldValidationResult.valid() => const FieldValidationResult(isValid: true);
+  factory FieldValidationResult.invalid(String error, {dynamic fallbackValue}) =>
+      FieldValidationResult(isValid: false, error: error, fallbackValue: fallbackValue);
 }
 
-/// Validation result for entire draft
-class DraftValidationResult {
-  const DraftValidationResult({
-    required this.validatedSkill,
-    required this.fieldResults,
-    required this.breadcrumb,
-  });
-
-  final Skill validatedSkill;
-  final Map<String, FieldValidationResult> fieldResults;
-  final String breadcrumb;
-}
-
-/// Draft Validator - field-level validation with rule-based fallback
+/// Validates AI-proposed skill draft field-by-field
 class DraftValidator {
   DraftValidator({
-    required this._ruleBasedDraft,
-    DraftValidatorConfig? config,
-  }) : _config = config ?? const DraftValidatorConfig();
+    required this.locale,
+  });
 
-  final DistilledDraft _ruleBasedDraft;
-  final DraftValidatorConfig _config;
+  final String locale;
 
-  /// Validate AI-generated skill draft field by field
-  DraftValidationResult validate(Skill aiSkill) {
-    final fieldResults = <String, FieldValidationResult>{};
+  /// Validate entire skill draft, returning validated skill with fallbacks
+  Skill validate(Skill aiSkill, Skill ruleBasedSkill) {
+    // Validate each field, use rule-based fallback for invalid fields
+    final name = _validateName(aiSkill.name, ruleBasedSkill.name);
+    final kind = _validateKind(aiSkill.kind, ruleBasedSkill.kind);
+    final goal = _validateGoal(aiSkill.goal, ruleBasedSkill.goal);
+    final description = _validateDescription(aiSkill.description, ruleBasedSkill.description);
+    final steps = _validateSteps(aiSkill.steps, ruleBasedSkill.steps, kind);
+    final constraints = _validateConstraints(aiSkill.constraints, ruleBasedSkill.constraints);
+    final requiredTools = _validateRequiredTools(aiSkill.requiredTools, ruleBasedSkill.requiredTools);
+    final userInputs = _validateUserInputs(aiSkill.userInputs, ruleBasedSkill.userInputs);
+    final executableSteps = _validateExecutableSteps(aiSkill.executableSteps, ruleBasedSkill.executableSteps);
+    final parameters = _validateParameters(aiSkill.parameters, ruleBasedSkill.parameters);
 
-    // Validate each field
-    final validatedName = _validateName(aiSkill.name, fieldResults);
-    final validatedGoal = _validateGoal(aiSkill.goal, fieldResults);
-    final validatedDescription = _validateDescription(aiSkill.description, fieldResults);
-    final validatedSteps = _validateSteps(aiSkill.steps, fieldResults);
-    final validatedConstraints = _validateConstraints(aiSkill.constraints, fieldResults);
-    final validatedTools = _validateTools(aiSkill.requiredTools, fieldResults);
-    final validatedUserInputs = _validateUserInputs(aiSkill.userInputs, fieldResults);
-
-    // Build validated skill using validated fields + rule-based fallbacks
-    final validatedSkill = Skill(
+    return Skill(
       id: aiSkill.id,
-      name: validatedName,
-      goal: validatedGoal,
-      description: validatedDescription,
-      steps: validatedSteps,
-      constraints: validatedConstraints,
-      requiredTools: validatedTools,
-      userInputs: validatedUserInputs,
+      name: name,
+      kind: kind,
+      goal: goal,
+      description: description,
+      steps: steps,
+      constraints: constraints,
+      requiredTools: requiredTools,
+      userInputs: userInputs,
       createdAt: aiSkill.createdAt,
       category: aiSkill.category,
-      kind: aiSkill.kind,
-      schemaVersion: aiSkill.schemaVersion,
-      executableSteps: aiSkill.executableSteps,
-      parameters: aiSkill.parameters,
-      errorHandling: aiSkill.errorHandling,
       sourceSessionId: aiSkill.sourceSessionId,
       sourceSessionTitle: aiSkill.sourceSessionTitle,
-    );
-
-    // Generate breadcrumb
-    final aiFields = fieldResults.values.where((r) => r.isValid).length;
-    final fallbackFields = fieldResults.values.where((r) => !r.isValid).length;
-    final breadcrumb = 'ai:ok (fields: ai=$aiFields, fallback=$fallbackFields)';
-
-    return DraftValidationResult(
-      validatedSkill: validatedSkill,
-      fieldResults: fieldResults,
-      breadcrumb: breadcrumb,
+      version: aiSkill.version,
+      schemaVersion: aiSkill.schemaVersion,
+      kind: aiSkill.kind,
+      executableSteps: executableSteps,
+      parameters: parameters,
+      errorHandling: aiSkill.errorHandling,
     );
   }
 
   /// Validate name field
-  String _validateName(String value, Map<String, FieldValidationResult> results) {
-    final trimmed = value.trim();
+  String _validateName(String aiValue, String ruleValue) {
+    final trimmed = aiValue.trim();
+    
+    // Check empty
+    if (trimmed.isEmpty) {
+      return ruleValue;
+    }
     
     // Check length
     if (trimmed.length > 60) {
-      results['name'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Name exceeds 60 characters',
-        fallbackValue: _ruleBasedDraft.name,
-      );
-      return _ruleBasedDraft.name ?? 'Unnamed Skill';
+      return ruleValue;
     }
     
-    // Check for generic names
-    final genericNames = ['script', 'code', 'result', 'skill', 'draft', 'untitled', 'new skill', 'สคริปต์', 'โค้ด', 'ผลลัพธ์'];
-    if (genericNames.any((g) => trimmed.toLowerCase() == g)) {
-      results['name'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Name is too generic',
-        fallbackValue: _ruleBasedDraft.name,
-      );
-      return _ruleBasedDraft.name ?? 'Unnamed Skill';
+    // Check generic names
+    final genericNames = {'draft', 'skill', 'new skill', 'untitled', 'new', 'skill draft', 'ai skill'};
+    if (genericNames.contains(trimmed.toLowerCase())) {
+      return ruleValue;
     }
     
-    // Check CJK
-    if (!_config.allowCjk && _hasCjk(trimmed)) {
-      results['name'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Name contains CJK characters (locale != zh)',
-        fallbackValue: _ruleBasedDraft.name,
-      );
-      return _ruleBasedDraft.name ?? 'Unnamed Skill';
+    // Check for CJK if locale is not Chinese
+    if (locale != 'zh' && _hasCJK(trimmed)) {
+      // Allow CJK for Thai locale
+      if (locale != 'th') {
+        return ruleValue;
+      }
     }
     
-    // Check secrets
-    if (_hasSecrets(trimmed)) {
-      results['name'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Name contains potential secrets',
-        fallbackValue: _ruleBasedDraft.name,
-      );
-      return _ruleBasedDraft.name ?? 'Unnamed Skill';
-    }
-    
-    results['name'] = const FieldValidationResult(isValid: true);
     return trimmed;
   }
 
+  /// Validate kind field
+  String _validateKind(String aiValue, String ruleValue) {
+    const validKinds = {'knowledge', 'workflow', 'executable'};
+    final lower = aiValue.toLowerCase();
+    if (validKinds.contains(lower)) {
+      return lower;
+    }
+    return ruleValue;
+  }
+
   /// Validate goal field
-  String _validateGoal(String value, Map<String, FieldValidationResult> results) {
-    final trimmed = value.trim();
+  String _validateGoal(String aiValue, String ruleValue) {
+    final trimmed = aiValue.trim();
     
-    // Check length
+    if (trimmed.isEmpty) {
+      return ruleValue;
+    }
+    
     if (trimmed.length > 300) {
-      results['goal'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Goal exceeds 300 characters',
-        fallbackValue: _ruleBasedDraft.goal,
-      );
-      return _ruleBasedDraft.goal ?? 'Achieve the described task';
+      return ruleValue;
     }
     
-    // Check CJK
-    if (!_config.allowCjk && _hasCjk(trimmed)) {
-      results['goal'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Goal contains CJK characters (locale != zh)',
-        fallbackValue: _ruleBasedDraft.goal,
-      );
-      return _ruleBasedDraft.goal ?? 'Achieve the described task';
+    // Check for CJK if locale is not Chinese/Thai
+    if (locale != 'zh' && locale != 'th' && _hasCJK(trimmed)) {
+      return ruleValue;
     }
     
-    // Check secrets
-    if (_hasSecrets(trimmed)) {
-      results['goal'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Goal contains potential secrets',
-        fallbackValue: _ruleBasedDraft.goal,
-      );
-      return _ruleBasedDraft.goal ?? 'Achieve the described task';
-    }
-    
-    results['goal'] = const FieldValidationResult(isValid: true);
     return trimmed;
   }
 
   /// Validate description field
-  String _validateDescription(String value, Map<String, FieldValidationResult> results) {
-    final trimmed = value.trim();
+  String _validateDescription(String aiValue, String ruleValue) {
+    final trimmed = aiValue.trim();
     
-    // Check length
+    if (trimmed.isEmpty) {
+      return ruleValue;
+    }
+    
     if (trimmed.length > 200) {
-      results['description'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Description exceeds 200 characters',
-        fallbackValue: _ruleBasedDraft.description,
-      );
-      return _ruleBasedDraft.description ?? 'Skill distilled from chat';
+      return ruleValue;
     }
     
-    // Check CJK
-    if (!_config.allowCjk && _hasCjk(trimmed)) {
-      results['description'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Description contains CJK characters (locale != zh)',
-        fallbackValue: _ruleBasedDraft.description,
-      );
-      return _ruleBasedDraft.description ?? 'Skill distilled from chat';
+    // Check if duplicate of goal (will be checked at skill level)
+    // Check for CJK if locale is not Chinese/Thai
+    if (locale != 'zh' && locale != 'th' && _hasCJK(trimmed)) {
+      return ruleValue;
     }
     
-    // Check secrets
-    if (_hasSecrets(trimmed)) {
-      results['description'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Description contains potential secrets',
-        fallbackValue: _ruleBasedDraft.description,
-      );
-      return _ruleBasedDraft.description ?? 'Skill distilled from chat';
-    }
-    
-    results['description'] = const FieldValidationResult(isValid: true);
     return trimmed;
   }
 
-  /// Validate steps field
-  List<String> _validateSteps(List<String> value, Map<String, FieldValidationResult> results) {
-    // Check max steps
-    if (value.length > 8) {
-      results['steps'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Too many steps (max 8)',
-        fallbackValue: _ruleBasedDraft.steps.map((s) => s.title).toList(),
-      );
-      return _ruleBasedDraft.steps.map((s) => s.title).take(8).toList();
+  /// Validate steps array
+  List<String> _validateSteps(List<String> aiSteps, List<String> ruleSteps, String kind) {
+    // For executable kind, steps are in executableSteps not steps
+    if (kind == 'executable') {
+      return ruleSteps;
     }
     
-    final validatedSteps = <String>[];
-    var hasError = false;
-    
-    for (int i = 0; i < value.length; i++) {
-      final step = value[i].trim();
-      
-      // Check length
-      if (step.length > 150) {
-        hasError = true;
-        break;
-      }
-      
-      // Check for leading symbols
-      if (step.startsWith(RegExp(r'^[\s\-\*\d\.\)]+'))) {
-        hasError = true;
-        break;
-      }
-      
-      // Check CJK
-      if (!_config.allowCjk && _hasCjk(step)) {
-        hasError = true;
-        break;
-      }
-      
-      // Check secrets
-      if (_hasSecrets(step)) {
-        hasError = true;
-        break;
-      }
-      
-      validatedSteps.add(step);
+    if (aiSteps.isEmpty) {
+      return ruleSteps;
     }
     
-    if (hasError) {
-      results['steps'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Steps validation failed',
-        fallbackValue: _ruleBasedDraft.steps.map((s) => s.title).toList(),
-      );
-      return _ruleBasedDraft.steps.map((s) => s.title).toList();
+    final validated = <String>[];
+    for (final step in aiSteps) {
+      final trimmed = step.trim();
+      if (trimmed.isEmpty) continue;
+      if (trimmed.length > 150) continue;
+      
+      // Check for action verb (simple heuristic)
+      if (!_hasActionVerb(trimmed)) continue;
+      
+      validated.add(trimmed);
+      if (validated.length >= 8) break;
     }
     
-    results['steps'] = const FieldValidationResult(isValid: true);
-    return validatedSteps;
+    return validated.isEmpty ? ruleSteps : validated;
   }
 
-  /// Validate constraints field
-  List<String> _validateConstraints(List<String> value, Map<String, FieldValidationResult> results) {
-    final validatedConstraints = <String>[];
-    var hasError = false;
-    
-    for (final constraint in value) {
-      final trimmed = constraint.trim();
-      
-      // Check CJK
-      if (!_config.allowCjk && _hasCjk(trimmed)) {
-        hasError = true;
-        break;
-      }
-      
-      // Check secrets
-      if (_hasSecrets(trimmed)) {
-        hasError = true;
-        break;
-      }
-      
-      validatedConstraints.add(trimmed);
+  /// Validate constraints array
+  List<String> _validateConstraints(List<String> aiConstraints, List<String> ruleConstraints) {
+    if (aiConstraints.isEmpty) {
+      return ruleConstraints;
     }
     
-    if (hasError) {
-      results['constraints'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Constraints validation failed',
-        fallbackValue: _ruleBasedDraft.constraints,
-      );
-      return _ruleBasedDraft.constraints;
-    }
+    final validated = aiConstraints
+        .map((c) => c.trim())
+        .where((c) => c.isNotEmpty && c.length <= 200)
+        .toList();
     
-    results['constraints'] = const FieldValidationResult(isValid: true);
-    return validatedConstraints;
+    return validated.isEmpty ? ruleConstraints : validated;
   }
 
-  /// Validate tools field
-  List<String> _validateTools(List<String> value, Map<String, FieldValidationResult> results) {
-    final validatedTools = <String>[];
-    var hasError = false;
+  /// Validate required tools
+  List<String> _validateRequiredTools(List<String> aiTools, List<String> ruleTools) {
+    const validTools = {'bash', 'edit', 'web_fetch', 'read', 'write', 'search', 'present'};
     
-    for (final tool in value) {
-      final trimmed = tool.trim();
-      
-      // Check CJK
-      if (!_config.allowCjk && _hasCjk(trimmed)) {
-        hasError = true;
-        break;
-      }
-      
-      // Check secrets
-      if (_hasSecrets(trimmed)) {
-        hasError = true;
-        break;
-      }
-      
-      validatedTools.add(trimmed);
+    if (aiTools.isEmpty) {
+      return ruleTools;
     }
     
-    if (hasError) {
-      results['tools'] = FieldValidationResult(
-        isValid: false,
-        errorMessage: 'Tools validation failed',
-        fallbackValue: _ruleBasedDraft.tools,
-      );
-      return _ruleBasedDraft.tools;
+    final validated = aiTools
+        .map((t) => t.trim().toLowerCase())
+        .where(validTools.contains)
+        .toList();
+    
+    return validated.isEmpty ? ruleTools : validated;
+  }
+
+  /// Validate user inputs
+  List<SkillInput> _validateUserInputs(List<SkillInput> aiInputs, List<SkillInput> ruleInputs) {
+    if (aiInputs.isEmpty) {
+      return ruleInputs;
     }
     
-    results['tools'] = const FieldValidationResult(isValid: true);
-    return validatedTools;
+    final validated = <SkillInput>[];
+    final seenKeys = <String>{};
+    
+    for (final input in aiInputs) {
+      final key = input.key.trim();
+      if (key.isEmpty) continue;
+      if (seenKeys.contains(key)) continue;
+      if (key.length > 64) continue;
+      
+      final label = input.label.trim();
+      if (label.isEmpty) continue;
+      if (label.length > 100) continue;
+      
+      validated.add(SkillInput(
+        key: key,
+        label: label,
+        type: input.type,
+        required: input.required,
+        defaultValue: input.defaultValue,
+      ));
+      seenKeys.add(key);
+    }
+    
+    return validated.isEmpty ? ruleInputs : validated;
   }
 
-  /// Validate user inputs field
-  List<SkillInput> _validateUserInputs(List<SkillInput> value, Map<String, FieldValidationResult> results) {
-    // For now, just pass through - more complex validation can be added later
-    results['userInputs'] = const FieldValidationResult(isValid: true);
-    return value;
+  /// Validate executable steps
+  List<SkillStep>? _validateExecutableSteps(List<SkillStep>? aiSteps, List<SkillStep>? ruleSteps) {
+    if (aiSteps == null || aiSteps.isEmpty) {
+      return ruleSteps;
+    }
+    
+    final validated = <SkillStep>[];
+    for (final step in aiSteps) {
+      if (step.description.trim().isEmpty) continue;
+      if (step.description.length > 150) continue;
+      if (!_hasActionVerb(step.description)) continue;
+      
+      // Validate tool
+      String? tool;
+      if (step.tool != null) {
+        const validTools = {'bash', 'edit', 'web_fetch', 'read', 'write', 'search', 'present'};
+        if (validTools.contains(step.tool!.toLowerCase())) {
+          tool = step.tool!.toLowerCase();
+        }
+      }
+      
+      validated.add(SkillStep(
+        id: step.id,
+        description: step.description.trim(),
+        mode: step.mode,
+        tool: tool,
+        args: step.args,
+        order: step.order,
+      ));
+      
+      if (validated.length >= 8) break;
+    }
+    
+    return validated.isEmpty ? ruleSteps : validated;
   }
 
-  /// Check if string contains CJK characters
-  bool _hasCjk(String text) {
-    // CJK Unicode ranges: \u4e00-\u9fff (CJK Unified Ideographs)
-    // \u3040-\u309f (Hiragana), \u30a0-\u30ff (Katakana)
-    // \uac00-\ud7af (Hangul)
+  /// Validate parameters
+  List<SkillParameter>? _validateParameters(List<SkillParameter>? aiParams, List<SkillParameter>? ruleParams) {
+    if (aiParams == null || aiParams.isEmpty) {
+      return ruleParams;
+    }
+    
+    final validated = <SkillParameter>[];
+    final seenNames = <String>{};
+    
+    for (final param in aiParams) {
+      final name = param.name.trim();
+      if (name.isEmpty) continue;
+      if (seenNames.contains(name)) continue;
+      if (name.length > 64) continue;
+      
+      final description = param.description.trim();
+      if (description.isEmpty) continue;
+      if (description.length > 200) continue;
+      
+      validated.add(SkillParameter(
+        name: name,
+        type: param.type,
+        description: description,
+        required: param.required,
+        defaultValue: param.defaultValue,
+      ));
+      seenNames.add(name);
+    }
+    
+    return validated.isEmpty ? ruleParams : validated;
+  }
+
+  /// Check if text contains CJK characters
+  bool _hasCJK(String text) {
     final cjkRegex = RegExp(r'[\u4e00-\u9fff\u3040-\u309f\u30a0-\u30ff\uac00-\ud7af]');
     return cjkRegex.hasMatch(text);
   }
 
-  /// Check if string contains potential secrets
-  bool _hasSecrets(String text) {
-    // Use secret_mask to detect secrets
-    final findings = findSecrets(text);
-    return findings.isNotEmpty;
+  /// Check if text has an action verb (simple heuristic)
+  bool _hasActionVerb(String text) {
+    final actionVerbs = {
+      'create', 'make', 'build', 'generate', 'write', 'read', 'run', 'execute',
+      'install', 'update', 'delete', 'remove', 'copy', 'move', 'rename',
+      'search', 'find', 'fetch', 'get', 'download', 'upload', 'sync',
+      'test', 'check', 'verify', 'validate', 'lint', 'format', 'compile',
+      'deploy', 'push', 'pull', 'commit', 'merge', 'branch', 'checkout',
+      'analyze', 'parse', 'extract', 'transform', 'convert', 'process',
+      'configure', 'setup', 'init', 'initialize', 'start', 'stop', 'restart',
+      'สร้าง', 'เขียน', 'รัน', 'ติดตั้ง', 'อัปเดต', 'ลบ', 'คัดลอก', 'ย้าย', 'ค้นหา',
+      'ดาวน์โหลด', 'อัปโหลด', 'ทดสอบ', 'ตรวจสอบ', 'วิเคราะห์', 'แปลง', 'ประมวลผล',
+      'ตั้งค่า', 'เริ่ม', 'หยุด', 'รีสตาร์ท',
+      '创建', '编写', '运行', '安装', '更新', '删除', '复制', '移动', '搜索',
+      '下载', '上传', '测试', '检查', '分析', '转换', '处理', '配置', '开始', '停止', '重启'
+    };
+    
+    final words = text.toLowerCase().split(RegExp(r'[\s\p{P}]+'));
+    return words.any(actionVerbs.contains);
   }
 }
